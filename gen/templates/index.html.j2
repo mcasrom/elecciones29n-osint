@@ -8,6 +8,8 @@
 <body>
 {% include "_nav.html.j2" %}
 <main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Sondeos de las elecciones generales del 29N</h1>
+  <p class="muted" style="margin:0 0 12px">Media agregada de los sondeos publicados · actualizado {{ updated_at }} · {{ n_polls }} sondeos en la ventana</p>
 
   <div class="card warning">
     <strong>Cómo leer esto</strong>
@@ -62,6 +64,14 @@
       <a class="btn" href="/metodologia.html">Ver metodología</a>
       <a class="btn ghost" href="/caveat.html">Qué no dice este sitio</a>
     </div>
+  </div>
+
+  <div class="card">
+    <h2>Preguntas frecuentes</h2>
+    <details><summary><strong>¿Es un pronóstico?</strong></summary><p class="muted">No. Es la media de sondeos publicados con su rango. No anticipa el resultado del 29N.</p></details>
+    <details><summary><strong>¿Puedo publicar esto durante el blackout?</strong></summary><p class="muted">No. Del 24 al 28 de noviembre de 2026 no se publican, difunden ni reproducen sondeos. El agregado queda congelado.</p></details>
+    <details><summary><strong>¿De dónde salen los datos?</strong></summary><p class="muted">De paneles publicados por Electomania, con enlace a la fuente y fecha. Se descartan autonómicos y adelantos incompletos.</p></details>
+    <details><summary><strong>¿Por qué mostrar el rango y no solo la media?</strong></summary><p class="muted">Porque la dispersión entre encuestadoras es parte del dato. Una cifra única oculta la incertidumbre.</p></details>
   </div>
 
   <div class="card">

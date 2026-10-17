@@ -45,7 +45,7 @@ a{color:#8ec5ff}
 header{padding:20px 16px;border-bottom:1px solid var(--line)}
 .container{max-width:1100px;margin:0 auto;padding:0 16px}
 .brand{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.brand h1{margin:0;font-size:24px;letter-spacing:-0.02em}
+.brand h1,.brandname{margin:0;font-size:24px;letter-spacing:-0.02em;font-weight:700}
 .brand .tag{font-size:13px;color:var(--muted)}
 nav{margin-top:10px;display:flex;gap:14px;flex-wrap:wrap;font-size:14px}
 nav a{color:var(--muted);text-decoration:none}
@@ -195,7 +195,37 @@ def build_jsonld(parties: list, updated_at: str) -> str:
         "inLanguage": "es-ES",
         "description": SITE_DESC,
     }
-    return json.dumps([website, dataset], ensure_ascii=False)
+    faq = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "¿Qué es la media agregada de sondeos?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Es la media de los sondeos publicados en los últimos 14 días con su rango mínimo–máximo. No es un pronóstico ni una estimación de intención de voto.",
+                },
+            },
+            {
+                "@type": "Question",
+                "name": "¿Puedo publicar sondeos el 24–28 de noviembre de 2026?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. La normativa electoral prohíbe publicar, difundir o reproducir sondeos del 24 al 28 de noviembre de 2026, ambos inclusive.",
+                },
+            },
+            {
+                "@type": "Question",
+                "name": "¿De dónde salen los datos?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "De paneles publicados por Electomania, con enlace a la fuente y fecha. Se descartan paneles autonómicos y adelantos sin serie completa.",
+                },
+            },
+        ],
+    }
+    return json.dumps([website, dataset, faq], ensure_ascii=False)
 
 
 def build_chart(series: dict, parties: list) -> str:
