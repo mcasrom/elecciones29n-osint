@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Exec=%h/elecciones29n-osint/scripts/check_laptop_on.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=Elecciones29N Watchdog
+Comment=Avisa si no corrió a 08:00
