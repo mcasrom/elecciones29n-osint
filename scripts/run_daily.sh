@@ -23,6 +23,7 @@ else
 fi
 
 # Ingest + agregación + build
+PYTHONPATH="$REPO_DIR" python3 -m ingest.electomania
 PYTHONPATH="$REPO_DIR" python3 -m agg.aggregate
 PYTHONPATH="$REPO_DIR" python3 -m gen.build
 

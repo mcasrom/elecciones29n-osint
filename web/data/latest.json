@@ -1,77 +1,77 @@
 {
-  "updated_at": "2026-10-17 21:28 CEST",
+  "updated_at": "2026-10-17 21:48 CEST",
   "in_blackout": false,
   "window_days": 14,
   "parties": [
     {
       "party": "PP",
-      "mean": 32.77,
-      "min": 32.5,
-      "max": 33.0,
-      "n": 3
+      "mean": 31.4,
+      "min": 31.3,
+      "max": 31.5,
+      "n": 2
     },
     {
       "party": "PSOE",
-      "mean": 27.63,
-      "min": 27.5,
-      "max": 27.8,
-      "n": 3
+      "mean": 26.9,
+      "min": 26.9,
+      "max": 26.9,
+      "n": 2
     },
     {
       "party": "VOX",
-      "mean": 14.37,
-      "min": 14.2,
-      "max": 14.5,
-      "n": 3
+      "mean": 19.25,
+      "min": 19.1,
+      "max": 19.4,
+      "n": 2
     },
     {
       "party": "SUMAR",
-      "mean": 7.4,
-      "min": 7.3,
-      "max": 7.5,
-      "n": 3
+      "mean": 5.05,
+      "min": 4.9,
+      "max": 5.2,
+      "n": 2
     },
     {
-      "party": "Podemos",
-      "mean": 3.15,
-      "min": 3.1,
-      "max": 3.2,
+      "party": "PODEMOS",
+      "mean": 3.4,
+      "min": 3.4,
+      "max": 3.4,
       "n": 2
     },
     {
       "party": "ERC",
-      "mean": 2.8,
-      "min": 2.8,
-      "max": 2.8,
-      "n": 1
+      "mean": 2.0,
+      "min": 2.0,
+      "max": 2.0,
+      "n": 2
     },
     {
-      "party": "Junts",
-      "mean": 2.1,
-      "min": 2.1,
-      "max": 2.1,
-      "n": 1
+      "party": "SAF",
+      "mean": 1.7,
+      "min": 1.7,
+      "max": 1.7,
+      "n": 2
     },
     {
-      "party": "Bildu",
-      "mean": 1.8,
-      "min": 1.8,
-      "max": 1.8,
-      "n": 1
-    },
-    {
-      "party": "Cs",
-      "mean": 1.5,
-      "min": 1.5,
-      "max": 1.5,
-      "n": 1
-    },
-    {
-      "party": "PNV",
+      "party": "BILDU",
       "mean": 1.4,
       "min": 1.4,
       "max": 1.4,
-      "n": 1
+      "n": 2
+    },
+    {
+      "party": "JUNTS",
+      "mean": 1.1,
+      "min": 1.1,
+      "max": 1.1,
+      "n": 2
+    },
+    {
+      "party": "PNV",
+      "mean": 1.1,
+      "min": 1.1,
+      "max": 1.1,
+      "n": 2
     }
   ],
   "aggr": {
