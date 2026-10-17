@@ -13,7 +13,6 @@ mkdir -p "$STATE_DIR"
 
 echo "[run_daily] $NOW"
 
-# Crear venv si no existe
 if [ ! -d ".venv" ]; then
   python3 -m venv .venv
   source .venv/bin/activate
@@ -23,11 +22,9 @@ else
   source .venv/bin/activate
 fi
 
-# Placeholder: aquí irá ingest + agg + build
-# python3 -m ingest.electomania
-# python3 -m agg.aggregate
-# python3 -m gen.build
+# Ingest + agregación + build
+PYTHONPATH="$REPO_DIR" python3 -m agg.aggregate
+PYTHONPATH="$REPO_DIR" python3 -m gen.build
 
-# Marcar ejecución OK
 touch "$STATE_DIR/last_run_$TODAY"
 echo "[run_daily] OK"
