@@ -123,6 +123,17 @@ def aggregate() -> Dict[str, Any]:
     for party in series:
         series[party].sort(key=lambda x: x["date"])
 
+    # Serie larga (90 d) para la pestaña Evolución; la media sigue siendo de 14 d
+    long_cutoff = now - __import__("datetime").timedelta(days=90)
+    long_polls = [p for p in polls if p["date"] >= long_cutoff]
+    series_long: Dict[str, List[Dict[str, Any]]] = {}
+    for p in long_polls:
+        series_long.setdefault(p["party"], []).append(
+            {"date": p["date"].strftime("%Y-%m-%d"), "value": p["value"]}
+        )
+    for party in series_long:
+        series_long[party].sort(key=lambda x: x["date"])
+
     poll_dates = sorted({p["date"].strftime("%Y-%m-%d") for p in recent})
     sources = sorted({p["source_url"] for p in recent if p.get("source_url")})
 
@@ -141,6 +152,7 @@ def aggregate() -> Dict[str, Any]:
         "window_days": WINDOW_DAYS,
         "parties": parties,
         "series": series,
+        "series_long": series_long,
         "poll_dates": poll_dates,
         "n_polls": len(poll_dates),
         "sources": sources,

@@ -9,7 +9,7 @@ import sys
 import urllib.request
 from datetime import date
 
-API = "https://electomania.es/wp-json/wp/v2/posts?per_page=20&search=electopanel&_fields=title,content,link,date"
+API = "https://electomania.es/wp-json/wp/v2/posts?per_page=20&search=electopanel&_fields=title,content,link,date&page={page}"
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
 
 HIST = "data/polls_history.csv"
@@ -28,10 +28,21 @@ PARTIES = {
 }
 
 
-def fetch_posts() -> list[dict]:
-    req = urllib.request.Request(API, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        return json.loads(resp.read().decode())
+def fetch_posts(max_pages: int = 4) -> list[dict]:
+    out: list[dict] = []
+    for page in range(1, max_pages + 1):
+        req = urllib.request.Request(API.format(page=page), headers={"User-Agent": UA})
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                batch = json.loads(resp.read().decode())
+        except Exception:
+            break
+        if not isinstance(batch, list) or not batch:
+            break
+        out.extend(batch)
+        if len(batch) < 20:
+            break
+    return out
 
 
 def strip_html(raw: str) -> str:

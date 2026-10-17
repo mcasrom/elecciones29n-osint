@@ -38,10 +38,12 @@ def ensure_dirs() -> None:
 
 def write_css() -> None:
     css = """/* elecciones29n-osint */
-:root{--bg:#0b0c1c;--panel:#12142a;--panel2:#171a34;--fg:#eef0f6;--muted:#a7abc4;--faint:#7c819c;--accent:#ff5a1f;--accent2:#3ddc97;--blue:#8ec5ff;--line:#262a4a}
+:root{--bg:#0b0c1c;--panel:#12142a;--panel2:#171a34;--fg:#eef0f6;--muted:#a7abc4;--faint:#7c819c;--accent:#ff5a1f;--accent2:#3ddc97;--blue:#8ec5ff;--line:#262a4a;--hero-a:#1b1f45;--hero-b:#0b0c1c;--btn-fg:#14080a;--badge-fg:#0b0c1c;--seat-a:#ff5a1f;--seat-b:#ff9b6b;--dot-grid:#2a2b45}
+:root[data-theme="light"]{--bg:#f4f6fb;--panel:#ffffff;--panel2:#eef1f8;--fg:#131a28;--muted:#4d5a73;--faint:#75829a;--blue:#1b62c9;--line:#d9e0ee;--hero-a:#e7ecf7;--hero-b:#f4f6fb;--btn-fg:#fff;--badge-fg:#06210f;--dot-grid:#c9d3e6}
+html,body{transition:background-color .25s ease,color .25s ease}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(1200px 600px at 80% -10%,#1b1f45 0%,var(--bg) 55%);background-color:var(--bg);color:var(--fg);line-height:1.6}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(1200px 600px at 80% -10%,var(--hero-a) 0%,var(--hero-b) 55%);background-color:var(--bg);color:var(--fg);line-height:1.6}
 a{color:var(--blue)}
 .container{max-width:1120px;margin:0 auto;padding:0 20px}
 
@@ -52,7 +54,9 @@ a{color:var(--blue)}
 .mark{width:14px;height:14px;border-radius:4px;background:linear-gradient(135deg,var(--accent),#ffb37a);box-shadow:0 0 18px rgba(255,90,31,.55)}
 .brandname{font-weight:800;font-size:19px;letter-spacing:-.02em}
 .brandname a{color:var(--fg);text-decoration:none}
-.badge{font-size:10.5px;letter-spacing:.12em;font-weight:700;color:#0b0c1c;background:var(--accent2);padding:3px 7px;border-radius:5px}
+.badge{font-size:10.5px;letter-spacing:.12em;font-weight:700;color:var(--badge-fg);background:var(--accent2);padding:3px 7px;border-radius:5px}
+.themebtn{appearance:none;border:1px solid var(--line);background:var(--panel);color:var(--muted);width:34px;height:34px;border-radius:9px;cursor:pointer;font-size:15px;line-height:1;display:inline-flex;align-items:center;justify-content:center}
+.themebtn:hover{color:var(--fg)}
 .status{font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:8px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--accent2);box-shadow:0 0 10px var(--accent2);animation:pulse 1.8s infinite}
 .dot.off{background:var(--accent);box-shadow:0 0 10px var(--accent)}
@@ -74,7 +78,7 @@ a{color:var(--blue)}
 .tabs{display:flex;gap:6px;flex-wrap:wrap;padding:14px 0 0;border-top:1px solid var(--line);margin-top:20px}
 .tab{appearance:none;border:1px solid transparent;background:transparent;color:var(--muted);font:inherit;font-size:14px;padding:9px 14px;border-radius:9px;cursor:pointer;text-decoration:none}
 .tab:hover{color:var(--fg);background:var(--panel)}
-.tab.active{color:#0b0c1c;background:var(--fg);font-weight:700}
+.tab.active{color:var(--bg);background:var(--fg);font-weight:700}
 .tabpanel{display:none}
 .tabpanel.active{display:block}
 
@@ -110,12 +114,31 @@ svg.chart{width:100%;height:auto;display:block}
 @media(max-width:760px){svg.chart{min-width:560px}}
 .chartwrap{overflow-x:auto}
 
+/* legend */
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin:10px 2px 0;font-size:12.5px;color:var(--muted)}
+.lg{display:inline-flex;align-items:center;gap:6px}
+.lg i{width:10px;height:10px;border-radius:3px;display:inline-block}
+
+/* sparks (evolución) */
+.sparks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:6px}
+.spark{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px}
+.sparkhead{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.sparkhead span{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.sparkhead b{font-size:20px;letter-spacing:-.02em}
+.spark svg{width:100%;height:auto;display:block;margin:6px 0 2px}
+.sparkfoot{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--faint);font-variant-numeric:tabular-nums}
+.delta.up{color:var(--accent2)}
+.delta.down{color:var(--accent)}
+.delta.flat{color:var(--faint)}
+@media(max-width:900px){.sparks{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.sparks{grid-template-columns:1fr}}
+
 /* seats + blocks */
 .seats{display:flex;flex-direction:column;gap:8px;margin-top:6px}
 .seatrow{display:grid;grid-template-columns:92px 1fr 46px;align-items:center;gap:10px}
 .sname{font-weight:700;font-size:14px}
 .sbar{height:12px;background:var(--panel2);border-radius:6px;overflow:hidden;border:1px solid var(--line)}
-.sbar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#ff9b6b)}
+.sbar i{display:block;height:100%;background:linear-gradient(90deg,var(--seat-a),var(--seat-b))}
 .snum{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
 .blocks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
 .block{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
@@ -124,7 +147,7 @@ svg.chart{width:100%;height:auto;display:block}
 
 /* share + cta */
 .cta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px}
-.btn{display:inline-block;padding:9px 14px;border-radius:9px;background:var(--accent);color:#14080a;text-decoration:none;font-weight:700;font-size:14px}
+.btn{display:inline-block;padding:9px 14px;border-radius:9px;background:var(--accent);color:var(--btn-fg);text-decoration:none;font-weight:700;font-size:14px}
 .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--fg);font-weight:500}
 .share{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .share a{font-size:13px;padding:6px 11px;border:1px solid var(--line);border-radius:9px;text-decoration:none;color:var(--muted)}
@@ -132,6 +155,7 @@ svg.chart{width:100%;height:auto;display:block}
 
 /* stale warning */
 .stale{position:sticky;top:0;z-index:60;background:#3a0d0d;border-bottom:2px solid var(--accent);color:#ffd9c9;padding:10px 20px;font-size:14px;animation:stalePulse 1.4s infinite}
+:root[data-theme="light"] .stale{background:#ffe9e2;color:#7a1f08}
 .stale strong{color:#fff}
 @keyframes stalePulse{0%,100%{background:#3a0d0d}50%{background:#611a1a}}
 
@@ -261,6 +285,47 @@ def simulate_congress(parties: list, total: int = 350, threshold: float = 3.0) -
     return dict(sorted(seats.items(), key=lambda kv: kv[1], reverse=True))
 
 
+def build_sparklines(series: dict, parties: list) -> str:
+    """Minigráficos por partido (serie larga) para la pestaña Evolución."""
+    order = [p["party"] for p in parties][:6]
+    panels = []
+    for party in order:
+        pts = series.get(party, [])
+        if len(pts) < 2:
+            continue
+        W, H, pad = 300, 110, 12
+        vals = [p["value"] for p in pts]
+        vmin, vmax = min(vals), max(vals)
+        if vmax == vmin:
+            vmax += 0.2
+            vmin -= 0.2
+        span = vmax - vmin
+
+        def X(i):
+            return pad + (W - 2 * pad) * i / (len(pts) - 1)
+
+        def Y(v):
+            return H - pad - (H - 2 * pad) * (v - vmin) / span
+
+        coords = [(X(i), Y(p["value"])) for i, p in enumerate(pts)]
+        d = "M " + " L ".join(f"{cx:.1f},{cy:.1f}" for cx, cy in coords)
+        delta = vals[-1] - vals[0]
+        cls = "up" if delta > 0.05 else ("down" if delta < -0.05 else "flat")
+        sign = "+" if delta > 0 else ""
+        dots = "".join(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="2.4" fill="#8ec5ff"/>' for cx, cy in coords)
+        panels.append(
+            f'<div class="spark">'
+            f'<div class="sparkhead"><span>{party}</span><b>{vals[-1]:.1f}%</b></div>'
+            f'<svg viewBox="0 0 {W} {H}" role="img" aria-label="Evolución de {party}">'
+            f'<path d="{d}" fill="none" stroke="#ff5a1f" stroke-width="2"/>{dots}</svg>'
+            f'<div class="sparkfoot"><span>{pts[0]["date"][5:].replace("-", "/")}</span>'
+            f'<span class="delta {cls}">{sign}{delta:.1f} pts</span>'
+            f'<span>{pts[-1]["date"][5:].replace("-", "/")}</span></div>'
+            f"</div>"
+        )
+    return '<div class="sparks">' + "".join(panels) + "</div>" if panels else ""
+
+
 def build_jsonld(parties: list, updated_at: str) -> str:
     dataset = {
         "@context": "https://schema.org",
@@ -323,18 +388,28 @@ def build_jsonld(parties: list, updated_at: str) -> str:
     return json.dumps([website, dataset, faq], ensure_ascii=False)
 
 
+CHART_COLORS = ["#ff5a1f", "#3ddc97", "#8ec5ff", "#f2c94c", "#bb6bd9", "#56ccf2"]
+
+
+def chart_legend(parties: list) -> list:
+    return [
+        {"party": p["party"], "color": CHART_COLORS[i % len(CHART_COLORS)]}
+        for i, p in enumerate(parties[:6])
+    ]
+
+
 def build_chart(series: dict, parties: list) -> str:
     if not series or not parties:
         return ""
 
     order = [p["party"] for p in parties][:6]
-    colors = ["#ff5a1f", "#3ddc97", "#8ec5ff", "#f2c94c", "#bb6bd9", "#56ccf2"]
+    colors = CHART_COLORS
     dates = sorted({d["date"] for vals in series.values() for d in vals})
     if len(dates) < 2:
         return ""
 
-    W, H = 720, 300
-    pad_l, pad_r, pad_t, pad_b = 44, 16, 18, 34
+    W, H = 760, 320
+    pad_l, pad_r, pad_t, pad_b = 52, 18, 20, 40
     iw, ih = W - pad_l - pad_r, H - pad_t - pad_b
 
     vals_all = [d["value"] for p in order for d in series.get(p, [])]
@@ -369,9 +444,7 @@ def build_chart(series: dict, parties: list) -> str:
         parts.append(f'<path d="{dpath}" fill="none" stroke="{color}" stroke-width="2.2"/>')
         for cx, cy in coords:
             parts.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="3" fill="{color}"/>')
-        lx = pad_l + 6 + idx * 108
-        parts.append(f'<rect x="{lx}" y="{pad_t-2}" width="10" height="10" rx="2" fill="{color}"/>')
-        parts.append(f'<text x="{lx+14}" y="{pad_t+7}" fill="#e7e7ea" font-size="11">{party}</text>')
+    parts.append(f'<text x="12" y="{pad_t+4}" fill="currentColor" opacity="0.55" font-size="10">% voto</text>')
     parts.append("</svg>")
     return "".join(parts)
 
@@ -401,7 +474,9 @@ def main() -> None:
     parties = latest.get("parties", [])
     series = latest.get("series", {})
 
+    build_ts = now.strftime("%Y%m%d%H%M")
     context = {
+        "build_ts": build_ts,
         "site_url": SITE_URL,
         "site_name": SITE_NAME,
         "site_title": SITE_TITLE,
@@ -415,6 +490,13 @@ def main() -> None:
         "n_polls": latest.get("n_polls", 0),
         "sources": latest.get("sources", []),
         "chart_svg": build_chart(series, parties),
+        "chart_legend": chart_legend(parties),
+        "sparks_svg": build_sparklines(latest.get("series_long", series), parties),
+        "series_span": (
+            f'{next(iter(latest.get("series_long", {}).values()))[0]["date"]} – '
+            f'{next(iter(latest.get("series_long", {}).values()))[-1]["date"]}'
+            if latest.get("series_long") else ""
+        ),
         "updated_iso": latest.get("updated_at_iso", now.isoformat()),
         "days_to_election": latest.get("days_to_election", 0),
         "days_to_blackout": latest.get("days_to_blackout", 0),

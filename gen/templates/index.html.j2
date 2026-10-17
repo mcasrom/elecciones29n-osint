@@ -20,6 +20,7 @@
         <span class="badge">OSINT</span>
       </div>
       <div class="status" id="hstatus">
+        <button class="themebtn" data-theme-toggle aria-label="Cambiar tema" title="Cambiar tema">◐</button>
         {% if in_blackout %}
         <span class="dot off"></span> BLACKOUT · datos congelados
         {% else %}
@@ -49,6 +50,7 @@
 
     <nav class="tabs" role="tablist" aria-label="Secciones">
       <button class="tab active" data-tab="agregado" role="tab" aria-selected="true">Agregado</button>
+      <button class="tab" data-tab="evolucion" role="tab" aria-selected="false">Evolución</button>
       <button class="tab" data-tab="congreso" role="tab" aria-selected="false">Congreso</button>
       <button class="tab" data-tab="senado" role="tab" aria-selected="false">Senado</button>
       <a class="tab" href="/metodologia.html">Metodología</a>
@@ -80,6 +82,11 @@
     <div class="card">
       <div class="cardhead"><h2>Evolución de los sondeos</h2><span class="hint">cada punto = un sondeo publicado</span></div>
       <div class="chartwrap">{{ chart_svg|safe }}</div>
+      <div class="legend">
+        {% for l in chart_legend %}<span class="lg"><i style="background:{{ l.color }}"></i>{{ l.party }}</span>{% endfor %}
+      </div>
+      <p class="muted small" style="margin-top:6px">Eje vertical: media de voto (%). Cada punto es un sondeo publicado en la ventana.</p>
+
     </div>
     {% endif %}
 
@@ -110,6 +117,30 @@
         <a class="btn ghost" href="/caveat.html">Qué no dice este sitio</a>
       </div>
     </div>
+  </section>
+
+
+  <!-- TAB: EVOLUCIÓN -->
+  <section id="tab-evolucion" class="tabpanel" role="tabpanel">
+    <div class="card">
+      <div class="cardhead"><h2>Variación de los sondeos en el tiempo</h2><span class="hint">{% if series_span %}{{ series_span }}{% endif %}</span></div>
+      {% if sparks_svg %}
+      {{ sparks_svg|safe }}
+      <p class="muted small" style="margin-top:12px">Cada punto es un sondeo publicado; la línea une los valores tal como se publicaron (sin media). La cifra grande es el último valor y el delta es la diferencia con el primer sondeo del periodo. Solo se muestran los seis partidos con más media actual.</p>
+      {% else %}
+      <p class="muted">Aún no hay suficientes sondeos para mostrar una serie.</p>
+      {% endif %}
+    </div>
+    {% if chart_svg %}
+    <div class="card">
+      <div class="cardhead"><h2>Vista conjunta</h2><span class="hint">ventana de 14 días</span></div>
+      <div class="chartwrap">{{ chart_svg|safe }}</div>
+      <div class="legend">
+        {% for l in chart_legend %}<span class="lg"><i style="background:{{ l.color }}"></i>{{ l.party }}</span>{% endfor %}
+      </div>
+      <p class="muted small" style="margin-top:6px">Eje vertical: media de voto (%). Cada punto es un sondeo publicado en la ventana.</p>
+    </div>
+    {% endif %}
   </section>
 
   <!-- TAB: CONGRESO -->
@@ -200,6 +231,14 @@
       }
     }
   }
+  document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var root = document.documentElement;
+      var next = root.dataset.theme === 'light' ? 'dark' : 'light';
+      root.dataset.theme = next;
+      try { localStorage.setItem('e29n-theme', next); } catch(e) {}
+    });
+  });
   var tabs = document.querySelectorAll('.tab[data-tab]');
   var panels = document.querySelectorAll('.tabpanel');
   function show(id){
