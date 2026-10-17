@@ -20,7 +20,7 @@
         <span class="badge">OSINT</span>
       </div>
       <div class="status" id="hstatus">
-        <button class="themebtn" data-theme-toggle aria-label="Cambiar tema" title="Cambiar tema">◐</button>
+        <button class="themebtn" data-theme-toggle aria-label="Cambiar entre tema claro y oscuro" title="Cambiar tema"><span class="ticon">☀</span><span class="tlabel">Claro</span></button>
         {% if in_blackout %}
         <span class="dot off"></span> BLACKOUT · datos congelados
         {% else %}
@@ -231,14 +231,6 @@
       }
     }
   }
-  document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
-    b.addEventListener('click', function(){
-      var root = document.documentElement;
-      var next = root.dataset.theme === 'light' ? 'dark' : 'light';
-      root.dataset.theme = next;
-      try { localStorage.setItem('e29n-theme', next); } catch(e) {}
-    });
-  });
   var tabs = document.querySelectorAll('.tab[data-tab]');
   var panels = document.querySelectorAll('.tabpanel');
   function show(id){

@@ -10,8 +10,31 @@
 <meta name="description" content="De dónde salen los sondeos: Electomania como ancla, con enlace a la fuente, fecha y muestra. Y las fuentes oficiales de referencia.">
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/fuentes.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202610172234">
+<link rel="stylesheet" href="/css/main.css?v=202610172239">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  function sync(){
+    var light = document.documentElement.dataset.theme === 'light';
+    document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+      var i=b.querySelector('.ticon'), l=b.querySelector('.tlabel');
+      if(i) i.textContent = light ? '☾' : '☀';
+      if(l) l.textContent = light ? 'Oscuro' : 'Claro';
+      b.setAttribute('title', light ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro');
+    });
+  }
+  sync();
+  document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var root = document.documentElement;
+      var next = root.dataset.theme === 'light' ? 'dark' : 'light';
+      root.dataset.theme = next;
+      try { localStorage.setItem('e29n-theme', next); } catch(e) {}
+      sync();
+    });
+  });
+});
+</script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="elecciones29n-osint">
@@ -27,7 +50,7 @@
 <meta name="twitter:description" content="De dónde salen los sondeos: Electomania como ancla, con enlace a la fuente, fecha y muestra. Y las fuentes oficiales de referencia.">
 <meta name="twitter:image" content="https://elecciones29n.pruebapublica.com/og.png">
 <link rel="alternate" type="application/json" href="/data/latest.json" title="Datos agregados (JSON)">
-<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebSite", "name": "elecciones29n-osint", "url": "https://elecciones29n.pruebapublica.com/", "inLanguage": "es-ES", "description": "Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo y datos abiertos."}, {"@context": "https://schema.org", "@type": "Dataset", "name": "Media agregada de sondeos · Elecciones Generales 29N 2026", "description": "Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo y datos abiertos.", "url": "https://elecciones29n.pruebapublica.com/", "creator": {"@type": "Person", "name": "Miguel Castillo", "url": "https://elecciones29n.pruebapublica.com"}, "license": "https://www.gnu.org/licenses/agpl-3.0.html", "isAccessibleForFree": true, "dateModified": "2026-10-17 22:34 CEST", "temporalCoverage": "2026-09/2026-11", "spatialCoverage": "ES", "distribution": [{"@type": "DataDownload", "contentUrl": "https://elecciones29n.pruebapublica.com/data/latest.json", "encodingFormat": "application/json"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué es la media agregada de sondeos?", "acceptedAnswer": {"@type": "Answer", "text": "Es la media de los sondeos publicados en los últimos 14 días con su rango mínimo–máximo. No es un pronóstico ni una estimación de intención de voto."}}, {"@type": "Question", "name": "¿Puedo publicar sondeos el 24–28 de noviembre de 2026?", "acceptedAnswer": {"@type": "Answer", "text": "No. La normativa electoral prohíbe publicar, difundir o reproducir sondeos del 24 al 28 de noviembre de 2026, ambos inclusive."}}, {"@type": "Question", "name": "¿De dónde salen los datos?", "acceptedAnswer": {"@type": "Answer", "text": "De paneles publicados por Electomania, con enlace a la fuente y fecha. Se descartan paneles autonómicos y adelantos sin serie completa."}}]}]</script>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebSite", "name": "elecciones29n-osint", "url": "https://elecciones29n.pruebapublica.com/", "inLanguage": "es-ES", "description": "Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo y datos abiertos."}, {"@context": "https://schema.org", "@type": "Dataset", "name": "Media agregada de sondeos · Elecciones Generales 29N 2026", "description": "Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo y datos abiertos.", "url": "https://elecciones29n.pruebapublica.com/", "creator": {"@type": "Person", "name": "Miguel Castillo", "url": "https://elecciones29n.pruebapublica.com"}, "license": "https://www.gnu.org/licenses/agpl-3.0.html", "isAccessibleForFree": true, "dateModified": "2026-10-17 22:39 CEST", "temporalCoverage": "2026-09/2026-11", "spatialCoverage": "ES", "distribution": [{"@type": "DataDownload", "contentUrl": "https://elecciones29n.pruebapublica.com/data/latest.json", "encodingFormat": "application/json"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué es la media agregada de sondeos?", "acceptedAnswer": {"@type": "Answer", "text": "Es la media de los sondeos publicados en los últimos 14 días con su rango mínimo–máximo. No es un pronóstico ni una estimación de intención de voto."}}, {"@type": "Question", "name": "¿Puedo publicar sondeos el 24–28 de noviembre de 2026?", "acceptedAnswer": {"@type": "Answer", "text": "No. La normativa electoral prohíbe publicar, difundir o reproducir sondeos del 24 al 28 de noviembre de 2026, ambos inclusive."}}, {"@type": "Question", "name": "¿De dónde salen los datos?", "acceptedAnswer": {"@type": "Answer", "text": "De paneles publicados por Electomania, con enlace a la fuente y fecha. Se descartan paneles autonómicos y adelantos sin serie completa."}}]}]</script>
 </head>
 <body>
 <header>
@@ -36,7 +59,7 @@
       <span class="brandname"><a href="/" style="color:inherit;text-decoration:none">elecciones29n-osint</a></span>
       <span class="tag">Media agregada de sondeos · 29N 2026</span>
     </div>
-    <div class="topbar"><div class="brand"><span class="mark"></span><span class="brandname"><a href="/">elecciones29n-osint</a></span></div><div class="status"><button class="themebtn" data-theme-toggle aria-label="Cambiar tema" title="Cambiar tema">◐</button></div></div>
+    <div class="topbar"><div class="brand"><span class="mark"></span><span class="brandname"><a href="/">elecciones29n-osint</a></span></div><div class="status"><button class="themebtn" data-theme-toggle aria-label="Cambiar entre tema claro y oscuro" title="Cambiar tema"><span class="ticon">☀</span><span class="tlabel">Claro</span></button></div></div>
     <nav>
       <a href="/">Inicio</a>
       <a href="/metodologia.html">Metodología</a>

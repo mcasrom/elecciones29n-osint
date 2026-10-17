@@ -55,8 +55,11 @@ a{color:var(--blue)}
 .brandname{font-weight:800;font-size:19px;letter-spacing:-.02em}
 .brandname a{color:var(--fg);text-decoration:none}
 .badge{font-size:10.5px;letter-spacing:.12em;font-weight:700;color:var(--badge-fg);background:var(--accent2);padding:3px 7px;border-radius:5px}
-.themebtn{appearance:none;border:1px solid var(--line);background:var(--panel);color:var(--muted);width:34px;height:34px;border-radius:9px;cursor:pointer;font-size:15px;line-height:1;display:inline-flex;align-items:center;justify-content:center}
-.themebtn:hover{color:var(--fg)}
+.themebtn{appearance:none;display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 12px;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--fg);font:inherit;font-size:12.5px;font-weight:650;cursor:pointer;transition:border-color .15s,background .15s}
+.themebtn:hover{border-color:var(--muted);background:var(--panel2)}
+.themebtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.themebtn .ticon{font-size:14px;line-height:1}
+.themebtn .tlabel{line-height:1;letter-spacing:.01em}
 .status{font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:8px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--accent2);box-shadow:0 0 10px var(--accent2);animation:pulse 1.8s infinite}
 .dot.off{background:var(--accent);box-shadow:0 0 10px var(--accent)}

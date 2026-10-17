@@ -6,6 +6,29 @@
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="stylesheet" href="/css/main.css?v={{ build_ts }}">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  function sync(){
+    var light = document.documentElement.dataset.theme === 'light';
+    document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+      var i=b.querySelector('.ticon'), l=b.querySelector('.tlabel');
+      if(i) i.textContent = light ? '☾' : '☀';
+      if(l) l.textContent = light ? 'Oscuro' : 'Claro';
+      b.setAttribute('title', light ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro');
+    });
+  }
+  sync();
+  document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var root = document.documentElement;
+      var next = root.dataset.theme === 'light' ? 'dark' : 'light';
+      root.dataset.theme = next;
+      try { localStorage.setItem('e29n-theme', next); } catch(e) {}
+      sync();
+    });
+  });
+});
+</script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{{ site_name }}">
