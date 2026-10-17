@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Metodología · elecciones29n-osint</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header><div class="container"><h1>Metodología</h1><p class="muted"><a href="index.html">← Volver</a></p></div></header>
+  <main class="container">
+    <div class="card">
+      <h2>Principios</h2>
+      <p class="muted">Solo sondeos públicos publicados por medios. No se mezclan señales sociales con la media agregada.</p>
+      <ul class="muted">
+        <li><strong>Tendencia y dispersión</strong>: media móvil ponderada por antigüedad + rango min–máx.</li>
+        <li><strong>Incertidumbre visible</strong>: el rango se muestra como banda (no se oculta).</li>
+        <li><strong>Transparencia</strong>: <a href="data/latest.json">latest.json</a> descargable.</li>
+        <li><strong>Fail-safe</strong>: si los datos son inválidos, no se actualiza; se mantiene el último válido.</li>
+        <li><strong>Cumplimiento</strong>: blackout automático 24–28 nov 2026.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Agregación</h2>
+      <p class="muted">Ventana móvil 14 días. Pesos decrecientes con la antigüedad (reciente pesa más). Cada entrada conserva <em>fuente_url + fecha + muestra</em> cuando existe.</p>
+    </div>
+    <div class="card">
+      <h2>Límites</h2>
+      <p class="muted">No proyecta escaños. La composición CG/Senado mostrada es <strong>referencia vigente</strong>, nunca proyección. No predice resultados.</p>
+    </div>
+  </main>
+  <footer class="footer"><div class="container">AGPL-3.0</div></footer>
+</body>
+</html>

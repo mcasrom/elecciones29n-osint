@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>elecciones29n-osint · Media agregada de sondeos publicados</title>
+  <meta name="description" content="Media agregada de sondeos públicos para las Elecciones Generales 29N 2026. Tendencia y dispersión (rango min–máx).">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>elecciones29n-osint</h1>
+      <p class="muted">Media agregada de sondeos publicados · Elecciones Generales 29N 2026</p>
+    </div>
+  </header>
+  <main class="container">
+    <div class="card warning">
+      <strong>Cómo leer</strong>
+      <p class="muted" style="margin:8px 0 0">Muestra <strong>tendencia y dispersión (rango min–máx)</strong> de sondeos públicos. No es un pronóstico. Nunca se mezclan señales sociales con los agregados.</p>
+      
+    </div>
+
+    <div class="card">
+      <h2>Evolución por partido (MVP)</h2>
+      <p class="muted">Datos aún no cargados. El generador está listo. Se añadirá ingesta Electomania + agregación media móvil 14d.</p>
+      <svg width="100%" height="240" viewBox="0 0 900 240" preserveAspectRatio="none" aria-hidden="true">
+        <rect width="900" height="240" fill="transparent"/>
+        <g stroke="#2a2b45" stroke-width="1">
+          <line x1="40" y1="200" x2="860" y2="200"/>
+          <line x1="40" y1="40" x2="860" y2="40"/>
+        </g>
+        <g fill="#ff5a1f" opacity="0.25">
+          <polygon points="40,120 120,90 200,110 280,80 360,100 440,70 520,95 600,75 680,95 760,85 860,90 860,200 40,200"/>
+        </g>
+        <g stroke="#ff5a1f" stroke-width="2" fill="none">
+          <polyline points="40,120 120,90 200,110 280,80 360,100 440,70 520,95 600,75 680,95 760,85 860,90"/>
+        </g>
+        <text x="40" y="220" fill="#b9b9c3" font-size="12">últimos 14d</text>
+      </svg>
+    </div>
+
+    <div class="card">
+      <h2>Última actualización</h2>
+      <p class="muted">2026-10-17 21:16 CEST</p>
+      <p><a href="data/latest.json">Descargar latest.json</a> · <a href="metodologia.html">Metodología</a> · <a href="fuentes.html">Fuentes</a> · <a href="about.html">Acerca de</a> · <a href="caveat.html">Caveat</a></p>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>AGPL-3.0 · <a href="https://github.com/mcasrom/elecciones29n-osint">mcasrom/elecciones29n-osint</a></p>
+    </div>
+  </footer>
+  <script src="js/charts.js"></script>
+</body>
+</html>
