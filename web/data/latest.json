@@ -1,5 +1,6 @@
 {
-  "updated_at": "2026-10-17 22:20 CEST",
+  "updated_at": "2026-10-17 22:26 CEST",
+  "updated_at_iso": "2026-10-17T22:26:30.360740+02:00",
   "in_blackout": false,
   "window_days": 14,
   "parties": [
@@ -185,6 +186,12 @@
     "https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/",
     "https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/"
   ],
+  "last_poll_date": "2026-10-11",
+  "days_to_election": 42,
+  "days_to_blackout": 37,
+  "gap_pp_psoe": 4.5,
+  "bloc_right": 50.65,
+  "bloc_left": 35.35,
   "aggr": {
     "window_days": 14,
     "min_max_shown": true

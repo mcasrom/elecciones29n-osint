@@ -5,9 +5,11 @@ Wants=network-online.target
 
 [Service]
 Type=oneshot
-WorkingDirectory=%h/elecciones29n-osint
-ExecStart=%h/elecciones29n-osint/scripts/run_daily.sh
+WorkingDirectory=%h/Desktop/elecciones29n-osint
+ExecStart=%h/Desktop/elecciones29n-osint/scripts/run_daily.sh
 Environment=TZ=Europe/Madrid
+StandardOutput=append:%h/.local/state/elecciones29n/run.log
+StandardError=append:%h/.local/state/elecciones29n/run.log
 
 [Install]
 WantedBy=default.target

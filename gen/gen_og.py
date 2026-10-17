@@ -65,7 +65,7 @@ def main() -> int:
     d.rectangle([56, 486, 1144, 488], fill=(42, 43, 69))
     d.text((56, 510), "No es un pronóstico: es media con rango mínimo–máximo.", font=find_font(26, True), fill=FG)
     d.text((56, 552), "Datos abiertos · AGPL-3.0 · Miguel Castillo", font=find_font(20), fill=MUTED)
-    d.text((880, 552), "elecciones29n.pruebapublica.com", font=find_font(20), fill=OK)
+    d.text((760, 552), "elecciones29n.pruebapublica.com", font=find_font(20), fill=OK)
 
     os.makedirs("web", exist_ok=True)
     img.save(OUT, optimize=True)

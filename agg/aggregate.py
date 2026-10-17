@@ -71,6 +71,7 @@ def aggregate() -> Dict[str, Any]:
                 return json.load(f)
         return {
             "updated_at": now.strftime("%Y-%m-%d %H:%M %Z"),
+            "updated_at_iso": now.isoformat(),
             "in_blackout": True,
             "blackout_reason": blackout.blackout_reason(),
             "parties": [],
@@ -84,6 +85,7 @@ def aggregate() -> Dict[str, Any]:
                 return json.load(f)
         return {
             "updated_at": now.strftime("%Y-%m-%d %H:%M %Z"),
+            "updated_at_iso": now.isoformat(),
             "in_blackout": False,
             "parties": [],
         }
@@ -124,8 +126,17 @@ def aggregate() -> Dict[str, Any]:
     poll_dates = sorted({p["date"].strftime("%Y-%m-%d") for p in recent})
     sources = sorted({p["source_url"] for p in recent if p.get("source_url")})
 
+    means = {p["party"]: p["mean"] for p in parties}
+    gap = round(means.get("PP", 0) - means.get("PSOE", 0), 2)
+    bloc_right = round(sum(means.get(k, 0) for k in ("PP", "VOX")), 2)
+    bloc_left = round(sum(means.get(k, 0) for k in ("PSOE", "SUMAR", "PODEMOS")), 2)
+    last_poll = poll_dates[-1] if poll_dates else None
+    election = now.replace(year=2026, month=11, day=29, hour=0, minute=0, second=0, microsecond=0)
+    blackout_start = now.replace(year=2026, month=11, day=24, hour=0, minute=0, second=0, microsecond=0)
+
     return {
         "updated_at": now.strftime("%Y-%m-%d %H:%M %Z"),
+        "updated_at_iso": now.isoformat(),
         "in_blackout": False,
         "window_days": WINDOW_DAYS,
         "parties": parties,
@@ -133,6 +144,12 @@ def aggregate() -> Dict[str, Any]:
         "poll_dates": poll_dates,
         "n_polls": len(poll_dates),
         "sources": sources,
+        "last_poll_date": last_poll,
+        "days_to_election": max(0, (election - now).days),
+        "days_to_blackout": max(0, (blackout_start - now).days),
+        "gap_pp_psoe": gap,
+        "bloc_right": bloc_right,
+        "bloc_left": bloc_left,
         "aggr": {"window_days": WINDOW_DAYS, "min_max_shown": True},
     }
 

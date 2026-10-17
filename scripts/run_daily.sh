@@ -40,4 +40,9 @@ fi
 /usr/bin/python3 scripts/indexnow_push.py || echo "[run_daily] aviso: indexnow falló"
 
 touch "$STATE_DIR/last_run_$TODAY"
+
+# 6) Publicar (rsync al servidor; best-effort, no rompe la ejecución)
+if [ "${E29N_DEPLOY:-1}" = "1" ]; then
+  bash "$REPO_DIR/scripts/rsync_push.sh" || echo "[run_daily] aviso: rsync falló"
+fi
 echo "[run_daily] OK"

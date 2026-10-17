@@ -1,82 +1,178 @@
-{% set page_title = "Sondeos elecciones generales 29N 2026 · media agregada" %}
-{% set page_desc = "Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo, fuentes y datos abiertos." %}
+{% set page_title = "Sondeos elecciones generales 29N 2026 · media agregada con rango" %}
+{% set page_desc = "Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo, fuentes y datos abiertos. No es un pronóstico." %}
 <!DOCTYPE html>
 <html lang="es-ES">
 <head>
 {% include "_head.html.j2" %}
 </head>
-<body>
-{% include "_nav.html.j2" %}
+<body data-updated-iso="{{ updated_iso }}" data-blackout="{{ '1' if in_blackout else '0' }}">
+
+<div id="stale-banner" class="stale" hidden>
+  <strong>⚠ Datos sin actualizar</strong> · la última ejecución fue hace <span id="stale-age">—</span> h. El cron diario de las 08:00 no se ha ejecutado (¿portátil apagado?). Se muestra el último agregado válido.
+</div>
+
+<header class="masthead">
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">
+        <span class="mark"></span>
+        <span class="brandname"><a href="/">{{ site_name }}</a></span>
+        <span class="badge">OSINT</span>
+      </div>
+      <div class="status" id="hstatus">
+        {% if in_blackout %}
+        <span class="dot off"></span> BLACKOUT · datos congelados
+        {% else %}
+        <span class="dot"></span> EN VIVO · actualizado {{ updated_at }}
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="hero">
+      <p class="eyebrow">Elecciones generales · 29 de noviembre de 2026</p>
+      <h1>Sondeos del 29N, con rango y sin pronóstico</h1>
+      <p class="sub">Media móvil de los sondeos publicados. La incertidumbre va en el dato, no en una nota al pie.</p>
+
+      <div class="hero-kpis">
+        <div class="hk"><b>{{ days_to_election }}</b><span>días para el 29N</span></div>
+        <div class="hk"><b>{{ n_polls }}</b><span>sondeos en ventana 14d</span></div>
+        <div class="hk accent"><b>{% if gap_pp_psoe is not none %}+{{ "%.1f"|format(gap_pp_psoe) }}{% else %}—{% endif %}</b><span>puntos PP–PSOE</span></div>
+        <div class="hk"><b>176</b><span>mayoría absoluta</span></div>
+      </div>
+
+      <p class="stamp">
+        {% if last_poll_date %}Último sondeo: <strong>{{ last_poll_date }}</strong> · {% endif %}
+        Próximo blackout en <strong>{{ days_to_blackout }} días</strong> (24–28 nov) ·
+        <a href="/data/latest.json">datos abiertos</a>
+      </p>
+    </div>
+
+    <nav class="tabs" role="tablist" aria-label="Secciones">
+      <button class="tab active" data-tab="agregado" role="tab" aria-selected="true">Agregado</button>
+      <button class="tab" data-tab="congreso" role="tab" aria-selected="false">Congreso</button>
+      <button class="tab" data-tab="senado" role="tab" aria-selected="false">Senado</button>
+      <a class="tab" href="/metodologia.html">Metodología</a>
+      <a class="tab" href="/fuentes.html">Fuentes</a>
+      <a class="tab" href="/caveat.html">Qué no dice</a>
+    </nav>
+  </div>
+</header>
+
 <main class="container">
-  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Sondeos de las elecciones generales del 29N</h1>
-  <p class="muted" style="margin:0 0 12px">Media agregada de los sondeos publicados · actualizado {{ updated_at }} · {{ n_polls }} sondeos en la ventana</p>
 
-  <div class="card warning">
-    <strong>Cómo leer esto</strong>
-    <p class="muted" style="margin:8px 0 0">Es la <strong>media de los sondeos publicados</strong> (ventana de 14 días) con su <strong>rango mínimo–máximo</strong>. No es un pronóstico ni una estimación de resultado: la incertidumbre real es mayor que el rango. Nunca se mezclan señales sociales con estos datos.</p>
-    {% if in_blackout %}
-    <p class="muted" style="margin:8px 0 0"><strong>Blackout electoral activo</strong>: {{ blackout_reason }}. El agregado queda congelado y no se actualiza.</p>
-    {% endif %}
-  </div>
+  {% if in_blackout %}
+  <div class="alert"><strong>Blackout electoral activo</strong> · {{ blackout_reason }}. El agregado queda congelado y no se actualiza.</div>
+  {% endif %}
 
-  <div class="kpis">
-    <div class="kpi"><b>{{ n_polls }}</b><span>sondeos en la ventana de 14 días</span></div>
-    <div class="kpi"><b>{{ parties|length }}</b><span>partidos con datos</span></div>
-    <div class="kpi"><b>{{ updated_at.split(' ')[0] }}</b><span>última actualización</span></div>
-  </div>
-
-  {% if parties %}
-  <div class="card">
-    <h2>Media agregada por partido</h2>
-    <table>
-      <thead><tr><th>Partido</th><th>Media 14d</th><th>Mín</th><th>Máx</th><th>n sondeos</th></tr></thead>
-      <tbody>
-      {% for p in parties %}
-        <tr><td><strong>{{ p.party }}</strong></td><td>{{ "%.2f"|format(p.mean) }}%</td><td>{{ "%.2f"|format(p.min) }}%</td><td>{{ "%.2f"|format(p.max) }}%</td><td>{{ p.n }}</td></tr>
+  <!-- TAB: AGREGADO -->
+  <section id="tab-agregado" class="tabpanel active" role="tabpanel">
+    <div class="kpis">
+      {% for p in parties[:4] %}
+      <div class="kpi">
+        <span class="kpi-name">{{ p.party }}</span>
+        <b>{{ "%.1f"|format(p.mean) }}%</b>
+        <span class="kpi-range">rango {{ "%.1f"|format(p.min) }}–{{ "%.1f"|format(p.max) }} · n={{ p.n }}</span>
+      </div>
       {% endfor %}
-      </tbody>
-    </table>
-    <p class="muted" style="margin-top:10px;font-size:13px">Actualizado: {{ updated_at }}. <a href="/data/latest.json">Descargar JSON</a> · <a href="/metodologia.html">Cómo se calcula</a></p>
-  </div>
-
-  {% if chart_svg %}
-  <div class="card">
-    <h2>Evolución de los sondeos</h2>
-    {{ chart_svg|safe }}
-    <p class="muted" style="margin-top:8px;font-size:13px">Cada punto es un sondeo publicado. La distancia entre puntos es la dispersión real entre encuestadoras.</p>
-  </div>
-  {% endif %}
-  {% else %}
-  <div class="card"><p class="muted">Sin sondeos recientes en la ventana de 14 días. Consulta el <a href="/data/latest.json">último agregado disponible</a> o la <a href="/metodologia.html">metodología</a>.</p></div>
-  {% endif %}
-
-  <div class="card">
-    <h2>Comparte o cita</h2>
-    <p class="muted" style="margin:0 0 6px">Si te sirve, compártelo con la fuente y el rango, no solo con la media.</p>
-    <div class="share">
-      <a href="https://bsky.app/intent/compose?text={{ (site_title ~ ' — media agregada con rango, no un pronóstico: ' ~ share_url)|urlencode }}" target="_blank" rel="noopener">Bluesky</a>
-      <a href="https://mastodon.social/share?text={{ (site_title ~ ' — media agregada con rango, no un pronóstico: ' ~ share_url)|urlencode }}" target="_blank" rel="noopener">Mastodon</a>
-      <a href="https://twitter.com/intent/tweet?text={{ (site_title ~ ' — media agregada con rango, no un pronóstico.')|urlencode }}&url={{ share_url|urlencode }}" target="_blank" rel="noopener">X</a>
-      <a href="https://api.whatsapp.com/send?text={{ (site_title ~ ' ' ~ share_url)|urlencode }}" target="_blank" rel="noopener">WhatsApp</a>
-      <a href="/data/latest.json">Datos abiertos</a>
     </div>
-    <div class="cta">
-      <a class="btn" href="/metodologia.html">Ver metodología</a>
-      <a class="btn ghost" href="/caveat.html">Qué no dice este sitio</a>
+
+    {% if chart_svg %}
+    <div class="card">
+      <div class="cardhead"><h2>Evolución de los sondeos</h2><span class="hint">cada punto = un sondeo publicado</span></div>
+      <div class="chartwrap">{{ chart_svg|safe }}</div>
     </div>
-  </div>
+    {% endif %}
+
+    <div class="card">
+      <div class="cardhead"><h2>Media por partido</h2><span class="hint">ventana móvil de 14 días</span></div>
+      <table>
+        <thead><tr><th>Partido</th><th>Media</th><th>Mín</th><th>Máx</th><th>n</th></tr></thead>
+        <tbody>
+        {% for p in parties %}
+          <tr><td><strong>{{ p.party }}</strong></td><td class="num">{{ "%.2f"|format(p.mean) }}%</td><td class="num">{{ "%.2f"|format(p.min) }}%</td><td class="num">{{ "%.2f"|format(p.max) }}%</td><td class="num">{{ p.n }}</td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <p class="muted small">Actualizado: {{ updated_at }}. <a href="/data/latest.json">Descargar JSON</a> · <a href="/metodologia.html">Cómo se calcula</a></p>
+    </div>
+
+    <div class="card">
+      <div class="cardhead"><h2>Comparte o cita</h2></div>
+      <p class="muted small">Si te sirve, compártelo con la fuente y el rango, no solo con la media.</p>
+      <div class="share">
+        <a href="https://bsky.app/intent/compose?text={{ (site_title ~ ' — media agregada con rango, no un pronóstico: ' ~ share_url)|urlencode }}" target="_blank" rel="noopener">Bluesky</a>
+        <a href="https://mastodon.social/share?text={{ (site_title ~ ' — media agregada con rango, no un pronóstico: ' ~ share_url)|urlencode }}" target="_blank" rel="noopener">Mastodon</a>
+        <a href="https://twitter.com/intent/tweet?text={{ (site_title ~ ' — media agregada con rango, no un pronóstico.')|urlencode }}&url={{ share_url|urlencode }}" target="_blank" rel="noopener">X</a>
+        <a href="https://api.whatsapp.com/send?text={{ (site_title ~ ' ' ~ share_url)|urlencode }}" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <div class="cta">
+        <a class="btn" href="/metodologia.html">Ver metodología</a>
+        <a class="btn ghost" href="/caveat.html">Qué no dice este sitio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB: CONGRESO -->
+  <section id="tab-congreso" class="tabpanel" role="tabpanel">
+    <div class="alert warn"><strong>Simulación mecánica, no proyección.</strong> Aplico D'Hondt a la media nacional con un distrito único de 350 escaños y umbral del 3%. La ley electoral real reparte por provincias: esto sirve para ver el tamaño de los bloques, no para anticipar el resultado.</div>
+
+    <div class="card">
+      <div class="cardhead"><h2>Simulación de escaños (D'Hondt nacional)</h2><span class="hint">350 escaños · umbral 3%</span></div>
+      {% if sim_congress %}
+      <div class="seats">
+        {% for name, seats in sim_congress.items() %}
+        <div class="seatrow"><span class="sname">{{ name }}</span><span class="sbar"><i style="width:{{ (seats / 350 * 100)|round(1) }}%"></i></span><span class="snum">{{ seats }}</span></div>
+        {% endfor %}
+      </div>
+      <p class="muted small">Total: {{ sim_congress.values()|sum }} escaños. Mayoría absoluta: 176.</p>
+      {% else %}
+      <p class="muted">Sin datos suficientes para simular.</p>
+      {% endif %}
+    </div>
+
+    <div class="card">
+      <div class="cardhead"><h2>Congreso de referencia</h2><span class="hint">composición vigente (23J-2023)</span></div>
+      <table>
+        <thead><tr><th>Partido</th><th>Escaños</th></tr></thead>
+        <tbody>
+        {% for name, seats in ref_congreso %}
+          <tr><td>{{ name }}</td><td class="num">{{ seats }}</td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <p class="muted small">Es la composición actual como referencia. No es una proyección del 29N.</p>
+    </div>
+
+    <div class="card">
+      <div class="cardhead"><h2>Bloques (media de voto)</h2></div>
+      <div class="blocks">
+        <div class="block"><span>PP + VOX</span><b>{% if bloc_right is not none %}{{ "%.1f"|format(bloc_right) }}%{% else %}—{% endif %}</b></div>
+        <div class="block"><span>PSOE + SUMAR + Podemos</span><b>{% if bloc_left is not none %}{{ "%.1f"|format(bloc_left) }}%{% else %}—{% endif %}</b></div>
+      </div>
+      <p class="muted small">Suma de medias de voto, no de escaños. La traducción a escaños depende de las circunscripciones.</p>
+    </div>
+  </section>
+
+  <!-- TAB: SENADO -->
+  <section id="tab-senado" class="tabpanel" role="tabpanel">
+    <div class="card">
+      <div class="cardhead"><h2>Senado</h2><span class="hint">no se simula</span></div>
+      <p class="muted">El Senado tiene <strong>265 escaños</strong>: <strong>208 electos</strong> en circunscripción provincial (4 por provincia, con excepciones insulares) y <strong>57 designados</strong> por las comunidades autónomas.</p>
+      <p class="muted">No aplico una simulación porque el reparto depende de listas provinciales y de mayorías autonómicas, no de una media nacional. Cualquier cifra nacional sería un artefacto. Si aparece, se mostrará como <strong>referencia vigente</strong> y nunca como proyección.</p>
+    </div>
+    <div class="card">
+      <div class="cardhead"><h2>Por qué el Congreso sí y el Senado no</h2></div>
+      <p class="muted">El Congreso se puede aproximar con D'Hondt sobre una media nacional para ver el tamaño de los bloques, con todas las cautelas. El Senado se elige con listas abiertas y mayoritario plurinominal por provincia: una media nacional no informa del reparto. Simularlo daría una falsa precisión.</p>
+      <div class="cta">
+        <a class="btn ghost" href="/metodologia.html">Metodología</a>
+        <a class="btn ghost" href="/caveat.html">Qué no dice este sitio</a>
+      </div>
+    </div>
+  </section>
 
   <div class="card">
-    <h2>Preguntas frecuentes</h2>
-    <details><summary><strong>¿Es un pronóstico?</strong></summary><p class="muted">No. Es la media de sondeos publicados con su rango. No anticipa el resultado del 29N.</p></details>
-    <details><summary><strong>¿Puedo publicar esto durante el blackout?</strong></summary><p class="muted">No. Del 24 al 28 de noviembre de 2026 no se publican, difunden ni reproducen sondeos. El agregado queda congelado.</p></details>
-    <details><summary><strong>¿De dónde salen los datos?</strong></summary><p class="muted">De paneles publicados por Electomania, con enlace a la fuente y fecha. Se descartan autonómicos y adelantos incompletos.</p></details>
-    <details><summary><strong>¿Por qué mostrar el rango y no solo la media?</strong></summary><p class="muted">Porque la dispersión entre encuestadoras es parte del dato. Una cifra única oculta la incertidumbre.</p></details>
-  </div>
-
-  <div class="card">
-    <h2>Más del ecosistema</h2>
-    <p class="muted" style="margin:0 0 6px">Este agregado no vive solo. Si te interesa medir amplificación y coordinación informativa:</p>
+    <div class="cardhead"><h2>Más del ecosistema</h2></div>
+    <p class="muted small">Si te interesa medir amplificación y coordinación informativa:</p>
     <div class="share">
       <a href="https://fimi.viajeinteligencia.com/?utm_source=elecciones29n&utm_medium=crosspromo">Observatorio de amplificación (FIMI)</a>
       <a href="https://analisis.pruebapublica.com/?utm_source=elecciones29n&utm_medium=crosspromo">Blog de análisis</a>
@@ -86,6 +182,37 @@
 
 </main>
 {% include "_footer.html.j2" %}
-<script src="/js/charts.js"></script>
+<script>
+(function(){
+  var body = document.body, banner = document.getElementById('stale-banner');
+  if (banner && body.dataset.blackout !== '1') {
+    var iso = body.dataset.updatedIso;
+    if (iso) {
+      var age = (Date.now() - new Date(iso).getTime()) / 36e5;
+      var upd = new Date(iso), now = new Date();
+      var missedToday = now.getHours() >= 9 && upd.toDateString() !== now.toDateString();
+      if (age > 26 || missedToday) {
+        banner.hidden = false;
+        var el = document.getElementById('stale-age');
+        if (el) el.textContent = Math.floor(age);
+        var hs = document.getElementById('hstatus');
+        if (hs) hs.innerHTML = '<span class="dot off"></span> SIN ACTUALIZAR · hace ' + Math.floor(age) + ' h';
+      }
+    }
+  }
+  var tabs = document.querySelectorAll('.tab[data-tab]');
+  var panels = document.querySelectorAll('.tabpanel');
+  function show(id){
+    panels.forEach(function(p){p.classList.toggle('active', p.id === 'tab-' + id);});
+    tabs.forEach(function(t){var on = t.dataset.tab === id; t.classList.toggle('active', on); t.setAttribute('aria-selected', on ? 'true' : 'false');});
+    if (history.replaceState) history.replaceState(null, '', id === 'agregado' ? location.pathname : '#' + id);
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.tab); }); });
+  if (location.hash) {
+    var h = location.hash.replace('#','');
+    if (document.getElementById('tab-' + h)) show(h);
+  }
+})();
+</script>
 </body>
 </html>
