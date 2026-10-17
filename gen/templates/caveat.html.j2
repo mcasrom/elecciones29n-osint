@@ -1,24 +1,44 @@
+{% set page_title = "Qué no dice este sitio · elecciones29n-osint" %}
+{% set page_desc = "Límites del agregado: no es un pronóstico, no estima intención de voto, no anticipa resultados. La incertidumbre es parte del dato." %}
+{% set canonical = site_url ~ "/caveat.html" %}
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-ES">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Caveat · elecciones29n-osint</title>
-  <link rel="stylesheet" href="css/main.css">
+{% include "_head.html.j2" %}
 </head>
 <body>
-  <header><div class="container"><h1>Caveat</h1><p class="muted"><a href="index.html">← Volver</a></p></div></header>
-  <main class="container">
-    <div class="card">
-      <p class="muted">Esta página muestra una <strong>media agregada de sondeos publicados</strong> en medios españoles. No es un pronóstico, ni una estimación de intención de voto directa, ni predice resultados.</p>
-      <p class="muted">Muestra <strong>tendencia y dispersión (rango min–máx)</strong>. La incertidumbre es parte del dato.</p>
-      {% if in_blackout %}
-      <p class="muted"><strong>Blackout activo</strong>: {{ blackout_reason }}</p>
-      {% else %}
-      <p class="muted">Durante el periodo de reflexión y jornada electoral (24–28 de noviembre de 2026) <strong>no se actualizarán nuevos sondeos</strong> por cumplimiento de la normativa electoral.</p>
-      {% endif %}
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h2>Qué no dice este sitio</h2>
+
+  <div class="card">
+    <p class="muted">Esta página muestra una <strong>media agregada de sondeos publicados</strong>. No es un pronóstico, no es una estimación directa de intención de voto y no predice resultados.</p>
+    <ul class="muted">
+      <li><strong>No anticipa el resultado</strong> del 29 de noviembre de 2026.</li>
+      <li><strong>No corrige sesgos</strong> de las encuestadoras ni pondera por fiabilidad histórica.</li>
+      <li><strong>No mezcla señales sociales</strong> con la media de sondeos.</li>
+      <li><strong>No proyecta escaños</strong>: el reparto de escaños depende de las circunscripciones y de la ley electoral.</li>
+      <li><strong>No sustituye</strong> al sondeo original: si vas a citar, cita fuente, fecha y muestra.</li>
+    </ul>
+    <p class="muted">La incertidumbre es parte del dato. El rango mínimo–máximo muestra cuánto discrepan las encuestadoras entre sí; la incertidumbre real suele ser mayor.</p>
+  </div>
+
+  <div class="card">
+    <h3>Periodo electoral</h3>
+    {% if in_blackout %}
+    <p class="muted"><strong>Blackout activo</strong>: {{ blackout_reason }}. Los sondeos no se publican, difunden ni reproducen en esas fechas; el agregado queda congelado sin cambios.</p>
+    {% else %}
+    <p class="muted">Del <strong>24 al 28 de noviembre de 2026</strong> (ambos inclusive) no se actualizarán ni difundirán sondeos, por cumplimiento de la normativa electoral (JEC/LOREG). Durante ese periodo el sitio conserva el último agregado válido y no genera cifras nuevas.</p>
+    {% endif %}
+  </div>
+
+  <div class="card">
+    <div class="cta">
+      <a class="btn" href="/">Ver el agregado</a>
+      <a class="btn ghost" href="/metodologia.html">Metodología</a>
     </div>
-  </main>
-  <footer class="footer"><div class="container">AGPL-3.0</div></footer>
+  </div>
+</main>
+{% include "_footer.html.j2" %}
 </body>
 </html>

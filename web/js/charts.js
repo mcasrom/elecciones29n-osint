@@ -1,1 +1,1 @@
-console.log('elecciones29n-osint');
+/* charts inline; no external deps */

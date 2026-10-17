@@ -1,19 +1,40 @@
+{% set page_title = "Acerca de · elecciones29n-osint" %}
+{% set page_desc = "Un agregado local-first de sondeos publicados: estático, sin backend, sin tracking. Código abierto AGPL-3.0." %}
+{% set canonical = site_url ~ "/about.html" %}
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-ES">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Acerca de · elecciones29n-osint</title>
-  <link rel="stylesheet" href="css/main.css">
+{% include "_head.html.j2" %}
 </head>
 <body>
-  <header><div class="container"><h1>Acerca de</h1><p class="muted"><a href="index.html">← Volver</a></p></div></header>
-  <main class="container">
-    <div class="card">
-      <p class="muted"><strong>elecciones29n-osint</strong> es local-first: genera estático en tu portátil y sube a <code>elecciones29n.pruebapublica.com</code>. Sin backend, sin tracking, sin terceros.</p>
-      <p class="muted">Repositorio: <a href="https://github.com/mcasrom/elecciones29n-osint">mcasrom/elecciones29n-osint</a> · AGPL-3.0</p>
-    </div>
-  </main>
-  <footer class="footer"><div class="container">AGPL-3.0</div></footer>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h2>Acerca de</h2>
+
+  <div class="card">
+    <p class="muted"><strong>elecciones29n-osint</strong> es un proyecto local-first: la ingesta y la agregación corren en mi portátil, generan un sitio estático y se publican en <code>elecciones29n.pruebapublica.com</code>. Sin backend, sin cookies, sin tracking y sin terceros.</p>
+    <p class="muted">El objetivo es simple: que la media de los sondeos y su dispersión estén a la vista, con fuente y fecha, y que nadie tenga que confiar en una cifra sin rango.</p>
+  </div>
+
+  <div class="card">
+    <h3>Datos y código</h3>
+    <ul class="muted">
+      <li>Datos agregados: <a href="/data/latest.json">latest.json</a></li>
+      <li>Código: <a href="https://github.com/mcasrom/elecciones29n-osint">mcasrom/elecciones29n-osint</a> (AGPL-3.0)</li>
+      <li>Guía para asistentes de IA: <a href="/llms.txt">llms.txt</a></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Cómo citar</h3>
+    <p class="muted">Miguel Castillo. <em>elecciones29n-osint: media agregada de sondeos, elecciones generales 29N 2026</em>. {{ site_url }}/</p>
+  </div>
+
+  <div class="card">
+    <h3>Ecosistema</h3>
+    <p class="muted">Forma parte del mismo esfuerzo que el <a href="https://fimi.viajeinteligencia.com/?utm_source=elecciones29n&utm_medium=crosspromo">Observatorio de amplificación</a>, el <a href="https://analisis.pruebapublica.com/?utm_source=elecciones29n&utm_medium=crosspromo">blog de análisis</a> y <a href="https://vivienda.pruebapublica.com/?utm_source=elecciones29n&utm_medium=crosspromo">vivienda</a>.</p>
+  </div>
+</main>
+{% include "_footer.html.j2" %}
 </body>
 </html>

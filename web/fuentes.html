@@ -1,23 +1,89 @@
+
+
+
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-ES">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fuentes · elecciones29n-osint</title>
-  <link rel="stylesheet" href="css/main.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fuentes · sondeos de las elecciones generales 29N 2026</title>
+<meta name="description" content="De dónde salen los sondeos: Electomania como ancla, con enlace a la fuente, fecha y muestra. Y las fuentes oficiales de referencia.">
+<link rel="canonical" href="https://elecciones29n.pruebapublica.com/fuentes.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="elecciones29n-osint">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Fuentes · sondeos de las elecciones generales 29N 2026">
+<meta property="og:description" content="De dónde salen los sondeos: Electomania como ancla, con enlace a la fuente, fecha y muestra. Y las fuentes oficiales de referencia.">
+<meta property="og:url" content="https://elecciones29n.pruebapublica.com/fuentes.html">
+<meta property="og:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fuentes · sondeos de las elecciones generales 29N 2026">
+<meta name="twitter:description" content="De dónde salen los sondeos: Electomania como ancla, con enlace a la fuente, fecha y muestra. Y las fuentes oficiales de referencia.">
+<meta name="twitter:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<link rel="alternate" type="application/json" href="/data/latest.json" title="Datos agregados (JSON)">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebSite", "name": "elecciones29n-osint", "url": "https://elecciones29n.pruebapublica.com/", "inLanguage": "es-ES", "description": "Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo y datos abiertos."}, {"@context": "https://schema.org", "@type": "Dataset", "name": "Media agregada de sondeos · Elecciones Generales 29N 2026", "description": "Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo y datos abiertos.", "url": "https://elecciones29n.pruebapublica.com/", "creator": {"@type": "Person", "name": "Miguel Castillo", "url": "https://elecciones29n.pruebapublica.com"}, "license": "https://www.gnu.org/licenses/agpl-3.0.html", "isAccessibleForFree": true, "dateModified": "2026-10-17 22:14 CEST", "temporalCoverage": "2026-09/2026-11", "spatialCoverage": "ES", "distribution": [{"@type": "DataDownload", "contentUrl": "https://elecciones29n.pruebapublica.com/data/latest.json", "encodingFormat": "application/json"}]}]</script>
 </head>
 <body>
-  <header><div class="container"><h1>Fuentes</h1><p class="muted"><a href="index.html">← Volver</a></p></div></header>
-  <main class="container">
-    <div class="card">
-      <p class="muted">Se cita siempre <strong>fuente_url + fecha_publicacion + muestra</strong> cuando existe. MVP: <strong>Electomania</strong> como ancla (más estable), con complementarios cuando estén listos.</p>
-      <ul class="muted">
-        <li><a href="https://electomania.es/">Electomania</a></li>
-        <li><a href="https://www.juntaelectoralcentral.es/">JEC</a> (calendario/normativa)</li>
-        <li><a href="https://resultados.elecciones.mir.es/">resultados.elecciones.mir.es</a> (oficial, referencia)</li>
-      </ul>
+<header>
+  <div class="container">
+    <div class="brand">
+      <h1><a href="/" style="color:inherit;text-decoration:none">elecciones29n-osint</a></h1>
+      <span class="tag">Media agregada de sondeos · 29N 2026</span>
     </div>
-  </main>
-  <footer class="footer"><div class="container">AGPL-3.0</div></footer>
+    <nav>
+      <a href="/">Inicio</a>
+      <a href="/metodologia.html">Metodología</a>
+      <a href="/fuentes.html">Fuentes</a>
+      <a href="/caveat.html">Qué no dice</a>
+      <a href="/about.html">Acerca de</a>
+      <a href="/data/latest.json">Datos (JSON)</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <h2>Fuentes</h2>
+
+  <div class="card">
+    <p class="muted">Cada sondeo lleva <strong>fuente + fecha de publicación + enlace</strong>. La ingesta actual lee los paneles publicados por <strong>Electomania</strong> (ElectoPanel), que publica series nacionales con muestras y campo declarados. Se añadirán otras encuestadoras cuando su formato sea estable y verificable.</p>
+    <ul class="muted">
+      <li><a href="https://electomania.es/">Electomania</a> — paneles diarios/semanales (ElectoPanel).</li>
+      <li><a href="https://www.juntaelectoralcentral.es/">Junta Electoral Central</a> — calendario y normativa (LOREG).</li>
+      <li><a href="https://resultados.elecciones.mir.es/">Ministerio del Interior</a> — resultados oficiales (referencia, no fuente de sondeos).</li>
+    </ul>
+  </div>
+
+  
+  <div class="card">
+    <h3>Sondeos incluidos ahora mismo</h3>
+    <ul class="muted">
+      
+      <li><a href="https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/" rel="nofollow noopener" target="_blank">https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/</a></li>
+      
+      <li><a href="https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/" rel="nofollow noopener" target="_blank">https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/</a></li>
+      
+    </ul>
+  </div>
+  
+
+  <div class="card">
+    <h3>Higiene de datos</h3>
+    <p class="muted">La ingesta descarta paneles autonómicos, adelantos sin serie completa y textos que no suman un rango plausible. Si un sondeo no pasa la validación, no entra en la media. El histórico completo vive en el repositorio.</p>
+    <div class="cta">
+      <a class="btn" href="/">Ver el agregado</a>
+      <a class="btn ghost" href="/metodologia.html">Cómo se calcula</a>
+    </div>
+  </div>
+</main>
+<footer class="footer">
+  <div class="container">
+    <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
+    <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
+    <p>Datos abiertos · <a href="https://github.com/mcasrom/elecciones29n-osint">Código (AGPL-3.0)</a> · Hecho por Miguel Castillo.</p>
+  </div>
+</footer>
 </body>
 </html>

@@ -112,11 +112,27 @@ def aggregate() -> Dict[str, Any]:
         )
     parties.sort(key=lambda x: x["mean"], reverse=True)
 
+    # Serie temporal por partido (fecha -> valor), para gráfico
+    series: Dict[str, List[Dict[str, Any]]] = {}
+    for p in recent:
+        series.setdefault(p["party"], []).append(
+            {"date": p["date"].strftime("%Y-%m-%d"), "value": p["value"]}
+        )
+    for party in series:
+        series[party].sort(key=lambda x: x["date"])
+
+    poll_dates = sorted({p["date"].strftime("%Y-%m-%d") for p in recent})
+    sources = sorted({p["source_url"] for p in recent if p.get("source_url")})
+
     return {
         "updated_at": now.strftime("%Y-%m-%d %H:%M %Z"),
         "in_blackout": False,
         "window_days": WINDOW_DAYS,
         "parties": parties,
+        "series": series,
+        "poll_dates": poll_dates,
+        "n_polls": len(poll_dates),
+        "sources": sources,
         "aggr": {"window_days": WINDOW_DAYS, "min_max_shown": True},
     }
 

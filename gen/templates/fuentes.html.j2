@@ -1,23 +1,45 @@
+{% set page_title = "Fuentes · sondeos de las elecciones generales 29N 2026" %}
+{% set page_desc = "De dónde salen los sondeos: Electomania como ancla, con enlace a la fuente, fecha y muestra. Y las fuentes oficiales de referencia." %}
+{% set canonical = site_url ~ "/fuentes.html" %}
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-ES">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fuentes · elecciones29n-osint</title>
-  <link rel="stylesheet" href="css/main.css">
+{% include "_head.html.j2" %}
 </head>
 <body>
-  <header><div class="container"><h1>Fuentes</h1><p class="muted"><a href="index.html">← Volver</a></p></div></header>
-  <main class="container">
-    <div class="card">
-      <p class="muted">Se cita siempre <strong>fuente_url + fecha_publicacion + muestra</strong> cuando existe. MVP: <strong>Electomania</strong> como ancla (más estable), con complementarios cuando estén listos.</p>
-      <ul class="muted">
-        <li><a href="https://electomania.es/">Electomania</a></li>
-        <li><a href="https://www.juntaelectoralcentral.es/">JEC</a> (calendario/normativa)</li>
-        <li><a href="https://resultados.elecciones.mir.es/">resultados.elecciones.mir.es</a> (oficial, referencia)</li>
-      </ul>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h2>Fuentes</h2>
+
+  <div class="card">
+    <p class="muted">Cada sondeo lleva <strong>fuente + fecha de publicación + enlace</strong>. La ingesta actual lee los paneles publicados por <strong>Electomania</strong> (ElectoPanel), que publica series nacionales con muestras y campo declarados. Se añadirán otras encuestadoras cuando su formato sea estable y verificable.</p>
+    <ul class="muted">
+      <li><a href="https://electomania.es/">Electomania</a> — paneles diarios/semanales (ElectoPanel).</li>
+      <li><a href="https://www.juntaelectoralcentral.es/">Junta Electoral Central</a> — calendario y normativa (LOREG).</li>
+      <li><a href="https://resultados.elecciones.mir.es/">Ministerio del Interior</a> — resultados oficiales (referencia, no fuente de sondeos).</li>
+    </ul>
+  </div>
+
+  {% if sources %}
+  <div class="card">
+    <h3>Sondeos incluidos ahora mismo</h3>
+    <ul class="muted">
+      {% for s in sources %}
+      <li><a href="{{ s }}" rel="nofollow noopener" target="_blank">{{ s }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  <div class="card">
+    <h3>Higiene de datos</h3>
+    <p class="muted">La ingesta descarta paneles autonómicos, adelantos sin serie completa y textos que no suman un rango plausible. Si un sondeo no pasa la validación, no entra en la media. El histórico completo vive en el repositorio.</p>
+    <div class="cta">
+      <a class="btn" href="/">Ver el agregado</a>
+      <a class="btn ghost" href="/metodologia.html">Cómo se calcula</a>
     </div>
-  </main>
-  <footer class="footer"><div class="container">AGPL-3.0</div></footer>
+  </div>
+</main>
+{% include "_footer.html.j2" %}
 </body>
 </html>

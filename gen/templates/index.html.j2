@@ -1,57 +1,81 @@
+{% set page_title = "Sondeos elecciones generales 29N 2026 · media agregada" %}
+{% set page_desc = "Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo, fuentes y datos abiertos." %}
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-ES">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>elecciones29n-osint · Media agregada de sondeos publicados</title>
-  <meta name="description" content="Media agregada de sondeos públicos para las Elecciones Generales 29N 2026. Tendencia y dispersión (rango min–máx).">
-  <link rel="stylesheet" href="css/main.css">
+{% include "_head.html.j2" %}
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>elecciones29n-osint</h1>
-      <p class="muted">Media agregada de sondeos publicados · Elecciones Generales 29N 2026</p>
-    </div>
-  </header>
-  <main class="container">
-    <div class="card warning">
-      <strong>Cómo leer</strong>
-      <p class="muted" style="margin:8px 0 0">Muestra <strong>tendencia y dispersión (rango min–máx)</strong> de sondeos públicos. No es un pronóstico, ni predice resultados. <strong>Nunca</strong> se mezclan señales sociales con los agregados.</p>
-      {% if in_blackout %}
-      <p class="muted" style="margin:8px 0 0"><strong>Blackout activo</strong>: {{ blackout_reason }}</p>
-      {% endif %}
-    </div>
+{% include "_nav.html.j2" %}
+<main class="container">
 
-    <div class="card">
-      <h2>Evolución por partido</h2>
-      {% if parties %}
-      <table>
-        <thead>
-          <tr><th>Partido</th><th>Media (móvil 14d)</th><th>Mín</th><th>Máx</th><th>n</th></tr>
-        </thead>
-        <tbody>
-        {% for p in parties %}
-          <tr><td>{{ p.party }}</td><td>{{ "%.2f"|format(p.mean) }}%</td><td>{{ "%.2f"|format(p.min) }}%</td><td>{{ "%.2f"|format(p.max) }}%</td><td>{{ p.n }}</td></tr>
-        {% endfor %}
-        </tbody>
-      </table>
-      {% else %}
-      <p class="muted">Sin datos recientes en ventana 14d. Última agregación disponible en <a href="data/latest.json">latest.json</a>.</p>
-      {% endif %}
-    </div>
+  <div class="card warning">
+    <strong>Cómo leer esto</strong>
+    <p class="muted" style="margin:8px 0 0">Es la <strong>media de los sondeos publicados</strong> (ventana de 14 días) con su <strong>rango mínimo–máximo</strong>. No es un pronóstico ni una estimación de resultado: la incertidumbre real es mayor que el rango. Nunca se mezclan señales sociales con estos datos.</p>
+    {% if in_blackout %}
+    <p class="muted" style="margin:8px 0 0"><strong>Blackout electoral activo</strong>: {{ blackout_reason }}. El agregado queda congelado y no se actualiza.</p>
+    {% endif %}
+  </div>
 
-    <div class="card">
-      <h2>Última actualización</h2>
-      <p class="muted">{{ updated_at }}</p>
-      <p><a href="data/latest.json">Descargar latest.json</a> · <a href="metodologia.html">Metodología</a> · <a href="fuentes.html">Fuentes</a> · <a href="about.html">Acerca de</a> · <a href="caveat.html">Caveat</a></p>
+  <div class="kpis">
+    <div class="kpi"><b>{{ n_polls }}</b><span>sondeos en la ventana de 14 días</span></div>
+    <div class="kpi"><b>{{ parties|length }}</b><span>partidos con datos</span></div>
+    <div class="kpi"><b>{{ updated_at.split(' ')[0] }}</b><span>última actualización</span></div>
+  </div>
+
+  {% if parties %}
+  <div class="card">
+    <h2>Media agregada por partido</h2>
+    <table>
+      <thead><tr><th>Partido</th><th>Media 14d</th><th>Mín</th><th>Máx</th><th>n sondeos</th></tr></thead>
+      <tbody>
+      {% for p in parties %}
+        <tr><td><strong>{{ p.party }}</strong></td><td>{{ "%.2f"|format(p.mean) }}%</td><td>{{ "%.2f"|format(p.min) }}%</td><td>{{ "%.2f"|format(p.max) }}%</td><td>{{ p.n }}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    <p class="muted" style="margin-top:10px;font-size:13px">Actualizado: {{ updated_at }}. <a href="/data/latest.json">Descargar JSON</a> · <a href="/metodologia.html">Cómo se calcula</a></p>
+  </div>
+
+  {% if chart_svg %}
+  <div class="card">
+    <h2>Evolución de los sondeos</h2>
+    {{ chart_svg|safe }}
+    <p class="muted" style="margin-top:8px;font-size:13px">Cada punto es un sondeo publicado. La distancia entre puntos es la dispersión real entre encuestadoras.</p>
+  </div>
+  {% endif %}
+  {% else %}
+  <div class="card"><p class="muted">Sin sondeos recientes en la ventana de 14 días. Consulta el <a href="/data/latest.json">último agregado disponible</a> o la <a href="/metodologia.html">metodología</a>.</p></div>
+  {% endif %}
+
+  <div class="card">
+    <h2>Comparte o cita</h2>
+    <p class="muted" style="margin:0 0 6px">Si te sirve, compártelo con la fuente y el rango, no solo con la media.</p>
+    <div class="share">
+      <a href="https://bsky.app/intent/compose?text={{ (site_title ~ ' — media agregada con rango, no un pronóstico: ' ~ share_url)|urlencode }}" target="_blank" rel="noopener">Bluesky</a>
+      <a href="https://mastodon.social/share?text={{ (site_title ~ ' — media agregada con rango, no un pronóstico: ' ~ share_url)|urlencode }}" target="_blank" rel="noopener">Mastodon</a>
+      <a href="https://twitter.com/intent/tweet?text={{ (site_title ~ ' — media agregada con rango, no un pronóstico.')|urlencode }}&url={{ share_url|urlencode }}" target="_blank" rel="noopener">X</a>
+      <a href="https://api.whatsapp.com/send?text={{ (site_title ~ ' ' ~ share_url)|urlencode }}" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="/data/latest.json">Datos abiertos</a>
     </div>
-  </main>
-  <footer class="footer">
-    <div class="container">
-      <p>AGPL-3.0 · <a href="https://github.com/mcasrom/elecciones29n-osint">mcasrom/elecciones29n-osint</a></p>
+    <div class="cta">
+      <a class="btn" href="/metodologia.html">Ver metodología</a>
+      <a class="btn ghost" href="/caveat.html">Qué no dice este sitio</a>
     </div>
-  </footer>
-  <script src="js/charts.js"></script>
+  </div>
+
+  <div class="card">
+    <h2>Más del ecosistema</h2>
+    <p class="muted" style="margin:0 0 6px">Este agregado no vive solo. Si te interesa medir amplificación y coordinación informativa:</p>
+    <div class="share">
+      <a href="https://fimi.viajeinteligencia.com/?utm_source=elecciones29n&utm_medium=crosspromo">Observatorio de amplificación (FIMI)</a>
+      <a href="https://analisis.pruebapublica.com/?utm_source=elecciones29n&utm_medium=crosspromo">Blog de análisis</a>
+      <a href="https://vivienda.pruebapublica.com/?utm_source=elecciones29n&utm_medium=crosspromo">Vivienda</a>
+    </div>
+  </div>
+
+</main>
+{% include "_footer.html.j2" %}
+<script src="/js/charts.js"></script>
 </body>
 </html>

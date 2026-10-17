@@ -1,71 +1,137 @@
+
+
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-ES">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>elecciones29n-osint · Media agregada de sondeos publicados</title>
-  <meta name="description" content="Media agregada de sondeos públicos para las Elecciones Generales 29N 2026. Tendencia y dispersión (rango min–máx).">
-  <link rel="stylesheet" href="css/main.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sondeos elecciones generales 29N 2026 · media agregada</title>
+<meta name="description" content="Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo, fuentes y datos abiertos.">
+<link rel="canonical" href="https://elecciones29n.pruebapublica.com/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="elecciones29n-osint">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Sondeos elecciones generales 29N 2026 · media agregada">
+<meta property="og:description" content="Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo, fuentes y datos abiertos.">
+<meta property="og:url" content="https://elecciones29n.pruebapublica.com/">
+<meta property="og:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sondeos elecciones generales 29N 2026 · media agregada">
+<meta name="twitter:description" content="Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo, fuentes y datos abiertos.">
+<meta name="twitter:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<link rel="alternate" type="application/json" href="/data/latest.json" title="Datos agregados (JSON)">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebSite", "name": "elecciones29n-osint", "url": "https://elecciones29n.pruebapublica.com/", "inLanguage": "es-ES", "description": "Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo y datos abiertos."}, {"@context": "https://schema.org", "@type": "Dataset", "name": "Media agregada de sondeos · Elecciones Generales 29N 2026", "description": "Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo y datos abiertos.", "url": "https://elecciones29n.pruebapublica.com/", "creator": {"@type": "Person", "name": "Miguel Castillo", "url": "https://elecciones29n.pruebapublica.com"}, "license": "https://www.gnu.org/licenses/agpl-3.0.html", "isAccessibleForFree": true, "dateModified": "2026-10-17 22:14 CEST", "temporalCoverage": "2026-09/2026-11", "spatialCoverage": "ES", "distribution": [{"@type": "DataDownload", "contentUrl": "https://elecciones29n.pruebapublica.com/data/latest.json", "encodingFormat": "application/json"}]}]</script>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>elecciones29n-osint</h1>
-      <p class="muted">Media agregada de sondeos publicados · Elecciones Generales 29N 2026</p>
+<header>
+  <div class="container">
+    <div class="brand">
+      <h1><a href="/" style="color:inherit;text-decoration:none">elecciones29n-osint</a></h1>
+      <span class="tag">Media agregada de sondeos · 29N 2026</span>
     </div>
-  </header>
-  <main class="container">
-    <div class="card warning">
-      <strong>Cómo leer</strong>
-      <p class="muted" style="margin:8px 0 0">Muestra <strong>tendencia y dispersión (rango min–máx)</strong> de sondeos públicos. No es un pronóstico, ni predice resultados. <strong>Nunca</strong> se mezclan señales sociales con los agregados.</p>
-      
-    </div>
+    <nav>
+      <a href="/">Inicio</a>
+      <a href="/metodologia.html">Metodología</a>
+      <a href="/fuentes.html">Fuentes</a>
+      <a href="/caveat.html">Qué no dice</a>
+      <a href="/about.html">Acerca de</a>
+      <a href="/data/latest.json">Datos (JSON)</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
 
-    <div class="card">
-      <h2>Evolución por partido</h2>
-      
-      <table>
-        <thead>
-          <tr><th>Partido</th><th>Media (móvil 14d)</th><th>Mín</th><th>Máx</th><th>n</th></tr>
-        </thead>
-        <tbody>
-        
-          <tr><td>PP</td><td>31.40%</td><td>31.30%</td><td>31.50%</td><td>2</td></tr>
-        
-          <tr><td>PSOE</td><td>26.90%</td><td>26.90%</td><td>26.90%</td><td>2</td></tr>
-        
-          <tr><td>VOX</td><td>19.25%</td><td>19.10%</td><td>19.40%</td><td>2</td></tr>
-        
-          <tr><td>SUMAR</td><td>5.05%</td><td>4.90%</td><td>5.20%</td><td>2</td></tr>
-        
-          <tr><td>PODEMOS</td><td>3.40%</td><td>3.40%</td><td>3.40%</td><td>2</td></tr>
-        
-          <tr><td>ERC</td><td>2.00%</td><td>2.00%</td><td>2.00%</td><td>2</td></tr>
-        
-          <tr><td>SAF</td><td>1.70%</td><td>1.70%</td><td>1.70%</td><td>2</td></tr>
-        
-          <tr><td>BILDU</td><td>1.40%</td><td>1.40%</td><td>1.40%</td><td>2</td></tr>
-        
-          <tr><td>JUNTS</td><td>1.10%</td><td>1.10%</td><td>1.10%</td><td>2</td></tr>
-        
-          <tr><td>PNV</td><td>1.10%</td><td>1.10%</td><td>1.10%</td><td>2</td></tr>
-        
-        </tbody>
-      </table>
-      
-    </div>
+  <div class="card warning">
+    <strong>Cómo leer esto</strong>
+    <p class="muted" style="margin:8px 0 0">Es la <strong>media de los sondeos publicados</strong> (ventana de 14 días) con su <strong>rango mínimo–máximo</strong>. No es un pronóstico ni una estimación de resultado: la incertidumbre real es mayor que el rango. Nunca se mezclan señales sociales con estos datos.</p>
+    
+  </div>
 
-    <div class="card">
-      <h2>Última actualización</h2>
-      <p class="muted">2026-10-17 21:48 CEST</p>
-      <p><a href="data/latest.json">Descargar latest.json</a> · <a href="metodologia.html">Metodología</a> · <a href="fuentes.html">Fuentes</a> · <a href="about.html">Acerca de</a> · <a href="caveat.html">Caveat</a></p>
+  <div class="kpis">
+    <div class="kpi"><b>2</b><span>sondeos en la ventana de 14 días</span></div>
+    <div class="kpi"><b>10</b><span>partidos con datos</span></div>
+    <div class="kpi"><b>2026-10-17</b><span>última actualización</span></div>
+  </div>
+
+  
+  <div class="card">
+    <h2>Media agregada por partido</h2>
+    <table>
+      <thead><tr><th>Partido</th><th>Media 14d</th><th>Mín</th><th>Máx</th><th>n sondeos</th></tr></thead>
+      <tbody>
+      
+        <tr><td><strong>PP</strong></td><td>31.40%</td><td>31.30%</td><td>31.50%</td><td>2</td></tr>
+      
+        <tr><td><strong>PSOE</strong></td><td>26.90%</td><td>26.90%</td><td>26.90%</td><td>2</td></tr>
+      
+        <tr><td><strong>VOX</strong></td><td>19.25%</td><td>19.10%</td><td>19.40%</td><td>2</td></tr>
+      
+        <tr><td><strong>SUMAR</strong></td><td>5.05%</td><td>4.90%</td><td>5.20%</td><td>2</td></tr>
+      
+        <tr><td><strong>PODEMOS</strong></td><td>3.40%</td><td>3.40%</td><td>3.40%</td><td>2</td></tr>
+      
+        <tr><td><strong>ERC</strong></td><td>2.00%</td><td>2.00%</td><td>2.00%</td><td>2</td></tr>
+      
+        <tr><td><strong>SAF</strong></td><td>1.70%</td><td>1.70%</td><td>1.70%</td><td>2</td></tr>
+      
+        <tr><td><strong>BILDU</strong></td><td>1.40%</td><td>1.40%</td><td>1.40%</td><td>2</td></tr>
+      
+        <tr><td><strong>JUNTS</strong></td><td>1.10%</td><td>1.10%</td><td>1.10%</td><td>2</td></tr>
+      
+        <tr><td><strong>PNV</strong></td><td>1.10%</td><td>1.10%</td><td>1.10%</td><td>2</td></tr>
+      
+      </tbody>
+    </table>
+    <p class="muted" style="margin-top:10px;font-size:13px">Actualizado: 2026-10-17 22:14 CEST. <a href="/data/latest.json">Descargar JSON</a> · <a href="/metodologia.html">Cómo se calcula</a></p>
+  </div>
+
+  
+  <div class="card">
+    <h2>Evolución de los sondeos</h2>
+    <svg class="chart" viewBox="0 0 720 300" role="img" aria-label="Evolución de la media por partido"><line x1="44" y1="266.0" x2="704" y2="266.0" stroke="#2a2b45" stroke-width="1"/><text x="6" y="270.0" fill="#b9b9c3" font-size="11">0%</text><line x1="44" y1="204.0" x2="704" y2="204.0" stroke="#2a2b45" stroke-width="1"/><text x="6" y="208.0" fill="#b9b9c3" font-size="11">8%</text><line x1="44" y1="142.0" x2="704" y2="142.0" stroke="#2a2b45" stroke-width="1"/><text x="6" y="146.0" fill="#b9b9c3" font-size="11">17%</text><line x1="44" y1="80.0" x2="704" y2="80.0" stroke="#2a2b45" stroke-width="1"/><text x="6" y="84.0" fill="#b9b9c3" font-size="11">25%</text><line x1="44" y1="18.0" x2="704" y2="18.0" stroke="#2a2b45" stroke-width="1"/><text x="6" y="22.0" fill="#b9b9c3" font-size="11">34%</text><text x="44.0" y="290" fill="#b9b9c3" font-size="10" text-anchor="middle">04/10</text><text x="704.0" y="290" fill="#b9b9c3" font-size="10" text-anchor="middle">11/10</text><path d="M 44.0,34.3 L 704.0,32.8" fill="none" stroke="#ff5a1f" stroke-width="2.2"/><circle cx="44.0" cy="34.3" r="3" fill="#ff5a1f"/><circle cx="704.0" cy="32.8" r="3" fill="#ff5a1f"/><rect x="50" y="16" width="10" height="10" rx="2" fill="#ff5a1f"/><text x="64" y="25" fill="#e7e7ea" font-size="11">PP</text><path d="M 44.0,66.9 L 704.0,66.9" fill="none" stroke="#3ddc97" stroke-width="2.2"/><circle cx="44.0" cy="66.9" r="3" fill="#3ddc97"/><circle cx="704.0" cy="66.9" r="3" fill="#3ddc97"/><rect x="158" y="16" width="10" height="10" rx="2" fill="#3ddc97"/><text x="172" y="25" fill="#e7e7ea" font-size="11">PSOE</text><path d="M 44.0,122.4 L 704.0,124.6" fill="none" stroke="#8ec5ff" stroke-width="2.2"/><circle cx="44.0" cy="122.4" r="3" fill="#8ec5ff"/><circle cx="704.0" cy="124.6" r="3" fill="#8ec5ff"/><rect x="266" y="16" width="10" height="10" rx="2" fill="#8ec5ff"/><text x="280" y="25" fill="#e7e7ea" font-size="11">VOX</text><path d="M 44.0,227.5 L 704.0,229.7" fill="none" stroke="#f2c94c" stroke-width="2.2"/><circle cx="44.0" cy="227.5" r="3" fill="#f2c94c"/><circle cx="704.0" cy="229.7" r="3" fill="#f2c94c"/><rect x="374" y="16" width="10" height="10" rx="2" fill="#f2c94c"/><text x="388" y="25" fill="#e7e7ea" font-size="11">SUMAR</text><path d="M 44.0,240.8 L 704.0,240.8" fill="none" stroke="#bb6bd9" stroke-width="2.2"/><circle cx="44.0" cy="240.8" r="3" fill="#bb6bd9"/><circle cx="704.0" cy="240.8" r="3" fill="#bb6bd9"/><rect x="482" y="16" width="10" height="10" rx="2" fill="#bb6bd9"/><text x="496" y="25" fill="#e7e7ea" font-size="11">PODEMOS</text><path d="M 44.0,251.2 L 704.0,251.2" fill="none" stroke="#56ccf2" stroke-width="2.2"/><circle cx="44.0" cy="251.2" r="3" fill="#56ccf2"/><circle cx="704.0" cy="251.2" r="3" fill="#56ccf2"/><rect x="590" y="16" width="10" height="10" rx="2" fill="#56ccf2"/><text x="604" y="25" fill="#e7e7ea" font-size="11">ERC</text></svg>
+    <p class="muted" style="margin-top:8px;font-size:13px">Cada punto es un sondeo publicado. La distancia entre puntos es la dispersión real entre encuestadoras.</p>
+  </div>
+  
+  
+
+  <div class="card">
+    <h2>Comparte o cita</h2>
+    <p class="muted" style="margin:0 0 6px">Si te sirve, compártelo con la fuente y el rango, no solo con la media.</p>
+    <div class="share">
+      <a href="https://bsky.app/intent/compose?text=Sondeos%20elecciones%20generales%2029N%202026%20%E2%80%94%20media%20agregada%20con%20rango%2C%20no%20un%20pron%C3%B3stico%3A%20https%3A//elecciones29n.pruebapublica.com/" target="_blank" rel="noopener">Bluesky</a>
+      <a href="https://mastodon.social/share?text=Sondeos%20elecciones%20generales%2029N%202026%20%E2%80%94%20media%20agregada%20con%20rango%2C%20no%20un%20pron%C3%B3stico%3A%20https%3A//elecciones29n.pruebapublica.com/" target="_blank" rel="noopener">Mastodon</a>
+      <a href="https://twitter.com/intent/tweet?text=Sondeos%20elecciones%20generales%2029N%202026%20%E2%80%94%20media%20agregada%20con%20rango%2C%20no%20un%20pron%C3%B3stico.&url=https%3A//elecciones29n.pruebapublica.com/" target="_blank" rel="noopener">X</a>
+      <a href="https://api.whatsapp.com/send?text=Sondeos%20elecciones%20generales%2029N%202026%20https%3A//elecciones29n.pruebapublica.com/" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="/data/latest.json">Datos abiertos</a>
     </div>
-  </main>
-  <footer class="footer">
-    <div class="container">
-      <p>AGPL-3.0 · <a href="https://github.com/mcasrom/elecciones29n-osint">mcasrom/elecciones29n-osint</a></p>
+    <div class="cta">
+      <a class="btn" href="/metodologia.html">Ver metodología</a>
+      <a class="btn ghost" href="/caveat.html">Qué no dice este sitio</a>
     </div>
-  </footer>
-  <script src="js/charts.js"></script>
+  </div>
+
+  <div class="card">
+    <h2>Más del ecosistema</h2>
+    <p class="muted" style="margin:0 0 6px">Este agregado no vive solo. Si te interesa medir amplificación y coordinación informativa:</p>
+    <div class="share">
+      <a href="https://fimi.viajeinteligencia.com/?utm_source=elecciones29n&utm_medium=crosspromo">Observatorio de amplificación (FIMI)</a>
+      <a href="https://analisis.pruebapublica.com/?utm_source=elecciones29n&utm_medium=crosspromo">Blog de análisis</a>
+      <a href="https://vivienda.pruebapublica.com/?utm_source=elecciones29n&utm_medium=crosspromo">Vivienda</a>
+    </div>
+  </div>
+
+</main>
+<footer class="footer">
+  <div class="container">
+    <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
+    <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
+    <p>Datos abiertos · <a href="https://github.com/mcasrom/elecciones29n-osint">Código (AGPL-3.0)</a> · Hecho por Miguel Castillo.</p>
+  </div>
+</footer>
+<script src="/js/charts.js"></script>
 </body>
 </html>
