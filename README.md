@@ -60,6 +60,13 @@ No es un pronóstico, no estima intención de voto individual y no anticipa el r
 - Página `/territorio.html`: gráfico de electores/escaño, tabla completa y explicador (mínimo de 2 escaños, D'Hondt provincial, umbral del 3 %).
 - Límite: no incluye votos↔escaños de 2023 por provincia (resultados del Interior no accesibles); no proyecta el 29N.
 
+## Ayuda en pantalla y ecosistema
+
+- Botón flotante **«? Ayuda»** en todas las páginas: abre un panel lateral con las claves de lectura (sondeos ≠ pronóstico, tres capas, datos oficiales, límites).
+- Aviso **único** de primera visita («¿Primera vez?») con `localStorage`; se puede cerrar y no vuelve.
+- No hay popup bloqueante ni modal automático.
+- Footer con enlaces al ecosistema: **Prueba Pública**, **Blog de análisis**, **Observatorio de amplificación** y **Vivienda**, con UTM.
+
 ## Documentación y páginas
 
 - `/metodologia.html`: método de cada módulo (sondeos, censo, participación, territorio), reglas comunes y límites.
@@ -108,6 +115,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
+bash scripts/check.sh          # compila + tests + validación del sitio local
 bash scripts/run_daily.sh      # ingest + agg + build + OG + IndexNow + deploy
 bash scripts/rsync_push.sh     # solo publicar
 python3 scripts/add_poll.py --party PP --value 31.8   # alta manual

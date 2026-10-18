@@ -7,7 +7,6 @@ import os
 import re
 import sys
 import urllib.request
-from datetime import date
 
 API = "https://electomania.es/wp-json/wp/v2/posts?per_page=20&search=electopanel&_fields=title,content,link,date&page={page}"
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
