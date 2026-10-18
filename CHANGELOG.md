@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.5 — 2026-10-18
+
+- **Navegación**: `Factores` y `Comportamiento` pasan a la barra común de todas las páginas (antes solo estaban en el submenú de la portada).
+
 ## 0.8.4 — 2026-10-18
 
 - **Auditoría de datos reproducible** (`scripts/audit_datos.py`): **202 comprobaciones, 0 fallos críticos** (offline + online). Verifica sondeos, censo, participación, territorio, M4, M5, etiquetas de UI y fuentes (Onda Cero/CIS/Electomania).
