@@ -89,6 +89,24 @@ a{color:var(--blue)}
 .tab{appearance:none;border:1px solid transparent;background:transparent;color:var(--muted);font:inherit;font-size:14px;padding:9px 14px;border-radius:9px;cursor:pointer;text-decoration:none}
 .tab:hover{color:var(--fg);background:var(--panel)}
 .tab.active{color:var(--bg);background:var(--fg);font-weight:700}
+/* nav de páginas */
+.mainnav{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+.navrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.navrow-primary{gap:6px}
+.navpill{padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--muted);text-decoration:none;font-size:13.5px;font-weight:600}
+.navpill:hover{color:var(--fg);border-color:var(--muted)}
+.navpill.active{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.navrow-secondary{gap:14px;font-size:13px;border-top:1px solid var(--line);padding-top:8px}
+.navrow-secondary a{color:var(--faint);text-decoration:none}
+.navrow-secondary a:hover{color:var(--fg)}
+.navrow-secondary a.active{color:var(--accent);font-weight:700}
+.navdata{border:1px solid var(--line);border-radius:999px;padding:5px 11px;color:var(--muted)!important}
+.navdata:hover{border-color:var(--accent);color:var(--accent)!important}
+@media(max-width:760px){
+  .navrow-primary{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+  .navpill{white-space:nowrap}
+  .navrow-secondary{font-size:12.5px;gap:10px}
+}
 .subnav{display:flex;gap:14px;flex-wrap:wrap;padding:10px 0 0;font-size:13px}
 .subnav a{color:var(--faint);text-decoration:none}
 .subnav a:hover{color:var(--fg)}
@@ -930,7 +948,7 @@ def main(out: str = "web") -> None:
     for tname in ["index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "participacion.html", "territorio.html",
              "apoyo.html", "sobre-mi.html", "noche-electoral.html"]:
         tpl = env.get_template(tname + ".j2")
-        html = tpl.render(**context)
+        html = tpl.render(current=tname, **context)
         with open(os.path.join(OUT, tname), "w", encoding="utf-8") as f:
             f.write(html)
 

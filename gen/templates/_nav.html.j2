@@ -10,19 +10,24 @@
         <button class="themebtn" data-theme-toggle aria-label="Cambiar entre tema claro y oscuro" title="Cambiar tema"><span class="ticon">☀</span><span class="tlabel">Claro</span></button>
       </div>
     </div>
-    <nav>
-      <a href="/">Inicio</a>
-      <a href="/electorado.html">Electorado</a>
-      <a href="/participacion.html">Participación</a>
-      <a href="/territorio.html">Territorio</a>
-      <a href="/noche-electoral.html">Noche electoral</a>
-      <a href="/metodologia.html">Metodología</a>
-      <a href="/fuentes.html">Fuentes</a>
-      <a href="/caveat.html">Qué no dice</a>
-      <a href="/apoyo.html">Apoyo</a>
-      <a href="/sobre-mi.html">Sobre mí</a>
-      <a href="/about.html">Acerca del proyecto</a>
-      <a href="/data/latest.json">Datos</a>
+
+    <nav class="mainnav" aria-label="Principal">
+      <div class="navrow navrow-primary">
+        <a class="navpill {{ 'active' if current == 'index.html' else '' }}" href="/">Inicio</a>
+        <a class="navpill {{ 'active' if current == 'electorado.html' else '' }}" href="/electorado.html">Electorado</a>
+        <a class="navpill {{ 'active' if current == 'participacion.html' else '' }}" href="/participacion.html">Participación</a>
+        <a class="navpill {{ 'active' if current == 'territorio.html' else '' }}" href="/territorio.html">Territorio</a>
+        <a class="navpill {{ 'active' if current == 'noche-electoral.html' else '' }}" href="/noche-electoral.html">Noche electoral</a>
+      </div>
+      <div class="navrow navrow-secondary">
+        <a class="{{ 'active' if current == 'metodologia.html' else '' }}" href="/metodologia.html">Metodología</a>
+        <a class="{{ 'active' if current == 'fuentes.html' else '' }}" href="/fuentes.html">Fuentes y datos</a>
+        <a class="{{ 'active' if current == 'caveat.html' else '' }}" href="/caveat.html">Qué no dice</a>
+        <a class="{{ 'active' if current == 'apoyo.html' else '' }}" href="/apoyo.html">Apoyo</a>
+        <a class="{{ 'active' if current == 'sobre-mi.html' else '' }}" href="/sobre-mi.html">Sobre mí</a>
+        <a class="{{ 'active' if current == 'about.html' else '' }}" href="/about.html">Acerca del proyecto</a>
+        <a class="navdata" href="/data/latest.json">Datos abiertos ↗</a>
+      </div>
     </nav>
   </div>
 </header>
