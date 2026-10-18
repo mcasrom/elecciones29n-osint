@@ -50,7 +50,7 @@ da edad/sexo. El gráfico debe decirlo.
 
 ---
 
-## M1 · Censo 29N (P0, ~3–4 h)
+## M1 · Censo 29N (P0) — ✅ HECHO 18-oct (`8851a8d`)
 
 **Pregunta**: ¿quién forma el electorado del 29N?
 

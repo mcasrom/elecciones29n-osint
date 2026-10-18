@@ -26,6 +26,19 @@ No es un pronóstico, no estima intención de voto individual y no anticipa el r
 - Tema **claro/oscuro** con persistencia en el navegador.
 - **Aviso pulsante** si el cron no se ha ejecutado (>26 h o pasadas las 09:00 sin actualización del día). La comprobación es en cliente, así que funciona aunque el generador esté parado.
 
+## Electorado (censo 29N)
+
+- Ingesta oficial del **INE · Oficina del Censo Electoral** (XLSX del 29N):
+  total, CER, CERA, provincias, CCAA, edad/sexo (CER) y nuevos electores.
+- `python -m ingest.censo` → `data/censo_2026.json` (con URL y SHA-256 de cada
+  XLSX) y CSV en `web/data/`.
+- Página `/electorado.html`: 4 cifras oficiales, edad/sexo, top CERA por país,
+  provincias y nuevos electores.
+- Validación al ingerir: provincias, CCAA, edad y nuevos cuadran con el total
+  (38.728.356). Si no cuadra, no se sobrescribe el JSON.
+- Límite declarado: edad/sexo solo cubre residentes en España; el extranjero no
+  tiene ese desglose. El censo no dice a quién se vota.
+
 ## Datos
 
 - Fuente de sondeos: **Electomania** (ElectoPanel) vía WordPress REST API, con paginación y backfill.

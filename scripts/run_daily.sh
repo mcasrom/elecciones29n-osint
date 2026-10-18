@@ -32,6 +32,11 @@ cp -a web "$STAGE"
 # 1) Ingesta (un fallo de red no rompe: se conserva el histórico)
 PYTHONPATH="$REPO_DIR" python3 -m ingest.electomania || echo "[run_daily] aviso: ingesta sin novedades o falló"
 
+# 1b) Censo (estático; solo si falta o tiene más de 30 días)
+if [ ! -f data/censo_2026.json ] || [ -n "$(find data/censo_2026.json -mtime +30 2>/dev/null)" ]; then
+  PYTHONPATH="$REPO_DIR" python3 -m ingest.censo || echo "[run_daily] aviso: censo no actualizado"
+fi
+
 # 2) Agregación (escribe en el staging)
 PYTHONPATH="$REPO_DIR" python3 -m agg.aggregate --out "$STAGE/data"
 
