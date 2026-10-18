@@ -25,26 +25,40 @@ No hace falta cubrirlas todas cada semana: con **2–3 casas** la muestra mejora
 
 ## 2. Alta de un sondeo
 
-Modo lote (recomendado): una línea por sondeo, con todos los partidos que publica.
+### Método CSV (recomendado)
 
-```bash
-.venv/bin/python scripts/add_poll.py \
-  --date 2026-10-20 \
-  --pollster "40dB" \
-  --sample 1500 \
-  --source-url "https://…" \
-  --values "PP=31.8,PSOE=27.1,VOX=18.9,SUMAR=5.4,Podemos=3.3,ERC=2.0,Junts=1.2,Bildu=1.3,PNV=1.1,SAF=1.8"
+Abre **`data/entrada_sondeos.csv`** con LibreOffice o un editor de texto. Una
+fila por sondeo:
+
+```
+pollster,date,sample,source_url,values
+40dB,2026-10-20,1500,https://…,PP=31.8;PSOE=27.1;VOX=18.9;SUMAR=5.4;Podemos=3.3;ERC=2.0
 ```
 
-- Solo los partidos que publica la fuente; si faltan, la suma avisará.
-- La suma debe quedar **90–110 %**. Si no, revisa antes de continuar.
-- `--kind average` solo para promedios de otras casas (se excluyen de la media).
+- `pollster`: nombre de la encuestadora.
+- `date`: fecha de publicación `AAAA-MM-DD`.
+- `sample`: tamaño de muestra (si lo publica; si no, déjalo vacío).
+- `source_url`: enlace al sondeo.
+- `values`: `PARTIDO=valor` separados por **punto y coma** (`;`). Solo los
+  partidos que publica la fuente; no inventes los que faltan.
 
-Modo simple (un partido):
+Guarda y ejecuta:
 
 ```bash
-.venv/bin/python scripts/add_poll.py --party PP --value 31.8 --date 2026-10-20 \
-  --pollster "40dB" --sample 1500 --source-url "https://…"
+.venv/bin/python scripts/import_polls.py
+```
+
+El script valida partidos, fechas, muestra y suma (90–110 %). Si todo está
+bien, pasa las filas al histórico y archiva el CSV en
+`data/entrada_sondeos.procesado_<fecha>.csv`, dejando la plantilla vacía.
+La fila `EJEMPLO` se ignora.
+
+### Método comando (alternativo)
+
+```bash
+.venv/bin/python scripts/add_poll.py --date 2026-10-20 --pollster "40dB" \
+  --sample 1500 --source-url "https://…" \
+  --values "PP=31.8;PSOE=27.1;VOX=18.9;SUMAR=5.4;Podemos=3.3;ERC=2.0"
 ```
 
 ## 3. Validar y publicar

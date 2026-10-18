@@ -122,11 +122,20 @@ pulsante cuando los datos superan las 26 h o pasa de las 09:00 sin actualizar.
 Objetivo: **≥4 sondeos y ≥2 encuestadoras**. Rutina de 10–15 min/semana en
 [`docs/RUTINA-SEMANAL.md`](docs/RUTINA-SEMANAL.md).
 
+**Método CSV (recomendado)**: edita `data/entrada_sondeos.csv` (una fila por sondeo)
+y ejecuta `python scripts/import_polls.py`.
+
+```
+pollster,date,sample,source_url,values
+40dB,2026-10-20,1500,https://…,PP=31.8;PSOE=27.1;VOX=18.9;SUMAR=5.4
+```
+
+**Método comando**: un sondeo completo en una línea.
+
 ```bash
-# un sondeo completo en una línea
 .venv/bin/python scripts/add_poll.py --date 2026-10-20 --pollster "40dB" \
   --sample 1500 --source-url "https://…" \
-  --values "PP=31.8,PSOE=27.1,VOX=18.9,SUMAR=5.4,Podemos=3.3,ERC=2.0,Junts=1.2,Bildu=1.3,PNV=1.1,SAF=1.8"
+  --values "PP=31.8;PSOE=27.1;VOX=18.9;SUMAR=5.4;Podemos=3.3;ERC=2.0;Junts=1.2;Bildu=1.3;PNV=1.1;SAF=1.8"
 ```
 
 Valida partidos, rango y suma (90–110 %). `kind=average` marca promedios de
