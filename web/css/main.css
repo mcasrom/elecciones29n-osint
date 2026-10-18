@@ -79,6 +79,18 @@ svg.chart{width:100%;height:auto;display:block}
 @media(max-width:760px){svg.chart{min-width:560px}}
 .chartwrap{overflow-x:auto}
 
+/* calendario */
+.cal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:6px}
+.calev{position:relative;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 12px 10px 14px}
+.calev:before{content:"";position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:2px;background:var(--line)}
+.calev b{display:block;font-size:13px}
+.calev span{display:block;font-size:11.5px;color:var(--muted)}
+.calev.done:before{background:var(--accent2)}
+.calev.active{border-color:var(--accent)}
+.calev.active:before{background:var(--accent)}
+.calev.active b{color:var(--accent)}
+@media(max-width:760px){.cal{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
 /* legend */
 .legend{display:flex;flex-wrap:wrap;gap:14px;margin:10px 2px 0;font-size:12.5px;color:var(--muted)}
 .lg{display:inline-flex;align-items:center;gap:6px}

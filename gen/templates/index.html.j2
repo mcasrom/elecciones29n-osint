@@ -80,6 +80,16 @@
       {% endfor %}
     </div>
 
+    <div class="card">
+      <div class="cardhead"><h2>Calendario electoral</h2><span class="hint">próximo hito: {{ next_milestone }}</span></div>
+      <div class="cal">
+        {% for e in calendar %}
+        <div class="calev {{ e.state }}"><b>{{ e.date }}</b><span>{{ e.label }}</span></div>
+        {% endfor %}
+      </div>
+      <p class="muted small" style="margin-top:10px">Del 24 al 28 de noviembre no se publican ni difunden sondeos (JEC/LOREG). El agregado se congela.</p>
+    </div>
+
     {% if chart_svg %}
     <div class="card">
       <div class="cardhead"><h2>Evolución de los sondeos</h2><span class="hint">serie completa · cada punto = un sondeo</span></div>

@@ -118,6 +118,18 @@ svg.chart{width:100%;height:auto;display:block}
 @media(max-width:760px){svg.chart{min-width:560px}}
 .chartwrap{overflow-x:auto}
 
+/* calendario */
+.cal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:6px}
+.calev{position:relative;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 12px 10px 14px}
+.calev:before{content:"";position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:2px;background:var(--line)}
+.calev b{display:block;font-size:13px}
+.calev span{display:block;font-size:11.5px;color:var(--muted)}
+.calev.done:before{background:var(--accent2)}
+.calev.active{border-color:var(--accent)}
+.calev.active:before{background:var(--accent)}
+.calev.active b{color:var(--accent)}
+@media(max-width:760px){.cal{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
 /* legend */
 .legend{display:flex;flex-wrap:wrap;gap:14px;margin:10px 2px 0;font-size:12.5px;color:var(--muted)}
 .lg{display:inline-flex;align-items:center;gap:6px}
@@ -480,6 +492,27 @@ def main() -> None:
 
     now = datetime.now(TZ)
     today = now.strftime("%Y-%m-%d")
+
+    campaign = now.replace(year=2026, month=11, day=13, hour=0, minute=0, second=0, microsecond=0)
+    blackout_dt = now.replace(year=2026, month=11, day=24, hour=0, minute=0, second=0, microsecond=0)
+    election_dt = now.replace(year=2026, month=11, day=29, hour=0, minute=0, second=0, microsecond=0)
+    if now < campaign:
+        phase, next_ms = "precampaña", "Campaña · 13 nov"
+    elif now < blackout_dt:
+        phase, next_ms = "campaña", "Blackout de sondeos · 24 nov"
+    elif now < election_dt:
+        phase, next_ms = "blackout", "Jornada electoral · 29 nov"
+    else:
+        phase, next_ms = "postelectoral", "—"
+    calendar = [
+        {"date": "6 oct", "label": "Convocatoria (BOE)", "state": "done"},
+        {"date": "13–27 nov", "label": "Campaña electoral",
+         "state": "done" if now >= blackout_dt else ("active" if now >= campaign else "")},
+        {"date": "24–28 nov", "label": "Prohibición de sondeos",
+         "state": "done" if now >= election_dt else ("active" if now >= blackout_dt else "")},
+        {"date": "29 nov", "label": "Jornada electoral",
+         "state": "active" if now >= election_dt else ""},
+    ]
     in_blackout = blackout.is_blackout(now)
     parties = latest.get("parties", [])
     series = latest.get("series", {})
@@ -512,6 +545,9 @@ def main() -> None:
         "window_span": latest.get("window_span", ""),
         "window_extended": latest.get("window_extended", False),
         "weight_basis": latest.get("weight_basis", ""),
+        "phase": phase,
+        "next_milestone": next_ms,
+        "calendar": calendar,
         "days_to_election": latest.get("days_to_election", 0),
         "days_to_blackout": latest.get("days_to_blackout", 0),
         "last_poll_date": latest.get("last_poll_date"),
