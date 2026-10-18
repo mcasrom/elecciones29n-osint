@@ -80,12 +80,12 @@
 
     {% if chart_svg %}
     <div class="card">
-      <div class="cardhead"><h2>Evolución de los sondeos</h2><span class="hint">cada punto = un sondeo publicado</span></div>
+      <div class="cardhead"><h2>Evolución de los sondeos</h2><span class="hint">serie completa · cada punto = un sondeo</span></div>
       <div class="chartwrap">{{ chart_svg|safe }}</div>
       <div class="legend">
         {% for l in chart_legend %}<span class="lg"><i style="background:{{ l.color }}"></i>{{ l.party }}</span>{% endfor %}
       </div>
-      <p class="muted small" style="margin-top:6px">Eje vertical: media de voto (%). Cada punto es un sondeo publicado en la ventana.</p>
+      <p class="muted small" style="margin-top:6px">Eje vertical: media de voto (%). Cada punto es un sondeo publicado.</p>
 
     </div>
     {% endif %}
@@ -141,12 +141,12 @@
     </div>
     {% if chart_svg %}
     <div class="card">
-      <div class="cardhead"><h2>Vista conjunta</h2><span class="hint">ventana de 14 días</span></div>
+      <div class="cardhead"><h2>Vista conjunta</h2><span class="hint">serie completa</span></div>
       <div class="chartwrap">{{ chart_svg|safe }}</div>
       <div class="legend">
         {% for l in chart_legend %}<span class="lg"><i style="background:{{ l.color }}"></i>{{ l.party }}</span>{% endfor %}
       </div>
-      <p class="muted small" style="margin-top:6px">Eje vertical: media de voto (%). Cada punto es un sondeo publicado en la ventana.</p>
+      <p class="muted small" style="margin-top:6px">Eje vertical: media de voto (%). Cada punto es un sondeo publicado.</p>
     </div>
     {% endif %}
   </section>

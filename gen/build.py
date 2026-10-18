@@ -492,7 +492,7 @@ def main() -> None:
         "poll_dates": latest.get("poll_dates", []),
         "n_polls": latest.get("n_polls", 0),
         "sources": latest.get("sources", []),
-        "chart_svg": build_chart(series, parties),
+        "chart_svg": build_chart(latest.get("series_long", series), parties),
         "chart_legend": chart_legend(parties),
         "sparks_svg": build_sparklines(latest.get("series_long", series), parties),
         "series_span": (
