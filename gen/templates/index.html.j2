@@ -20,8 +20,17 @@
         <span class="badge">OSINT</span>
       </div>
       <div class="status" id="hstatus">
+        <button class="helpopen" id="helpbtn" aria-expanded="false" aria-controls="helppanel">? Ayuda</button>
         <button class="themebtn" data-theme-toggle aria-label="Cambiar entre tema claro y oscuro" title="Cambiar tema"><span class="ticon">☀</span><span class="tlabel">Claro</span></button>
-        {% if in_blackout %}
+        <div class="helpintro" id="helpintro" hidden>
+    <div><strong>¿Primera vez?</strong> Te explico en 20 segundos cómo leer los datos.</div>
+    <div class="helpintro-actions">
+      <button class="btn" id="helpintro-open">Ver guía</button>
+      <button class="helpintro-off" id="helpintro-off" aria-label="No mostrar">×</button>
+    </div>
+  </div>
+
+  {% if in_blackout %}
         <span class="dot off"></span> BLACKOUT · datos congelados
         {% else %}
         <span class="dot"></span> EN VIVO · actualizado {{ updated_at }}

@@ -10,7 +10,7 @@
 <meta name="description" content="Evolución de la participación nacional en las elecciones generales de España desde 1979: última cita, media histórica, máximo y mínimo, con enlace a la JEC.">
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/participacion.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202610180924">
+<link rel="stylesheet" href="/css/main.css?v=202610180928">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <meta name="twitter:image" content="https://elecciones29n.pruebapublica.com/og.png">
 <link rel="alternate" type="application/json" href="/data/latest.json" title="Datos agregados (JSON)">
 <link rel="alternate" type="application/rss+xml" href="/cambios.xml" title="Cambios · nuevos sondeos">
-<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebSite", "name": "elecciones29n-osint", "url": "https://elecciones29n.pruebapublica.com/", "inLanguage": "es-ES", "description": "Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo y datos abiertos."}, {"@context": "https://schema.org", "@type": "Dataset", "name": "Media agregada de sondeos · Elecciones Generales 29N 2026", "description": "Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo y datos abiertos.", "url": "https://elecciones29n.pruebapublica.com/", "creator": {"@type": "Person", "name": "Miguel Castillo", "url": "https://elecciones29n.pruebapublica.com"}, "license": "https://www.gnu.org/licenses/agpl-3.0.html", "isAccessibleForFree": true, "dateModified": "2026-10-18 09:24 CEST", "temporalCoverage": "2026-09/2026-11", "spatialCoverage": "ES", "distribution": [{"@type": "DataDownload", "contentUrl": "https://elecciones29n.pruebapublica.com/data/latest.json", "encodingFormat": "application/json"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué es la media agregada de sondeos?", "acceptedAnswer": {"@type": "Answer", "text": "Es la media de los sondeos publicados en los últimos 14 días con su rango mínimo–máximo. No es un pronóstico ni una estimación de intención de voto."}}, {"@type": "Question", "name": "¿Puedo publicar sondeos el 24–28 de noviembre de 2026?", "acceptedAnswer": {"@type": "Answer", "text": "No. La normativa electoral prohíbe publicar, difundir o reproducir sondeos del 24 al 28 de noviembre de 2026, ambos inclusive."}}, {"@type": "Question", "name": "¿De dónde salen los datos?", "acceptedAnswer": {"@type": "Answer", "text": "De paneles publicados por Electomania, con enlace a la fuente y fecha. Se descartan paneles autonómicos y adelantos sin serie completa."}}]}]</script>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebSite", "name": "elecciones29n-osint", "url": "https://elecciones29n.pruebapublica.com/", "inLanguage": "es-ES", "description": "Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo y datos abiertos."}, {"@context": "https://schema.org", "@type": "Dataset", "name": "Media agregada de sondeos · Elecciones Generales 29N 2026", "description": "Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo y datos abiertos.", "url": "https://elecciones29n.pruebapublica.com/", "creator": {"@type": "Person", "name": "Miguel Castillo", "url": "https://elecciones29n.pruebapublica.com"}, "license": "https://www.gnu.org/licenses/agpl-3.0.html", "isAccessibleForFree": true, "dateModified": "2026-10-18 09:28 CEST", "temporalCoverage": "2026-09/2026-11", "spatialCoverage": "ES", "distribution": [{"@type": "DataDownload", "contentUrl": "https://elecciones29n.pruebapublica.com/data/latest.json", "encodingFormat": "application/json"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué es la media agregada de sondeos?", "acceptedAnswer": {"@type": "Answer", "text": "Es la media de los sondeos publicados en los últimos 14 días con su rango mínimo–máximo. No es un pronóstico ni una estimación de intención de voto."}}, {"@type": "Question", "name": "¿Puedo publicar sondeos el 24–28 de noviembre de 2026?", "acceptedAnswer": {"@type": "Answer", "text": "No. La normativa electoral prohíbe publicar, difundir o reproducir sondeos del 24 al 28 de noviembre de 2026, ambos inclusive."}}, {"@type": "Question", "name": "¿De dónde salen los datos?", "acceptedAnswer": {"@type": "Answer", "text": "De paneles publicados por Electomania, con enlace a la fuente y fecha. Se descartan paneles autonómicos y adelantos sin serie completa."}}]}]</script>
 </head>
 <body>
 <header>
@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function(){
         <span class="tag">Media agregada de sondeos · 29N 2026</span>
       </div>
       <div class="status">
+        <button class="helpopen" id="helpbtn" aria-expanded="false" aria-controls="helppanel">? Ayuda</button>
         <button class="themebtn" data-theme-toggle aria-label="Cambiar entre tema claro y oscuro" title="Cambiar tema"><span class="ticon">☀</span><span class="tlabel">Claro</span></button>
       </div>
     </div>
@@ -238,8 +239,6 @@ document.addEventListener('DOMContentLoaded', function(){
   </div>
 </footer>
 
-<button class="helpbtn" id="helpbtn" aria-expanded="false" aria-controls="helppanel">? Ayuda</button>
-<div class="helpbackdrop" id="helpbackdrop" hidden></div>
 <aside class="helppanel" id="helppanel" role="dialog" aria-modal="true" aria-labelledby="helptitle" hidden>
   <div class="helphead">
     <h2 id="helptitle">Cómo leer el observatorio</h2>
@@ -256,18 +255,12 @@ document.addEventListener('DOMContentLoaded', function(){
     <a class="btn ghost" href="/caveat.html">Qué no dice este sitio</a>
   </div>
 </aside>
-<div class="helptip" id="helptip" hidden>
-  <span><strong>¿Primera vez?</strong> Te explico en 20 segundos cómo leer los datos.</span>
-  <button class="helptip-open" id="helptip-open">Ver guía</button>
-  <button class="helptip-off" id="helptip-off" aria-label="No mostrar">×</button>
-</div>
 <script>
 (function(){
   var btn = document.getElementById('helpbtn');
   var panel = document.getElementById('helppanel');
   var bd = document.getElementById('helpbackdrop');
   var close = document.getElementById('helpclose');
-  var tip = document.getElementById('helptip');
   if (!btn || !panel) return;
   var open = false;
   function setOpen(v){
@@ -282,20 +275,23 @@ document.addEventListener('DOMContentLoaded', function(){
   close.addEventListener('click', function(){ setOpen(false); });
   bd.addEventListener('click', function(){ setOpen(false); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && open) setOpen(false); });
-  var KEY = 'e29n_help_tip';
-  try {
-    if (!localStorage.getItem(KEY)) {
-      setTimeout(function(){ tip.hidden = false; }, 2500);
-    }
-  } catch(e) {}
-  document.getElementById('helptip-open').addEventListener('click', function(){
-    tip.hidden = true; setOpen(true);
-    try { localStorage.setItem(KEY, 'off'); } catch(e) {}
-  });
-  document.getElementById('helptip-off').addEventListener('click', function(){
-    tip.hidden = true;
-    try { localStorage.setItem(KEY, 'off'); } catch(e) {}
-  });
+  var intro = document.getElementById('helpintro');
+  var INTRO_KEY = 'e29n_help_intro';
+  if (intro) {
+    try {
+      if (!localStorage.getItem(INTRO_KEY)) intro.hidden = false;
+    } catch(e) {}
+    var io = document.getElementById('helpintro-open');
+    var ic = document.getElementById('helpintro-off');
+    if (io) io.addEventListener('click', function(){
+      intro.hidden = true; setOpen(true);
+      try { localStorage.setItem(INTRO_KEY, 'off'); } catch(e) {}
+    });
+    if (ic) ic.addEventListener('click', function(){
+      intro.hidden = true;
+      try { localStorage.setItem(INTRO_KEY, 'off'); } catch(e) {}
+    });
+  }
 })();
 </script>
 </body>

@@ -62,9 +62,9 @@ No es un pronóstico, no estima intención de voto individual y no anticipa el r
 
 ## Ayuda en pantalla y ecosistema
 
-- Botón flotante **«? Ayuda»** en todas las páginas: abre un panel lateral con las claves de lectura (sondeos ≠ pronóstico, tres capas, datos oficiales, límites).
-- Aviso **único** de primera visita («¿Primera vez?») con `localStorage`; se puede cerrar y no vuelve.
-- No hay popup bloqueante ni modal automático.
+- Botón **«? Ayuda»** en la cabecera: abre un panel lateral con las claves de lectura (sondeos ≠ pronóstico, tres capas, datos oficiales, límites).
+- Tarjeta **en el flujo** de la portada para la primera visita («¿Primera vez?»), con «Ver guía» y «×». Se cierra y no vuelve (`localStorage`).
+- No hay overlay fijo ni popup bloqueante: no tapa el footer ni el botón de Ko-fi.
 - Footer con enlaces al ecosistema: **Prueba Pública**, **Blog de análisis**, **Observatorio de amplificación** y **Vivienda**, con UTM.
 
 ## Documentación y páginas
