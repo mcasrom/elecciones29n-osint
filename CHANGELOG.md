@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.0 — 2026-10-18
+
+- **M4 v1**: voto declarado en 2023 por **edad, sexo e ideología** (CIS 3582, n=5.025), base de votantes a partidos, **N ponderado** y **celdas n<30 suprimidas**.
+- Página `/comportamiento.html` con tablas, fuente y límites; JSON/CSV abiertos.
+- Corrección de la agregación de «Otros» y de la normalización a voto a partidos.
+
 ## 0.7.0 — 2026-10-18
 
 - **Onda Cero**: 94 sondeos de 14 casas integrados como fuente secundaria (sondeos individuales, no su promedio; fecha de publicación).

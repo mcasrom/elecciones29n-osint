@@ -105,6 +105,11 @@ da edad/sexo. El gráfico debe decirlo.
   D'Hondt nacional etiquetado como simulación.
 - **Aceptación**: tabla votos↔escaños 2023 verificada; explicador sin proyección.
 
+## M4 · Comportamiento por grupos — ✅ v1 HECHA 18-oct (v0.8.0)
+
+- `/comportamiento.html`: recuerdo de voto 2023 por edad, sexo e ideología (CIS 3582, n=5.025), base de votantes a partidos, N ponderado y celdas n<30 suprimidas.
+- `data/cis_m4_2026.json` + CSV; `ingest/cis_m4.py`; 51 tests.
+
 ## M4 · Comportamiento por grupos — 🟡 DISEÑO + SPRINT PREPARADO 18-oct
 
 - **Fuente encontrada**: cross-tabs del CIS (estudio 3582, oct-2026, n=5.025) por edad, sexo e ideología. Plan: `docs/SPRINT-M4-20261018.md`.

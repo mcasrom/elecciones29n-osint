@@ -1,0 +1,61 @@
+dimension,grupo,n_total,n_base,partido,pct,n_celda,suprimido
+edad,De 18 a 24 años,422,161,PP,14.0,22,1
+edad,De 18 a 24 años,422,161,PSOE,42.0,67,0
+edad,De 18 a 24 años,422,161,VOX,18.2,29,1
+edad,De 18 a 24 años,422,161,SUMAR,10.7,17,1
+edad,De 18 a 24 años,422,161,Otros,15.3,25,1
+edad,De 25 a 34 años,608,422,PP,16.2,68,0
+edad,De 25 a 34 años,608,422,PSOE,38.0,160,0
+edad,De 25 a 34 años,608,422,VOX,14.0,59,0
+edad,De 25 a 34 años,608,422,SUMAR,17.9,75,0
+edad,De 25 a 34 años,608,422,Otros,13.9,59,0
+edad,De 35 a 44 años,759,593,PP,20.2,120,0
+edad,De 35 a 44 años,759,593,PSOE,34.0,201,0
+edad,De 35 a 44 años,759,593,VOX,15.9,94,0
+edad,De 35 a 44 años,759,593,SUMAR,18.3,109,0
+edad,De 35 a 44 años,759,593,Otros,11.7,69,0
+edad,De 45 a 54 años,990,756,PP,26.8,202,0
+edad,De 45 a 54 años,990,756,PSOE,38.0,287,0
+edad,De 45 a 54 años,990,756,VOX,14.1,107,0
+edad,De 45 a 54 años,990,756,SUMAR,12.8,97,0
+edad,De 45 a 54 años,990,756,Otros,8.3,63,0
+edad,De 55 a 64 años,898,712,PP,21.2,151,0
+edad,De 55 a 64 años,898,712,PSOE,47.1,335,0
+edad,De 55 a 64 años,898,712,VOX,9.2,65,0
+edad,De 55 a 64 años,898,712,SUMAR,11.7,83,0
+edad,De 55 a 64 años,898,712,Otros,10.9,77,0
+edad,De 65 a 74 años,668,547,PP,27.4,150,0
+edad,De 65 a 74 años,668,547,PSOE,46.8,256,0
+edad,De 65 a 74 años,668,547,VOX,4.8,26,1
+edad,De 65 a 74 años,668,547,SUMAR,13.1,72,0
+edad,De 65 a 74 años,668,547,Otros,7.9,43,0
+edad,75 y más años,679,505,PP,21.8,110,0
+edad,75 y más años,679,505,PSOE,60.2,304,0
+edad,75 y más años,679,505,VOX,4.6,23,1
+edad,75 y más años,679,505,SUMAR,3.2,16,1
+edad,75 y más años,679,505,Otros,10.1,51,0
+sexo,Hombre,2429,1767,PP,23.4,414,0
+sexo,Hombre,2429,1767,PSOE,37.6,665,0
+sexo,Hombre,2429,1767,VOX,13.3,234,0
+sexo,Hombre,2429,1767,SUMAR,14.5,256,0
+sexo,Hombre,2429,1767,Otros,11.2,198,0
+sexo,Mujer,2596,1928,PP,21.2,409,0
+sexo,Mujer,2596,1928,PSOE,49.1,946,0
+sexo,Mujer,2596,1928,VOX,8.8,170,0
+sexo,Mujer,2596,1928,SUMAR,11.1,213,0
+sexo,Mujer,2596,1928,Otros,9.8,189,0
+ideologia,Izquierda (1–4),2280,1860,PP,1.3,24,1
+ideologia,Izquierda (1–4),2280,1860,PSOE,62.6,1165,0
+ideologia,Izquierda (1–4),2280,1860,VOX,0.3,6,1
+ideologia,Izquierda (1–4),2280,1860,SUMAR,23.5,437,0
+ideologia,Izquierda (1–4),2280,1860,Otros,12.2,228,0
+ideologia,Centro (5–6),1468,938,PP,42.2,396,0
+ideologia,Centro (5–6),1468,938,PSOE,32.7,306,0
+ideologia,Centro (5–6),1468,938,VOX,11.9,112,0
+ideologia,Centro (5–6),1468,938,SUMAR,2.7,25,1
+ideologia,Centro (5–6),1468,938,Otros,10.5,98,0
+ideologia,Derecha (7–10),1105,850,PP,47.0,399,0
+ideologia,Derecha (7–10),1105,850,PSOE,13.2,112,0
+ideologia,Derecha (7–10),1105,850,VOX,32.5,276,0
+ideologia,Derecha (7–10),1105,850,SUMAR,0.8,6,1
+ideologia,Derecha (7–10),1105,850,Otros,6.6,56,0

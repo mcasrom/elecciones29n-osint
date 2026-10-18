@@ -107,6 +107,8 @@ def main() -> int:
     code, ch = get(base + "/comportamiento.html?canary=1")
     if code != 200:
         errors.append(f"comportamiento.html HTTP {code}")
+    elif "Recuerdo de voto 2023" not in ch or "Por edad" not in ch:
+        errors.append("comportamiento.html sin tablas M4")
 
     code, fh = get(base + "/factores.html?canary=1")
     if code != 200:

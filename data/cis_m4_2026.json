@@ -1,0 +1,409 @@
+{
+  "meta": {
+    "estudio": "3582",
+    "titulo": "Barómetro de octubre 2026",
+    "publicacion": "2026-10-14",
+    "muestra": 5025,
+    "fuente": "CIS",
+    "url": "https://www.cis.es/es/w/avance-de-resultados-del-estudio-3582-barómetro-de-octubre-2026-",
+    "fichero_sha256": "da5082b8cdfc6c18b96296dd552d2994eb02060bf8f864370c595e4bc37c3035",
+    "base": "Voto declarado en las elecciones generales de 2023. Porcentajes sobre voto a partidos (excluye blanco, nulo, no votantes y no respuesta). N ponderado.",
+    "nota": "Celdas con n<30 suprimidas. El grupo 18–24 incluye a quienes no podían votar en 2023; por eso la base de votantes es menor."
+  },
+  "edad": {
+    "grupos": [
+      {
+        "nombre": "De 18 a 24 años",
+        "n_total": 422,
+        "n_base": 161,
+        "partidos": {
+          "PP": {
+            "pct": 14.0,
+            "n": 22,
+            "suppressed": true
+          },
+          "PSOE": {
+            "pct": 42.0,
+            "n": 67,
+            "suppressed": false
+          },
+          "VOX": {
+            "pct": 18.2,
+            "n": 29,
+            "suppressed": true
+          },
+          "SUMAR": {
+            "pct": 10.7,
+            "n": 17,
+            "suppressed": true
+          },
+          "Otros": {
+            "pct": 15.3,
+            "n": 25,
+            "suppressed": true
+          }
+        }
+      },
+      {
+        "nombre": "De 25 a 34 años",
+        "n_total": 608,
+        "n_base": 422,
+        "partidos": {
+          "PP": {
+            "pct": 16.2,
+            "n": 68,
+            "suppressed": false
+          },
+          "PSOE": {
+            "pct": 38.0,
+            "n": 160,
+            "suppressed": false
+          },
+          "VOX": {
+            "pct": 14.0,
+            "n": 59,
+            "suppressed": false
+          },
+          "SUMAR": {
+            "pct": 17.9,
+            "n": 75,
+            "suppressed": false
+          },
+          "Otros": {
+            "pct": 13.9,
+            "n": 59,
+            "suppressed": false
+          }
+        }
+      },
+      {
+        "nombre": "De 35 a 44 años",
+        "n_total": 759,
+        "n_base": 593,
+        "partidos": {
+          "PP": {
+            "pct": 20.2,
+            "n": 120,
+            "suppressed": false
+          },
+          "PSOE": {
+            "pct": 34.0,
+            "n": 201,
+            "suppressed": false
+          },
+          "VOX": {
+            "pct": 15.9,
+            "n": 94,
+            "suppressed": false
+          },
+          "SUMAR": {
+            "pct": 18.3,
+            "n": 109,
+            "suppressed": false
+          },
+          "Otros": {
+            "pct": 11.7,
+            "n": 69,
+            "suppressed": false
+          }
+        }
+      },
+      {
+        "nombre": "De 45 a 54 años",
+        "n_total": 990,
+        "n_base": 756,
+        "partidos": {
+          "PP": {
+            "pct": 26.8,
+            "n": 202,
+            "suppressed": false
+          },
+          "PSOE": {
+            "pct": 38.0,
+            "n": 287,
+            "suppressed": false
+          },
+          "VOX": {
+            "pct": 14.1,
+            "n": 107,
+            "suppressed": false
+          },
+          "SUMAR": {
+            "pct": 12.8,
+            "n": 97,
+            "suppressed": false
+          },
+          "Otros": {
+            "pct": 8.3,
+            "n": 63,
+            "suppressed": false
+          }
+        }
+      },
+      {
+        "nombre": "De 55 a 64 años",
+        "n_total": 898,
+        "n_base": 712,
+        "partidos": {
+          "PP": {
+            "pct": 21.2,
+            "n": 151,
+            "suppressed": false
+          },
+          "PSOE": {
+            "pct": 47.1,
+            "n": 335,
+            "suppressed": false
+          },
+          "VOX": {
+            "pct": 9.2,
+            "n": 65,
+            "suppressed": false
+          },
+          "SUMAR": {
+            "pct": 11.7,
+            "n": 83,
+            "suppressed": false
+          },
+          "Otros": {
+            "pct": 10.9,
+            "n": 77,
+            "suppressed": false
+          }
+        }
+      },
+      {
+        "nombre": "De 65 a 74 años",
+        "n_total": 668,
+        "n_base": 547,
+        "partidos": {
+          "PP": {
+            "pct": 27.4,
+            "n": 150,
+            "suppressed": false
+          },
+          "PSOE": {
+            "pct": 46.8,
+            "n": 256,
+            "suppressed": false
+          },
+          "VOX": {
+            "pct": 4.8,
+            "n": 26,
+            "suppressed": true
+          },
+          "SUMAR": {
+            "pct": 13.1,
+            "n": 72,
+            "suppressed": false
+          },
+          "Otros": {
+            "pct": 7.9,
+            "n": 43,
+            "suppressed": false
+          }
+        }
+      },
+      {
+        "nombre": "75 y más años",
+        "n_total": 679,
+        "n_base": 505,
+        "partidos": {
+          "PP": {
+            "pct": 21.8,
+            "n": 110,
+            "suppressed": false
+          },
+          "PSOE": {
+            "pct": 60.2,
+            "n": 304,
+            "suppressed": false
+          },
+          "VOX": {
+            "pct": 4.6,
+            "n": 23,
+            "suppressed": true
+          },
+          "SUMAR": {
+            "pct": 3.2,
+            "n": 16,
+            "suppressed": true
+          },
+          "Otros": {
+            "pct": 10.1,
+            "n": 51,
+            "suppressed": false
+          }
+        }
+      }
+    ]
+  },
+  "sexo": {
+    "grupos": [
+      {
+        "nombre": "Hombre",
+        "n_total": 2429,
+        "n_base": 1767,
+        "partidos": {
+          "PP": {
+            "pct": 23.4,
+            "n": 414,
+            "suppressed": false
+          },
+          "PSOE": {
+            "pct": 37.6,
+            "n": 665,
+            "suppressed": false
+          },
+          "VOX": {
+            "pct": 13.3,
+            "n": 234,
+            "suppressed": false
+          },
+          "SUMAR": {
+            "pct": 14.5,
+            "n": 256,
+            "suppressed": false
+          },
+          "Otros": {
+            "pct": 11.2,
+            "n": 198,
+            "suppressed": false
+          }
+        }
+      },
+      {
+        "nombre": "Mujer",
+        "n_total": 2596,
+        "n_base": 1928,
+        "partidos": {
+          "PP": {
+            "pct": 21.2,
+            "n": 409,
+            "suppressed": false
+          },
+          "PSOE": {
+            "pct": 49.1,
+            "n": 946,
+            "suppressed": false
+          },
+          "VOX": {
+            "pct": 8.8,
+            "n": 170,
+            "suppressed": false
+          },
+          "SUMAR": {
+            "pct": 11.1,
+            "n": 213,
+            "suppressed": false
+          },
+          "Otros": {
+            "pct": 9.8,
+            "n": 189,
+            "suppressed": false
+          }
+        }
+      }
+    ]
+  },
+  "ideologia": {
+    "grupos": [
+      {
+        "nombre": "Izquierda (1–4)",
+        "n_total": 2280,
+        "n_base": 1860,
+        "partidos": {
+          "PP": {
+            "pct": 1.3,
+            "n": 24,
+            "suppressed": true
+          },
+          "PSOE": {
+            "pct": 62.6,
+            "n": 1165,
+            "suppressed": false
+          },
+          "VOX": {
+            "pct": 0.3,
+            "n": 6,
+            "suppressed": true
+          },
+          "SUMAR": {
+            "pct": 23.5,
+            "n": 437,
+            "suppressed": false
+          },
+          "Otros": {
+            "pct": 12.2,
+            "n": 228,
+            "suppressed": false
+          }
+        }
+      },
+      {
+        "nombre": "Centro (5–6)",
+        "n_total": 1468,
+        "n_base": 938,
+        "partidos": {
+          "PP": {
+            "pct": 42.2,
+            "n": 396,
+            "suppressed": false
+          },
+          "PSOE": {
+            "pct": 32.7,
+            "n": 306,
+            "suppressed": false
+          },
+          "VOX": {
+            "pct": 11.9,
+            "n": 112,
+            "suppressed": false
+          },
+          "SUMAR": {
+            "pct": 2.7,
+            "n": 25,
+            "suppressed": true
+          },
+          "Otros": {
+            "pct": 10.5,
+            "n": 98,
+            "suppressed": false
+          }
+        }
+      },
+      {
+        "nombre": "Derecha (7–10)",
+        "n_total": 1105,
+        "n_base": 850,
+        "partidos": {
+          "PP": {
+            "pct": 47.0,
+            "n": 399,
+            "suppressed": false
+          },
+          "PSOE": {
+            "pct": 13.2,
+            "n": 112,
+            "suppressed": false
+          },
+          "VOX": {
+            "pct": 32.5,
+            "n": 276,
+            "suppressed": false
+          },
+          "SUMAR": {
+            "pct": 0.8,
+            "n": 6,
+            "suppressed": true
+          },
+          "Otros": {
+            "pct": 6.6,
+            "n": 56,
+            "suppressed": false
+          }
+        }
+      }
+    ]
+  }
+}

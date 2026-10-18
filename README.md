@@ -5,7 +5,7 @@
 [![En vivo](https://img.shields.io/badge/en%20vivo-elecciones29n.pruebapublica.com-ff5a1f)](https://elecciones29n.pruebapublica.com/)
 [![Licencia](https://img.shields.io/badge/licencia-AGPL--3.0-3ddc97)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.12-8ec5ff)](https://www.python.org/)
-[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.7.0-ff5a1f)](CHANGELOG.md)
+[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.8.0-ff5a1f)](CHANGELOG.md)
 
 ---
 
@@ -32,7 +32,7 @@ dato, no en una nota al pie.
 - `/participacion.html` — Participación nacional 1979–2023 y **provincial 1977–2023** (selector + comparación con la media nacional).
 - `/territorio.html` — 350 escaños, 52 circunscripciones, electores por escaño y **votos↔escaños 2023 con índice de Gallagher**.
 - `/factores.html` — Factores y participación: día/festivo, meteorología (M5) y **resultados v1**.
-- `/comportamiento.html` — Diseño de M4 (voto por grupos) y criterios de aceptación; sin datos aún.
+- `/comportamiento.html` — **M4 v1**: voto declarado en 2023 por edad, sexo e ideología (CIS 3582, n=5.025), con n por celda y celdas n<30 suprimidas.
 - `/noche-electoral.html` — Qué se publica el 29N, cuándo y con qué fuente.
 - `/metodologia.html` y `/fuentes.html` — Método, fuentes, catálogo de datos y licencias.
 
@@ -183,7 +183,7 @@ Además de la media por sondeo (ponderada por recencia y muestra cuando existe),
 
 ## Calidad
 
-- **46 tests** (`unittest`) y hook **pre-push**.
+- **51 tests** (`unittest`) y hook **pre-push**.
 - `scripts/check.sh`: compila, tests y valida el sitio local.
 - **Validador** de publicación: gráfico con puntos, pestañas, JSON, sitemap, OG,
   RSS, censo, participación y escaños.
@@ -213,7 +213,7 @@ Además de la media por sondeo (ponderada por recencia y muestra cuando existe),
 
 ## Hoja de ruta
 
-- **M4** · Comportamiento por grupos: solo cross-tabs publicados, con `n` y fuente. Hoy solo diseño.
+- **M4 v1** · Comportamiento por grupos: ✅ hecho (CIS 3582, recuerdo 2023; edad/sexo/ideología; celdas n<30 suprimidas).
 - **M5 v1** · Meteorología × participación: ✅ hecho (806 obs; −0,041 pp/mm; sin causalidad).
 - **29N** · Activar resultados y participación oficiales tras la jornada (fallback manual listo).
 - **Provincial** · ✅ participación 1977–2023 y votos↔escaños 2023 integrados.

@@ -1,6 +1,9 @@
-{% set page_title = "Comportamiento por grupos · qué se puede saber y qué no" %}
-{% set page_desc = "Edad, sexo, renta e ideología: qué se puede publicar con encuestas, con muestra y fuente, y por qué no se cruza el censo con el voto." %}
+{% set page_title = "Comportamiento por grupos · voto declarado en 2023" %}
+{% set page_desc = "Voto declarado en las elecciones de 2023 por edad, sexo e ideología, con muestra por celda, base de votantes y celdas pequeñas suprimidas. Fuente: CIS 3582." %}
 {% set canonical = site_url ~ "/comportamiento.html" %}
+{% macro cell(v) -%}
+  {%- if v.suppressed -%}<span class="muted" title="n&lt;30">—</span>{%- else -%}{{ fmt_pct(v.pct) }}%<br><small class="muted">n={{ fmt_miles(v.n) }}</small>{%- endif -%}
+{%- endmacro %}
 <!DOCTYPE html>
 <html lang="es-ES">
 <head>
@@ -10,51 +13,89 @@
 {% include "_nav.html.j2" %}
 <main class="container">
   <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Comportamiento por grupos</h1>
-  <p class="muted" style="margin:0 0 14px">Qué sabemos del voto por edad, sexo, renta o ideología. Diseño del módulo y límites: todavía no hay datos publicados.</p>
+  <p class="muted" style="margin:0 0 14px">Recuerdo de voto 2023 por edad, sexo e ideología (voto declarado). Fuente: CIS, estudio 3582 (octubre 2026).</p>
 
+  {% if m4 %}
   <div class="alert warn">
-    <strong>Módulo en preparación.</strong> No se publican estimaciones por grupo hasta tener <strong>fuente, fecha, muestra (n) y comparabilidad</strong>. El censo dice quién puede votar; no dice a quién vota.
+    Es <strong>voto declarado</strong>, no el voto real de cada persona. La base es <strong>votantes a partidos</strong> (excluye blanco, nulo, no votantes y no respuesta). El <strong>n es ponderado</strong>; las celdas con <strong>n&lt;30</strong> se muestran como «—». No se cruza el censo con el voto ni se atribuye causalidad.
   </div>
 
   <div class="card">
-    <div class="cardhead"><h2>Qué se puede saber</h2><span class="hint">encuestas, no censo</span></div>
-    <ul class="muted small">
-      <li><strong>CIS</strong>: estudios postelectorales y barómetros con microdatos y tablas publicadas. Permiten estimar el recuerdo de voto por edad, sexo, renta o ideología, con su muestra.</li>
-      <li><strong>Medios</strong>: cross-tabs publicados junto a encuestas (p. ej. análisis por edad/renta/ideología). Son estimaciones de una casa y una fecha.</li>
-      <li><strong>Academia</strong>: estudios con datos propios o microdatos; útiles para contexto, no para un gráfico en tiempo real.</li>
-    </ul>
+    <div class="cardhead"><h2>Por edad</h2><span class="hint">Recuerdo de voto 2023 · n ponderado</span></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Grupo</th><th>PP</th><th>PSOE</th><th>VOX</th><th>SUMAR</th><th>Otros</th></tr></thead>
+        <tbody>
+        {% for g in m4.edad.grupos %}
+          <tr>
+            <td><strong>{{ g.nombre }}</strong><br><small class="muted">n={{ fmt_miles(g.n_total) }} · votantes {{ fmt_miles(g.n_base) }}</small></td>
+            {% for p in ["PP","PSOE","VOX","SUMAR","Otros"] %}
+              <td class="num">{{ cell(g.partidos[p]) }}</td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="muted small">El grupo 18–24 incluye a quienes no podían votar en 2023 (tenían 15–16 años); se excluyen de la base. Por eso hay más celdas suprimidas en ese tramo.</p>
   </div>
 
   <div class="card">
-    <div class="cardhead"><h2>Qué se publicará (cuando haya datos)</h2></div>
-    <ul class="muted small">
-      <li>Estimaciones por grupo con <strong>fuente, fecha, n y margen</strong> visibles.</li>
-      <li>Comparación entre elecciones solo si la pregunta y la muestra son comparables.</li>
-      <li>Separación clara entre <strong>composición del censo</strong> (oficial) y <strong>preferencia declarada</strong> (encuesta).</li>
-      <li>Avisos cuando el grupo tenga <strong>n pequeño</strong>: una diferencia de dos puntos con 50 casos no es una conclusión.</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <div class="cardhead"><h2>Qué no se hará</h2></div>
-    <ul class="muted small">
-      <li><strong>No</strong> cruzar cuotas del censo con porcentajes de voto: el censo no registra el voto.</li>
-      <li><strong>No</strong> presentar una encuesta como «el electorado»: es una estimación con muestra y margen.</li>
-      <li><strong>No</strong> atribuir causalidad a edad, sexo, renta o territorio.</li>
-      <li><strong>No</strong> publicar un gráfico sin n, fuente y fecha.</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <div class="cardhead"><h2>Por qué no está todavía</h2></div>
-    <p class="muted small">Los cross-tabs utilizables son escasos, cambian de tramos y de metodología entre casas y a menudo no publican la muestra por celda. Convertirlos en una serie exige curación manual y un criterio de aceptación estricto. Es preferible no publicar nada a publicar una falsa precisión.</p>
-    <p class="muted small"><strong>Vía abierta</strong>: los barómetros del CIS publican <strong>frecuencias cruzadas por variables sociodemográficas y políticas</strong> (p. ej., estudio 3582, octubre 2026), con muestra y recuerdo de voto. Es la base para M4, pero exige curar las tablas, declarar el `n` y no mezclar cuotas del censo con voto.</p>
-    <p class="muted small">Fuentes de referencia: <a href="https://www.cis.es/" rel="noopener" target="_blank">CIS</a> · <a href="https://elpais.com/espana/elecciones-generales/2026-10-07/como-se-mueven-los-votos-desde-2023-las-encuestas-por-sexo-renta-edad-e-ideologia.html" rel="noopener" target="_blank">análisis por sexo, renta, edad e ideología (El País, 7-oct-2026)</a>.</p>
-    <div class="cta">
-      <a class="btn" href="/electorado.html">Ver el censo</a>
-      <a class="btn ghost" href="/factores.html">Factores y participación</a>
+    <div class="cardhead"><h2>Por sexo</h2><span class="hint">Recuerdo de voto 2023 · n ponderado</span></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Grupo</th><th>PP</th><th>PSOE</th><th>VOX</th><th>SUMAR</th><th>Otros</th></tr></thead>
+        <tbody>
+        {% for g in m4.sexo.grupos %}
+          <tr>
+            <td><strong>{{ g.nombre }}</strong><br><small class="muted">n={{ fmt_miles(g.n_total) }} · votantes {{ fmt_miles(g.n_base) }}</small></td>
+            {% for p in ["PP","PSOE","VOX","SUMAR","Otros"] %}
+              <td class="num">{{ cell(g.partidos[p]) }}</td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
     </div>
   </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Por ideología</h2><span class="hint">escala 1–10 agrupada · n ponderado</span></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Grupo</th><th>PP</th><th>PSOE</th><th>VOX</th><th>SUMAR</th><th>Otros</th></tr></thead>
+        <tbody>
+        {% for g in m4.ideologia.grupos %}
+          <tr>
+            <td><strong>{{ g.nombre }}</strong><br><small class="muted">n={{ fmt_miles(g.n_total) }} · votantes {{ fmt_miles(g.n_base) }}</small></td>
+            {% for p in ["PP","PSOE","VOX","SUMAR","Otros"] %}
+              <td class="num">{{ cell(g.partidos[p]) }}</td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Fuente, método y límites</h2></div>
+    <ul class="muted small">
+      <li><strong>Fuente</strong>: CIS · <a href="{{ m4.meta.url }}" rel="noopener" target="_blank">estudio 3582, Barómetro de octubre 2026</a> (publicado el {{ m4.meta.publicacion }}; muestra {{ fmt_miles(m4.meta.muestra) }}). Cruces por edad, sexo y escala de ideología.</li>
+      <li><strong>Base</strong>: {{ m4.meta.base }}</li>
+      <li><strong>Celdas pequeñas</strong>: n&lt;30 se suprimen; no se estiman valores a partir de ellas.</li>
+      <li><strong>Ideología</strong>: 1–4 izquierda, 5–6 centro, 7–10 derecha; se agregan para tener n suficiente.</li>
+      <li><strong>Límites</strong>: voto declarado (no real), N ponderado, categorías de una sola encuesta, sin causalidad. No se cruza el censo con el voto.</li>
+    </ul>
+    <div class="cta">
+      <a class="btn" href="/data/cis-m4-2026.json">Datos (JSON)</a>
+      <a class="btn ghost" href="/data/cis-m4-2023.csv">Datos (CSV)</a>
+      <a class="btn ghost" href="/electorado.html">Ver el censo</a>
+    </div>
+  </div>
+  {% else %}
+  <div class="alert warn">Los datos de M4 no están disponibles todavía. <a href="/">Volver al agregado</a>.</div>
+  {% endif %}
 </main>
 {% include "_footer.html.j2" %}
 </body>
