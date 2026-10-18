@@ -6,11 +6,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Metodología · media agregada de sondeos 29N 2026</title>
-<meta name="description" content="Cómo calculo la media agregada: ventana de 14 días, rango mínimo–máximo, fuentes, límites y blackout electoral.">
+<title>Metodología · observatorio electoral 29N 2026</title>
+<meta name="description" content="Cómo se calcula cada dato: agregado de sondeos, censo, participación y escaños. Reglas comunes de fuente, validación y límites.">
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/metodologia.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202610180904">
+<link rel="stylesheet" href="/css/main.css?v=202610180908">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -39,28 +39,33 @@ document.addEventListener('DOMContentLoaded', function(){
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="elecciones29n-osint">
 <meta property="og:locale" content="es_ES">
-<meta property="og:title" content="Metodología · media agregada de sondeos 29N 2026">
-<meta property="og:description" content="Cómo calculo la media agregada: ventana de 14 días, rango mínimo–máximo, fuentes, límites y blackout electoral.">
+<meta property="og:title" content="Metodología · observatorio electoral 29N 2026">
+<meta property="og:description" content="Cómo se calcula cada dato: agregado de sondeos, censo, participación y escaños. Reglas comunes de fuente, validación y límites.">
 <meta property="og:url" content="https://elecciones29n.pruebapublica.com/metodologia.html">
 <meta property="og:image" content="https://elecciones29n.pruebapublica.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Metodología · media agregada de sondeos 29N 2026">
-<meta name="twitter:description" content="Cómo calculo la media agregada: ventana de 14 días, rango mínimo–máximo, fuentes, límites y blackout electoral.">
+<meta name="twitter:title" content="Metodología · observatorio electoral 29N 2026">
+<meta name="twitter:description" content="Cómo se calcula cada dato: agregado de sondeos, censo, participación y escaños. Reglas comunes de fuente, validación y límites.">
 <meta name="twitter:image" content="https://elecciones29n.pruebapublica.com/og.png">
 <link rel="alternate" type="application/json" href="/data/latest.json" title="Datos agregados (JSON)">
 <link rel="alternate" type="application/rss+xml" href="/cambios.xml" title="Cambios · nuevos sondeos">
-<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebSite", "name": "elecciones29n-osint", "url": "https://elecciones29n.pruebapublica.com/", "inLanguage": "es-ES", "description": "Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo y datos abiertos."}, {"@context": "https://schema.org", "@type": "Dataset", "name": "Media agregada de sondeos · Elecciones Generales 29N 2026", "description": "Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo y datos abiertos.", "url": "https://elecciones29n.pruebapublica.com/", "creator": {"@type": "Person", "name": "Miguel Castillo", "url": "https://elecciones29n.pruebapublica.com"}, "license": "https://www.gnu.org/licenses/agpl-3.0.html", "isAccessibleForFree": true, "dateModified": "2026-10-18 09:04 CEST", "temporalCoverage": "2026-09/2026-11", "spatialCoverage": "ES", "distribution": [{"@type": "DataDownload", "contentUrl": "https://elecciones29n.pruebapublica.com/data/latest.json", "encodingFormat": "application/json"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué es la media agregada de sondeos?", "acceptedAnswer": {"@type": "Answer", "text": "Es la media de los sondeos publicados en los últimos 14 días con su rango mínimo–máximo. No es un pronóstico ni una estimación de intención de voto."}}, {"@type": "Question", "name": "¿Puedo publicar sondeos el 24–28 de noviembre de 2026?", "acceptedAnswer": {"@type": "Answer", "text": "No. La normativa electoral prohíbe publicar, difundir o reproducir sondeos del 24 al 28 de noviembre de 2026, ambos inclusive."}}, {"@type": "Question", "name": "¿De dónde salen los datos?", "acceptedAnswer": {"@type": "Answer", "text": "De paneles publicados por Electomania, con enlace a la fuente y fecha. Se descartan paneles autonómicos y adelantos sin serie completa."}}]}]</script>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebSite", "name": "elecciones29n-osint", "url": "https://elecciones29n.pruebapublica.com/", "inLanguage": "es-ES", "description": "Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo y datos abiertos."}, {"@context": "https://schema.org", "@type": "Dataset", "name": "Media agregada de sondeos · Elecciones Generales 29N 2026", "description": "Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo y datos abiertos.", "url": "https://elecciones29n.pruebapublica.com/", "creator": {"@type": "Person", "name": "Miguel Castillo", "url": "https://elecciones29n.pruebapublica.com"}, "license": "https://www.gnu.org/licenses/agpl-3.0.html", "isAccessibleForFree": true, "dateModified": "2026-10-18 09:08 CEST", "temporalCoverage": "2026-09/2026-11", "spatialCoverage": "ES", "distribution": [{"@type": "DataDownload", "contentUrl": "https://elecciones29n.pruebapublica.com/data/latest.json", "encodingFormat": "application/json"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué es la media agregada de sondeos?", "acceptedAnswer": {"@type": "Answer", "text": "Es la media de los sondeos publicados en los últimos 14 días con su rango mínimo–máximo. No es un pronóstico ni una estimación de intención de voto."}}, {"@type": "Question", "name": "¿Puedo publicar sondeos el 24–28 de noviembre de 2026?", "acceptedAnswer": {"@type": "Answer", "text": "No. La normativa electoral prohíbe publicar, difundir o reproducir sondeos del 24 al 28 de noviembre de 2026, ambos inclusive."}}, {"@type": "Question", "name": "¿De dónde salen los datos?", "acceptedAnswer": {"@type": "Answer", "text": "De paneles publicados por Electomania, con enlace a la fuente y fecha. Se descartan paneles autonómicos y adelantos sin serie completa."}}]}]</script>
 </head>
 <body>
 <header>
   <div class="container">
-    <div class="brand">
-      <span class="brandname"><a href="/" style="color:inherit;text-decoration:none">elecciones29n-osint</a></span>
-      <span class="tag">Media agregada de sondeos · 29N 2026</span>
+    <div class="topbar">
+      <div class="brand">
+        <span class="mark"></span>
+        <span class="brandname"><a href="/">elecciones29n-osint</a></span>
+        <span class="tag">Media agregada de sondeos · 29N 2026</span>
+      </div>
+      <div class="status">
+        <button class="themebtn" data-theme-toggle aria-label="Cambiar entre tema claro y oscuro" title="Cambiar tema"><span class="ticon">☀</span><span class="tlabel">Claro</span></button>
+      </div>
     </div>
-    <div class="topbar"><div class="brand"><span class="mark"></span><span class="brandname"><a href="/">elecciones29n-osint</a></span></div><div class="status"><button class="themebtn" data-theme-toggle aria-label="Cambiar entre tema claro y oscuro" title="Cambiar tema"><span class="ticon">☀</span><span class="tlabel">Claro</span></button></div></div>
     <nav>
       <a href="/">Inicio</a>
       <a href="/electorado.html">Electorado</a>
@@ -69,42 +74,83 @@ document.addEventListener('DOMContentLoaded', function(){
       <a href="/metodologia.html">Metodología</a>
       <a href="/fuentes.html">Fuentes</a>
       <a href="/caveat.html">Qué no dice</a>
-      <a href="/about.html">Acerca de</a>
-      <a href="/data/latest.json">Datos (JSON)</a>
+      <a href="/apoyo.html">Apoyo</a>
+      <a href="/sobre-mi.html">Sobre mí</a>
+      <a href="/about.html">Acerca del proyecto</a>
+      <a href="/data/latest.json">Datos</a>
     </nav>
   </div>
 </header>
 <main class="container">
   <h1 style="margin:18px 0 8px;font-size:28px">Metodología</h1>
+  <p class="muted" style="margin:0 0 14px">Cada módulo tiene su fuente y su nivel de certeza. Esta página explica qué se mide, cómo y qué no se puede concluir.</p>
 
   <div class="card">
-    <h3>Qué calculo</h3>
-    <p class="muted">Una <strong>media móvil de los sondeos publicados</strong> en los últimos 14 días, con el <strong>rango mínimo–máximo</strong> observado y el número de sondeos que la sostienen. No cocino encuestas ni modelo intención de voto: agrego lo que otros publican y muestro la dispersión.</p>
+    <h3>1 · Sondeos</h3>
+    <p class="muted">Es una <strong>media de los sondeos publicados</strong>, no una estimación propia de intención de voto. La ventana es de 14 días; si no reúne cuatro sondeos, se amplía a los cuatro más recientes (máx. 90 días) y se indica «ventana ampliada».</p>
     <ul class="muted">
-      <li><strong>Tendencia y dispersión</strong>: media aritmética de la ventana de 14 días, min–máx real.</li>
-      <li><strong>Incertidumbre visible</strong>: el rango se muestra siempre; nunca se oculta en una cifra única.</li>
-      <li><strong>Transparencia</strong>: cada dato lleva fecha y enlace a la fuente. <a href="/data/latest.json">latest.json</a> es descargable.</li>
-      <li><strong>Fail-safe</strong>: si la ingesta falla o los datos no pasan validación, no se actualiza nada y se conserva el último resultado válido.</li>
-      <li><strong>Cumplimiento</strong>: blackout automático del 24 al 28 de noviembre de 2026, ambos inclusive.</li>
+      <li><strong>Ponderación</strong>: muestra (√n) + recencia (vida media 10 d). Si un sondeo no declara muestra, pesa solo por recencia.</li>
+      <li><strong>Mediana</strong>: se publica junto a la media. Si difieren, hay valores extremos.</li>
+      <li><strong>Solo paneles completos</strong>: se excluyen adelantos parciales, autonómicos y regionales. `ElectoPromedio` (media de medias) se marca como promedio y se excluye de la media principal.</li>
+      <li><strong>La suma de entrevistados no es una muestra única</strong>: son muestras distintas, en fechas y metodologías distintas.</li>
+      <li><strong>El rango mín–máx no es un intervalo de confianza</strong>: describe la dispersión observada entre los sondeos incluidos.</li>
+      <li><strong>Blackout</strong>: del 24 al 28 de noviembre de 2026 no se publican, difunden ni reproducen sondeos. El agregado se congela.</li>
     </ul>
   </div>
 
   <div class="card">
-    <h3>Agregación</h3>
-    <p class="muted">La ventana es de <strong>14 días</strong>. Cada sondeo aporta su valor por partido; la media da el valor central y el mínimo/máximo muestran cuánto discrepan las encuestadoras entre sí. Cuando una serie solo tiene un sondeo, el rango es de un punto y se debe leer como tal.</p>
-    <p class="muted">Si la ventana de 14 días no reúne al menos cuatro sondeos, se amplía a los cuatro más recientes (máx. 90 días) y se indica como <strong>ventana ampliada</strong>. La media pondera por <strong>muestra (√n) + recencia (vida media 10 d)</strong>. Se publica también la <strong>mediana</strong>: si media y mediana difieren, hay valores extremos.</p>
-    <p class="muted">No se proyectan escaños. La composición del Congreso y del Senado solo se muestra, si aparece, como <strong>referencia vigente</strong>, nunca como proyección.</p>
+    <h3>2 · Censo</h3>
+    <p class="muted">Cifras oficiales del <strong>INE · Oficina del Censo Electoral</strong> para el 29N. Distinguimos <strong>CER</strong> (residentes en España) y <strong>CERA</strong> (residentes en el extranjero).</p>
+    <ul class="muted">
+      <li>La tabla de <strong>edad y sexo</strong> cubre solo el CER. El CERA se publica por país, sin edad ni sexo en esa tabla.</li>
+      <li>El censo describe <strong>quién puede votar</strong>, no a quién vota. No se cruzan cuotas del censo con intención de voto.</li>
+      <li>Validación al ingerir: provincias, CCAA, edad/sexo y nuevos electores deben sumar el total oficial. Si no cuadra, no se sobrescribe el dato.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>3 · Participación</h3>
+    <p class="muted">Serie nacional de participación sobre censo en las elecciones generales desde 1979 (15 citas). Cada fila enlaza a la tabla de resultados de la <strong>Junta Electoral Central</strong>.</p>
+    <ul class="muted">
+      <li>Es <strong>dato oficial</strong>, no estimación. El 29N se añadirá <strong>después</strong> de la jornada electoral.</li>
+      <li>La participación mide cuántos votaron, <strong>no a quién</strong>.</li>
+      <li>El desglose provincial requiere los resultados del Ministerio del Interior; hoy no es accesible de forma fiable y no se inventa.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>4 · Territorio y representación</h3>
+    <p class="muted">Escaños por circunscripción según el <strong>BOE · RD 806/2026</strong> (anexo), cruzados con el censo del INE para calcular <strong>electores por escaño</strong>.</p>
+    <ul class="muted">
+      <li>El Congreso se elige en <strong>52 circunscripciones provinciales</strong>, con un mínimo de 2 escaños (1 en Ceuta y Melilla) y el resto según población (LOREG, art. 162).</li>
+      <li>Dentro de cada provincia se aplica <strong>D'Hondt</strong> con umbral del 3 % provincial.</li>
+      <li>La <strong>simulación de la portada</strong> usa un distrito nacional único: sirve para ver el tamaño de los bloques, no para anticipar escaños.</li>
+      <li>El Senado no se simula: se elige por circunscripción provincial y designación autonómica.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>5 · Reglas comunes</h3>
+    <ul class="muted">
+      <li><strong>Trazabilidad</strong>: cada cifra enlaza a su fuente o a su fichero de datos.</li>
+      <li><strong>Fail-safe</strong>: si la ingesta o la validación fallan, se conserva la última versión buena y no se publica nada.</li>
+      <li><strong>Separación de certezas</strong>: dato oficial, estimación con incertidumbre e hipótesis se presentan por separado.</li>
+      <li><strong>Sin señales sociales</strong> mezcladas con sondeos, censo o participación.</li>
+      <li><strong>Sin causalidad</strong>: una correlación territorial o demográfica no demuestra una causa.</li>
+      <li><strong>Sin backend</strong>: sitio estático, sin cookies ni analítica de terceros.</li>
+    </ul>
   </div>
 
   <div class="card">
     <h3>Qué no mide</h3>
     <ul class="muted">
+      <li>No predice el resultado ni la participación del 29N.</li>
       <li>No estima intención de voto individual ni corrige sesgos de las encuestadoras.</li>
-      <li>No mezcla señales sociales (Bluesky, RSS) con los sondeos.</li>
-      <li>No anticipa el resultado del 29 de noviembre.</li>
+      <li>No atribuye preferencias políticas por edad, sexo, renta o territorio.</li>
+      <li>No convierte correlaciones en causas.</li>
     </ul>
     <div class="cta">
-      <a class="btn" href="/">Ver el agregado</a>
+      <a class="btn" href="/fuentes.html">Ver fuentes y datos</a>
       <a class="btn ghost" href="/caveat.html">Qué no dice este sitio</a>
     </div>
   </div>
@@ -113,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function(){
   <div class="container">
     <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
     <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
-    <p>Datos abiertos · <a href="/cambios.xml">RSS de cambios</a> · <a href="https://github.com/mcasrom/elecciones29n-osint">Código (AGPL-3.0)</a> · Hecho por Miguel Castillo.</p>
+    <p>Datos abiertos · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="https://github.com/mcasrom/elecciones29n-osint">Código (AGPL-3.0)</a> · Hecho por Miguel Castillo.</p>
     <p><a class="support" href="https://ko-fi.com/m_castillo" target="_blank" rel="noopener noreferrer">☕ Apoya el proyecto en Ko-fi</a></p>
   </div>
 </footer>

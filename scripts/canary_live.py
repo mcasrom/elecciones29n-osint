@@ -78,6 +78,13 @@ def main() -> int:
     elif "Teruel" not in th or "350" not in th:
         errors.append("territorio.html sin datos de escaños")
 
+    for path, needle in (("/apoyo.html", "ko-fi.com/m_castillo"), ("/sobre-mi.html", "Miguel Castillo")):
+        code, ph = get(base + path + "?canary=1")
+        if code != 200:
+            errors.append(f"{path} HTTP {code}")
+        elif needle not in ph:
+            errors.append(f"{path} sin contenido esperado")
+
     code, _ = get(base + "/og.png?canary=1")
     if code != 200:
         errors.append(f"og.png HTTP {code}")

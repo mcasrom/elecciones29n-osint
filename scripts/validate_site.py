@@ -19,6 +19,7 @@ REQUIRED = [
     "electorado.html", "data/censo-2026.json", "data/censo-provincias.csv",
     "participacion.html", "data/participacion.json", "data/participacion.csv",
     "territorio.html", "data/escanos-2026.json", "data/escanos-2026.csv",
+    "apoyo.html", "sobre-mi.html",
 ]
 
 
@@ -128,13 +129,22 @@ def main() -> int:
         if "Teruel" not in th or "350" not in th:
             errors.append("territorio.html sin datos de escaños")
 
+    for name, needle in (("apoyo.html", "ko-fi.com/m_castillo"), ("sobre-mi.html", "Miguel Castillo")):
+        pp = os.path.join(d, name)
+        if os.path.exists(pp):
+            ph = open(pp, encoding="utf-8", errors="ignore").read()
+            if needle not in ph:
+                errors.append(f"{name} sin contenido esperado")
+            if len(ph) < 3000:
+                errors.append(f"{name} demasiado pequeño ({len(ph)} bytes)")
+
     sm = os.path.join(d, "sitemap.xml")
     if os.path.exists(sm):
         try:
             ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
             urls = ET.parse(sm).getroot().findall(".//s:loc", ns)
-            if len(urls) < 8:
-                errors.append(f"sitemap con {len(urls)} URLs (esperadas >=8)")
+            if len(urls) < 10:
+                errors.append(f"sitemap con {len(urls)} URLs (esperadas >=10)")
         except Exception as e:
             errors.append(f"sitemap inválido: {e}")
 

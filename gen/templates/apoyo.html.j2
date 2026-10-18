@@ -1,0 +1,69 @@
+{% set page_title = "Apoyar el proyecto · observatorio electoral 29N" %}
+{% set page_desc = "Cómo apoyar el observatorio electoral 29N: Ko-fi, compartir, corregir datos o colaborar. Sin publicidad, sin rastreo y sin influencia sobre los datos." %}
+{% set canonical = site_url ~ "/apoyo.html" %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 8px;font-size:30px;letter-spacing:-0.02em">Apoyar el proyecto</h1>
+  <p class="muted" style="margin:0 0 14px">Este observatorio es gratis, sin publicidad, sin rastreo y sin muro de pago. Si te sirve, así puedes ayudar a que siga funcionando.</p>
+
+  <div class="kpis">
+    <div class="kpi"><span class="kpi-name">Servidor</span><b>100 %</b><span class="kpi-range">coste propio</span></div>
+    <div class="kpi"><span class="kpi-name">Datos</span><b>Abiertos</b><span class="kpi-range">JSON y CSV</span></div>
+    <div class="kpi"><span class="kpi-name">Código</span><b>AGPL-3.0</b><span class="kpi-range">auditable</span></div>
+    <div class="kpi"><span class="kpi-name">Publicidad</span><b>0</b><span class="kpi-range">sin terceros</span></div>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Ko-fi</h2><span class="hint">pago único o mensual</span></div>
+    <p class="muted">El apoyo cubre servidor, dominio y tiempo de mantenimiento y verificación de datos. No compra influencia: las cifras no se editan por quien apoya.</p>
+    <div class="cta">
+      <a class="btn" href="https://ko-fi.com/m_castillo" target="_blank" rel="noopener noreferrer">☕ Apoyar en Ko-fi</a>
+      <a class="btn ghost" href="/metodologia.html">Ver el método</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Compartir también ayuda</h2></div>
+    <p class="muted small">Si publicas una cifra, hazlo con el rango y la fuente. Es la mejor forma de que el dato no pierda contexto.</p>
+    <div class="share">
+      <a href="https://bsky.app/intent/compose?text={{ (site_title ~ ' — datos oficiales y sondeos con rango: ' ~ share_url)|urlencode }}" target="_blank" rel="noopener">Bluesky</a>
+      <a href="https://mastodon.social/share?text={{ (site_title ~ ' — datos oficiales y sondeos con rango: ' ~ share_url)|urlencode }}" target="_blank" rel="noopener">Mastodon</a>
+      <a href="https://twitter.com/intent/tweet?text={{ (site_title ~ ' — datos oficiales y sondeos con rango.')|urlencode }}&url={{ share_url|urlencode }}" target="_blank" rel="noopener">X</a>
+      <a href="https://api.whatsapp.com/send?text={{ (site_title ~ ' ' ~ share_url)|urlencode }}" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Colaborar sin pagar</h2></div>
+    <ul class="muted small">
+      <li><strong>Corrige un dato</strong>: si ves una cifra que no cuadra con la fuente, escríbeme con el enlace.</li>
+      <li><strong>Aporta una fuente</strong>: encuestas, tablas oficiales o series que falten.</li>
+      <li><strong>Prensa y docencia</strong>: puedes citar con enlace; hay datos descargables y método público.</li>
+      <li><strong>Código</strong>: el repositorio es abierto (AGPL-3.0); se aceptan issues con fuente y reproducción.</li>
+    </ul>
+    <p class="muted small">Contacto: <a href="mailto:prensa@viajeinteligencia.com">prensa@viajeinteligencia.com</a></p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Lo que el apoyo no cambia</h2></div>
+    <ul class="muted small">
+      <li>No hay datos privados ni acceso anticipado.</li>
+      <li>No se modifica una media, un rango o una serie por un patrocinio.</li>
+      <li>No hay publicidad ni cesión de datos a terceros.</li>
+      <li>El método y los límites son públicos: si algo no se sostiene, se retira.</li>
+    </ul>
+    <div class="cta">
+      <a class="btn" href="/">Ver el observatorio</a>
+      <a class="btn ghost" href="/sobre-mi.html">Sobre mí</a>
+    </div>
+  </div>
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>

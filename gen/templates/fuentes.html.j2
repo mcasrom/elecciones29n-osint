@@ -1,5 +1,5 @@
-{% set page_title = "Fuentes · sondeos de las elecciones generales 29N 2026" %}
-{% set page_desc = "De dónde salen los sondeos: Electomania como ancla, con enlace a la fuente, fecha y muestra. Y las fuentes oficiales de referencia." %}
+{% set page_title = "Fuentes y datos abiertos · observatorio electoral 29N" %}
+{% set page_desc = "Fuentes de cada dato (Electomania, INE, JEC, BOE), formatos, enlaces oficiales y conjuntos de datos descargables con su esquema." %}
 {% set canonical = site_url ~ "/fuentes.html" %}
 <!DOCTYPE html>
 <html lang="es-ES">
@@ -9,21 +9,49 @@
 <body>
 {% include "_nav.html.j2" %}
 <main class="container">
-  <h1 style="margin:18px 0 8px;font-size:28px">Fuentes</h1>
+  <h1 style="margin:18px 0 8px;font-size:28px">Fuentes y datos abiertos</h1>
+  <p class="muted" style="margin:0 0 14px">Cada módulo declara de dónde sale. Si un dato no se puede verificar, no se publica.</p>
 
   <div class="card">
-    <p class="muted">Cada sondeo lleva <strong>fuente + fecha de publicación + enlace</strong>. La ingesta actual lee los paneles publicados por <strong>Electomania</strong> (ElectoPanel), que publica series nacionales con muestras y campo declarados. Se añadirán otras encuestadoras cuando su formato sea estable y verificable.</p>
-    <ul class="muted">
-      <li><a href="https://electomania.es/">Electomania</a> — paneles diarios/semanales (ElectoPanel).</li>
-      <li><a href="https://www.juntaelectoralcentral.es/">Junta Electoral Central</a> — calendario y normativa (LOREG).</li>
-      <li><a href="https://resultados.elecciones.mir.es/">Ministerio del Interior</a> — resultados oficiales (referencia, no fuente de sondeos).</li>
-    </ul>
+    <div class="cardhead"><h2>Fuentes por módulo</h2></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Módulo</th><th>Fuente</th><th>Formato</th><th>Enlace</th></tr></thead>
+        <tbody>
+          <tr><td>Sondeos</td><td>Electomania · ElectoPanel</td><td>WordPress REST API</td><td><a href="https://electomania.es/" rel="noopener" target="_blank">electomania.es</a></td></tr>
+          <tr><td>Censo</td><td>INE · Oficina del Censo Electoral</td><td>XLSX (tablas 2/3/6/9/12)</td><td><a href="https://www.ine.es/dyngs/CEL/es/index.htm?cid=1703" rel="noopener" target="_blank">ine.es · CEL</a></td></tr>
+          <tr><td>Participación</td><td>Junta Electoral Central</td><td>Tablas por elección</td><td><a href="https://www.juntaelectoralcentral.es/cs/jec/elecciones/Generales-julio2023" rel="noopener" target="_blank">juntaelectoralcentral.es</a></td></tr>
+          <tr><td>Escaños</td><td>BOE · RD 806/2026 (anexo)</td><td>HTML/BOE</td><td><a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-20742" rel="noopener" target="_blank">BOE-A-2026-20742</a></td></tr>
+          <tr><td>Normativa</td><td>LOREG · Ley Orgánica 5/1985</td><td>BOE consolidado</td><td><a href="https://www.boe.es/buscar/act.php?id=BOE-A-1985-11672" rel="noopener" target="_blank">BOE-A-1985-11672</a></td></tr>
+          <tr><td>Resultados provinciales</td><td>Ministerio del Interior</td><td>—</td><td><span class="muted">no accesible de forma fiable · pendiente</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Datos descargables</h2><span class="hint">JSON y CSV</span></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Fichero</th><th>Contenido</th><th>Campos principales</th></tr></thead>
+        <tbody>
+          <tr><td><a href="/data/latest.json">latest.json</a></td><td>Agregado de sondeos</td><td>parties (mean, median, min, max, n), series, n_polls, updated_at_iso</td></tr>
+          <tr><td><a href="/data/censo-2026.json">censo-2026.json</a></td><td>Censo 29N</td><td>total, cer, cera, provincias, edad_sexo, nuevos_provincia, cera_paises</td></tr>
+          <tr><td><a href="/data/censo-provincias.csv">censo-provincias.csv</a></td><td>Censo por provincia</td><td>codigo, nombre, cer, cera, total</td></tr>
+          <tr><td><a href="/data/censo-edad.csv">censo-edad.csv</a></td><td>Edad y sexo (CER)</td><td>grupo, mujeres, hombres, total</td></tr>
+          <tr><td><a href="/data/censo-nuevos.csv">censo-nuevos.csv</a></td><td>Nuevos electores</td><td>codigo, nombre, desde_2023, desde_2024</td></tr>
+          <tr><td><a href="/data/participacion.json">participacion.json</a> · <a href="/data/participacion.csv">CSV</a></td><td>Participación 1979–2023</td><td>eleccion, year, participacion, fuente_url</td></tr>
+          <tr><td><a href="/data/escanos-2026.json">escanos-2026.json</a> · <a href="/data/escanos-2026.csv">CSV</a></td><td>Escaños por provincia</td><td>nombre, escanos, electores, electores_por_escanos</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted small">Los metadatos de cada fuente (URL, fecha de descarga y SHA-256) están dentro de los JSON.</p>
   </div>
 
   {% if sources %}
   <div class="card">
-    <h3>Sondeos incluidos ahora mismo</h3>
-    <ul class="muted">
+    <div class="cardhead"><h2>Sondeos incluidos ahora</h2></div>
+    <ul class="muted small">
       {% for s in sources %}
       <li><a href="{{ s }}" rel="nofollow noopener" target="_blank">{{ s }}</a></li>
       {% endfor %}
@@ -32,11 +60,18 @@
   {% endif %}
 
   <div class="card">
-    <h3>Higiene de datos</h3>
-    <p class="muted">La ingesta descarta paneles autonómicos, adelantos sin serie completa y textos que no suman un rango plausible. Si un sondeo no pasa la validación, no entra en la media. El histórico completo vive en el repositorio.</p>
+    <div class="cardhead"><h2>Higiene y licencias</h2></div>
+    <ul class="muted small">
+      <li>Se descartan paneles autonómicos, adelantos incompletos y textos que no suman un rango plausible.</li>
+      <li>Si la ingesta o la validación fallan, no se publica: se conserva la última versión buena.</li>
+      <li><strong>INE</strong>: reutilización con cita de la fuente (CC BY 4.0 en los datos derivados).</li>
+      <li><strong>JEC / BOE</strong>: reutilización citando la fuente.</li>
+      <li><strong>Electomania</strong>: se enlaza cada sondeo a su artículo original.</li>
+      <li><strong>Este sitio</strong>: código AGPL-3.0; datos agregados reutilizables citando el proyecto.</li>
+    </ul>
     <div class="cta">
-      <a class="btn" href="/">Ver el agregado</a>
-      <a class="btn ghost" href="/metodologia.html">Cómo se calcula</a>
+      <a class="btn" href="/metodologia.html">Cómo se calcula</a>
+      <a class="btn ghost" href="/apoyo.html">Apoyar el proyecto</a>
     </div>
   </div>
 </main>

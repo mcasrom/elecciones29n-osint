@@ -31,6 +31,8 @@ PAGES = [
     ("electorado.html", "electorado.html", "2026-10-18", "monthly", "0.7"),
     ("participacion.html", "participacion.html", "2026-10-18", "monthly", "0.7"),
     ("territorio.html", "territorio.html", "2026-10-18", "monthly", "0.7"),
+    ("apoyo.html", "apoyo.html", "2026-10-18", "yearly", "0.5"),
+    ("sobre-mi.html", "sobre-mi.html", "2026-10-18", "yearly", "0.5"),
 ]
 
 
@@ -86,6 +88,9 @@ a{color:var(--blue)}
 .tab{appearance:none;border:1px solid transparent;background:transparent;color:var(--muted);font:inherit;font-size:14px;padding:9px 14px;border-radius:9px;cursor:pointer;text-decoration:none}
 .tab:hover{color:var(--fg);background:var(--panel)}
 .tab.active{color:var(--bg);background:var(--fg);font-weight:700}
+.subnav{display:flex;gap:14px;flex-wrap:wrap;padding:10px 0 0;font-size:13px}
+.subnav a{color:var(--faint);text-decoration:none}
+.subnav a:hover{color:var(--fg)}
 .tabpanel{display:none}
 .tabpanel.active{display:block}
 
@@ -598,6 +603,24 @@ def write_participacion_data(data: dict) -> None:
             w.writerow([r["eleccion"], r["year"], r["participacion"], r["fuente_url"]])
 
 
+def build_person_jsonld() -> str:
+    data = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Miguel Castillo",
+        "url": SITE_URL + "/sobre-mi.html",
+        "jobTitle": "Analista y desarrollador de datos abiertos",
+        "description": "Autor del observatorio electoral 29N, del observatorio de amplificación (FIMI) y de otros proyectos de datos abiertos.",
+        "sameAs": [
+            "https://github.com/mcasrom",
+            "https://mastodon.social/@viajeinteligencia",
+            "https://bsky.app/profile/viajeinteligencia.bsky.social",
+            "https://analisis.pruebapublica.com/",
+        ],
+    }
+    return json.dumps(data, ensure_ascii=False)
+
+
 def build_censo_jsonld(censo: dict) -> str:
     if not censo:
         return "[]"
@@ -858,6 +881,7 @@ def main(out: str = "web") -> None:
         "chart_svg": build_chart(latest.get("series_long", series), parties),
         "chart_legend": chart_legend(parties),
         "censo_jsonld": build_censo_jsonld(censo),
+        "person_jsonld": build_person_jsonld(),
         "sparks_svg": build_sparklines(latest.get("series_long", series), parties),
         "series_span": (
             f'{next(iter(latest.get("series_long", {}).values()))[0]["date"]} – '
@@ -902,7 +926,8 @@ def main(out: str = "web") -> None:
         "share_url": SITE_URL + "/",
     }
 
-    for tname in ["index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "participacion.html", "territorio.html"]:
+    for tname in ["index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "participacion.html", "territorio.html",
+             "apoyo.html", "sobre-mi.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(**context)
         with open(os.path.join(OUT, tname), "w", encoding="utf-8") as f:

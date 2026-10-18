@@ -11,7 +11,7 @@
 <meta name="description" content="Censo de las elecciones generales del 29 de noviembre de 2026: total, residentes en España y en el extranjero, nuevos electores y distribución por edad, sexo y provincia. Fuente: INE.">
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/electorado.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202610180904">
+<link rel="stylesheet" href="/css/main.css?v=202610180908">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -57,11 +57,16 @@ document.addEventListener('DOMContentLoaded', function(){
 <body>
 <header>
   <div class="container">
-    <div class="brand">
-      <span class="brandname"><a href="/" style="color:inherit;text-decoration:none">elecciones29n-osint</a></span>
-      <span class="tag">Media agregada de sondeos · 29N 2026</span>
+    <div class="topbar">
+      <div class="brand">
+        <span class="mark"></span>
+        <span class="brandname"><a href="/">elecciones29n-osint</a></span>
+        <span class="tag">Media agregada de sondeos · 29N 2026</span>
+      </div>
+      <div class="status">
+        <button class="themebtn" data-theme-toggle aria-label="Cambiar entre tema claro y oscuro" title="Cambiar tema"><span class="ticon">☀</span><span class="tlabel">Claro</span></button>
+      </div>
     </div>
-    <div class="topbar"><div class="brand"><span class="mark"></span><span class="brandname"><a href="/">elecciones29n-osint</a></span></div><div class="status"><button class="themebtn" data-theme-toggle aria-label="Cambiar entre tema claro y oscuro" title="Cambiar tema"><span class="ticon">☀</span><span class="tlabel">Claro</span></button></div></div>
     <nav>
       <a href="/">Inicio</a>
       <a href="/electorado.html">Electorado</a>
@@ -70,8 +75,10 @@ document.addEventListener('DOMContentLoaded', function(){
       <a href="/metodologia.html">Metodología</a>
       <a href="/fuentes.html">Fuentes</a>
       <a href="/caveat.html">Qué no dice</a>
-      <a href="/about.html">Acerca de</a>
-      <a href="/data/latest.json">Datos (JSON)</a>
+      <a href="/apoyo.html">Apoyo</a>
+      <a href="/sobre-mi.html">Sobre mí</a>
+      <a href="/about.html">Acerca del proyecto</a>
+      <a href="/data/latest.json">Datos</a>
     </nav>
   </div>
 </header>
@@ -368,7 +375,7 @@ document.addEventListener('DOMContentLoaded', function(){
   <div class="container">
     <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
     <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
-    <p>Datos abiertos · <a href="/cambios.xml">RSS de cambios</a> · <a href="https://github.com/mcasrom/elecciones29n-osint">Código (AGPL-3.0)</a> · Hecho por Miguel Castillo.</p>
+    <p>Datos abiertos · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="https://github.com/mcasrom/elecciones29n-osint">Código (AGPL-3.0)</a> · Hecho por Miguel Castillo.</p>
     <p><a class="support" href="https://ko-fi.com/m_castillo" target="_blank" rel="noopener noreferrer">☕ Apoya el proyecto en Ko-fi</a></p>
   </div>
 </footer>
