@@ -1,173 +1,193 @@
-# elecciones29n-osint
+# Observatorio electoral 29N
 
-Media agregada de los sondeos publicados para las **Elecciones Generales del 29 de noviembre de 2026**, con rango mínimo–máximo, datos abiertos y cumplimiento del blackout electoral.
+**Sondeos con rango, censo, participación y territorio.** Datos abiertos, método público y ninguna cifra que el dato no sostenga.
 
-**En vivo:** https://elecciones29n.pruebapublica.com
+[![En vivo](https://img.shields.io/badge/en%20vivo-elecciones29n.pruebapublica.com-ff5a1f)](https://elecciones29n.pruebapublica.com/)
+[![Licencia](https://img.shields.io/badge/licencia-AGPL--3.0-3ddc97)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.12-8ec5ff)](https://www.python.org/)
 
 ---
 
-## Qué hace y qué no
+## Qué es y qué no es
 
-Muestra **tendencia y dispersión** de los sondeos publicados: media móvil de 14 días, mínimo, máximo y número de sondeos por partido.
+**Es** un observatorio que reúne cuatro capas del proceso electoral:
 
-No es un pronóstico, no estima intención de voto individual y no anticipa el resultado. La incertidumbre va en el dato: el rango se muestra siempre.
+| Capa | Pregunta | Dato |
+|---|---|---|
+| Sondeos | ¿Qué dicen las encuestas publicadas? | media móvil + rango mín–máx |
+| Censo | ¿Quién puede votar? | INE · Oficina del Censo Electoral |
+| Participación | ¿Quién vota y cómo ha cambiado? | JEC, 1979–2023 |
+| Territorio | ¿Cómo se traduce el voto en escaños? | BOE · RD 806/2026 + LOREG |
 
-- **No mezcla** señales sociales (Bluesky, RSS) con la media de sondeos.
-- **No corrige** sesgos de las encuestadoras.
-- La pestaña *Congreso* aplica D'Hondt sobre la media nacional como **simulación mecánica** (distrito único, 350 escaños, umbral 3%), etiquetada como tal, nunca como proyección.
-- La pestaña *Senado* no se simula: el reparto depende de listas provinciales y de las CCAA.
+**No es** un pronóstico, ni una estimación propia de intención de voto, ni una
+proyección de escaños. El rango no es un intervalo de confianza: es la
+dispersión observada entre los sondeos incluidos. La incertidumbre va en el
+dato, no en una nota al pie.
 
-## Interfaz
+## Módulos publicados
 
-- **Agregado**: KPIs, evolución reciente, tabla por partido y bloque para compartir/citar.
-- **Evolución**: minigráficos por partido (cada punto es un sondeo publicado) con delta del periodo.
-- **Congreso**: simulación D'Hondt + composición de referencia vigente + bloques de voto.
-- **Senado**, **Metodología**, **Fuentes** y **Qué no dice**.
-- Tema **claro/oscuro** con persistencia en el navegador.
-- **Aviso pulsante** si el cron no se ha ejecutado (>26 h o pasadas las 09:00 sin actualización del día). La comprobación es en cliente, así que funciona aunque el generador esté parado.
+- `/` — Agregado, evolución, Congreso (D'Hondt etiquetado como simulación) y Senado.
+- `/electorado.html` — Censo 29N: total, CER/CERA, edad y sexo, provincias y nuevos electores.
+- `/participacion.html` — Participación nacional 1979–2023 con enlace a la JEC.
+- `/territorio.html` — 350 escaños, 52 circunscripciones y electores por escaño.
+- `/noche-electoral.html` — Qué se publica el 29N, cuándo y con qué fuente.
+- `/metodologia.html` y `/fuentes.html` — Método, fuentes, catálogo de datos y licencias.
 
-## Electorado (censo 29N)
+## Salud de la muestra
 
-- Ingesta oficial del **INE · Oficina del Censo Electoral** (XLSX del 29N):
-  total, CER, CERA, provincias, CCAA, edad/sexo (CER) y nuevos electores.
-- `python -m ingest.censo` → `data/censo_2026.json` (con URL y SHA-256 de cada
-  XLSX) y CSV en `web/data/`.
-- Página `/electorado.html`: 4 cifras oficiales, edad/sexo, top CERA por país,
-  provincias y nuevos electores.
-- Validación al ingerir: provincias, CCAA, edad y nuevos cuadran con el total
-  (38.728.356). Si no cuadra, no se sobrescribe el JSON.
-- Límite declarado: edad/sexo solo cubre residentes en España; el extranjero no
-  tiene ese desglose. El censo no dice a quién se vota.
+La portada muestra un panel de **salud de la muestra**: número de sondeos,
+encuestadoras y días desde el último. Es el principal control de calidad del
+agregado.
 
-## Participación histórica
+| Estado | Criterio | Qué significa |
+|---|---|---|
+| **Suficiente** | ≥4 sondeos, ≥2 casas, último ≤10 días | media entre encuestadoras |
+| **Frágil** | 4 sondeos pero una sola casa, o último >10 días | se publica con aviso |
+| **Insuficiente** | <4 sondeos o último >21 días | se publica con aviso visible |
 
-- Serie nacional 1979–2023 (15 elecciones) de participación sobre censo.
-- Fuente: **JEC**, con enlace a la tabla oficial de cada elección; serie
-  normalizada con validación de extremos (2023 66,59 %; máx. 1982 79,97 %;
-  mín. 2019-N 66,23 %).
-- `python -m ingest.participacion` → `data/participacion.json` + CSV en
-  `web/data/`.
-- Página `/participacion.html`: última cita, media, máximo, mínimo, evolución y
-  tabla con enlace a la JEC.
-- Límite: participación **nacional**; el desglose provincial del Interior no es
-  accesible desde el servidor (timeout) y se añadirá cuando se pueda verificar.
+> Hoy: **4 sondeos, 1 encuestadora, último hace 7 días → frágil**. La solución
+> es cobertura, no más matemáticas: ver [`docs/RUTINA-SEMANAL.md`](docs/RUTINA-SEMANAL.md).
 
-## Territorio y representación
+```bash
+.venv/bin/python scripts/health_report.py
+```
 
-- Asignación oficial de escaños por circunscripción: **BOE · RD 806/2026** (anexo), 350 diputados y 52 circunscripciones.
-- Cruce con el censo del INE: **electores por escaño** por provincia (Teruel 35.417 ↔ Madrid 145.708; 4,1× de diferencia).
-- `python -m ingest.escanos` → `data/escanos_2026.json` + CSV.
-- Página `/territorio.html`: gráfico de electores/escaño, tabla completa y explicador (mínimo de 2 escaños, D'Hondt provincial, umbral del 3 %).
-- Límite: no incluye votos↔escaños de 2023 por provincia (resultados del Interior no accesibles); no proyecta el 29N.
+## Fuentes
 
-## Ayuda en pantalla y ecosistema
+| Dato | Fuente | Formato |
+|---|---|---|
+| Sondeos | [Electomania · ElectoPanel](https://electomania.es/) | WordPress REST API |
+| Censo | [INE · CEL](https://www.ine.es/dyngs/CEL/es/index.htm?cid=1703) | XLSX (tablas 2/3/6/9/12) |
+| Participación | [JEC](https://www.juntaelectoralcentral.es/) | tablas por elección |
+| Escaños | [BOE · RD 806/2026](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-20742) | anexo |
+| Normativa | [LOREG](https://www.boe.es/buscar/act.php?id=BOE-A-1985-11672) | BOE consolidado |
+| Resultados provinciales | Ministerio del Interior | pendiente (fuente no accesible de forma fiable) |
 
-- Botón **«? Ayuda»** en la cabecera: abre un panel lateral con las claves de lectura (sondeos ≠ pronóstico, tres capas, datos oficiales, límites).
-- Tarjeta **en el flujo** de la portada para la primera visita («¿Primera vez?»), con «Ver guía» y «×». Se cierra y no vuelve (`localStorage`).
-- No hay overlay fijo ni popup bloqueante: no tapa el footer ni el botón de Ko-fi.
-- Footer con enlaces al ecosistema: **Prueba Pública**, **Blog de análisis**, **Observatorio de amplificación** y **Vivienda**, con UTM.
-
-## Documentación y páginas
-
-- `/metodologia.html`: método de cada módulo (sondeos, censo, participación, territorio), reglas comunes y límites.
-- `/fuentes.html`: fuentes por módulo, enlaces oficiales, catálogo de datos descargables (JSON/CSV) y licencias.
-- `/apoyo.html`: Ko-fi, compartir y colaboración; qué financia y qué no cambia.
-- `/sobre-mi.html`: autor, principios de trabajo, proyectos y contacto.
-
-## Noche electoral 29N
-
-- Página `/noche-electoral.html`: qué se publica y cuándo, qué no se publica y cómo se valida.
-- Estado previo explícito: **sin datos electorales hasta después de la jornada**.
-- Fuentes: Ministerio del Interior y JEC. No se usan sondeos a pie de urna como resultados.
-- El módulo de resultados se activará con datos oficiales validados (participación, escrutinio).
-
-## Datos
-
-- Fuente de sondeos: **Electomania** (ElectoPanel) vía WordPress REST API, con paginación y backfill.
-- Ingesta con filtros de plausibilidad: suma 90–110 %, ≥6 partidos, rango 0–45 %, sin autonómicos ni adelantos incompletos.
-- Histórico versionado en `data/polls_history.csv` (`party,date,value,source_url,sample`).
-- Salida pública: `web/data/latest.json` (agregado + series + series_long + KPIs).
+Cada fila de sondeo guarda `pollster`, `date`, `source_url` y `sample`. Los
+metadatos del censo incluyen URL y **SHA-256** de cada XLSX.
 
 ## Arquitectura
 
 ```
-ingest/electomania.py  →  data/polls_history.csv
-agg/aggregate.py       →  web/data/latest.json (+ media 14d, series, KPIs)
-agg/blackout.py        →  bloqueo 24–28 nov (LOREG/JEC)
-gen/build.py           →  web/*.html, sitemap, robots, llms.txt, favicon
-gen/gen_og.py          →  web/og.png (1200×630)
-scripts/indexnow_push.py → IndexNow (Bing/Yandex)
-scripts/rsync_push.sh  →  deploy@<server>:/var/www/elecciones29n/
+ingest/electomania.py ─┐
+ingest/censo.py        ├─→ data/ ─→ agg/aggregate.py ─→ gen/build.py ─→ web_tmp/
+ingest/participacion.py│              (media, salud)      (HTML, OG, RSS)
+ingest/escanos.py      ┘                                      │
+                                                              ▼
+                                     scripts/validate_site.py  ←  validación
+                                                              │
+                                     swap atómico (web/ ← web_tmp/)
+                                                              │
+                                     rsync → servidor nginx (estático)
+                                                              │
+                                     canary en vivo + IndexNow + purge CF
 ```
 
-`run_daily.sh` construye en `web_tmp/`, ejecuta `scripts/validate_site.py` y solo
-entonces hace el swap a `web/` (guardando `web_prev/`). Si la validación falla no
-se publica nada. Tras el despliegue, `scripts/canary_live.py` verifica en la URL
-pública que el gráfico, el JSON y la OG están presentes.
+- **Local-first**: la ingesta y el build corren en el portátil. El servidor solo
+  sirve estático (cero backend, cero cron en servidor).
+- **Fail-safe**: si la ingesta o la validación fallan, **no se publica nada** y
+  se conserva la última versión buena (`web_prev/` para revertir).
+- **Sin terceros**: sin cookies, sin analítica externa, sin publicidad.
 
-- **Local-first**: la ingesta y el build corren en el portátil (16 GB, CPU modesto). El servidor solo sirve estático con nginx (cero cron, cero backend).
-- **Fail-safe**: si la ingesta falla o los datos no pasan validación, no se actualiza nada y se conserva el último resultado válido.
-
-## Uso
+## Puesta en marcha
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
-bash scripts/check.sh          # compila + tests + validación del sitio local
-bash scripts/run_daily.sh      # ingest + agg + build + OG + IndexNow + deploy
-bash scripts/rsync_push.sh     # solo publicar
-python3 scripts/add_poll.py --party PP --value 31.8   # alta manual
+bash scripts/check.sh       # compila + tests + validación del sitio local
+bash scripts/run_daily.sh   # ingesta + agregado + build + deploy
 ```
 
-## Cron local (systemd --user)
+### Cron diario (systemd --user)
 
 ```bash
 mkdir -p ~/.config/systemd/user ~/.local/state/elecciones29n
 cp systemd/elecciones29n.service systemd/elecciones29n.timer ~/.config/systemd/user/
 systemctl --user daemon-reload
 systemctl --user enable --now elecciones29n.timer
-systemctl --user list-timers | grep elecciones   # siguiente ejecución
+systemctl --user list-timers | grep elecciones
 
-# Opcional: que el timer corra sin sesión iniciada
+# opcional: que corra sin sesión iniciada
 sudo loginctl enable-linger $USER
-
-# Vigilante al iniciar sesión (avisa si no corrió a las 08:00)
-mkdir -p ~/.config/autostart
-cp elecciones29n-watchdog.desktop ~/.config/autostart/
 ```
 
-El servicio escribe en `~/.local/state/elecciones29n/run.log` y el pipeline termina con `rsync`, así que una ejecución correcta publica sola.
+El servicio escribe en `~/.local/state/elecciones29n/run.log`. El cron de las
+08:00 termina publicando; si el portátil está apagado, la web muestra un aviso
+pulsante cuando los datos superan las 26 h o pasa de las 09:00 sin actualizar.
 
-## Blackout electoral (LOREG / JEC)
+## Alta manual de sondeos
 
-Del **24 al 28 de noviembre de 2026** (ambos inclusive) no se publican, difunden ni reproducen sondeos. El agregado se congela: no se generan cifras nuevas y la web conserva el último resultado válido con su fecha. El aviso de datos desactualizados no se muestra durante el blackout.
+Objetivo: **≥4 sondeos y ≥2 encuestadoras**. Rutina de 10–15 min/semana en
+[`docs/RUTINA-SEMANAL.md`](docs/RUTINA-SEMANAL.md).
+
+```bash
+# un sondeo completo en una línea
+.venv/bin/python scripts/add_poll.py --date 2026-10-20 --pollster "40dB" \
+  --sample 1500 --source-url "https://…" \
+  --values "PP=31.8,PSOE=27.1,VOX=18.9,SUMAR=5.4,Podemos=3.3,ERC=2.0,Junts=1.2,Bildu=1.3,PNV=1.1,SAF=1.8"
+```
+
+Valida partidos, rango y suma (90–110 %). `kind=average` marca promedios de
+otras casas y se excluye de la media principal.
+
+## Estructura
+
+```
+agg/            agregado, blackout y salud de la muestra
+ingest/         Electomania, censo (INE), participación (JEC), escaños (BOE)
+gen/            build estático, OG, plantillas Jinja
+data/           histórico de sondeos y datasets normalizados (fuente de verdad)
+web/            salida estática publicada
+scripts/        run_daily, check, validate_site, canary, IndexNow, add_poll, health_report
+docs/           método, fuentes, rutina semanal, sprint del observatorio
+tests/          34 pruebas (datos, build, validador)
+systemd/        servicio y timer
+```
+
+## Calidad
+
+- **34 tests** (`unittest`) y hook **pre-push**.
+- `scripts/check.sh`: compila, tests y valida el sitio local.
+- **Validador** de publicación: gráfico con puntos, pestañas, JSON, sitemap, OG,
+  RSS, censo, participación y escaños.
+- **Canario en vivo** tras cada deploy: comprueba en la URL pública el gráfico,
+  el JSON, la OG, el censo, la participación, el territorio y las páginas nuevas.
+- **Reversión**: `web_prev/` conserva la versión anterior.
 
 ## SEO y datos abiertos
 
-- `sitemap.xml`, `robots.txt`, canonical, `og.png` 1200×630 y `twitter:card`.
-- JSON-LD: `WebSite`, `Dataset` (AGPL, distribución JSON) y `FAQPage`.
-- `llms.txt` para asistentes de IA.
-- **IndexNow** en cada build.
-- Cache-busting (`?v=<timestamp>`) en CSS/JS para evitar caché de edge.
+- `sitemap.xml` (11 URLs), `robots.txt`, `llms.txt` y RSS `cambios.xml`.
+- OG 1200×630, `twitter:card`, canonical y JSON-LD (`WebSite`, `Dataset`,
+  `FAQPage`, `Person`).
+- **IndexNow** en cada build; cache-busting `?v=` en CSS/JS.
+- Datos descargables en `/data/`: JSON y CSV de sondeos, censo, participación y
+  escaños.
 
-## Seguridad
+## Límites
 
-- Sin credenciales en el repositorio. `.gitignore` cubre `.env`, `*.env`, `*.pem` y `*.key`.
-- La publicación usa clave SSH; no hay secretos en el código ni en el historial.
-- Sin cookies, sin analítica de terceros, sin backend.
+- Una media no sustituye a la incertidumbre; el rango no es un intervalo de confianza.
+- Una sola encuestadora no es una media entre casas.
+- El censo describe quién puede votar, no a quién vota.
+- La simulación de Congreso es mecánica (distrito único), no una proyección.
+- El Senado no se simula: depende de listas provinciales y designación autonómica.
+- Sin resultados provinciales no se cierra votos↔escaños por provincia.
+- No se atribuyen preferencias por edad, sexo, renta o territorio.
+- No se mezclan señales sociales con sondeos, censo o participación.
 
-## Límites declarados
+## Hoja de ruta
 
-- Una media no sustituye a la incertidumbre.
-- La simulación de Congreso es un artefacto educativo, no una proyección.
-- Los datos dependen de que las encuestadoras publiquen; un parón de publicación no es un parón del cron.
+- **M4** · Comportamiento por grupos: solo cross-tabs publicados, con `n` y fuente.
+- **M5** · Meteorología × participación: estudio histórico (AEMET + participación), método primero.
+- **29N** · Activar resultados y participación oficiales tras la jornada.
+- **Provincial** · Votos↔escaños 2023 por provincia cuando la fuente sea accesible.
 
-## Licencia
+## Licencia y cita
 
-AGPL-3.0. Ver `LICENSE`.
+Código **AGPL-3.0** ([`LICENSE`](LICENSE)). Datos agregados reutilizables citando
+el proyecto.
 
-## Cita
+> Miguel Castillo. *Observatorio electoral 29N*. https://elecciones29n.pruebapublica.com
 
-Miguel Castillo. *elecciones29n-osint: media agregada de sondeos, elecciones generales 29N 2026*. https://elecciones29n.pruebapublica.com
+Contacto: **prensa@viajeinteligencia.com**

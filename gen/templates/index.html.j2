@@ -142,6 +142,25 @@
     </div>
 
     <div class="card">
+      <div class="cardhead"><h2>Salud de la muestra</h2><span class="hint">qué sostiene la media</span></div>
+      {% if health %}
+      {% set hlabel = {'ok':'Muestra suficiente','warn':'Muestra frágil','bad':'Muestra insuficiente'}[health.status] %}
+      <div class="health">
+        <span class="chip {{ health.status }}">{{ hlabel }}</span>
+        <div class="healthitems">
+          <span><b>{{ health.n_polls }}</b>sondeos</span>
+          <span><b>{{ health.n_pollsters }}</b>encuestadoras</span>
+          <span><b>{% if health.days_since_last is not none %}{{ health.days_since_last }}{% else %}—{% endif %}</b>días desde el último</span>
+        </div>
+      </div>
+      {% if health.reasons %}
+      <p class="muted small" style="margin-top:10px">Aviso: {{ health.reasons|join(' · ') }}. La media se publica igualmente, pero con menos estabilidad.</p>
+      {% endif %}
+      <p class="muted small">Una sola encuestadora no es una media entre casas: es su serie. La salud mejora añadiendo sondeos de otras casas con fuente y muestra.</p>
+      {% endif %}
+    </div>
+
+    <div class="card">
       <div class="cardhead"><h2>Comparte o cita</h2></div>
       <p class="muted small">Si te sirve, compártelo con la fuente y el rango, no solo con la media.</p>
       <div class="share">

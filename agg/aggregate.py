@@ -167,6 +167,31 @@ def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
     poll_dates = sorted({p["date"].strftime("%Y-%m-%d") for p in recent})
     sources = sorted({p["source_url"] for p in recent if p.get("source_url")})
     means = {p["party"]: p["mean"] for p in parties}
+    pollsters = sorted({p.get("pollster") for p in recent if p.get("pollster")})
+    n_pollsters = len(pollsters)
+    last_poll = poll_dates[-1] if poll_dates else None
+    days_since = None
+    if last_poll:
+        days_since = max(0, (now.date() - datetime.strptime(last_poll, "%Y-%m-%d").date()).days)
+    reasons = []
+    status = "ok"
+    if len(poll_dates) < LOW_N:
+        status = "bad"
+        reasons.append(f"solo {len(poll_dates)} sondeos en la media")
+    if n_pollsters <= 1:
+        status = "bad" if status == "bad" else "warn"
+        reasons.append("una sola encuestadora")
+    if days_since is not None and days_since > 10:
+        status = "bad" if days_since > 21 else ("warn" if status == "ok" else status)
+        reasons.append(f"último sondeo hace {days_since} días")
+    health = {
+        "status": status,
+        "n_polls": len(poll_dates),
+        "n_pollsters": n_pollsters,
+        "pollsters": pollsters,
+        "days_since_last": days_since,
+        "reasons": reasons,
+    }
 
     election = now.replace(year=2026, month=11, day=29, hour=0, minute=0, second=0, microsecond=0)
     blackout_start = now.replace(year=2026, month=11, day=24, hour=0, minute=0, second=0, microsecond=0)
@@ -188,6 +213,7 @@ def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
         ),
         "sources": sources,
         "last_poll_date": poll_dates[-1] if poll_dates else None,
+        "health": health,
         "days_to_election": max(0, (election - now).days),
         "days_to_blackout": max(0, (blackout_start - now).days),
         "gap_pp_psoe": round(means.get("PP", 0) - means.get("PSOE", 0), 2),

@@ -53,6 +53,8 @@ def main() -> int:
         for meta in ('property="og:image"', 'name="twitter:card"', 'rel="canonical"', "application/ld+json"):
             if meta not in html:
                 errors.append(f"falta meta {meta}")
+        if "Salud de la muestra" not in html:
+            errors.append("index.html sin panel de salud de la muestra")
         if "cambios.xml" not in html:
             warns.append("index.html no enlaza cambios.xml")
 
@@ -68,6 +70,8 @@ def main() -> int:
                 errors.append("latest.json sin partidos")
             if not data.get("updated_at_iso"):
                 errors.append("latest.json sin updated_at_iso")
+            if not data.get("health"):
+                errors.append("latest.json sin health")
             if not data.get("series_long"):
                 errors.append("latest.json sin series_long")
             if int(data.get("n_polls", 0)) < 1:

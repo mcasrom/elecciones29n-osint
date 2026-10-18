@@ -1,7 +1,7 @@
 import os
 import tempfile
 import unittest
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import pytz
 
@@ -66,6 +66,32 @@ class AggregateTest(unittest.TestCase):
             rows.append(("X", d, 10.0 + i, "u", 1000, "A", "tracking"))
         res = self.run_with(rows)
         self.assertGreaterEqual(res["n_polls"], 4)
+
+    def test_health_ok_two_pollsters(self):
+        now = datetime.now(TZ)
+        rows = []
+        for i in range(4):
+            d = (now - timedelta(days=i)).strftime("%Y-%m-%d")
+            rows.append(("X", d, 10.0 + i, "u", 1000, "A" if i % 2 == 0 else "B", "tracking"))
+        res = self.run_with(rows)
+        self.assertEqual(res["health"]["status"], "ok")
+        self.assertEqual(res["health"]["n_pollsters"], 2)
+
+    def test_health_single_pollster_warn(self):
+        now = datetime.now(TZ)
+        rows = []
+        for i in range(4):
+            d = (now - timedelta(days=i)).strftime("%Y-%m-%d")
+            rows.append(("X", d, 10.0, "u", 1000, "A", "tracking"))
+        res = self.run_with(rows)
+        self.assertEqual(res["health"]["status"], "warn")
+        self.assertIn("una sola encuestadora", res["health"]["reasons"])
+
+    def test_health_low_bad(self):
+        today = datetime.now(TZ).strftime("%Y-%m-%d")
+        res = self.run_with([("X", today, 10.0, "u", 1000, "A", "tracking")])
+        self.assertEqual(res["health"]["status"], "bad")
+        self.assertEqual(res["health"]["n_polls"], 1)
 
     def test_weight_basis_reports_sample(self):
         today = datetime.now(TZ).strftime("%Y-%m-%d")

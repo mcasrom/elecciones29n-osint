@@ -124,6 +124,13 @@ da edad/sexo. El gráfico debe decirlo.
 - Página `/noche-electoral.html`: calendario de publicación, qué no se publica, validación y estado previo.
 - Integrada en nav, subnav, sitemap (11 URLs), validador y canario.
 
+## Salud de la muestra y rutina semanal — ✅ HECHO 18-oct
+
+- Panel **«Salud de la muestra»** en la portada: sondeos, encuestadoras, días desde el último y estado (suficiente / frágil / insuficiente), con avisos.
+- `health` en `latest.json`; `scripts/health_report.py`; validación y canario lo comprueban.
+- **`docs/RUTINA-SEMANAL.md`**: rutina de 10–15 min/semana, alta en lote con `add_poll.py --values`, criterios y reglas.
+- Objetivo operativo: ≥4 sondeos y ≥2 encuestadoras.
+
 ## Orden de ejecución
 
 1. **M1 censo** (datos listos, bajo riesgo) → enlazar desde la portada.

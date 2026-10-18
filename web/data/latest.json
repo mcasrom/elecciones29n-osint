@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-18 09:28 CEST",
-  "updated_at_iso": "2026-10-18T09:28:33.390257+02:00",
+  "updated_at": "2026-10-18 09:32 CEST",
+  "updated_at_iso": "2026-10-18T09:32:59.460275+02:00",
   "in_blackout": false,
   "window_days": 14,
   "parties": [
@@ -626,6 +626,18 @@
     "https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/"
   ],
   "last_poll_date": "2026-10-11",
+  "health": {
+    "status": "warn",
+    "n_polls": 4,
+    "n_pollsters": 1,
+    "pollsters": [
+      "ElectoPanel"
+    ],
+    "days_since_last": 7,
+    "reasons": [
+      "una sola encuestadora"
+    ]
+  },
   "days_to_election": 41,
   "days_to_blackout": 36,
   "gap_pp_psoe": 4.85,

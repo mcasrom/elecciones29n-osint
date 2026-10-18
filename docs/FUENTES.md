@@ -11,6 +11,14 @@
 
 ## Alta manual (cuando no hay API)
 
+Rutina completa: **`docs/RUTINA-SEMANAL.md`**. Objetivo: ≥4 sondeos y ≥2
+encuestadoras; 10–15 min/semana. Modo lote:
+
+```bash
+python scripts/add_poll.py --date 2026-10-20 --pollster "40dB" --sample 1500 \
+  --source-url "https://…" --values "PP=31.8,PSOE=27.1,VOX=18.9,SUMAR=5.4"
+```
+
 ```bash
 python3 scripts/add_poll.py --party PP --value 31.8 --date 2026-10-18 \
   --pollster "40dB" --sample 1500 --source-url "https://…"

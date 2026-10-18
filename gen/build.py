@@ -203,6 +203,15 @@ svg.chart{width:100%;height:auto;display:block}
 .stale strong{color:#fff}
 @keyframes stalePulse{0%,100%{background:#3a0d0d}50%{background:#611a1a}}
 
+/* salud de la muestra */
+.health{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.healthitems{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.healthitems b{display:block;color:var(--fg);font-size:16px;line-height:1.1}
+.chip{padding:5px 11px;border-radius:999px;font-size:12px;font-weight:700;border:1px solid}
+.chip.ok{color:var(--accent2);border-color:var(--accent2);background:rgba(61,220,151,.10)}
+.chip.warn{color:#f2c94c;border-color:#f2c94c;background:rgba(242,201,76,.10)}
+.chip.bad{color:var(--accent);border-color:var(--accent);background:rgba(255,90,31,.10)}
+
 /* barras de progreso (censo) */
 .prog{display:block;height:8px;background:var(--panel2);border:1px solid var(--line);border-radius:5px;overflow:hidden}
 .prog i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--accent2))}
@@ -943,6 +952,7 @@ def main(out: str = "web") -> None:
         "participacion": participacion,
         "part_chart": build_participacion_chart(participacion.get("elecciones", [])),
         "part_kpis": part_kpis,
+        "health": latest.get("health", {}),
         "escanos": escanos,
         "escanos_chart": build_escanos_chart(escanos.get("provincias", [])),
         "escanos_kpis": {
