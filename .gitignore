@@ -8,3 +8,5 @@ polls.duckdb
 *.env
 *.pem
 *.key
+web_tmp/
+web_prev/
