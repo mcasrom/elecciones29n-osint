@@ -31,6 +31,8 @@ dato, no en una nota al pie.
 - `/electorado.html` — Censo 29N: total, CER/CERA, edad y sexo, provincias y nuevos electores.
 - `/participacion.html` — Participación nacional 1979–2023 y **provincial 1977–2023** (selector + comparación con la media nacional).
 - `/territorio.html` — 350 escaños, 52 circunscripciones, electores por escaño y **votos↔escaños 2023 con índice de Gallagher**.
+- `/factores.html` — Factores y participación: día/festivo, meteorología (M5) y **resultados v1**.
+- `/comportamiento.html` — Diseño de M4 (voto por grupos) y criterios de aceptación; sin datos aún.
 - `/noche-electoral.html` — Qué se publica el 29N, cuándo y con qué fuente.
 - `/metodologia.html` y `/fuentes.html` — Método, fuentes, catálogo de datos y licencias.
 
@@ -173,7 +175,7 @@ systemd/        servicio y timer
 
 ## Calidad
 
-- **34 tests** (`unittest`) y hook **pre-push**.
+- **44 tests** (`unittest`) y hook **pre-push**.
 - `scripts/check.sh`: compila, tests y valida el sitio local.
 - **Validador** de publicación: gráfico con puntos, pestañas, JSON, sitemap, OG,
   RSS, censo, participación y escaños.
@@ -197,16 +199,17 @@ systemd/        servicio y timer
 - El censo describe quién puede votar, no a quién vota.
 - La simulación de Congreso es mecánica (distrito único), no una proyección.
 - El Senado no se simula: depende de listas provinciales y designación autonómica.
-- Sin resultados provinciales no se cierra votos↔escaños por provincia.
+- No se simulan escaños provinciales ni el Senado sin encuestas provinciales.
 - No se atribuyen preferencias por edad, sexo, renta o territorio.
 - No se mezclan señales sociales con sondeos, censo o participación.
 
 ## Hoja de ruta
 
-- **M4** · Comportamiento por grupos: solo cross-tabs publicados, con `n` y fuente.
-- **M5** · Meteorología × participación: estudio histórico (AEMET + participación), método primero.
-- **29N** · Activar resultados y participación oficiales tras la jornada.
-- **Provincial** · Votos↔escaños 2023 por provincia cuando la fuente sea accesible.
+- **M4** · Comportamiento por grupos: solo cross-tabs publicados, con `n` y fuente. Hoy solo diseño.
+- **M5 v1** · Meteorología × participación: ✅ hecho (806 obs; −0,041 pp/mm; sin causalidad).
+- **29N** · Activar resultados y participación oficiales tras la jornada (fallback manual listo).
+- **Provincial** · ✅ participación 1977–2023 y votos↔escaños 2023 integrados.
+- **M5b** (opcional) · placebo con el día anterior, umbrales de lluvia y robustez adicional.
 
 ## Licencia y cita
 
