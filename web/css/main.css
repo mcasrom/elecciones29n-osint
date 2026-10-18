@@ -157,6 +157,10 @@ svg.chart{width:100%;height:auto;display:block}
 .stale strong{color:#fff}
 @keyframes stalePulse{0%,100%{background:#3a0d0d}50%{background:#611a1a}}
 
+/* controles de gráfico */
+.chart-controls{display:flex;align-items:center;gap:10px;margin:0 0 10px;font-size:13px;color:var(--muted)}
+.chart-controls select{background:var(--panel2);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:7px 10px;font:inherit}
+
 /* aviso nueva versión (SW) */
 .swupdate{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:85;display:flex;align-items:center;gap:10px;background:var(--panel2);border:1px solid var(--accent);border-radius:12px;padding:10px 14px;box-shadow:0 10px 30px rgba(0,0,0,.35);font-size:13.5px;color:var(--muted);max-width:calc(100vw - 24px)}
 .swupdate strong{color:var(--fg)}

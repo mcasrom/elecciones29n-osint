@@ -1,0 +1,5147 @@
+{
+  "meta": {
+    "fuente": "Ministerio del Interior / open data (archivo facilitado)",
+    "fichero": "Elecciones-Congreso.xlsx",
+    "sha256": "dba3394f1812f338067231bce68acf56af1e13ddf8cfb709a814bcc46357ebc2",
+    "generado": "2026-10-18T09:00:33.787184+00:00",
+    "nota": "Provincial: electores, votantes y votos/escaños por partido (familias). 1977–2023."
+  },
+  "elecciones": {
+    "1977-06-15": {
+      "nacional": {
+        "electores": 23583762,
+        "votantes": 18590130,
+        "participacion": 78.83
+      },
+      "provincias": [
+        {
+          "nombre": "Araba/Álava",
+          "electores": 153080,
+          "votantes": 126968,
+          "participacion": 82.94
+        },
+        {
+          "nombre": "Albacete",
+          "electores": 211249,
+          "votantes": 171690,
+          "participacion": 81.27
+        },
+        {
+          "nombre": "Alicante / Alacant",
+          "electores": 677156,
+          "votantes": 556525,
+          "participacion": 82.19
+        },
+        {
+          "nombre": "Almería",
+          "electores": 239935,
+          "votantes": 186342,
+          "participacion": 77.66
+        },
+        {
+          "nombre": "Ávila",
+          "electores": 130998,
+          "votantes": 106097,
+          "participacion": 80.99
+        },
+        {
+          "nombre": "Badajoz",
+          "electores": 413193,
+          "votantes": 322276,
+          "participacion": 78.0
+        },
+        {
+          "nombre": "Balears, Illes",
+          "electores": 407899,
+          "votantes": 321552,
+          "participacion": 78.83
+        },
+        {
+          "nombre": "Barcelona",
+          "electores": 3004988,
+          "votantes": 2392774,
+          "participacion": 79.63
+        },
+        {
+          "nombre": "Burgos",
+          "electores": 238885,
+          "votantes": 189485,
+          "participacion": 79.32
+        },
+        {
+          "nombre": "Cáceres",
+          "electores": 279372,
+          "votantes": 212461,
+          "participacion": 76.05
+        },
+        {
+          "nombre": "Cádiz",
+          "electores": 559590,
+          "votantes": 421330,
+          "participacion": 75.29
+        },
+        {
+          "nombre": "Castellón / Castelló",
+          "electores": 283161,
+          "votantes": 242186,
+          "participacion": 85.53
+        },
+        {
+          "nombre": "Ciudad Real",
+          "electores": 310547,
+          "votantes": 251115,
+          "participacion": 80.86
+        },
+        {
+          "nombre": "Córdoba",
+          "electores": 451021,
+          "votantes": 365308,
+          "participacion": 81.0
+        },
+        {
+          "nombre": "Coruña, A",
+          "electores": 731499,
+          "votantes": 461870,
+          "participacion": 63.14
+        },
+        {
+          "nombre": "Cuenca",
+          "electores": 151099,
+          "votantes": 128304,
+          "participacion": 84.91
+        },
+        {
+          "nombre": "Girona",
+          "electores": 304448,
+          "votantes": 249960,
+          "participacion": 82.1
+        },
+        {
+          "nombre": "Granada",
+          "electores": 456952,
+          "votantes": 351595,
+          "participacion": 76.94
+        },
+        {
+          "nombre": "Guadalajara",
+          "electores": 95061,
+          "votantes": 81562,
+          "participacion": 85.8
+        },
+        {
+          "nombre": "Gipuzkoa",
+          "electores": 437592,
+          "votantes": 335512,
+          "participacion": 76.67
+        },
+        {
+          "nombre": "Huelva",
+          "electores": 255557,
+          "votantes": 189961,
+          "participacion": 74.33
+        },
+        {
+          "nombre": "Huesca",
+          "electores": 153109,
+          "votantes": 125015,
+          "participacion": 81.65
+        },
+        {
+          "nombre": "Jaén",
+          "electores": 403142,
+          "votantes": 316613,
+          "participacion": 78.54
+        },
+        {
+          "nombre": "León",
+          "electores": 364127,
+          "votantes": 273694,
+          "participacion": 75.16
+        },
+        {
+          "nombre": "Lleida",
+          "electores": 242148,
+          "votantes": 188715,
+          "participacion": 77.93
+        },
+        {
+          "nombre": "Rioja, La",
+          "electores": 167030,
+          "votantes": 140429,
+          "participacion": 84.07
+        },
+        {
+          "nombre": "Lugo",
+          "electores": 302293,
+          "votantes": 171681,
+          "participacion": 56.79
+        },
+        {
+          "nombre": "Madrid",
+          "electores": 2744152,
+          "votantes": 2332660,
+          "participacion": 85.0
+        },
+        {
+          "nombre": "Málaga",
+          "electores": 569535,
+          "votantes": 440574,
+          "participacion": 77.36
+        },
+        {
+          "nombre": "Murcia",
+          "electores": 551021,
+          "votantes": 450752,
+          "participacion": 81.8
+        },
+        {
+          "nombre": "Navarra",
+          "electores": 319222,
+          "votantes": 262522,
+          "participacion": 82.24
+        },
+        {
+          "nombre": "Ourense",
+          "electores": 315033,
+          "votantes": 163961,
+          "participacion": 52.05
+        },
+        {
+          "nombre": "Asturias",
+          "electores": 783206,
+          "votantes": 584061,
+          "participacion": 74.57
+        },
+        {
+          "nombre": "Palencia",
+          "electores": 125385,
+          "votantes": 103778,
+          "participacion": 82.77
+        },
+        {
+          "nombre": "Palmas, Las",
+          "electores": 365063,
+          "votantes": 289260,
+          "participacion": 79.24
+        },
+        {
+          "nombre": "Pontevedra",
+          "electores": 548711,
+          "votantes": 354864,
+          "participacion": 64.67
+        },
+        {
+          "nombre": "Salamanca",
+          "electores": 241301,
+          "votantes": 199259,
+          "participacion": 82.58
+        },
+        {
+          "nombre": "Santa Cruz de Tenerife",
+          "electores": 397732,
+          "votantes": 268184,
+          "participacion": 67.43
+        },
+        {
+          "nombre": "Cantabria",
+          "electores": 327008,
+          "votantes": 263997,
+          "participacion": 80.73
+        },
+        {
+          "nombre": "Segovia",
+          "electores": 99408,
+          "votantes": 87097,
+          "participacion": 87.62
+        },
+        {
+          "nombre": "Sevilla",
+          "electores": 842042,
+          "votantes": 692926,
+          "participacion": 82.29
+        },
+        {
+          "nombre": "Soria",
+          "electores": 73992,
+          "votantes": 61230,
+          "participacion": 82.75
+        },
+        {
+          "nombre": "Tarragona",
+          "electores": 331744,
+          "votantes": 257480,
+          "participacion": 77.61
+        },
+        {
+          "nombre": "Teruel",
+          "electores": 112376,
+          "votantes": 95055,
+          "participacion": 84.59
+        },
+        {
+          "nombre": "Toledo",
+          "electores": 309595,
+          "votantes": 268225,
+          "participacion": 86.64
+        },
+        {
+          "nombre": "Valencia / València",
+          "electores": 1287981,
+          "votantes": 1091199,
+          "participacion": 84.72
+        },
+        {
+          "nombre": "Valladolid",
+          "electores": 295410,
+          "votantes": 249223,
+          "participacion": 84.37
+        },
+        {
+          "nombre": "Bizkaia",
+          "electores": 749572,
+          "votantes": 572548,
+          "participacion": 76.38
+        },
+        {
+          "nombre": "Zamora",
+          "electores": 164706,
+          "votantes": 133390,
+          "participacion": 80.99
+        },
+        {
+          "nombre": "Zaragoza",
+          "electores": 547396,
+          "votantes": 442996,
+          "participacion": 80.93
+        },
+        {
+          "nombre": "Ceuta",
+          "electores": 31672,
+          "votantes": 24578,
+          "participacion": 77.6
+        },
+        {
+          "nombre": "Melilla",
+          "electores": 25368,
+          "votantes": 19291,
+          "participacion": 76.04
+        }
+      ]
+    },
+    "1979-03-01": {
+      "nacional": {
+        "electores": 26836490,
+        "votantes": 18259192,
+        "participacion": 68.04
+      },
+      "provincias": [
+        {
+          "nombre": "Araba/Álava",
+          "electores": 174145,
+          "votantes": 119892,
+          "participacion": 68.85
+        },
+        {
+          "nombre": "Albacete",
+          "electores": 238682,
+          "votantes": 170678,
+          "participacion": 71.51
+        },
+        {
+          "nombre": "Alicante / Alacant",
+          "electores": 762982,
+          "votantes": 560714,
+          "participacion": 73.49
+        },
+        {
+          "nombre": "Almería",
+          "electores": 278280,
+          "votantes": 184489,
+          "participacion": 66.3
+        },
+        {
+          "nombre": "Ávila",
+          "electores": 146183,
+          "votantes": 103007,
+          "participacion": 70.46
+        },
+        {
+          "nombre": "Badajoz",
+          "electores": 461577,
+          "votantes": 332132,
+          "participacion": 71.96
+        },
+        {
+          "nombre": "Balears, Illes",
+          "electores": 452061,
+          "votantes": 314850,
+          "participacion": 69.65
+        },
+        {
+          "nombre": "Barcelona",
+          "electores": 3466533,
+          "votantes": 2337309,
+          "participacion": 67.42
+        },
+        {
+          "nombre": "Burgos",
+          "electores": 269771,
+          "votantes": 183336,
+          "participacion": 67.96
+        },
+        {
+          "nombre": "Cáceres",
+          "electores": 311681,
+          "votantes": 209735,
+          "participacion": 67.29
+        },
+        {
+          "nombre": "Cádiz",
+          "electores": 643731,
+          "votantes": 422011,
+          "participacion": 65.56
+        },
+        {
+          "nombre": "Castellón / Castelló",
+          "electores": 309494,
+          "votantes": 243601,
+          "participacion": 78.71
+        },
+        {
+          "nombre": "Ciudad Real",
+          "electores": 360747,
+          "votantes": 246203,
+          "participacion": 68.25
+        },
+        {
+          "nombre": "Córdoba",
+          "electores": 512633,
+          "votantes": 373627,
+          "participacion": 72.88
+        },
+        {
+          "nombre": "Coruña, A",
+          "electores": 820874,
+          "votantes": 437702,
+          "participacion": 53.32
+        },
+        {
+          "nombre": "Cuenca",
+          "electores": 167946,
+          "votantes": 124450,
+          "participacion": 74.1
+        },
+        {
+          "nombre": "Girona",
+          "electores": 336539,
+          "votantes": 240636,
+          "participacion": 71.5
+        },
+        {
+          "nombre": "Granada",
+          "electores": 524797,
+          "votantes": 360733,
+          "participacion": 68.74
+        },
+        {
+          "nombre": "Guadalajara",
+          "electores": 108095,
+          "votantes": 78357,
+          "participacion": 72.49
+        },
+        {
+          "nombre": "Gipuzkoa",
+          "electores": 507142,
+          "votantes": 334773,
+          "participacion": 66.01
+        },
+        {
+          "nombre": "Huelva",
+          "electores": 282075,
+          "votantes": 186498,
+          "participacion": 66.12
+        },
+        {
+          "nombre": "Huesca",
+          "electores": 168014,
+          "votantes": 119654,
+          "participacion": 71.22
+        },
+        {
+          "nombre": "Jaén",
+          "electores": 464993,
+          "votantes": 332326,
+          "participacion": 71.47
+        },
+        {
+          "nombre": "León",
+          "electores": 410142,
+          "votantes": 261085,
+          "participacion": 63.66
+        },
+        {
+          "nombre": "Lleida",
+          "electores": 267584,
+          "votantes": 174656,
+          "participacion": 65.27
+        },
+        {
+          "nombre": "Rioja, La",
+          "electores": 186097,
+          "votantes": 136419,
+          "participacion": 73.31
+        },
+        {
+          "nombre": "Lugo",
+          "electores": 328638,
+          "votantes": 161880,
+          "participacion": 49.26
+        },
+        {
+          "nombre": "Madrid",
+          "electores": 3177732,
+          "votantes": 2328229,
+          "participacion": 73.27
+        },
+        {
+          "nombre": "Málaga",
+          "electores": 651876,
+          "votantes": 419157,
+          "participacion": 64.3
+        },
+        {
+          "nombre": "Murcia",
+          "electores": 635376,
+          "votantes": 461971,
+          "participacion": 72.71
+        },
+        {
+          "nombre": "Navarra",
+          "electores": 363713,
+          "votantes": 257005,
+          "participacion": 70.66
+        },
+        {
+          "nombre": "Ourense",
+          "electores": 346660,
+          "votantes": 143391,
+          "participacion": 41.36
+        },
+        {
+          "nombre": "Asturias",
+          "electores": 868893,
+          "votantes": 545179,
+          "participacion": 62.74
+        },
+        {
+          "nombre": "Palencia",
+          "electores": 141783,
+          "votantes": 100877,
+          "participacion": 71.15
+        },
+        {
+          "nombre": "Palmas, Las",
+          "electores": 421003,
+          "votantes": 296783,
+          "participacion": 70.49
+        },
+        {
+          "nombre": "Pontevedra",
+          "electores": 617127,
+          "votantes": 296770,
+          "participacion": 48.09
+        },
+        {
+          "nombre": "Salamanca",
+          "electores": 277145,
+          "votantes": 198518,
+          "participacion": 71.63
+        },
+        {
+          "nombre": "Santa Cruz de Tenerife",
+          "electores": 474841,
+          "votantes": 250940,
+          "participacion": 52.85
+        },
+        {
+          "nombre": "Cantabria",
+          "electores": 375666,
+          "votantes": 264658,
+          "participacion": 70.45
+        },
+        {
+          "nombre": "Segovia",
+          "electores": 111360,
+          "votantes": 84286,
+          "participacion": 75.69
+        },
+        {
+          "nombre": "Sevilla",
+          "electores": 978772,
+          "votantes": 698818,
+          "participacion": 71.4
+        },
+        {
+          "nombre": "Soria",
+          "electores": 81764,
+          "votantes": 56946,
+          "participacion": 69.65
+        },
+        {
+          "nombre": "Tarragona",
+          "electores": 372005,
+          "votantes": 251500,
+          "participacion": 67.61
+        },
+        {
+          "nombre": "Teruel",
+          "electores": 122441,
+          "votantes": 85295,
+          "participacion": 69.66
+        },
+        {
+          "nombre": "Toledo",
+          "electores": 345126,
+          "votantes": 268645,
+          "participacion": 77.84
+        },
+        {
+          "nombre": "Valencia / València",
+          "electores": 1460284,
+          "votantes": 1092469,
+          "participacion": 74.81
+        },
+        {
+          "nombre": "Valladolid",
+          "electores": 334363,
+          "votantes": 247117,
+          "participacion": 73.91
+        },
+        {
+          "nombre": "Bizkaia",
+          "electores": 866185,
+          "votantes": 565885,
+          "participacion": 65.33
+        },
+        {
+          "nombre": "Zamora",
+          "electores": 179653,
+          "votantes": 123173,
+          "participacion": 68.56
+        },
+        {
+          "nombre": "Zaragoza",
+          "electores": 609306,
+          "votantes": 431657,
+          "participacion": 70.84
+        },
+        {
+          "nombre": "Ceuta",
+          "electores": 32831,
+          "votantes": 21484,
+          "participacion": 65.44
+        },
+        {
+          "nombre": "Melilla",
+          "electores": 29149,
+          "votantes": 17686,
+          "participacion": 60.67
+        }
+      ]
+    },
+    "1982-10-28": {
+      "nacional": {
+        "electores": 26846940,
+        "votantes": 21469274,
+        "participacion": 79.97
+      },
+      "provincias": [
+        {
+          "nombre": "Araba/Álava",
+          "electores": 183109,
+          "votantes": 149834,
+          "participacion": 81.83
+        },
+        {
+          "nombre": "Albacete",
+          "electores": 240155,
+          "votantes": 196992,
+          "participacion": 82.03
+        },
+        {
+          "nombre": "Alicante / Alacant",
+          "electores": 787709,
+          "votantes": 665188,
+          "participacion": 84.45
+        },
+        {
+          "nombre": "Almería",
+          "electores": 276276,
+          "votantes": 212232,
+          "participacion": 76.82
+        },
+        {
+          "nombre": "Ávila",
+          "electores": 138655,
+          "votantes": 114016,
+          "participacion": 82.23
+        },
+        {
+          "nombre": "Badajoz",
+          "electores": 460056,
+          "votantes": 371485,
+          "participacion": 80.75
+        },
+        {
+          "nombre": "Balears, Illes",
+          "electores": 466909,
+          "votantes": 372330,
+          "participacion": 79.74
+        },
+        {
+          "nombre": "Barcelona",
+          "electores": 3331611,
+          "votantes": 2716289,
+          "participacion": 81.53
+        },
+        {
+          "nombre": "Burgos",
+          "electores": 273611,
+          "votantes": 216779,
+          "participacion": 79.23
+        },
+        {
+          "nombre": "Cáceres",
+          "electores": 305672,
+          "votantes": 240936,
+          "participacion": 78.82
+        },
+        {
+          "nombre": "Cádiz",
+          "electores": 650906,
+          "votantes": 492509,
+          "participacion": 75.67
+        },
+        {
+          "nombre": "Castellón / Castelló",
+          "electores": 314300,
+          "votantes": 270118,
+          "participacion": 85.94
+        },
+        {
+          "nombre": "Ciudad Real",
+          "electores": 342009,
+          "votantes": 285326,
+          "participacion": 83.43
+        },
+        {
+          "nombre": "Córdoba",
+          "electores": 513521,
+          "votantes": 434272,
+          "participacion": 84.57
+        },
+        {
+          "nombre": "Coruña, A",
+          "electores": 804461,
+          "votantes": 523019,
+          "participacion": 65.01
+        },
+        {
+          "nombre": "Cuenca",
+          "electores": 162631,
+          "votantes": 135175,
+          "participacion": 83.12
+        },
+        {
+          "nombre": "Girona",
+          "electores": 338724,
+          "votantes": 272099,
+          "participacion": 80.33
+        },
+        {
+          "nombre": "Granada",
+          "electores": 532882,
+          "votantes": 409109,
+          "participacion": 76.77
+        },
+        {
+          "nombre": "Guadalajara",
+          "electores": 108116,
+          "votantes": 91174,
+          "participacion": 84.33
+        },
+        {
+          "nombre": "Gipuzkoa",
+          "electores": 500820,
+          "votantes": 391237,
+          "participacion": 78.12
+        },
+        {
+          "nombre": "Huelva",
+          "electores": 288285,
+          "votantes": 223070,
+          "participacion": 77.38
+        },
+        {
+          "nombre": "Huesca",
+          "electores": 166852,
+          "votantes": 135567,
+          "participacion": 81.25
+        },
+        {
+          "nombre": "Jaén",
+          "electores": 448573,
+          "votantes": 367372,
+          "participacion": 81.9
+        },
+        {
+          "nombre": "León",
+          "electores": 397470,
+          "votantes": 306217,
+          "participacion": 77.04
+        },
+        {
+          "nombre": "Lleida",
+          "electores": 268205,
+          "votantes": 203403,
+          "participacion": 75.84
+        },
+        {
+          "nombre": "Rioja, La",
+          "electores": 190204,
+          "votantes": 159966,
+          "participacion": 84.1
+        },
+        {
+          "nombre": "Lugo",
+          "electores": 319960,
+          "votantes": 194640,
+          "participacion": 60.83
+        },
+        {
+          "nombre": "Madrid",
+          "electores": 3274966,
+          "votantes": 2815298,
+          "participacion": 85.96
+        },
+        {
+          "nombre": "Málaga",
+          "electores": 688091,
+          "votantes": 513801,
+          "participacion": 74.67
+        },
+        {
+          "nombre": "Murcia",
+          "electores": 656052,
+          "votantes": 541158,
+          "participacion": 82.49
+        },
+        {
+          "nombre": "Navarra",
+          "electores": 375846,
+          "votantes": 305693,
+          "participacion": 81.33
+        },
+        {
+          "nombre": "Ourense",
+          "electores": 329847,
+          "votantes": 181504,
+          "participacion": 55.03
+        },
+        {
+          "nombre": "Asturias",
+          "electores": 853981,
+          "votantes": 662710,
+          "participacion": 77.6
+        },
+        {
+          "nombre": "Palencia",
+          "electores": 140896,
+          "votantes": 118129,
+          "participacion": 83.84
+        },
+        {
+          "nombre": "Palmas, Las",
+          "electores": 451580,
+          "votantes": 346873,
+          "participacion": 76.81
+        },
+        {
+          "nombre": "Pontevedra",
+          "electores": 619714,
+          "votantes": 421897,
+          "participacion": 68.08
+        },
+        {
+          "nombre": "Salamanca",
+          "electores": 277215,
+          "votantes": 224459,
+          "participacion": 80.97
+        },
+        {
+          "nombre": "Santa Cruz de Tenerife",
+          "electores": 434270,
+          "votantes": 326334,
+          "participacion": 75.15
+        },
+        {
+          "nombre": "Cantabria",
+          "electores": 376712,
+          "votantes": 311415,
+          "participacion": 82.67
+        },
+        {
+          "nombre": "Segovia",
+          "electores": 112316,
+          "votantes": 94734,
+          "participacion": 84.35
+        },
+        {
+          "nombre": "Sevilla",
+          "electores": 1002070,
+          "votantes": 813317,
+          "participacion": 81.16
+        },
+        {
+          "nombre": "Soria",
+          "electores": 78871,
+          "votantes": 63458,
+          "participacion": 80.46
+        },
+        {
+          "nombre": "Tarragona",
+          "electores": 372329,
+          "votantes": 292736,
+          "participacion": 78.62
+        },
+        {
+          "nombre": "Teruel",
+          "electores": 120600,
+          "votantes": 96545,
+          "participacion": 80.05
+        },
+        {
+          "nombre": "Toledo",
+          "electores": 346764,
+          "votantes": 300337,
+          "participacion": 86.61
+        },
+        {
+          "nombre": "Valencia / València",
+          "electores": 1462208,
+          "votantes": 1219394,
+          "participacion": 83.39
+        },
+        {
+          "nombre": "Valladolid",
+          "electores": 343171,
+          "votantes": 289846,
+          "participacion": 84.46
+        },
+        {
+          "nombre": "Bizkaia",
+          "electores": 854204,
+          "votantes": 679298,
+          "participacion": 79.52
+        },
+        {
+          "nombre": "Zamora",
+          "electores": 180190,
+          "votantes": 139193,
+          "participacion": 77.25
+        },
+        {
+          "nombre": "Zaragoza",
+          "electores": 617130,
+          "votantes": 513450,
+          "participacion": 83.2
+        },
+        {
+          "nombre": "Ceuta",
+          "electores": 36128,
+          "votantes": 26117,
+          "participacion": 72.29
+        },
+        {
+          "nombre": "Melilla",
+          "electores": 30107,
+          "votantes": 21224,
+          "participacion": 70.5
+        }
+      ]
+    },
+    "1986-06-22": {
+      "nacional": {
+        "electores": 29117613,
+        "votantes": 20524858,
+        "participacion": 70.49
+      },
+      "provincias": [
+        {
+          "nombre": "Araba/Álava",
+          "electores": 198924,
+          "votantes": 139084,
+          "participacion": 69.92
+        },
+        {
+          "nombre": "Albacete",
+          "electores": 265267,
+          "votantes": 193767,
+          "participacion": 73.05
+        },
+        {
+          "nombre": "Alicante / Alacant",
+          "electores": 870347,
+          "votantes": 651275,
+          "participacion": 74.83
+        },
+        {
+          "nombre": "Almería",
+          "electores": 313644,
+          "votantes": 212637,
+          "participacion": 67.8
+        },
+        {
+          "nombre": "Ávila",
+          "electores": 146246,
+          "votantes": 112206,
+          "participacion": 76.72
+        },
+        {
+          "nombre": "Badajoz",
+          "electores": 497559,
+          "votantes": 370461,
+          "participacion": 74.46
+        },
+        {
+          "nombre": "Balears, Illes",
+          "electores": 528122,
+          "votantes": 348648,
+          "participacion": 66.02
+        },
+        {
+          "nombre": "Barcelona",
+          "electores": 3576404,
+          "votantes": 2459692,
+          "participacion": 68.78
+        },
+        {
+          "nombre": "Burgos",
+          "electores": 285860,
+          "votantes": 204413,
+          "participacion": 71.51
+        },
+        {
+          "nombre": "Cáceres",
+          "electores": 331480,
+          "votantes": 239529,
+          "participacion": 72.26
+        },
+        {
+          "nombre": "Cádiz",
+          "electores": 722746,
+          "votantes": 479464,
+          "participacion": 66.34
+        },
+        {
+          "nombre": "Castellón / Castelló",
+          "electores": 338496,
+          "votantes": 263456,
+          "participacion": 77.83
+        },
+        {
+          "nombre": "Ciudad Real",
+          "electores": 371443,
+          "votantes": 272674,
+          "participacion": 73.41
+        },
+        {
+          "nombre": "Córdoba",
+          "electores": 553692,
+          "votantes": 422774,
+          "participacion": 76.36
+        },
+        {
+          "nombre": "Coruña, A",
+          "electores": 872878,
+          "votantes": 520329,
+          "participacion": 59.61
+        },
+        {
+          "nombre": "Cuenca",
+          "electores": 171295,
+          "votantes": 128375,
+          "participacion": 74.94
+        },
+        {
+          "nombre": "Girona",
+          "electores": 368241,
+          "votantes": 263854,
+          "participacion": 71.65
+        },
+        {
+          "nombre": "Granada",
+          "electores": 582967,
+          "votantes": 404533,
+          "participacion": 69.39
+        },
+        {
+          "nombre": "Guadalajara",
+          "electores": 115321,
+          "votantes": 87723,
+          "participacion": 76.07
+        },
+        {
+          "nombre": "Gipuzkoa",
+          "electores": 535607,
+          "votantes": 350582,
+          "participacion": 65.46
+        },
+        {
+          "nombre": "Huelva",
+          "electores": 314246,
+          "votantes": 212966,
+          "participacion": 67.77
+        },
+        {
+          "nombre": "Huesca",
+          "electores": 176231,
+          "votantes": 123602,
+          "participacion": 70.14
+        },
+        {
+          "nombre": "Jaén",
+          "electores": 487364,
+          "votantes": 369925,
+          "participacion": 75.9
+        },
+        {
+          "nombre": "León",
+          "electores": 429080,
+          "votantes": 293856,
+          "participacion": 68.49
+        },
+        {
+          "nombre": "Lleida",
+          "electores": 284231,
+          "votantes": 192275,
+          "participacion": 67.65
+        },
+        {
+          "nombre": "Rioja, La",
+          "electores": 203604,
+          "votantes": 151296,
+          "participacion": 74.31
+        },
+        {
+          "nombre": "Lugo",
+          "electores": 339351,
+          "votantes": 191458,
+          "participacion": 56.42
+        },
+        {
+          "nombre": "Madrid",
+          "electores": 3557928,
+          "votantes": 2629406,
+          "participacion": 73.9
+        },
+        {
+          "nombre": "Málaga",
+          "electores": 752831,
+          "votantes": 504378,
+          "participacion": 67.0
+        },
+        {
+          "nombre": "Murcia",
+          "electores": 729041,
+          "votantes": 544323,
+          "participacion": 74.66
+        },
+        {
+          "nombre": "Navarra",
+          "electores": 399278,
+          "votantes": 278681,
+          "participacion": 69.8
+        },
+        {
+          "nombre": "Ourense",
+          "electores": 346884,
+          "votantes": 176232,
+          "participacion": 50.8
+        },
+        {
+          "nombre": "Asturias",
+          "electores": 910447,
+          "votantes": 617444,
+          "participacion": 67.82
+        },
+        {
+          "nombre": "Palencia",
+          "electores": 149657,
+          "votantes": 113816,
+          "participacion": 76.05
+        },
+        {
+          "nombre": "Palmas, Las",
+          "electores": 504347,
+          "votantes": 357843,
+          "participacion": 70.95
+        },
+        {
+          "nombre": "Pontevedra",
+          "electores": 685901,
+          "votantes": 411663,
+          "participacion": 60.02
+        },
+        {
+          "nombre": "Salamanca",
+          "electores": 288843,
+          "votantes": 216910,
+          "participacion": 75.1
+        },
+        {
+          "nombre": "Santa Cruz de Tenerife",
+          "electores": 495378,
+          "votantes": 324809,
+          "participacion": 65.57
+        },
+        {
+          "nombre": "Cantabria",
+          "electores": 404757,
+          "votantes": 297228,
+          "participacion": 73.43
+        },
+        {
+          "nombre": "Segovia",
+          "electores": 116854,
+          "votantes": 92540,
+          "participacion": 79.19
+        },
+        {
+          "nombre": "Sevilla",
+          "electores": 1101382,
+          "votantes": 810590,
+          "participacion": 73.6
+        },
+        {
+          "nombre": "Soria",
+          "electores": 81511,
+          "votantes": 58751,
+          "participacion": 72.08
+        },
+        {
+          "nombre": "Tarragona",
+          "electores": 407883,
+          "votantes": 281176,
+          "participacion": 68.94
+        },
+        {
+          "nombre": "Teruel",
+          "electores": 125701,
+          "votantes": 88492,
+          "participacion": 70.4
+        },
+        {
+          "nombre": "Toledo",
+          "electores": 370409,
+          "votantes": 288917,
+          "participacion": 78.0
+        },
+        {
+          "nombre": "Valencia / València",
+          "electores": 1589590,
+          "votantes": 1223253,
+          "participacion": 76.95
+        },
+        {
+          "nombre": "Valladolid",
+          "electores": 383364,
+          "votantes": 282458,
+          "participacion": 73.68
+        },
+        {
+          "nombre": "Bizkaia",
+          "electores": 912964,
+          "votantes": 623770,
+          "participacion": 68.32
+        },
+        {
+          "nombre": "Zamora",
+          "electores": 188615,
+          "votantes": 132161,
+          "participacion": 70.07
+        },
+        {
+          "nombre": "Zaragoza",
+          "electores": 656842,
+          "votantes": 464660,
+          "participacion": 70.74
+        },
+        {
+          "nombre": "Ceuta",
+          "electores": 43230,
+          "votantes": 24510,
+          "participacion": 56.7
+        },
+        {
+          "nombre": "Melilla",
+          "electores": 33330,
+          "votantes": 19993,
+          "participacion": 59.98
+        }
+      ]
+    },
+    "1989-10-29": {
+      "nacional": {
+        "electores": 29604055,
+        "votantes": 20646365,
+        "participacion": 69.74
+      },
+      "provincias": [
+        {
+          "nombre": "Araba/Álava",
+          "electores": 208774,
+          "votantes": 139246,
+          "participacion": 66.7
+        },
+        {
+          "nombre": "Albacete",
+          "electores": 258855,
+          "votantes": 198409,
+          "participacion": 76.65
+        },
+        {
+          "nombre": "Alicante / Alacant",
+          "electores": 902237,
+          "votantes": 668432,
+          "participacion": 74.09
+        },
+        {
+          "nombre": "Almería",
+          "electores": 324986,
+          "votantes": 221081,
+          "participacion": 68.03
+        },
+        {
+          "nombre": "Ávila",
+          "electores": 144247,
+          "votantes": 111022,
+          "participacion": 76.97
+        },
+        {
+          "nombre": "Badajoz",
+          "electores": 493404,
+          "votantes": 375639,
+          "participacion": 76.13
+        },
+        {
+          "nombre": "Balears, Illes",
+          "electores": 548939,
+          "votantes": 348779,
+          "participacion": 63.54
+        },
+        {
+          "nombre": "Barcelona",
+          "electores": 3617948,
+          "votantes": 2456966,
+          "participacion": 67.91
+        },
+        {
+          "nombre": "Burgos",
+          "electores": 284903,
+          "votantes": 205903,
+          "participacion": 72.27
+        },
+        {
+          "nombre": "Cáceres",
+          "electores": 324739,
+          "votantes": 242626,
+          "participacion": 74.71
+        },
+        {
+          "nombre": "Cádiz",
+          "electores": 749181,
+          "votantes": 473084,
+          "participacion": 63.15
+        },
+        {
+          "nombre": "Castellón / Castelló",
+          "electores": 341504,
+          "votantes": 257236,
+          "participacion": 75.32
+        },
+        {
+          "nombre": "Ciudad Real",
+          "electores": 368044,
+          "votantes": 276389,
+          "participacion": 75.1
+        },
+        {
+          "nombre": "Córdoba",
+          "electores": 562348,
+          "votantes": 422777,
+          "participacion": 75.18
+        },
+        {
+          "nombre": "Coruña, A",
+          "electores": 879762,
+          "votantes": 526278,
+          "participacion": 59.82
+        },
+        {
+          "nombre": "Cuenca",
+          "electores": 168835,
+          "votantes": 128291,
+          "participacion": 75.99
+        },
+        {
+          "nombre": "Girona",
+          "electores": 385682,
+          "votantes": 259411,
+          "participacion": 67.26
+        },
+        {
+          "nombre": "Granada",
+          "electores": 594812,
+          "votantes": 411161,
+          "participacion": 69.12
+        },
+        {
+          "nombre": "Guadalajara",
+          "electores": 115657,
+          "votantes": 87440,
+          "participacion": 75.6
+        },
+        {
+          "nombre": "Gipuzkoa",
+          "electores": 537041,
+          "votantes": 356174,
+          "participacion": 66.32
+        },
+        {
+          "nombre": "Huelva",
+          "electores": 319864,
+          "votantes": 211351,
+          "participacion": 66.08
+        },
+        {
+          "nombre": "Huesca",
+          "electores": 169228,
+          "votantes": 118680,
+          "participacion": 70.13
+        },
+        {
+          "nombre": "Jaén",
+          "electores": 481845,
+          "votantes": 368225,
+          "participacion": 76.42
+        },
+        {
+          "nombre": "León",
+          "electores": 418851,
+          "votantes": 289541,
+          "participacion": 69.13
+        },
+        {
+          "nombre": "Lleida",
+          "electores": 282868,
+          "votantes": 184557,
+          "participacion": 65.24
+        },
+        {
+          "nombre": "Rioja, La",
+          "electores": 207009,
+          "votantes": 149134,
+          "participacion": 72.04
+        },
+        {
+          "nombre": "Lugo",
+          "electores": 334434,
+          "votantes": 203253,
+          "participacion": 60.78
+        },
+        {
+          "nombre": "Madrid",
+          "electores": 3713941,
+          "votantes": 2700942,
+          "participacion": 72.72
+        },
+        {
+          "nombre": "Málaga",
+          "electores": 783469,
+          "votantes": 513557,
+          "participacion": 65.55
+        },
+        {
+          "nombre": "Murcia",
+          "electores": 753980,
+          "votantes": 559824,
+          "participacion": 74.25
+        },
+        {
+          "nombre": "Navarra",
+          "electores": 408718,
+          "votantes": 280150,
+          "participacion": 68.54
+        },
+        {
+          "nombre": "Ourense",
+          "electores": 342152,
+          "votantes": 190415,
+          "participacion": 55.65
+        },
+        {
+          "nombre": "Asturias",
+          "electores": 896485,
+          "votantes": 617697,
+          "participacion": 68.9
+        },
+        {
+          "nombre": "Palencia",
+          "electores": 148731,
+          "votantes": 113840,
+          "participacion": 76.54
+        },
+        {
+          "nombre": "Palmas, Las",
+          "electores": 562805,
+          "votantes": 357617,
+          "participacion": 63.54
+        },
+        {
+          "nombre": "Pontevedra",
+          "electores": 681625,
+          "votantes": 425707,
+          "participacion": 62.45
+        },
+        {
+          "nombre": "Salamanca",
+          "electores": 289322,
+          "votantes": 217999,
+          "participacion": 75.35
+        },
+        {
+          "nombre": "Santa Cruz de Tenerife",
+          "electores": 526128,
+          "votantes": 319129,
+          "participacion": 60.66
+        },
+        {
+          "nombre": "Cantabria",
+          "electores": 405381,
+          "votantes": 301118,
+          "participacion": 74.28
+        },
+        {
+          "nombre": "Segovia",
+          "electores": 119868,
+          "votantes": 90798,
+          "participacion": 75.75
+        },
+        {
+          "nombre": "Sevilla",
+          "electores": 1142290,
+          "votantes": 816518,
+          "participacion": 71.48
+        },
+        {
+          "nombre": "Soria",
+          "electores": 79520,
+          "votantes": 56658,
+          "participacion": 71.25
+        },
+        {
+          "nombre": "Tarragona",
+          "electores": 410514,
+          "votantes": 274973,
+          "participacion": 66.98
+        },
+        {
+          "nombre": "Teruel",
+          "electores": 119726,
+          "votantes": 84927,
+          "participacion": 70.93
+        },
+        {
+          "nombre": "Toledo",
+          "electores": 373119,
+          "votantes": 291339,
+          "participacion": 78.08
+        },
+        {
+          "nombre": "Valencia / València",
+          "electores": 1604915,
+          "votantes": 1205245,
+          "participacion": 75.1
+        },
+        {
+          "nombre": "Valladolid",
+          "electores": 380395,
+          "votantes": 284953,
+          "participacion": 74.91
+        },
+        {
+          "nombre": "Bizkaia",
+          "electores": 922593,
+          "votantes": 620768,
+          "participacion": 67.29
+        },
+        {
+          "nombre": "Zamora",
+          "electores": 179676,
+          "votantes": 129582,
+          "participacion": 72.12
+        },
+        {
+          "nombre": "Zaragoza",
+          "electores": 657367,
+          "votantes": 460759,
+          "participacion": 70.09
+        },
+        {
+          "nombre": "Ceuta",
+          "electores": 41353,
+          "votantes": 23131,
+          "participacion": 55.94
+        },
+        {
+          "nombre": "Melilla",
+          "electores": 33985,
+          "votantes": 17634,
+          "participacion": 51.89
+        }
+      ]
+    },
+    "1993-06-06": {
+      "nacional": {
+        "electores": 31030511,
+        "votantes": 23717757,
+        "participacion": 76.43
+      },
+      "provincias": [
+        {
+          "nombre": "Araba/Álava",
+          "electores": 222152,
+          "votantes": 157879,
+          "participacion": 71.07
+        },
+        {
+          "nombre": "Albacete",
+          "electores": 272536,
+          "votantes": 224549,
+          "participacion": 82.39
+        },
+        {
+          "nombre": "Alicante / Alacant",
+          "electores": 962642,
+          "votantes": 786995,
+          "participacion": 81.75
+        },
+        {
+          "nombre": "Almería",
+          "electores": 349158,
+          "votantes": 264543,
+          "participacion": 75.77
+        },
+        {
+          "nombre": "Ávila",
+          "electores": 144127,
+          "votantes": 115248,
+          "participacion": 79.96
+        },
+        {
+          "nombre": "Badajoz",
+          "electores": 502304,
+          "votantes": 408373,
+          "participacion": 81.3
+        },
+        {
+          "nombre": "Balears, Illes",
+          "electores": 571712,
+          "votantes": 414861,
+          "participacion": 72.56
+        },
+        {
+          "nombre": "Barcelona",
+          "electores": 3752461,
+          "votantes": 2842551,
+          "participacion": 75.75
+        },
+        {
+          "nombre": "Burgos",
+          "electores": 291776,
+          "votantes": 226970,
+          "participacion": 77.79
+        },
+        {
+          "nombre": "Cáceres",
+          "electores": 329260,
+          "votantes": 260738,
+          "participacion": 79.19
+        },
+        {
+          "nombre": "Cádiz",
+          "electores": 798522,
+          "votantes": 565214,
+          "participacion": 70.78
+        },
+        {
+          "nombre": "Castellón / Castelló",
+          "electores": 356994,
+          "votantes": 289589,
+          "participacion": 81.12
+        },
+        {
+          "nombre": "Ciudad Real",
+          "electores": 373238,
+          "votantes": 301689,
+          "participacion": 80.83
+        },
+        {
+          "nombre": "Córdoba",
+          "electores": 582624,
+          "votantes": 469223,
+          "participacion": 80.54
+        },
+        {
+          "nombre": "Coruña, A",
+          "electores": 919967,
+          "votantes": 641381,
+          "participacion": 69.72
+        },
+        {
+          "nombre": "Cuenca",
+          "electores": 167311,
+          "votantes": 137918,
+          "participacion": 82.43
+        },
+        {
+          "nombre": "Girona",
+          "electores": 405656,
+          "votantes": 302079,
+          "participacion": 74.47
+        },
+        {
+          "nombre": "Granada",
+          "electores": 613409,
+          "votantes": 466253,
+          "participacion": 76.01
+        },
+        {
+          "nombre": "Guadalajara",
+          "electores": 119565,
+          "votantes": 96721,
+          "participacion": 80.89
+        },
+        {
+          "nombre": "Gipuzkoa",
+          "electores": 559861,
+          "votantes": 374572,
+          "participacion": 66.9
+        },
+        {
+          "nombre": "Huelva",
+          "electores": 340805,
+          "votantes": 248682,
+          "participacion": 72.97
+        },
+        {
+          "nombre": "Huesca",
+          "electores": 173325,
+          "votantes": 134165,
+          "participacion": 77.41
+        },
+        {
+          "nombre": "Jaén",
+          "electores": 495513,
+          "votantes": 401309,
+          "participacion": 80.99
+        },
+        {
+          "nombre": "León",
+          "electores": 429466,
+          "votantes": 324776,
+          "participacion": 75.62
+        },
+        {
+          "nombre": "Lleida",
+          "electores": 290983,
+          "votantes": 212533,
+          "participacion": 73.04
+        },
+        {
+          "nombre": "Rioja, La",
+          "electores": 214084,
+          "votantes": 171277,
+          "participacion": 80.0
+        },
+        {
+          "nombre": "Lugo",
+          "electores": 325674,
+          "votantes": 227523,
+          "participacion": 69.86
+        },
+        {
+          "nombre": "Madrid",
+          "electores": 3977062,
+          "votantes": 3138511,
+          "participacion": 78.92
+        },
+        {
+          "nombre": "Málaga",
+          "electores": 873777,
+          "votantes": 638267,
+          "participacion": 73.05
+        },
+        {
+          "nombre": "Murcia",
+          "electores": 809186,
+          "votantes": 659952,
+          "participacion": 81.56
+        },
+        {
+          "nombre": "Navarra",
+          "electores": 425387,
+          "votantes": 312999,
+          "participacion": 73.58
+        },
+        {
+          "nombre": "Ourense",
+          "electores": 328690,
+          "votantes": 217832,
+          "participacion": 66.27
+        },
+        {
+          "nombre": "Asturias",
+          "electores": 920390,
+          "votantes": 694243,
+          "participacion": 75.43
+        },
+        {
+          "nombre": "Palencia",
+          "electores": 151423,
+          "votantes": 122034,
+          "participacion": 80.59
+        },
+        {
+          "nombre": "Palmas, Las",
+          "electores": 596984,
+          "votantes": 423651,
+          "participacion": 70.97
+        },
+        {
+          "nombre": "Pontevedra",
+          "electores": 718666,
+          "votantes": 510120,
+          "participacion": 70.98
+        },
+        {
+          "nombre": "Salamanca",
+          "electores": 298746,
+          "votantes": 236276,
+          "participacion": 79.09
+        },
+        {
+          "nombre": "Santa Cruz de Tenerife",
+          "electores": 586516,
+          "votantes": 391996,
+          "participacion": 66.83
+        },
+        {
+          "nombre": "Cantabria",
+          "electores": 420376,
+          "votantes": 332019,
+          "participacion": 78.98
+        },
+        {
+          "nombre": "Segovia",
+          "electores": 121928,
+          "votantes": 96745,
+          "participacion": 79.35
+        },
+        {
+          "nombre": "Sevilla",
+          "electores": 1233678,
+          "votantes": 974294,
+          "participacion": 78.97
+        },
+        {
+          "nombre": "Soria",
+          "electores": 79143,
+          "votantes": 58999,
+          "participacion": 74.55
+        },
+        {
+          "nombre": "Tarragona",
+          "electores": 432555,
+          "votantes": 322117,
+          "participacion": 74.47
+        },
+        {
+          "nombre": "Teruel",
+          "electores": 119578,
+          "votantes": 90678,
+          "participacion": 75.83
+        },
+        {
+          "nombre": "Toledo",
+          "electores": 386602,
+          "votantes": 322632,
+          "participacion": 83.45
+        },
+        {
+          "nombre": "Valencia / València",
+          "electores": 1681763,
+          "votantes": 1375837,
+          "participacion": 81.81
+        },
+        {
+          "nombre": "Valladolid",
+          "electores": 400968,
+          "votantes": 322825,
+          "participacion": 80.51
+        },
+        {
+          "nombre": "Bizkaia",
+          "electores": 947771,
+          "votantes": 673686,
+          "participacion": 71.08
+        },
+        {
+          "nombre": "Zamora",
+          "electores": 179528,
+          "votantes": 137492,
+          "participacion": 76.59
+        },
+        {
+          "nombre": "Zaragoza",
+          "electores": 686047,
+          "votantes": 540270,
+          "participacion": 78.75
+        },
+        {
+          "nombre": "Ceuta",
+          "electores": 48517,
+          "votantes": 30145,
+          "participacion": 62.13
+        },
+        {
+          "nombre": "Melilla",
+          "electores": 40105,
+          "votantes": 26526,
+          "participacion": 66.14
+        }
+      ]
+    },
+    "1996-03-03": {
+      "nacional": {
+        "electores": 32531833,
+        "votantes": 25172058,
+        "participacion": 77.38
+      },
+      "provincias": [
+        {
+          "nombre": "Araba/Álava",
+          "electores": 233572,
+          "votantes": 168884,
+          "participacion": 72.3
+        },
+        {
+          "nombre": "Albacete",
+          "electores": 283851,
+          "votantes": 236965,
+          "participacion": 83.48
+        },
+        {
+          "nombre": "Alicante / Alacant",
+          "electores": 1027866,
+          "votantes": 841562,
+          "participacion": 81.87
+        },
+        {
+          "nombre": "Almería",
+          "electores": 375375,
+          "votantes": 289733,
+          "participacion": 77.18
+        },
+        {
+          "nombre": "Ávila",
+          "electores": 144811,
+          "votantes": 117513,
+          "participacion": 81.15
+        },
+        {
+          "nombre": "Badajoz",
+          "electores": 516297,
+          "votantes": 428785,
+          "participacion": 83.05
+        },
+        {
+          "nombre": "Balears, Illes",
+          "electores": 606329,
+          "votantes": 434288,
+          "participacion": 71.63
+        },
+        {
+          "nombre": "Barcelona",
+          "electores": 3905255,
+          "votantes": 2993424,
+          "participacion": 76.65
+        },
+        {
+          "nombre": "Burgos",
+          "electores": 300885,
+          "votantes": 235133,
+          "participacion": 78.15
+        },
+        {
+          "nombre": "Cáceres",
+          "electores": 339901,
+          "votantes": 276120,
+          "participacion": 81.24
+        },
+        {
+          "nombre": "Cádiz",
+          "electores": 847124,
+          "votantes": 620762,
+          "participacion": 73.28
+        },
+        {
+          "nombre": "Castellón / Castelló",
+          "electores": 373239,
+          "votantes": 304430,
+          "participacion": 81.56
+        },
+        {
+          "nombre": "Ciudad Real",
+          "electores": 384357,
+          "votantes": 316228,
+          "participacion": 82.27
+        },
+        {
+          "nombre": "Córdoba",
+          "electores": 603879,
+          "votantes": 497080,
+          "participacion": 82.31
+        },
+        {
+          "nombre": "Coruña, A",
+          "electores": 978619,
+          "votantes": 693197,
+          "participacion": 70.83
+        },
+        {
+          "nombre": "Cuenca",
+          "electores": 169288,
+          "votantes": 140760,
+          "participacion": 83.15
+        },
+        {
+          "nombre": "Girona",
+          "electores": 429526,
+          "votantes": 330832,
+          "participacion": 77.02
+        },
+        {
+          "nombre": "Granada",
+          "electores": 652251,
+          "votantes": 513224,
+          "participacion": 78.69
+        },
+        {
+          "nombre": "Guadalajara",
+          "electores": 128352,
+          "votantes": 104222,
+          "participacion": 81.2
+        },
+        {
+          "nombre": "Gipuzkoa",
+          "electores": 571516,
+          "votantes": 397562,
+          "participacion": 69.56
+        },
+        {
+          "nombre": "Huelva",
+          "electores": 355047,
+          "votantes": 267390,
+          "participacion": 75.31
+        },
+        {
+          "nombre": "Huesca",
+          "electores": 176510,
+          "votantes": 136633,
+          "participacion": 77.41
+        },
+        {
+          "nombre": "Jaén",
+          "electores": 507666,
+          "votantes": 424866,
+          "participacion": 83.69
+        },
+        {
+          "nombre": "León",
+          "electores": 436206,
+          "votantes": 335733,
+          "participacion": 76.97
+        },
+        {
+          "nombre": "Lleida",
+          "electores": 301268,
+          "votantes": 227202,
+          "participacion": 75.42
+        },
+        {
+          "nombre": "Rioja, La",
+          "electores": 221583,
+          "votantes": 179306,
+          "participacion": 80.92
+        },
+        {
+          "nombre": "Lugo",
+          "electores": 338099,
+          "votantes": 243652,
+          "participacion": 72.07
+        },
+        {
+          "nombre": "Madrid",
+          "electores": 4199799,
+          "votantes": 3342628,
+          "participacion": 79.59
+        },
+        {
+          "nombre": "Málaga",
+          "electores": 921238,
+          "votantes": 689538,
+          "participacion": 74.85
+        },
+        {
+          "nombre": "Murcia",
+          "electores": 860305,
+          "votantes": 705443,
+          "participacion": 82.0
+        },
+        {
+          "nombre": "Navarra",
+          "electores": 444094,
+          "votantes": 326201,
+          "participacion": 73.45
+        },
+        {
+          "nombre": "Ourense",
+          "electores": 327706,
+          "votantes": 232203,
+          "participacion": 70.86
+        },
+        {
+          "nombre": "Asturias",
+          "electores": 958412,
+          "votantes": 727567,
+          "participacion": 75.91
+        },
+        {
+          "nombre": "Palencia",
+          "electores": 153205,
+          "votantes": 124060,
+          "participacion": 80.98
+        },
+        {
+          "nombre": "Palmas, Las",
+          "electores": 648047,
+          "votantes": 461598,
+          "participacion": 71.23
+        },
+        {
+          "nombre": "Pontevedra",
+          "electores": 770239,
+          "votantes": 554927,
+          "participacion": 72.05
+        },
+        {
+          "nombre": "Salamanca",
+          "electores": 307289,
+          "votantes": 243171,
+          "participacion": 79.13
+        },
+        {
+          "nombre": "Santa Cruz de Tenerife",
+          "electores": 627867,
+          "votantes": 420565,
+          "participacion": 66.98
+        },
+        {
+          "nombre": "Cantabria",
+          "electores": 441934,
+          "votantes": 350477,
+          "participacion": 79.31
+        },
+        {
+          "nombre": "Segovia",
+          "electores": 124291,
+          "votantes": 99726,
+          "participacion": 80.24
+        },
+        {
+          "nombre": "Sevilla",
+          "electores": 1313998,
+          "votantes": 1047172,
+          "participacion": 79.69
+        },
+        {
+          "nombre": "Soria",
+          "electores": 79602,
+          "votantes": 59441,
+          "participacion": 74.67
+        },
+        {
+          "nombre": "Tarragona",
+          "electores": 463682,
+          "votantes": 351089,
+          "participacion": 75.72
+        },
+        {
+          "nombre": "Teruel",
+          "electores": 119160,
+          "votantes": 92334,
+          "participacion": 77.49
+        },
+        {
+          "nombre": "Toledo",
+          "electores": 407464,
+          "votantes": 342874,
+          "participacion": 84.15
+        },
+        {
+          "nombre": "Valencia / València",
+          "electores": 1781719,
+          "votantes": 1453121,
+          "participacion": 81.56
+        },
+        {
+          "nombre": "Valladolid",
+          "electores": 416340,
+          "votantes": 339224,
+          "participacion": 81.48
+        },
+        {
+          "nombre": "Bizkaia",
+          "electores": 970592,
+          "votantes": 703629,
+          "participacion": 72.49
+        },
+        {
+          "nombre": "Zamora",
+          "electores": 181733,
+          "votantes": 140307,
+          "participacion": 77.21
+        },
+        {
+          "nombre": "Zaragoza",
+          "electores": 708732,
+          "votantes": 549031,
+          "participacion": 77.47
+        },
+        {
+          "nombre": "Ceuta",
+          "electores": 51298,
+          "votantes": 32732,
+          "participacion": 63.81
+        },
+        {
+          "nombre": "Melilla",
+          "electores": 44415,
+          "votantes": 27514,
+          "participacion": 61.95
+        }
+      ]
+    },
+    "2000-03-12": {
+      "nacional": {
+        "electores": 33969640,
+        "votantes": 23339490,
+        "participacion": 68.71
+      },
+      "provincias": [
+        {
+          "nombre": "Araba/Álava",
+          "electores": 244477,
+          "votantes": 171808,
+          "participacion": 70.28
+        },
+        {
+          "nombre": "Albacete",
+          "electores": 295105,
+          "votantes": 223053,
+          "participacion": 75.58
+        },
+        {
+          "nombre": "Alicante / Alacant",
+          "electores": 1104940,
+          "votantes": 810346,
+          "participacion": 73.34
+        },
+        {
+          "nombre": "Almería",
+          "electores": 411065,
+          "votantes": 280112,
+          "participacion": 68.14
+        },
+        {
+          "nombre": "Ávila",
+          "electores": 145250,
+          "votantes": 108491,
+          "participacion": 74.69
+        },
+        {
+          "nombre": "Badajoz",
+          "electores": 534100,
+          "votantes": 401608,
+          "participacion": 75.19
+        },
+        {
+          "nombre": "Balears, Illes",
+          "electores": 652009,
+          "votantes": 400559,
+          "participacion": 61.43
+        },
+        {
+          "nombre": "Barcelona",
+          "electores": 4033017,
+          "votantes": 2572428,
+          "participacion": 63.78
+        },
+        {
+          "nombre": "Burgos",
+          "electores": 303453,
+          "votantes": 223332,
+          "participacion": 73.6
+        },
+        {
+          "nombre": "Cáceres",
+          "electores": 344192,
+          "votantes": 260785,
+          "participacion": 75.77
+        },
+        {
+          "nombre": "Cádiz",
+          "electores": 884994,
+          "votantes": 558320,
+          "participacion": 63.09
+        },
+        {
+          "nombre": "Castellón / Castelló",
+          "electores": 387823,
+          "votantes": 285816,
+          "participacion": 73.7
+        },
+        {
+          "nombre": "Ciudad Real",
+          "electores": 393419,
+          "votantes": 294122,
+          "participacion": 74.76
+        },
+        {
+          "nombre": "Córdoba",
+          "electores": 621971,
+          "votantes": 465051,
+          "participacion": 74.77
+        },
+        {
+          "nombre": "Coruña, A",
+          "electores": 1033965,
+          "votantes": 660041,
+          "participacion": 63.84
+        },
+        {
+          "nombre": "Cuenca",
+          "electores": 167521,
+          "votantes": 131748,
+          "participacion": 78.65
+        },
+        {
+          "nombre": "Girona",
+          "electores": 457288,
+          "votantes": 297048,
+          "participacion": 64.96
+        },
+        {
+          "nombre": "Granada",
+          "electores": 694968,
+          "votantes": 483731,
+          "participacion": 69.6
+        },
+        {
+          "nombre": "Guadalajara",
+          "electores": 137523,
+          "votantes": 103784,
+          "participacion": 75.47
+        },
+        {
+          "nombre": "Gipuzkoa",
+          "electores": 584618,
+          "votantes": 326666,
+          "participacion": 55.88
+        },
+        {
+          "nombre": "Huelva",
+          "electores": 371361,
+          "votantes": 247343,
+          "participacion": 66.6
+        },
+        {
+          "nombre": "Huesca",
+          "electores": 178786,
+          "votantes": 126504,
+          "participacion": 70.76
+        },
+        {
+          "nombre": "Jaén",
+          "electores": 524813,
+          "votantes": 402625,
+          "participacion": 76.72
+        },
+        {
+          "nombre": "León",
+          "electores": 451322,
+          "votantes": 314258,
+          "participacion": 69.63
+        },
+        {
+          "nombre": "Lleida",
+          "electores": 313239,
+          "votantes": 202124,
+          "participacion": 64.53
+        },
+        {
+          "nombre": "Rioja, La",
+          "electores": 230427,
+          "votantes": 170997,
+          "participacion": 74.21
+        },
+        {
+          "nombre": "Lugo",
+          "electores": 344241,
+          "votantes": 233145,
+          "participacion": 67.73
+        },
+        {
+          "nombre": "Madrid",
+          "electores": 4317146,
+          "votantes": 3111662,
+          "participacion": 72.08
+        },
+        {
+          "nombre": "Málaga",
+          "electores": 1006029,
+          "votantes": 654099,
+          "participacion": 65.02
+        },
+        {
+          "nombre": "Murcia",
+          "electores": 917217,
+          "votantes": 674516,
+          "participacion": 73.54
+        },
+        {
+          "nombre": "Navarra",
+          "electores": 463892,
+          "votantes": 306494,
+          "participacion": 66.07
+        },
+        {
+          "nombre": "Ourense",
+          "electores": 346888,
+          "votantes": 226105,
+          "participacion": 65.18
+        },
+        {
+          "nombre": "Asturias",
+          "electores": 981504,
+          "votantes": 657553,
+          "participacion": 66.99
+        },
+        {
+          "nombre": "Palencia",
+          "electores": 154718,
+          "votantes": 116576,
+          "participacion": 75.35
+        },
+        {
+          "nombre": "Palmas, Las",
+          "electores": 717880,
+          "votantes": 442046,
+          "participacion": 61.58
+        },
+        {
+          "nombre": "Pontevedra",
+          "electores": 822687,
+          "votantes": 537371,
+          "participacion": 65.32
+        },
+        {
+          "nombre": "Salamanca",
+          "electores": 315419,
+          "votantes": 224527,
+          "participacion": 71.18
+        },
+        {
+          "nombre": "Santa Cruz de Tenerife",
+          "electores": 675530,
+          "votantes": 403302,
+          "participacion": 59.7
+        },
+        {
+          "nombre": "Cantabria",
+          "electores": 468607,
+          "votantes": 336508,
+          "participacion": 71.81
+        },
+        {
+          "nombre": "Segovia",
+          "electores": 126484,
+          "votantes": 95634,
+          "participacion": 75.61
+        },
+        {
+          "nombre": "Sevilla",
+          "electores": 1401582,
+          "votantes": 977512,
+          "participacion": 69.74
+        },
+        {
+          "nombre": "Soria",
+          "electores": 79525,
+          "votantes": 55114,
+          "participacion": 69.3
+        },
+        {
+          "nombre": "Tarragona",
+          "electores": 489921,
+          "votantes": 316528,
+          "participacion": 64.61
+        },
+        {
+          "nombre": "Teruel",
+          "electores": 118390,
+          "votantes": 85463,
+          "participacion": 72.19
+        },
+        {
+          "nombre": "Toledo",
+          "electores": 427326,
+          "votantes": 331529,
+          "participacion": 77.58
+        },
+        {
+          "nombre": "Valencia / València",
+          "electores": 1873447,
+          "votantes": 1351219,
+          "participacion": 72.12
+        },
+        {
+          "nombre": "Valladolid",
+          "electores": 425123,
+          "votantes": 319760,
+          "participacion": 75.22
+        },
+        {
+          "nombre": "Bizkaia",
+          "electores": 981571,
+          "votantes": 657525,
+          "participacion": 66.99
+        },
+        {
+          "nombre": "Zamora",
+          "electores": 185365,
+          "votantes": 129258,
+          "participacion": 69.73
+        },
+        {
+          "nombre": "Zaragoza",
+          "electores": 722669,
+          "votantes": 516093,
+          "participacion": 71.41
+        },
+        {
+          "nombre": "Ceuta",
+          "electores": 55848,
+          "votantes": 30801,
+          "participacion": 55.15
+        },
+        {
+          "nombre": "Melilla",
+          "electores": 48985,
+          "votantes": 26450,
+          "participacion": 54.0
+        }
+      ]
+    },
+    "2004-03-14": {
+      "nacional": {
+        "electores": 34571831,
+        "votantes": 26155436,
+        "participacion": 75.66
+      },
+      "provincias": [
+        {
+          "nombre": "Araba/Álava",
+          "electores": 247377,
+          "votantes": 191049,
+          "participacion": 77.23
+        },
+        {
+          "nombre": "Albacete",
+          "electores": 298780,
+          "votantes": 236833,
+          "participacion": 79.27
+        },
+        {
+          "nombre": "Alicante / Alacant",
+          "electores": 1154729,
+          "votantes": 895123,
+          "participacion": 77.52
+        },
+        {
+          "nombre": "Almería",
+          "electores": 427310,
+          "votantes": 307389,
+          "participacion": 71.94
+        },
+        {
+          "nombre": "Ávila",
+          "electores": 143641,
+          "votantes": 114712,
+          "participacion": 79.86
+        },
+        {
+          "nombre": "Badajoz",
+          "electores": 538650,
+          "votantes": 427261,
+          "participacion": 79.32
+        },
+        {
+          "nombre": "Balears, Illes",
+          "electores": 687834,
+          "votantes": 473481,
+          "participacion": 68.84
+        },
+        {
+          "nombre": "Barcelona",
+          "electores": 4007330,
+          "votantes": 3052310,
+          "participacion": 76.17
+        },
+        {
+          "nombre": "Burgos",
+          "electores": 303177,
+          "votantes": 237291,
+          "participacion": 78.27
+        },
+        {
+          "nombre": "Cáceres",
+          "electores": 346760,
+          "votantes": 274549,
+          "participacion": 79.18
+        },
+        {
+          "nombre": "Cádiz",
+          "electores": 927177,
+          "votantes": 648216,
+          "participacion": 69.91
+        },
+        {
+          "nombre": "Castellón / Castelló",
+          "electores": 401559,
+          "votantes": 314877,
+          "participacion": 78.41
+        },
+        {
+          "nombre": "Ciudad Real",
+          "electores": 393160,
+          "votantes": 308897,
+          "participacion": 78.57
+        },
+        {
+          "nombre": "Córdoba",
+          "electores": 633155,
+          "votantes": 497087,
+          "participacion": 78.51
+        },
+        {
+          "nombre": "Coruña, A",
+          "electores": 1053738,
+          "votantes": 743936,
+          "participacion": 70.6
+        },
+        {
+          "nombre": "Cuenca",
+          "electores": 165576,
+          "votantes": 134862,
+          "participacion": 81.45
+        },
+        {
+          "nombre": "Girona",
+          "electores": 472443,
+          "votantes": 359194,
+          "participacion": 76.03
+        },
+        {
+          "nombre": "Granada",
+          "electores": 694304,
+          "votantes": 525722,
+          "participacion": 75.72
+        },
+        {
+          "nombre": "Guadalajara",
+          "electores": 151106,
+          "votantes": 121104,
+          "participacion": 80.15
+        },
+        {
+          "nombre": "Gipuzkoa",
+          "electores": 581818,
+          "votantes": 422121,
+          "participacion": 72.55
+        },
+        {
+          "nombre": "Huelva",
+          "electores": 378428,
+          "votantes": 277028,
+          "participacion": 73.2
+        },
+        {
+          "nombre": "Huesca",
+          "electores": 176971,
+          "votantes": 135595,
+          "participacion": 76.62
+        },
+        {
+          "nombre": "Jaén",
+          "electores": 525955,
+          "votantes": 422857,
+          "participacion": 80.4
+        },
+        {
+          "nombre": "León",
+          "electores": 450279,
+          "votantes": 336885,
+          "participacion": 74.82
+        },
+        {
+          "nombre": "Lleida",
+          "electores": 312357,
+          "votantes": 234244,
+          "participacion": 74.99
+        },
+        {
+          "nombre": "Rioja, La",
+          "electores": 234776,
+          "votantes": 186545,
+          "participacion": 79.46
+        },
+        {
+          "nombre": "Lugo",
+          "electores": 347433,
+          "votantes": 251243,
+          "participacion": 72.31
+        },
+        {
+          "nombre": "Madrid",
+          "electores": 4458540,
+          "votantes": 3519243,
+          "participacion": 78.93
+        },
+        {
+          "nombre": "Málaga",
+          "electores": 1033409,
+          "votantes": 742996,
+          "participacion": 71.9
+        },
+        {
+          "nombre": "Murcia",
+          "electores": 941145,
+          "votantes": 725266,
+          "participacion": 77.06
+        },
+        {
+          "nombre": "Navarra",
+          "electores": 466181,
+          "votantes": 355339,
+          "participacion": 76.22
+        },
+        {
+          "nombre": "Ourense",
+          "electores": 355008,
+          "votantes": 241498,
+          "participacion": 68.03
+        },
+        {
+          "nombre": "Asturias",
+          "electores": 986352,
+          "votantes": 707557,
+          "participacion": 71.73
+        },
+        {
+          "nombre": "Palencia",
+          "electores": 152681,
+          "votantes": 121286,
+          "participacion": 79.44
+        },
+        {
+          "nombre": "Palmas, Las",
+          "electores": 736157,
+          "votantes": 498492,
+          "participacion": 67.72
+        },
+        {
+          "nombre": "Pontevedra",
+          "electores": 848707,
+          "votantes": 612137,
+          "participacion": 72.13
+        },
+        {
+          "nombre": "Salamanca",
+          "electores": 312421,
+          "votantes": 239375,
+          "participacion": 76.62
+        },
+        {
+          "nombre": "Santa Cruz de Tenerife",
+          "electores": 721781,
+          "votantes": 473984,
+          "participacion": 65.67
+        },
+        {
+          "nombre": "Cantabria",
+          "electores": 479189,
+          "votantes": 370070,
+          "participacion": 77.23
+        },
+        {
+          "nombre": "Segovia",
+          "electores": 124638,
+          "votantes": 101091,
+          "participacion": 81.11
+        },
+        {
+          "nombre": "Sevilla",
+          "electores": 1432031,
+          "votantes": 1103758,
+          "participacion": 77.08
+        },
+        {
+          "nombre": "Soria",
+          "electores": 78531,
+          "votantes": 59071,
+          "participacion": 75.22
+        },
+        {
+          "nombre": "Tarragona",
+          "electores": 516584,
+          "votantes": 386841,
+          "participacion": 74.88
+        },
+        {
+          "nombre": "Teruel",
+          "electores": 116141,
+          "votantes": 88687,
+          "participacion": 76.36
+        },
+        {
+          "nombre": "Toledo",
+          "electores": 450322,
+          "votantes": 364046,
+          "participacion": 80.84
+        },
+        {
+          "nombre": "Valencia / València",
+          "electores": 1884604,
+          "votantes": 1464020,
+          "participacion": 77.68
+        },
+        {
+          "nombre": "Valladolid",
+          "electores": 431774,
+          "votantes": 350444,
+          "participacion": 81.16
+        },
+        {
+          "nombre": "Bizkaia",
+          "electores": 974742,
+          "votantes": 739164,
+          "participacion": 75.83
+        },
+        {
+          "nombre": "Zamora",
+          "electores": 182379,
+          "votantes": 135768,
+          "participacion": 74.44
+        },
+        {
+          "nombre": "Zaragoza",
+          "electores": 726811,
+          "votantes": 561450,
+          "participacion": 77.25
+        },
+        {
+          "nombre": "Ceuta",
+          "electores": 56751,
+          "votantes": 36010,
+          "participacion": 63.45
+        },
+        {
+          "nombre": "Melilla",
+          "electores": 49129,
+          "votantes": 27432,
+          "participacion": 55.84
+        }
+      ]
+    },
+    "2008-03-09": {
+      "nacional": {
+        "electores": 35073179,
+        "votantes": 25900439,
+        "participacion": 73.85
+      },
+      "provincias": [
+        {
+          "nombre": "Araba/Álava",
+          "electores": 247930,
+          "votantes": 172644,
+          "participacion": 69.63
+        },
+        {
+          "nombre": "Albacete",
+          "electores": 303228,
+          "votantes": 241550,
+          "participacion": 79.66
+        },
+        {
+          "nombre": "Alicante / Alacant",
+          "electores": 1194069,
+          "votantes": 940191,
+          "participacion": 78.74
+        },
+        {
+          "nombre": "Almería",
+          "electores": 449915,
+          "votantes": 327332,
+          "participacion": 72.75
+        },
+        {
+          "nombre": "Ávila",
+          "electores": 143967,
+          "votantes": 115806,
+          "participacion": 80.44
+        },
+        {
+          "nombre": "Badajoz",
+          "electores": 547436,
+          "votantes": 430258,
+          "participacion": 78.6
+        },
+        {
+          "nombre": "Balears, Illes",
+          "electores": 706938,
+          "votantes": 477662,
+          "participacion": 67.57
+        },
+        {
+          "nombre": "Barcelona",
+          "electores": 3980181,
+          "votantes": 2812062,
+          "participacion": 70.65
+        },
+        {
+          "nombre": "Burgos",
+          "electores": 302302,
+          "votantes": 234130,
+          "participacion": 77.45
+        },
+        {
+          "nombre": "Cáceres",
+          "electores": 349247,
+          "votantes": 274065,
+          "participacion": 78.47
+        },
+        {
+          "nombre": "Cádiz",
+          "electores": 960033,
+          "votantes": 647448,
+          "participacion": 67.44
+        },
+        {
+          "nombre": "Castellón / Castelló",
+          "electores": 411081,
+          "votantes": 319958,
+          "participacion": 77.83
+        },
+        {
+          "nombre": "Ciudad Real",
+          "electores": 398343,
+          "votantes": 312853,
+          "participacion": 78.54
+        },
+        {
+          "nombre": "Córdoba",
+          "electores": 643313,
+          "votantes": 487681,
+          "participacion": 75.81
+        },
+        {
+          "nombre": "Coruña, A",
+          "electores": 1068433,
+          "votantes": 747463,
+          "participacion": 69.96
+        },
+        {
+          "nombre": "Cuenca",
+          "electores": 164387,
+          "votantes": 134004,
+          "participacion": 81.52
+        },
+        {
+          "nombre": "Girona",
+          "electores": 489572,
+          "votantes": 336617,
+          "participacion": 68.76
+        },
+        {
+          "nombre": "Granada",
+          "electores": 717387,
+          "votantes": 533089,
+          "participacion": 74.31
+        },
+        {
+          "nombre": "Guadalajara",
+          "electores": 168486,
+          "votantes": 134588,
+          "participacion": 79.88
+        },
+        {
+          "nombre": "Gipuzkoa",
+          "electores": 576501,
+          "votantes": 330773,
+          "participacion": 57.38
+        },
+        {
+          "nombre": "Huelva",
+          "electores": 386672,
+          "votantes": 270335,
+          "participacion": 69.91
+        },
+        {
+          "nombre": "Huesca",
+          "electores": 176265,
+          "votantes": 133031,
+          "participacion": 75.47
+        },
+        {
+          "nombre": "Jaén",
+          "electores": 530342,
+          "votantes": 416925,
+          "participacion": 78.61
+        },
+        {
+          "nombre": "León",
+          "electores": 447306,
+          "votantes": 334013,
+          "participacion": 74.67
+        },
+        {
+          "nombre": "Lleida",
+          "electores": 311773,
+          "votantes": 215046,
+          "participacion": 68.98
+        },
+        {
+          "nombre": "Rioja, La",
+          "electores": 238808,
+          "votantes": 189361,
+          "participacion": 79.29
+        },
+        {
+          "nombre": "Lugo",
+          "electores": 346534,
+          "votantes": 249534,
+          "participacion": 72.01
+        },
+        {
+          "nombre": "Madrid",
+          "electores": 4490040,
+          "votantes": 3550858,
+          "participacion": 79.08
+        },
+        {
+          "nombre": "Málaga",
+          "electores": 1077550,
+          "votantes": 768877,
+          "participacion": 71.35
+        },
+        {
+          "nombre": "Murcia",
+          "electores": 969946,
+          "votantes": 771912,
+          "participacion": 79.58
+        },
+        {
+          "nombre": "Navarra",
+          "electores": 474058,
+          "votantes": 341590,
+          "participacion": 72.06
+        },
+        {
+          "nombre": "Ourense",
+          "electores": 355289,
+          "votantes": 243639,
+          "participacion": 68.57
+        },
+        {
+          "nombre": "Asturias",
+          "electores": 982230,
+          "votantes": 700268,
+          "participacion": 71.29
+        },
+        {
+          "nombre": "Palencia",
+          "electores": 150130,
+          "votantes": 118856,
+          "participacion": 79.17
+        },
+        {
+          "nombre": "Palmas, Las",
+          "electores": 763957,
+          "votantes": 510391,
+          "participacion": 66.81
+        },
+        {
+          "nombre": "Pontevedra",
+          "electores": 868560,
+          "votantes": 619118,
+          "participacion": 71.28
+        },
+        {
+          "nombre": "Salamanca",
+          "electores": 311095,
+          "votantes": 238068,
+          "participacion": 76.53
+        },
+        {
+          "nombre": "Santa Cruz de Tenerife",
+          "electores": 762221,
+          "votantes": 494904,
+          "participacion": 64.93
+        },
+        {
+          "nombre": "Cantabria",
+          "electores": 488009,
+          "votantes": 372732,
+          "participacion": 76.38
+        },
+        {
+          "nombre": "Segovia",
+          "electores": 124226,
+          "votantes": 100759,
+          "participacion": 81.11
+        },
+        {
+          "nombre": "Sevilla",
+          "electores": 1469076,
+          "votantes": 1084712,
+          "participacion": 73.84
+        },
+        {
+          "nombre": "Soria",
+          "electores": 77370,
+          "votantes": 57419,
+          "participacion": 74.21
+        },
+        {
+          "nombre": "Tarragona",
+          "electores": 543383,
+          "votantes": 379635,
+          "participacion": 69.87
+        },
+        {
+          "nombre": "Teruel",
+          "electores": 114212,
+          "votantes": 87453,
+          "participacion": 76.57
+        },
+        {
+          "nombre": "Toledo",
+          "electores": 488388,
+          "votantes": 395559,
+          "participacion": 80.99
+        },
+        {
+          "nombre": "Valencia / València",
+          "electores": 1899263,
+          "votantes": 1502871,
+          "participacion": 79.13
+        },
+        {
+          "nombre": "Valladolid",
+          "electores": 433204,
+          "votantes": 350959,
+          "participacion": 81.01
+        },
+        {
+          "nombre": "Bizkaia",
+          "electores": 956709,
+          "votantes": 637094,
+          "participacion": 66.59
+        },
+        {
+          "nombre": "Zamora",
+          "electores": 179355,
+          "votantes": 134297,
+          "participacion": 74.88
+        },
+        {
+          "nombre": "Zaragoza",
+          "electores": 725943,
+          "votantes": 551149,
+          "participacion": 75.92
+        },
+        {
+          "nombre": "Ceuta",
+          "electores": 57805,
+          "votantes": 36605,
+          "participacion": 63.32
+        },
+        {
+          "nombre": "Melilla",
+          "electores": 50711,
+          "votantes": 32295,
+          "participacion": 63.68
+        }
+      ]
+    },
+    "2011-11-20": {
+      "nacional": {
+        "electores": 35779491,
+        "votantes": 24666441,
+        "participacion": 68.94
+      },
+      "provincias": [
+        {
+          "nombre": "Araba/Álava",
+          "electores": 250743,
+          "votantes": 172154,
+          "participacion": 68.66
+        },
+        {
+          "nombre": "Albacete",
+          "electores": 309456,
+          "votantes": 235515,
+          "participacion": 76.11
+        },
+        {
+          "nombre": "Alicante / Alacant",
+          "electores": 1222109,
+          "votantes": 898402,
+          "participacion": 73.51
+        },
+        {
+          "nombre": "Almería",
+          "electores": 469594,
+          "votantes": 315504,
+          "participacion": 67.19
+        },
+        {
+          "nombre": "Ávila",
+          "electores": 142578,
+          "votantes": 107457,
+          "participacion": 75.37
+        },
+        {
+          "nombre": "Badajoz",
+          "electores": 557468,
+          "votantes": 414102,
+          "participacion": 74.28
+        },
+        {
+          "nombre": "Balears, Illes",
+          "electores": 730740,
+          "votantes": 445488,
+          "participacion": 60.96
+        },
+        {
+          "nombre": "Barcelona",
+          "electores": 4028117,
+          "votantes": 2654927,
+          "participacion": 65.91
+        },
+        {
+          "nombre": "Burgos",
+          "electores": 303109,
+          "votantes": 217328,
+          "participacion": 71.7
+        },
+        {
+          "nombre": "Cáceres",
+          "electores": 352097,
+          "votantes": 258199,
+          "participacion": 73.33
+        },
+        {
+          "nombre": "Cádiz",
+          "electores": 981061,
+          "votantes": 625791,
+          "participacion": 63.79
+        },
+        {
+          "nombre": "Castellón / Castelló",
+          "electores": 414561,
+          "votantes": 301548,
+          "participacion": 72.74
+        },
+        {
+          "nombre": "Ciudad Real",
+          "electores": 404764,
+          "votantes": 302605,
+          "participacion": 74.76
+        },
+        {
+          "nombre": "Córdoba",
+          "electores": 652086,
+          "votantes": 473847,
+          "participacion": 72.67
+        },
+        {
+          "nombre": "Coruña, A",
+          "electores": 1085232,
+          "votantes": 676837,
+          "participacion": 62.37
+        },
+        {
+          "nombre": "Cuenca",
+          "electores": 163500,
+          "votantes": 126945,
+          "participacion": 77.64
+        },
+        {
+          "nombre": "Girona",
+          "electores": 499909,
+          "votantes": 312056,
+          "participacion": 62.42
+        },
+        {
+          "nombre": "Granada",
+          "electores": 735201,
+          "votantes": 514034,
+          "participacion": 69.92
+        },
+        {
+          "nombre": "Guadalajara",
+          "electores": 179570,
+          "votantes": 134351,
+          "participacion": 74.82
+        },
+        {
+          "nombre": "Gipuzkoa",
+          "electores": 575334,
+          "votantes": 377119,
+          "participacion": 65.55
+        },
+        {
+          "nombre": "Huelva",
+          "electores": 392755,
+          "votantes": 266788,
+          "participacion": 67.93
+        },
+        {
+          "nombre": "Huesca",
+          "electores": 175713,
+          "votantes": 122687,
+          "participacion": 69.82
+        },
+        {
+          "nombre": "Jaén",
+          "electores": 537036,
+          "votantes": 407573,
+          "participacion": 75.89
+        },
+        {
+          "nombre": "León",
+          "electores": 447708,
+          "votantes": 297906,
+          "participacion": 66.54
+        },
+        {
+          "nombre": "Lleida",
+          "electores": 313516,
+          "votantes": 196083,
+          "participacion": 62.54
+        },
+        {
+          "nombre": "Rioja, La",
+          "electores": 242800,
+          "votantes": 176707,
+          "participacion": 72.78
+        },
+        {
+          "nombre": "Lugo",
+          "electores": 350851,
+          "votantes": 220379,
+          "participacion": 62.81
+        },
+        {
+          "nombre": "Madrid",
+          "electores": 4653779,
+          "votantes": 3409331,
+          "participacion": 73.26
+        },
+        {
+          "nombre": "Málaga",
+          "electores": 1116276,
+          "votantes": 726865,
+          "participacion": 65.12
+        },
+        {
+          "nombre": "Murcia",
+          "electores": 1000624,
+          "votantes": 741554,
+          "participacion": 74.11
+        },
+        {
+          "nombre": "Navarra",
+          "electores": 488211,
+          "votantes": 336440,
+          "participacion": 68.91
+        },
+        {
+          "nombre": "Ourense",
+          "electores": 362679,
+          "votantes": 207140,
+          "participacion": 57.11
+        },
+        {
+          "nombre": "Asturias",
+          "electores": 989045,
+          "votantes": 638629,
+          "participacion": 64.57
+        },
+        {
+          "nombre": "Palencia",
+          "electores": 147783,
+          "votantes": 108191,
+          "participacion": 73.21
+        },
+        {
+          "nombre": "Palmas, Las",
+          "electores": 794522,
+          "votantes": 480603,
+          "participacion": 60.49
+        },
+        {
+          "nombre": "Pontevedra",
+          "electores": 890054,
+          "votantes": 568485,
+          "participacion": 63.87
+        },
+        {
+          "nombre": "Salamanca",
+          "electores": 312001,
+          "votantes": 217571,
+          "participacion": 69.73
+        },
+        {
+          "nombre": "Santa Cruz de Tenerife",
+          "electores": 792773,
+          "votantes": 465405,
+          "participacion": 58.71
+        },
+        {
+          "nombre": "Cantabria",
+          "electores": 496483,
+          "votantes": 355289,
+          "participacion": 71.56
+        },
+        {
+          "nombre": "Segovia",
+          "electores": 123481,
+          "votantes": 94269,
+          "participacion": 76.34
+        },
+        {
+          "nombre": "Sevilla",
+          "electores": 1506129,
+          "votantes": 1072646,
+          "participacion": 71.22
+        },
+        {
+          "nombre": "Soria",
+          "electores": 77355,
+          "votantes": 52252,
+          "participacion": 67.55
+        },
+        {
+          "nombre": "Tarragona",
+          "electores": 554799,
+          "votantes": 353244,
+          "participacion": 63.67
+        },
+        {
+          "nombre": "Teruel",
+          "electores": 112301,
+          "votantes": 78929,
+          "participacion": 70.28
+        },
+        {
+          "nombre": "Toledo",
+          "electores": 514208,
+          "votantes": 391154,
+          "participacion": 76.07
+        },
+        {
+          "nombre": "Valencia / València",
+          "electores": 1921158,
+          "votantes": 1439140,
+          "participacion": 74.91
+        },
+        {
+          "nombre": "Valladolid",
+          "electores": 434477,
+          "votantes": 330010,
+          "participacion": 75.96
+        },
+        {
+          "nombre": "Bizkaia",
+          "electores": 949471,
+          "votantes": 646432,
+          "participacion": 68.08
+        },
+        {
+          "nombre": "Zamora",
+          "electores": 178365,
+          "votantes": 119759,
+          "participacion": 67.14
+        },
+        {
+          "nombre": "Zaragoza",
+          "electores": 730496,
+          "votantes": 521455,
+          "participacion": 71.38
+        },
+        {
+          "nombre": "Ceuta",
+          "electores": 60723,
+          "votantes": 32282,
+          "participacion": 53.16
+        },
+        {
+          "nombre": "Melilla",
+          "electores": 54690,
+          "votantes": 27034,
+          "participacion": 49.43
+        }
+      ]
+    },
+    "2015-12-20": {
+      "nacional": {
+        "electores": 36511848,
+        "votantes": 25438532,
+        "participacion": 69.67
+      },
+      "provincias": [
+        {
+          "nombre": "Araba/Álava",
+          "electores": 254327,
+          "votantes": 180941,
+          "participacion": 71.15
+        },
+        {
+          "nombre": "Albacete",
+          "electores": 310674,
+          "votantes": 233882,
+          "participacion": 75.28
+        },
+        {
+          "nombre": "Alicante / Alacant",
+          "electores": 1251941,
+          "votantes": 913165,
+          "participacion": 72.94
+        },
+        {
+          "nombre": "Almería",
+          "electores": 490192,
+          "votantes": 312315,
+          "participacion": 63.71
+        },
+        {
+          "nombre": "Ávila",
+          "electores": 139955,
+          "votantes": 103251,
+          "participacion": 73.77
+        },
+        {
+          "nombre": "Badajoz",
+          "electores": 559247,
+          "votantes": 404576,
+          "participacion": 72.34
+        },
+        {
+          "nombre": "Balears, Illes",
+          "electores": 771381,
+          "votantes": 488666,
+          "participacion": 63.35
+        },
+        {
+          "nombre": "Barcelona",
+          "electores": 4128181,
+          "votantes": 2873383,
+          "participacion": 69.6
+        },
+        {
+          "nombre": "Burgos",
+          "electores": 300985,
+          "votantes": 218037,
+          "participacion": 72.44
+        },
+        {
+          "nombre": "Cáceres",
+          "electores": 351037,
+          "votantes": 252419,
+          "participacion": 71.91
+        },
+        {
+          "nombre": "Cádiz",
+          "electores": 993618,
+          "votantes": 652400,
+          "participacion": 65.66
+        },
+        {
+          "nombre": "Castellón / Castelló",
+          "electores": 417197,
+          "votantes": 312815,
+          "participacion": 74.98
+        },
+        {
+          "nombre": "Ciudad Real",
+          "electores": 401885,
+          "votantes": 299003,
+          "participacion": 74.4
+        },
+        {
+          "nombre": "Córdoba",
+          "electores": 651727,
+          "votantes": 472696,
+          "participacion": 72.53
+        },
+        {
+          "nombre": "Coruña, A",
+          "electores": 1088822,
+          "votantes": 682745,
+          "participacion": 62.7
+        },
+        {
+          "nombre": "Cuenca",
+          "electores": 158886,
+          "votantes": 122477,
+          "participacion": 77.08
+        },
+        {
+          "nombre": "Girona",
+          "electores": 511640,
+          "votantes": 335561,
+          "participacion": 65.59
+        },
+        {
+          "nombre": "Granada",
+          "electores": 748189,
+          "votantes": 514478,
+          "participacion": 68.76
+        },
+        {
+          "nombre": "Guadalajara",
+          "electores": 182321,
+          "votantes": 137830,
+          "participacion": 75.6
+        },
+        {
+          "nombre": "Gipuzkoa",
+          "electores": 580725,
+          "votantes": 391433,
+          "participacion": 67.4
+        },
+        {
+          "nombre": "Huelva",
+          "electores": 396415,
+          "votantes": 262151,
+          "participacion": 66.13
+        },
+        {
+          "nombre": "Huesca",
+          "electores": 174072,
+          "votantes": 123297,
+          "participacion": 70.83
+        },
+        {
+          "nombre": "Jaén",
+          "electores": 533748,
+          "votantes": 391386,
+          "participacion": 73.33
+        },
+        {
+          "nombre": "León",
+          "electores": 442375,
+          "votantes": 295812,
+          "participacion": 66.87
+        },
+        {
+          "nombre": "Lleida",
+          "electores": 313836,
+          "votantes": 200496,
+          "participacion": 63.89
+        },
+        {
+          "nombre": "Rioja, La",
+          "electores": 247507,
+          "votantes": 179269,
+          "participacion": 72.43
+        },
+        {
+          "nombre": "Lugo",
+          "electores": 349547,
+          "votantes": 207084,
+          "participacion": 59.24
+        },
+        {
+          "nombre": "Madrid",
+          "electores": 4913893,
+          "votantes": 3642127,
+          "participacion": 74.12
+        },
+        {
+          "nombre": "Málaga",
+          "electores": 1160216,
+          "votantes": 783158,
+          "participacion": 67.5
+        },
+        {
+          "nombre": "Murcia",
+          "electores": 1031733,
+          "votantes": 733997,
+          "participacion": 71.14
+        },
+        {
+          "nombre": "Navarra",
+          "electores": 502520,
+          "votantes": 356462,
+          "participacion": 70.93
+        },
+        {
+          "nombre": "Ourense",
+          "electores": 365513,
+          "votantes": 195475,
+          "participacion": 53.48
+        },
+        {
+          "nombre": "Asturias",
+          "electores": 985087,
+          "votantes": 628200,
+          "participacion": 63.77
+        },
+        {
+          "nombre": "Palencia",
+          "electores": 144427,
+          "votantes": 105955,
+          "participacion": 73.36
+        },
+        {
+          "nombre": "Palmas, Las",
+          "electores": 838543,
+          "votantes": 523637,
+          "participacion": 62.45
+        },
+        {
+          "nombre": "Pontevedra",
+          "electores": 901970,
+          "votantes": 579647,
+          "participacion": 64.26
+        },
+        {
+          "nombre": "Salamanca",
+          "electores": 309358,
+          "votantes": 211743,
+          "participacion": 68.45
+        },
+        {
+          "nombre": "Santa Cruz de Tenerife",
+          "electores": 830368,
+          "votantes": 483294,
+          "participacion": 58.2
+        },
+        {
+          "nombre": "Cantabria",
+          "electores": 498771,
+          "votantes": 353975,
+          "participacion": 70.97
+        },
+        {
+          "nombre": "Segovia",
+          "electores": 121440,
+          "votantes": 93139,
+          "participacion": 76.7
+        },
+        {
+          "nombre": "Sevilla",
+          "electores": 1531161,
+          "votantes": 1105238,
+          "participacion": 72.18
+        },
+        {
+          "nombre": "Soria",
+          "electores": 76986,
+          "votantes": 52483,
+          "participacion": 68.17
+        },
+        {
+          "nombre": "Tarragona",
+          "electores": 562799,
+          "votantes": 376484,
+          "participacion": 66.89
+        },
+        {
+          "nombre": "Teruel",
+          "electores": 109984,
+          "votantes": 78784,
+          "participacion": 71.63
+        },
+        {
+          "nombre": "Toledo",
+          "electores": 518838,
+          "votantes": 390379,
+          "participacion": 75.24
+        },
+        {
+          "nombre": "Valencia / València",
+          "electores": 1946144,
+          "votantes": 1478042,
+          "participacion": 75.95
+        },
+        {
+          "nombre": "Valladolid",
+          "electores": 433667,
+          "votantes": 331631,
+          "participacion": 76.47
+        },
+        {
+          "nombre": "Bizkaia",
+          "electores": 949177,
+          "votantes": 658824,
+          "participacion": 69.41
+        },
+        {
+          "nombre": "Zamora",
+          "electores": 174445,
+          "votantes": 114703,
+          "participacion": 65.75
+        },
+        {
+          "nombre": "Zaragoza",
+          "electores": 735079,
+          "votantes": 537626,
+          "participacion": 73.14
+        },
+        {
+          "nombre": "Ceuta",
+          "electores": 61660,
+          "votantes": 33516,
+          "participacion": 54.36
+        },
+        {
+          "nombre": "Melilla",
+          "electores": 57639,
+          "votantes": 28445,
+          "participacion": 49.35
+        }
+      ]
+    },
+    "2016-06-26": {
+      "nacional": {
+        "electores": 36520913,
+        "votantes": 24279259,
+        "participacion": 66.48
+      },
+      "provincias": [
+        {
+          "nombre": "Araba/Álava",
+          "electores": 254579,
+          "votantes": 169331,
+          "participacion": 66.51
+        },
+        {
+          "nombre": "Albacete",
+          "electores": 310083,
+          "votantes": 221706,
+          "participacion": 71.5
+        },
+        {
+          "nombre": "Alicante / Alacant",
+          "electores": 1253296,
+          "votantes": 882601,
+          "participacion": 70.42
+        },
+        {
+          "nombre": "Almería",
+          "electores": 491496,
+          "votantes": 308989,
+          "participacion": 62.87
+        },
+        {
+          "nombre": "Ávila",
+          "electores": 139218,
+          "votantes": 100106,
+          "participacion": 71.91
+        },
+        {
+          "nombre": "Badajoz",
+          "electores": 558228,
+          "votantes": 382981,
+          "participacion": 68.61
+        },
+        {
+          "nombre": "Balears, Illes",
+          "electores": 772939,
+          "votantes": 469437,
+          "participacion": 60.73
+        },
+        {
+          "nombre": "Barcelona",
+          "electores": 4131319,
+          "votantes": 2659818,
+          "participacion": 64.38
+        },
+        {
+          "nombre": "Burgos",
+          "electores": 300243,
+          "votantes": 209246,
+          "participacion": 69.69
+        },
+        {
+          "nombre": "Cáceres",
+          "electores": 349082,
+          "votantes": 239735,
+          "participacion": 68.68
+        },
+        {
+          "nombre": "Cádiz",
+          "electores": 993689,
+          "votantes": 622252,
+          "participacion": 62.62
+        },
+        {
+          "nombre": "Castellón / Castelló",
+          "electores": 416491,
+          "votantes": 302324,
+          "participacion": 72.59
+        },
+        {
+          "nombre": "Ciudad Real",
+          "electores": 400552,
+          "votantes": 282634,
+          "participacion": 70.56
+        },
+        {
+          "nombre": "Córdoba",
+          "electores": 651184,
+          "votantes": 452038,
+          "participacion": 69.42
+        },
+        {
+          "nombre": "Coruña, A",
+          "electores": 1087472,
+          "votantes": 651065,
+          "participacion": 59.87
+        },
+        {
+          "nombre": "Cuenca",
+          "electores": 157835,
+          "votantes": 117118,
+          "participacion": 74.2
+        },
+        {
+          "nombre": "Girona",
+          "electores": 512366,
+          "votantes": 310377,
+          "participacion": 60.58
+        },
+        {
+          "nombre": "Granada",
+          "electores": 748579,
+          "votantes": 494171,
+          "participacion": 66.01
+        },
+        {
+          "nombre": "Guadalajara",
+          "electores": 182408,
+          "votantes": 132903,
+          "participacion": 72.86
+        },
+        {
+          "nombre": "Gipuzkoa",
+          "electores": 580706,
+          "votantes": 367464,
+          "participacion": 63.28
+        },
+        {
+          "nombre": "Huelva",
+          "electores": 396117,
+          "votantes": 249269,
+          "participacion": 62.93
+        },
+        {
+          "nombre": "Huesca",
+          "electores": 173546,
+          "votantes": 118018,
+          "participacion": 68.0
+        },
+        {
+          "nombre": "Jaén",
+          "electores": 532211,
+          "votantes": 375082,
+          "participacion": 70.48
+        },
+        {
+          "nombre": "León",
+          "electores": 440263,
+          "votantes": 284076,
+          "participacion": 64.52
+        },
+        {
+          "nombre": "Lleida",
+          "electores": 313207,
+          "votantes": 182909,
+          "participacion": 58.4
+        },
+        {
+          "nombre": "Rioja, La",
+          "electores": 247670,
+          "votantes": 174913,
+          "participacion": 70.62
+        },
+        {
+          "nombre": "Lugo",
+          "electores": 348561,
+          "votantes": 196272,
+          "participacion": 56.31
+        },
+        {
+          "nombre": "Madrid",
+          "electores": 4927932,
+          "votantes": 3489376,
+          "participacion": 70.81
+        },
+        {
+          "nombre": "Málaga",
+          "electores": 1163657,
+          "votantes": 752086,
+          "participacion": 64.63
+        },
+        {
+          "nombre": "Murcia",
+          "electores": 1034075,
+          "votantes": 719536,
+          "participacion": 69.58
+        },
+        {
+          "nombre": "Navarra",
+          "electores": 502530,
+          "votantes": 338720,
+          "participacion": 67.4
+        },
+        {
+          "nombre": "Ourense",
+          "electores": 364469,
+          "votantes": 188562,
+          "participacion": 51.74
+        },
+        {
+          "nombre": "Asturias",
+          "electores": 982837,
+          "votantes": 600463,
+          "participacion": 61.09
+        },
+        {
+          "nombre": "Palencia",
+          "electores": 143769,
+          "votantes": 101838,
+          "participacion": 70.83
+        },
+        {
+          "nombre": "Palmas, Las",
+          "electores": 842916,
+          "votantes": 508957,
+          "participacion": 60.38
+        },
+        {
+          "nombre": "Pontevedra",
+          "electores": 901233,
+          "votantes": 551762,
+          "participacion": 61.22
+        },
+        {
+          "nombre": "Salamanca",
+          "electores": 308612,
+          "votantes": 204615,
+          "participacion": 66.3
+        },
+        {
+          "nombre": "Santa Cruz de Tenerife",
+          "electores": 833373,
+          "votantes": 481925,
+          "participacion": 57.83
+        },
+        {
+          "nombre": "Cantabria",
+          "electores": 498203,
+          "votantes": 341348,
+          "participacion": 68.52
+        },
+        {
+          "nombre": "Segovia",
+          "electores": 120823,
+          "votantes": 89662,
+          "participacion": 74.21
+        },
+        {
+          "nombre": "Sevilla",
+          "electores": 1531806,
+          "votantes": 1044851,
+          "participacion": 68.21
+        },
+        {
+          "nombre": "Soria",
+          "electores": 76814,
+          "votantes": 50337,
+          "participacion": 65.53
+        },
+        {
+          "nombre": "Tarragona",
+          "electores": 562990,
+          "votantes": 347861,
+          "participacion": 61.79
+        },
+        {
+          "nombre": "Teruel",
+          "electores": 109380,
+          "votantes": 75932,
+          "participacion": 69.42
+        },
+        {
+          "nombre": "Toledo",
+          "electores": 518206,
+          "votantes": 371866,
+          "participacion": 71.76
+        },
+        {
+          "nombre": "Valencia / València",
+          "electores": 1946046,
+          "votantes": 1431843,
+          "participacion": 73.58
+        },
+        {
+          "nombre": "Valladolid",
+          "electores": 433056,
+          "votantes": 319280,
+          "participacion": 73.73
+        },
+        {
+          "nombre": "Bizkaia",
+          "electores": 948080,
+          "votantes": 625444,
+          "participacion": 65.97
+        },
+        {
+          "nombre": "Zamora",
+          "electores": 173320,
+          "votantes": 110339,
+          "participacion": 63.66
+        },
+        {
+          "nombre": "Zaragoza",
+          "electores": 734064,
+          "votantes": 517144,
+          "participacion": 70.45
+        },
+        {
+          "nombre": "Ceuta",
+          "electores": 61587,
+          "votantes": 31194,
+          "participacion": 50.65
+        },
+        {
+          "nombre": "Melilla",
+          "electores": 57795,
+          "votantes": 27483,
+          "participacion": 47.55
+        }
+      ]
+    },
+    "2019-04-28": {
+      "nacional": {
+        "electores": 36898883,
+        "votantes": 26478140,
+        "participacion": 71.76
+      },
+      "provincias": [
+        {
+          "nombre": "Araba/Álava",
+          "electores": 257797,
+          "votantes": 179186,
+          "participacion": 69.51
+        },
+        {
+          "nombre": "Albacete",
+          "electores": 310207,
+          "votantes": 237382,
+          "participacion": 76.52
+        },
+        {
+          "nombre": "Alicante / Alacant",
+          "electores": 1272928,
+          "votantes": 927652,
+          "participacion": 72.88
+        },
+        {
+          "nombre": "Almería",
+          "electores": 500563,
+          "votantes": 331015,
+          "participacion": 66.13
+        },
+        {
+          "nombre": "Ávila",
+          "electores": 137119,
+          "votantes": 103501,
+          "participacion": 75.48
+        },
+        {
+          "nombre": "Badajoz",
+          "electores": 555447,
+          "votantes": 414940,
+          "participacion": 74.7
+        },
+        {
+          "nombre": "Balears, Illes",
+          "electores": 801721,
+          "votantes": 524101,
+          "participacion": 65.37
+        },
+        {
+          "nombre": "Barcelona",
+          "electores": 4178927,
+          "votantes": 3134881,
+          "participacion": 75.02
+        },
+        {
+          "nombre": "Burgos",
+          "electores": 299337,
+          "votantes": 222580,
+          "participacion": 74.36
+        },
+        {
+          "nombre": "Cáceres",
+          "electores": 345155,
+          "votantes": 253058,
+          "participacion": 73.32
+        },
+        {
+          "nombre": "Cádiz",
+          "electores": 1000037,
+          "votantes": 675912,
+          "participacion": 67.59
+        },
+        {
+          "nombre": "Castellón / Castelló",
+          "electores": 419714,
+          "votantes": 317302,
+          "participacion": 75.6
+        },
+        {
+          "nombre": "Ciudad Real",
+          "electores": 396510,
+          "votantes": 298148,
+          "participacion": 75.19
+        },
+        {
+          "nombre": "Córdoba",
+          "electores": 648790,
+          "votantes": 480773,
+          "participacion": 74.1
+        },
+        {
+          "nombre": "Coruña, A",
+          "electores": 1087856,
+          "votantes": 686409,
+          "participacion": 63.1
+        },
+        {
+          "nombre": "Cuenca",
+          "electores": 155014,
+          "votantes": 121127,
+          "participacion": 78.14
+        },
+        {
+          "nombre": "Girona",
+          "electores": 522860,
+          "votantes": 384473,
+          "participacion": 73.53
+        },
+        {
+          "nombre": "Granada",
+          "electores": 752991,
+          "votantes": 531552,
+          "participacion": 70.59
+        },
+        {
+          "nombre": "Guadalajara",
+          "electores": 186507,
+          "votantes": 144611,
+          "participacion": 77.54
+        },
+        {
+          "nombre": "Gipuzkoa",
+          "electores": 583745,
+          "votantes": 414600,
+          "participacion": 71.02
+        },
+        {
+          "nombre": "Huelva",
+          "electores": 397592,
+          "votantes": 268999,
+          "participacion": 67.66
+        },
+        {
+          "nombre": "Huesca",
+          "electores": 172644,
+          "votantes": 126720,
+          "participacion": 73.4
+        },
+        {
+          "nombre": "Jaén",
+          "electores": 526911,
+          "votantes": 392085,
+          "participacion": 74.41
+        },
+        {
+          "nombre": "León",
+          "electores": 433575,
+          "votantes": 295778,
+          "participacion": 68.22
+        },
+        {
+          "nombre": "Lleida",
+          "electores": 314558,
+          "votantes": 227046,
+          "participacion": 72.18
+        },
+        {
+          "nombre": "Rioja, La",
+          "electores": 249839,
+          "votantes": 183344,
+          "participacion": 73.38
+        },
+        {
+          "nombre": "Lugo",
+          "electores": 345038,
+          "votantes": 203751,
+          "participacion": 59.05
+        },
+        {
+          "nombre": "Madrid",
+          "electores": 5054955,
+          "votantes": 3814359,
+          "participacion": 75.46
+        },
+        {
+          "nombre": "Málaga",
+          "electores": 1191841,
+          "votantes": 826474,
+          "participacion": 69.34
+        },
+        {
+          "nombre": "Murcia",
+          "electores": 1057296,
+          "votantes": 777423,
+          "participacion": 73.53
+        },
+        {
+          "nombre": "Navarra",
+          "electores": 511085,
+          "votantes": 370706,
+          "participacion": 72.53
+        },
+        {
+          "nombre": "Ourense",
+          "electores": 361188,
+          "votantes": 194913,
+          "participacion": 53.96
+        },
+        {
+          "nombre": "Asturias",
+          "electores": 974491,
+          "votantes": 633601,
+          "participacion": 65.02
+        },
+        {
+          "nombre": "Palencia",
+          "electores": 141714,
+          "votantes": 107416,
+          "participacion": 75.8
+        },
+        {
+          "nombre": "Palmas, Las",
+          "electores": 868186,
+          "votantes": 552491,
+          "participacion": 63.64
+        },
+        {
+          "nombre": "Pontevedra",
+          "electores": 905041,
+          "votantes": 584796,
+          "participacion": 64.62
+        },
+        {
+          "nombre": "Salamanca",
+          "electores": 306075,
+          "votantes": 213213,
+          "participacion": 69.66
+        },
+        {
+          "nombre": "Santa Cruz de Tenerife",
+          "electores": 851896,
+          "votantes": 521882,
+          "participacion": 61.26
+        },
+        {
+          "nombre": "Cantabria",
+          "electores": 501411,
+          "votantes": 362910,
+          "participacion": 72.38
+        },
+        {
+          "nombre": "Segovia",
+          "electores": 119616,
+          "votantes": 93986,
+          "participacion": 78.57
+        },
+        {
+          "nombre": "Sevilla",
+          "electores": 1544180,
+          "votantes": 1138563,
+          "participacion": 73.73
+        },
+        {
+          "nombre": "Soria",
+          "electores": 76861,
+          "votantes": 52892,
+          "participacion": 68.82
+        },
+        {
+          "nombre": "Tarragona",
+          "electores": 571800,
+          "votantes": 420772,
+          "participacion": 73.59
+        },
+        {
+          "nombre": "Teruel",
+          "electores": 107734,
+          "votantes": 79427,
+          "participacion": 73.73
+        },
+        {
+          "nombre": "Toledo",
+          "electores": 524326,
+          "votantes": 402886,
+          "participacion": 76.84
+        },
+        {
+          "nombre": "Valencia / València",
+          "electores": 1964556,
+          "votantes": 1471825,
+          "participacion": 74.92
+        },
+        {
+          "nombre": "Valladolid",
+          "electores": 432563,
+          "votantes": 340286,
+          "participacion": 78.67
+        },
+        {
+          "nombre": "Bizkaia",
+          "electores": 949442,
+          "votantes": 691702,
+          "participacion": 72.85
+        },
+        {
+          "nombre": "Zamora",
+          "electores": 169200,
+          "votantes": 112305,
+          "participacion": 66.37
+        },
+        {
+          "nombre": "Zaragoza",
+          "electores": 738231,
+          "votantes": 559859,
+          "participacion": 75.84
+        },
+        {
+          "nombre": "Ceuta",
+          "electores": 62580,
+          "votantes": 38450,
+          "participacion": 61.44
+        },
+        {
+          "nombre": "Melilla",
+          "electores": 59233,
+          "votantes": 34077,
+          "participacion": 57.53
+        }
+      ]
+    },
+    "2019-11-10": {
+      "nacional": {
+        "electores": 37001379,
+        "votantes": 24507715,
+        "participacion": 66.23
+      },
+      "provincias": [
+        {
+          "nombre": "Araba/Álava",
+          "electores": 258495,
+          "votantes": 172199,
+          "participacion": 66.62
+        },
+        {
+          "nombre": "Albacete",
+          "electores": 309996,
+          "votantes": 216917,
+          "participacion": 69.97
+        },
+        {
+          "nombre": "Alicante / Alacant",
+          "electores": 1276691,
+          "votantes": 860050,
+          "participacion": 67.37
+        },
+        {
+          "nombre": "Almería",
+          "electores": 502627,
+          "votantes": 305414,
+          "participacion": 60.76
+        },
+        {
+          "nombre": "Ávila",
+          "electores": 136717,
+          "votantes": 94793,
+          "participacion": 69.34
+        },
+        {
+          "nombre": "Badajoz",
+          "electores": 554994,
+          "votantes": 376940,
+          "participacion": 67.92
+        },
+        {
+          "nombre": "Balears, Illes",
+          "electores": 807170,
+          "votantes": 458592,
+          "participacion": 56.81
+        },
+        {
+          "nombre": "Barcelona",
+          "electores": 4201151,
+          "votantes": 2942354,
+          "participacion": 70.04
+        },
+        {
+          "nombre": "Burgos",
+          "electores": 298989,
+          "votantes": 201664,
+          "participacion": 67.45
+        },
+        {
+          "nombre": "Cáceres",
+          "electores": 344445,
+          "votantes": 227621,
+          "participacion": 66.08
+        },
+        {
+          "nombre": "Cádiz",
+          "electores": 1002295,
+          "votantes": 624195,
+          "participacion": 62.28
+        },
+        {
+          "nombre": "Castellón / Castelló",
+          "electores": 420741,
+          "votantes": 297492,
+          "participacion": 70.71
+        },
+        {
+          "nombre": "Ciudad Real",
+          "electores": 395785,
+          "votantes": 272470,
+          "participacion": 68.84
+        },
+        {
+          "nombre": "Córdoba",
+          "electores": 648341,
+          "votantes": 451775,
+          "participacion": 69.68
+        },
+        {
+          "nombre": "Coruña, A",
+          "electores": 1087839,
+          "votantes": 620550,
+          "participacion": 57.04
+        },
+        {
+          "nombre": "Cuenca",
+          "electores": 154441,
+          "votantes": 110537,
+          "participacion": 71.57
+        },
+        {
+          "nombre": "Girona",
+          "electores": 524978,
+          "votantes": 357801,
+          "participacion": 68.16
+        },
+        {
+          "nombre": "Granada",
+          "electores": 755007,
+          "votantes": 490902,
+          "participacion": 65.02
+        },
+        {
+          "nombre": "Guadalajara",
+          "electores": 187371,
+          "votantes": 133796,
+          "participacion": 71.41
+        },
+        {
+          "nombre": "Gipuzkoa",
+          "electores": 584461,
+          "votantes": 384546,
+          "participacion": 65.79
+        },
+        {
+          "nombre": "Huelva",
+          "electores": 399019,
+          "votantes": 255329,
+          "participacion": 63.99
+        },
+        {
+          "nombre": "Huesca",
+          "electores": 172722,
+          "votantes": 114791,
+          "participacion": 66.46
+        },
+        {
+          "nombre": "Jaén",
+          "electores": 526659,
+          "votantes": 371043,
+          "participacion": 70.45
+        },
+        {
+          "nombre": "León",
+          "electores": 432073,
+          "votantes": 265711,
+          "participacion": 61.5
+        },
+        {
+          "nombre": "Lleida",
+          "electores": 314425,
+          "votantes": 208731,
+          "participacion": 66.38
+        },
+        {
+          "nombre": "Rioja, La",
+          "electores": 250213,
+          "votantes": 167549,
+          "participacion": 66.96
+        },
+        {
+          "nombre": "Lugo",
+          "electores": 344446,
+          "votantes": 183141,
+          "participacion": 53.17
+        },
+        {
+          "nombre": "Madrid",
+          "electores": 5088093,
+          "votantes": 3591464,
+          "participacion": 70.59
+        },
+        {
+          "nombre": "Málaga",
+          "electores": 1197688,
+          "votantes": 766819,
+          "participacion": 64.02
+        },
+        {
+          "nombre": "Murcia",
+          "electores": 1061841,
+          "votantes": 722345,
+          "participacion": 68.03
+        },
+        {
+          "nombre": "Navarra",
+          "electores": 512826,
+          "votantes": 337996,
+          "participacion": 65.91
+        },
+        {
+          "nombre": "Ourense",
+          "electores": 360302,
+          "votantes": 173598,
+          "participacion": 48.18
+        },
+        {
+          "nombre": "Asturias",
+          "electores": 972580,
+          "votantes": 565231,
+          "participacion": 58.12
+        },
+        {
+          "nombre": "Palencia",
+          "electores": 141321,
+          "votantes": 97038,
+          "participacion": 68.66
+        },
+        {
+          "nombre": "Palmas, Las",
+          "electores": 871728,
+          "votantes": 489354,
+          "participacion": 56.14
+        },
+        {
+          "nombre": "Pontevedra",
+          "electores": 906111,
+          "votantes": 530077,
+          "participacion": 58.5
+        },
+        {
+          "nombre": "Salamanca",
+          "electores": 305536,
+          "votantes": 197673,
+          "participacion": 64.7
+        },
+        {
+          "nombre": "Santa Cruz de Tenerife",
+          "electores": 855138,
+          "votantes": 468022,
+          "participacion": 54.73
+        },
+        {
+          "nombre": "Cantabria",
+          "electores": 501676,
+          "votantes": 329821,
+          "participacion": 65.74
+        },
+        {
+          "nombre": "Segovia",
+          "electores": 119492,
+          "votantes": 86451,
+          "participacion": 72.35
+        },
+        {
+          "nombre": "Sevilla",
+          "electores": 1547744,
+          "votantes": 1071247,
+          "participacion": 69.21
+        },
+        {
+          "nombre": "Soria",
+          "electores": 76827,
+          "votantes": 47248,
+          "participacion": 61.5
+        },
+        {
+          "nombre": "Tarragona",
+          "electores": 574866,
+          "votantes": 388088,
+          "participacion": 67.51
+        },
+        {
+          "nombre": "Teruel",
+          "electores": 107467,
+          "votantes": 74661,
+          "participacion": 69.47
+        },
+        {
+          "nombre": "Toledo",
+          "electores": 525752,
+          "votantes": 368619,
+          "participacion": 70.11
+        },
+        {
+          "nombre": "Valencia / València",
+          "electores": 1970196,
+          "votantes": 1402405,
+          "participacion": 71.18
+        },
+        {
+          "nombre": "Valladolid",
+          "electores": 432655,
+          "votantes": 314787,
+          "participacion": 72.76
+        },
+        {
+          "nombre": "Bizkaia",
+          "electores": 949598,
+          "votantes": 633977,
+          "participacion": 66.76
+        },
+        {
+          "nombre": "Zamora",
+          "electores": 168268,
+          "votantes": 101334,
+          "participacion": 60.22
+        },
+        {
+          "nombre": "Zaragoza",
+          "electores": 739573,
+          "votantes": 517639,
+          "participacion": 69.99
+        },
+        {
+          "nombre": "Ceuta",
+          "electores": 62513,
+          "votantes": 33746,
+          "participacion": 53.98
+        },
+        {
+          "nombre": "Melilla",
+          "electores": 59497,
+          "votantes": 31172,
+          "participacion": 52.39
+        }
+      ]
+    },
+    "2023-07-23": {
+      "nacional": {
+        "electores": 37469458,
+        "votantes": 24952447,
+        "participacion": 66.59
+      },
+      "provincias": [
+        {
+          "nombre": "Araba/Álava",
+          "electores": 260214,
+          "votantes": 170538,
+          "participacion": 65.54
+        },
+        {
+          "nombre": "Albacete",
+          "electores": 307988,
+          "votantes": 223917,
+          "participacion": 72.7
+        },
+        {
+          "nombre": "Alicante / Alacant",
+          "electores": 1306311,
+          "votantes": 908842,
+          "participacion": 69.57
+        },
+        {
+          "nombre": "Almería",
+          "electores": 516114,
+          "votantes": 324405,
+          "participacion": 62.86
+        },
+        {
+          "nombre": "Ávila",
+          "electores": 136669,
+          "votantes": 99120,
+          "participacion": 72.53
+        },
+        {
+          "nombre": "Badajoz",
+          "electores": 550702,
+          "votantes": 398233,
+          "participacion": 72.31
+        },
+        {
+          "nombre": "Balears, Illes",
+          "electores": 828755,
+          "votantes": 508233,
+          "participacion": 61.32
+        },
+        {
+          "nombre": "Barcelona",
+          "electores": 4243500,
+          "votantes": 2688720,
+          "participacion": 63.36
+        },
+        {
+          "nombre": "Burgos",
+          "electores": 296401,
+          "votantes": 204886,
+          "participacion": 69.12
+        },
+        {
+          "nombre": "Cáceres",
+          "electores": 339491,
+          "votantes": 239747,
+          "participacion": 70.62
+        },
+        {
+          "nombre": "Cádiz",
+          "electores": 1017958,
+          "votantes": 644801,
+          "participacion": 63.34
+        },
+        {
+          "nombre": "Castellón / Castelló",
+          "electores": 430830,
+          "votantes": 311581,
+          "participacion": 72.32
+        },
+        {
+          "nombre": "Ciudad Real",
+          "electores": 391495,
+          "votantes": 286895,
+          "participacion": 73.28
+        },
+        {
+          "nombre": "Córdoba",
+          "electores": 645288,
+          "votantes": 455564,
+          "participacion": 70.6
+        },
+        {
+          "nombre": "Coruña, A",
+          "electores": 1085673,
+          "votantes": 683187,
+          "participacion": 62.93
+        },
+        {
+          "nombre": "Cuenca",
+          "electores": 152694,
+          "votantes": 115280,
+          "participacion": 75.5
+        },
+        {
+          "nombre": "Girona",
+          "electores": 546370,
+          "votantes": 327159,
+          "participacion": 59.88
+        },
+        {
+          "nombre": "Granada",
+          "electores": 765478,
+          "votantes": 509486,
+          "participacion": 66.56
+        },
+        {
+          "nombre": "Guadalajara",
+          "electores": 196983,
+          "votantes": 142744,
+          "participacion": 72.47
+        },
+        {
+          "nombre": "Gipuzkoa",
+          "electores": 585873,
+          "votantes": 378965,
+          "participacion": 64.68
+        },
+        {
+          "nombre": "Huelva",
+          "electores": 402504,
+          "votantes": 260861,
+          "participacion": 64.81
+        },
+        {
+          "nombre": "Huesca",
+          "electores": 173391,
+          "votantes": 121148,
+          "participacion": 69.87
+        },
+        {
+          "nombre": "Jaén",
+          "electores": 518371,
+          "votantes": 373657,
+          "participacion": 72.08
+        },
+        {
+          "nombre": "León",
+          "electores": 422917,
+          "votantes": 277726,
+          "participacion": 65.67
+        },
+        {
+          "nombre": "Lleida",
+          "electores": 317225,
+          "votantes": 186929,
+          "participacion": 58.93
+        },
+        {
+          "nombre": "Rioja, La",
+          "electores": 252091,
+          "votantes": 176945,
+          "participacion": 70.19
+        },
+        {
+          "nombre": "Lugo",
+          "electores": 337755,
+          "votantes": 200709,
+          "participacion": 59.42
+        },
+        {
+          "nombre": "Madrid",
+          "electores": 5224561,
+          "votantes": 3639500,
+          "participacion": 69.66
+        },
+        {
+          "nombre": "Málaga",
+          "electores": 1239846,
+          "votantes": 798557,
+          "participacion": 64.41
+        },
+        {
+          "nombre": "Murcia",
+          "electores": 1099703,
+          "votantes": 755255,
+          "participacion": 68.68
+        },
+        {
+          "nombre": "Navarra",
+          "electores": 519918,
+          "votantes": 345095,
+          "participacion": 66.37
+        },
+        {
+          "nombre": "Ourense",
+          "electores": 355765,
+          "votantes": 188065,
+          "participacion": 52.86
+        },
+        {
+          "nombre": "Asturias",
+          "electores": 959023,
+          "votantes": 603183,
+          "participacion": 62.9
+        },
+        {
+          "nombre": "Palencia",
+          "electores": 137642,
+          "votantes": 98079,
+          "participacion": 71.26
+        },
+        {
+          "nombre": "Palmas, Las",
+          "electores": 898882,
+          "votantes": 534912,
+          "participacion": 59.51
+        },
+        {
+          "nombre": "Pontevedra",
+          "electores": 909434,
+          "votantes": 579125,
+          "participacion": 63.68
+        },
+        {
+          "nombre": "Salamanca",
+          "electores": 300506,
+          "votantes": 201419,
+          "participacion": 67.03
+        },
+        {
+          "nombre": "Santa Cruz de Tenerife",
+          "electores": 881217,
+          "votantes": 500777,
+          "participacion": 56.83
+        },
+        {
+          "nombre": "Cantabria",
+          "electores": 507818,
+          "votantes": 355145,
+          "participacion": 69.94
+        },
+        {
+          "nombre": "Segovia",
+          "electores": 119454,
+          "votantes": 89945,
+          "participacion": 75.3
+        },
+        {
+          "nombre": "Sevilla",
+          "electores": 1564082,
+          "votantes": 1075133,
+          "participacion": 68.74
+        },
+        {
+          "nombre": "Soria",
+          "electores": 75768,
+          "votantes": 51157,
+          "participacion": 67.52
+        },
+        {
+          "nombre": "Tarragona",
+          "electores": 596689,
+          "votantes": 372426,
+          "participacion": 62.42
+        },
+        {
+          "nombre": "Teruel",
+          "electores": 106352,
+          "votantes": 76561,
+          "participacion": 71.99
+        },
+        {
+          "nombre": "Toledo",
+          "electores": 542567,
+          "votantes": 392988,
+          "participacion": 72.43
+        },
+        {
+          "nombre": "Valencia / València",
+          "electores": 1999340,
+          "votantes": 1451187,
+          "participacion": 72.58
+        },
+        {
+          "nombre": "Valladolid",
+          "electores": 431381,
+          "votantes": 319312,
+          "participacion": 74.02
+        },
+        {
+          "nombre": "Bizkaia",
+          "electores": 942983,
+          "votantes": 614944,
+          "participacion": 65.21
+        },
+        {
+          "nombre": "Zamora",
+          "electores": 162998,
+          "votantes": 104671,
+          "participacion": 64.22
+        },
+        {
+          "nombre": "Zaragoza",
+          "electores": 740060,
+          "votantes": 523410,
+          "participacion": 70.73
+        },
+        {
+          "nombre": "Ceuta",
+          "electores": 63310,
+          "votantes": 33674,
+          "participacion": 53.19
+        },
+        {
+          "nombre": "Melilla",
+          "electores": 61118,
+          "votantes": 27649,
+          "participacion": 45.24
+        }
+      ]
+    }
+  }
+}

@@ -68,6 +68,13 @@ da edad/sexo. El gráfico debe decirlo.
 - **Aceptación**: las 4 cifras cuadran con La Moncloa; la página declara que
   edad/sexo no cubre el extranjero; 200 en vivo y en sitemap.
 
+## M2b · Participación provincial — ✅ HECHO 18-oct (`data/raw/elecciones-congreso.xlsx`)
+
+- 16 elecciones × 52 provincias (1977–2023), con electores, votantes y participación.
+- Página `/participacion.html`: selector de provincia + gráfico (provincia vs nacional) + tabla 2023.
+- JSON/CSV abiertos: `data/participacion_provincial.json`, `data/participacion_provincial.csv`.
+- Validación: 2023 66,59 %; sumas provinciales = nacional.
+
 ## M2 · Participación histórica (P1) — ✅ HECHO 18-oct (`f75b33a`)
 
 **Pregunta**: ¿quién participa y cómo ha cambiado?
@@ -79,6 +86,12 @@ da edad/sexo. El gráfico debe decirlo.
 - **Tests**: 23-J-2023 nacional ≈ 66,6 % (verificar contra fuente); suma de
   provincias = nacional.
 - **Aceptación**: cada punto enlaza a la fuente; no se proyecta participación.
+
+## M3b · Votos↔escaños 2023 — ✅ HECHO 18-oct
+
+- Nacional: votos, % voto, escaños, % escaño, diferencia y **Gallagher 5,62** en `/territorio.html`.
+- Provincial: votos y escaños por partido en `data/congreso.json` y CSV/JSON de 2023.
+- Aviso CERA: los votos incluyen voto exterior; los escaños coinciden.
 
 ## M3 · Territorio y representación (P1) — ✅ HECHO 18-oct (`bdda73e`)
 

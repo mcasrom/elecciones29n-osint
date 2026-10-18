@@ -1,4 +1,18 @@
-# Participación y resultados provinciales · búsqueda de fuente (18-oct-2026)
+# Participación y resultados provinciales · FUENTE ENCONTRADA (18-oct-2026)
+
+## Fuente encontrada
+
+`demo/Elecciones-Congreso.xlsx` (facilitado por el dueño; open data del
+Ministerio del Interior). Copiado a **`data/raw/elecciones-congreso.xlsx`**;
+SHA-256 en `data/congreso.json`.
+
+- 16 elecciones generales (1977–2023), 52 provincias.
+- Por provincia: electores, votantes, votos válidos/nulos/blancos, escaños y
+  votos/escaños por partido (familias).
+- **Validación**: 2023 participación 66,59 %; 350 escaños; PP 137, PSOE 121,
+  VOX 33, SUMAR 31; Madrid 37. Gallagher 5,62.
+- **Aviso**: los votos incluyen CERA (PP 8.160.837 aquí vs 8.091.840 en tablas
+  que excluyen el voto exterior). Los escaños y la participación coinciden.
 
 ## Objetivo
 
@@ -7,7 +21,7 @@ Desbloquear dos módulos:
 - **M5 Meteorología × participación**: requiere participación por provincia.
 - **Votos↔escaños provinciales 2023**: requiere votos y escaños por provincia.
 
-## Intentos
+## Intentos previos (bloqueados)
 
 | Fuente | Resultado |
 |---|---|
@@ -23,9 +37,9 @@ Desbloquear dos módulos:
 
 ## Conclusión
 
-No hay una fuente oficial accesible por HTTP para participación provincial ni
-para votos↔escaños provinciales. **No se inventan datos ni se usan datasets no
-oficiales.**
+La fuente oficial **sí existe**: el XLSX de resultados del Interior con datos
+provinciales. El acceso HTTP directo a MIR/Interior sigue bloqueado, pero el
+archivo permite construir el módulo sin inventar nada.
 
 ## Alternativas
 

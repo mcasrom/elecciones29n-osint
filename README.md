@@ -29,8 +29,8 @@ dato, no en una nota al pie.
 
 - `/` — Agregado, evolución, Congreso (D'Hondt etiquetado como simulación) y Senado.
 - `/electorado.html` — Censo 29N: total, CER/CERA, edad y sexo, provincias y nuevos electores.
-- `/participacion.html` — Participación nacional 1979–2023 con enlace a la JEC.
-- `/territorio.html` — 350 escaños, 52 circunscripciones y electores por escaño.
+- `/participacion.html` — Participación nacional 1979–2023 y **provincial 1977–2023** (selector + comparación con la media nacional).
+- `/territorio.html` — 350 escaños, 52 circunscripciones, electores por escaño y **votos↔escaños 2023 con índice de Gallagher**.
 - `/noche-electoral.html` — Qué se publica el 29N, cuándo y con qué fuente.
 - `/metodologia.html` y `/fuentes.html` — Método, fuentes, catálogo de datos y licencias.
 
@@ -62,7 +62,7 @@ agregado.
 | Participación | [JEC](https://www.juntaelectoralcentral.es/) | tablas por elección |
 | Escaños | [BOE · RD 806/2026](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-20742) | anexo |
 | Normativa | [LOREG](https://www.boe.es/buscar/act.php?id=BOE-A-1985-11672) | BOE consolidado |
-| Resultados provinciales | Ministerio del Interior | pendiente (fuente no accesible de forma fiable) |
+| Resultados provinciales | Ministerio del Interior (XLSX) | `data/raw/elecciones-congreso.xlsx` · 1977–2023 |
 
 Cada fila de sondeo guarda `pollster`, `date`, `source_url` y `sample`. Los
 metadatos del censo incluyen URL y **SHA-256** de cada XLSX.

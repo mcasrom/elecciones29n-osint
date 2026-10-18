@@ -205,6 +205,10 @@ svg.chart{width:100%;height:auto;display:block}
 .stale strong{color:#fff}
 @keyframes stalePulse{0%,100%{background:#3a0d0d}50%{background:#611a1a}}
 
+/* controles de gráfico */
+.chart-controls{display:flex;align-items:center;gap:10px;margin:0 0 10px;font-size:13px;color:var(--muted)}
+.chart-controls select{background:var(--panel2);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:7px 10px;font:inherit}
+
 /* aviso nueva versión (SW) */
 .swupdate{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:85;display:flex;align-items:center;gap:10px;background:var(--panel2);border:1px solid var(--accent);border-radius:12px;padding:10px 14px;box-shadow:0 10px 30px rgba(0,0,0,.35);font-size:13.5px;color:var(--muted);max-width:calc(100vw - 24px)}
 .swupdate strong{color:var(--fg)}
@@ -555,6 +559,27 @@ def fmt_pct(v) -> str:
         return str(v)
 
 
+def build_resultados_2023(n: dict) -> list:
+    votes = n.get("votos", {})
+    seats = n.get("escanos", {})
+    if not votes or not seats:
+        return []
+    vtot = sum(votes.values()) or 1
+    stot = sum(seats.values()) or 1
+    rows = []
+    for party in sorted(set(votes) | set(seats), key=lambda k: -seats.get(k, 0)):
+        v = votes.get(party, 0)
+        e = seats.get(party, 0)
+        vp = 100.0 * v / vtot
+        ep = 100.0 * e / stot
+        rows.append({
+            "party": party, "votes": v, "seats": e,
+            "vote_pct": round(vp, 2), "seat_pct": round(ep, 2),
+            "diff": round(ep - vp, 2),
+        })
+    return rows
+
+
 def build_escanos_chart(provincias: list) -> str:
     if not provincias:
         return ""
@@ -689,6 +714,26 @@ def write_censo_data(censo: dict) -> None:
     dump("censo-edad.csv", ["grupo", "mujeres", "hombres", "total"], censo.get("edad_sexo", []))
     dump("censo-nuevos.csv", ["codigo", "nombre", "desde_2023", "desde_2024"], censo.get("nuevos_provincia", []))
     dump("censo-cera.csv", ["codigo", "pais", "electores"], censo.get("cera_paises", []))
+
+
+def write_congreso_web(prov_part: dict, congreso: dict) -> None:
+    if not prov_part:
+        return
+    data_dir = os.path.join(OUT, "data")
+    os.makedirs(data_dir, exist_ok=True)
+    with open(os.path.join(data_dir, "participacion-provincial.json"), "w", encoding="utf-8") as f:
+        json.dump(prov_part, f, ensure_ascii=False, indent=2)
+    n = congreso.get("elecciones", {}).get("2023-07-23", {}).get("nacional", {})
+    rows = build_resultados_2023(n)
+    if rows:
+        import csv as _csv
+        with open(os.path.join(data_dir, "resultados-2023.csv"), "w", encoding="utf-8", newline="") as f:
+            w = _csv.writer(f)
+            w.writerow(["partido", "votos", "pct_voto", "escanos", "pct_escanos", "diferencia_pp"])
+            for r in rows:
+                w.writerow([r["party"], r["votes"], r["vote_pct"], r["seats"], r["seat_pct"], r["diff"]])
+        with open(os.path.join(data_dir, "resultados-2023.json"), "w", encoding="utf-8") as f:
+            json.dump({"nacional": n, "filas": rows}, f, ensure_ascii=False, indent=2)
 
 
 def write_resultados_data(data: dict) -> None:
@@ -952,6 +997,15 @@ def main(out: str = "web") -> None:
         autoescape=select_autoescape(["html", "xml"]),
     )
 
+    congreso = {}
+    if os.path.exists("data/congreso.json"):
+        with open("data/congreso.json", encoding="utf-8") as f:
+            congreso = json.load(f)
+    prov_part = {}
+    if os.path.exists("data/participacion_provincial.json"):
+        with open("data/participacion_provincial.json", encoding="utf-8") as f:
+            prov_part = json.load(f)
+
     resultados = {}
     if os.path.exists("data/resultados_29n.json"):
         with open("data/resultados_29n.json", encoding="utf-8") as f:
@@ -1058,6 +1112,13 @@ def main(out: str = "web") -> None:
         "health": latest.get("health", {}),
         "escanos": escanos,
         "resultados": resultados,
+        "congreso": congreso,
+        "prov_part": prov_part,
+        "congreso_2023": congreso.get("elecciones", {}).get("2023-07-23", {}),
+        "resultados_2023_rows": build_resultados_2023(
+            congreso.get("elecciones", {}).get("2023-07-23", {}).get("nacional", {})
+        ),
+        "prov_2023": (prov_part.get("elecciones", {}).get("2023-07-23", {}).get("provincias", [])),
         "escanos_chart": build_escanos_chart(escanos.get("provincias", [])),
         "escanos_kpis": {
             "total": escanos.get("total_escanos", 0),
@@ -1091,6 +1152,7 @@ def main(out: str = "web") -> None:
     write_participacion_data(participacion)
     write_escanos_data(escanos)
     write_resultados_data(resultados)
+    write_congreso_web(prov_part, congreso)
 
     if not os.path.exists(os.path.join(OUT, "data/latest.json")):
         with open(os.path.join(OUT, "data/latest.json"), "w", encoding="utf-8") as f:

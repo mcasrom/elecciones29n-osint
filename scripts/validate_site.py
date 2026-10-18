@@ -22,6 +22,7 @@ REQUIRED = [
     "apoyo.html", "sobre-mi.html", "noche-electoral.html",
     "manifest.webmanifest", "sw.js", "icons/icon-192.png", "icons/icon-512.png",
     "factores.html", "comportamiento.html", "version.json",
+    "data/participacion-provincial.json", "data/resultados-2023.csv",
 ]
 
 
@@ -80,6 +81,27 @@ def main() -> int:
                 errors.append("latest.json sin sondeos (n_polls=0)")
             if data.get("parties") and "class=\"spark\"" not in (open(idx_path, encoding="utf-8", errors="ignore").read() if os.path.exists(idx_path) else ""):
                 errors.append("index.html sin minigráficos (spark)")
+
+    pp = os.path.join(d, "data/participacion-provincial.json")
+    if os.path.exists(pp):
+        try:
+            pdata = json.load(open(pp, encoding="utf-8"))
+            if len(pdata.get("elecciones", {})) < 15:
+                errors.append("participacion-provincial.json con pocas elecciones")
+            if "2023-07-23" not in pdata.get("elecciones", {}):
+                errors.append("participacion-provincial.json sin 2023")
+        except Exception as e:
+            errors.append(f"participacion-provincial.json inválido: {e}")
+    partp = os.path.join(d, "participacion.html")
+    if os.path.exists(partp):
+        ph = open(partp, encoding="utf-8", errors="ignore").read()
+        if "Participación por provincia" not in ph or "provSel" not in ph:
+            errors.append("participacion.html sin selector provincial")
+    terr = os.path.join(d, "territorio.html")
+    if os.path.exists(terr):
+        th = open(terr, encoding="utf-8", errors="ignore").read()
+        if "Votos y escaños (2023)" not in th:
+            errors.append("territorio.html sin votos/escaños 2023")
 
     censo_path = os.path.join(d, "data/censo-2026.json")
     if os.path.exists(censo_path):

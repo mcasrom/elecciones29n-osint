@@ -27,6 +27,31 @@
   </div>
 
   <div class="card">
+    <div class="cardhead"><h2>Participación por provincia</h2><span class="hint">1977–2023 · elige una provincia</span></div>
+    <div class="chart-controls">
+      <label for="provSel">Provincia</label>
+      <select id="provSel"></select>
+    </div>
+    <div id="provChart" class="chartwrap"></div>
+    <p class="muted small">Línea naranja: provincia seleccionada. Línea azul: media nacional. Cada punto es una elección general.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>2023 por provincia</h2><span class="hint">participación sobre censo</span></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Provincia</th><th>Electores</th><th>Votantes</th><th>Participación</th></tr></thead>
+        <tbody>
+        {% for p in prov_2023|sort(attribute='participacion', reverse=true) %}
+          <tr><td>{{ p.nombre }}</td><td class="num">{{ fmt_miles(p.electores) }}</td><td class="num">{{ fmt_miles(p.votantes) }}</td><td class="num">{{ fmt_pct(p.participacion) }}%</td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="muted small"><a href="/data/participacion-provincial.json">Serie provincial completa (JSON)</a> · <a href="/data/participacion.csv">Serie nacional (CSV)</a></p>
+  </div>
+
+  <div class="card">
     <div class="cardhead"><h2>Serie por elección</h2><span class="hint">enlace a la JEC</span></div>
     <div class="tablewrap">
       <table>
@@ -63,5 +88,44 @@
   {% endif %}
 </main>
 {% include "_footer.html.j2" %}
+<script>
+(function(){
+  var sel=document.getElementById('provSel'), box=document.getElementById('provChart');
+  if(!sel||!box) return;
+  fetch('/data/participacion-provincial.json').then(function(r){return r.json()}).then(function(d){
+    var els=Object.keys(d.elecciones).sort();
+    var provs=[];
+    els.forEach(function(k){ d.elecciones[k].provincias.forEach(function(p){ if(provs.indexOf(p.nombre)<0) provs.push(p.nombre); }); });
+    provs.sort();
+    sel.innerHTML=provs.map(function(p){return '<option>'+p+'</option>';}).join('');
+    var def=provs.indexOf('Madrid')>=0?'Madrid':provs[0];
+    sel.value=def;
+    function svg(series,nat,name){
+      var W=760,H=300,pl=42,pr=16,pt=18,pb=34;
+      var vals=series.concat(nat).map(function(x){return x.v}).filter(function(v){return v!=null});
+      var vmin=Math.max(0,Math.min.apply(null,vals)-3), vmax=Math.max.apply(null,vals)+3;
+      function X(i){return pl+(W-pl-pr)*i/(series.length-1)}
+      function Y(v){return pt+(H-pt-pb)*(1-(v-vmin)/(vmax-vmin))}
+      var grid='';
+      for(var g=0;g<5;g++){var v=vmin+(vmax-vmin)*g/4;var y=Y(v);grid+='<line x1="'+pl+'" y1="'+y+'" x2="'+(W-pr)+'" y2="'+y+'" stroke="var(--line)"/><text x="6" y="'+(y+4)+'" fill="var(--muted)" font-size="11">'+v.toFixed(0)+'%</text>'}
+      var p1=series.map(function(x,i){return (i?'L':'M')+X(i)+','+Y(x.v)}).join(' ');
+      var p2=nat.map(function(x,i){return (i?'L':'M')+X(i)+','+Y(x.v)}).join(' ');
+      var labels=''; els.forEach(function(k,i){ if(i%2===0||i===els.length-1) labels+='<text x="'+X(i)+'" y="'+(H-10)+'" fill="var(--muted)" font-size="10" text-anchor="middle">'+k.slice(0,4)+'</text>' });
+      var dots=series.map(function(x,i){return '<circle cx="'+X(i)+'" cy="'+Y(x.v)+'" r="2.6" fill="#ff5a1f"/>'}).join('');
+      return '<svg class="chart" viewBox="0 0 '+W+' '+H+'">'+grid+'<path d="'+p2+'" fill="none" stroke="#8ec5ff" stroke-width="1.6" opacity=".75"/><path d="'+p1+'" fill="none" stroke="#ff5a1f" stroke-width="2.2"/>'+dots+labels+'</svg><div class="legend"><span class="lg"><i style="background:#ff5a1f"></i>'+name+'</span><span class="lg"><i style="background:#8ec5ff"></i>Nacional</span></div>';
+    }
+    function draw(name){
+      var series=[], nat=[];
+      els.forEach(function(k){
+        var pr=d.elecciones[k].provincias.filter(function(p){return p.nombre===name})[0];
+        series.push({v:pr?pr.participacion:null}); nat.push({v:d.elecciones[k].nacional.participacion});
+      });
+      box.innerHTML=svg(series,nat,name);
+    }
+    sel.addEventListener('change',function(){draw(sel.value)});
+    draw(def);
+  }).catch(function(){ box.innerHTML='<p class="muted small">No se pudo cargar la serie provincial.</p>'; });
+})();
+</script>
 </body>
 </html>

@@ -48,6 +48,25 @@
   </div>
 
   <div class="card">
+    <div class="cardhead"><h2>Votos y escaños (2023)</h2><span class="hint">nacional · Gallagher {{ congreso_2023.nacional.gallagher }}</span></div>
+    {% if resultados_2023_rows %}
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Partido</th><th>Votos</th><th>% voto</th><th>Escaños</th><th>% escaño</th><th>Diferencia</th></tr></thead>
+        <tbody>
+        {% for r in resultados_2023_rows[:15] %}
+          <tr><td>{{ r.party }}</td><td class="num">{{ fmt_miles(r.votes) }}</td><td class="num">{{ fmt_pct(r.vote_pct) }}%</td><td class="num">{{ r.seats }}</td><td class="num">{{ fmt_pct(r.seat_pct) }}%</td><td class="num">{{ "%+.1f"|format(r.diff) }} pp</td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="muted small">Gallagher {{ congreso_2023.nacional.gallagher }} (0 = representación perfectamente proporcional). Diferencia = % escaños − % votos. Dato nacional; votos y escaños por provincia en el <a href="/data/resultados-2023.csv">CSV</a> y el <a href="/data/resultados-2023.json">JSON</a>. Los votos incluyen el voto exterior (CERA), por lo que pueden diferir de las tablas que solo muestran el voto en España (p. ej., PP 8.160.837 aquí frente a 8.091.840 en otras fuentes): es la misma elección y el mismo reparto de escaños.</p>
+    {% else %}
+    <p class="muted small">Datos de 2023 no disponibles.</p>
+    {% endif %}
+  </div>
+
+  <div class="card">
     <div class="cardhead"><h2>Cómo se reparten los escaños</h2></div>
     <ul class="muted small">
       <li><strong>Circunscripción provincial</strong>: cada provincia elige un número fijo de diputados; no hay distrito nacional único.</li>
