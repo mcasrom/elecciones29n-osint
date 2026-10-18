@@ -146,7 +146,7 @@
       <div class="cardhead"><h2>Variación de los sondeos en el tiempo</h2><span class="hint">{% if series_span %}{{ series_span }}{% endif %}</span></div>
       {% if sparks_svg %}
       {{ sparks_svg|safe }}
-      <p class="muted small" style="margin-top:12px">Cada punto es un sondeo publicado; la línea une los valores tal como se publicaron (sin media). La cifra grande es el último valor y el delta es la diferencia con el primer sondeo del periodo. Solo se muestran los seis partidos con más media actual.</p>
+      <p class="muted small" style="margin-top:12px">Cada punto es un sondeo publicado; la línea une los valores tal como se publicaron. La banda sombreada marca el mínimo–máximo de los sondeos vecinos (ventana de 3). La cifra grande es el último valor y el delta es la diferencia con el primer sondeo del periodo. Solo se muestran los seis partidos con más media actual.</p>
       {% else %}
       <p class="muted">Aún no hay suficientes sondeos para mostrar una serie.</p>
       {% endif %}

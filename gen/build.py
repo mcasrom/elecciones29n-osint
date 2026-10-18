@@ -204,6 +204,59 @@ def write_js() -> None:
         f.write("/* charts inline; no external deps */\n")
 
 
+def write_cambios() -> None:
+    """RSS 2.0 con un item por sondeo nuevo (fecha + encuestadora)."""
+    import csv as _csv
+    from email.utils import format_datetime
+    from xml.sax.saxutils import escape
+
+    hist = "data/polls_history.csv"
+    groups: dict = {}
+    if os.path.exists(hist):
+        with open(hist, encoding="utf-8", newline="") as f:
+            for row in _csv.DictReader(f):
+                if (row.get("kind") or "tracking") == "average":
+                    continue
+                key = (row.get("date") or "", row.get("pollster") or "Electomania")
+                g = groups.setdefault(key, {"url": row.get("source_url") or "", "vals": {}})
+                try:
+                    g["vals"][row["party"]] = float(row["value"])
+                except Exception:
+                    continue
+
+    items = []
+    for (d, pollster), g in sorted(groups.items(), reverse=True)[:60]:
+        top = sorted(g["vals"].items(), key=lambda kv: -kv[1])[:5]
+        desc = " · ".join(f"{k} {v:.1f}%" for k, v in top)
+        try:
+            dt = TZ.localize(datetime.strptime(d, "%Y-%m-%d").replace(hour=8))
+        except Exception:
+            continue
+        url = g["url"] or f"{SITE_URL}/"
+        title = f"Nuevo sondeo · {pollster} · {d[8:10]}/{d[5:7]}"
+        items.append(
+            "  <item>"
+            f"<title>{escape(title)}</title>"
+            f"<link>{escape(url)}</link>"
+            f"<guid isPermaLink=\"false\">{escape(d + '-' + pollster)}</guid>"
+            f"<pubDate>{format_datetime(dt)}</pubDate>"
+            f"<description>{escape(desc + '. Media agregada, no pronóstico.')}</description>"
+            "</item>"
+        )
+    xml = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<rss version="2.0"><channel>'
+        f"<title>{escape(SITE_TITLE)} · cambios</title>"
+        f"<link>{SITE_URL}/</link>"
+        f"<description>{escape(SITE_DESC)}</description>"
+        f"<language>es-ES</language>"
+        + ("\n" + "\n".join(items) if items else "")
+        + "\n</channel></rss>\n"
+    )
+    with open("web/cambios.xml", "w", encoding="utf-8") as f:
+        f.write(xml)
+
+
 def write_robots() -> None:
     robots = (
         "User-agent: *\n"
@@ -330,16 +383,24 @@ def build_sparklines(series: dict, parties: list) -> str:
             return H - pad - (H - 2 * pad) * (v - vmin) / span
 
         coords = [(X(i), Y(p["value"])) for i, p in enumerate(pts)]
+        color = CHART_COLORS[order.index(party) % len(CHART_COLORS)]
+        lo_pts, hi_pts = [], []
+        for i in range(len(pts)):
+            win = vals[max(0, i - 1):i + 2]
+            lo_pts.append((X(i), Y(min(win))))
+            hi_pts.append((X(i), Y(max(win))))
+        band = _band(lo_pts, hi_pts)
         d = "M " + " L ".join(f"{cx:.1f},{cy:.1f}" for cx, cy in coords)
         delta = vals[-1] - vals[0]
         cls = "up" if delta > 0.05 else ("down" if delta < -0.05 else "flat")
         sign = "+" if delta > 0 else ""
-        dots = "".join(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="2.4" fill="#8ec5ff"/>' for cx, cy in coords)
+        dots = "".join(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="2.4" fill="{color}"/>' for cx, cy in coords)
         panels.append(
             f'<div class="spark">'
             f'<div class="sparkhead"><span>{party}</span><b>{vals[-1]:.1f}%</b></div>'
             f'<svg viewBox="0 0 {W} {H}" role="img" aria-label="Evolución de {party}">'
-            f'<path d="{d}" fill="none" stroke="#ff5a1f" stroke-width="2"/>{dots}</svg>'
+            f'<path d="{band}" fill="{color}" opacity="0.18" stroke="none"/>'
+            f'<path d="{d}" fill="none" stroke="{color}" stroke-width="2"/>{dots}</svg>'
             f'<div class="sparkfoot"><span>{pts[0]["date"][5:].replace("-", "/")}</span>'
             f'<span class="delta {cls}">{sign}{delta:.1f} pts</span>'
             f'<span>{pts[-1]["date"][5:].replace("-", "/")}</span></div>'
@@ -413,6 +474,12 @@ def build_jsonld(parties: list, updated_at: str) -> str:
 CHART_COLORS = ["#ff5a1f", "#3ddc97", "#8ec5ff", "#f2c94c", "#bb6bd9", "#56ccf2"]
 
 
+def _band(coords_lo, coords_hi) -> str:
+    top = " L ".join(f"{x:.1f},{y:.1f}" for x, y in coords_hi)
+    bot = " L ".join(f"{x:.1f},{y:.1f}" for x, y in reversed(coords_lo))
+    return f"M {top} L {bot} Z"
+
+
 def chart_legend(parties: list) -> list:
     return [
         {"party": p["party"], "color": CHART_COLORS[i % len(CHART_COLORS)]}
@@ -463,6 +530,11 @@ def build_chart(series: dict, parties: list) -> str:
             coords.append((x(i), y(p["value"])))
         dpath = "M " + " L ".join(f"{cx:.1f},{cy:.1f}" for cx, cy in coords)
         color = colors[idx % len(colors)]
+        if idx < 3 and len(pts) >= 3:
+            vals = [p["value"] for p in pts]
+            lo = [(x(i), y(min(vals[max(0, i - 1):i + 2]))) for i in range(len(pts))]
+            hi = [(x(i), y(max(vals[max(0, i - 1):i + 2]))) for i in range(len(pts))]
+            parts.append(f'<path d="{_band(lo, hi)}" fill="{color}" opacity="0.10" stroke="none"/>')
         parts.append(f'<path d="{dpath}" fill="none" stroke="{color}" stroke-width="2.2"/>')
         for cx, cy in coords:
             parts.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="3" fill="{color}"/>')
@@ -476,6 +548,7 @@ def main() -> None:
     write_css()
     write_js()
     write_robots()
+    write_cambios()
     write_indexnow_key()
     write_llms()
     write_favicon()
