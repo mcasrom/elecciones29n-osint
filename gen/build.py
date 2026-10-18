@@ -659,51 +659,57 @@ def build_participacion_chart(rows: list) -> str:
 
 
 def build_sparklines(series: dict, parties: list) -> str:
-    """Minigráficos por partido (serie larga) para la pestaña Evolución."""
+    """Minigráficos por partido con media móvil de 14 días (centrada)."""
     order = [p["party"] for p in parties][:6]
     panels = []
     for party in order:
         pts = series.get(party, [])
         if not pts:
             continue
+        dates = sorted({p["date"] for p in pts})
+        ma = []
+        for d in dates:
+            dt = datetime.strptime(d, "%Y-%m-%d")
+            vals = [p["value"] for p in pts
+                    if abs((datetime.strptime(p["date"], "%Y-%m-%d") - dt).days) <= 7]
+            if vals:
+                ma.append({"date": d, "value": sum(vals) / len(vals)})
+        if not ma:
+            continue
         W, H, pad = 300, 110, 12
-        vals = [p["value"] for p in pts]
+        vals = [m["value"] for m in ma]
         vmin, vmax = min(vals), max(vals)
         if vmax == vmin:
             vmax += 0.2
             vmin -= 0.2
         span = vmax - vmin
+        n = max(1, len(dates) - 1)
 
         def X(i):
-            return pad + (W - 2 * pad) * i / (len(pts) - 1)
+            return pad + (W - 2 * pad) * i / n
 
         def Y(v):
             return H - pad - (H - 2 * pad) * (v - vmin) / span
 
-        coords = [(X(i), Y(p["value"])) for i, p in enumerate(pts)]
+        coords = [(X(i), Y(m["value"])) for i, m in enumerate(ma)]
+        dpath = "M " + " L ".join(f"{cx:.1f},{cy:.1f}" for cx, cy in coords)
         color = CHART_COLORS[order.index(party) % len(CHART_COLORS)]
-        if len(pts) == 1:
-            coords = [(W / 2, Y(pts[0]["value"]))]
-        lo_pts, hi_pts = [], []
-        for i in range(len(pts)):
-            win = vals[max(0, i - 1):i + 2]
-            lo_pts.append((X(i), Y(min(win))))
-            hi_pts.append((X(i), Y(max(win))))
-        band = _band(lo_pts, hi_pts) if len(pts) >= 2 else ""
-        d = "M " + " L ".join(f"{cx:.1f},{cy:.1f}" for cx, cy in coords)
+        idx = {d: i for i, d in enumerate(dates)}
+        dots = "".join(
+            f'<circle cx="{X(idx[p["date"]]):.1f}" cy="{Y(p["value"]):.1f}" r="1.7" fill="{color}" opacity="0.55"/>'
+            for p in pts
+        )
         delta = vals[-1] - vals[0]
         cls = "up" if delta > 0.05 else ("down" if delta < -0.05 else "flat")
         sign = "+" if delta > 0 else ""
-        dots = "".join(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="2.4" fill="{color}"/>' for cx, cy in coords)
         panels.append(
             f'<div class="spark">'
             f'<div class="sparkhead"><span>{party}</span><b>{vals[-1]:.1f}%</b></div>'
-            f'<svg viewBox="0 0 {W} {H}" role="img" aria-label="Evolución de {party}">'
-            f'<path d="{band}" fill="{color}" opacity="0.18" stroke="none"/>'
-            f'<path d="{d}" fill="none" stroke="{color}" stroke-width="2"/>{dots}</svg>'
-            f'<div class="sparkfoot"><span>{pts[0]["date"][5:].replace("-", "/")}</span>'
+            f'<svg viewBox="0 0 {W} {H}" role="img" aria-label="Media móvil de {party}">'
+            f'<path d="{dpath}" fill="none" stroke="{color}" stroke-width="2.2"/>{dots}</svg>'
+            f'<div class="sparkfoot"><span>{dates[0][5:].replace("-", "/")}</span>'
             f'<span class="delta {cls}">{sign}{delta:.1f} pts</span>'
-            f'<span>{pts[-1]["date"][5:].replace("-", "/")}</span></div>'
+            f'<span>{dates[-1][5:].replace("-", "/")}</span></div>'
             f"</div>"
         )
     return '<div class="sparks">' + "".join(panels) + "</div>" if panels else ""
@@ -921,6 +927,11 @@ def build_jsonld(parties: list, updated_at: str) -> str:
 
 
 CHART_COLORS = ["#ff5a1f", "#3ddc97", "#8ec5ff", "#f2c94c", "#bb6bd9", "#56ccf2"]
+
+
+def _series_span(series: dict) -> str:
+    dates = sorted({p["date"] for vals in series.values() for p in vals})
+    return f"{dates[0]} – {dates[-1]}" if dates else ""
 
 
 def _band(coords_lo, coords_hi) -> str:
@@ -1151,11 +1162,7 @@ def main(out: str = "web") -> None:
         "censo_jsonld": build_censo_jsonld(censo),
         "person_jsonld": build_person_jsonld(),
         "sparks_svg": build_sparklines(latest.get("series_long", series), parties_main),
-        "series_span": (
-            f'{next(iter(latest.get("series_long", {}).values()))[0]["date"]} – '
-            f'{next(iter(latest.get("series_long", {}).values()))[-1]["date"]}'
-            if latest.get("series_long") else ""
-        ),
+        "series_span": _series_span(latest.get("series_long", {})),
         "updated_iso": latest.get("updated_at_iso", now.isoformat()),
         "low_n": latest.get("low_n", False),
         "window_span": latest.get("window_span", ""),
