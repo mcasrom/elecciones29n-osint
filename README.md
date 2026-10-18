@@ -60,6 +60,13 @@ No es un pronóstico, no estima intención de voto individual y no anticipa el r
 - Página `/territorio.html`: gráfico de electores/escaño, tabla completa y explicador (mínimo de 2 escaños, D'Hondt provincial, umbral del 3 %).
 - Límite: no incluye votos↔escaños de 2023 por provincia (resultados del Interior no accesibles); no proyecta el 29N.
 
+## Documentación y páginas
+
+- `/metodologia.html`: método de cada módulo (sondeos, censo, participación, territorio), reglas comunes y límites.
+- `/fuentes.html`: fuentes por módulo, enlaces oficiales, catálogo de datos descargables (JSON/CSV) y licencias.
+- `/apoyo.html`: Ko-fi, compartir y colaboración; qué financia y qué no cambia.
+- `/sobre-mi.html`: autor, principios de trabajo, proyectos y contacto.
+
 ## Datos
 
 - Fuente de sondeos: **Electomania** (ElectoPanel) vía WordPress REST API, con paginación y backfill.

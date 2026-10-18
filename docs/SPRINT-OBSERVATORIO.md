@@ -112,6 +112,13 @@ da edad/sexo. El gráfico debe decirlo.
 
 ---
 
+## Documentación y páginas institucionales — ✅ HECHO 18-oct (`31af075`)
+
+- `metodologia.html` reescrita con los 4 módulos y reglas comunes.
+- `fuentes.html` con tabla de fuentes, catálogo de datos y licencias.
+- Nuevas `/apoyo.html` (Ko-fi, compartir, colaboración) y `/sobre-mi.html` (autor, principios, proyectos, contacto).
+- Subnavegación en la portada y footer; sitemap 10 URLs.
+
 ## Orden de ejecución
 
 1. **M1 censo** (datos listos, bajo riesgo) → enlazar desde la portada.
