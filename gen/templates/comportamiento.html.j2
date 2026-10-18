@@ -1,0 +1,60 @@
+{% set page_title = "Comportamiento por grupos · qué se puede saber y qué no" %}
+{% set page_desc = "Edad, sexo, renta e ideología: qué se puede publicar con encuestas, con muestra y fuente, y por qué no se cruza el censo con el voto." %}
+{% set canonical = site_url ~ "/comportamiento.html" %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Comportamiento por grupos</h1>
+  <p class="muted" style="margin:0 0 14px">Qué sabemos del voto por edad, sexo, renta o ideología. Diseño del módulo y límites: todavía no hay datos publicados.</p>
+
+  <div class="alert warn">
+    <strong>Módulo en preparación.</strong> No se publican estimaciones por grupo hasta tener <strong>fuente, fecha, muestra (n) y comparabilidad</strong>. El censo dice quién puede votar; no dice a quién vota.
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Qué se puede saber</h2><span class="hint">encuestas, no censo</span></div>
+    <ul class="muted small">
+      <li><strong>CIS</strong>: estudios postelectorales y barómetros con microdatos y tablas publicadas. Permiten estimar el recuerdo de voto por edad, sexo, renta o ideología, con su muestra.</li>
+      <li><strong>Medios</strong>: cross-tabs publicados junto a encuestas (p. ej. análisis por edad/renta/ideología). Son estimaciones de una casa y una fecha.</li>
+      <li><strong>Academia</strong>: estudios con datos propios o microdatos; útiles para contexto, no para un gráfico en tiempo real.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Qué se publicará (cuando haya datos)</h2></div>
+    <ul class="muted small">
+      <li>Estimaciones por grupo con <strong>fuente, fecha, n y margen</strong> visibles.</li>
+      <li>Comparación entre elecciones solo si la pregunta y la muestra son comparables.</li>
+      <li>Separación clara entre <strong>composición del censo</strong> (oficial) y <strong>preferencia declarada</strong> (encuesta).</li>
+      <li>Avisos cuando el grupo tenga <strong>n pequeño</strong>: una diferencia de dos puntos con 50 casos no es una conclusión.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Qué no se hará</h2></div>
+    <ul class="muted small">
+      <li><strong>No</strong> cruzar cuotas del censo con porcentajes de voto: el censo no registra el voto.</li>
+      <li><strong>No</strong> presentar una encuesta como «el electorado»: es una estimación con muestra y margen.</li>
+      <li><strong>No</strong> atribuir causalidad a edad, sexo, renta o territorio.</li>
+      <li><strong>No</strong> publicar un gráfico sin n, fuente y fecha.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Por qué no está todavía</h2></div>
+    <p class="muted small">Los cross-tabs utilizables son escasos, cambian de tramos y de metodología entre casas y a menudo no publican la muestra por celda. Convertirlos en una serie exige curación manual y un criterio de aceptación estricto. Es preferible no publicar nada a publicar una falsa precisión.</p>
+    <p class="muted small">Fuentes de referencia: <a href="https://www.cis.es/" rel="noopener" target="_blank">CIS</a> · <a href="https://elpais.com/espana/elecciones-generales/2026-10-07/como-se-mueven-los-votos-desde-2023-las-encuestas-por-sexo-renta-edad-e-ideologia.html" rel="noopener" target="_blank">análisis por sexo, renta, edad e ideología (El País, 7-oct-2026)</a>.</p>
+    <div class="cta">
+      <a class="btn" href="/electorado.html">Ver el censo</a>
+      <a class="btn ghost" href="/factores.html">Factores y participación</a>
+    </div>
+  </div>
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>

@@ -21,7 +21,7 @@ REQUIRED = [
     "territorio.html", "data/escanos-2026.json", "data/escanos-2026.csv",
     "apoyo.html", "sobre-mi.html", "noche-electoral.html",
     "manifest.webmanifest", "sw.js", "icons/icon-192.png", "icons/icon-512.png",
-    "factores.html", "version.json",
+    "factores.html", "comportamiento.html", "version.json",
 ]
 
 
@@ -192,8 +192,8 @@ def main() -> int:
         try:
             ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
             urls = ET.parse(sm).getroot().findall(".//s:loc", ns)
-            if len(urls) < 12:
-                errors.append(f"sitemap con {len(urls)} URLs (esperadas >=12)")
+            if len(urls) < 13:
+                errors.append(f"sitemap con {len(urls)} URLs (esperadas >=13)")
         except Exception as e:
             errors.append(f"sitemap inválido: {e}")
 

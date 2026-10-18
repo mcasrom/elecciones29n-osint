@@ -92,6 +92,12 @@ da edad/sexo. El gráfico debe decirlo.
   D'Hondt nacional etiquetado como simulación.
 - **Aceptación**: tabla votos↔escaños 2023 verificada; explicador sin proyección.
 
+## M4 · Comportamiento por grupos — 🟡 PÁGINA DE DISEÑO 18-oct
+
+- `/comportamiento.html`: qué se puede publicar (CIS, cross-tabs de medios), con `n` y fuente; qué no (cruzar censo con voto, causalidad, una encuesta como «el electorado»).
+- Estado: **sin datos publicados** hasta tener cross-tabs comparables; criterio de aceptación estricto.
+- Bloqueo de datos provinciales documentado en `docs/DATOS-PROVINCIALES.md` (MIR/Interior inaccesibles; sin dataset en datos.gob.es; Wikipedia sin participación provincial; Wayback sin resultados).
+
 ## M4 · Comportamiento por grupos (P2, ~6–8 h, curación)
 
 **Pregunta**: ¿qué sabemos de las preferencias por edad, sexo, renta o ideología?

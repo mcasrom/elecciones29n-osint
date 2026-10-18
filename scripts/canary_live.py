@@ -104,6 +104,10 @@ def main() -> int:
         if code != 200:
             errors.append(f"{p} HTTP {code}")
 
+    code, ch = get(base + "/comportamiento.html?canary=1")
+    if code != 200:
+        errors.append(f"comportamiento.html HTTP {code}")
+
     code, fh = get(base + "/factores.html?canary=1")
     if code != 200:
         errors.append(f"factores.html HTTP {code}")
