@@ -5,7 +5,7 @@
 [![En vivo](https://img.shields.io/badge/en%20vivo-elecciones29n.pruebapublica.com-ff5a1f)](https://elecciones29n.pruebapublica.com/)
 [![Licencia](https://img.shields.io/badge/licencia-AGPL--3.0-3ddc97)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.12-8ec5ff)](https://www.python.org/)
-[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.4.0-ff5a1f)](CHANGELOG.md)
+[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.5.0-ff5a1f)](CHANGELOG.md)
 
 ---
 
@@ -155,6 +155,14 @@ docs/           método, fuentes, rutina semanal, sprint del observatorio
 tests/          34 pruebas (datos, build, validador)
 systemd/        servicio y timer
 ```
+
+## PWA y actualizaciones
+
+- Instalable: `manifest.webmanifest`, iconos 192/512/maskable y service worker.
+- **Network-first** para HTML y `data/*.json`; cache-first para CSS/JS/OG/iconos.
+- Aviso **«Nueva versión disponible»** con **Recargar** y **×**. El × se recuerda por
+  versión y pestaña; no vuelve a molestar hasta el siguiente deploy.
+- Un `[hidden]` global garantiza que ningún componente oculto se muestre por CSS.
 
 ## Calidad
 

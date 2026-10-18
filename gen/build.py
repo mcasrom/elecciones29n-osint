@@ -51,6 +51,7 @@ def write_css() -> None:
 :root[data-theme="light"]{--bg:#f4f6fb;--panel:#ffffff;--panel2:#eef1f8;--fg:#131a28;--muted:#4d5a73;--faint:#75829a;--blue:#1b62c9;--line:#d9e0ee;--hero-a:#e7ecf7;--hero-b:#f4f6fb;--btn-fg:#fff;--badge-fg:#06210f;--dot-grid:#c9d3e6}
 html,body{transition:background-color .25s ease,color .25s ease}
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(1200px 600px at 80% -10%,var(--hero-a) 0%,var(--hero-b) 55%);background-color:var(--bg);color:var(--fg);line-height:1.6}
 a{color:var(--blue)}

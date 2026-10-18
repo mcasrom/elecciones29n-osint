@@ -32,7 +32,7 @@ def fetch_posts(max_pages: int = 4) -> list[dict]:
     for page in range(1, max_pages + 1):
         req = urllib.request.Request(API.format(page=page), headers={"User-Agent": UA})
         try:
-            with urllib.request.urlopen(req, timeout=30) as resp:
+            with urllib.request.urlopen(req, timeout=12) as resp:
                 batch = json.loads(resp.read().decode())
         except Exception:
             break

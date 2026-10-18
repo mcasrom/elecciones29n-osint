@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.0 — 2026-10-18
+
+- **Datos provinciales**: 16 elecciones × 52 provincias; participación 1977–2023 con selector y comparación con la media nacional.
+- **Votos↔escaños 2023** en `/territorio.html`, con índice de Gallagher y aviso CERA.
+- **PWA**: aviso de nueva versión con Recargar/×; el cierre se recuerda por versión y pestaña. Fix: `[hidden]` ya no queda anulado por CSS.
+- `ingest/congreso.py` y `data/raw/elecciones-congreso.xlsx` como fuente reproducible.
+
 ## 0.4.0 — 2026-10-18
 
 - **PWA-lite**: manifest, iconos, service worker network-first y aviso de nueva versión.

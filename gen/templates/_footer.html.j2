@@ -69,10 +69,11 @@
 })();
 </script>
 
-<div class="swupdate" id="swupdate" hidden>
+<div class="swupdate" id="swupdate" data-build="{{ build_ts }}" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
-  <button id="swupdate-btn">Recargar</button>
-  <button id="swupdate-close" aria-label="Cerrar aviso">×</button>
+  <button id="swupdate-btn" type="button">Recargar</button>
+  <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','{{ build_ts }}');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -82,14 +83,26 @@ if ('serviceWorker' in navigator) {
     var close = document.getElementById('swupdate-close');
     var reg = null;
     var userClicked = false;
-    function show(){ if (box) box.hidden = false; }
-    if (close) close.addEventListener('click', function(){ box.hidden = true; });
+    var DISMISS = 'e29n_sw_dismiss';
+    function isDismissed(){
+      try { return !!(reg && reg.waiting && localStorage.getItem(DISMISS) === reg.waiting.scriptURL); }
+      catch(e) { return false; }
+    }
+    function isHiddenHere(){
+      try { return sessionStorage.getItem('e29n_sw_hidden') === (box && box.dataset.build); }
+      catch(e) { return false; }
+    }
+    function show(){ if (box && !isDismissed() && !isHiddenHere()) box.hidden = false; }
+    if (close) close.addEventListener('click', function(){
+      box.hidden = true;
+      try { if (reg && reg.waiting) localStorage.setItem(DISMISS, reg.waiting.scriptURL); } catch(e) {}
+    });
     if (btn) btn.addEventListener('click', function(){
       box.hidden = true;
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v={{ build_ts }}', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){
