@@ -105,6 +105,11 @@ da edad/sexo. El gráfico debe decirlo.
   D'Hondt nacional etiquetado como simulación.
 - **Aceptación**: tabla votos↔escaños 2023 verificada; explicador sin proyección.
 
+## M4 · Comportamiento por grupos — 🟡 DISEÑO + SPRINT PREPARADO 18-oct
+
+- **Fuente encontrada**: cross-tabs del CIS (estudio 3582, oct-2026, n=5.025) por edad, sexo e ideología. Plan: `docs/SPRINT-M4-20261018.md`.
+- Siguiente sprint: inspeccionar Excel/PDF, extraer celdas con `n`, publicar edad/sexo/ideología con supresión de celdas pequeñas y sin causalidad.
+
 ## M4 · Comportamiento por grupos — 🟡 PÁGINA DE DISEÑO 18-oct
 
 - `/comportamiento.html`: qué se puede publicar (CIS, cross-tabs de medios), con `n` y fuente; qué no (cruzar censo con voto, causalidad, una encuesta como «el electorado»).
