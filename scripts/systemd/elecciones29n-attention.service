@@ -1,0 +1,13 @@
+[Unit]
+Description=Elecciones 29N - aviso diario de pendientes
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/Desktop/elecciones29n-osint
+ExecStartPre=/usr/bin/mkdir -p %h/.local/state/elecciones29n
+ExecStart=/usr/bin/python3 %h/Desktop/elecciones29n-osint/scripts/needs.py digest --if-due
+Environment=TZ=Europe/Madrid
+StandardOutput=append:%h/.local/state/elecciones29n/needs.log
+StandardError=append:%h/.local/state/elecciones29n/needs.log

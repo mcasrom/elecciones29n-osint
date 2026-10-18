@@ -100,4 +100,7 @@ fi
 
 rm -f "$STATE_DIR/last_error"
 touch "$STATE_DIR/last_run_$TODAY"
+if [ -x scripts/needs.py ]; then
+  /usr/bin/python3 scripts/needs.py digest --if-due >/dev/null 2>&1 || true
+fi
 echo "[run_daily] OK"

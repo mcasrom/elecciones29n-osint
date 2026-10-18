@@ -103,8 +103,9 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
-bash scripts/check.sh       # compila + tests + validación del sitio local
+bash scripts/check.sh       # compila + tests + validación + auditoría
 bash scripts/run_daily.sh   # ingesta + agregado + build + deploy
+python3 scripts/needs.py panel --open   # pendientes y avisos
 ```
 
 ### Cron diario (systemd --user)
@@ -173,6 +174,11 @@ systemd/        servicio y timer
 
 Además de la media por sondeo (ponderada por recencia y muestra cuando existe), la portada muestra el **contraste por casa**: la última encuesta de cada casa en 45 días, con **peso igual por casa**. Sirve para detectar si la media está dominada por una encuestadora. Incluye CIS. No es la media principal.
 
+## Avisos locales
+
+- **`scripts/needs.py`**: centro de pendientes (GSC, IRDP, tarjeta social) + chequeos automáticos (cron, datos, salud, inbox). Aviso diario de escritorio y panel `~/.config/elecciones29n/needs.html`.
+- Timer `elecciones29n-attention.timer` a las **08:20**; `run_daily.sh` y el autostart también llaman al digest. Detalle: [`docs/AVISOS.md`](docs/AVISOS.md).
+
 ## Auditoría de datos
 
 - **`scripts/audit_datos.py`**: **202 comprobaciones, 0 fallos críticos** (190 offline + 12 online). Recalcula medias/MA, sumas, censo, participación, escaños, M4/M5, etiquetas de UI y contrasta Onda Cero/CIS/Electomania.
@@ -196,8 +202,8 @@ Además de la media por sondeo (ponderada por recencia y muestra cuando existe),
 
 ## Calidad
 
-- **58 tests** (`unittest`) y hook **pre-push**.
-- `scripts/check.sh`: compila, tests y valida el sitio local.
+- **62 tests** (`unittest`) y hook **pre-push**.
+- `scripts/check.sh`: compila, tests, valida el sitio local y ejecuta la auditoría de datos.
 - **Validador** de publicación: gráfico con puntos, pestañas, JSON, sitemap, OG,
   RSS, censo, participación y escaños.
 - **Canario en vivo** tras cada deploy: comprueba en la URL pública el gráfico,
@@ -206,7 +212,7 @@ Además de la media por sondeo (ponderada por recencia y muestra cuando existe),
 
 ## SEO y datos abiertos
 
-- `sitemap.xml` (11 URLs), `robots.txt`, `llms.txt` y RSS `cambios.xml`.
+- `sitemap.xml` (13 URLs), `robots.txt`, `llms.txt` y RSS `cambios.xml`.
 - OG 1200×630, `twitter:card`, canonical y JSON-LD (`WebSite`, `Dataset`,
   `FAQPage`, `Person`).
 - **IndexNow** en cada build; cache-busting `?v=` en CSS/JS.
@@ -231,6 +237,7 @@ Además de la media por sondeo (ponderada por recencia y muestra cuando existe),
 - **29N** · Activar resultados y participación oficiales tras la jornada (fallback manual listo).
 - **Provincial** · ✅ participación 1977–2023 y votos↔escaños 2023 integrados.
 - **M5b** (opcional) · placebo con el día anterior, umbrales de lluvia y robustez adicional.
+- **IRDP** · revisión del índice sintético (calidad, dispersión y error histórico); **no publicar** hasta contrastar.
 
 ## Licencia y cita
 
