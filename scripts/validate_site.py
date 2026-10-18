@@ -21,7 +21,7 @@ REQUIRED = [
     "territorio.html", "data/escanos-2026.json", "data/escanos-2026.csv",
     "apoyo.html", "sobre-mi.html", "noche-electoral.html",
     "manifest.webmanifest", "sw.js", "icons/icon-192.png", "icons/icon-512.png",
-    "factores.html",
+    "factores.html", "version.json",
 ]
 
 
@@ -176,6 +176,16 @@ def main() -> int:
         fh = open(fac, encoding="utf-8", errors="ignore").read()
         if "Factores y participación" not in fh:
             errors.append("factores.html sin título esperado")
+
+    vp = os.path.join(d, "version.json")
+    if os.path.exists(vp) and os.path.exists(idx_path):
+        try:
+            ver = json.load(open(vp, encoding="utf-8")).get("version", "")
+            idxh = open(idx_path, encoding="utf-8", errors="ignore").read()
+            if ver and f"v{ver}" not in idxh:
+                errors.append(f"index.html sin versión v{ver}")
+        except Exception as e:
+            errors.append(f"version.json inválido: {e}")
 
     sm = os.path.join(d, "sitemap.xml")
     if os.path.exists(sm):

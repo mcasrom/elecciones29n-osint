@@ -2,7 +2,7 @@
   <div class="container">
     <p>{{ site_name }} · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
     <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
-    <p>Datos abiertos · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="https://github.com/mcasrom/elecciones29n-osint">Código (AGPL-3.0)</a> · Hecho por Miguel Castillo.</p>
+    <p>Datos abiertos · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="https://github.com/mcasrom/elecciones29n-osint">Código (AGPL-3.0)</a> · Hecho por Miguel Castillo · v{{ version }} · {{ build_date }}.</p>
     <p class="eco">Ecosistema:
       <a href="https://www.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Prueba Pública</a> ·
       <a href="https://analisis.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Blog de análisis</a> ·
@@ -69,4 +69,38 @@
 })();
 </script>
 
-<script>if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){})})}</script>
+<div class="swupdate" id="swupdate" hidden>
+  <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
+  <button id="swupdate-btn">Recargar</button>
+  <button id="swupdate-close" aria-label="Cerrar aviso">×</button>
+</div>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function(){
+    var box = document.getElementById('swupdate');
+    var btn = document.getElementById('swupdate-btn');
+    var close = document.getElementById('swupdate-close');
+    var reg = null;
+    var userClicked = false;
+    function show(){ if (box) box.hidden = false; }
+    if (close) close.addEventListener('click', function(){ box.hidden = true; });
+    if (btn) btn.addEventListener('click', function(){
+      box.hidden = true;
+      userClicked = true;
+      if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
+    });
+    navigator.serviceWorker.register('/sw.js', {updateViaCache: 'none'}).then(function(r){
+      reg = r;
+      if (r.waiting && navigator.serviceWorker.controller) show();
+      r.addEventListener('updatefound', function(){
+        var nw = r.installing;
+        if (!nw) return;
+        nw.addEventListener('statechange', function(){
+          if (nw.state === 'installed' && navigator.serviceWorker.controller) show();
+        });
+      });
+    }).catch(function(){});
+    navigator.serviceWorker.addEventListener('controllerchange', function(){ if (userClicked) window.location.reload(); });
+  });
+}
+</script>

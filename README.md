@@ -5,6 +5,7 @@
 [![En vivo](https://img.shields.io/badge/en%20vivo-elecciones29n.pruebapublica.com-ff5a1f)](https://elecciones29n.pruebapublica.com/)
 [![Licencia](https://img.shields.io/badge/licencia-AGPL--3.0-3ddc97)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.12-8ec5ff)](https://www.python.org/)
+[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.4.0-ff5a1f)](CHANGELOG.md)
 
 ---
 

@@ -93,6 +93,12 @@ def main() -> int:
     elif ("Sin datos electorales todavía" not in nh) and ("Participación" not in nh):
         errors.append("noche-electoral.html sin estado ni resultados")
 
+    code, vj = get(base + "/version.json?canary=1")
+    if code != 200:
+        errors.append(f"version.json HTTP {code}")
+    elif '"version"' not in vj:
+        errors.append("version.json sin version")
+
     for p in ("/manifest.webmanifest", "/sw.js"):
         code, _ = get(base + p + "?canary=1")
         if code != 200:

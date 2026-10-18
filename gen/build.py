@@ -204,6 +204,14 @@ svg.chart{width:100%;height:auto;display:block}
 .stale strong{color:#fff}
 @keyframes stalePulse{0%,100%{background:#3a0d0d}50%{background:#611a1a}}
 
+/* aviso nueva versión (SW) */
+.swupdate{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:85;display:flex;align-items:center;gap:10px;background:var(--panel2);border:1px solid var(--accent);border-radius:12px;padding:10px 14px;box-shadow:0 10px 30px rgba(0,0,0,.35);font-size:13.5px;color:var(--muted);max-width:calc(100vw - 24px)}
+.swupdate strong{color:var(--fg)}
+.swupdate button{border:1px solid var(--line);background:var(--panel);color:var(--fg);border-radius:8px;padding:6px 10px;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+#swupdate-btn{border-color:var(--accent);color:var(--accent)}
+.swupdate #swupdate-close{border:0;background:transparent;color:var(--faint);font-size:18px;padding:0 4px}
+@media(max-width:600px){.swupdate{left:12px;right:12px;transform:none;bottom:12px;font-size:12.5px}}
+
 /* salud de la muestra */
 .health{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .healthitems{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
@@ -323,7 +331,7 @@ def write_cambios() -> None:
         f.write(xml)
 
 
-def write_manifest() -> None:
+def write_manifest(version: str = "0.0.0") -> None:
     data = {
         "name": "Observatorio electoral 29N",
         "short_name": "29N",
@@ -334,6 +342,7 @@ def write_manifest() -> None:
         "background_color": "#0b0c1c",
         "theme_color": "#ff5a1f",
         "lang": "es-ES",
+        "version": version,
         "icons": [
             {"src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
             {"src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png"},
@@ -344,11 +353,20 @@ def write_manifest() -> None:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
+def write_version_json(version: str, build_ts: str, build_date: str, commit: str) -> None:
+    data = {"version": version, "build": build_ts, "date": build_date, "commit": commit}
+    with open(os.path.join(OUT, "version.json"), "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+
 def write_sw(build_ts: str) -> None:
     js = f"""const CACHE = 'e29n-{build_ts}';
 const ASSETS = ['/', '/css/main.css', '/js/charts.js', '/favicon.svg', '/og.png', '/manifest.webmanifest'];
 self.addEventListener('install', e => {{
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting()));
+  e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
+}});
+self.addEventListener('message', e => {{
+  if (e.data && e.data.type === 'SKIP_WAITING') self.skipWaiting();
 }});
 self.addEventListener('activate', e => {{
   e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim()));
@@ -905,6 +923,17 @@ def main(out: str = "web") -> None:
     global OUT
     OUT = out
     build_ts = datetime.now(TZ).strftime("%Y%m%d%H%M")
+    build_date = datetime.now(TZ).strftime("%Y-%m-%d")
+    version = "0.0.0"
+    if os.path.exists("VERSION"):
+        version = open("VERSION", encoding="utf-8").read().strip() or version
+    try:
+        import subprocess
+        build_commit = subprocess.check_output(
+            ["git", "rev-parse", "--short", "HEAD"], text=True, stderr=subprocess.DEVNULL
+        ).strip()
+    except Exception:
+        build_commit = "dev"
     ensure_dirs()
     write_css()
     write_js()
@@ -913,8 +942,9 @@ def main(out: str = "web") -> None:
     write_indexnow_key()
     write_llms()
     write_favicon()
-    write_manifest()
+    write_manifest(version)
     write_sw(build_ts)
+    write_version_json(version, build_ts, build_date, build_commit)
 
     env = Environment(
         loader=FileSystemLoader("gen/templates"),
@@ -984,6 +1014,8 @@ def main(out: str = "web") -> None:
     build_ts = now.strftime("%Y%m%d%H%M")
     context = {
         "build_ts": build_ts,
+        "build_date": build_date,
+        "version": version,
         "site_url": SITE_URL,
         "site_name": SITE_NAME,
         "site_title": SITE_TITLE,

@@ -8,6 +8,7 @@
   "background_color": "#0b0c1c",
   "theme_color": "#ff5a1f",
   "lang": "es-ES",
+  "version": "0.4.0",
   "icons": [
     {
       "src": "/icons/icon-192.png",
