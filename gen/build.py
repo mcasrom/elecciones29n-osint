@@ -977,7 +977,10 @@ def build_chart(series: dict, parties: list) -> str:
         yy = y(val)
         parts.append(f'<line x1="{pad_l}" y1="{yy:.1f}" x2="{W-pad_r}" y2="{yy:.1f}" stroke="var(--line)" stroke-width="1"/>')
         parts.append(f'<text x="6" y="{yy+4:.1f}" fill="var(--muted)" font-size="11">{val:.0f}%</text>')
+    step = max(1, len(dates) // 8)
     for i, d in enumerate(dates):
+        if i % step and i != len(dates) - 1:
+            continue
         lbl = d[8:10] + "/" + d[5:7]
         parts.append(f'<text x="{x(i):.1f}" y="{H-10}" fill="var(--muted)" font-size="10" text-anchor="middle">{lbl}</text>')
     for idx, party in enumerate(order):
@@ -995,10 +998,20 @@ def build_chart(series: dict, parties: list) -> str:
             lo = [(x(i), y(min(vals[max(0, i - 1):i + 2]))) for i in range(len(pts))]
             hi = [(x(i), y(max(vals[max(0, i - 1):i + 2]))) for i in range(len(pts))]
             parts.append(f'<path d="{_band(lo, hi)}" fill="{color}" opacity="0.10" stroke="none"/>')
-        parts.append(f'<path d="{dpath}" fill="none" stroke="{color}" stroke-width="2.2"/>')
+        # media móvil centrada de 14 días (simple)
+        ma = []
+        for d in dates:
+            dt = datetime.strptime(d, "%Y-%m-%d")
+            vals = [p["value"] for p in pts
+                    if abs((datetime.strptime(p["date"], "%Y-%m-%d") - dt).days) <= 7]
+            if vals:
+                ma.append((x(dates.index(d)), y(sum(vals) / len(vals))))
+        if len(ma) >= 2:
+            ma_path = "M " + " L ".join(f"{cx:.1f},{cy:.1f}" for cx, cy in ma)
+            parts.append(f'<path d="{ma_path}" fill="none" stroke="{color}" stroke-width="2.8" opacity="0.95"/>')
         for p, (cx, cy) in zip(pts, coords):
             title = f"{party} · {p.get('pollster','?')} · {p['date']} · {p['value']}%"
-            parts.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="3" fill="{color}"><title>{title}</title></circle>')
+            parts.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="2.6" fill="{color}"><title>{title}</title></circle>')
     parts.append(f'<text x="12" y="{pad_t+4}" fill="currentColor" opacity="0.55" font-size="10">% voto</text>')
     parts.append("</svg>")
     return "".join(parts)
