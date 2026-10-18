@@ -5,7 +5,7 @@
 [![En vivo](https://img.shields.io/badge/en%20vivo-elecciones29n.pruebapublica.com-ff5a1f)](https://elecciones29n.pruebapublica.com/)
 [![Licencia](https://img.shields.io/badge/licencia-AGPL--3.0-3ddc97)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.12-8ec5ff)](https://www.python.org/)
-[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.8.3-ff5a1f)](CHANGELOG.md)
+[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.8.4-ff5a1f)](CHANGELOG.md)
 
 ---
 
@@ -172,6 +172,12 @@ systemd/        servicio y timer
 ## Contraste por casa
 
 Además de la media por sondeo (ponderada por recencia y muestra cuando existe), la portada muestra el **contraste por casa**: la última encuesta de cada casa en 45 días, con **peso igual por casa**. Sirve para detectar si la media está dominada por una encuestadora. Incluye CIS. No es la media principal.
+
+## Auditoría de datos
+
+- **`scripts/audit_datos.py`**: **202 comprobaciones, 0 fallos críticos** (190 offline + 12 online). Recalcula medias/MA, sumas, censo, participación, escaños, M4/M5, etiquetas de UI y contrasta Onda Cero/CIS/Electomania.
+- `check.sh` la ejecuta en modo offline; informe: [`docs/AUDITORIA-DATOS.md`](docs/AUDITORIA-DATOS.md).
+- Límites: no verifica el trabajo de campo de las encuestas ni el indexado de buscadores.
 
 ## Métricas y auditoría
 

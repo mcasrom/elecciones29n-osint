@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.4 — 2026-10-18
+
+- **Auditoría de datos reproducible** (`scripts/audit_datos.py`): **202 comprobaciones, 0 fallos críticos** (offline + online). Verifica sondeos, censo, participación, territorio, M4, M5, etiquetas de UI y fuentes (Onda Cero/CIS/Electomania).
+- `check.sh` ejecuta la auditoría offline; `docs/AUDITORIA-DATOS.md` documenta alcance y límites.
+
 ## 0.8.3 — 2026-10-18
 
 - **SEO**: JSON-LD por página (`Dataset` en participación, territorio, M5 y M4; `WebPage` en método/fuentes/límites/apoyo/acerca) en vez del Dataset de sondeos en todas.

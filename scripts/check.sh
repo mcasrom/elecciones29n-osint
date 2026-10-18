@@ -14,4 +14,7 @@ PYTHONPATH=. $PY -m unittest discover -s tests
 echo "[check] validando sitio publicado local (web/)"
 $PY scripts/validate_site.py web
 
+echo "[check] auditoría de datos"
+PYTHONPATH=. $PY scripts/audit_datos.py
+
 echo "[check] OK"
