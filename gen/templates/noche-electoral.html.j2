@@ -1,0 +1,70 @@
+{% set page_title = "Noche electoral 29N 2026 · qué se publica y cuándo" %}
+{% set page_desc = "Qué datos publicará el observatorio la noche del 29N, cuándo y con qué fuente oficial. Sin sondeos a pie de urna como resultados ni proyecciones sin fuente." %}
+{% set canonical = site_url ~ "/noche-electoral.html" %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">La noche electoral del 29N</h1>
+  <p class="muted" style="margin:0 0 14px">Qué se publica, cuándo y con qué fuente. Antes de la jornada no hay datos electorales que mostrar.</p>
+
+  <div class="alert warn">
+    <strong>Sin datos electorales todavía.</strong> La participación y los resultados del 29N se publicarán <strong>después</strong> de la jornada, con fuente oficial. Hasta entonces, el observatorio muestra solo censo, participación histórica y estructura.
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Qué se publica y cuándo</h2><span class="hint">hora peninsular</span></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Momento</th><th>Qué</th><th>Fuente</th></tr></thead>
+        <tbody>
+          <tr><td>08:00</td><td>Apertura de colegios</td><td>—</td></tr>
+          <tr><td>14:00 y 18:00</td><td>Avances de participación</td><td>Ministerio del Interior</td></tr>
+          <tr><td>20:00</td><td>Cierre de colegios</td><td>—</td></tr>
+          <tr><td>Desde ~22:30</td><td>Primeros resultados oficiales</td><td>Ministerio del Interior</td></tr>
+          <tr><td>Madrugada</td><td>Escrutinio y consolidación</td><td>Ministerio del Interior</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted small">Los horarios son orientativos y dependen de la publicación oficial. El sitio se actualiza cuando el dato está disponible y validado, no antes.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Qué no se publicará</h2></div>
+    <ul class="muted small">
+      <li><strong>Sondeos a pie de urna como resultados</strong>: no son el escrutinio.</li>
+      <li><strong>Proyecciones sin fuente</strong> ni estimaciones propias de escaños.</li>
+      <li><strong>Atribuciones</strong> de victoria o derrota antes de los datos oficiales.</li>
+      <li>Durante el <strong>24–28 de noviembre</strong> no se publican ni difunden sondeos (JEC/LOREG).</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Cómo se actualizará</h2></div>
+    <ul class="muted small">
+      <li><strong>Fuente oficial</strong>: Ministerio del Interior y Junta Electoral Central.</li>
+      <li><strong>Validación antes de publicar</strong>: si un dato no cuadra con la fuente, no se publica y se conserva la última versión buena.</li>
+      <li><strong>Sin backend</strong>: el sitio es estático; las actualizaciones se generan y se validan antes de sustituir la versión anterior.</li>
+      <li><strong>Canario</strong>: tras cada despliegue se comprueba en vivo que la página y los datos están presentes.</li>
+      <li><strong>Trazabilidad</strong>: cada cifra enlazará a su fuente y a su fichero de datos.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Mientras tanto</h2></div>
+    <div class="share">
+      <a href="/electorado.html">Censo: quién puede votar</a>
+      <a href="/participacion.html">Participación 1979–2023</a>
+      <a href="/territorio.html">Escaños y territorio</a>
+      <a href="/metodologia.html">Método</a>
+    </div>
+    <p class="muted small" style="margin-top:10px">Fuentes oficiales: <a href="https://infoelectoral.interior.gob.es/es/inicio/" rel="noopener" target="_blank">Ministerio del Interior</a> · <a href="https://www.juntaelectoralcentral.es/" rel="noopener" target="_blank">Junta Electoral Central</a>.</p>
+  </div>
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>

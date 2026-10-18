@@ -31,6 +31,7 @@ PAGES = [
     ("electorado.html", "electorado.html", "2026-10-18", "monthly", "0.7"),
     ("participacion.html", "participacion.html", "2026-10-18", "monthly", "0.7"),
     ("territorio.html", "territorio.html", "2026-10-18", "monthly", "0.7"),
+    ("noche-electoral.html", "noche-electoral.html", "2026-10-18", "weekly", "0.7"),
     ("apoyo.html", "apoyo.html", "2026-10-18", "yearly", "0.5"),
     ("sobre-mi.html", "sobre-mi.html", "2026-10-18", "yearly", "0.5"),
 ]
@@ -927,7 +928,7 @@ def main(out: str = "web") -> None:
     }
 
     for tname in ["index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "participacion.html", "territorio.html",
-             "apoyo.html", "sobre-mi.html"]:
+             "apoyo.html", "sobre-mi.html", "noche-electoral.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(**context)
         with open(os.path.join(OUT, tname), "w", encoding="utf-8") as f:

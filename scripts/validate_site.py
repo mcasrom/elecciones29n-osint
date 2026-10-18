@@ -19,7 +19,7 @@ REQUIRED = [
     "electorado.html", "data/censo-2026.json", "data/censo-provincias.csv",
     "participacion.html", "data/participacion.json", "data/participacion.csv",
     "territorio.html", "data/escanos-2026.json", "data/escanos-2026.csv",
-    "apoyo.html", "sobre-mi.html",
+    "apoyo.html", "sobre-mi.html", "noche-electoral.html",
 ]
 
 
@@ -138,13 +138,19 @@ def main() -> int:
             if len(ph) < 3000:
                 errors.append(f"{name} demasiado pequeño ({len(ph)} bytes)")
 
+    ne = os.path.join(d, "noche-electoral.html")
+    if os.path.exists(ne):
+        nh = open(ne, encoding="utf-8", errors="ignore").read()
+        if "Sin datos electorales todavía" not in nh:
+            errors.append("noche-electoral.html sin estado previo")
+
     sm = os.path.join(d, "sitemap.xml")
     if os.path.exists(sm):
         try:
             ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
             urls = ET.parse(sm).getroot().findall(".//s:loc", ns)
-            if len(urls) < 10:
-                errors.append(f"sitemap con {len(urls)} URLs (esperadas >=10)")
+            if len(urls) < 11:
+                errors.append(f"sitemap con {len(urls)} URLs (esperadas >=11)")
         except Exception as e:
             errors.append(f"sitemap inválido: {e}")
 
