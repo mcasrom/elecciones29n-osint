@@ -10,3 +10,4 @@ polls.duckdb
 *.key
 web_tmp/
 web_prev/
+data/censo_raw/

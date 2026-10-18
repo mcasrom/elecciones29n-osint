@@ -1,0 +1,374 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Censo electoral 29N 2026 · quién puede votar</title>
+<meta name="description" content="Censo de las elecciones generales del 29 de noviembre de 2026: total, residentes en España y en el extranjero, nuevos electores y distribución por edad, sexo y provincia. Fuente: INE.">
+<link rel="canonical" href="https://elecciones29n.pruebapublica.com/electorado.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="stylesheet" href="/css/main.css?v=202610180851">
+<script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  function sync(){
+    var light = document.documentElement.dataset.theme === 'light';
+    document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+      var i=b.querySelector('.ticon'), l=b.querySelector('.tlabel');
+      if(i) i.textContent = light ? '☾' : '☀';
+      if(l) l.textContent = light ? 'Oscuro' : 'Claro';
+      b.setAttribute('title', light ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro');
+    });
+  }
+  sync();
+  document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var root = document.documentElement;
+      var next = root.dataset.theme === 'light' ? 'dark' : 'light';
+      root.dataset.theme = next;
+      try { localStorage.setItem('e29n-theme', next); } catch(e) {}
+      sync();
+    });
+  });
+});
+</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="elecciones29n-osint">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Censo electoral 29N 2026 · quién puede votar">
+<meta property="og:description" content="Censo de las elecciones generales del 29 de noviembre de 2026: total, residentes en España y en el extranjero, nuevos electores y distribución por edad, sexo y provincia. Fuente: INE.">
+<meta property="og:url" content="https://elecciones29n.pruebapublica.com/electorado.html">
+<meta property="og:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Censo electoral 29N 2026 · quién puede votar">
+<meta name="twitter:description" content="Censo de las elecciones generales del 29 de noviembre de 2026: total, residentes en España y en el extranjero, nuevos electores y distribución por edad, sexo y provincia. Fuente: INE.">
+<meta name="twitter:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<link rel="alternate" type="application/json" href="/data/latest.json" title="Datos agregados (JSON)">
+<link rel="alternate" type="application/rss+xml" href="/cambios.xml" title="Cambios · nuevos sondeos">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "Censo electoral · Elecciones Generales 29N 2026", "description": "Censo electoral de las elecciones generales del 29 de noviembre de 2026 por provincia, comunidad autónoma, sexo y grupo de edad, y residentes en el extranjero por país.", "url": "https://elecciones29n.pruebapublica.com/electorado.html", "creator": {"@type": "Person", "name": "Miguel Castillo", "url": "https://elecciones29n.pruebapublica.com"}, "license": "https://www.gnu.org/licenses/agpl-3.0.html", "isAccessibleForFree": true, "dateModified": "2026-10-18T06:49:23.436392+00:00", "spatialCoverage": "ES", "temporalCoverage": "2026", "sourceOrganization": {"@type": "Organization", "name": "INE · Oficina del Censo Electoral"}, "distribution": [{"@type": "DataDownload", "contentUrl": "https://elecciones29n.pruebapublica.com/data/censo-2026.json", "encodingFormat": "application/json"}, {"@type": "DataDownload", "contentUrl": "https://elecciones29n.pruebapublica.com/data/censo-provincias.csv", "encodingFormat": "text/csv"}, {"@type": "DataDownload", "contentUrl": "https://elecciones29n.pruebapublica.com/data/censo-edad.csv", "encodingFormat": "text/csv"}]}</script>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="brand">
+      <span class="brandname"><a href="/" style="color:inherit;text-decoration:none">elecciones29n-osint</a></span>
+      <span class="tag">Media agregada de sondeos · 29N 2026</span>
+    </div>
+    <div class="topbar"><div class="brand"><span class="mark"></span><span class="brandname"><a href="/">elecciones29n-osint</a></span></div><div class="status"><button class="themebtn" data-theme-toggle aria-label="Cambiar entre tema claro y oscuro" title="Cambiar tema"><span class="ticon">☀</span><span class="tlabel">Claro</span></button></div></div>
+    <nav>
+      <a href="/">Inicio</a>
+      <a href="/electorado.html">Electorado</a>
+      <a href="/metodologia.html">Metodología</a>
+      <a href="/fuentes.html">Fuentes</a>
+      <a href="/caveat.html">Qué no dice</a>
+      <a href="/about.html">Acerca de</a>
+      <a href="/data/latest.json">Datos (JSON)</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">El electorado del 29N en cifras</h1>
+  <p class="muted" style="margin:0 0 14px">Quién puede votar, según el censo oficial. Datos del INE · Oficina del Censo Electoral.</p>
+
+  
+  <div class="kpis">
+    <div class="kpi"><span class="kpi-name">Censo total</span><b>38.728.356</b><span class="kpi-range">CER + CERA</span></div>
+    <div class="kpi"><span class="kpi-name">Residentes en España</span><b>35.958.711</b><span class="kpi-range">CER</span></div>
+    <div class="kpi"><span class="kpi-name">Residentes en el extranjero</span><b>2.769.645</b><span class="kpi-range">CERA</span></div>
+    <div class="kpi"><span class="kpi-name">Nuevos electores</span><b>1.615.127</b><span class="kpi-range">desde el 23-J-2023</span></div>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Electores residentes en España por edad y sexo</h2><span class="hint">CER · no incluye el extranjero</span></div>
+    <svg class="chart" viewBox="0 0 760 492" role="img" aria-label="Electores por edad y sexo"><rect x="104" y="6" width="10" height="10" rx="2" fill="#8ec5ff"/><text x="120" y="15" fill="var(--muted)" font-size="11">Mujeres</text><rect x="194" y="6" width="10" height="10" rx="2" fill="#ff5a1f"/><text x="210" y="15" fill="var(--muted)" font-size="11">Hombres</text><text x="96" y="47" text-anchor="end" fill="var(--muted)" font-size="11">18 a 19</text><rect x="104" y="37" width="76.4" height="16" fill="#8ec5ff"/><rect x="180.4" y="37" width="81.5" height="16" fill="#ff5a1f"/><text x="269.9" y="50" fill="var(--muted)" font-size="11">969.247</text><text x="96" y="77" text-anchor="end" fill="var(--muted)" font-size="11">20 a 24</text><rect x="104" y="67" width="182.5" height="16" fill="#8ec5ff"/><rect x="286.5" y="67" width="191.8" height="16" fill="#ff5a1f"/><text x="486.3" y="80" fill="var(--muted)" font-size="11">2.297.912</text><text x="96" y="107" text-anchor="end" fill="var(--muted)" font-size="11">25 a 29</text><rect x="104" y="97" width="168.7" height="16" fill="#8ec5ff"/><rect x="272.7" y="97" width="175.5" height="16" fill="#ff5a1f"/><text x="456.2" y="110" fill="var(--muted)" font-size="11">2.113.131</text><text x="96" y="137" text-anchor="end" fill="var(--muted)" font-size="11">30 a 34</text><rect x="104" y="127" width="170.1" height="16" fill="#8ec5ff"/><rect x="274.1" y="127" width="173.8" height="16" fill="#ff5a1f"/><text x="455.9" y="140" fill="var(--muted)" font-size="11">2.111.506</text><text x="96" y="167" text-anchor="end" fill="var(--muted)" font-size="11">35 a 39</text><rect x="104" y="157" width="184.5" height="16" fill="#8ec5ff"/><rect x="288.5" y="157" width="186.0" height="16" fill="#ff5a1f"/><text x="482.6" y="170" fill="var(--muted)" font-size="11">2.274.954</text><text x="96" y="197" text-anchor="end" fill="var(--muted)" font-size="11">40 a 44</text><rect x="104" y="187" width="214.8" height="16" fill="#8ec5ff"/><rect x="318.8" y="187" width="213.0" height="16" fill="#ff5a1f"/><text x="539.9" y="200" fill="var(--muted)" font-size="11">2.626.945</text><text x="96" y="227" text-anchor="end" fill="var(--muted)" font-size="11">45 a 49</text><rect x="104" y="217" width="269.6" height="16" fill="#8ec5ff"/><rect x="373.6" y="217" width="268.6" height="16" fill="#ff5a1f"/><text x="650.1" y="230" fill="var(--muted)" font-size="11">3.303.731</text><text x="96" y="257" text-anchor="end" fill="var(--muted)" font-size="11">50 a 54</text><rect x="104" y="247" width="289.3" height="16" fill="#8ec5ff"/><rect x="393.3" y="247" width="288.7" height="16" fill="#ff5a1f"/><text x="690.0" y="260" fill="var(--muted)" font-size="11">3.548.480</text><text x="96" y="287" text-anchor="end" fill="var(--muted)" font-size="11">55 a 59</text><rect x="104" y="277" width="276.5" height="16" fill="#8ec5ff"/><rect x="380.5" y="277" width="270.4" height="16" fill="#ff5a1f"/><text x="658.9" y="290" fill="var(--muted)" font-size="11">3.357.662</text><text x="96" y="317" text-anchor="end" fill="var(--muted)" font-size="11">60 a 64</text><rect x="104" y="307" width="265.3" height="16" fill="#8ec5ff"/><rect x="369.3" y="307" width="251.5" height="16" fill="#ff5a1f"/><text x="628.8" y="320" fill="var(--muted)" font-size="11">3.172.989</text><text x="96" y="347" text-anchor="end" fill="var(--muted)" font-size="11">65 a 69</text><rect x="104" y="337" width="237.7" height="16" fill="#8ec5ff"/><rect x="341.7" y="337" width="217.5" height="16" fill="#ff5a1f"/><text x="567.2" y="350" fill="var(--muted)" font-size="11">2.794.438</text><text x="96" y="377" text-anchor="end" fill="var(--muted)" font-size="11">70 a 74</text><rect x="104" y="367" width="197.5" height="16" fill="#8ec5ff"/><rect x="301.5" y="367" width="172.0" height="16" fill="#ff5a1f"/><text x="481.4" y="380" fill="var(--muted)" font-size="11">2.267.960</text><text x="96" y="407" text-anchor="end" fill="var(--muted)" font-size="11">75 a 79</text><rect x="104" y="397" width="174.7" height="16" fill="#8ec5ff"/><rect x="278.7" y="397" width="140.6" height="16" fill="#ff5a1f"/><text x="427.2" y="410" fill="var(--muted)" font-size="11">1.935.372</text><text x="96" y="437" text-anchor="end" fill="var(--muted)" font-size="11">80 a 84</text><rect x="104" y="427" width="143.4" height="16" fill="#8ec5ff"/><rect x="247.4" y="427" width="103.2" height="16" fill="#ff5a1f"/><text x="358.6" y="440" fill="var(--muted)" font-size="11">1.514.085</text><text x="96" y="467" text-anchor="end" fill="var(--muted)" font-size="11">85 y más</text><rect x="104" y="457" width="178.4" height="16" fill="#8ec5ff"/><rect x="282.4" y="457" width="93.7" height="16" fill="#ff5a1f"/><text x="384.1" y="470" fill="var(--muted)" font-size="11">1.670.299</text></svg>
+    <p class="muted small" style="margin-top:8px">Cada barra es el total del grupo de edad, dividido en mujeres y hombres. La cifra es el total del grupo. No dice a quién vota cada grupo.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Residentes en el extranjero por país</h2><span class="hint">CERA · top 10</span></div>
+    <svg class="chart" viewBox="0 0 760 296" role="img" aria-label="Residentes en el extranjero por país"><text x="178" y="24" text-anchor="end" fill="var(--muted)" font-size="11">ARGENTINA</text><rect x="186" y="14" width="498.0" height="15" rx="3" fill="#3ddc97" opacity="0.85"/><text x="692.0" y="26" fill="var(--muted)" font-size="11">524.852</text><text x="178" y="52" text-anchor="end" fill="var(--muted)" font-size="11">FRANCIA</text><rect x="186" y="42" width="253.7" height="15" rx="3" fill="#3ddc97" opacity="0.85"/><text x="447.7" y="54" fill="var(--muted)" font-size="11">267.387</text><text x="178" y="80" text-anchor="end" fill="var(--muted)" font-size="11">ESTADOS UNIDOS DE AMÉRICA</text><rect x="186" y="70" width="202.1" height="15" rx="3" fill="#3ddc97" opacity="0.85"/><text x="396.1" y="82" fill="var(--muted)" font-size="11">213.007</text><text x="178" y="108" text-anchor="end" fill="var(--muted)" font-size="11">MÉXICO</text><rect x="186" y="98" width="182.3" height="15" rx="3" fill="#3ddc97" opacity="0.85"/><text x="376.3" y="110" fill="var(--muted)" font-size="11">192.177</text><text x="178" y="136" text-anchor="end" fill="var(--muted)" font-size="11">CUBA</text><rect x="186" y="126" width="160.6" height="15" rx="3" fill="#3ddc97" opacity="0.85"/><text x="354.6" y="138" fill="var(--muted)" font-size="11">169.290</text><text x="178" y="164" text-anchor="end" fill="var(--muted)" font-size="11">ALEMANIA</text><rect x="186" y="154" width="149.6" height="15" rx="3" fill="#3ddc97" opacity="0.85"/><text x="343.6" y="166" fill="var(--muted)" font-size="11">157.637</text><text x="178" y="192" text-anchor="end" fill="var(--muted)" font-size="11">REINO UNIDO</text><rect x="186" y="182" width="147.0" height="15" rx="3" fill="#3ddc97" opacity="0.85"/><text x="341.0" y="194" fill="var(--muted)" font-size="11">154.907</text><text x="178" y="220" text-anchor="end" fill="var(--muted)" font-size="11">BRASIL</text><rect x="186" y="210" width="128.7" height="15" rx="3" fill="#3ddc97" opacity="0.85"/><text x="322.7" y="222" fill="var(--muted)" font-size="11">135.670</text><text x="178" y="248" text-anchor="end" fill="var(--muted)" font-size="11">VENEZUELA</text><rect x="186" y="238" width="124.3" height="15" rx="3" fill="#3ddc97" opacity="0.85"/><text x="318.3" y="250" fill="var(--muted)" font-size="11">130.988</text><text x="178" y="276" text-anchor="end" fill="var(--muted)" font-size="11">SUIZA</text><rect x="186" y="266" width="113.9" height="15" rx="3" fill="#3ddc97" opacity="0.85"/><text x="307.9" y="278" fill="var(--muted)" font-size="11">120.014</text></svg>
+    <p class="muted small" style="margin-top:8px">El censo del extranjero no publica edad ni sexo en esta tabla: solo país de residencia.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Electores por provincia</h2><span class="hint">CER, CERA y total · top 20</span></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Provincia</th><th>España</th><th>Extranjero</th><th>Total</th><th></th></tr></thead>
+        <tbody>
+        
+        
+        
+          <tr>
+            <td>Madrid</td>
+            <td class="num">5.038.039</td>
+            <td class="num">498.874</td>
+            <td class="num"><strong>5.536.913</strong></td>
+            <td style="width:130px"><span class="prog"><i style="width:100.0%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Barcelona</td>
+            <td class="num">4.133.070</td>
+            <td class="num">265.687</td>
+            <td class="num"><strong>4.398.757</strong></td>
+            <td style="width:130px"><span class="prog"><i style="width:79.4%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Valencia / València</td>
+            <td class="num">1.984.563</td>
+            <td class="num">83.234</td>
+            <td class="num"><strong>2.067.797</strong></td>
+            <td style="width:130px"><span class="prog"><i style="width:37.3%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Sevilla</td>
+            <td class="num">1.563.407</td>
+            <td class="num">43.565</td>
+            <td class="num"><strong>1.606.972</strong></td>
+            <td style="width:130px"><span class="prog"><i style="width:29.0%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Alicante / Alacant</td>
+            <td class="num">1.303.765</td>
+            <td class="num">55.464</td>
+            <td class="num"><strong>1.359.229</strong></td>
+            <td style="width:130px"><span class="prog"><i style="width:24.5%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Málaga</td>
+            <td class="num">1.218.939</td>
+            <td class="num">74.033</td>
+            <td class="num"><strong>1.292.972</strong></td>
+            <td style="width:130px"><span class="prog"><i style="width:23.4%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Murcia</td>
+            <td class="num">1.099.682</td>
+            <td class="num">44.626</td>
+            <td class="num"><strong>1.144.308</strong></td>
+            <td style="width:130px"><span class="prog"><i style="width:20.7%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Coruña, A</td>
+            <td class="num">928.212</td>
+            <td class="num">178.478</td>
+            <td class="num"><strong>1.106.690</strong></td>
+            <td style="width:130px"><span class="prog"><i style="width:20.0%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Cádiz</td>
+            <td class="num">1.007.105</td>
+            <td class="num">35.052</td>
+            <td class="num"><strong>1.042.157</strong></td>
+            <td style="width:130px"><span class="prog"><i style="width:18.8%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Asturias</td>
+            <td class="num">835.489</td>
+            <td class="num">143.588</td>
+            <td class="num"><strong>979.077</strong></td>
+            <td style="width:130px"><span class="prog"><i style="width:17.7%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Bizkaia</td>
+            <td class="num">909.301</td>
+            <td class="num">50.401</td>
+            <td class="num"><strong>959.702</strong></td>
+            <td style="width:130px"><span class="prog"><i style="width:17.3%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Palmas, Las</td>
+            <td class="num">872.976</td>
+            <td class="num">66.235</td>
+            <td class="num"><strong>939.211</strong></td>
+            <td style="width:130px"><span class="prog"><i style="width:17.0%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Santa Cruz de Tenerife</td>
+            <td class="num">802.038</td>
+            <td class="num">125.100</td>
+            <td class="num"><strong>927.138</strong></td>
+            <td style="width:130px"><span class="prog"><i style="width:16.7%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Pontevedra</td>
+            <td class="num">776.260</td>
+            <td class="num">150.148</td>
+            <td class="num"><strong>926.408</strong></td>
+            <td style="width:130px"><span class="prog"><i style="width:16.7%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Balears, Illes</td>
+            <td class="num">828.603</td>
+            <td class="num">42.115</td>
+            <td class="num"><strong>870.718</strong></td>
+            <td style="width:130px"><span class="prog"><i style="width:15.7%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Granada</td>
+            <td class="num">728.641</td>
+            <td class="num">62.425</td>
+            <td class="num"><strong>791.066</strong></td>
+            <td style="width:130px"><span class="prog"><i style="width:14.3%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Zaragoza</td>
+            <td class="num">730.065</td>
+            <td class="num">30.903</td>
+            <td class="num"><strong>760.968</strong></td>
+            <td style="width:130px"><span class="prog"><i style="width:13.7%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Córdoba</td>
+            <td class="num">627.881</td>
+            <td class="num">20.911</td>
+            <td class="num"><strong>648.792</strong></td>
+            <td style="width:130px"><span class="prog"><i style="width:11.7%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Tarragona</td>
+            <td class="num">599.563</td>
+            <td class="num">26.598</td>
+            <td class="num"><strong>626.161</strong></td>
+            <td style="width:130px"><span class="prog"><i style="width:11.3%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Gipuzkoa</td>
+            <td class="num">561.932</td>
+            <td class="num">35.927</td>
+            <td class="num"><strong>597.859</strong></td>
+            <td style="width:130px"><span class="prog"><i style="width:10.8%"></i></span></td>
+          </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    <p class="muted small">Descarga el resto: <a href="/data/censo-provincias.csv">provincias (CSV)</a> · <a href="/data/censo-2026.json">todo (JSON)</a>.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Nuevos electores por provincia</h2><span class="hint">desde el 23-J-2023 · top 10</span></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Provincia</th><th>Nuevos electores</th><th></th></tr></thead>
+        <tbody>
+        
+        
+        
+          <tr>
+            <td>Madrid</td>
+            <td class="num">227.433</td>
+            <td style="width:150px"><span class="prog"><i style="width:100.0%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Barcelona</td>
+            <td class="num">195.095</td>
+            <td style="width:150px"><span class="prog"><i style="width:85.8%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Valencia / València</td>
+            <td class="num">91.635</td>
+            <td style="width:150px"><span class="prog"><i style="width:40.3%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Sevilla</td>
+            <td class="num">80.589</td>
+            <td style="width:150px"><span class="prog"><i style="width:35.4%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Alicante / Alacant</td>
+            <td class="num">62.327</td>
+            <td style="width:150px"><span class="prog"><i style="width:27.4%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Málaga</td>
+            <td class="num">60.532</td>
+            <td style="width:150px"><span class="prog"><i style="width:26.6%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Murcia</td>
+            <td class="num">59.662</td>
+            <td style="width:150px"><span class="prog"><i style="width:26.2%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Cádiz</td>
+            <td class="num">50.610</td>
+            <td style="width:150px"><span class="prog"><i style="width:22.3%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Balears, Illes</td>
+            <td class="num">38.263</td>
+            <td style="width:150px"><span class="prog"><i style="width:16.8%"></i></span></td>
+          </tr>
+        
+          <tr>
+            <td>Palmas, Las</td>
+            <td class="num">37.879</td>
+            <td style="width:150px"><span class="prog"><i style="width:16.7%"></i></span></td>
+          </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    <p class="muted small">Personas que cumplieron 18 años desde las anteriores generales y están en el censo. No es una predicción de voto ni de participación. <a href="/data/censo-nuevos.csv">CSV</a></p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Fuente y límites</h2></div>
+    <ul class="muted small">
+      <li>Fuente: <a href="https://www.ine.es/dyngs/CEL/es/index.htm?cid=1703" rel="noopener">INE · Oficina del Censo Electoral</a>, tablas del 29N (XLSX).</li>
+      <li>Edad y sexo: solo residentes en España (35.958.711). Los 2.769.645 residentes en el extranjero no tienen desglose por edad/sexo en esta tabla.</li>
+      <li>El censo describe <strong>quién puede votar</strong>, no a quién vota. No se cruzan cuotas del censo con intención de voto.</li>
+      <li>Los datos se validan al ingerir: provincias, CCAA, edad y nuevos electores cuadran con el total oficial. <a href="/data/censo-2026.json">Metadatos y SHA-256</a>.</li>
+    </ul>
+    <div class="cta">
+      <a class="btn" href="/">Ver los sondeos</a>
+      <a class="btn ghost" href="/metodologia.html">Metodología</a>
+    </div>
+  </div>
+  
+</main>
+<footer class="footer">
+  <div class="container">
+    <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
+    <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
+    <p>Datos abiertos · <a href="/cambios.xml">RSS de cambios</a> · <a href="https://github.com/mcasrom/elecciones29n-osint">Código (AGPL-3.0)</a> · Hecho por Miguel Castillo.</p>
+    <p><a class="support" href="https://ko-fi.com/m_castillo" target="_blank" rel="noopener noreferrer">☕ Apoya el proyecto en Ko-fi</a></p>
+  </div>
+</footer>
+</body>
+</html>

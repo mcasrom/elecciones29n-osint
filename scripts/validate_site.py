@@ -16,6 +16,7 @@ REQUIRED = [
     "index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html",
     "robots.txt", "sitemap.xml", "llms.txt", "favicon.svg", "og.png",
     "cambios.xml", "data/latest.json", "css/main.css",
+    "electorado.html", "data/censo-2026.json", "data/censo-provincias.csv",
 ]
 
 
@@ -71,13 +72,31 @@ def main() -> int:
             if data.get("parties") and "class=\"spark\"" not in (open(idx_path, encoding="utf-8", errors="ignore").read() if os.path.exists(idx_path) else ""):
                 errors.append("index.html sin minigráficos (spark)")
 
+    censo_path = os.path.join(d, "data/censo-2026.json")
+    if os.path.exists(censo_path):
+        try:
+            cen = json.load(open(censo_path, encoding="utf-8"))
+            if int(cen.get("total", 0)) != 38_728_356:
+                errors.append("censo: total distinto de 38.728.356")
+            if int(cen.get("cer", 0)) + int(cen.get("cera", 0)) != int(cen.get("total", 0)):
+                errors.append("censo: CER + CERA != total")
+        except Exception as e:
+            errors.append(f"censo-2026.json inválido: {e}")
+    elec_path = os.path.join(d, "electorado.html")
+    if os.path.exists(elec_path):
+        eh = open(elec_path, encoding="utf-8", errors="ignore").read()
+        if "38.728.356" not in eh:
+            errors.append("electorado.html sin la cifra total del censo")
+        if len(eh) < 5000:
+            errors.append(f"electorado.html demasiado pequeño ({len(eh)} bytes)")
+
     sm = os.path.join(d, "sitemap.xml")
     if os.path.exists(sm):
         try:
             ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
             urls = ET.parse(sm).getroot().findall(".//s:loc", ns)
-            if len(urls) < 5:
-                errors.append(f"sitemap con {len(urls)} URLs (esperadas >=5)")
+            if len(urls) < 6:
+                errors.append(f"sitemap con {len(urls)} URLs (esperadas >=6)")
         except Exception as e:
             errors.append(f"sitemap inválido: {e}")
 

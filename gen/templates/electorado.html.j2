@@ -1,0 +1,99 @@
+{% set page_title = "Censo electoral 29N 2026 · quién puede votar" %}
+{% set page_desc = "Censo de las elecciones generales del 29 de noviembre de 2026: total, residentes en España y en el extranjero, nuevos electores y distribución por edad, sexo y provincia. Fuente: INE." %}
+{% set canonical = site_url ~ "/electorado.html" %}
+{% set jsonld = censo_jsonld %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">El electorado del 29N en cifras</h1>
+  <p class="muted" style="margin:0 0 14px">Quién puede votar, según el censo oficial. Datos del INE · Oficina del Censo Electoral.</p>
+
+  {% if censo %}
+  <div class="kpis">
+    <div class="kpi"><span class="kpi-name">Censo total</span><b>{{ fmt_miles(censo.total) }}</b><span class="kpi-range">CER + CERA</span></div>
+    <div class="kpi"><span class="kpi-name">Residentes en España</span><b>{{ fmt_miles(censo.cer) }}</b><span class="kpi-range">CER</span></div>
+    <div class="kpi"><span class="kpi-name">Residentes en el extranjero</span><b>{{ fmt_miles(censo.cera) }}</b><span class="kpi-range">CERA</span></div>
+    <div class="kpi"><span class="kpi-name">Nuevos electores</span><b>{{ fmt_miles(censo.nuevos_desde_2023) }}</b><span class="kpi-range">desde el 23-J-2023</span></div>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Electores residentes en España por edad y sexo</h2><span class="hint">CER · no incluye el extranjero</span></div>
+    {{ age_svg|safe }}
+    <p class="muted small" style="margin-top:8px">Cada barra es el total del grupo de edad, dividido en mujeres y hombres. La cifra es el total del grupo. No dice a quién vota cada grupo.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Residentes en el extranjero por país</h2><span class="hint">CERA · top 10</span></div>
+    {{ cera_svg|safe }}
+    <p class="muted small" style="margin-top:8px">El censo del extranjero no publica edad ni sexo en esta tabla: solo país de residencia.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Electores por provincia</h2><span class="hint">CER, CERA y total · top 20</span></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Provincia</th><th>España</th><th>Extranjero</th><th>Total</th><th></th></tr></thead>
+        <tbody>
+        {% set top = censo.provincias[:20] %}
+        {% set vmax = top[0].total if top else 1 %}
+        {% for p in top %}
+          <tr>
+            <td>{{ p.nombre }}</td>
+            <td class="num">{{ fmt_miles(p.cer) }}</td>
+            <td class="num">{{ fmt_miles(p.cera) }}</td>
+            <td class="num"><strong>{{ fmt_miles(p.total) }}</strong></td>
+            <td style="width:130px"><span class="prog"><i style="width:{{ (p.total / vmax * 100)|round(1) }}%"></i></span></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="muted small">Descarga el resto: <a href="/data/censo-provincias.csv">provincias (CSV)</a> · <a href="/data/censo-2026.json">todo (JSON)</a>.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Nuevos electores por provincia</h2><span class="hint">desde el 23-J-2023 · top 10</span></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Provincia</th><th>Nuevos electores</th><th></th></tr></thead>
+        <tbody>
+        {% set nv = censo.nuevos_provincia[:10] %}
+        {% set nmax = nv[0].desde_2023 if nv else 1 %}
+        {% for n in nv %}
+          <tr>
+            <td>{{ n.nombre }}</td>
+            <td class="num">{{ fmt_miles(n.desde_2023) }}</td>
+            <td style="width:150px"><span class="prog"><i style="width:{{ (n.desde_2023 / nmax * 100)|round(1) }}%"></i></span></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="muted small">Personas que cumplieron 18 años desde las anteriores generales y están en el censo. No es una predicción de voto ni de participación. <a href="/data/censo-nuevos.csv">CSV</a></p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Fuente y límites</h2></div>
+    <ul class="muted small">
+      <li>Fuente: <a href="https://www.ine.es/dyngs/CEL/es/index.htm?cid=1703" rel="noopener">INE · Oficina del Censo Electoral</a>, tablas del 29N (XLSX).</li>
+      <li>Edad y sexo: solo residentes en España ({{ fmt_miles(censo.cer) }}). Los {{ fmt_miles(censo.cera) }} residentes en el extranjero no tienen desglose por edad/sexo en esta tabla.</li>
+      <li>El censo describe <strong>quién puede votar</strong>, no a quién vota. No se cruzan cuotas del censo con intención de voto.</li>
+      <li>Los datos se validan al ingerir: provincias, CCAA, edad y nuevos electores cuadran con el total oficial. <a href="/data/censo-2026.json">Metadatos y SHA-256</a>.</li>
+    </ul>
+    <div class="cta">
+      <a class="btn" href="/">Ver los sondeos</a>
+      <a class="btn ghost" href="/metodologia.html">Metodología</a>
+    </div>
+  </div>
+  {% else %}
+  <div class="alert warn">Los datos del censo no están disponibles todavía. <a href="/">Volver al agregado</a>.</div>
+  {% endif %}
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>

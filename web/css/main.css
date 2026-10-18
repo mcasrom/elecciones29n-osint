@@ -136,6 +136,10 @@ svg.chart{width:100%;height:auto;display:block}
 .stale strong{color:#fff}
 @keyframes stalePulse{0%,100%{background:#3a0d0d}50%{background:#611a1a}}
 
+/* barras de progreso (censo) */
+.prog{display:block;height:8px;background:var(--panel2);border:1px solid var(--line);border-radius:5px;overflow:hidden}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--accent2))}
+
 /* apoyo */
 .support{display:inline-flex;align-items:center;gap:7px;margin-top:6px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:var(--panel2);color:var(--fg);text-decoration:none;font-size:13.5px;font-weight:600}
 .support:hover{border-color:var(--accent);color:var(--accent)}

@@ -60,6 +60,12 @@ def main() -> int:
         except Exception as e:
             errors.append(f"latest.json inválido: {e}")
 
+    code, eh = get(base + "/electorado.html?canary=1")
+    if code != 200:
+        errors.append(f"electorado.html HTTP {code}")
+    elif "38.728.356" not in eh:
+        errors.append("electorado.html sin la cifra del censo")
+
     code, _ = get(base + "/og.png?canary=1")
     if code != 200:
         errors.append(f"og.png HTTP {code}")

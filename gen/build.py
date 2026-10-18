@@ -28,6 +28,7 @@ PAGES = [
     ("fuentes.html", "fuentes.html", "2026-10-17", "weekly", "0.7"),
     ("about.html", "about.html", "2026-10-17", "monthly", "0.5"),
     ("caveat.html", "caveat.html", "2026-10-17", "monthly", "0.5"),
+    ("electorado.html", "electorado.html", "2026-10-18", "monthly", "0.7"),
 ]
 
 
@@ -175,6 +176,10 @@ svg.chart{width:100%;height:auto;display:block}
 :root[data-theme="light"] .stale{background:#ffe9e2;color:#7a1f08}
 .stale strong{color:#fff}
 @keyframes stalePulse{0%,100%{background:#3a0d0d}50%{background:#611a1a}}
+
+/* barras de progreso (censo) */
+.prog{display:block;height:8px;background:var(--panel2);border:1px solid var(--line);border-radius:5px;overflow:hidden}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--accent2))}
 
 /* apoyo */
 .support{display:inline-flex;align-items:center;gap:7px;margin-top:6px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:var(--panel2);color:var(--fg);text-decoration:none;font-size:13.5px;font-weight:600}
@@ -365,6 +370,57 @@ def simulate_congress(parties: list, total: int = 350, threshold: float = 3.0) -
     return dict(sorted(seats.items(), key=lambda kv: kv[1], reverse=True))
 
 
+def fmt_miles(n) -> str:
+    try:
+        return f"{int(n):,}".replace(",", ".")
+    except Exception:
+        return str(n)
+
+
+def build_age_chart(edad: list) -> str:
+    if not edad:
+        return ""
+    W, row_h, pad_l, pad_r, pad_t = 760, 30, 104, 78, 34
+    H = pad_t + row_h * len(edad) + 8
+    vmax = max((e["total"] for e in edad), default=1) or 1
+    scale = (W - pad_l - pad_r) / vmax
+    parts = [
+        f'<svg class="chart" viewBox="0 0 {W} {H}" role="img" aria-label="Electores por edad y sexo">',
+        f'<rect x="{pad_l}" y="6" width="10" height="10" rx="2" fill="#8ec5ff"/>',
+        f'<text x="{pad_l+16}" y="15" fill="var(--muted)" font-size="11">Mujeres</text>',
+        f'<rect x="{pad_l+90}" y="6" width="10" height="10" rx="2" fill="#ff5a1f"/>',
+        f'<text x="{pad_l+106}" y="15" fill="var(--muted)" font-size="11">Hombres</text>',
+    ]
+    for i, e in enumerate(edad):
+        y = pad_t + i * row_h
+        wm = e["mujeres"] * scale
+        wh = e["hombres"] * scale
+        parts.append(f'<text x="{pad_l-8}" y="{y+13}" text-anchor="end" fill="var(--muted)" font-size="11">{e["grupo"]}</text>')
+        parts.append(f'<rect x="{pad_l}" y="{y+3}" width="{wm:.1f}" height="16" fill="#8ec5ff"/>')
+        parts.append(f'<rect x="{pad_l+wm:.1f}" y="{y+3}" width="{wh:.1f}" height="16" fill="#ff5a1f"/>')
+        parts.append(f'<text x="{pad_l+wm+wh+8:.1f}" y="{y+16}" fill="var(--muted)" font-size="11">{fmt_miles(e["total"])}</text>')
+    parts.append("</svg>")
+    return "".join(parts)
+
+
+def build_cera_chart(paises: list) -> str:
+    if not paises:
+        return ""
+    W, row_h, pad_l, pad_r, pad_t = 760, 28, 186, 76, 10
+    H = pad_t + row_h * len(paises) + 6
+    vmax = max((p["electores"] for p in paises), default=1) or 1
+    scale = (W - pad_l - pad_r) / vmax
+    parts = [f'<svg class="chart" viewBox="0 0 {W} {H}" role="img" aria-label="Residentes en el extranjero por país">']
+    for i, p in enumerate(paises):
+        y = pad_t + i * row_h
+        w = p["electores"] * scale
+        parts.append(f'<text x="{pad_l-8}" y="{y+14}" text-anchor="end" fill="var(--muted)" font-size="11">{p["pais"][:26]}</text>')
+        parts.append(f'<rect x="{pad_l}" y="{y+4}" width="{w:.1f}" height="15" rx="3" fill="#3ddc97" opacity="0.85"/>')
+        parts.append(f'<text x="{pad_l+w+8:.1f}" y="{y+16}" fill="var(--muted)" font-size="11">{fmt_miles(p["electores"])}</text>')
+    parts.append("</svg>")
+    return "".join(parts)
+
+
 def build_sparklines(series: dict, parties: list) -> str:
     """Minigráficos por partido (serie larga) para la pestaña Evolución."""
     order = [p["party"] for p in parties][:6]
@@ -414,6 +470,54 @@ def build_sparklines(series: dict, parties: list) -> str:
             f"</div>"
         )
     return '<div class="sparks">' + "".join(panels) + "</div>" if panels else ""
+
+
+def write_censo_data(censo: dict) -> None:
+    import csv as _csv
+
+    if not censo:
+        return
+    data_dir = os.path.join(OUT, "data")
+    os.makedirs(data_dir, exist_ok=True)
+    with open(os.path.join(data_dir, "censo-2026.json"), "w", encoding="utf-8") as f:
+        json.dump(censo, f, ensure_ascii=False, indent=2)
+
+    def dump(name, keys, rows):
+        with open(os.path.join(data_dir, name), "w", encoding="utf-8", newline="") as f:
+            w = _csv.writer(f)
+            w.writerow(keys)
+            for r in rows:
+                w.writerow([r.get(k, "") for k in keys])
+
+    dump("censo-provincias.csv", ["codigo", "nombre", "cer", "cera", "total"], censo.get("provincias", []))
+    dump("censo-edad.csv", ["grupo", "mujeres", "hombres", "total"], censo.get("edad_sexo", []))
+    dump("censo-nuevos.csv", ["codigo", "nombre", "desde_2023", "desde_2024"], censo.get("nuevos_provincia", []))
+    dump("censo-cera.csv", ["codigo", "pais", "electores"], censo.get("cera_paises", []))
+
+
+def build_censo_jsonld(censo: dict) -> str:
+    if not censo:
+        return "[]"
+    data = {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": "Censo electoral · Elecciones Generales 29N 2026",
+        "description": "Censo electoral de las elecciones generales del 29 de noviembre de 2026 por provincia, comunidad autónoma, sexo y grupo de edad, y residentes en el extranjero por país.",
+        "url": SITE_URL + "/electorado.html",
+        "creator": {"@type": "Person", "name": "Miguel Castillo", "url": SITE_URL},
+        "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+        "isAccessibleForFree": True,
+        "dateModified": censo.get("meta", {}).get("descargado", ""),
+        "spatialCoverage": "ES",
+        "temporalCoverage": "2026",
+        "sourceOrganization": {"@type": "Organization", "name": "INE · Oficina del Censo Electoral"},
+        "distribution": [
+            {"@type": "DataDownload", "contentUrl": SITE_URL + "/data/censo-2026.json", "encodingFormat": "application/json"},
+            {"@type": "DataDownload", "contentUrl": SITE_URL + "/data/censo-provincias.csv", "encodingFormat": "text/csv"},
+            {"@type": "DataDownload", "contentUrl": SITE_URL + "/data/censo-edad.csv", "encodingFormat": "text/csv"},
+        ],
+    }
+    return json.dumps(data, ensure_ascii=False)
 
 
 def build_jsonld(parties: list, updated_at: str) -> str:
@@ -578,6 +682,11 @@ def main(out: str = "web") -> None:
         autoescape=select_autoescape(["html", "xml"]),
     )
 
+    censo = {}
+    if os.path.exists("data/censo_2026.json"):
+        with open("data/censo_2026.json", encoding="utf-8") as f:
+            censo = json.load(f)
+
     latest = {"parties": []}
     if os.path.exists(os.path.join(OUT, "data/latest.json")):
         with open(os.path.join(OUT, "data/latest.json"), encoding="utf-8") as f:
@@ -627,6 +736,7 @@ def main(out: str = "web") -> None:
         "sources": latest.get("sources", []),
         "chart_svg": build_chart(latest.get("series_long", series), parties),
         "chart_legend": chart_legend(parties),
+        "censo_jsonld": build_censo_jsonld(censo),
         "sparks_svg": build_sparklines(latest.get("series_long", series), parties),
         "series_span": (
             f'{next(iter(latest.get("series_long", {}).values()))[0]["date"]} – '
@@ -641,6 +751,10 @@ def main(out: str = "web") -> None:
         "phase": phase,
         "next_milestone": next_ms,
         "calendar": calendar,
+        "censo": censo,
+        "age_svg": build_age_chart(censo.get("edad_sexo", [])),
+        "cera_svg": build_cera_chart(censo.get("cera_paises", [])[:10]),
+        "fmt_miles": fmt_miles,
         "days_to_election": latest.get("days_to_election", 0),
         "days_to_blackout": latest.get("days_to_blackout", 0),
         "last_poll_date": latest.get("last_poll_date"),
@@ -654,13 +768,14 @@ def main(out: str = "web") -> None:
         "share_url": SITE_URL + "/",
     }
 
-    for tname in ["index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html"]:
+    for tname in ["index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(**context)
         with open(os.path.join(OUT, tname), "w", encoding="utf-8") as f:
             f.write(html)
 
     write_sitemap(today)
+    write_censo_data(censo)
 
     if not os.path.exists(os.path.join(OUT, "data/latest.json")):
         with open(os.path.join(OUT, "data/latest.json"), "w", encoding="utf-8") as f:

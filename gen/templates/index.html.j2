@@ -53,6 +53,7 @@
       <button class="tab" data-tab="evolucion" role="tab" aria-selected="false">Evolución</button>
       <button class="tab" data-tab="congreso" role="tab" aria-selected="false">Congreso</button>
       <button class="tab" data-tab="senado" role="tab" aria-selected="false">Senado</button>
+      <a class="tab" href="/electorado.html">Electorado</a>
       <a class="tab" href="/metodologia.html">Metodología</a>
       <a class="tab" href="/fuentes.html">Fuentes</a>
       <a class="tab" href="/caveat.html">Qué no dice</a>
@@ -220,6 +221,19 @@
       </div>
     </div>
   </section>
+
+  <div class="card">
+    <div class="cardhead"><h2>El electorado del 29N</h2><span class="hint">censo oficial · INE</span></div>
+    {% if censo %}
+    <p class="muted" style="margin:0 0 6px">
+      <strong>{{ fmt_miles(censo.total) }}</strong> electores ·
+      {{ fmt_miles(censo.cer) }} en España ·
+      {{ fmt_miles(censo.cera) }} en el extranjero ·
+      <strong>{{ fmt_miles(censo.nuevos_desde_2023) }}</strong> nuevos desde el 23-J-2023.
+    </p>
+    <div class="cta"><a class="btn" href="/electorado.html">Ver censo y distribución</a></div>
+    {% endif %}
+  </div>
 
   <div class="card">
     <div class="cardhead"><h2>Más del ecosistema</h2></div>
