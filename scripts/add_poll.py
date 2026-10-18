@@ -28,7 +28,7 @@ def poll_sum(dstr: str) -> float:
 
 def parse_values(raw: str) -> dict[str, float]:
     out: dict[str, float] = {}
-    for part in raw.split(","):
+    for part in raw.replace(";", ",").split(","):
         part = part.strip()
         if not part:
             continue

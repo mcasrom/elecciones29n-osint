@@ -17,6 +17,8 @@ WINDOW_DAYS = 14
 LONG_DAYS = 90
 HALF_LIFE_DAYS = 10.0
 LOW_N = 4
+HOUSE_WINDOW_DAYS = 45
+CANON = {"Podemos": "PODEMOS", "Bildu": "BILDU", "Junts": "JUNTS", "Cs": "Cs", "C's": "Cs", "Ciudadanos": "Cs"}
 
 
 def _parse_date(s: str) -> datetime | None:
@@ -37,6 +39,7 @@ def load_polls() -> List[Dict[str, Any]]:
     with open(hist, encoding="utf-8", newline="") as f:
         for row in csv.DictReader(f):
             party = (row.get("party") or "").strip()
+            party = CANON.get(party, party)
             dt = _parse_date(row.get("date") or "")
             try:
                 val = float((row.get("value") or "").replace("%", "").strip())
@@ -165,6 +168,7 @@ def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
     series = _series(recent)
 
     poll_dates = sorted({p["date"].strftime("%Y-%m-%d") for p in recent})
+    n_polls = len({(p["date"].strftime("%Y-%m-%d"), p.get("pollster")) for p in recent})
     sources = sorted({p["source_url"] for p in recent if p.get("source_url")})
     means = {p["party"]: p["mean"] for p in parties}
     pollsters = sorted({p.get("pollster") for p in recent if p.get("pollster")})
@@ -175,18 +179,52 @@ def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
         days_since = max(0, (now.date() - datetime.strptime(last_poll, "%Y-%m-%d").date()).days)
     reasons = []
     status = "ok"
-    if len(poll_dates) < LOW_N:
+    if n_polls < LOW_N:
         status = "bad"
-        reasons.append(f"solo {len(poll_dates)} sondeos en la media")
+        reasons.append(f"solo {n_polls} sondeos en la media")
     if n_pollsters <= 1:
         status = "bad" if status == "bad" else "warn"
         reasons.append("una sola encuestadora")
     if days_since is not None and days_since > 10:
         status = "bad" if days_since > 21 else ("warn" if status == "ok" else status)
         reasons.append(f"último sondeo hace {days_since} días")
+    # Contraste por casa: última encuesta de cada casa (45 d), mismo peso
+    house_cutoff = now - timedelta(days=HOUSE_WINDOW_DAYS)
+    house_polls = [p for p in tracking if p["date"] >= house_cutoff]
+    latest_by_house: Dict[str, Dict[str, Any]] = {}
+    for p in house_polls:
+        h = p.get("pollster") or "?"
+        cur = latest_by_house.get(h)
+        if not cur or p["date"] > cur["date"]:
+            latest_by_house[h] = {"date": p["date"], "rows": [p]}
+        elif p["date"] == cur["date"]:
+            cur["rows"].append(p)
+    house_by_party: Dict[str, List[float]] = {}
+    for h, obj in latest_by_house.items():
+        vals_by_party: Dict[str, List[float]] = {}
+        for p in obj["rows"]:
+            vals_by_party.setdefault(p["party"], []).append(p["value"])
+        for party, vs in vals_by_party.items():
+            house_by_party.setdefault(party, []).append(sum(vs) / len(vs))
+    house_parties = []
+    for party, vals in house_by_party.items():
+        house_parties.append({
+            "party": party,
+            "mean": round(sum(vals) / len(vals), 2),
+            "min": round(min(vals), 2),
+            "max": round(max(vals), 2),
+            "n_houses": len(vals),
+        })
+    house_parties.sort(key=lambda x: x["mean"], reverse=True)
+    house_mean = {
+        "window_days": HOUSE_WINDOW_DAYS,
+        "n_houses": len(latest_by_house),
+        "parties": house_parties,
+    }
+
     health = {
         "status": status,
-        "n_polls": len(poll_dates),
+        "n_polls": n_polls,
         "n_pollsters": n_pollsters,
         "pollsters": pollsters,
         "days_since_last": days_since,
@@ -205,8 +243,8 @@ def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
         "series": series,
         "series_long": series_long,
         "poll_dates": poll_dates,
-        "n_polls": len(poll_dates),
-        "low_n": len(poll_dates) < LOW_N,
+        "n_polls": n_polls,
+        "low_n": n_polls < LOW_N,
         "window_extended": extended,
         "window_span": (
             f"{poll_dates[0]} – {poll_dates[-1]}" if poll_dates else ""
@@ -214,13 +252,14 @@ def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
         "sources": sources,
         "last_poll_date": poll_dates[-1] if poll_dates else None,
         "health": health,
+        "house_mean": house_mean,
         "days_to_election": max(0, (election - now).days),
         "days_to_blackout": max(0, (blackout_start - now).days),
         "gap_pp_psoe": round(means.get("PP", 0) - means.get("PSOE", 0), 2),
         "bloc_right": round(sum(means.get(k, 0) for k in ("PP", "VOX")), 2),
         "bloc_left": round(sum(means.get(k, 0) for k in ("PSOE", "SUMAR", "PODEMOS")), 2),
         "weight_basis": (
-            "muestra (√n) + recencia (vida media 10 d)"
+            "recencia (vida media 10 d); √n cuando la fuente declara muestra"
             if weighted
             else "recencia (vida media 10 d)"
         ),

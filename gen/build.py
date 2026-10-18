@@ -560,6 +560,21 @@ def fmt_pct(v) -> str:
         return str(v)
 
 
+def build_house_compare(house: dict, parties: list) -> list:
+    main = {p["party"]: p["mean"] for p in parties}
+    rows = []
+    for p in house.get("parties", []):
+        if p.get("party") == "Otros":
+            continue
+        m = main.get(p["party"])
+        rows.append({
+            "party": p["party"], "mean": p["mean"], "min": p["min"],
+            "max": p["max"], "n_houses": p["n_houses"],
+            "poll_mean": m, "diff": round(p["mean"] - m, 2) if m is not None else None,
+        })
+    return rows[:6]
+
+
 def build_resultados_2023(n: dict) -> list:
     votes = n.get("votos", {})
     seats = n.get("escanos", {})
@@ -1077,6 +1092,7 @@ def main(out: str = "web") -> None:
     ]
     in_blackout = blackout.is_blackout(now)
     parties = latest.get("parties", [])
+    parties_main = [p for p in parties if p.get("party") != "Otros"]
     series = latest.get("series", {})
 
     build_ts = now.strftime("%Y%m%d%H%M")
@@ -1092,15 +1108,16 @@ def main(out: str = "web") -> None:
         "in_blackout": in_blackout,
         "blackout_reason": blackout.blackout_reason(),
         "parties": parties,
+        "parties_main": parties_main,
         "series": series,
         "poll_dates": latest.get("poll_dates", []),
         "n_polls": latest.get("n_polls", 0),
         "sources": latest.get("sources", []),
-        "chart_svg": build_chart(latest.get("series_long", series), parties),
-        "chart_legend": chart_legend(parties),
+        "chart_svg": build_chart(latest.get("series_long", series), parties_main),
+        "chart_legend": chart_legend(parties_main),
         "censo_jsonld": build_censo_jsonld(censo),
         "person_jsonld": build_person_jsonld(),
-        "sparks_svg": build_sparklines(latest.get("series_long", series), parties),
+        "sparks_svg": build_sparklines(latest.get("series_long", series), parties_main),
         "series_span": (
             f'{next(iter(latest.get("series_long", {}).values()))[0]["date"]} – '
             f'{next(iter(latest.get("series_long", {}).values()))[-1]["date"]}'
@@ -1123,6 +1140,8 @@ def main(out: str = "web") -> None:
         "part_chart": build_participacion_chart(participacion.get("elecciones", [])),
         "part_kpis": part_kpis,
         "health": latest.get("health", {}),
+        "house_mean": latest.get("house_mean", {}),
+        "house_compare": build_house_compare(latest.get("house_mean", {}), parties),
         "escanos": escanos,
         "resultados": resultados,
         "congreso": congreso,
@@ -1147,7 +1166,7 @@ def main(out: str = "web") -> None:
         "gap_pp_psoe": latest.get("gap_pp_psoe"),
         "bloc_right": latest.get("bloc_right"),
         "bloc_left": latest.get("bloc_left"),
-        "sim_congress": simulate_congress(parties),
+        "sim_congress": simulate_congress(parties_main),
         "ref_congreso": REF_CONGRESO,
         "jsonld": build_jsonld(parties, latest.get("updated_at", today)),
         "indexnow_key": INDEXNOW_KEY,

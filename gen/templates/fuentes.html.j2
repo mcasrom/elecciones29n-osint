@@ -18,7 +18,10 @@
       <table>
         <thead><tr><th>Módulo</th><th>Fuente</th><th>Formato</th><th>Enlace</th></tr></thead>
         <tbody>
-          <tr><td>Sondeos</td><td>Electomania · ElectoPanel</td><td>WordPress REST API</td><td><a href="https://electomania.es/" rel="noopener" target="_blank">electomania.es</a></td></tr>
+          <tr><td>Sondeos (primaria)</td><td>Electomania · ElectoPanel</td><td>WordPress REST API</td><td><a href="https://electomania.es/" rel="noopener" target="_blank">electomania.es</a></td></tr>
+          <tr><td>Sondeos (secundaria)</td><td>Onda Cero · compilación de encuestas</td><td>HTML/JSON incrustado</td><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">ondacero.es/…/encuestas</a></td></tr>
+          <tr><td>CIS</td><td>Centro de Investigaciones Sociológicas</td><td>PDF (manual)</td><td><a href="https://www.cis.es/" rel="noopener" target="_blank">cis.es</a></td></tr>
+          <tr><td>Contraste</td><td>Política Sin Ruido</td><td>HTML (referencia)</td><td><a href="https://politicasinruido.com/encuestas" rel="noopener" target="_blank">politicasinruido.com</a></td></tr>
           <tr><td>Censo</td><td>INE · Oficina del Censo Electoral</td><td>XLSX (tablas 2/3/6/9/12)</td><td><a href="https://www.ine.es/dyngs/CEL/es/index.htm?cid=1703" rel="noopener" target="_blank">ine.es · CEL</a></td></tr>
           <tr><td>Participación</td><td>Junta Electoral Central</td><td>Tablas por elección</td><td><a href="https://www.juntaelectoralcentral.es/cs/jec/elecciones/Generales-julio2023" rel="noopener" target="_blank">juntaelectoralcentral.es</a></td></tr>
           <tr><td>Escaños</td><td>BOE · RD 806/2026 (anexo)</td><td>HTML/BOE</td><td><a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-20742" rel="noopener" target="_blank">BOE-A-2026-20742</a></td></tr>
@@ -63,6 +66,8 @@
     <div class="cardhead"><h2>Higiene y licencias</h2></div>
     <ul class="muted small">
       <li>Se descartan paneles autonómicos, adelantos incompletos y textos que no suman un rango plausible.</li>
+      <li><strong>Onda Cero</strong>: se usan los <strong>sondeos individuales</strong> de su compilación (94 sondeos, 14 casas), no su promedio. La fecha es de <strong>publicación</strong>, no de campo. «Otros» es un residual y no se usa en los gráficos de partidos.</li>
+      <li><strong>CIS</strong>: barómetro añadido a mano desde su PDF, con muestra y fecha. <strong>Política Sin Ruido</strong> se usa como contraste metodológico (una encuesta por casa), no como fuente de la media.</li>
       <li>Si la ingesta o la validación fallan, no se publica: se conserva la última versión buena.</li>
       <li><strong>INE</strong>: reutilización con cita de la fuente (CC BY 4.0 en los datos derivados).</li>
       <li><strong>JEC / BOE</strong>: reutilización citando la fuente.</li>

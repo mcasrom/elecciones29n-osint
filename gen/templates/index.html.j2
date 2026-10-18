@@ -91,7 +91,7 @@
   <!-- TAB: AGREGADO -->
   <section id="tab-agregado" class="tabpanel active" role="tabpanel">
     <div class="kpis">
-      {% for p in parties[:4] %}
+      {% for p in parties_main[:4] %}
       <div class="kpi">
         <span class="kpi-name">{{ p.party }}</span>
         <b>{{ "%.1f"|format(p.mean) }}%</b>
@@ -132,7 +132,7 @@
         {% endfor %}
         </tbody>
       </table></div>
-      <p class="muted small">Actualizado: {{ updated_at }}. Ponderación: {{ weight_basis }}. <a href="/data/latest.json">Descargar JSON</a> · <a href="/metodologia.html">Cómo se calcula</a></p>
+      <p class="muted small">«Otros» es el resto de candidaturas, no un partido. Actualizado: {{ updated_at }}. Ponderación: {{ weight_basis }}. <a href="/data/latest.json">Descargar JSON</a> · <a href="/metodologia.html">Cómo se calcula</a></p>
     </div>
 
     <div class="card">
@@ -161,6 +161,23 @@
       <p class="muted small">Una sola encuestadora no es una media entre casas: es su serie. La salud mejora añadiendo sondeos de otras casas con fuente y muestra.</p>
       {% endif %}
     </div>
+
+    {% if house_compare %}
+    <div class="card">
+      <div class="cardhead"><h2>Contraste por casa</h2><span class="hint">{{ house_mean.n_houses }} casas · última de cada una · 45 días</span></div>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Partido</th><th>Media por casa</th><th>Rango</th><th>Casas</th><th>Media por sondeo</th><th>Diferencia</th></tr></thead>
+          <tbody>
+          {% for r in house_compare %}
+            <tr><td>{{ r.party }}</td><td class="num">{{ fmt_pct(r.mean) }}%</td><td class="num">{{ fmt_pct(r.min) }}–{{ fmt_pct(r.max) }}</td><td class="num">{{ r.n_houses }}</td><td class="num">{% if r.poll_mean is not none %}{{ fmt_pct(r.poll_mean) }}%{% else %}—{% endif %}</td><td class="num">{% if r.diff is not none %}{{ "%+.2f"|format(r.diff) }} pp{% else %}—{% endif %}</td></tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <p class="muted small">Última encuesta de cada casa en 45 días, <strong>mismo peso por casa</strong>. Es un contraste de robustez, no la media principal (que pesa cada sondeo por recencia). Incluye CIS (barómetro de octubre, n=5.025). La media por sondeo pondera por muestra; este contraste iguala el peso por casa.</p>
+    </div>
+    {% endif %}
 
     <div class="card">
       <div class="cardhead"><h2>Comparte o cita</h2></div>

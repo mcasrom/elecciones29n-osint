@@ -47,7 +47,7 @@ def main() -> int:
     d.text((56, 86), "Media agregada de sondeos · Elecciones Generales 29N 2026", font=find_font(24), fill=MUTED)
 
     # cifras
-    parties = data.get("parties", [])[:4]
+    parties = [p for p in data.get("parties", []) if p.get("party") != "Otros"][:4]
     y = 170
     if parties:
         for i, p in enumerate(parties):

@@ -9,6 +9,28 @@
   regionales. `ElectoPromedio` (media de medias) se marca `kind=average` y se
   excluye de la media principal.
 
+## Secundaria (compilación)
+
+- **Onda Cero · Encuestas 29N** — `https://www.ondacero.es/elecciones/generales/encuestas/`.
+  94 sondeos de 14 casas (sep-2025 → oct-2026). Se usan los **sondeos
+  individuales**, no su promedio. La fecha es de **publicación**, no de campo.
+  Robots permite la ruta; se cita la compilación y la encuestadora/medio.
+  «Otros» es un residual: se guarda para la suma, pero no se usa en gráficos.
+
+## CIS (manual)
+
+- **CIS · barómetros** — `https://www.cis.es/`. Se añade a mano el último
+  barómetro con su **PDF**, `sample` y fecha de publicación. Los de septiembre (campo 1–4 sep, n=4.042) y octubre (n=5.025) ya están en el
+  histórico. El de octubre entra en la media de 14 días; el de septiembre queda
+  en la serie y en el contraste por casa.
+
+## Contraste (no fuente de la media)
+
+- **Política Sin Ruido** — `https://politicasinruido.com/encuestas`. Usa una
+  encuesta por casa y peso igual (4 casas, 45 d), con metadatos de campo y
+  muestra. Se usa como **referencia metodológica y contraste**, no como
+  agregador. La media propia se calcula con nuestros sondeos individuales.
+
 ## Alta manual (cuando no hay API)
 
 Rutina completa: **`docs/RUTINA-SEMANAL.md`**. Objetivo: ≥4 sondeos y ≥2

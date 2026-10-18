@@ -93,6 +93,29 @@ class AggregateTest(unittest.TestCase):
         self.assertEqual(res["health"]["status"], "bad")
         self.assertEqual(res["health"]["n_polls"], 1)
 
+    def test_house_mean_equal_weight(self):
+        now = datetime.now(TZ)
+        rows = [
+            ("X", (now - timedelta(days=30)).strftime("%Y-%m-%d"), 10.0, "u", 1000, "A", "tracking"),
+            ("X", (now - timedelta(days=10)).strftime("%Y-%m-%d"), 20.0, "u", 1000, "A", "tracking"),
+            ("X", (now - timedelta(days=5)).strftime("%Y-%m-%d"), 30.0, "u", 1000, "B", "tracking"),
+        ]
+        res = self.run_with(rows)
+        house = next(p for p in res["house_mean"]["parties"] if p["party"] == "X")
+        self.assertEqual(house["mean"], 25.0)
+        self.assertEqual(house["n_houses"], 2)
+
+    def test_party_names_canonical(self):
+        today = datetime.now(TZ).strftime("%Y-%m-%d")
+        res = self.run_with([
+            ("Podemos", today, 3.0, "u", 1000, "A", "tracking"),
+            ("PODEMOS", today, 4.0, "u", 1000, "B", "tracking"),
+        ])
+        names = [p["party"] for p in res["parties"]]
+        self.assertEqual(names.count("PODEMOS"), 1)
+        p = next(x for x in res["parties"] if x["party"] == "PODEMOS")
+        self.assertEqual(p["n"], 2)
+
     def test_weight_basis_reports_sample(self):
         today = datetime.now(TZ).strftime("%Y-%m-%d")
         res = self.run_with([("X", today, 10.0, "u", 1000, "A", "tracking")])

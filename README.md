@@ -5,7 +5,7 @@
 [![En vivo](https://img.shields.io/badge/en%20vivo-elecciones29n.pruebapublica.com-ff5a1f)](https://elecciones29n.pruebapublica.com/)
 [![Licencia](https://img.shields.io/badge/licencia-AGPL--3.0-3ddc97)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.12-8ec5ff)](https://www.python.org/)
-[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.6.0-ff5a1f)](CHANGELOG.md)
+[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.7.0-ff5a1f)](CHANGELOG.md)
 
 ---
 
@@ -48,8 +48,9 @@ agregado.
 | **Frágil** | 4 sondeos pero una sola casa, o último >10 días | se publica con aviso |
 | **Insuficiente** | <4 sondeos o último >21 días | se publica con aviso visible |
 
-> Hoy: **4 sondeos, 1 encuestadora, último hace 7 días → frágil**. La solución
-> es cobertura, no más matemáticas: ver [`docs/RUTINA-SEMANAL.md`](docs/RUTINA-SEMANAL.md).
+> Al 18-oct: **15 sondeos, 12 encuestadoras, último hace 4 días → suficiente**.
+> Se combinan Electomania, la compilación de Onda Cero y el CIS (septiembre y octubre). Ver
+> [`docs/RUTINA-SEMANAL.md`](docs/RUTINA-SEMANAL.md).
 
 ```bash
 .venv/bin/python scripts/health_report.py
@@ -60,6 +61,9 @@ agregado.
 | Dato | Fuente | Formato |
 |---|---|---|
 | Sondeos | [Electomania · ElectoPanel](https://electomania.es/) | WordPress REST API |
+| Sondeos (secundaria) | [Onda Cero · Encuestas 29N](https://www.ondacero.es/elecciones/generales/encuestas/) | HTML/JSON |
+| Sondeos (manual) | [CIS · barómetros](https://www.cis.es/) | PDF |
+| Contraste | [Política Sin Ruido](https://politicasinruido.com/encuestas) | HTML |
 | Censo | [INE · CEL](https://www.ine.es/dyngs/CEL/es/index.htm?cid=1703) | XLSX (tablas 2/3/6/9/12) |
 | Participación | [JEC](https://www.juntaelectoralcentral.es/) | tablas por elección |
 | Escaños | [BOE · RD 806/2026](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-20742) | anexo |
@@ -165,6 +169,10 @@ systemd/        servicio y timer
 - Correlación intra-elección −0,136. El viento sale positivo y **no se interpreta como causal**.
 - Resultados y límites en `/factores.html` y `data/m5-results.json`. Método: `docs/M5-METODOLOGIA.md`.
 
+## Contraste por casa
+
+Además de la media por sondeo (ponderada por recencia y muestra cuando existe), la portada muestra el **contraste por casa**: la última encuesta de cada casa en 45 días, con **peso igual por casa**. Sirve para detectar si la media está dominada por una encuestadora. Incluye CIS. No es la media principal.
+
 ## PWA y actualizaciones
 
 - Instalable: `manifest.webmanifest`, iconos 192/512/maskable y service worker.
@@ -175,7 +183,7 @@ systemd/        servicio y timer
 
 ## Calidad
 
-- **44 tests** (`unittest`) y hook **pre-push**.
+- **46 tests** (`unittest`) y hook **pre-push**.
 - `scripts/check.sh`: compila, tests y valida el sitio local.
 - **Validador** de publicación: gráfico con puntos, pestañas, JSON, sitemap, OG,
   RSS, censo, participación y escaños.

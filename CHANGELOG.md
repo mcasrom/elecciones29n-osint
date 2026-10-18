@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.0 — 2026-10-18
+
+- **Onda Cero**: 94 sondeos de 14 casas integrados como fuente secundaria (sondeos individuales, no su promedio; fecha de publicación).
+- **CIS**: barómetros de septiembre (n=4.042) y octubre (n=5.025) añadidos a mano con PDF y muestra.
+- **Contraste por casa**: última encuesta de cada casa en 45 días con peso igual (14 casas), frente a la media por sondeo.
+- Normalización de nombres (`Podemos`/`PODEMOS`, `Bildu`/`BILDU`, `Junts`/`JUNTS`); `n_polls` cuenta sondeos, no fechas.
+- «Otros» se excluye de KPIs, gráficos y simulación; se mantiene en la tabla.
+
 ## 0.6.0 — 2026-10-18
 
 - **M5 v1**: meteorología × participación con panel provincia × elección (806 obs, 16 elecciones), AEMET OpenData y OLS con efectos fijos y SE agrupados.

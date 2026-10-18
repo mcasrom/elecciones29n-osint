@@ -1,126 +1,215 @@
 {
-  "updated_at": "2026-10-18 11:42 CEST",
-  "updated_at_iso": "2026-10-18T11:42:02.492851+02:00",
+  "updated_at": "2026-10-18 12:27 CEST",
+  "updated_at_iso": "2026-10-18T12:27:11.958654+02:00",
   "in_blackout": false,
   "window_days": 14,
   "parties": [
     {
       "party": "PP",
-      "mean": 31.53,
-      "median": 31.8,
-      "min": 31.3,
-      "max": 32.3,
-      "n": 4,
-      "sample_total": 14799,
+      "mean": 30.29,
+      "median": 31.9,
+      "min": 22.2,
+      "max": 34.1,
+      "n": 15,
+      "sample_total": 9150,
       "pollsters": [
-        "ElectoPanel"
+        "40dB",
+        "CIS",
+        "DYM",
+        "ElectoPanel",
+        "GAD3",
+        "GESOP",
+        "IMOP Insights",
+        "Invymark",
+        "NC Report",
+        "Sigma Dos",
+        "Sociométrica",
+        "Target Point"
       ]
     },
     {
       "party": "PSOE",
-      "mean": 26.68,
-      "median": 26.25,
-      "min": 25.3,
-      "max": 26.9,
-      "n": 4,
-      "sample_total": 14799,
+      "mean": 27.83,
+      "median": 26.5,
+      "min": 25.0,
+      "max": 34.0,
+      "n": 15,
+      "sample_total": 9150,
       "pollsters": [
-        "ElectoPanel"
+        "40dB",
+        "CIS",
+        "DYM",
+        "ElectoPanel",
+        "GAD3",
+        "GESOP",
+        "IMOP Insights",
+        "Invymark",
+        "NC Report",
+        "Sigma Dos",
+        "Sociométrica",
+        "Target Point"
       ]
     },
     {
       "party": "VOX",
-      "mean": 19.19,
-      "median": 19.1,
-      "min": 18.8,
-      "max": 19.4,
-      "n": 4,
-      "sample_total": 14799,
+      "mean": 18.42,
+      "median": 18.7,
+      "min": 17.1,
+      "max": 19.1,
+      "n": 15,
+      "sample_total": 9150,
       "pollsters": [
-        "ElectoPanel"
+        "40dB",
+        "CIS",
+        "DYM",
+        "ElectoPanel",
+        "GAD3",
+        "GESOP",
+        "IMOP Insights",
+        "Invymark",
+        "NC Report",
+        "Sigma Dos",
+        "Sociométrica",
+        "Target Point"
+      ]
+    },
+    {
+      "party": "Otros",
+      "mean": 11.87,
+      "median": 12.45,
+      "min": 9.1,
+      "max": 14.3,
+      "n": 14,
+      "sample_total": 5025,
+      "pollsters": [
+        "40dB",
+        "CIS",
+        "DYM",
+        "GAD3",
+        "GESOP",
+        "IMOP Insights",
+        "Invymark",
+        "NC Report",
+        "Sigma Dos",
+        "Sociométrica",
+        "Target Point"
       ]
     },
     {
       "party": "SUMAR",
-      "mean": 5.13,
-      "median": 5.35,
+      "mean": 6.16,
+      "median": 6.1,
       "min": 4.9,
-      "max": 5.8,
-      "n": 4,
-      "sample_total": 14799,
+      "max": 8.0,
+      "n": 15,
+      "sample_total": 9150,
       "pollsters": [
-        "ElectoPanel"
+        "40dB",
+        "CIS",
+        "DYM",
+        "ElectoPanel",
+        "GAD3",
+        "GESOP",
+        "IMOP Insights",
+        "Invymark",
+        "NC Report",
+        "Sigma Dos",
+        "Sociométrica",
+        "Target Point"
       ]
     },
     {
       "party": "PODEMOS",
-      "mean": 3.43,
-      "median": 3.4,
-      "min": 3.3,
-      "max": 3.8,
-      "n": 4,
-      "sample_total": 14799,
+      "mean": 2.98,
+      "median": 3.1,
+      "min": 2.3,
+      "max": 3.9,
+      "n": 15,
+      "sample_total": 9150,
       "pollsters": [
-        "ElectoPanel"
+        "40dB",
+        "CIS",
+        "DYM",
+        "ElectoPanel",
+        "GAD3",
+        "GESOP",
+        "IMOP Insights",
+        "Invymark",
+        "NC Report",
+        "Sigma Dos",
+        "Sociométrica",
+        "Target Point"
       ]
     },
     {
       "party": "ERC",
-      "mean": 1.99,
-      "median": 2.0,
-      "min": 1.9,
-      "max": 2.0,
-      "n": 4,
-      "sample_total": 14799,
+      "mean": 2.58,
+      "median": 2.5,
+      "min": 2.0,
+      "max": 3.0,
+      "n": 2,
+      "sample_total": 9150,
       "pollsters": [
+        "CIS",
         "ElectoPanel"
       ]
     },
     {
       "party": "SAF",
-      "mean": 1.75,
-      "median": 1.85,
-      "min": 1.7,
-      "max": 2.0,
-      "n": 4,
-      "sample_total": 14799,
+      "mean": 1.74,
+      "median": 1.8,
+      "min": 0.5,
+      "max": 2.2,
+      "n": 11,
+      "sample_total": 9150,
       "pollsters": [
-        "ElectoPanel"
+        "40dB",
+        "CIS",
+        "DYM",
+        "ElectoPanel",
+        "GESOP",
+        "IMOP Insights",
+        "Invymark",
+        "Sociométrica",
+        "Target Point"
       ]
     },
     {
       "party": "BILDU",
-      "mean": 1.4,
-      "median": 1.4,
+      "mean": 1.52,
+      "median": 1.5,
       "min": 1.4,
-      "max": 1.4,
-      "n": 4,
-      "sample_total": 14799,
+      "max": 1.6,
+      "n": 2,
+      "sample_total": 9150,
       "pollsters": [
+        "CIS",
         "ElectoPanel"
       ]
     },
     {
       "party": "JUNTS",
-      "mean": 1.12,
-      "median": 1.15,
+      "mean": 1.1,
+      "median": 1.1,
       "min": 1.1,
-      "max": 1.2,
-      "n": 4,
-      "sample_total": 14799,
+      "max": 1.1,
+      "n": 2,
+      "sample_total": 9150,
       "pollsters": [
+        "CIS",
         "ElectoPanel"
       ]
     },
     {
       "party": "PNV",
-      "mean": 1.1,
-      "median": 1.1,
-      "min": 1.1,
+      "mean": 0.81,
+      "median": 0.85,
+      "min": 0.6,
       "max": 1.1,
-      "n": 4,
-      "sample_total": 14799,
+      "n": 2,
+      "sample_total": 9150,
       "pollsters": [
+        "CIS",
         "ElectoPanel"
       ]
     }
@@ -128,182 +217,456 @@
   "series": {
     "BILDU": [
       {
-        "date": "2026-09-20",
-        "value": 1.4
-      },
-      {
-        "date": "2026-09-27",
-        "value": 1.4
-      },
-      {
-        "date": "2026-10-04",
-        "value": 1.4
-      },
-      {
         "date": "2026-10-11",
         "value": 1.4
+      },
+      {
+        "date": "2026-10-14",
+        "value": 1.6
       }
     ],
     "ERC": [
       {
-        "date": "2026-09-20",
-        "value": 1.9
-      },
-      {
-        "date": "2026-09-27",
-        "value": 2.0
-      },
-      {
-        "date": "2026-10-04",
-        "value": 2.0
-      },
-      {
         "date": "2026-10-11",
         "value": 2.0
+      },
+      {
+        "date": "2026-10-14",
+        "value": 3.0
       }
     ],
     "JUNTS": [
       {
-        "date": "2026-09-20",
-        "value": 1.2
-      },
-      {
-        "date": "2026-09-27",
-        "value": 1.2
-      },
-      {
-        "date": "2026-10-04",
+        "date": "2026-10-11",
         "value": 1.1
       },
       {
-        "date": "2026-10-11",
+        "date": "2026-10-14",
         "value": 1.1
       }
     ],
     "PNV": [
       {
-        "date": "2026-09-20",
-        "value": 1.1
-      },
-      {
-        "date": "2026-09-27",
-        "value": 1.1
-      },
-      {
-        "date": "2026-10-04",
-        "value": 1.1
-      },
-      {
         "date": "2026-10-11",
         "value": 1.1
+      },
+      {
+        "date": "2026-10-14",
+        "value": 0.6
       }
     ],
     "PODEMOS": [
       {
-        "date": "2026-09-20",
+        "date": "2026-10-05",
+        "value": 3.1
+      },
+      {
+        "date": "2026-10-05",
         "value": 3.3
       },
       {
-        "date": "2026-09-27",
-        "value": 3.8
+        "date": "2026-10-05",
+        "value": 2.7
       },
       {
-        "date": "2026-10-04",
+        "date": "2026-10-08",
+        "value": 3.9
+      },
+      {
+        "date": "2026-10-09",
+        "value": 3.2
+      },
+      {
+        "date": "2026-10-09",
+        "value": 2.3
+      },
+      {
+        "date": "2026-10-09",
+        "value": 2.6
+      },
+      {
+        "date": "2026-10-09",
+        "value": 2.3
+      },
+      {
+        "date": "2026-10-11",
         "value": 3.4
       },
       {
         "date": "2026-10-11",
         "value": 3.4
+      },
+      {
+        "date": "2026-10-12",
+        "value": 2.8
+      },
+      {
+        "date": "2026-10-12",
+        "value": 3.1
+      },
+      {
+        "date": "2026-10-12",
+        "value": 2.6
+      },
+      {
+        "date": "2026-10-12",
+        "value": 2.3
+      },
+      {
+        "date": "2026-10-14",
+        "value": 3.1
       }
     ],
     "PP": [
       {
-        "date": "2026-09-20",
-        "value": 32.1
+        "date": "2026-10-05",
+        "value": 33.4
       },
       {
-        "date": "2026-09-27",
-        "value": 32.3
+        "date": "2026-10-05",
+        "value": 32.6
       },
       {
-        "date": "2026-10-04",
-        "value": 31.3
+        "date": "2026-10-05",
+        "value": 31.6
+      },
+      {
+        "date": "2026-10-08",
+        "value": 34.1
+      },
+      {
+        "date": "2026-10-09",
+        "value": 32.8
+      },
+      {
+        "date": "2026-10-09",
+        "value": 30.4
+      },
+      {
+        "date": "2026-10-09",
+        "value": 34.0
+      },
+      {
+        "date": "2026-10-09",
+        "value": 31.9
       },
       {
         "date": "2026-10-11",
         "value": 31.5
+      },
+      {
+        "date": "2026-10-11",
+        "value": 32.0
+      },
+      {
+        "date": "2026-10-12",
+        "value": 32.6
+      },
+      {
+        "date": "2026-10-12",
+        "value": 31.9
+      },
+      {
+        "date": "2026-10-12",
+        "value": 28.7
+      },
+      {
+        "date": "2026-10-12",
+        "value": 31.4
+      },
+      {
+        "date": "2026-10-14",
+        "value": 22.2
       }
     ],
     "PSOE": [
       {
-        "date": "2026-09-20",
+        "date": "2026-10-05",
+        "value": 26.5
+      },
+      {
+        "date": "2026-10-05",
         "value": 25.6
       },
       {
-        "date": "2026-09-27",
-        "value": 25.3
+        "date": "2026-10-05",
+        "value": 27.4
       },
       {
-        "date": "2026-10-04",
-        "value": 26.9
+        "date": "2026-10-08",
+        "value": 25.0
+      },
+      {
+        "date": "2026-10-09",
+        "value": 28.0
+      },
+      {
+        "date": "2026-10-09",
+        "value": 26.5
+      },
+      {
+        "date": "2026-10-09",
+        "value": 28.2
+      },
+      {
+        "date": "2026-10-09",
+        "value": 28.1
       },
       {
         "date": "2026-10-11",
         "value": 26.9
+      },
+      {
+        "date": "2026-10-11",
+        "value": 25.9
+      },
+      {
+        "date": "2026-10-12",
+        "value": 26.2
+      },
+      {
+        "date": "2026-10-12",
+        "value": 25.3
+      },
+      {
+        "date": "2026-10-12",
+        "value": 26.1
+      },
+      {
+        "date": "2026-10-12",
+        "value": 26.4
+      },
+      {
+        "date": "2026-10-14",
+        "value": 34.0
       }
     ],
     "SAF": [
       {
-        "date": "2026-09-20",
+        "date": "2026-10-05",
+        "value": 2.2
+      },
+      {
+        "date": "2026-10-05",
         "value": 2.0
       },
       {
-        "date": "2026-09-27",
-        "value": 2.0
+        "date": "2026-10-09",
+        "value": 1.8
       },
       {
-        "date": "2026-10-04",
-        "value": 1.7
+        "date": "2026-10-09",
+        "value": 1.9
+      },
+      {
+        "date": "2026-10-09",
+        "value": 0.5
+      },
+      {
+        "date": "2026-10-09",
+        "value": 1.8
       },
       {
         "date": "2026-10-11",
         "value": 1.7
+      },
+      {
+        "date": "2026-10-11",
+        "value": 1.3
+      },
+      {
+        "date": "2026-10-12",
+        "value": 2.1
+      },
+      {
+        "date": "2026-10-12",
+        "value": 2.0
+      },
+      {
+        "date": "2026-10-14",
+        "value": 1.8
       }
     ],
     "SUMAR": [
       {
-        "date": "2026-09-20",
-        "value": 5.8
+        "date": "2026-10-05",
+        "value": 5.3
       },
       {
-        "date": "2026-09-27",
-        "value": 5.5
+        "date": "2026-10-05",
+        "value": 6.6
       },
       {
-        "date": "2026-10-04",
-        "value": 5.2
+        "date": "2026-10-05",
+        "value": 5.6
+      },
+      {
+        "date": "2026-10-08",
+        "value": 5.3
+      },
+      {
+        "date": "2026-10-09",
+        "value": 6.3
+      },
+      {
+        "date": "2026-10-09",
+        "value": 7.6
+      },
+      {
+        "date": "2026-10-09",
+        "value": 5.3
+      },
+      {
+        "date": "2026-10-09",
+        "value": 5.3
       },
       {
         "date": "2026-10-11",
         "value": 4.9
+      },
+      {
+        "date": "2026-10-11",
+        "value": 6.9
+      },
+      {
+        "date": "2026-10-12",
+        "value": 4.9
+      },
+      {
+        "date": "2026-10-12",
+        "value": 7.6
+      },
+      {
+        "date": "2026-10-12",
+        "value": 8.0
+      },
+      {
+        "date": "2026-10-12",
+        "value": 7.4
+      },
+      {
+        "date": "2026-10-14",
+        "value": 6.1
       }
     ],
     "VOX": [
       {
-        "date": "2026-09-20",
-        "value": 19.1
+        "date": "2026-10-05",
+        "value": 18.1
       },
       {
-        "date": "2026-09-27",
+        "date": "2026-10-05",
+        "value": 18.3
+      },
+      {
+        "date": "2026-10-05",
+        "value": 18.4
+      },
+      {
+        "date": "2026-10-08",
+        "value": 18.2
+      },
+      {
+        "date": "2026-10-09",
         "value": 18.8
       },
       {
-        "date": "2026-10-04",
-        "value": 19.4
+        "date": "2026-10-09",
+        "value": 19.0
+      },
+      {
+        "date": "2026-10-09",
+        "value": 18.2
+      },
+      {
+        "date": "2026-10-09",
+        "value": 18.9
       },
       {
         "date": "2026-10-11",
         "value": 19.1
+      },
+      {
+        "date": "2026-10-11",
+        "value": 18.7
+      },
+      {
+        "date": "2026-10-12",
+        "value": 18.8
+      },
+      {
+        "date": "2026-10-12",
+        "value": 19.1
+      },
+      {
+        "date": "2026-10-12",
+        "value": 18.9
+      },
+      {
+        "date": "2026-10-12",
+        "value": 18.2
+      },
+      {
+        "date": "2026-10-14",
+        "value": 17.1
+      }
+    ],
+    "Otros": [
+      {
+        "date": "2026-10-05",
+        "value": 11.4
+      },
+      {
+        "date": "2026-10-05",
+        "value": 13.6
+      },
+      {
+        "date": "2026-10-05",
+        "value": 12.3
+      },
+      {
+        "date": "2026-10-08",
+        "value": 13.5
+      },
+      {
+        "date": "2026-10-09",
+        "value": 9.1
+      },
+      {
+        "date": "2026-10-09",
+        "value": 12.3
+      },
+      {
+        "date": "2026-10-09",
+        "value": 12.9
+      },
+      {
+        "date": "2026-10-09",
+        "value": 11.7
+      },
+      {
+        "date": "2026-10-11",
+        "value": 11.8
+      },
+      {
+        "date": "2026-10-12",
+        "value": 12.6
+      },
+      {
+        "date": "2026-10-12",
+        "value": 13.0
+      },
+      {
+        "date": "2026-10-12",
+        "value": 13.7
+      },
+      {
+        "date": "2026-10-12",
+        "value": 14.3
+      },
+      {
+        "date": "2026-10-14",
+        "value": 9.1
       }
     ]
   },
@@ -326,6 +689,10 @@
         "value": 1.4
       },
       {
+        "date": "2026-09-23",
+        "value": 1.3
+      },
+      {
         "date": "2026-09-27",
         "value": 1.4
       },
@@ -336,6 +703,10 @@
       {
         "date": "2026-10-11",
         "value": 1.4
+      },
+      {
+        "date": "2026-10-14",
+        "value": 1.6
       }
     ],
     "ERC": [
@@ -356,6 +727,10 @@
         "value": 1.9
       },
       {
+        "date": "2026-09-23",
+        "value": 2.5
+      },
+      {
         "date": "2026-09-27",
         "value": 2.0
       },
@@ -366,6 +741,10 @@
       {
         "date": "2026-10-11",
         "value": 2.0
+      },
+      {
+        "date": "2026-10-14",
+        "value": 3.0
       }
     ],
     "JUNTS": [
@@ -386,6 +765,10 @@
         "value": 1.2
       },
       {
+        "date": "2026-09-23",
+        "value": 0.7
+      },
+      {
         "date": "2026-09-27",
         "value": 1.2
       },
@@ -395,6 +778,10 @@
       },
       {
         "date": "2026-10-11",
+        "value": 1.1
+      },
+      {
+        "date": "2026-10-14",
         "value": 1.1
       }
     ],
@@ -416,6 +803,10 @@
         "value": 1.1
       },
       {
+        "date": "2026-09-23",
+        "value": 0.7
+      },
+      {
         "date": "2026-09-27",
         "value": 1.1
       },
@@ -426,23 +817,79 @@
       {
         "date": "2026-10-11",
         "value": 1.1
+      },
+      {
+        "date": "2026-10-14",
+        "value": 0.6
       }
     ],
     "PODEMOS": [
       {
+        "date": "2026-07-23",
+        "value": 4.1
+      },
+      {
+        "date": "2026-07-27",
+        "value": 3.0
+      },
+      {
+        "date": "2026-08-10",
+        "value": 2.7
+      },
+      {
+        "date": "2026-08-10",
+        "value": 3.5
+      },
+      {
         "date": "2026-08-30",
         "value": 3.6
+      },
+      {
+        "date": "2026-08-31",
+        "value": 2.8
       },
       {
         "date": "2026-09-06",
         "value": 3.6
       },
       {
+        "date": "2026-09-07",
+        "value": 3.4
+      },
+      {
+        "date": "2026-09-07",
+        "value": 3.1
+      },
+      {
+        "date": "2026-09-07",
+        "value": 2.8
+      },
+      {
         "date": "2026-09-13",
         "value": 3.4
       },
       {
+        "date": "2026-09-13",
+        "value": 2.8
+      },
+      {
+        "date": "2026-09-13",
+        "value": 3.3
+      },
+      {
         "date": "2026-09-20",
+        "value": 3.3
+      },
+      {
+        "date": "2026-09-23",
+        "value": 3.7
+      },
+      {
+        "date": "2026-09-24",
+        "value": 3.7
+      },
+      {
+        "date": "2026-09-24",
         "value": 3.3
       },
       {
@@ -450,75 +897,379 @@
         "value": 3.8
       },
       {
+        "date": "2026-09-27",
+        "value": 3.3
+      },
+      {
+        "date": "2026-10-03",
+        "value": 3.3
+      },
+      {
         "date": "2026-10-04",
+        "value": 3.4
+      },
+      {
+        "date": "2026-10-05",
+        "value": 3.1
+      },
+      {
+        "date": "2026-10-05",
+        "value": 3.3
+      },
+      {
+        "date": "2026-10-05",
+        "value": 2.7
+      },
+      {
+        "date": "2026-10-08",
+        "value": 3.9
+      },
+      {
+        "date": "2026-10-09",
+        "value": 3.2
+      },
+      {
+        "date": "2026-10-09",
+        "value": 2.3
+      },
+      {
+        "date": "2026-10-09",
+        "value": 2.6
+      },
+      {
+        "date": "2026-10-09",
+        "value": 2.3
+      },
+      {
+        "date": "2026-10-11",
         "value": 3.4
       },
       {
         "date": "2026-10-11",
         "value": 3.4
+      },
+      {
+        "date": "2026-10-12",
+        "value": 2.8
+      },
+      {
+        "date": "2026-10-12",
+        "value": 3.1
+      },
+      {
+        "date": "2026-10-12",
+        "value": 2.6
+      },
+      {
+        "date": "2026-10-12",
+        "value": 2.3
+      },
+      {
+        "date": "2026-10-14",
+        "value": 3.1
       }
     ],
     "PP": [
       {
+        "date": "2026-07-23",
+        "value": 34.9
+      },
+      {
+        "date": "2026-07-27",
+        "value": 32.8
+      },
+      {
+        "date": "2026-08-10",
+        "value": 33.8
+      },
+      {
+        "date": "2026-08-10",
+        "value": 34.2
+      },
+      {
         "date": "2026-08-30",
         "value": 32.3
+      },
+      {
+        "date": "2026-08-31",
+        "value": 33.1
       },
       {
         "date": "2026-09-06",
         "value": 32.0
       },
       {
+        "date": "2026-09-07",
+        "value": 34.4
+      },
+      {
+        "date": "2026-09-07",
+        "value": 31.1
+      },
+      {
+        "date": "2026-09-07",
+        "value": 32.4
+      },
+      {
         "date": "2026-09-13",
         "value": 32.2
+      },
+      {
+        "date": "2026-09-13",
+        "value": 31.5
+      },
+      {
+        "date": "2026-09-13",
+        "value": 33.7
       },
       {
         "date": "2026-09-20",
         "value": 32.1
       },
       {
+        "date": "2026-09-23",
+        "value": 25.5
+      },
+      {
+        "date": "2026-09-24",
+        "value": 34.7
+      },
+      {
+        "date": "2026-09-24",
+        "value": 33.9
+      },
+      {
         "date": "2026-09-27",
         "value": 32.3
+      },
+      {
+        "date": "2026-09-27",
+        "value": 33.9
+      },
+      {
+        "date": "2026-10-03",
+        "value": 33.2
       },
       {
         "date": "2026-10-04",
         "value": 31.3
       },
       {
+        "date": "2026-10-05",
+        "value": 33.4
+      },
+      {
+        "date": "2026-10-05",
+        "value": 32.6
+      },
+      {
+        "date": "2026-10-05",
+        "value": 31.6
+      },
+      {
+        "date": "2026-10-08",
+        "value": 34.1
+      },
+      {
+        "date": "2026-10-09",
+        "value": 32.8
+      },
+      {
+        "date": "2026-10-09",
+        "value": 30.4
+      },
+      {
+        "date": "2026-10-09",
+        "value": 34.0
+      },
+      {
+        "date": "2026-10-09",
+        "value": 31.9
+      },
+      {
         "date": "2026-10-11",
         "value": 31.5
+      },
+      {
+        "date": "2026-10-11",
+        "value": 32.0
+      },
+      {
+        "date": "2026-10-12",
+        "value": 32.6
+      },
+      {
+        "date": "2026-10-12",
+        "value": 31.9
+      },
+      {
+        "date": "2026-10-12",
+        "value": 28.7
+      },
+      {
+        "date": "2026-10-12",
+        "value": 31.4
+      },
+      {
+        "date": "2026-10-14",
+        "value": 22.2
       }
     ],
     "PSOE": [
       {
+        "date": "2026-07-23",
+        "value": 27.0
+      },
+      {
+        "date": "2026-07-27",
+        "value": 26.1
+      },
+      {
+        "date": "2026-08-10",
+        "value": 26.0
+      },
+      {
+        "date": "2026-08-10",
+        "value": 25.2
+      },
+      {
         "date": "2026-08-30",
         "value": 25.7
+      },
+      {
+        "date": "2026-08-31",
+        "value": 25.4
       },
       {
         "date": "2026-09-06",
         "value": 25.6
       },
       {
+        "date": "2026-09-07",
+        "value": 24.9
+      },
+      {
+        "date": "2026-09-07",
+        "value": 26.1
+      },
+      {
+        "date": "2026-09-07",
+        "value": 27.6
+      },
+      {
         "date": "2026-09-13",
         "value": 25.4
+      },
+      {
+        "date": "2026-09-13",
+        "value": 25.6
+      },
+      {
+        "date": "2026-09-13",
+        "value": 26.8
       },
       {
         "date": "2026-09-20",
         "value": 25.6
       },
       {
+        "date": "2026-09-23",
+        "value": 31.0
+      },
+      {
+        "date": "2026-09-24",
+        "value": 26.3
+      },
+      {
+        "date": "2026-09-24",
+        "value": 25.4
+      },
+      {
         "date": "2026-09-27",
         "value": 25.3
+      },
+      {
+        "date": "2026-09-27",
+        "value": 25.7
+      },
+      {
+        "date": "2026-10-03",
+        "value": 27.5
       },
       {
         "date": "2026-10-04",
         "value": 26.9
       },
       {
+        "date": "2026-10-05",
+        "value": 26.5
+      },
+      {
+        "date": "2026-10-05",
+        "value": 25.6
+      },
+      {
+        "date": "2026-10-05",
+        "value": 27.4
+      },
+      {
+        "date": "2026-10-08",
+        "value": 25.0
+      },
+      {
+        "date": "2026-10-09",
+        "value": 28.0
+      },
+      {
+        "date": "2026-10-09",
+        "value": 26.5
+      },
+      {
+        "date": "2026-10-09",
+        "value": 28.2
+      },
+      {
+        "date": "2026-10-09",
+        "value": 28.1
+      },
+      {
         "date": "2026-10-11",
         "value": 26.9
+      },
+      {
+        "date": "2026-10-11",
+        "value": 25.9
+      },
+      {
+        "date": "2026-10-12",
+        "value": 26.2
+      },
+      {
+        "date": "2026-10-12",
+        "value": 25.3
+      },
+      {
+        "date": "2026-10-12",
+        "value": 26.1
+      },
+      {
+        "date": "2026-10-12",
+        "value": 26.4
+      },
+      {
+        "date": "2026-10-14",
+        "value": 34.0
       }
     ],
     "SAF": [
+      {
+        "date": "2026-07-23",
+        "value": 1.0
+      },
+      {
+        "date": "2026-08-10",
+        "value": 2.3
+      },
       {
         "date": "2026-08-30",
         "value": 2.0
@@ -528,11 +1279,43 @@
         "value": 1.8
       },
       {
+        "date": "2026-09-07",
+        "value": 1.5
+      },
+      {
+        "date": "2026-09-07",
+        "value": 2.2
+      },
+      {
         "date": "2026-09-13",
         "value": 2.0
       },
       {
+        "date": "2026-09-13",
+        "value": 2.5
+      },
+      {
+        "date": "2026-09-13",
+        "value": 1.8
+      },
+      {
         "date": "2026-09-20",
+        "value": 2.0
+      },
+      {
+        "date": "2026-09-23",
+        "value": 1.8
+      },
+      {
+        "date": "2026-09-24",
+        "value": 1.0
+      },
+      {
+        "date": "2026-09-24",
+        "value": 1.7
+      },
+      {
+        "date": "2026-09-27",
         "value": 2.0
       },
       {
@@ -544,106 +1327,589 @@
         "value": 1.7
       },
       {
+        "date": "2026-10-05",
+        "value": 2.2
+      },
+      {
+        "date": "2026-10-05",
+        "value": 2.0
+      },
+      {
+        "date": "2026-10-09",
+        "value": 1.8
+      },
+      {
+        "date": "2026-10-09",
+        "value": 1.9
+      },
+      {
+        "date": "2026-10-09",
+        "value": 0.5
+      },
+      {
+        "date": "2026-10-09",
+        "value": 1.8
+      },
+      {
         "date": "2026-10-11",
         "value": 1.7
+      },
+      {
+        "date": "2026-10-11",
+        "value": 1.3
+      },
+      {
+        "date": "2026-10-12",
+        "value": 2.1
+      },
+      {
+        "date": "2026-10-12",
+        "value": 2.0
+      },
+      {
+        "date": "2026-10-14",
+        "value": 1.8
       }
     ],
     "SUMAR": [
       {
+        "date": "2026-07-23",
+        "value": 3.8
+      },
+      {
+        "date": "2026-07-27",
+        "value": 7.4
+      },
+      {
+        "date": "2026-08-10",
+        "value": 5.9
+      },
+      {
+        "date": "2026-08-10",
+        "value": 5.9
+      },
+      {
         "date": "2026-08-30",
         "value": 5.3
+      },
+      {
+        "date": "2026-08-31",
+        "value": 6.6
       },
       {
         "date": "2026-09-06",
         "value": 5.6
       },
       {
+        "date": "2026-09-07",
+        "value": 5.7
+      },
+      {
+        "date": "2026-09-07",
+        "value": 7.0
+      },
+      {
+        "date": "2026-09-07",
+        "value": 5.7
+      },
+      {
         "date": "2026-09-13",
         "value": 5.8
       },
       {
+        "date": "2026-09-13",
+        "value": 6.9
+      },
+      {
+        "date": "2026-09-13",
+        "value": 6.1
+      },
+      {
         "date": "2026-09-20",
         "value": 5.8
+      },
+      {
+        "date": "2026-09-23",
+        "value": 5.7
+      },
+      {
+        "date": "2026-09-24",
+        "value": 4.5
+      },
+      {
+        "date": "2026-09-24",
+        "value": 5.1
       },
       {
         "date": "2026-09-27",
         "value": 5.5
       },
       {
+        "date": "2026-09-27",
+        "value": 5.7
+      },
+      {
+        "date": "2026-10-03",
+        "value": 7.0
+      },
+      {
         "date": "2026-10-04",
         "value": 5.2
       },
       {
+        "date": "2026-10-05",
+        "value": 5.3
+      },
+      {
+        "date": "2026-10-05",
+        "value": 6.6
+      },
+      {
+        "date": "2026-10-05",
+        "value": 5.6
+      },
+      {
+        "date": "2026-10-08",
+        "value": 5.3
+      },
+      {
+        "date": "2026-10-09",
+        "value": 6.3
+      },
+      {
+        "date": "2026-10-09",
+        "value": 7.6
+      },
+      {
+        "date": "2026-10-09",
+        "value": 5.3
+      },
+      {
+        "date": "2026-10-09",
+        "value": 5.3
+      },
+      {
         "date": "2026-10-11",
         "value": 4.9
+      },
+      {
+        "date": "2026-10-11",
+        "value": 6.9
+      },
+      {
+        "date": "2026-10-12",
+        "value": 4.9
+      },
+      {
+        "date": "2026-10-12",
+        "value": 7.6
+      },
+      {
+        "date": "2026-10-12",
+        "value": 8.0
+      },
+      {
+        "date": "2026-10-12",
+        "value": 7.4
+      },
+      {
+        "date": "2026-10-14",
+        "value": 6.1
       }
     ],
     "VOX": [
       {
+        "date": "2026-07-23",
+        "value": 16.5
+      },
+      {
+        "date": "2026-07-27",
+        "value": 17.3
+      },
+      {
+        "date": "2026-08-10",
+        "value": 17.0
+      },
+      {
+        "date": "2026-08-10",
+        "value": 18.0
+      },
+      {
         "date": "2026-08-30",
         "value": 19.0
+      },
+      {
+        "date": "2026-08-31",
+        "value": 17.9
       },
       {
         "date": "2026-09-06",
         "value": 19.2
       },
       {
+        "date": "2026-09-07",
+        "value": 18.3
+      },
+      {
+        "date": "2026-09-07",
+        "value": 19.2
+      },
+      {
+        "date": "2026-09-07",
+        "value": 17.8
+      },
+      {
         "date": "2026-09-13",
         "value": 19.2
+      },
+      {
+        "date": "2026-09-13",
+        "value": 18.9
+      },
+      {
+        "date": "2026-09-13",
+        "value": 18.6
       },
       {
         "date": "2026-09-20",
         "value": 19.1
       },
       {
+        "date": "2026-09-23",
+        "value": 16.6
+      },
+      {
+        "date": "2026-09-24",
+        "value": 17.3
+      },
+      {
+        "date": "2026-09-24",
+        "value": 17.8
+      },
+      {
         "date": "2026-09-27",
         "value": 18.8
+      },
+      {
+        "date": "2026-09-27",
+        "value": 18.0
+      },
+      {
+        "date": "2026-10-03",
+        "value": 19.2
       },
       {
         "date": "2026-10-04",
         "value": 19.4
       },
       {
+        "date": "2026-10-05",
+        "value": 18.1
+      },
+      {
+        "date": "2026-10-05",
+        "value": 18.3
+      },
+      {
+        "date": "2026-10-05",
+        "value": 18.4
+      },
+      {
+        "date": "2026-10-08",
+        "value": 18.2
+      },
+      {
+        "date": "2026-10-09",
+        "value": 18.8
+      },
+      {
+        "date": "2026-10-09",
+        "value": 19.0
+      },
+      {
+        "date": "2026-10-09",
+        "value": 18.2
+      },
+      {
+        "date": "2026-10-09",
+        "value": 18.9
+      },
+      {
         "date": "2026-10-11",
         "value": 19.1
+      },
+      {
+        "date": "2026-10-11",
+        "value": 18.7
+      },
+      {
+        "date": "2026-10-12",
+        "value": 18.8
+      },
+      {
+        "date": "2026-10-12",
+        "value": 19.1
+      },
+      {
+        "date": "2026-10-12",
+        "value": 18.9
+      },
+      {
+        "date": "2026-10-12",
+        "value": 18.2
+      },
+      {
+        "date": "2026-10-14",
+        "value": 17.1
+      }
+    ],
+    "Otros": [
+      {
+        "date": "2026-07-23",
+        "value": 12.7
+      },
+      {
+        "date": "2026-07-27",
+        "value": 13.4
+      },
+      {
+        "date": "2026-08-10",
+        "value": 12.3
+      },
+      {
+        "date": "2026-08-10",
+        "value": 13.2
+      },
+      {
+        "date": "2026-08-31",
+        "value": 14.2
+      },
+      {
+        "date": "2026-09-07",
+        "value": 13.3
+      },
+      {
+        "date": "2026-09-07",
+        "value": 12.0
+      },
+      {
+        "date": "2026-09-07",
+        "value": 11.5
+      },
+      {
+        "date": "2026-09-13",
+        "value": 11.8
+      },
+      {
+        "date": "2026-09-13",
+        "value": 9.7
+      },
+      {
+        "date": "2026-09-23",
+        "value": 9.6
+      },
+      {
+        "date": "2026-09-24",
+        "value": 12.5
+      },
+      {
+        "date": "2026-09-24",
+        "value": 12.8
+      },
+      {
+        "date": "2026-09-27",
+        "value": 11.4
+      },
+      {
+        "date": "2026-10-03",
+        "value": 9.8
+      },
+      {
+        "date": "2026-10-05",
+        "value": 11.4
+      },
+      {
+        "date": "2026-10-05",
+        "value": 13.6
+      },
+      {
+        "date": "2026-10-05",
+        "value": 12.3
+      },
+      {
+        "date": "2026-10-08",
+        "value": 13.5
+      },
+      {
+        "date": "2026-10-09",
+        "value": 9.1
+      },
+      {
+        "date": "2026-10-09",
+        "value": 12.3
+      },
+      {
+        "date": "2026-10-09",
+        "value": 12.9
+      },
+      {
+        "date": "2026-10-09",
+        "value": 11.7
+      },
+      {
+        "date": "2026-10-11",
+        "value": 11.8
+      },
+      {
+        "date": "2026-10-12",
+        "value": 12.6
+      },
+      {
+        "date": "2026-10-12",
+        "value": 13.0
+      },
+      {
+        "date": "2026-10-12",
+        "value": 13.7
+      },
+      {
+        "date": "2026-10-12",
+        "value": 14.3
+      },
+      {
+        "date": "2026-10-14",
+        "value": 9.1
       }
     ]
   },
   "poll_dates": [
-    "2026-09-20",
-    "2026-09-27",
-    "2026-10-04",
-    "2026-10-11"
+    "2026-10-05",
+    "2026-10-08",
+    "2026-10-09",
+    "2026-10-11",
+    "2026-10-12",
+    "2026-10-14"
   ],
-  "n_polls": 4,
+  "n_polls": 15,
   "low_n": false,
-  "window_extended": true,
-  "window_span": "2026-09-20 – 2026-10-11",
+  "window_extended": false,
+  "window_span": "2026-10-05 – 2026-10-14",
   "sources": [
     "https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/",
-    "https://electomania.es/electopanel-20-sep-adelanto-movimientos-en-el-gobierno-y-sus-socios/",
-    "https://electomania.es/electopanel-27-sep-adelanto-la-crisis-de-la-vivienda-sacude-la-izquierda/",
-    "https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/"
+    "https://www.cis.es/documents/d/guest/3582_estimacion-pdf",
+    "https://www.ondacero.es/elecciones/generales/encuestas/"
   ],
-  "last_poll_date": "2026-10-11",
+  "last_poll_date": "2026-10-14",
   "health": {
-    "status": "warn",
-    "n_polls": 4,
-    "n_pollsters": 1,
+    "status": "ok",
+    "n_polls": 15,
+    "n_pollsters": 12,
     "pollsters": [
-      "ElectoPanel"
+      "40dB",
+      "CIS",
+      "DYM",
+      "ElectoPanel",
+      "GAD3",
+      "GESOP",
+      "IMOP Insights",
+      "Invymark",
+      "NC Report",
+      "Sigma Dos",
+      "Sociométrica",
+      "Target Point"
     ],
-    "days_since_last": 7,
-    "reasons": [
-      "una sola encuestadora"
+    "days_since_last": 4,
+    "reasons": []
+  },
+  "house_mean": {
+    "window_days": 45,
+    "n_houses": 14,
+    "parties": [
+      {
+        "party": "PP",
+        "mean": 31.47,
+        "min": 22.2,
+        "max": 34.1,
+        "n_houses": 14
+      },
+      {
+        "party": "PSOE",
+        "mean": 27.11,
+        "min": 25.0,
+        "max": 34.0,
+        "n_houses": 14
+      },
+      {
+        "party": "VOX",
+        "mean": 18.57,
+        "min": 17.1,
+        "max": 19.2,
+        "n_houses": 14
+      },
+      {
+        "party": "Otros",
+        "mean": 12.05,
+        "min": 9.1,
+        "max": 14.3,
+        "n_houses": 13
+      },
+      {
+        "party": "SUMAR",
+        "mean": 6.26,
+        "min": 4.9,
+        "max": 8.0,
+        "n_houses": 14
+      },
+      {
+        "party": "PODEMOS",
+        "mean": 2.97,
+        "min": 2.3,
+        "max": 3.9,
+        "n_houses": 14
+      },
+      {
+        "party": "ERC",
+        "mean": 2.5,
+        "min": 2.0,
+        "max": 3.0,
+        "n_houses": 2
+      },
+      {
+        "party": "SAF",
+        "mean": 1.66,
+        "min": 0.5,
+        "max": 2.1,
+        "n_houses": 10
+      },
+      {
+        "party": "BILDU",
+        "mean": 1.5,
+        "min": 1.4,
+        "max": 1.6,
+        "n_houses": 2
+      },
+      {
+        "party": "JUNTS",
+        "mean": 1.1,
+        "min": 1.1,
+        "max": 1.1,
+        "n_houses": 2
+      },
+      {
+        "party": "PNV",
+        "mean": 0.85,
+        "min": 0.6,
+        "max": 1.1,
+        "n_houses": 2
+      }
     ]
   },
   "days_to_election": 41,
   "days_to_blackout": 36,
-  "gap_pp_psoe": 4.85,
-  "bloc_right": 50.72,
-  "bloc_left": 35.24,
-  "weight_basis": "muestra (√n) + recencia (vida media 10 d)",
+  "gap_pp_psoe": 2.46,
+  "bloc_right": 48.71,
+  "bloc_left": 36.97,
+  "weight_basis": "recencia (vida media 10 d); √n cuando la fuente declara muestra",
   "excluded_averages": [
     "ElectoPromedio"
   ]

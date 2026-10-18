@@ -1,6 +1,6 @@
 encuestadora,medio,url,frecuencia,estado,notas
 Electomania,Electomania,https://electomania.es/,diario/semanal,automatico,ElectoPanel; API WordPress
-CIS,CIS,https://www.cis.es/,mensual,pendiente,Barometros; PDFs/XLSX
+CIS,CIS,https://www.cis.es/,mensual,manual,Barometros; PDF; sep-2026 n=4042 y oct-2026 n=5025
 40dB,El Pais / 40dB,https://40db.es/,semanal,manual,
 GAD3,ABC / La Vanguardia,https://www.gad3.com/,semanal,manual,
 Sigma Dos,El Mundo,https://www.sigmados.com/,semanal,manual,
@@ -14,3 +14,11 @@ Celeste-Tel,elDiario.es,https://www.celeste-tel.es/,periodica,pendiente,
 Hamalgama Metrica,OKDiario,https://www.hamalgametrica.com/,periodica,pendiente,
 KeyData,KeyData,https://www.keydata.es/,ocasional,pendiente,
 Metroscopia,El Pais (historico),https://metroscopia.org/,historico,descartado,Sin serie actual
+Onda Cero (compilacion),Onda Cero,https://www.ondacero.es/elecciones/generales/encuestas/,diario,automatico,94 sondeos de 14 casas; fecha de publicacion
+Target Point,El Debate,https://www.targetpoint.es/,periodica,manual,
+Invymark,La Sexta,https://www.invymark.es/,periodica,manual,
+GESOP,El Periodico / Prensa Iberica,https://www.gesop.net/,periodica,manual,
+Ateneo del Dato,El Diario,https://ateneodeldato.es/,periodica,manual,
+IMOP Insights,El Confidencial,https://www.imop.es/,periodica,manual,
+Opina 360,Antena 3,https://www.opina360.es/,ocasional,manual,
+Politica Sin Ruido,contraste,https://politicasinruido.com/encuestas,diario,contraste,4 casas; una por casa; metadatos campo/muestra; no se usa en la media
