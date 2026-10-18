@@ -187,3 +187,25 @@ bash /home/miguelc/Desktop/demo/cf_purge.sh pruebapublica
 - `sudo loginctl enable-linger miguelc` (requiere contraseña; el timer corre con sesión).
 - GSC: verificar cobertura (4+ URLs indexadas en 72 h).
 - Congreso por provincias: aplazado (sin fuente provincial fiable).
+
+---
+
+## Blindaje contra el fallo silencioso (gráfico vacío)
+
+**Causa raíz (18-oct):** el gráfico se construía con la serie de 14 días; al
+desplazarse la ventana quedó con un solo sondeo y `build_chart` devolvía `""`.
+El build no lo detectaba y publicaba una página sin gráfico.
+
+**Medidas permanentes**
+
+1. **El gráfico nunca devuelve vacío**: con 0 puntos muestra «Sin datos
+   suficientes»; con 1 punto dibuja el punto y la fecha.
+2. **Staging + validación**: `run_daily.sh` construye en `web_tmp/` y ejecuta
+   `scripts/validate_site.py` (gráfico con puntos, pestañas, JSON, sitemap, OG,
+   RSS). Si falla, **no se publica** y se conserva `web/`.
+3. **Swap atómico** con `web_prev/` para revertir a mano en un comando.
+4. **Canario en vivo** (`scripts/canary_live.py`) tras cada despliegue:
+   comprueba en la URL pública el gráfico, `latest.json` y `og.png`; si falla,
+   `notify-send` y marca `~/.config/elecciones29n/last_error`.
+5. **Tests**: 1 punto, 0 puntos, validador acepta el sitio actual y rechaza uno
+   sin gráfico (18 pruebas en total).

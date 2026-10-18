@@ -4,9 +4,15 @@ from gen.build import build_chart, simulate_congress
 
 
 class BuildTest(unittest.TestCase):
-    def test_chart_needs_two_points(self):
+    def test_chart_with_one_point_renders(self):
         parties = [{"party": "PP", "mean": 30}]
-        self.assertEqual(build_chart({"PP": [{"date": "2026-10-11", "value": 30}]}, parties), "")
+        svg = build_chart({"PP": [{"date": "2026-10-11", "value": 30}]}, parties)
+        self.assertIn("<svg", svg)
+        self.assertIn("<circle", svg)
+
+    def test_chart_without_points_has_placeholder(self):
+        svg = build_chart({}, [])
+        self.assertIn("Sin datos suficientes", svg)
 
     def test_chart_renders(self):
         parties = [{"party": "PP", "mean": 30}, {"party": "PSOE", "mean": 27}]

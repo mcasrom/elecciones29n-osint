@@ -103,9 +103,9 @@ def _empty(now: datetime, in_blackout: bool) -> Dict[str, Any]:
     }
 
 
-def aggregate() -> Dict[str, Any]:
+def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
     now = datetime.now(TZ)
-    latest_path = "web/data/latest.json"
+    latest_path = os.path.join(out_dir, "latest.json")
 
     if blackout.is_blackout(now):
         if os.path.exists(latest_path):
@@ -205,8 +205,13 @@ def aggregate() -> Dict[str, Any]:
 
 
 if __name__ == "__main__":
-    res = aggregate()
-    os.makedirs("web/data", exist_ok=True)
-    with open("web/data/latest.json", "w", encoding="utf-8") as f:
+    import argparse
+
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--out", default="web/data")
+    a = ap.parse_args()
+    res = aggregate(a.out)
+    os.makedirs(a.out, exist_ok=True)
+    with open(os.path.join(a.out, "latest.json"), "w", encoding="utf-8") as f:
         json.dump(res, f, ensure_ascii=False, indent=2)
     print("agg ok", res["updated_at"], "| n_polls", res.get("n_polls"))

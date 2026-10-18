@@ -9,7 +9,7 @@ import sys
 from PIL import Image, ImageDraw, ImageFont
 
 
-OUT = "web/og.png"
+OUT = "web/og.png"  # se puede cambiar con --out
 BG = (15, 16, 38)
 FG = (231, 231, 234)
 MUTED = (185, 185, 195)
@@ -29,9 +29,11 @@ def find_font(size: int, bold: bool = False):
 
 
 def main() -> int:
+    global OUT
     data = {"parties": [], "updated_at": ""}
-    if os.path.exists("web/data/latest.json"):
-        with open("web/data/latest.json", encoding="utf-8") as f:
+    latest_src = os.path.join(os.path.dirname(OUT), "data/latest.json")
+    if os.path.exists(latest_src):
+        with open(latest_src, encoding="utf-8") as f:
             data = json.load(f)
 
     img = Image.new("RGB", (1200, 630), BG)
@@ -67,11 +69,17 @@ def main() -> int:
     d.text((56, 552), "Datos abiertos · AGPL-3.0 · Miguel Castillo", font=find_font(20), fill=MUTED)
     d.text((760, 552), "elecciones29n.pruebapublica.com", font=find_font(20), fill=OK)
 
-    os.makedirs("web", exist_ok=True)
+    os.makedirs(os.path.dirname(OUT) or ".", exist_ok=True)
     img.save(OUT, optimize=True)
     print("og ok", OUT)
     return 0
 
 
 if __name__ == "__main__":
+    import argparse
+
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--out", default="web/og.png")
+    a = ap.parse_args()
+    OUT = a.out
     sys.exit(main())

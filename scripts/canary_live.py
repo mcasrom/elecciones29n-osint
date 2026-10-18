@@ -1,0 +1,77 @@
+#!/usr/bin/env python3
+"""Canario del sitio publicado: comprueba que el gráfico y los metadatos
+esenciales están en vivo. Si falla, avisa (el build local puede estar bien
+pero el despliegue no)."""
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+import time
+import urllib.request
+
+UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+BASE = "https://elecciones29n.pruebapublica.com"
+
+
+def get(url: str, tries: int = 3) -> tuple[int, str]:
+    last = (0, "")
+    for i in range(tries):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": UA, "Cache-Control": "no-cache"})
+            with urllib.request.urlopen(req, timeout=25) as r:
+                return r.status, r.read().decode("utf-8", "ignore")
+        except Exception as e:
+            last = (0, str(e))
+            time.sleep(3)
+    return last
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--base", default=BASE)
+    a = ap.parse_args()
+    base = a.base.rstrip("/")
+    errors = []
+
+    code, html = get(base + "/?canary=1")
+    if code != 200:
+        errors.append(f"home HTTP {code} ({html[:120]})")
+    else:
+        if 'class="chart"' not in html:
+            errors.append("home sin gráfico")
+        elif html.count("<circle") < 1:
+            errors.append("gráfico sin puntos")
+        if 'id="tab-evolucion"' not in html:
+            errors.append("sin pestaña Evolución")
+        if 'property="og:image"' not in html:
+            errors.append("sin og:image")
+
+    code, raw = get(base + "/data/latest.json?canary=1")
+    if code != 200:
+        errors.append(f"latest.json HTTP {code}")
+    else:
+        try:
+            d = json.loads(raw)
+            if not d.get("parties"):
+                errors.append("latest.json sin partidos")
+            if not d.get("series_long"):
+                errors.append("latest.json sin series_long")
+        except Exception as e:
+            errors.append(f"latest.json inválido: {e}")
+
+    code, _ = get(base + "/og.png?canary=1")
+    if code != 200:
+        errors.append(f"og.png HTTP {code}")
+
+    if errors:
+        print("CANARIO FALLIDO:")
+        for e in errors:
+            print(" -", e)
+        return 1
+    print("canario OK · gráfico y metadatos en vivo")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

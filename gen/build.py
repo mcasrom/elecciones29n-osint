@@ -11,6 +11,7 @@ from agg import blackout
 
 
 TZ = pytz.timezone("Europe/Madrid")
+OUT = "web"
 SITE_URL = "https://elecciones29n.pruebapublica.com"
 SITE_NAME = "elecciones29n-osint"
 SITE_TITLE = "Sondeos elecciones generales 29N 2026"
@@ -31,9 +32,9 @@ PAGES = [
 
 
 def ensure_dirs() -> None:
-    os.makedirs("web/css", exist_ok=True)
-    os.makedirs("web/js", exist_ok=True)
-    os.makedirs("web/data", exist_ok=True)
+    os.makedirs(os.path.join(OUT, "css"), exist_ok=True)
+    os.makedirs(os.path.join(OUT, "js"), exist_ok=True)
+    os.makedirs(os.path.join(OUT, "data"), exist_ok=True)
 
 
 def write_css() -> None:
@@ -195,12 +196,12 @@ summary::-webkit-details-marker{display:none}
   .seatrow{grid-template-columns:76px 1fr 40px}
 }
 """
-    with open("web/css/main.css", "w", encoding="utf-8") as f:
+    with open(os.path.join(OUT, "css/main.css"), "w", encoding="utf-8") as f:
         f.write(css)
 
 
 def write_js() -> None:
-    with open("web/js/charts.js", "w", encoding="utf-8") as f:
+    with open(os.path.join(OUT, "js/charts.js"), "w", encoding="utf-8") as f:
         f.write("/* charts inline; no external deps */\n")
 
 
@@ -253,7 +254,7 @@ def write_cambios() -> None:
         + ("\n" + "\n".join(items) if items else "")
         + "\n</channel></rss>\n"
     )
-    with open("web/cambios.xml", "w", encoding="utf-8") as f:
+    with open(os.path.join(OUT, "cambios.xml"), "w", encoding="utf-8") as f:
         f.write(xml)
 
 
@@ -263,7 +264,7 @@ def write_robots() -> None:
         "Allow: /\n"
         f"\nSitemap: {SITE_URL}/sitemap.xml\n"
     )
-    with open("web/robots.txt", "w", encoding="utf-8") as f:
+    with open(os.path.join(OUT, "robots.txt"), "w", encoding="utf-8") as f:
         f.write(robots)
 
 
@@ -285,12 +286,12 @@ def write_sitemap(today: str) -> None:
         + "\n".join(rows)
         + "\n</urlset>\n"
     )
-    with open("web/sitemap.xml", "w", encoding="utf-8") as f:
+    with open(os.path.join(OUT, "sitemap.xml"), "w", encoding="utf-8") as f:
         f.write(xml)
 
 
 def write_indexnow_key() -> None:
-    with open(f"web/{INDEXNOW_KEY}.txt", "w", encoding="utf-8") as f:
+    with open(os.path.join(OUT, f"{INDEXNOW_KEY}.txt"), "w", encoding="utf-8") as f:
         f.write(INDEXNOW_KEY)
 
 
@@ -324,7 +325,7 @@ def write_llms() -> None:
 Miguel Castillo. {SITE_NAME}: media agregada de sondeos, elecciones
 generales 29N 2026. {SITE_URL}
 """
-    with open("web/llms.txt", "w", encoding="utf-8") as f:
+    with open(os.path.join(OUT, "llms.txt"), "w", encoding="utf-8") as f:
         f.write(txt)
 
 
@@ -337,7 +338,7 @@ def write_favicon() -> None:
         '<rect x="44" y="12" width="10" height="42" rx="2" fill="#8ec5ff"/>'
         "</svg>"
     )
-    with open("web/favicon.svg", "w", encoding="utf-8") as f:
+    with open(os.path.join(OUT, "favicon.svg"), "w", encoding="utf-8") as f:
         f.write(svg)
 
 
@@ -366,7 +367,7 @@ def build_sparklines(series: dict, parties: list) -> str:
     panels = []
     for party in order:
         pts = series.get(party, [])
-        if len(pts) < 2:
+        if not pts:
             continue
         W, H, pad = 300, 110, 12
         vals = [p["value"] for p in pts]
@@ -384,12 +385,14 @@ def build_sparklines(series: dict, parties: list) -> str:
 
         coords = [(X(i), Y(p["value"])) for i, p in enumerate(pts)]
         color = CHART_COLORS[order.index(party) % len(CHART_COLORS)]
+        if len(pts) == 1:
+            coords = [(W / 2, Y(pts[0]["value"]))]
         lo_pts, hi_pts = [], []
         for i in range(len(pts)):
             win = vals[max(0, i - 1):i + 2]
             lo_pts.append((X(i), Y(min(win))))
             hi_pts.append((X(i), Y(max(win))))
-        band = _band(lo_pts, hi_pts)
+        band = _band(lo_pts, hi_pts) if len(pts) >= 2 else ""
         d = "M " + " L ".join(f"{cx:.1f},{cy:.1f}" for cx, cy in coords)
         delta = vals[-1] - vals[0]
         cls = "up" if delta > 0.05 else ("down" if delta < -0.05 else "flat")
@@ -487,15 +490,24 @@ def chart_legend(parties: list) -> list:
     ]
 
 
+def _empty_chart() -> str:
+    return (
+        '<svg class="chart" viewBox="0 0 760 320" role="img" '
+        'aria-label="Sin datos suficientes"><text x="380" y="160" '
+        'text-anchor="middle" fill="var(--muted)" font-size="14">'
+        "Sin datos suficientes para dibujar la serie</text></svg>"
+    )
+
+
 def build_chart(series: dict, parties: list) -> str:
     if not series or not parties:
-        return ""
+        return _empty_chart()
 
     order = [p["party"] for p in parties][:6]
     colors = CHART_COLORS
     dates = sorted({d["date"] for vals in series.values() for d in vals})
-    if len(dates) < 2:
-        return ""
+    if not dates:
+        return _empty_chart()
 
     W, H = 760, 320
     pad_l, pad_r, pad_t, pad_b = 52, 18, 20, 40
@@ -506,7 +518,9 @@ def build_chart(series: dict, parties: list) -> str:
     vmax = max(vals_all) + 2
 
     def x(i: int) -> float:
-        return pad_l + (iw * i / max(1, len(dates) - 1))
+        if len(dates) == 1:
+            return pad_l + iw / 2
+        return pad_l + (iw * i / (len(dates) - 1))
 
     def y(v: float) -> float:
         return pad_t + ih * (1 - (v - vmin) / (vmax - vmin))
@@ -543,7 +557,9 @@ def build_chart(series: dict, parties: list) -> str:
     return "".join(parts)
 
 
-def main() -> None:
+def main(out: str = "web") -> None:
+    global OUT
+    OUT = out
     ensure_dirs()
     write_css()
     write_js()
@@ -559,8 +575,8 @@ def main() -> None:
     )
 
     latest = {"parties": []}
-    if os.path.exists("web/data/latest.json"):
-        with open("web/data/latest.json", encoding="utf-8") as f:
+    if os.path.exists(os.path.join(OUT, "data/latest.json")):
+        with open(os.path.join(OUT, "data/latest.json"), encoding="utf-8") as f:
             latest = json.load(f)
 
     now = datetime.now(TZ)
@@ -637,17 +653,22 @@ def main() -> None:
     for tname in ["index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(**context)
-        with open(os.path.join("web", tname), "w", encoding="utf-8") as f:
+        with open(os.path.join(OUT, tname), "w", encoding="utf-8") as f:
             f.write(html)
 
     write_sitemap(today)
 
-    if not os.path.exists("web/data/latest.json"):
-        with open("web/data/latest.json", "w", encoding="utf-8") as f:
+    if not os.path.exists(os.path.join(OUT, "data/latest.json")):
+        with open(os.path.join(OUT, "data/latest.json"), "w", encoding="utf-8") as f:
             json.dump(context, f, ensure_ascii=False, indent=2)
 
     print("build ok", now)
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--out", default="web")
+    a = ap.parse_args()
+    main(a.out)

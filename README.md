@@ -45,6 +45,11 @@ scripts/indexnow_push.py → IndexNow (Bing/Yandex)
 scripts/rsync_push.sh  →  deploy@<server>:/var/www/elecciones29n/
 ```
 
+`run_daily.sh` construye en `web_tmp/`, ejecuta `scripts/validate_site.py` y solo
+entonces hace el swap a `web/` (guardando `web_prev/`). Si la validación falla no
+se publica nada. Tras el despliegue, `scripts/canary_live.py` verifica en la URL
+pública que el gráfico, el JSON y la OG están presentes.
+
 - **Local-first**: la ingesta y el build corren en el portátil (16 GB, CPU modesto). El servidor solo sirve estático con nginx (cero cron, cero backend).
 - **Fail-safe**: si la ingesta falla o los datos no pasan validación, no se actualiza nada y se conserva el último resultado válido.
 
