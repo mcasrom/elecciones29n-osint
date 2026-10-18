@@ -67,6 +67,13 @@ No es un pronóstico, no estima intención de voto individual y no anticipa el r
 - `/apoyo.html`: Ko-fi, compartir y colaboración; qué financia y qué no cambia.
 - `/sobre-mi.html`: autor, principios de trabajo, proyectos y contacto.
 
+## Noche electoral 29N
+
+- Página `/noche-electoral.html`: qué se publica y cuándo, qué no se publica y cómo se valida.
+- Estado previo explícito: **sin datos electorales hasta después de la jornada**.
+- Fuentes: Ministerio del Interior y JEC. No se usan sondeos a pie de urna como resultados.
+- El módulo de resultados se activará con datos oficiales validados (participación, escrutinio).
+
 ## Datos
 
 - Fuente de sondeos: **Electomania** (ElectoPanel) vía WordPress REST API, con paginación y backfill.

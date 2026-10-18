@@ -119,6 +119,11 @@ da edad/sexo. El gráfico debe decirlo.
 - Nuevas `/apoyo.html` (Ko-fi, compartir, colaboración) y `/sobre-mi.html` (autor, principios, proyectos, contacto).
 - Subnavegación en la portada y footer; sitemap 10 URLs.
 
+## Noche electoral (preparación) — ✅ HECHO 18-oct (`6f8d8b8`)
+
+- Página `/noche-electoral.html`: calendario de publicación, qué no se publica, validación y estado previo.
+- Integrada en nav, subnav, sitemap (11 URLs), validador y canario.
+
 ## Orden de ejecución
 
 1. **M1 censo** (datos listos, bajo riesgo) → enlazar desde la portada.
