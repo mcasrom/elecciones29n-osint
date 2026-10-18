@@ -863,6 +863,79 @@ def write_participacion_data(data: dict) -> None:
             w.writerow([r["eleccion"], r["year"], r["participacion"], r["fuente_url"]])
 
 
+def build_webpage_jsonld(name: str, path: str, desc: str) -> str:
+    data = {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": name,
+        "url": SITE_URL + path,
+        "description": desc,
+        "inLanguage": "es-ES",
+    }
+    return json.dumps(data, ensure_ascii=False)
+
+
+def _dataset(name: str, path: str, desc: str, distributions: list, temporal: str, source: str, spatial: str = "ES") -> str:
+    data = {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": name,
+        "url": SITE_URL + path,
+        "description": desc,
+        "creator": {"@type": "Person", "name": "Miguel Castillo", "url": SITE_URL},
+        "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+        "isAccessibleForFree": True,
+        "dateModified": datetime.now(TZ).isoformat(),
+        "temporalCoverage": temporal,
+        "spatialCoverage": spatial,
+        "sourceOrganization": {"@type": "Organization", "name": source},
+        "distribution": [
+            {"@type": "DataDownload", "contentUrl": SITE_URL + u, "encodingFormat": fmt}
+            for u, fmt in distributions
+        ],
+    }
+    return json.dumps(data, ensure_ascii=False)
+
+
+def build_participacion_jsonld() -> str:
+    return _dataset(
+        "Participación en las elecciones generales 1979–2023", "/participacion.html",
+        "Serie nacional y provincial de participación sobre censo, con enlace a la JEC.",
+        [("/data/participacion.json", "application/json"), ("/data/participacion.csv", "text/csv"),
+         ("/data/participacion-provincial.json", "application/json")],
+        "1979/2023", "Junta Electoral Central",
+    )
+
+
+def build_territorio_jsonld() -> str:
+    return _dataset(
+        "Escaños por provincia y votos↔escaños 2023", "/territorio.html",
+        "Asignación oficial de escaños por circunscripción, electores por escaño y resultados de 2023.",
+        [("/data/escanos-2026.json", "application/json"), ("/data/escanos-2026.csv", "text/csv"),
+         ("/data/resultados-2023.json", "application/json"), ("/data/resultados-2023.csv", "text/csv")],
+        "2023/2026", "BOE y Ministerio del Interior",
+    )
+
+
+def build_factores_jsonld() -> str:
+    return _dataset(
+        "M5 · Meteorología y participación", "/factores.html",
+        "Panel provincia × elección con participación del Interior y meteorología de AEMET; asociación observacional, no causal.",
+        [("/data/m5-results.json", "application/json"), ("/data/meteo-electoral.json", "application/json"),
+         ("/data/meteo-electoral.csv", "text/csv")],
+        "1977/2023", "AEMET y Ministerio del Interior",
+    )
+
+
+def build_m4_jsonld() -> str:
+    return _dataset(
+        "CIS 3582 · Voto declarado en 2023 por grupos", "/comportamiento.html",
+        "Recuerdo de voto en 2023 por edad, sexo e ideología, con muestra por celda y celdas n<30 suprimidas.",
+        [("/data/cis-m4-2026.json", "application/json"), ("/data/cis-m4-2023.csv", "text/csv")],
+        "2023/2026", "Centro de Investigaciones Sociológicas (CIS)",
+    )
+
+
 def build_person_jsonld() -> str:
     data = {
         "@context": "https://schema.org",
@@ -1227,6 +1300,18 @@ def main(out: str = "web") -> None:
         "prov_part": prov_part,
         "m5": m5,
         "m4": m4,
+        "part_jsonld": build_participacion_jsonld(),
+        "territorio_jsonld": build_territorio_jsonld(),
+        "factores_jsonld": build_factores_jsonld(),
+        "m4_jsonld": build_m4_jsonld(),
+        "noche_jsonld": build_webpage_jsonld("Noche electoral 29N", "/noche-electoral.html", "Qué se publica, cuándo y con qué fuente."),
+        "webpages": {
+            "metodologia.html": build_webpage_jsonld("Metodología", "/metodologia.html", "Método de sondeos, censo, participación, territorio y M5."),
+            "fuentes.html": build_webpage_jsonld("Fuentes y datos abiertos", "/fuentes.html", "Fuentes, catálogo de datos y licencias."),
+            "caveat.html": build_webpage_jsonld("Qué no dice este sitio", "/caveat.html", "Límites y no-objetivos del observatorio."),
+            "apoyo.html": build_webpage_jsonld("Apoyar el proyecto", "/apoyo.html", "Ko-fi, compartir y colaboración."),
+            "about.html": build_webpage_jsonld("Acerca del proyecto", "/about.html", "Proyecto local-first, estático y sin tracking."),
+        },
         "meteo_rows": build_meteo_rows(meteo),
         "congreso_2023": congreso.get("elecciones", {}).get("2023-07-23", {}),
         "resultados_2023_rows": build_resultados_2023(

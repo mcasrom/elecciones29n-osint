@@ -26,7 +26,7 @@ REQUIRED = [
     "territorio.html", "data/escanos-2026.json", "data/escanos-2026.csv",
     "apoyo.html", "sobre-mi.html", "noche-electoral.html",
     "manifest.webmanifest", "sw.js", "icons/icon-192.png", "icons/icon-512.png",
-    "factores.html", "comportamiento.html", "version.json",
+    "factores.html", "comportamiento.html", "version.json", "favicon.ico",
     "data/participacion-provincial.json", "data/resultados-2023.csv",
     "data/m5-results.json", "data/cis-m4-2026.json", "data/cis-m4-2023.csv",
     "data/meteo-electoral.json", "data/meteo-electoral.csv", "data/meteo-electoral-provincias.csv",
@@ -231,6 +231,18 @@ def main() -> int:
             errors.append("comportamiento.html sin tablas M4")
         if "Módulo en preparación" in ch:
             errors.append("comportamiento.html sigue en diseño")
+
+    for page, needle in (
+        ("participacion.html", "Participación en las elecciones generales"),
+        ("territorio.html", "Escaños por provincia"),
+        ("factores.html", "M5 · Meteorología"),
+        ("comportamiento.html", "CIS 3582"),
+    ):
+        pp = os.path.join(d, page)
+        if os.path.exists(pp):
+            ph = open(pp, encoding="utf-8", errors="ignore").read()
+            if needle not in ph:
+                errors.append(f"{page} sin JSON-LD esperado ({needle})")
 
     sm = os.path.join(d, "sitemap.xml")
     if os.path.exists(sm):

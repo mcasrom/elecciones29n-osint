@@ -1,6 +1,7 @@
 {% set page_title = "Comportamiento por grupos · voto declarado en 2023" %}
 {% set page_desc = "Voto declarado en las elecciones de 2023 por edad, sexo e ideología, con muestra por celda, base de votantes y celdas pequeñas suprimidas. Fuente: CIS 3582." %}
 {% set canonical = site_url ~ "/comportamiento.html" %}
+{% set jsonld = m4_jsonld %}
 {% macro cell(v) -%}
   {%- if v.suppressed -%}<span class="muted" title="n&lt;30">—</span>{%- else -%}{{ fmt_pct(v.pct) }}%<br><small class="muted">n={{ fmt_miles(v.n) }}</small>{%- endif -%}
 {%- endmacro %}

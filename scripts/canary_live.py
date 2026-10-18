@@ -101,7 +101,7 @@ def main() -> int:
     elif '"version"' not in vj:
         errors.append("version.json sin version")
 
-    for p in ("/manifest.webmanifest", "/sw.js"):
+    for p in ("/favicon.ico", "/manifest.webmanifest", "/sw.js"):
         code, _ = get(base + p + "?canary=1")
         if code != 200:
             errors.append(f"{p} HTTP {code}")

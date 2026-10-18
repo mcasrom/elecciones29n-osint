@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.8.3 — 2026-10-18
+
+- **SEO**: JSON-LD por página (`Dataset` en participación, territorio, M5 y M4; `WebPage` en método/fuentes/límites/apoyo/acerca) en vez del Dataset de sondeos en todas.
+- **`favicon.ico`** (Googlebot-Image pedía `/favicon.ico` y daba 404).
+- Validador: comprueba JSON-LD por página y `favicon.ico`; canario incluye favicon.
+- Auditoría de sitemap/indexado: 13 URLs, todas 200 con Googlebot; Googlebot/Bingbot/Applebot rastrean. Nuevas páginas pendientes de recrawl/GSC.
+
 ## 0.8.2 — 2026-10-18
 
 - **Anexo de transparencia meteorológico** en `/factores.html`: tabla nacional por elección (16 filas) en un `<details>` colapsable, con descarga JSON/CSV nacional y CSV provincial. Sin mapa ni cambios en la portada.
