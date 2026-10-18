@@ -101,6 +101,12 @@ da edad/sexo. El gráfico debe decirlo.
 - Prohibido cruzar cuotas del censo con porcentajes de voto.
 - **Aceptación**: cada estimación tiene fuente y n; ninguna conclusión causal.
 
+## Factores y participación — ✅ PÁGINA DE MÉTODO 18-oct
+
+- `/factores.html`: describe la serie con **fecha y día de la semana** (13 domingos y **2 jueves**: 1979 y 1982), y explica por qué el día/festivo no permite atribución causal.
+- **Meteorología**: hipótesis + datos necesarios (participación provincial + AEMET OpenData con clave); bloqueo principal: participación provincial (MIR inaccesible). Sin dashboard ni correlaciones inventadas.
+- Contacto del proyecto: **info.elecciones29n@pruebapublica.com** (alias de recepción, Cloudflare Email Routing).
+
 ## M5 · Meteorología y participación (P2, investigación)
 
 **Pregunta**: ¿la lluvia/frío se asocian con cambios de participación?

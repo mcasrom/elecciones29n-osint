@@ -13,6 +13,15 @@ PAGE = "Elecciones generales de España"
 UA = "elecciones29n-osint/1.0 (https://elecciones29n.pruebapublica.com; contacto: mcasrom@gmail.com)"
 OUT = "data/participacion.json"
 
+FECHAS = {
+    "1979": "1979-03-01", "1982": "1982-10-28", "1986": "1986-06-22",
+    "1989": "1989-10-29", "1993": "1993-06-06", "1996": "1996-03-03",
+    "2000": "2000-03-12", "2004": "2004-03-14", "2008": "2008-03-09",
+    "2011": "2011-11-20", "2015": "2015-12-20", "2016": "2016-06-26",
+    "2019 (abr)": "2019-04-28", "2019 (nov)": "2019-11-10", "2023": "2023-07-23",
+}
+DIAS = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
+
 
 def fetch_wikitext() -> str:
     q = urllib.parse.urlencode({
@@ -53,9 +62,16 @@ def parse(wt: str) -> list[dict]:
         value = float(m_val.group(1).replace(",", "."))
         if value <= 0:
             continue
+        fecha = FECHAS.get(label)
+        dia = None
+        if fecha:
+            from datetime import datetime as _dt
+            dia = DIAS[_dt.strptime(fecha, "%Y-%m-%d").weekday()]
         out.append({
             "eleccion": label,
             "year": year,
+            "fecha": fecha,
+            "dia_semana": dia,
             "participacion": value,
             "fuente_url": m_url.group(1) if m_url else "",
         })

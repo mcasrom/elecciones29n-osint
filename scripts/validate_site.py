@@ -21,6 +21,7 @@ REQUIRED = [
     "territorio.html", "data/escanos-2026.json", "data/escanos-2026.csv",
     "apoyo.html", "sobre-mi.html", "noche-electoral.html",
     "manifest.webmanifest", "sw.js", "icons/icon-192.png", "icons/icon-512.png",
+    "factores.html",
 ]
 
 
@@ -170,13 +171,19 @@ def main() -> int:
     if os.path.exists(swp) and "CACHE" not in open(swp, encoding="utf-8", errors="ignore").read():
         errors.append("sw.js sin CACHE")
 
+    fac = os.path.join(d, "factores.html")
+    if os.path.exists(fac):
+        fh = open(fac, encoding="utf-8", errors="ignore").read()
+        if "Factores y participación" not in fh:
+            errors.append("factores.html sin título esperado")
+
     sm = os.path.join(d, "sitemap.xml")
     if os.path.exists(sm):
         try:
             ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
             urls = ET.parse(sm).getroot().findall(".//s:loc", ns)
-            if len(urls) < 11:
-                errors.append(f"sitemap con {len(urls)} URLs (esperadas >=11)")
+            if len(urls) < 12:
+                errors.append(f"sitemap con {len(urls)} URLs (esperadas >=12)")
         except Exception as e:
             errors.append(f"sitemap inválido: {e}")
 

@@ -23,6 +23,9 @@
 ## Código
 - https://github.com/mcasrom/elecciones29n-osint (AGPL-3.0)
 
+## Contacto
+- info.elecciones29n@pruebapublica.com
+
 ## Cita
 Miguel Castillo. elecciones29n-osint: media agregada de sondeos, elecciones
 generales 29N 2026. https://elecciones29n.pruebapublica.com

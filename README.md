@@ -199,4 +199,4 @@ el proyecto.
 
 > Miguel Castillo. *Observatorio electoral 29N*. https://elecciones29n.pruebapublica.com
 
-Contacto: **prensa@viajeinteligencia.com**
+Contacto: **info.elecciones29n@pruebapublica.com**

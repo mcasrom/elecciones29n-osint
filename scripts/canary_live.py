@@ -98,6 +98,12 @@ def main() -> int:
         if code != 200:
             errors.append(f"{p} HTTP {code}")
 
+    code, fh = get(base + "/factores.html?canary=1")
+    if code != 200:
+        errors.append(f"factores.html HTTP {code}")
+    elif "Factores y participación" not in fh:
+        errors.append("factores.html sin título esperado")
+
     code, _ = get(base + "/og.png?canary=1")
     if code != 200:
         errors.append(f"og.png HTTP {code}")

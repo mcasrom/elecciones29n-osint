@@ -1,0 +1,73 @@
+{% set page_title = "Factores y participación · qué se puede y qué no estudiar" %}
+{% set page_desc = "Día de la semana, festivos, meteorología y voto por correo: qué relación tienen con la participación y qué datos hacen falta para estudiarla sin inventar causalidad." %}
+{% set canonical = site_url ~ "/factores.html" %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Factores y participación</h1>
+  <p class="muted" style="margin:0 0 14px">Qué puede influir en que alguien vote, qué se puede medir con datos y qué no. Sin correlaciones inventadas.</p>
+
+  <div class="card">
+    <div class="cardhead"><h2>Lo que ya se puede describir</h2><span class="hint">participación nacional · JEC</span></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Elección</th><th>Fecha</th><th>Día</th><th>Participación</th></tr></thead>
+        <tbody>
+        {% for r in participacion.elecciones %}
+          <tr><td>{{ r.eleccion }}</td><td>{{ r.fecha or '—' }}</td><td>{{ r.dia_semana or '—' }}</td><td class="num">{{ fmt_pct(r.participacion) }}%</td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="muted small">Dato oficial. El día de la semana se calcula sobre la fecha de la convocatoria.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Día de la semana y festivos</h2></div>
+    <ul class="muted small">
+      <li>La serie tiene <strong>13 domingos y 2 jueves</strong> (1979 y 1982). No es un factor constante, pero la variación es mínima y está concentrada en la Transición: no permite estimar un efecto causal.</li>
+      <li>La fecha electoral es <strong>nacional</strong>; los festivos locales no cambian el día de votación. Cualquier efecto sería débil y difícil de separar del contexto político.</li>
+      <li>Conclusión: se puede <strong>describir</strong>, no atribuir. No habrá un gráfico que diga «votar en jueves sube la participación».</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Meteorología</h2><span class="hint">hipótesis, no dashboard</span></div>
+    <p class="muted small">La hipótesis es razonable: lluvia, frío o viento pueden dificultar el desplazamiento al colegio, sobre todo en zonas rurales o para personas mayores. Pero para medirlo hacen falta <strong>dos datos por provincia</strong>:</p>
+    <ul class="muted small">
+      <li><strong>Participación provincial</strong> en elecciones anteriores. Hoy no es accesible de forma fiable desde el servidor (MIR/Interior bloqueados); es el bloqueo principal.</li>
+      <li><strong>Meteorología observada</strong> el día de la elección. AEMET OpenData está disponible, pero requiere clave y un trabajo de normalización por estación/provincia.</li>
+    </ul>
+    <p class="muted small">Con esos dos datos, el método sería comparar provincias y elecciones con condiciones distintas, controlando tipo de elección, tamaño, despoblación y contexto. Se publicaría el <strong>tamaño de efecto y su incertidumbre</strong>, no una predicción de votos.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Voto por correo y otros factores</h2></div>
+    <ul class="muted small">
+      <li><strong>Voto por correo</strong>: el INE publica tablas por provincia; es un dato oficial que se puede incorporar cuando la descarga sea estable.</li>
+      <li><strong>Contexto económico y político</strong>: se puede describir, pero no aislar causalmente con una serie de 15 elecciones.</li>
+      <li><strong>Accesibilidad y transporte</strong>: relevantes, pero sin datos homogéneos por provincia.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Qué se publicará y cuándo</h2></div>
+    <ul class="muted small">
+      <li><strong>Ahora</strong>: esta página descriptiva, con la serie oficial y los límites.</li>
+      <li><strong>Cuando haya participación provincial</strong>: estudio de meteorología × participación con método y controles.</li>
+      <li><strong>Nunca</strong>: previsiones de participación a partir del tiempo, ni correlaciones sin incertidumbre.</li>
+    </ul>
+    <div class="cta">
+      <a class="btn" href="/participacion.html">Serie de participación</a>
+      <a class="btn ghost" href="/metodologia.html">Metodología</a>
+    </div>
+  </div>
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>
