@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "generado": "2026-10-18T09:37:44.482940+00:00",
+    "n": 806,
+    "elecciones": 16,
+    "provincias": 52,
+    "fuente_participacion": "Ministerio del Interior (XLSX provincial)",
+    "fuente_meteo": "AEMET OpenData"
+  },
+  "corr": {
+    "simple": -0.174,
+    "within": -0.136,
+    "simple_lluvia": -0.166,
+    "within_lluvia": -0.11
+  },
+  "bins": [
+    {
+      "label": "0 mm",
+      "n": 490,
+      "part": 72.88,
+      "part_within": 0.41
+    },
+    {
+      "label": "0–1 mm",
+      "n": 175,
+      "part": 69.65,
+      "part_within": -0.38
+    },
+    {
+      "label": "1–5 mm",
+      "n": 81,
+      "part": 70.42,
+      "part_within": -0.18
+    },
+    {
+      "label": ">5 mm",
+      "n": 60,
+      "part": 67.72,
+      "part_within": -2.02
+    }
+  ],
+  "modelo": {
+    "formula": "participacion ~ prec_media + tmax_media + viento_media + C(date) + C(provincia)",
+    "n": 806,
+    "r2": 0.8986,
+    "r2_adj": 0.8891,
+    "coef": {
+      "prec_media": {
+        "beta": -0.0411,
+        "se": 0.0236,
+        "p": 0.0812,
+        "ci_low": -0.0873,
+        "ci_high": 0.0051
+      },
+      "tmax_media": {
+        "beta": -0.0083,
+        "se": 0.0414,
+        "p": 0.8414,
+        "ci_low": -0.0895,
+        "ci_high": 0.0729
+      },
+      "viento_media": {
+        "beta": 0.2433,
+        "se": 0.1034,
+        "p": 0.0186,
+        "ci_low": 0.0406,
+        "ci_high": 0.4459
+      }
+    }
+  },
+  "modelo_lluvia": {
+    "formula": "participacion ~ lluvia_pct + tmax_media + viento_media + C(date) + C(provincia)",
+    "n": 806,
+    "r2": 0.8994,
+    "r2_adj": 0.89,
+    "coef": {
+      "lluvia_pct": {
+        "beta": -0.0099,
+        "se": 0.0029,
+        "p": 0.0007,
+        "ci_low": -0.0156,
+        "ci_high": -0.0042
+      },
+      "tmax_media": {
+        "beta": -0.0306,
+        "se": 0.0402,
+        "p": 0.4468,
+        "ci_low": -0.1094,
+        "ci_high": 0.0482
+      },
+      "viento_media": {
+        "beta": 0.2534,
+        "se": 0.1017,
+        "p": 0.0127,
+        "ci_low": 0.0542,
+        "ci_high": 0.4527
+      }
+    }
+  },
+  "robustez": {
+    "desde_2004": {
+      "formula": "participacion ~ prec_media + tmax_media + viento_media + C(date) + C(provincia)",
+      "n": 416,
+      "r2": 0.9285,
+      "r2_adj": 0.9162,
+      "coef": {
+        "prec_media": {
+          "beta": -0.0408,
+          "se": 0.0151,
+          "p": 0.0068,
+          "ci_low": -0.0703,
+          "ci_high": -0.0113
+        },
+        "tmax_media": {
+          "beta": -0.0205,
+          "se": 0.0273,
+          "p": 0.4526,
+          "ci_low": -0.0741,
+          "ci_high": 0.033
+        },
+        "viento_media": {
+          "beta": 0.326,
+          "se": 0.1497,
+          "p": 0.0294,
+          "ci_low": 0.0327,
+          "ci_high": 0.6194
+        }
+      }
+    },
+    "n_estaciones_3": {
+      "formula": "participacion ~ prec_media + tmax_media + viento_media + C(date) + C(provincia)",
+      "n": 564,
+      "r2": 0.889,
+      "r2_adj": 0.874,
+      "coef": {
+        "prec_media": {
+          "beta": -0.0383,
+          "se": 0.0216,
+          "p": 0.0769,
+          "ci_low": -0.0807,
+          "ci_high": 0.0041
+        },
+        "tmax_media": {
+          "beta": -0.0064,
+          "se": 0.0419,
+          "p": 0.8783,
+          "ci_low": -0.0885,
+          "ci_high": 0.0757
+        },
+        "viento_media": {
+          "beta": 0.1043,
+          "se": 0.1212,
+          "p": 0.3898,
+          "ci_low": -0.1334,
+          "ci_high": 0.3419
+        }
+      }
+    }
+  },
+  "limites": [
+    "Asociación observacional, no causalidad.",
+    "Cobertura de estaciones desigual (1977–1982: 120–140 estaciones).",
+    "La precipitación se agrega por provincia; oculta variación local.",
+    "EF de elección y provincia; errores agrupados por provincia.",
+    "No se predice participación ni voto."
+  ]
+}

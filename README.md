@@ -5,7 +5,7 @@
 [![En vivo](https://img.shields.io/badge/en%20vivo-elecciones29n.pruebapublica.com-ff5a1f)](https://elecciones29n.pruebapublica.com/)
 [![Licencia](https://img.shields.io/badge/licencia-AGPL--3.0-3ddc97)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.12-8ec5ff)](https://www.python.org/)
-[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.5.0-ff5a1f)](CHANGELOG.md)
+[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.6.0-ff5a1f)](CHANGELOG.md)
 
 ---
 
@@ -155,6 +155,13 @@ docs/           método, fuentes, rutina semanal, sprint del observatorio
 tests/          34 pruebas (datos, build, validador)
 systemd/        servicio y timer
 ```
+
+## Meteorología y participación (M5 v1)
+
+- Panel **provincia × elección** (806 observaciones, 16 elecciones) con participación provincial y AEMET OpenData.
+- Modelo con **efectos fijos** de elección y provincia y errores agrupados: precipitación **−0,041 pp/mm** (IC −0,087 a 0,005; p=0,081); en **2004–2023**, −0,041 pp/mm (p=0,007).
+- Correlación intra-elección −0,136. El viento sale positivo y **no se interpreta como causal**.
+- Resultados y límites en `/factores.html` y `data/m5-results.json`. Método: `docs/M5-METODOLOGIA.md`.
 
 ## PWA y actualizaciones
 

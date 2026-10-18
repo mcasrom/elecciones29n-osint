@@ -1,0 +1,7511 @@
+{
+  "meta": {
+    "fuente": "AEMET OpenData · valores climatológicos diarios",
+    "descargado": "2026-10-18T09:36:34.440979+00:00",
+    "nota": "Agregado por provincia: media/máximo de precipitación, % estaciones con lluvia, tmax/tmin y viento medio. 'Ipyn' = 0,05 mm."
+  },
+  "elecciones": {
+    "1977-06-15": {
+      "n_estaciones": 126,
+      "provincias": {
+        "Madrid": {
+          "n": 8,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 26.9,
+          "tmin_media": 9.8,
+          "viento_media": 2.0
+        },
+        "Barcelona": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.2,
+          "tmin_media": 10.3,
+          "viento_media": 3.9
+        },
+        "Valencia / València": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 26.3,
+          "tmin_media": 13.6,
+          "viento_media": 2.5
+        },
+        "Sevilla": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 29.6,
+          "tmin_media": 10.8,
+          "viento_media": 4.2
+        },
+        "Alicante / Alacant": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.8,
+          "tmin_media": 12.5,
+          "viento_media": 2.7
+        },
+        "Málaga": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.8,
+          "tmin_media": 10.8,
+          "viento_media": 3.9
+        },
+        "Murcia": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 26.1,
+          "tmin_media": 11.8,
+          "viento_media": 3.0
+        },
+        "Coruña, A": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.8,
+          "tmin_media": 7.2,
+          "viento_media": 1.9
+        },
+        "Cádiz": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.2,
+          "tmin_media": 13.3,
+          "viento_media": 4.0
+        },
+        "Asturias": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 18.4,
+          "tmin_media": 8.2,
+          "viento_media": 4.0
+        },
+        "Bizkaia": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.4,
+          "tmin_media": 7.2,
+          "viento_media": 3.6
+        },
+        "Palmas, Las": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.9,
+          "tmin_media": 14.1,
+          "viento_media": 2.1
+        },
+        "Santa Cruz de Tenerife": {
+          "n": 8,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.4,
+          "tmin_media": 14.4,
+          "viento_media": 4.2
+        },
+        "Pontevedra": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.7,
+          "tmin_media": 8.1,
+          "viento_media": 2.8
+        },
+        "Balears, Illes": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.8,
+          "tmin_media": 12.5,
+          "viento_media": 2.5
+        },
+        "Granada": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 31.3,
+          "tmin_media": 8.8,
+          "viento_media": 2.9
+        },
+        "Zaragoza": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 27.3,
+          "tmin_media": 9.8,
+          "viento_media": 2.0
+        },
+        "Córdoba": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 31.2,
+          "tmin_media": 12.0,
+          "viento_media": 1.9
+        },
+        "Tarragona": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.6,
+          "tmin_media": 12.9,
+          "viento_media": 2.7
+        },
+        "Gipuzkoa": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.2,
+          "tmin_media": 8.8,
+          "viento_media": 1.8
+        },
+        "Girona": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.2,
+          "tmin_media": 5.4,
+          "viento_media": 2.6
+        },
+        "Toledo": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 30.2,
+          "tmin_media": 11.2,
+          "viento_media": 0.0
+        },
+        "Badajoz": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 29.8,
+          "tmin_media": 11.4,
+          "viento_media": 3.3
+        },
+        "Almería": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.2,
+          "tmin_media": 15.6,
+          "viento_media": 2.1
+        },
+        "Navarra": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.8,
+          "tmin_media": 6.2,
+          "viento_media": 2.5
+        },
+        "Cantabria": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.3,
+          "tmin_media": 8.9,
+          "viento_media": 3.1
+        },
+        "Jaén": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 31.2,
+          "tmin_media": 13.6,
+          "viento_media": 1.7
+        },
+        "Castellón / Castelló": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.8,
+          "tmin_media": 13.0,
+          "viento_media": 2.2
+        },
+        "Valladolid": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.6,
+          "tmin_media": 7.2,
+          "viento_media": 1.1
+        },
+        "León": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.4,
+          "tmin_media": 7.5,
+          "viento_media": 2.1
+        },
+        "Huelva": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.4,
+          "tmin_media": 14.0,
+          "viento_media": 4.2
+        },
+        "Ciudad Real": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 29.6,
+          "tmin_media": 10.2,
+          "viento_media": 1.7
+        },
+        "Ourense": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 26.0,
+          "tmin_media": 7.0,
+          "viento_media": null
+        },
+        "Lugo": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 27.5,
+          "tmin_media": 6.0,
+          "viento_media": null
+        },
+        "Cáceres": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 27.6,
+          "tmin_media": 14.4,
+          "viento_media": 2.8
+        },
+        "Lleida": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 28.0,
+          "tmin_media": 10.6,
+          "viento_media": 2.2
+        },
+        "Albacete": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 30.4,
+          "tmin_media": 10.0,
+          "viento_media": 4.7
+        },
+        "Salamanca": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.1,
+          "tmin_media": 7.2,
+          "viento_media": 3.0
+        },
+        "Burgos": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.2,
+          "tmin_media": 4.2,
+          "viento_media": 0.0
+        },
+        "Araba/Álava": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.4,
+          "tmin_media": 4.8,
+          "viento_media": 1.7
+        },
+        "Rioja, La": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 27.4,
+          "tmin_media": 8.6,
+          "viento_media": 2.2
+        },
+        "Guadalajara": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.1,
+          "tmin_media": 6.2,
+          "viento_media": 1.0
+        },
+        "Huesca": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.9,
+          "tmin_media": 7.6,
+          "viento_media": 3.9
+        },
+        "Zamora": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.2,
+          "tmin_media": 9.2,
+          "viento_media": 1.9
+        },
+        "Cuenca": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 26.6,
+          "tmin_media": 7.6,
+          "viento_media": 0.8
+        },
+        "Palencia": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.4,
+          "tmin_media": 9.0,
+          "viento_media": 0.8
+        },
+        "Ávila": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.5,
+          "tmin_media": 7.0,
+          "viento_media": 2.8
+        },
+        "Segovia": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.2,
+          "tmin_media": 5.8,
+          "viento_media": 1.1
+        },
+        "Teruel": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 26.5,
+          "tmin_media": 7.0,
+          "viento_media": null
+        },
+        "Soria": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.2,
+          "tmin_media": 5.4,
+          "viento_media": 0.8
+        },
+        "Ceuta": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.0,
+          "tmin_media": 10.0,
+          "viento_media": 2.8
+        },
+        "Melilla": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.0,
+          "tmin_media": 15.2,
+          "viento_media": 3.6
+        }
+      }
+    },
+    "1979-03-01": {
+      "n_estaciones": 132,
+      "provincias": {
+        "Madrid": {
+          "n": 9,
+          "prec_media": 0.5,
+          "prec_max": 3.7,
+          "lluvia_pct": 22.2,
+          "tmax_media": 7.1,
+          "tmin_media": -0.8,
+          "viento_media": 6.6
+        },
+        "Barcelona": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 10.5,
+          "tmin_media": 2.2,
+          "viento_media": 2.2
+        },
+        "Valencia / València": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 14.9,
+          "tmin_media": 6.3,
+          "viento_media": 5.7
+        },
+        "Sevilla": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 14.3,
+          "tmin_media": 2.9,
+          "viento_media": 6.1
+        },
+        "Alicante / Alacant": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.0,
+          "tmin_media": 6.2,
+          "viento_media": 4.8
+        },
+        "Málaga": {
+          "n": 1,
+          "prec_media": 0.2,
+          "prec_max": 0.2,
+          "lluvia_pct": 100.0,
+          "tmax_media": 14.0,
+          "tmin_media": 6.8,
+          "viento_media": 9.4
+        },
+        "Murcia": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 14.8,
+          "tmin_media": 6.0,
+          "viento_media": 8.9
+        },
+        "Coruña, A": {
+          "n": 4,
+          "prec_media": 1.8,
+          "prec_max": 2.4,
+          "lluvia_pct": 100.0,
+          "tmax_media": 11.3,
+          "tmin_media": 4.0,
+          "viento_media": 5.3
+        },
+        "Cádiz": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 14.1,
+          "tmin_media": 6.6,
+          "viento_media": 6.4
+        },
+        "Asturias": {
+          "n": 5,
+          "prec_media": 4.02,
+          "prec_max": 8.1,
+          "lluvia_pct": 100.0,
+          "tmax_media": 10.9,
+          "tmin_media": 3.5,
+          "viento_media": 4.9
+        },
+        "Bizkaia": {
+          "n": 1,
+          "prec_media": 6.6,
+          "prec_max": 6.6,
+          "lluvia_pct": 100.0,
+          "tmax_media": 10.4,
+          "tmin_media": 3.8,
+          "viento_media": 3.6
+        },
+        "Palmas, Las": {
+          "n": 5,
+          "prec_media": 0.08,
+          "prec_max": 0.4,
+          "lluvia_pct": 20.0,
+          "tmax_media": 17.4,
+          "tmin_media": 12.5,
+          "viento_media": 9.2
+        },
+        "Santa Cruz de Tenerife": {
+          "n": 7,
+          "prec_media": 1.57,
+          "prec_max": 4.3,
+          "lluvia_pct": 57.1,
+          "tmax_media": 16.2,
+          "tmin_media": 11.2,
+          "viento_media": 7.8
+        },
+        "Pontevedra": {
+          "n": 2,
+          "prec_media": 0.2,
+          "prec_max": 0.4,
+          "lluvia_pct": 50.0,
+          "tmax_media": 12.7,
+          "tmin_media": 2.8,
+          "viento_media": 2.2
+        },
+        "Balears, Illes": {
+          "n": 5,
+          "prec_media": 18.66,
+          "prec_max": 33.0,
+          "lluvia_pct": 100.0,
+          "tmax_media": 8.3,
+          "tmin_media": 5.1,
+          "viento_media": 9.1
+        },
+        "Granada": {
+          "n": 1,
+          "prec_media": 0.3,
+          "prec_max": 0.3,
+          "lluvia_pct": 100.0,
+          "tmax_media": 7.2,
+          "tmin_media": 0.8,
+          "viento_media": 4.7
+        },
+        "Zaragoza": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 8.5,
+          "tmin_media": -1.4,
+          "viento_media": 6.5
+        },
+        "Córdoba": {
+          "n": 0
+        },
+        "Tarragona": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 14.7,
+          "tmin_media": 4.6,
+          "viento_media": 4.6
+        },
+        "Gipuzkoa": {
+          "n": 2,
+          "prec_media": 11.75,
+          "prec_max": 14.9,
+          "lluvia_pct": 100.0,
+          "tmax_media": 9.5,
+          "tmin_media": 3.0,
+          "viento_media": 7.9
+        },
+        "Girona": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 7.4,
+          "tmin_media": -0.8,
+          "viento_media": 4.9
+        },
+        "Toledo": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 9.4,
+          "tmin_media": 0.3,
+          "viento_media": 2.8
+        },
+        "Badajoz": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 13.8,
+          "tmin_media": 2.0,
+          "viento_media": 5.0
+        },
+        "Almería": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 14.6,
+          "tmin_media": 8.6,
+          "viento_media": 6.7
+        },
+        "Navarra": {
+          "n": 1,
+          "prec_media": 9.9,
+          "prec_max": 9.9,
+          "lluvia_pct": 100.0,
+          "tmax_media": 5.6,
+          "tmin_media": -1.4,
+          "viento_media": 4.7
+        },
+        "Cantabria": {
+          "n": 5,
+          "prec_media": 6.6,
+          "prec_max": 10.1,
+          "lluvia_pct": 100.0,
+          "tmax_media": 9.9,
+          "tmin_media": 2.7,
+          "viento_media": 6.2
+        },
+        "Jaén": {
+          "n": 1,
+          "prec_media": 5.2,
+          "prec_max": 5.2,
+          "lluvia_pct": 100.0,
+          "tmax_media": 9.4,
+          "tmin_media": 2.3,
+          "viento_media": 3.3
+        },
+        "Castellón / Castelló": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 14.6,
+          "tmin_media": 4.2,
+          "viento_media": 12.8
+        },
+        "Valladolid": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 7.9,
+          "tmin_media": -2.0,
+          "viento_media": 4.8
+        },
+        "León": {
+          "n": 2,
+          "prec_media": 2.35,
+          "prec_max": 4.3,
+          "lluvia_pct": 100.0,
+          "tmax_media": 7.2,
+          "tmin_media": -1.8,
+          "viento_media": 4.6
+        },
+        "Huelva": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 15.0,
+          "tmin_media": 6.0,
+          "viento_media": 5.6
+        },
+        "Ciudad Real": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 9.0,
+          "tmin_media": -1.0,
+          "viento_media": 5.6
+        },
+        "Ourense": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.0,
+          "tmin_media": 3.0,
+          "viento_media": null
+        },
+        "Lugo": {
+          "n": 4,
+          "prec_media": 1.57,
+          "prec_max": 6.0,
+          "lluvia_pct": 50.0,
+          "tmax_media": 12.5,
+          "tmin_media": 1.5,
+          "viento_media": null
+        },
+        "Cáceres": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 10.2,
+          "tmin_media": 1.6,
+          "viento_media": 4.4
+        },
+        "Lleida": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.8,
+          "tmin_media": -2.5,
+          "viento_media": 3.1
+        },
+        "Albacete": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 8.8,
+          "tmin_media": -1.0,
+          "viento_media": 8.6
+        },
+        "Salamanca": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 7.0,
+          "tmin_media": -2.0,
+          "viento_media": 1.9
+        },
+        "Burgos": {
+          "n": 3,
+          "prec_media": 2.83,
+          "prec_max": 8.0,
+          "lluvia_pct": 66.7,
+          "tmax_media": 5.0,
+          "tmin_media": -1.6,
+          "viento_media": 6.9
+        },
+        "Araba/Álava": {
+          "n": 2,
+          "prec_media": 13.45,
+          "prec_max": 16.4,
+          "lluvia_pct": 100.0,
+          "tmax_media": 4.2,
+          "tmin_media": -1.7,
+          "viento_media": 4.0
+        },
+        "Rioja, La": {
+          "n": 0
+        },
+        "Guadalajara": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 7.4,
+          "tmin_media": -3.3,
+          "viento_media": 4.0
+        },
+        "Huesca": {
+          "n": 2,
+          "prec_media": 0.6,
+          "prec_max": 1.2,
+          "lluvia_pct": 50.0,
+          "tmax_media": 7.7,
+          "tmin_media": -1.6,
+          "viento_media": 5.0
+        },
+        "Zamora": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 8.6,
+          "tmin_media": -0.8,
+          "viento_media": 1.9
+        },
+        "Cuenca": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 6.8,
+          "tmin_media": -1.8,
+          "viento_media": 4.4
+        },
+        "Palencia": {
+          "n": 0
+        },
+        "Ávila": {
+          "n": 2,
+          "prec_media": 0.05,
+          "prec_max": 0.1,
+          "lluvia_pct": 50.0,
+          "tmax_media": 1.5,
+          "tmin_media": -3.6,
+          "viento_media": 7.2
+        },
+        "Segovia": {
+          "n": 2,
+          "prec_media": 0.1,
+          "prec_max": 0.2,
+          "lluvia_pct": 50.0,
+          "tmax_media": 1.0,
+          "tmin_media": -4.8,
+          "viento_media": 1.1
+        },
+        "Teruel": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 5.0,
+          "tmin_media": -8.0,
+          "viento_media": null
+        },
+        "Soria": {
+          "n": 0
+        },
+        "Ceuta": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 12.5,
+          "tmin_media": 4.0,
+          "viento_media": 10.8
+        },
+        "Melilla": {
+          "n": 0
+        }
+      }
+    },
+    "1982-10-28": {
+      "n_estaciones": 124,
+      "provincias": {
+        "Madrid": {
+          "n": 9,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 18.7,
+          "tmin_media": 8.7,
+          "viento_media": 1.1
+        },
+        "Barcelona": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.7,
+          "tmin_media": 10.7,
+          "viento_media": 4.4
+        },
+        "Valencia / València": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.8,
+          "tmin_media": 12.4,
+          "viento_media": 1.1
+        },
+        "Sevilla": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.7,
+          "tmin_media": 10.6,
+          "viento_media": 3.5
+        },
+        "Alicante / Alacant": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.4,
+          "tmin_media": 13.1,
+          "viento_media": 2.4
+        },
+        "Málaga": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.2,
+          "tmin_media": 10.8,
+          "viento_media": 1.7
+        },
+        "Murcia": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.2,
+          "tmin_media": 12.1,
+          "viento_media": 2.5
+        },
+        "Coruña, A": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.1,
+          "tmin_media": 10.3,
+          "viento_media": 0.9
+        },
+        "Cádiz": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.3,
+          "tmin_media": 15.8,
+          "viento_media": 11.4
+        },
+        "Asturias": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 18.5,
+          "tmin_media": 8.8,
+          "viento_media": 1.6
+        },
+        "Bizkaia": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.0,
+          "tmin_media": 11.4,
+          "viento_media": 3.1
+        },
+        "Palmas, Las": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.0,
+          "tmin_media": 17.1,
+          "viento_media": 3.1
+        },
+        "Santa Cruz de Tenerife": {
+          "n": 9,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.6,
+          "tmin_media": 16.5,
+          "viento_media": 3.8
+        },
+        "Pontevedra": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.4,
+          "tmin_media": 9.0,
+          "viento_media": 1.0
+        },
+        "Balears, Illes": {
+          "n": 4,
+          "prec_media": 0.38,
+          "prec_max": 1.0,
+          "lluvia_pct": 50.0,
+          "tmax_media": 21.2,
+          "tmin_media": 13.1,
+          "viento_media": 3.2
+        },
+        "Granada": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.0,
+          "tmin_media": 6.2,
+          "viento_media": 2.2
+        },
+        "Zaragoza": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 18.7,
+          "tmin_media": 7.9,
+          "viento_media": 2.2
+        },
+        "Córdoba": {
+          "n": 0
+        },
+        "Tarragona": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.2,
+          "tmin_media": 12.7,
+          "viento_media": 1.9
+        },
+        "Gipuzkoa": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.6,
+          "tmin_media": 10.8,
+          "viento_media": 2.9
+        },
+        "Girona": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.5,
+          "tmin_media": 7.7,
+          "viento_media": 2.8
+        },
+        "Toledo": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.1,
+          "tmin_media": 8.0,
+          "viento_media": 1.9
+        },
+        "Badajoz": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.8,
+          "tmin_media": 8.6,
+          "viento_media": 3.3
+        },
+        "Almería": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.4,
+          "tmin_media": 14.0,
+          "viento_media": 5.0
+        },
+        "Navarra": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.3,
+          "tmin_media": 9.2,
+          "viento_media": 1.9
+        },
+        "Cantabria": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.0,
+          "tmin_media": 7.5,
+          "viento_media": 0.6
+        },
+        "Jaén": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.8,
+          "tmin_media": 9.4,
+          "viento_media": 2.2
+        },
+        "Castellón / Castelló": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.6,
+          "tmin_media": 11.4,
+          "viento_media": 3.9
+        },
+        "Valladolid": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.5,
+          "tmin_media": 5.8,
+          "viento_media": 0.3
+        },
+        "León": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.2,
+          "tmin_media": 5.3,
+          "viento_media": 0.0
+        },
+        "Huelva": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.2,
+          "tmin_media": 14.2,
+          "viento_media": 2.8
+        },
+        "Ciudad Real": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.0,
+          "tmin_media": 7.4,
+          "viento_media": 1.7
+        },
+        "Ourense": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": null,
+          "tmin_media": null,
+          "viento_media": null
+        },
+        "Lugo": {
+          "n": 3,
+          "prec_media": 0.17,
+          "prec_max": 0.5,
+          "lluvia_pct": 33.3,
+          "tmax_media": 18.5,
+          "tmin_media": 5.5,
+          "viento_media": null
+        },
+        "Cáceres": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.2,
+          "tmin_media": 12.4,
+          "viento_media": 1.4
+        },
+        "Lleida": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.6,
+          "tmin_media": 6.8,
+          "viento_media": 0.6
+        },
+        "Albacete": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.0,
+          "tmin_media": 7.2,
+          "viento_media": 2.8
+        },
+        "Salamanca": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.0,
+          "tmin_media": 5.3,
+          "viento_media": 0.1
+        },
+        "Burgos": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.2,
+          "tmin_media": 4.8,
+          "viento_media": 1.4
+        },
+        "Araba/Álava": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.4,
+          "tmin_media": 6.0,
+          "viento_media": 1.1
+        },
+        "Rioja, La": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.0,
+          "tmin_media": 9.4,
+          "viento_media": 2.5
+        },
+        "Guadalajara": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.1,
+          "tmin_media": 6.1,
+          "viento_media": 1.0
+        },
+        "Huesca": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.6,
+          "tmin_media": 7.0,
+          "viento_media": 2.5
+        },
+        "Zamora": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.6,
+          "tmin_media": 4.6,
+          "viento_media": 0.8
+        },
+        "Cuenca": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 18.0,
+          "tmin_media": 6.2,
+          "viento_media": 0.6
+        },
+        "Palencia": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.2,
+          "tmin_media": 7.0,
+          "viento_media": 1.1
+        },
+        "Ávila": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": null,
+          "tmin_media": null,
+          "viento_media": null
+        },
+        "Segovia": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.2,
+          "tmin_media": 7.8,
+          "viento_media": 1.1
+        },
+        "Teruel": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.0,
+          "tmin_media": 4.6,
+          "viento_media": 1.7
+        },
+        "Soria": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 15.8,
+          "tmin_media": 6.4,
+          "viento_media": 0.3
+        },
+        "Ceuta": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.6,
+          "tmin_media": 12.4,
+          "viento_media": 10.3
+        },
+        "Melilla": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.8,
+          "tmin_media": 16.8,
+          "viento_media": 4.4
+        }
+      }
+    },
+    "1986-06-22": {
+      "n_estaciones": 143,
+      "provincias": {
+        "Madrid": {
+          "n": 7,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.2,
+          "tmin_media": 9.6,
+          "viento_media": 4.6
+        },
+        "Barcelona": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 29.5,
+          "tmin_media": 17.0,
+          "viento_media": 2.6
+        },
+        "Valencia / València": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 32.5,
+          "tmin_media": 19.1,
+          "viento_media": 3.1
+        },
+        "Sevilla": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 26.0,
+          "tmin_media": 11.3,
+          "viento_media": 4.5
+        },
+        "Alicante / Alacant": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 28.6,
+          "tmin_media": 19.9,
+          "viento_media": 2.2
+        },
+        "Málaga": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 30.0,
+          "tmin_media": 17.4,
+          "viento_media": 5.8
+        },
+        "Murcia": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 31.2,
+          "tmin_media": 17.9,
+          "viento_media": 3.5
+        },
+        "Coruña, A": {
+          "n": 6,
+          "prec_media": 27.48,
+          "prec_max": 61.0,
+          "lluvia_pct": 100.0,
+          "tmax_media": 17.1,
+          "tmin_media": 10.8,
+          "viento_media": 3.6
+        },
+        "Cádiz": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.4,
+          "tmin_media": 15.0,
+          "viento_media": 5.5
+        },
+        "Asturias": {
+          "n": 3,
+          "prec_media": 9.8,
+          "prec_max": 12.4,
+          "lluvia_pct": 100.0,
+          "tmax_media": 20.3,
+          "tmin_media": 12.6,
+          "viento_media": 3.1
+        },
+        "Bizkaia": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 26.5,
+          "tmin_media": 12.8,
+          "viento_media": 3.1
+        },
+        "Palmas, Las": {
+          "n": 7,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.7,
+          "tmin_media": 16.6,
+          "viento_media": 8.4
+        },
+        "Santa Cruz de Tenerife": {
+          "n": 10,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.6,
+          "tmin_media": 13.8,
+          "viento_media": 4.8
+        },
+        "Pontevedra": {
+          "n": 3,
+          "prec_media": 17.43,
+          "prec_max": 19.9,
+          "lluvia_pct": 100.0,
+          "tmax_media": 17.9,
+          "tmin_media": 12.4,
+          "viento_media": 3.5
+        },
+        "Balears, Illes": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 26.9,
+          "tmin_media": 19.6,
+          "viento_media": 4.8
+        },
+        "Granada": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 28.0,
+          "tmin_media": 9.9,
+          "viento_media": 2.8
+        },
+        "Zaragoza": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 28.4,
+          "tmin_media": 11.9,
+          "viento_media": 2.4
+        },
+        "Córdoba": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 27.6,
+          "tmin_media": 11.6,
+          "viento_media": 3.3
+        },
+        "Tarragona": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 30.3,
+          "tmin_media": 19.2,
+          "viento_media": 3.2
+        },
+        "Gipuzkoa": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.5,
+          "tmin_media": 14.1,
+          "viento_media": 3.0
+        },
+        "Girona": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.3,
+          "tmin_media": 13.7,
+          "viento_media": 1.0
+        },
+        "Toledo": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 26.7,
+          "tmin_media": 11.7,
+          "viento_media": 3.3
+        },
+        "Badajoz": {
+          "n": 2,
+          "prec_media": 0.7,
+          "prec_max": 1.4,
+          "lluvia_pct": 50.0,
+          "tmax_media": 26.8,
+          "tmin_media": 10.9,
+          "viento_media": 3.3
+        },
+        "Almería": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.0,
+          "tmin_media": 15.4,
+          "viento_media": 3.9
+        },
+        "Navarra": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 27.5,
+          "tmin_media": 9.7,
+          "viento_media": 3.6
+        },
+        "Cantabria": {
+          "n": 5,
+          "prec_media": 0.26,
+          "prec_max": 0.9,
+          "lluvia_pct": 40.0,
+          "tmax_media": 20.2,
+          "tmin_media": 9.9,
+          "viento_media": 5.4
+        },
+        "Jaén": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": null,
+          "tmin_media": null,
+          "viento_media": null
+        },
+        "Castellón / Castelló": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 30.2,
+          "tmin_media": 19.4,
+          "viento_media": 3.6
+        },
+        "Valladolid": {
+          "n": 2,
+          "prec_media": 3.05,
+          "prec_max": 3.4,
+          "lluvia_pct": 100.0,
+          "tmax_media": 22.5,
+          "tmin_media": 6.4,
+          "viento_media": 4.6
+        },
+        "León": {
+          "n": 2,
+          "prec_media": 4.5,
+          "prec_max": 4.6,
+          "lluvia_pct": 100.0,
+          "tmax_media": 18.1,
+          "tmin_media": 8.9,
+          "viento_media": 1.9
+        },
+        "Huelva": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.6,
+          "tmin_media": 12.6,
+          "viento_media": 5.6
+        },
+        "Ciudad Real": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 27.4,
+          "tmin_media": 12.2,
+          "viento_media": 2.2
+        },
+        "Ourense": {
+          "n": 2,
+          "prec_media": 13.7,
+          "prec_max": 17.4,
+          "lluvia_pct": 100.0,
+          "tmax_media": 16.2,
+          "tmin_media": 11.2,
+          "viento_media": 0.6
+        },
+        "Lugo": {
+          "n": 5,
+          "prec_media": 7.94,
+          "prec_max": 17.5,
+          "lluvia_pct": 80.0,
+          "tmax_media": 17.8,
+          "tmin_media": 10.5,
+          "viento_media": 3.3
+        },
+        "Cáceres": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.8,
+          "tmin_media": 10.8,
+          "viento_media": 3.3
+        },
+        "Lleida": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 29.6,
+          "tmin_media": 14.0,
+          "viento_media": 1.7
+        },
+        "Albacete": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 27.6,
+          "tmin_media": 13.8,
+          "viento_media": 2.8
+        },
+        "Salamanca": {
+          "n": 1,
+          "prec_media": 2.1,
+          "prec_max": 2.1,
+          "lluvia_pct": 100.0,
+          "tmax_media": 20.8,
+          "tmin_media": 8.2,
+          "viento_media": 7.8
+        },
+        "Burgos": {
+          "n": 3,
+          "prec_media": 0.07,
+          "prec_max": 0.2,
+          "lluvia_pct": 33.3,
+          "tmax_media": 22.0,
+          "tmin_media": 5.8,
+          "viento_media": null
+        },
+        "Araba/Álava": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.4,
+          "tmin_media": 8.4,
+          "viento_media": 3.3
+        },
+        "Rioja, La": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 30.2,
+          "tmin_media": 12.0,
+          "viento_media": 2.8
+        },
+        "Guadalajara": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 26.2,
+          "tmin_media": 6.5,
+          "viento_media": 3.6
+        },
+        "Huesca": {
+          "n": 2,
+          "prec_media": 0.1,
+          "prec_max": 0.2,
+          "lluvia_pct": 50.0,
+          "tmax_media": 26.9,
+          "tmin_media": 14.7,
+          "viento_media": 5.3
+        },
+        "Zamora": {
+          "n": 1,
+          "prec_media": 3.4,
+          "prec_max": 3.4,
+          "lluvia_pct": 100.0,
+          "tmax_media": 21.6,
+          "tmin_media": 10.8,
+          "viento_media": 3.6
+        },
+        "Cuenca": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.4,
+          "tmin_media": 10.6,
+          "viento_media": 3.1
+        },
+        "Palencia": {
+          "n": 2,
+          "prec_media": 3.0,
+          "prec_max": 6.0,
+          "lluvia_pct": 50.0,
+          "tmax_media": 17.5,
+          "tmin_media": 6.0,
+          "viento_media": null
+        },
+        "Ávila": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 26.1,
+          "tmin_media": 9.8,
+          "viento_media": null
+        },
+        "Segovia": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.8,
+          "tmin_media": 8.5,
+          "viento_media": 5.8
+        },
+        "Teruel": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 27.0,
+          "tmin_media": 7.6,
+          "viento_media": null
+        },
+        "Soria": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.6,
+          "tmin_media": 6.6,
+          "viento_media": 5.3
+        },
+        "Ceuta": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.4,
+          "tmin_media": 18.8,
+          "viento_media": 7.2
+        },
+        "Melilla": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.6,
+          "tmin_media": 17.2,
+          "viento_media": 6.7
+        }
+      }
+    },
+    "1989-10-29": {
+      "n_estaciones": 158,
+      "provincias": {
+        "Madrid": {
+          "n": 7,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.2,
+          "tmin_media": 6.1,
+          "viento_media": 0.6
+        },
+        "Barcelona": {
+          "n": 5,
+          "prec_media": 0.4,
+          "prec_max": 2.0,
+          "lluvia_pct": 20.0,
+          "tmax_media": 21.4,
+          "tmin_media": 11.9,
+          "viento_media": 3.2
+        },
+        "Valencia / València": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.2,
+          "tmin_media": 13.3,
+          "viento_media": 2.4
+        },
+        "Sevilla": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.4,
+          "tmin_media": 11.4,
+          "viento_media": 3.2
+        },
+        "Alicante / Alacant": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.6,
+          "tmin_media": 13.9,
+          "viento_media": 2.8
+        },
+        "Málaga": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.4,
+          "tmin_media": 13.2,
+          "viento_media": 1.9
+        },
+        "Murcia": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.7,
+          "tmin_media": 12.9,
+          "viento_media": 1.9
+        },
+        "Coruña, A": {
+          "n": 6,
+          "prec_media": 0.42,
+          "prec_max": 2.1,
+          "lluvia_pct": 33.3,
+          "tmax_media": 18.2,
+          "tmin_media": 13.3,
+          "viento_media": 5.2
+        },
+        "Cádiz": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.3,
+          "tmin_media": 13.5,
+          "viento_media": 3.6
+        },
+        "Asturias": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.7,
+          "tmin_media": 12.8,
+          "viento_media": 2.0
+        },
+        "Bizkaia": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.3,
+          "tmin_media": 13.2,
+          "viento_media": 3.9
+        },
+        "Palmas, Las": {
+          "n": 8,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.6,
+          "tmin_media": 19.5,
+          "viento_media": 6.3
+        },
+        "Santa Cruz de Tenerife": {
+          "n": 10,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.4,
+          "tmin_media": 15.7,
+          "viento_media": 3.9
+        },
+        "Pontevedra": {
+          "n": 5,
+          "prec_media": 0.44,
+          "prec_max": 1.6,
+          "lluvia_pct": 60.0,
+          "tmax_media": 18.7,
+          "tmin_media": 14.4,
+          "viento_media": 3.8
+        },
+        "Balears, Illes": {
+          "n": 8,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.1,
+          "tmin_media": 14.6,
+          "viento_media": 1.6
+        },
+        "Granada": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.5,
+          "tmin_media": 6.6,
+          "viento_media": 1.2
+        },
+        "Zaragoza": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.9,
+          "tmin_media": 9.3,
+          "viento_media": 2.0
+        },
+        "Córdoba": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.0,
+          "tmin_media": 10.8,
+          "viento_media": 1.4
+        },
+        "Tarragona": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.7,
+          "tmin_media": 15.5,
+          "viento_media": 2.6
+        },
+        "Gipuzkoa": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.5,
+          "tmin_media": 14.6,
+          "viento_media": 3.7
+        },
+        "Girona": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.0,
+          "tmin_media": 8.2,
+          "viento_media": 1.1
+        },
+        "Toledo": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.8,
+          "tmin_media": 8.7,
+          "viento_media": 1.1
+        },
+        "Badajoz": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.8,
+          "tmin_media": 8.7,
+          "viento_media": 0.3
+        },
+        "Almería": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.6,
+          "tmin_media": 14.6,
+          "viento_media": 1.4
+        },
+        "Navarra": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.9,
+          "tmin_media": 9.7,
+          "viento_media": 0.8
+        },
+        "Cantabria": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.2,
+          "tmin_media": 13.1,
+          "viento_media": 3.5
+        },
+        "Jaén": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.2,
+          "tmin_media": 9.6,
+          "viento_media": 2.2
+        },
+        "Castellón / Castelló": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.2,
+          "tmin_media": 13.8,
+          "viento_media": 1.9
+        },
+        "Valladolid": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.6,
+          "tmin_media": 8.8,
+          "viento_media": 2.0
+        },
+        "León": {
+          "n": 1,
+          "prec_media": 0.3,
+          "prec_max": 0.3,
+          "lluvia_pct": 100.0,
+          "tmax_media": 19.0,
+          "tmin_media": 9.9,
+          "viento_media": 1.8
+        },
+        "Huelva": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.6,
+          "tmin_media": 11.4,
+          "viento_media": 0.8
+        },
+        "Ciudad Real": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.2,
+          "tmin_media": 6.4,
+          "viento_media": 0.3
+        },
+        "Ourense": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.8,
+          "tmin_media": 9.2,
+          "viento_media": 1.1
+        },
+        "Lugo": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.8,
+          "tmin_media": 10.0,
+          "viento_media": 4.4
+        },
+        "Cáceres": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.6,
+          "tmin_media": 9.7,
+          "viento_media": 1.2
+        },
+        "Lleida": {
+          "n": 4,
+          "prec_media": 0.97,
+          "prec_max": 2.0,
+          "lluvia_pct": 50.0,
+          "tmax_media": 16.6,
+          "tmin_media": 4.2,
+          "viento_media": 2.2
+        },
+        "Albacete": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.0,
+          "tmin_media": 8.6,
+          "viento_media": 2.0
+        },
+        "Salamanca": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.5,
+          "tmin_media": 8.9,
+          "viento_media": 1.1
+        },
+        "Burgos": {
+          "n": 3,
+          "prec_media": 0.03,
+          "prec_max": 0.1,
+          "lluvia_pct": 33.3,
+          "tmax_media": 16.8,
+          "tmin_media": 10.3,
+          "viento_media": 3.5
+        },
+        "Araba/Álava": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.0,
+          "tmin_media": 5.8,
+          "viento_media": 1.7
+        },
+        "Rioja, La": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.0,
+          "tmin_media": 9.0,
+          "viento_media": 3.1
+        },
+        "Guadalajara": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.3,
+          "tmin_media": 5.5,
+          "viento_media": 0.6
+        },
+        "Huesca": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.6,
+          "tmin_media": 8.5,
+          "viento_media": 6.9
+        },
+        "Zamora": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 18.3,
+          "tmin_media": 10.4,
+          "viento_media": 3.6
+        },
+        "Cuenca": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.0,
+          "tmin_media": 6.8,
+          "viento_media": null
+        },
+        "Palencia": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 15.7,
+          "tmin_media": 5.0,
+          "viento_media": 1.7
+        },
+        "Ávila": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 18.6,
+          "tmin_media": 9.4,
+          "viento_media": 0.8
+        },
+        "Segovia": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 12.2,
+          "tmin_media": 6.0,
+          "viento_media": 0.8
+        },
+        "Teruel": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.5,
+          "tmin_media": 3.8,
+          "viento_media": 1.1
+        },
+        "Soria": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.4,
+          "tmin_media": 6.8,
+          "viento_media": 6.4
+        },
+        "Ceuta": {
+          "n": 0
+        },
+        "Melilla": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.0,
+          "tmin_media": 14.4,
+          "viento_media": 1.4
+        }
+      }
+    },
+    "1993-06-06": {
+      "n_estaciones": 188,
+      "provincias": {
+        "Madrid": {
+          "n": 7,
+          "prec_media": 2.94,
+          "prec_max": 9.5,
+          "lluvia_pct": 85.7,
+          "tmax_media": 21.6,
+          "tmin_media": 12.2,
+          "viento_media": 2.8
+        },
+        "Barcelona": {
+          "n": 4,
+          "prec_media": 0.05,
+          "prec_max": 0.2,
+          "lluvia_pct": 25.0,
+          "tmax_media": 25.9,
+          "tmin_media": 14.3,
+          "viento_media": 4.8
+        },
+        "Valencia / València": {
+          "n": 5,
+          "prec_media": 0.62,
+          "prec_max": 2.9,
+          "lluvia_pct": 60.0,
+          "tmax_media": 23.0,
+          "tmin_media": 17.1,
+          "viento_media": 3.8
+        },
+        "Sevilla": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.8,
+          "tmin_media": 15.6,
+          "viento_media": 3.0
+        },
+        "Alicante / Alacant": {
+          "n": 3,
+          "prec_media": 0.13,
+          "prec_max": 0.2,
+          "lluvia_pct": 66.7,
+          "tmax_media": 25.1,
+          "tmin_media": 17.0,
+          "viento_media": 2.6
+        },
+        "Málaga": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.0,
+          "tmin_media": 15.4,
+          "viento_media": 1.9
+        },
+        "Murcia": {
+          "n": 5,
+          "prec_media": 2.72,
+          "prec_max": 4.9,
+          "lluvia_pct": 80.0,
+          "tmax_media": 26.4,
+          "tmin_media": 16.5,
+          "viento_media": 2.2
+        },
+        "Coruña, A": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.3,
+          "tmin_media": 13.3,
+          "viento_media": 2.8
+        },
+        "Cádiz": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.6,
+          "tmin_media": 15.7,
+          "viento_media": 3.0
+        },
+        "Asturias": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.2,
+          "tmin_media": 15.1,
+          "viento_media": 0.9
+        },
+        "Bizkaia": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.7,
+          "tmin_media": 14.6,
+          "viento_media": 1.4
+        },
+        "Palmas, Las": {
+          "n": 15,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.6,
+          "tmin_media": 16.8,
+          "viento_media": 6.6
+        },
+        "Santa Cruz de Tenerife": {
+          "n": 9,
+          "prec_media": 0.06,
+          "prec_max": 0.5,
+          "lluvia_pct": 11.1,
+          "tmax_media": 22.2,
+          "tmin_media": 15.5,
+          "viento_media": 5.5
+        },
+        "Pontevedra": {
+          "n": 6,
+          "prec_media": 0.33,
+          "prec_max": 1.6,
+          "lluvia_pct": 50.0,
+          "tmax_media": 26.5,
+          "tmin_media": 14.1,
+          "viento_media": 2.5
+        },
+        "Balears, Illes": {
+          "n": 10,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.4,
+          "tmin_media": 19.3,
+          "viento_media": 5.0
+        },
+        "Granada": {
+          "n": 2,
+          "prec_media": 0.55,
+          "prec_max": 1.1,
+          "lluvia_pct": 50.0,
+          "tmax_media": 24.3,
+          "tmin_media": 10.4,
+          "viento_media": 3.0
+        },
+        "Zaragoza": {
+          "n": 5,
+          "prec_media": 1.12,
+          "prec_max": 2.7,
+          "lluvia_pct": 80.0,
+          "tmax_media": 24.7,
+          "tmin_media": 15.1,
+          "viento_media": 2.7
+        },
+        "Córdoba": {
+          "n": 1,
+          "prec_media": 0.1,
+          "prec_max": 0.1,
+          "lluvia_pct": 100.0,
+          "tmax_media": 27.0,
+          "tmin_media": 13.0,
+          "viento_media": 3.3
+        },
+        "Tarragona": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 26.9,
+          "tmin_media": 17.7,
+          "viento_media": 3.2
+        },
+        "Gipuzkoa": {
+          "n": 2,
+          "prec_media": 1.2,
+          "prec_max": 1.2,
+          "lluvia_pct": 100.0,
+          "tmax_media": 20.0,
+          "tmin_media": 15.6,
+          "viento_media": 1.7
+        },
+        "Girona": {
+          "n": 5,
+          "prec_media": 0.5,
+          "prec_max": 2.4,
+          "lluvia_pct": 40.0,
+          "tmax_media": 24.0,
+          "tmin_media": 12.1,
+          "viento_media": 2.6
+        },
+        "Toledo": {
+          "n": 3,
+          "prec_media": 5.1,
+          "prec_max": 9.1,
+          "lluvia_pct": 100.0,
+          "tmax_media": 23.1,
+          "tmin_media": 14.0,
+          "viento_media": 1.9
+        },
+        "Badajoz": {
+          "n": 4,
+          "prec_media": 4.25,
+          "prec_max": 16.0,
+          "lluvia_pct": 75.0,
+          "tmax_media": 24.0,
+          "tmin_media": 13.8,
+          "viento_media": 1.5
+        },
+        "Almería": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 26.6,
+          "tmin_media": 18.2,
+          "viento_media": 3.6
+        },
+        "Navarra": {
+          "n": 3,
+          "prec_media": 1.77,
+          "prec_max": 3.9,
+          "lluvia_pct": 66.7,
+          "tmax_media": 24.9,
+          "tmin_media": 13.5,
+          "viento_media": 1.6
+        },
+        "Cantabria": {
+          "n": 6,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.1,
+          "tmin_media": 12.5,
+          "viento_media": 1.8
+        },
+        "Jaén": {
+          "n": 2,
+          "prec_media": 5.1,
+          "prec_max": 7.8,
+          "lluvia_pct": 100.0,
+          "tmax_media": 21.0,
+          "tmin_media": 14.2,
+          "viento_media": 1.9
+        },
+        "Castellón / Castelló": {
+          "n": 2,
+          "prec_media": 0.25,
+          "prec_max": 0.5,
+          "lluvia_pct": 50.0,
+          "tmax_media": 22.7,
+          "tmin_media": 15.3,
+          "viento_media": 3.7
+        },
+        "Valladolid": {
+          "n": 3,
+          "prec_media": 0.23,
+          "prec_max": 0.7,
+          "lluvia_pct": 33.3,
+          "tmax_media": 24.0,
+          "tmin_media": 11.7,
+          "viento_media": 2.8
+        },
+        "León": {
+          "n": 3,
+          "prec_media": 0.1,
+          "prec_max": 0.3,
+          "lluvia_pct": 33.3,
+          "tmax_media": 21.7,
+          "tmin_media": 9.5,
+          "viento_media": 1.9
+        },
+        "Huelva": {
+          "n": 1,
+          "prec_media": 2.3,
+          "prec_max": 2.3,
+          "lluvia_pct": 100.0,
+          "tmax_media": 24.0,
+          "tmin_media": 15.2,
+          "viento_media": 2.5
+        },
+        "Ciudad Real": {
+          "n": 1,
+          "prec_media": 27.8,
+          "prec_max": 27.8,
+          "lluvia_pct": 100.0,
+          "tmax_media": 23.4,
+          "tmin_media": 13.6,
+          "viento_media": 0.0
+        },
+        "Ourense": {
+          "n": 2,
+          "prec_media": 0.25,
+          "prec_max": 0.5,
+          "lluvia_pct": 50.0,
+          "tmax_media": 24.5,
+          "tmin_media": 10.8,
+          "viento_media": 0.6
+        },
+        "Lugo": {
+          "n": 6,
+          "prec_media": 8.67,
+          "prec_max": 49.0,
+          "lluvia_pct": 33.3,
+          "tmax_media": 24.1,
+          "tmin_media": 12.7,
+          "viento_media": 3.1
+        },
+        "Cáceres": {
+          "n": 3,
+          "prec_media": 4.83,
+          "prec_max": 9.6,
+          "lluvia_pct": 100.0,
+          "tmax_media": 24.3,
+          "tmin_media": 13.0,
+          "viento_media": 1.2
+        },
+        "Lleida": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.5,
+          "tmin_media": 12.2,
+          "viento_media": 1.9
+        },
+        "Albacete": {
+          "n": 2,
+          "prec_media": 10.15,
+          "prec_max": 12.2,
+          "lluvia_pct": 100.0,
+          "tmax_media": 22.6,
+          "tmin_media": 12.1,
+          "viento_media": 4.4
+        },
+        "Salamanca": {
+          "n": 3,
+          "prec_media": 3.87,
+          "prec_max": 5.5,
+          "lluvia_pct": 100.0,
+          "tmax_media": 22.2,
+          "tmin_media": 10.5,
+          "viento_media": 2.3
+        },
+        "Burgos": {
+          "n": 2,
+          "prec_media": 0.05,
+          "prec_max": 0.1,
+          "lluvia_pct": 50.0,
+          "tmax_media": 21.6,
+          "tmin_media": 10.2,
+          "viento_media": 5.6
+        },
+        "Araba/Álava": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.6,
+          "tmin_media": 14.4,
+          "viento_media": 1.9
+        },
+        "Rioja, La": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.6,
+          "tmin_media": 15.0,
+          "viento_media": 3.3
+        },
+        "Guadalajara": {
+          "n": 4,
+          "prec_media": 6.28,
+          "prec_max": 14.0,
+          "lluvia_pct": 100.0,
+          "tmax_media": 22.3,
+          "tmin_media": 11.9,
+          "viento_media": 5.6
+        },
+        "Huesca": {
+          "n": 3,
+          "prec_media": 2.23,
+          "prec_max": 3.4,
+          "lluvia_pct": 100.0,
+          "tmax_media": 24.6,
+          "tmin_media": 13.8,
+          "viento_media": 2.5
+        },
+        "Zamora": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.8,
+          "tmin_media": 11.8,
+          "viento_media": 2.0
+        },
+        "Cuenca": {
+          "n": 1,
+          "prec_media": 8.1,
+          "prec_max": 8.1,
+          "lluvia_pct": 100.0,
+          "tmax_media": 21.1,
+          "tmin_media": 11.5,
+          "viento_media": 4.7
+        },
+        "Palencia": {
+          "n": 2,
+          "prec_media": 1.15,
+          "prec_max": 2.2,
+          "lluvia_pct": 100.0,
+          "tmax_media": 23.2,
+          "tmin_media": 10.7,
+          "viento_media": 3.6
+        },
+        "Ávila": {
+          "n": 2,
+          "prec_media": 7.1,
+          "prec_max": 10.3,
+          "lluvia_pct": 100.0,
+          "tmax_media": 20.3,
+          "tmin_media": 9.8,
+          "viento_media": 2.5
+        },
+        "Segovia": {
+          "n": 2,
+          "prec_media": 1.45,
+          "prec_max": 2.0,
+          "lluvia_pct": 100.0,
+          "tmax_media": 17.8,
+          "tmin_media": 9.4,
+          "viento_media": 1.7
+        },
+        "Teruel": {
+          "n": 3,
+          "prec_media": 1.87,
+          "prec_max": 5.1,
+          "lluvia_pct": 66.7,
+          "tmax_media": 22.7,
+          "tmin_media": 12.6,
+          "viento_media": 3.2
+        },
+        "Soria": {
+          "n": 1,
+          "prec_media": 0.1,
+          "prec_max": 0.1,
+          "lluvia_pct": 100.0,
+          "tmax_media": 21.4,
+          "tmin_media": 12.0,
+          "viento_media": 5.3
+        },
+        "Ceuta": {
+          "n": 0
+        },
+        "Melilla": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.0,
+          "tmin_media": 16.4,
+          "viento_media": 3.3
+        }
+      }
+    },
+    "1996-03-03": {
+      "n_estaciones": 193,
+      "provincias": {
+        "Madrid": {
+          "n": 7,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 10.4,
+          "tmin_media": -0.6,
+          "viento_media": 1.3
+        },
+        "Barcelona": {
+          "n": 5,
+          "prec_media": 0.6,
+          "prec_max": 3.0,
+          "lluvia_pct": 20.0,
+          "tmax_media": 10.3,
+          "tmin_media": 4.4,
+          "viento_media": 2.4
+        },
+        "Valencia / València": {
+          "n": 6,
+          "prec_media": 0.1,
+          "prec_max": 0.6,
+          "lluvia_pct": 16.7,
+          "tmax_media": 13.4,
+          "tmin_media": 6.4,
+          "viento_media": 1.6
+        },
+        "Sevilla": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 18.5,
+          "tmin_media": 6.2,
+          "viento_media": 2.2
+        },
+        "Alicante / Alacant": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 14.8,
+          "tmin_media": 7.5,
+          "viento_media": 2.6
+        },
+        "Málaga": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.0,
+          "tmin_media": 6.4,
+          "viento_media": 3.9
+        },
+        "Murcia": {
+          "n": 5,
+          "prec_media": 0.04,
+          "prec_max": 0.2,
+          "lluvia_pct": 20.0,
+          "tmax_media": 16.1,
+          "tmin_media": 7.3,
+          "viento_media": 2.3
+        },
+        "Coruña, A": {
+          "n": 9,
+          "prec_media": 0.01,
+          "prec_max": 0.1,
+          "lluvia_pct": 11.1,
+          "tmax_media": 11.9,
+          "tmin_media": 5.9,
+          "viento_media": 6.0
+        },
+        "Cádiz": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 18.7,
+          "tmin_media": 7.6,
+          "viento_media": 2.9
+        },
+        "Asturias": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 10.4,
+          "tmin_media": 4.8,
+          "viento_media": 1.8
+        },
+        "Bizkaia": {
+          "n": 1,
+          "prec_media": 0.4,
+          "prec_max": 0.4,
+          "lluvia_pct": 100.0,
+          "tmax_media": 10.2,
+          "tmin_media": 1.4,
+          "viento_media": 1.4
+        },
+        "Palmas, Las": {
+          "n": 16,
+          "prec_media": 3.12,
+          "prec_max": 50.0,
+          "lluvia_pct": 6.2,
+          "tmax_media": 18.6,
+          "tmin_media": 12.1,
+          "viento_media": 4.1
+        },
+        "Santa Cruz de Tenerife": {
+          "n": 10,
+          "prec_media": 1.17,
+          "prec_max": 7.1,
+          "lluvia_pct": 50.0,
+          "tmax_media": 17.0,
+          "tmin_media": 10.2,
+          "viento_media": 2.9
+        },
+        "Pontevedra": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.3,
+          "tmin_media": 6.7,
+          "viento_media": 1.9
+        },
+        "Balears, Illes": {
+          "n": 10,
+          "prec_media": 1.67,
+          "prec_max": 12.5,
+          "lluvia_pct": 70.0,
+          "tmax_media": 10.1,
+          "tmin_media": 7.2,
+          "viento_media": 3.5
+        },
+        "Granada": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 15.6,
+          "tmin_media": -0.2,
+          "viento_media": 1.8
+        },
+        "Zaragoza": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 9.1,
+          "tmin_media": -0.1,
+          "viento_media": 4.4
+        },
+        "Córdoba": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 18.5,
+          "tmin_media": 4.8,
+          "viento_media": 2.5
+        },
+        "Tarragona": {
+          "n": 3,
+          "prec_media": 0.3,
+          "prec_max": 0.9,
+          "lluvia_pct": 33.3,
+          "tmax_media": 13.5,
+          "tmin_media": 4.9,
+          "viento_media": 4.3
+        },
+        "Gipuzkoa": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 8.2,
+          "tmin_media": 2.0,
+          "viento_media": 2.2
+        },
+        "Girona": {
+          "n": 4,
+          "prec_media": 0.1,
+          "prec_max": 0.4,
+          "lluvia_pct": 25.0,
+          "tmax_media": 10.2,
+          "tmin_media": -1.1,
+          "viento_media": 1.2
+        },
+        "Toledo": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 12.3,
+          "tmin_media": 1.0,
+          "viento_media": 1.4
+        },
+        "Badajoz": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.4,
+          "tmin_media": 3.9,
+          "viento_media": 1.6
+        },
+        "Almería": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.0,
+          "tmin_media": 8.4,
+          "viento_media": 4.7
+        },
+        "Navarra": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 7.7,
+          "tmin_media": 1.4,
+          "viento_media": 6.7
+        },
+        "Cantabria": {
+          "n": 5,
+          "prec_media": 0.4,
+          "prec_max": 1.2,
+          "lluvia_pct": 60.0,
+          "tmax_media": 8.3,
+          "tmin_media": 2.7,
+          "viento_media": 1.2
+        },
+        "Jaén": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 13.4,
+          "tmin_media": 4.2,
+          "viento_media": 0.8
+        },
+        "Castellón / Castelló": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 15.9,
+          "tmin_media": 5.1,
+          "viento_media": 2.2
+        },
+        "Valladolid": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 9.7,
+          "tmin_media": -1.7,
+          "viento_media": 3.6
+        },
+        "León": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 7.3,
+          "tmin_media": -3.4,
+          "viento_media": 2.4
+        },
+        "Huelva": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.4,
+          "tmin_media": 5.0,
+          "viento_media": 0.6
+        },
+        "Ciudad Real": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 13.6,
+          "tmin_media": 2.6,
+          "viento_media": 1.1
+        },
+        "Ourense": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 13.5,
+          "tmin_media": -1.7,
+          "viento_media": 1.2
+        },
+        "Lugo": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 11.7,
+          "tmin_media": 2.0,
+          "viento_media": 4.4
+        },
+        "Cáceres": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 13.9,
+          "tmin_media": 3.1,
+          "viento_media": 2.0
+        },
+        "Lleida": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 12.4,
+          "tmin_media": 1.8,
+          "viento_media": 2.2
+        },
+        "Albacete": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 12.3,
+          "tmin_media": -0.9,
+          "viento_media": 1.9
+        },
+        "Salamanca": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 8.6,
+          "tmin_media": -0.8,
+          "viento_media": 3.8
+        },
+        "Burgos": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 6.0,
+          "tmin_media": -1.4,
+          "viento_media": 4.2
+        },
+        "Araba/Álava": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 7.3,
+          "tmin_media": 0.8,
+          "viento_media": 2.8
+        },
+        "Rioja, La": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 9.2,
+          "tmin_media": 2.0,
+          "viento_media": 3.6
+        },
+        "Guadalajara": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 9.3,
+          "tmin_media": -3.8,
+          "viento_media": 1.7
+        },
+        "Huesca": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 9.7,
+          "tmin_media": -1.7,
+          "viento_media": 3.0
+        },
+        "Zamora": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 9.6,
+          "tmin_media": -1.6,
+          "viento_media": 2.2
+        },
+        "Cuenca": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 10.6,
+          "tmin_media": -2.6,
+          "viento_media": 1.9
+        },
+        "Palencia": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 5.8,
+          "tmin_media": -2.2,
+          "viento_media": 4.1
+        },
+        "Ávila": {
+          "n": 0
+        },
+        "Segovia": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 5.9,
+          "tmin_media": -1.0,
+          "viento_media": 1.7
+        },
+        "Teruel": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 9.2,
+          "tmin_media": -0.3,
+          "viento_media": 1.8
+        },
+        "Soria": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 7.0,
+          "tmin_media": -3.0,
+          "viento_media": 2.5
+        },
+        "Ceuta": {
+          "n": 0
+        },
+        "Melilla": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.0,
+          "tmin_media": 8.6,
+          "viento_media": 3.3
+        }
+      }
+    },
+    "2000-03-12": {
+      "n_estaciones": 218,
+      "provincias": {
+        "Madrid": {
+          "n": 6,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 18.1,
+          "tmin_media": 6.8,
+          "viento_media": 2.7
+        },
+        "Barcelona": {
+          "n": 8,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.4,
+          "tmin_media": 8.3,
+          "viento_media": 3.0
+        },
+        "Valencia / València": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.1,
+          "tmin_media": 8.1,
+          "viento_media": 2.0
+        },
+        "Sevilla": {
+          "n": 3,
+          "prec_media": 2.73,
+          "prec_max": 5.8,
+          "lluvia_pct": 100.0,
+          "tmax_media": 19.0,
+          "tmin_media": 8.5,
+          "viento_media": 4.3
+        },
+        "Alicante / Alacant": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.4,
+          "tmin_media": 9.7,
+          "viento_media": 2.0
+        },
+        "Málaga": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.0,
+          "tmin_media": 7.0,
+          "viento_media": 3.6
+        },
+        "Murcia": {
+          "n": 6,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.4,
+          "tmin_media": 10.0,
+          "viento_media": 2.2
+        },
+        "Coruña, A": {
+          "n": 11,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 15.8,
+          "tmin_media": 8.9,
+          "viento_media": 2.8
+        },
+        "Cádiz": {
+          "n": 6,
+          "prec_media": 0.02,
+          "prec_max": 0.1,
+          "lluvia_pct": 16.7,
+          "tmax_media": 18.2,
+          "tmin_media": 11.6,
+          "viento_media": 3.5
+        },
+        "Asturias": {
+          "n": 7,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 13.7,
+          "tmin_media": 8.4,
+          "viento_media": 2.1
+        },
+        "Bizkaia": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 14.5,
+          "tmin_media": 8.2,
+          "viento_media": 2.2
+        },
+        "Palmas, Las": {
+          "n": 15,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.2,
+          "tmin_media": 15.7,
+          "viento_media": 3.0
+        },
+        "Santa Cruz de Tenerife": {
+          "n": 12,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.7,
+          "tmin_media": 14.7,
+          "viento_media": 3.3
+        },
+        "Pontevedra": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.0,
+          "tmin_media": 11.1,
+          "viento_media": 1.1
+        },
+        "Balears, Illes": {
+          "n": 11,
+          "prec_media": 0.01,
+          "prec_max": 0.1,
+          "lluvia_pct": 9.1,
+          "tmax_media": 22.9,
+          "tmin_media": 8.5,
+          "viento_media": 2.1
+        },
+        "Granada": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.0,
+          "tmin_media": 7.3,
+          "viento_media": 2.4
+        },
+        "Zaragoza": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.1,
+          "tmin_media": 5.7,
+          "viento_media": 1.6
+        },
+        "Córdoba": {
+          "n": 2,
+          "prec_media": 0.1,
+          "prec_max": 0.2,
+          "lluvia_pct": 50.0,
+          "tmax_media": 17.8,
+          "tmin_media": 7.0,
+          "viento_media": 2.4
+        },
+        "Tarragona": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.0,
+          "tmin_media": 8.9,
+          "viento_media": 1.7
+        },
+        "Gipuzkoa": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 13.0,
+          "tmin_media": 8.2,
+          "viento_media": 1.7
+        },
+        "Girona": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.6,
+          "tmin_media": 4.1,
+          "viento_media": 2.4
+        },
+        "Toledo": {
+          "n": 1,
+          "prec_media": 0.5,
+          "prec_max": 0.5,
+          "lluvia_pct": 100.0,
+          "tmax_media": 19.6,
+          "tmin_media": 9.6,
+          "viento_media": 2.2
+        },
+        "Badajoz": {
+          "n": 2,
+          "prec_media": 1.7,
+          "prec_max": 1.7,
+          "lluvia_pct": 100.0,
+          "tmax_media": 18.1,
+          "tmin_media": 7.8,
+          "viento_media": 1.9
+        },
+        "Almería": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.4,
+          "tmin_media": 11.6,
+          "viento_media": 5.0
+        },
+        "Navarra": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.8,
+          "tmin_media": 2.9,
+          "viento_media": 1.6
+        },
+        "Cantabria": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 15.6,
+          "tmin_media": 6.5,
+          "viento_media": 1.6
+        },
+        "Jaén": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.8,
+          "tmin_media": 9.2,
+          "viento_media": 2.5
+        },
+        "Castellón / Castelló": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.8,
+          "tmin_media": 7.4,
+          "viento_media": 3.5
+        },
+        "Valladolid": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.3,
+          "tmin_media": 6.1,
+          "viento_media": 1.6
+        },
+        "León": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 18.5,
+          "tmin_media": 6.4,
+          "viento_media": 2.1
+        },
+        "Huelva": {
+          "n": 2,
+          "prec_media": 6.1,
+          "prec_max": 6.7,
+          "lluvia_pct": 100.0,
+          "tmax_media": 19.2,
+          "tmin_media": 10.3,
+          "viento_media": 2.6
+        },
+        "Ciudad Real": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 18.6,
+          "tmin_media": 9.2,
+          "viento_media": 0.8
+        },
+        "Ourense": {
+          "n": 6,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.4,
+          "tmin_media": 7.4,
+          "viento_media": 1.0
+        },
+        "Lugo": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.1,
+          "tmin_media": 8.0,
+          "viento_media": 2.5
+        },
+        "Cáceres": {
+          "n": 3,
+          "prec_media": 0.03,
+          "prec_max": 0.1,
+          "lluvia_pct": 33.3,
+          "tmax_media": 17.4,
+          "tmin_media": 8.5,
+          "viento_media": 1.5
+        },
+        "Lleida": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.4,
+          "tmin_media": 2.6,
+          "viento_media": 1.9
+        },
+        "Albacete": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.5,
+          "tmin_media": 5.8,
+          "viento_media": 2.0
+        },
+        "Salamanca": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.7,
+          "tmin_media": 2.5,
+          "viento_media": 2.1
+        },
+        "Burgos": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.4,
+          "tmin_media": 3.4,
+          "viento_media": 1.9
+        },
+        "Araba/Álava": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.8,
+          "tmin_media": 4.5,
+          "viento_media": 1.4
+        },
+        "Rioja, La": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.8,
+          "tmin_media": 3.6,
+          "viento_media": 1.7
+        },
+        "Guadalajara": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.8,
+          "tmin_media": 1.6,
+          "viento_media": 0.7
+        },
+        "Huesca": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.4,
+          "tmin_media": 7.1,
+          "viento_media": 0.0
+        },
+        "Zamora": {
+          "n": 3,
+          "prec_media": 0.03,
+          "prec_max": 0.1,
+          "lluvia_pct": 33.3,
+          "tmax_media": 18.8,
+          "tmin_media": 5.1,
+          "viento_media": 1.2
+        },
+        "Cuenca": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.1,
+          "tmin_media": 6.7,
+          "viento_media": 1.7
+        },
+        "Palencia": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.2,
+          "tmin_media": 6.6,
+          "viento_media": 2.6
+        },
+        "Ávila": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 15.0,
+          "tmin_media": 5.3,
+          "viento_media": 1.7
+        },
+        "Segovia": {
+          "n": 2,
+          "prec_media": 0.05,
+          "prec_max": 0.1,
+          "lluvia_pct": 50.0,
+          "tmax_media": 14.7,
+          "tmin_media": 5.7,
+          "viento_media": 3.0
+        },
+        "Teruel": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.3,
+          "tmin_media": 4.6,
+          "viento_media": 1.2
+        },
+        "Soria": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.6,
+          "tmin_media": 4.6,
+          "viento_media": 1.4
+        },
+        "Ceuta": {
+          "n": 0
+        },
+        "Melilla": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.0,
+          "tmin_media": 14.6,
+          "viento_media": 4.2
+        }
+      }
+    },
+    "2004-03-14": {
+      "n_estaciones": 313,
+      "provincias": {
+        "Madrid": {
+          "n": 13,
+          "prec_media": 0.1,
+          "prec_max": 1.2,
+          "lluvia_pct": 15.4,
+          "tmax_media": 14.1,
+          "tmin_media": 2.0,
+          "viento_media": 1.8
+        },
+        "Barcelona": {
+          "n": 8,
+          "prec_media": 0.11,
+          "prec_max": 0.3,
+          "lluvia_pct": 37.5,
+          "tmax_media": 14.9,
+          "tmin_media": 8.1,
+          "viento_media": 1.9
+        },
+        "Valencia / València": {
+          "n": 6,
+          "prec_media": 0.87,
+          "prec_max": 1.9,
+          "lluvia_pct": 66.7,
+          "tmax_media": 15.4,
+          "tmin_media": 8.2,
+          "viento_media": 1.2
+        },
+        "Sevilla": {
+          "n": 4,
+          "prec_media": 0.05,
+          "prec_max": 0.1,
+          "lluvia_pct": 50.0,
+          "tmax_media": 18.6,
+          "tmin_media": 4.0,
+          "viento_media": 1.9
+        },
+        "Alicante / Alacant": {
+          "n": 5,
+          "prec_media": 0.36,
+          "prec_max": 1.0,
+          "lluvia_pct": 100.0,
+          "tmax_media": 16.2,
+          "tmin_media": 10.4,
+          "viento_media": 3.4
+        },
+        "Málaga": {
+          "n": 12,
+          "prec_media": 0.1,
+          "prec_max": 0.8,
+          "lluvia_pct": 16.7,
+          "tmax_media": 16.3,
+          "tmin_media": 9.5,
+          "viento_media": 1.4
+        },
+        "Murcia": {
+          "n": 5,
+          "prec_media": 1.38,
+          "prec_max": 3.0,
+          "lluvia_pct": 80.0,
+          "tmax_media": 16.6,
+          "tmin_media": 10.8,
+          "viento_media": 3.1
+        },
+        "Coruña, A": {
+          "n": 10,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 14.8,
+          "tmin_media": 5.0,
+          "viento_media": 5.0
+        },
+        "Cádiz": {
+          "n": 7,
+          "prec_media": 0.24,
+          "prec_max": 1.7,
+          "lluvia_pct": 14.3,
+          "tmax_media": 17.1,
+          "tmin_media": 7.2,
+          "viento_media": 2.3
+        },
+        "Asturias": {
+          "n": 8,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 15.0,
+          "tmin_media": 3.5,
+          "viento_media": 2.0
+        },
+        "Bizkaia": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.4,
+          "tmin_media": 2.6,
+          "viento_media": 2.0
+        },
+        "Palmas, Las": {
+          "n": 15,
+          "prec_media": 0.26,
+          "prec_max": 3.4,
+          "lluvia_pct": 20.0,
+          "tmax_media": 18.2,
+          "tmin_media": 12.7,
+          "viento_media": 6.4
+        },
+        "Santa Cruz de Tenerife": {
+          "n": 8,
+          "prec_media": 0.71,
+          "prec_max": 3.2,
+          "lluvia_pct": 37.5,
+          "tmax_media": 17.1,
+          "tmin_media": 10.9,
+          "viento_media": 5.9
+        },
+        "Pontevedra": {
+          "n": 6,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 14.7,
+          "tmin_media": 4.0,
+          "viento_media": 1.8
+        },
+        "Balears, Illes": {
+          "n": 12,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 15.2,
+          "tmin_media": 11.2,
+          "viento_media": 5.2
+        },
+        "Granada": {
+          "n": 5,
+          "prec_media": 0.44,
+          "prec_max": 1.3,
+          "lluvia_pct": 40.0,
+          "tmax_media": 13.9,
+          "tmin_media": 5.8,
+          "viento_media": 1.4
+        },
+        "Zaragoza": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.2,
+          "tmin_media": 2.2,
+          "viento_media": 1.0
+        },
+        "Córdoba": {
+          "n": 3,
+          "prec_media": 0.03,
+          "prec_max": 0.1,
+          "lluvia_pct": 33.3,
+          "tmax_media": 14.6,
+          "tmin_media": 4.4,
+          "viento_media": 2.0
+        },
+        "Tarragona": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.6,
+          "tmin_media": 9.2,
+          "viento_media": 1.9
+        },
+        "Gipuzkoa": {
+          "n": 6,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.5,
+          "tmin_media": 2.8,
+          "viento_media": 2.0
+        },
+        "Girona": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 14.6,
+          "tmin_media": 5.2,
+          "viento_media": 1.8
+        },
+        "Toledo": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 14.4,
+          "tmin_media": 2.4,
+          "viento_media": 1.8
+        },
+        "Badajoz": {
+          "n": 6,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.9,
+          "tmin_media": 3.9,
+          "viento_media": 1.5
+        },
+        "Almería": {
+          "n": 4,
+          "prec_media": 1.2,
+          "prec_max": 2.1,
+          "lluvia_pct": 100.0,
+          "tmax_media": 16.2,
+          "tmin_media": 10.8,
+          "viento_media": 4.2
+        },
+        "Navarra": {
+          "n": 6,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.4,
+          "tmin_media": 0.6,
+          "viento_media": 0.7
+        },
+        "Cantabria": {
+          "n": 6,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 15.1,
+          "tmin_media": 2.7,
+          "viento_media": 1.9
+        },
+        "Jaén": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 14.1,
+          "tmin_media": 6.9,
+          "viento_media": 2.0
+        },
+        "Castellón / Castelló": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 14.3,
+          "tmin_media": 6.1,
+          "viento_media": 1.5
+        },
+        "Valladolid": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 14.5,
+          "tmin_media": -1.2,
+          "viento_media": 1.2
+        },
+        "León": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 13.4,
+          "tmin_media": -2.0,
+          "viento_media": 2.2
+        },
+        "Huelva": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.6,
+          "tmin_media": 5.3,
+          "viento_media": 2.3
+        },
+        "Ciudad Real": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 15.1,
+          "tmin_media": 3.6,
+          "viento_media": 2.6
+        },
+        "Ourense": {
+          "n": 8,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 14.0,
+          "tmin_media": -1.7,
+          "viento_media": 1.4
+        },
+        "Lugo": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 15.9,
+          "tmin_media": 1.5,
+          "viento_media": 1.9
+        },
+        "Cáceres": {
+          "n": 9,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.4,
+          "tmin_media": 3.1,
+          "viento_media": 1.3
+        },
+        "Lleida": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 15.0,
+          "tmin_media": 3.9,
+          "viento_media": 1.2
+        },
+        "Albacete": {
+          "n": 4,
+          "prec_media": 0.17,
+          "prec_max": 0.4,
+          "lluvia_pct": 50.0,
+          "tmax_media": 11.7,
+          "tmin_media": 5.5,
+          "viento_media": 1.6
+        },
+        "Salamanca": {
+          "n": 7,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 12.4,
+          "tmin_media": -2.1,
+          "viento_media": 1.8
+        },
+        "Burgos": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 14.1,
+          "tmin_media": -2.0,
+          "viento_media": 1.1
+        },
+        "Araba/Álava": {
+          "n": 6,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.0,
+          "tmin_media": 0.5,
+          "viento_media": 0.0
+        },
+        "Rioja, La": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 15.9,
+          "tmin_media": 0.8,
+          "viento_media": 1.7
+        },
+        "Guadalajara": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 13.3,
+          "tmin_media": 0.8,
+          "viento_media": 1.4
+        },
+        "Huesca": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 12.9,
+          "tmin_media": 0.2,
+          "viento_media": 1.7
+        },
+        "Zamora": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 14.3,
+          "tmin_media": -2.8,
+          "viento_media": 1.2
+        },
+        "Cuenca": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 13.1,
+          "tmin_media": 2.3,
+          "viento_media": 1.1
+        },
+        "Palencia": {
+          "n": 3,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 12.8,
+          "tmin_media": -1.0,
+          "viento_media": 1.0
+        },
+        "Ávila": {
+          "n": 6,
+          "prec_media": 0.17,
+          "prec_max": 1.0,
+          "lluvia_pct": 16.7,
+          "tmax_media": 13.9,
+          "tmin_media": 0.1,
+          "viento_media": 1.6
+        },
+        "Segovia": {
+          "n": 3,
+          "prec_media": 0.07,
+          "prec_max": 0.2,
+          "lluvia_pct": 33.3,
+          "tmax_media": 10.1,
+          "tmin_media": -1.1,
+          "viento_media": 1.2
+        },
+        "Teruel": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 13.0,
+          "tmin_media": 3.4,
+          "viento_media": 1.6
+        },
+        "Soria": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 13.9,
+          "tmin_media": -1.7,
+          "viento_media": 1.7
+        },
+        "Ceuta": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.3,
+          "tmin_media": 11.1,
+          "viento_media": 1.4
+        },
+        "Melilla": {
+          "n": 1,
+          "prec_media": 62.6,
+          "prec_max": 62.6,
+          "lluvia_pct": 100.0,
+          "tmax_media": 13.2,
+          "tmin_media": 10.6,
+          "viento_media": 3.1
+        }
+      }
+    },
+    "2008-03-09": {
+      "n_estaciones": 383,
+      "provincias": {
+        "Madrid": {
+          "n": 14,
+          "prec_media": 0.41,
+          "prec_max": 4.6,
+          "lluvia_pct": 21.4,
+          "tmax_media": 11.5,
+          "tmin_media": 1.7,
+          "viento_media": 4.4
+        },
+        "Barcelona": {
+          "n": 8,
+          "prec_media": 3.44,
+          "prec_max": 18.4,
+          "lluvia_pct": 100.0,
+          "tmax_media": 13.7,
+          "tmin_media": 6.5,
+          "viento_media": 2.8
+        },
+        "Valencia / València": {
+          "n": 12,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.5,
+          "tmin_media": 4.9,
+          "viento_media": 2.8
+        },
+        "Sevilla": {
+          "n": 7,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 18.4,
+          "tmin_media": 5.9,
+          "viento_media": 3.1
+        },
+        "Alicante / Alacant": {
+          "n": 7,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.4,
+          "tmin_media": 4.4,
+          "viento_media": 2.5
+        },
+        "Málaga": {
+          "n": 13,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.1,
+          "tmin_media": 10.4,
+          "viento_media": 4.0
+        },
+        "Murcia": {
+          "n": 16,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.7,
+          "tmin_media": 4.3,
+          "viento_media": 2.6
+        },
+        "Coruña, A": {
+          "n": 11,
+          "prec_media": 16.48,
+          "prec_max": 49.2,
+          "lluvia_pct": 100.0,
+          "tmax_media": 12.2,
+          "tmin_media": 6.2,
+          "viento_media": 5.4
+        },
+        "Cádiz": {
+          "n": 8,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.5,
+          "tmin_media": 9.4,
+          "viento_media": 5.3
+        },
+        "Asturias": {
+          "n": 6,
+          "prec_media": 1.87,
+          "prec_max": 2.6,
+          "lluvia_pct": 100.0,
+          "tmax_media": 10.9,
+          "tmin_media": 5.4,
+          "viento_media": 5.5
+        },
+        "Bizkaia": {
+          "n": 6,
+          "prec_media": 6.43,
+          "prec_max": 10.2,
+          "lluvia_pct": 100.0,
+          "tmax_media": 10.0,
+          "tmin_media": 4.0,
+          "viento_media": 5.4
+        },
+        "Palmas, Las": {
+          "n": 20,
+          "prec_media": 0.18,
+          "prec_max": 3.0,
+          "lluvia_pct": 15.0,
+          "tmax_media": 20.2,
+          "tmin_media": 13.4,
+          "viento_media": 6.3
+        },
+        "Santa Cruz de Tenerife": {
+          "n": 8,
+          "prec_media": 0.12,
+          "prec_max": 0.3,
+          "lluvia_pct": 50.0,
+          "tmax_media": 18.5,
+          "tmin_media": 10.9,
+          "viento_media": 5.1
+        },
+        "Pontevedra": {
+          "n": 5,
+          "prec_media": 16.02,
+          "prec_max": 28.9,
+          "lluvia_pct": 100.0,
+          "tmax_media": 13.8,
+          "tmin_media": 8.2,
+          "viento_media": 3.1
+        },
+        "Balears, Illes": {
+          "n": 16,
+          "prec_media": 3.02,
+          "prec_max": 12.6,
+          "lluvia_pct": 93.8,
+          "tmax_media": 16.2,
+          "tmin_media": 5.8,
+          "viento_media": 3.5
+        },
+        "Granada": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.9,
+          "tmin_media": 4.5,
+          "viento_media": 2.5
+        },
+        "Zaragoza": {
+          "n": 4,
+          "prec_media": 1.0,
+          "prec_max": 2.7,
+          "lluvia_pct": 75.0,
+          "tmax_media": 12.4,
+          "tmin_media": 1.0,
+          "viento_media": 2.9
+        },
+        "Córdoba": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.5,
+          "tmin_media": 4.4,
+          "viento_media": 3.6
+        },
+        "Tarragona": {
+          "n": 6,
+          "prec_media": 0.17,
+          "prec_max": 0.4,
+          "lluvia_pct": 66.7,
+          "tmax_media": 16.6,
+          "tmin_media": 5.4,
+          "viento_media": 2.4
+        },
+        "Gipuzkoa": {
+          "n": 6,
+          "prec_media": 8.53,
+          "prec_max": 16.2,
+          "lluvia_pct": 100.0,
+          "tmax_media": 10.0,
+          "tmin_media": 4.1,
+          "viento_media": 3.2
+        },
+        "Girona": {
+          "n": 6,
+          "prec_media": 11.62,
+          "prec_max": 20.9,
+          "lluvia_pct": 100.0,
+          "tmax_media": 16.4,
+          "tmin_media": 5.3,
+          "viento_media": 2.5
+        },
+        "Toledo": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.0,
+          "tmin_media": 3.5,
+          "viento_media": 3.0
+        },
+        "Badajoz": {
+          "n": 17,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.2,
+          "tmin_media": 4.2,
+          "viento_media": 4.2
+        },
+        "Almería": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.2,
+          "tmin_media": 10.1,
+          "viento_media": 3.1
+        },
+        "Navarra": {
+          "n": 6,
+          "prec_media": 5.03,
+          "prec_max": 11.4,
+          "lluvia_pct": 100.0,
+          "tmax_media": 8.7,
+          "tmin_media": 1.0,
+          "viento_media": 1.2
+        },
+        "Cantabria": {
+          "n": 11,
+          "prec_media": 1.85,
+          "prec_max": 4.4,
+          "lluvia_pct": 100.0,
+          "tmax_media": 11.2,
+          "tmin_media": 3.6,
+          "viento_media": 5.9
+        },
+        "Jaén": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 13.6,
+          "tmin_media": 5.4,
+          "viento_media": 2.2
+        },
+        "Castellón / Castelló": {
+          "n": 3,
+          "prec_media": 2.23,
+          "prec_max": 4.8,
+          "lluvia_pct": 100.0,
+          "tmax_media": 15.8,
+          "tmin_media": 4.9,
+          "viento_media": 2.7
+        },
+        "Valladolid": {
+          "n": 4,
+          "prec_media": 0.2,
+          "prec_max": 0.5,
+          "lluvia_pct": 75.0,
+          "tmax_media": 11.9,
+          "tmin_media": 2.1,
+          "viento_media": 3.6
+        },
+        "León": {
+          "n": 5,
+          "prec_media": 1.32,
+          "prec_max": 2.0,
+          "lluvia_pct": 100.0,
+          "tmax_media": 7.5,
+          "tmin_media": 1.2,
+          "viento_media": 6.2
+        },
+        "Huelva": {
+          "n": 9,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 18.9,
+          "tmin_media": 7.0,
+          "viento_media": 3.7
+        },
+        "Ciudad Real": {
+          "n": 7,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 15.1,
+          "tmin_media": 2.5,
+          "viento_media": 2.6
+        },
+        "Ourense": {
+          "n": 8,
+          "prec_media": 5.54,
+          "prec_max": 20.0,
+          "lluvia_pct": 100.0,
+          "tmax_media": 11.7,
+          "tmin_media": 4.5,
+          "viento_media": 2.2
+        },
+        "Lugo": {
+          "n": 6,
+          "prec_media": 8.22,
+          "prec_max": 13.6,
+          "lluvia_pct": 100.0,
+          "tmax_media": 10.5,
+          "tmin_media": 4.5,
+          "viento_media": 3.3
+        },
+        "Cáceres": {
+          "n": 10,
+          "prec_media": 0.04,
+          "prec_max": 0.4,
+          "lluvia_pct": 10.0,
+          "tmax_media": 14.3,
+          "tmin_media": 4.3,
+          "viento_media": 4.0
+        },
+        "Lleida": {
+          "n": 7,
+          "prec_media": 2.94,
+          "prec_max": 9.6,
+          "lluvia_pct": 100.0,
+          "tmax_media": 13.2,
+          "tmin_media": -0.0,
+          "viento_media": 1.4
+        },
+        "Albacete": {
+          "n": 5,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 14.6,
+          "tmin_media": 2.6,
+          "viento_media": 5.8
+        },
+        "Salamanca": {
+          "n": 5,
+          "prec_media": 0.76,
+          "prec_max": 1.9,
+          "lluvia_pct": 80.0,
+          "tmax_media": 10.0,
+          "tmin_media": 1.1,
+          "viento_media": 3.5
+        },
+        "Burgos": {
+          "n": 4,
+          "prec_media": 0.98,
+          "prec_max": 1.8,
+          "lluvia_pct": 100.0,
+          "tmax_media": 10.9,
+          "tmin_media": -0.0,
+          "viento_media": 3.3
+        },
+        "Araba/Álava": {
+          "n": 6,
+          "prec_media": 3.87,
+          "prec_max": 8.0,
+          "lluvia_pct": 100.0,
+          "tmax_media": 9.0,
+          "tmin_media": 0.8,
+          "viento_media": 2.5
+        },
+        "Rioja, La": {
+          "n": 4,
+          "prec_media": 1.57,
+          "prec_max": 2.9,
+          "lluvia_pct": 100.0,
+          "tmax_media": 10.6,
+          "tmin_media": 1.0,
+          "viento_media": 1.9
+        },
+        "Guadalajara": {
+          "n": 3,
+          "prec_media": 0.27,
+          "prec_max": 0.8,
+          "lluvia_pct": 33.3,
+          "tmax_media": 14.4,
+          "tmin_media": -1.9,
+          "viento_media": 1.7
+        },
+        "Huesca": {
+          "n": 6,
+          "prec_media": 0.68,
+          "prec_max": 0.9,
+          "lluvia_pct": 83.3,
+          "tmax_media": 8.7,
+          "tmin_media": 0.4,
+          "viento_media": 2.7
+        },
+        "Zamora": {
+          "n": 8,
+          "prec_media": 0.53,
+          "prec_max": 3.0,
+          "lluvia_pct": 25.0,
+          "tmax_media": 11.4,
+          "tmin_media": 1.9,
+          "viento_media": 5.1
+        },
+        "Cuenca": {
+          "n": 4,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 13.1,
+          "tmin_media": -1.8,
+          "viento_media": 2.0
+        },
+        "Palencia": {
+          "n": 2,
+          "prec_media": 0.25,
+          "prec_max": 0.5,
+          "lluvia_pct": 50.0,
+          "tmax_media": 10.9,
+          "tmin_media": 0.9,
+          "viento_media": 5.4
+        },
+        "Ávila": {
+          "n": 7,
+          "prec_media": 0.09,
+          "prec_max": 0.3,
+          "lluvia_pct": 42.9,
+          "tmax_media": 11.5,
+          "tmin_media": 1.1,
+          "viento_media": 4.3
+        },
+        "Segovia": {
+          "n": 2,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 6.5,
+          "tmin_media": -0.7,
+          "viento_media": 4.2
+        },
+        "Teruel": {
+          "n": 2,
+          "prec_media": 1.0,
+          "prec_max": 1.6,
+          "lluvia_pct": 100.0,
+          "tmax_media": 13.6,
+          "tmin_media": -0.8,
+          "viento_media": 2.8
+        },
+        "Soria": {
+          "n": 3,
+          "prec_media": 1.27,
+          "prec_max": 1.4,
+          "lluvia_pct": 100.0,
+          "tmax_media": 8.5,
+          "tmin_media": -0.8,
+          "viento_media": 3.3
+        },
+        "Ceuta": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.7,
+          "tmin_media": 12.2,
+          "viento_media": 3.9
+        },
+        "Melilla": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 18.2,
+          "tmin_media": 13.2,
+          "viento_media": 8.1
+        }
+      }
+    },
+    "2011-11-20": {
+      "n_estaciones": 738,
+      "provincias": {
+        "Madrid": {
+          "n": 20,
+          "prec_media": 7.2,
+          "prec_max": 35.2,
+          "lluvia_pct": 100.0,
+          "tmax_media": 11.2,
+          "tmin_media": 8.1,
+          "viento_media": 1.9
+        },
+        "Barcelona": {
+          "n": 21,
+          "prec_media": 0.82,
+          "prec_max": 7.4,
+          "lluvia_pct": 47.6,
+          "tmax_media": 16.4,
+          "tmin_media": 11.1,
+          "viento_media": 2.4
+        },
+        "Valencia / València": {
+          "n": 17,
+          "prec_media": 13.54,
+          "prec_max": 47.3,
+          "lluvia_pct": 100.0,
+          "tmax_media": 17.5,
+          "tmin_media": 12.0,
+          "viento_media": 1.4
+        },
+        "Sevilla": {
+          "n": 15,
+          "prec_media": 6.06,
+          "prec_max": 13.0,
+          "lluvia_pct": 100.0,
+          "tmax_media": 13.2,
+          "tmin_media": 10.1,
+          "viento_media": 1.3
+        },
+        "Alicante / Alacant": {
+          "n": 10,
+          "prec_media": 13.7,
+          "prec_max": 59.2,
+          "lluvia_pct": 100.0,
+          "tmax_media": 19.8,
+          "tmin_media": 12.0,
+          "viento_media": 2.6
+        },
+        "Málaga": {
+          "n": 22,
+          "prec_media": 33.02,
+          "prec_max": 72.0,
+          "lluvia_pct": 100.0,
+          "tmax_media": 14.7,
+          "tmin_media": 10.6,
+          "viento_media": 2.1
+        },
+        "Murcia": {
+          "n": 18,
+          "prec_media": 24.0,
+          "prec_max": 61.6,
+          "lluvia_pct": 100.0,
+          "tmax_media": 18.2,
+          "tmin_media": 12.0,
+          "viento_media": 2.6
+        },
+        "Coruña, A": {
+          "n": 18,
+          "prec_media": 0.18,
+          "prec_max": 0.6,
+          "lluvia_pct": 55.6,
+          "tmax_media": 16.6,
+          "tmin_media": 9.0,
+          "viento_media": 2.5
+        },
+        "Cádiz": {
+          "n": 13,
+          "prec_media": 11.08,
+          "prec_max": 29.1,
+          "lluvia_pct": 84.6,
+          "tmax_media": 15.1,
+          "tmin_media": 11.5,
+          "viento_media": 2.3
+        },
+        "Asturias": {
+          "n": 17,
+          "prec_media": 0.28,
+          "prec_max": 1.6,
+          "lluvia_pct": 58.8,
+          "tmax_media": 15.8,
+          "tmin_media": 9.8,
+          "viento_media": 1.2
+        },
+        "Bizkaia": {
+          "n": 9,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 18.4,
+          "tmin_media": 11.0,
+          "viento_media": 2.9
+        },
+        "Palmas, Las": {
+          "n": 30,
+          "prec_media": 0.62,
+          "prec_max": 5.2,
+          "lluvia_pct": 40.0,
+          "tmax_media": 20.8,
+          "tmin_media": 14.9,
+          "viento_media": 4.1
+        },
+        "Santa Cruz de Tenerife": {
+          "n": 21,
+          "prec_media": 0.39,
+          "prec_max": 3.0,
+          "lluvia_pct": 33.3,
+          "tmax_media": 19.5,
+          "tmin_media": 13.6,
+          "viento_media": 3.9
+        },
+        "Pontevedra": {
+          "n": 13,
+          "prec_media": 0.47,
+          "prec_max": 1.5,
+          "lluvia_pct": 69.2,
+          "tmax_media": 17.3,
+          "tmin_media": 9.4,
+          "viento_media": 0.8
+        },
+        "Balears, Illes": {
+          "n": 28,
+          "prec_media": 1.22,
+          "prec_max": 5.4,
+          "lluvia_pct": 42.9,
+          "tmax_media": 21.0,
+          "tmin_media": 13.0,
+          "viento_media": 3.1
+        },
+        "Granada": {
+          "n": 10,
+          "prec_media": 6.78,
+          "prec_max": 13.0,
+          "lluvia_pct": 100.0,
+          "tmax_media": 15.3,
+          "tmin_media": 9.5,
+          "viento_media": 2.4
+        },
+        "Zaragoza": {
+          "n": 12,
+          "prec_media": 2.77,
+          "prec_max": 16.0,
+          "lluvia_pct": 75.0,
+          "tmax_media": 15.3,
+          "tmin_media": 11.0,
+          "viento_media": 2.8
+        },
+        "Córdoba": {
+          "n": 12,
+          "prec_media": 7.33,
+          "prec_max": 21.0,
+          "lluvia_pct": 100.0,
+          "tmax_media": 13.1,
+          "tmin_media": 9.0,
+          "viento_media": 1.7
+        },
+        "Tarragona": {
+          "n": 10,
+          "prec_media": 7.65,
+          "prec_max": 37.4,
+          "lluvia_pct": 70.0,
+          "tmax_media": 16.6,
+          "tmin_media": 12.1,
+          "viento_media": 2.0
+        },
+        "Gipuzkoa": {
+          "n": 13,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.6,
+          "tmin_media": 11.8,
+          "viento_media": 1.8
+        },
+        "Girona": {
+          "n": 16,
+          "prec_media": 6.43,
+          "prec_max": 30.7,
+          "lluvia_pct": 87.5,
+          "tmax_media": 16.5,
+          "tmin_media": 10.9,
+          "viento_media": 1.4
+        },
+        "Toledo": {
+          "n": 7,
+          "prec_media": 2.16,
+          "prec_max": 6.4,
+          "lluvia_pct": 100.0,
+          "tmax_media": 13.2,
+          "tmin_media": 9.0,
+          "viento_media": 3.0
+        },
+        "Badajoz": {
+          "n": 20,
+          "prec_media": 1.33,
+          "prec_max": 4.6,
+          "lluvia_pct": 90.0,
+          "tmax_media": 13.3,
+          "tmin_media": 8.3,
+          "viento_media": 2.0
+        },
+        "Almería": {
+          "n": 11,
+          "prec_media": 2.29,
+          "prec_max": 8.8,
+          "lluvia_pct": 63.6,
+          "tmax_media": 17.3,
+          "tmin_media": 12.8,
+          "viento_media": 4.5
+        },
+        "Navarra": {
+          "n": 17,
+          "prec_media": 0.07,
+          "prec_max": 0.4,
+          "lluvia_pct": 17.6,
+          "tmax_media": 15.8,
+          "tmin_media": 9.3,
+          "viento_media": 2.7
+        },
+        "Cantabria": {
+          "n": 13,
+          "prec_media": 0.15,
+          "prec_max": 1.2,
+          "lluvia_pct": 23.1,
+          "tmax_media": 17.3,
+          "tmin_media": 9.2,
+          "viento_media": 1.6
+        },
+        "Jaén": {
+          "n": 13,
+          "prec_media": 2.36,
+          "prec_max": 6.6,
+          "lluvia_pct": 92.3,
+          "tmax_media": 14.2,
+          "tmin_media": 8.8,
+          "viento_media": 1.8
+        },
+        "Castellón / Castelló": {
+          "n": 7,
+          "prec_media": 42.66,
+          "prec_max": 94.0,
+          "lluvia_pct": 100.0,
+          "tmax_media": 15.1,
+          "tmin_media": 11.1,
+          "viento_media": 2.5
+        },
+        "Valladolid": {
+          "n": 9,
+          "prec_media": 0.22,
+          "prec_max": 1.2,
+          "lluvia_pct": 33.3,
+          "tmax_media": 14.3,
+          "tmin_media": 8.3,
+          "viento_media": 2.1
+        },
+        "León": {
+          "n": 14,
+          "prec_media": 1.86,
+          "prec_max": 5.8,
+          "lluvia_pct": 92.9,
+          "tmax_media": 11.2,
+          "tmin_media": 6.9,
+          "viento_media": 2.4
+        },
+        "Huelva": {
+          "n": 14,
+          "prec_media": 2.24,
+          "prec_max": 5.9,
+          "lluvia_pct": 100.0,
+          "tmax_media": 14.4,
+          "tmin_media": 10.1,
+          "viento_media": 1.9
+        },
+        "Ciudad Real": {
+          "n": 7,
+          "prec_media": 2.39,
+          "prec_max": 4.8,
+          "lluvia_pct": 100.0,
+          "tmax_media": 13.2,
+          "tmin_media": 8.4,
+          "viento_media": 1.8
+        },
+        "Ourense": {
+          "n": 12,
+          "prec_media": 0.51,
+          "prec_max": 1.3,
+          "lluvia_pct": 83.3,
+          "tmax_media": 14.8,
+          "tmin_media": 6.7,
+          "viento_media": 0.8
+        },
+        "Lugo": {
+          "n": 10,
+          "prec_media": 1.1,
+          "prec_max": 7.4,
+          "lluvia_pct": 70.0,
+          "tmax_media": 14.2,
+          "tmin_media": 8.9,
+          "viento_media": 0.9
+        },
+        "Cáceres": {
+          "n": 28,
+          "prec_media": 0.94,
+          "prec_max": 5.0,
+          "lluvia_pct": 46.4,
+          "tmax_media": 14.7,
+          "tmin_media": 8.1,
+          "viento_media": 1.7
+        },
+        "Lleida": {
+          "n": 17,
+          "prec_media": 0.64,
+          "prec_max": 4.0,
+          "lluvia_pct": 70.6,
+          "tmax_media": 13.7,
+          "tmin_media": 6.6,
+          "viento_media": 1.3
+        },
+        "Albacete": {
+          "n": 6,
+          "prec_media": 2.43,
+          "prec_max": 5.6,
+          "lluvia_pct": 100.0,
+          "tmax_media": 15.0,
+          "tmin_media": 9.8,
+          "viento_media": 2.8
+        },
+        "Salamanca": {
+          "n": 14,
+          "prec_media": 0.23,
+          "prec_max": 2.6,
+          "lluvia_pct": 21.4,
+          "tmax_media": 12.9,
+          "tmin_media": 5.5,
+          "viento_media": 1.5
+        },
+        "Burgos": {
+          "n": 11,
+          "prec_media": 0.31,
+          "prec_max": 1.4,
+          "lluvia_pct": 54.5,
+          "tmax_media": 13.2,
+          "tmin_media": 7.8,
+          "viento_media": 3.5
+        },
+        "Araba/Álava": {
+          "n": 9,
+          "prec_media": 0.38,
+          "prec_max": 2.2,
+          "lluvia_pct": 33.3,
+          "tmax_media": 14.4,
+          "tmin_media": 10.3,
+          "viento_media": 4.5
+        },
+        "Rioja, La": {
+          "n": 5,
+          "prec_media": 0.04,
+          "prec_max": 0.2,
+          "lluvia_pct": 20.0,
+          "tmax_media": 12.8,
+          "tmin_media": 9.3,
+          "viento_media": 4.5
+        },
+        "Guadalajara": {
+          "n": 6,
+          "prec_media": 1.68,
+          "prec_max": 2.8,
+          "lluvia_pct": 100.0,
+          "tmax_media": 13.5,
+          "tmin_media": 8.1,
+          "viento_media": 2.7
+        },
+        "Huesca": {
+          "n": 18,
+          "prec_media": 0.66,
+          "prec_max": 2.5,
+          "lluvia_pct": 72.2,
+          "tmax_media": 14.5,
+          "tmin_media": 8.9,
+          "viento_media": 2.1
+        },
+        "Zamora": {
+          "n": 12,
+          "prec_media": 0.42,
+          "prec_max": 1.4,
+          "lluvia_pct": 75.0,
+          "tmax_media": 13.4,
+          "tmin_media": 7.2,
+          "viento_media": 2.1
+        },
+        "Cuenca": {
+          "n": 10,
+          "prec_media": 3.98,
+          "prec_max": 30.8,
+          "lluvia_pct": 80.0,
+          "tmax_media": 13.6,
+          "tmin_media": 9.0,
+          "viento_media": 3.8
+        },
+        "Palencia": {
+          "n": 8,
+          "prec_media": 1.05,
+          "prec_max": 3.4,
+          "lluvia_pct": 87.5,
+          "tmax_media": 11.2,
+          "tmin_media": 6.9,
+          "viento_media": 1.5
+        },
+        "Ávila": {
+          "n": 10,
+          "prec_media": 3.4,
+          "prec_max": 14.2,
+          "lluvia_pct": 80.0,
+          "tmax_media": 12.3,
+          "tmin_media": 6.8,
+          "viento_media": 2.1
+        },
+        "Segovia": {
+          "n": 8,
+          "prec_media": 3.54,
+          "prec_max": 13.4,
+          "lluvia_pct": 87.5,
+          "tmax_media": 10.4,
+          "tmin_media": 6.5,
+          "viento_media": 3.7
+        },
+        "Teruel": {
+          "n": 12,
+          "prec_media": 15.08,
+          "prec_max": 70.2,
+          "lluvia_pct": 100.0,
+          "tmax_media": 11.9,
+          "tmin_media": 7.0,
+          "viento_media": 2.3
+        },
+        "Soria": {
+          "n": 11,
+          "prec_media": 0.87,
+          "prec_max": 2.0,
+          "lluvia_pct": 100.0,
+          "tmax_media": 10.8,
+          "tmin_media": 7.0,
+          "viento_media": 3.8
+        },
+        "Ceuta": {
+          "n": 1,
+          "prec_media": 1.3,
+          "prec_max": 1.3,
+          "lluvia_pct": 100.0,
+          "tmax_media": 17.5,
+          "tmin_media": 13.7,
+          "viento_media": 1.1
+        },
+        "Melilla": {
+          "n": 1,
+          "prec_media": 4.7,
+          "prec_max": 4.7,
+          "lluvia_pct": 100.0,
+          "tmax_media": 19.8,
+          "tmin_media": 13.2,
+          "viento_media": 1.1
+        }
+      }
+    },
+    "2015-12-20": {
+      "n_estaciones": 820,
+      "provincias": {
+        "Madrid": {
+          "n": 20,
+          "prec_media": 0.19,
+          "prec_max": 1.4,
+          "lluvia_pct": 20.0,
+          "tmax_media": 14.2,
+          "tmin_media": 2.9,
+          "viento_media": 1.5
+        },
+        "Barcelona": {
+          "n": 25,
+          "prec_media": 0.03,
+          "prec_max": 0.2,
+          "lluvia_pct": 16.0,
+          "tmax_media": 11.2,
+          "tmin_media": 7.9,
+          "viento_media": 0.9
+        },
+        "Valencia / València": {
+          "n": 19,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.0,
+          "tmin_media": 5.4,
+          "viento_media": 0.9
+        },
+        "Sevilla": {
+          "n": 15,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 18.9,
+          "tmin_media": 7.8,
+          "viento_media": 1.3
+        },
+        "Alicante / Alacant": {
+          "n": 12,
+          "prec_media": 0.02,
+          "prec_max": 0.2,
+          "lluvia_pct": 8.3,
+          "tmax_media": 18.6,
+          "tmin_media": 5.9,
+          "viento_media": 1.6
+        },
+        "Málaga": {
+          "n": 23,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.9,
+          "tmin_media": 9.6,
+          "viento_media": 1.7
+        },
+        "Murcia": {
+          "n": 23,
+          "prec_media": 0.0,
+          "prec_max": 0.1,
+          "lluvia_pct": 4.3,
+          "tmax_media": 18.9,
+          "tmin_media": 5.3,
+          "viento_media": 1.2
+        },
+        "Coruña, A": {
+          "n": 18,
+          "prec_media": 2.46,
+          "prec_max": 5.6,
+          "lluvia_pct": 88.9,
+          "tmax_media": 13.7,
+          "tmin_media": 9.1,
+          "viento_media": 4.9
+        },
+        "Cádiz": {
+          "n": 15,
+          "prec_media": 0.05,
+          "prec_max": 0.7,
+          "lluvia_pct": 6.7,
+          "tmax_media": 20.6,
+          "tmin_media": 9.9,
+          "viento_media": 2.0
+        },
+        "Asturias": {
+          "n": 21,
+          "prec_media": 0.85,
+          "prec_max": 6.9,
+          "lluvia_pct": 66.7,
+          "tmax_media": 15.2,
+          "tmin_media": 6.0,
+          "viento_media": 2.5
+        },
+        "Bizkaia": {
+          "n": 11,
+          "prec_media": 0.01,
+          "prec_max": 0.1,
+          "lluvia_pct": 9.1,
+          "tmax_media": 18.3,
+          "tmin_media": 9.1,
+          "viento_media": 1.7
+        },
+        "Palmas, Las": {
+          "n": 35,
+          "prec_media": 4.09,
+          "prec_max": 25.4,
+          "lluvia_pct": 54.3,
+          "tmax_media": 22.3,
+          "tmin_media": 15.4,
+          "viento_media": 3.2
+        },
+        "Santa Cruz de Tenerife": {
+          "n": 22,
+          "prec_media": 1.85,
+          "prec_max": 20.8,
+          "lluvia_pct": 50.0,
+          "tmax_media": 19.4,
+          "tmin_media": 13.6,
+          "viento_media": 4.1
+        },
+        "Pontevedra": {
+          "n": 13,
+          "prec_media": 2.12,
+          "prec_max": 6.0,
+          "lluvia_pct": 100.0,
+          "tmax_media": 13.9,
+          "tmin_media": 8.2,
+          "viento_media": 2.3
+        },
+        "Balears, Illes": {
+          "n": 37,
+          "prec_media": 0.02,
+          "prec_max": 0.2,
+          "lluvia_pct": 10.8,
+          "tmax_media": 18.2,
+          "tmin_media": 8.8,
+          "viento_media": 1.8
+        },
+        "Granada": {
+          "n": 11,
+          "prec_media": 0.07,
+          "prec_max": 0.8,
+          "lluvia_pct": 9.1,
+          "tmax_media": 19.0,
+          "tmin_media": 4.8,
+          "viento_media": 1.3
+        },
+        "Zaragoza": {
+          "n": 14,
+          "prec_media": 0.01,
+          "prec_max": 0.2,
+          "lluvia_pct": 7.1,
+          "tmax_media": 13.5,
+          "tmin_media": 4.3,
+          "viento_media": 1.6
+        },
+        "Córdoba": {
+          "n": 14,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 18.3,
+          "tmin_media": 6.4,
+          "viento_media": 2.0
+        },
+        "Tarragona": {
+          "n": 13,
+          "prec_media": 0.02,
+          "prec_max": 0.2,
+          "lluvia_pct": 7.7,
+          "tmax_media": 13.8,
+          "tmin_media": 9.1,
+          "viento_media": 1.6
+        },
+        "Gipuzkoa": {
+          "n": 15,
+          "prec_media": 0.27,
+          "prec_max": 0.8,
+          "lluvia_pct": 73.3,
+          "tmax_media": 19.6,
+          "tmin_media": 10.8,
+          "viento_media": 2.3
+        },
+        "Girona": {
+          "n": 19,
+          "prec_media": 0.01,
+          "prec_max": 0.2,
+          "lluvia_pct": 5.3,
+          "tmax_media": 13.0,
+          "tmin_media": 8.1,
+          "viento_media": 0.9
+        },
+        "Toledo": {
+          "n": 8,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 14.7,
+          "tmin_media": 4.1,
+          "viento_media": 2.9
+        },
+        "Badajoz": {
+          "n": 21,
+          "prec_media": 9.92,
+          "prec_max": 28.2,
+          "lluvia_pct": 90.5,
+          "tmax_media": 13.7,
+          "tmin_media": 7.4,
+          "viento_media": 1.7
+        },
+        "Almería": {
+          "n": 12,
+          "prec_media": 0.02,
+          "prec_max": 0.2,
+          "lluvia_pct": 8.3,
+          "tmax_media": 19.3,
+          "tmin_media": 8.5,
+          "viento_media": 1.5
+        },
+        "Navarra": {
+          "n": 20,
+          "prec_media": 0.02,
+          "prec_max": 0.2,
+          "lluvia_pct": 10.0,
+          "tmax_media": 15.4,
+          "tmin_media": 6.3,
+          "viento_media": 2.1
+        },
+        "Cantabria": {
+          "n": 19,
+          "prec_media": 0.77,
+          "prec_max": 5.5,
+          "lluvia_pct": 26.3,
+          "tmax_media": 18.0,
+          "tmin_media": 7.4,
+          "viento_media": 2.4
+        },
+        "Jaén": {
+          "n": 13,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.2,
+          "tmin_media": 6.8,
+          "viento_media": 1.2
+        },
+        "Castellón / Castelló": {
+          "n": 9,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 15.4,
+          "tmin_media": 7.0,
+          "viento_media": 1.3
+        },
+        "Valladolid": {
+          "n": 10,
+          "prec_media": 2.56,
+          "prec_max": 5.6,
+          "lluvia_pct": 100.0,
+          "tmax_media": 10.0,
+          "tmin_media": 2.9,
+          "viento_media": 2.1
+        },
+        "León": {
+          "n": 14,
+          "prec_media": 2.36,
+          "prec_max": 7.4,
+          "lluvia_pct": 100.0,
+          "tmax_media": 10.1,
+          "tmin_media": 0.3,
+          "viento_media": 2.3
+        },
+        "Huelva": {
+          "n": 14,
+          "prec_media": 13.09,
+          "prec_max": 27.4,
+          "lluvia_pct": 92.9,
+          "tmax_media": 15.0,
+          "tmin_media": 9.4,
+          "viento_media": 1.6
+        },
+        "Ciudad Real": {
+          "n": 10,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.9,
+          "tmin_media": 4.4,
+          "viento_media": 1.8
+        },
+        "Ourense": {
+          "n": 12,
+          "prec_media": 0.96,
+          "prec_max": 2.6,
+          "lluvia_pct": 91.7,
+          "tmax_media": 12.4,
+          "tmin_media": 3.1,
+          "viento_media": 2.1
+        },
+        "Lugo": {
+          "n": 11,
+          "prec_media": 0.63,
+          "prec_max": 2.8,
+          "lluvia_pct": 72.7,
+          "tmax_media": 12.7,
+          "tmin_media": 5.2,
+          "viento_media": 2.2
+        },
+        "Cáceres": {
+          "n": 27,
+          "prec_media": 6.54,
+          "prec_max": 17.6,
+          "lluvia_pct": 100.0,
+          "tmax_media": 12.4,
+          "tmin_media": 6.1,
+          "viento_media": 1.5
+        },
+        "Lleida": {
+          "n": 20,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 14.3,
+          "tmin_media": 2.2,
+          "viento_media": 1.5
+        },
+        "Albacete": {
+          "n": 11,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.9,
+          "tmin_media": 3.2,
+          "viento_media": 1.3
+        },
+        "Salamanca": {
+          "n": 14,
+          "prec_media": 3.59,
+          "prec_max": 8.6,
+          "lluvia_pct": 100.0,
+          "tmax_media": 11.4,
+          "tmin_media": 2.6,
+          "viento_media": 2.9
+        },
+        "Burgos": {
+          "n": 13,
+          "prec_media": 0.69,
+          "prec_max": 2.8,
+          "lluvia_pct": 69.2,
+          "tmax_media": 12.2,
+          "tmin_media": 3.5,
+          "viento_media": 2.5
+        },
+        "Araba/Álava": {
+          "n": 8,
+          "prec_media": 0.04,
+          "prec_max": 0.2,
+          "lluvia_pct": 25.0,
+          "tmax_media": 14.3,
+          "tmin_media": 5.9,
+          "viento_media": 2.2
+        },
+        "Rioja, La": {
+          "n": 6,
+          "prec_media": 0.07,
+          "prec_max": 0.2,
+          "lluvia_pct": 33.3,
+          "tmax_media": 12.8,
+          "tmin_media": 3.5,
+          "viento_media": 2.3
+        },
+        "Guadalajara": {
+          "n": 7,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.7,
+          "tmin_media": 3.1,
+          "viento_media": 1.7
+        },
+        "Huesca": {
+          "n": 24,
+          "prec_media": 0.01,
+          "prec_max": 0.2,
+          "lluvia_pct": 4.2,
+          "tmax_media": 14.0,
+          "tmin_media": 3.7,
+          "viento_media": 1.4
+        },
+        "Zamora": {
+          "n": 11,
+          "prec_media": 2.0,
+          "prec_max": 3.6,
+          "lluvia_pct": 100.0,
+          "tmax_media": 10.8,
+          "tmin_media": 2.5,
+          "viento_media": 2.8
+        },
+        "Cuenca": {
+          "n": 11,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.0,
+          "tmin_media": 1.3,
+          "viento_media": 1.5
+        },
+        "Palencia": {
+          "n": 8,
+          "prec_media": 2.54,
+          "prec_max": 5.8,
+          "lluvia_pct": 100.0,
+          "tmax_media": 9.2,
+          "tmin_media": 1.8,
+          "viento_media": 3.0
+        },
+        "Ávila": {
+          "n": 11,
+          "prec_media": 3.45,
+          "prec_max": 7.6,
+          "lluvia_pct": 81.8,
+          "tmax_media": 12.0,
+          "tmin_media": 3.9,
+          "viento_media": 1.8
+        },
+        "Segovia": {
+          "n": 8,
+          "prec_media": 1.15,
+          "prec_max": 3.8,
+          "lluvia_pct": 100.0,
+          "tmax_media": 13.3,
+          "tmin_media": 4.3,
+          "viento_media": 2.7
+        },
+        "Teruel": {
+          "n": 16,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.9,
+          "tmin_media": 3.0,
+          "viento_media": 1.8
+        },
+        "Soria": {
+          "n": 13,
+          "prec_media": 0.05,
+          "prec_max": 0.4,
+          "lluvia_pct": 15.4,
+          "tmax_media": 16.0,
+          "tmin_media": 3.4,
+          "viento_media": 2.6
+        },
+        "Ceuta": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.5,
+          "tmin_media": 11.0,
+          "viento_media": 1.9
+        },
+        "Melilla": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.0,
+          "tmin_media": 9.0,
+          "viento_media": 3.3
+        }
+      }
+    },
+    "2016-06-26": {
+      "n_estaciones": 816,
+      "provincias": {
+        "Madrid": {
+          "n": 19,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 30.5,
+          "tmin_media": 14.6,
+          "viento_media": 2.0
+        },
+        "Barcelona": {
+          "n": 22,
+          "prec_media": 0.01,
+          "prec_max": 0.2,
+          "lluvia_pct": 4.5,
+          "tmax_media": 26.2,
+          "tmin_media": 16.3,
+          "viento_media": 2.9
+        },
+        "Valencia / València": {
+          "n": 20,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 27.2,
+          "tmin_media": 18.0,
+          "viento_media": 2.9
+        },
+        "Sevilla": {
+          "n": 15,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 30.3,
+          "tmin_media": 15.8,
+          "viento_media": 3.2
+        },
+        "Alicante / Alacant": {
+          "n": 12,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 28.2,
+          "tmin_media": 19.5,
+          "viento_media": 4.1
+        },
+        "Málaga": {
+          "n": 23,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 27.7,
+          "tmin_media": 17.9,
+          "viento_media": 2.4
+        },
+        "Murcia": {
+          "n": 24,
+          "prec_media": 0.3,
+          "prec_max": 7.2,
+          "lluvia_pct": 4.2,
+          "tmax_media": 28.6,
+          "tmin_media": 19.2,
+          "viento_media": 3.7
+        },
+        "Coruña, A": {
+          "n": 18,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.5,
+          "tmin_media": 13.4,
+          "viento_media": 5.9
+        },
+        "Cádiz": {
+          "n": 15,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 26.5,
+          "tmin_media": 16.9,
+          "viento_media": 3.6
+        },
+        "Asturias": {
+          "n": 25,
+          "prec_media": 0.01,
+          "prec_max": 0.2,
+          "lluvia_pct": 4.0,
+          "tmax_media": 19.2,
+          "tmin_media": 11.5,
+          "viento_media": 3.1
+        },
+        "Bizkaia": {
+          "n": 11,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.5,
+          "tmin_media": 12.3,
+          "viento_media": 2.1
+        },
+        "Palmas, Las": {
+          "n": 35,
+          "prec_media": 0.01,
+          "prec_max": 0.2,
+          "lluvia_pct": 5.7,
+          "tmax_media": 24.8,
+          "tmin_media": 18.8,
+          "viento_media": 5.6
+        },
+        "Santa Cruz de Tenerife": {
+          "n": 22,
+          "prec_media": 0.01,
+          "prec_max": 0.2,
+          "lluvia_pct": 4.5,
+          "tmax_media": 24.1,
+          "tmin_media": 17.3,
+          "viento_media": 5.5
+        },
+        "Pontevedra": {
+          "n": 13,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.0,
+          "tmin_media": 13.2,
+          "viento_media": 3.5
+        },
+        "Balears, Illes": {
+          "n": 34,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 26.9,
+          "tmin_media": 19.1,
+          "viento_media": 4.4
+        },
+        "Granada": {
+          "n": 11,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 29.8,
+          "tmin_media": 17.5,
+          "viento_media": 2.4
+        },
+        "Zaragoza": {
+          "n": 14,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 26.0,
+          "tmin_media": 13.5,
+          "viento_media": 4.9
+        },
+        "Córdoba": {
+          "n": 15,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 32.2,
+          "tmin_media": 15.1,
+          "viento_media": 3.0
+        },
+        "Tarragona": {
+          "n": 12,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 28.6,
+          "tmin_media": 17.5,
+          "viento_media": 3.0
+        },
+        "Gipuzkoa": {
+          "n": 15,
+          "prec_media": 0.03,
+          "prec_max": 0.2,
+          "lluvia_pct": 13.3,
+          "tmax_media": 19.3,
+          "tmin_media": 13.6,
+          "viento_media": 1.9
+        },
+        "Girona": {
+          "n": 20,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.2,
+          "tmin_media": 15.6,
+          "viento_media": 2.2
+        },
+        "Toledo": {
+          "n": 7,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 33.3,
+          "tmin_media": 16.5,
+          "viento_media": 2.7
+        },
+        "Badajoz": {
+          "n": 22,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 33.4,
+          "tmin_media": 16.4,
+          "viento_media": 2.6
+        },
+        "Almería": {
+          "n": 12,
+          "prec_media": 0.03,
+          "prec_max": 0.4,
+          "lluvia_pct": 8.3,
+          "tmax_media": 28.3,
+          "tmin_media": 19.4,
+          "viento_media": 3.7
+        },
+        "Navarra": {
+          "n": 22,
+          "prec_media": 0.02,
+          "prec_max": 0.2,
+          "lluvia_pct": 9.1,
+          "tmax_media": 20.3,
+          "tmin_media": 11.8,
+          "viento_media": 4.3
+        },
+        "Cantabria": {
+          "n": 20,
+          "prec_media": 0.01,
+          "prec_max": 0.2,
+          "lluvia_pct": 5.0,
+          "tmax_media": 18.8,
+          "tmin_media": 11.3,
+          "viento_media": 2.3
+        },
+        "Jaén": {
+          "n": 12,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 32.9,
+          "tmin_media": 16.8,
+          "viento_media": 2.1
+        },
+        "Castellón / Castelló": {
+          "n": 9,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.8,
+          "tmin_media": 14.5,
+          "viento_media": 2.4
+        },
+        "Valladolid": {
+          "n": 10,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.9,
+          "tmin_media": 10.6,
+          "viento_media": 5.6
+        },
+        "León": {
+          "n": 15,
+          "prec_media": 0.01,
+          "prec_max": 0.2,
+          "lluvia_pct": 6.7,
+          "tmax_media": 22.6,
+          "tmin_media": 7.6,
+          "viento_media": 3.3
+        },
+        "Huelva": {
+          "n": 14,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 28.6,
+          "tmin_media": 15.7,
+          "viento_media": 2.7
+        },
+        "Ciudad Real": {
+          "n": 11,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 33.6,
+          "tmin_media": 15.5,
+          "viento_media": 2.3
+        },
+        "Ourense": {
+          "n": 12,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.2,
+          "tmin_media": 10.8,
+          "viento_media": 2.0
+        },
+        "Lugo": {
+          "n": 11,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.5,
+          "tmin_media": 11.0,
+          "viento_media": 2.8
+        },
+        "Cáceres": {
+          "n": 29,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 32.0,
+          "tmin_media": 17.4,
+          "viento_media": 2.8
+        },
+        "Lleida": {
+          "n": 18,
+          "prec_media": 0.01,
+          "prec_max": 0.1,
+          "lluvia_pct": 5.6,
+          "tmax_media": 26.3,
+          "tmin_media": 13.8,
+          "viento_media": 2.8
+        },
+        "Albacete": {
+          "n": 9,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 30.6,
+          "tmin_media": 15.1,
+          "viento_media": 3.6
+        },
+        "Salamanca": {
+          "n": 14,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 26.2,
+          "tmin_media": 10.9,
+          "viento_media": 4.3
+        },
+        "Burgos": {
+          "n": 12,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.8,
+          "tmin_media": 8.5,
+          "viento_media": 5.0
+        },
+        "Araba/Álava": {
+          "n": 9,
+          "prec_media": 0.02,
+          "prec_max": 0.2,
+          "lluvia_pct": 11.1,
+          "tmax_media": 17.3,
+          "tmin_media": 10.3,
+          "viento_media": 3.4
+        },
+        "Rioja, La": {
+          "n": 7,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.9,
+          "tmin_media": 10.4,
+          "viento_media": 2.7
+        },
+        "Guadalajara": {
+          "n": 6,
+          "prec_media": 0.2,
+          "prec_max": 1.2,
+          "lluvia_pct": 16.7,
+          "tmax_media": 28.4,
+          "tmin_media": 11.7,
+          "viento_media": 2.7
+        },
+        "Huesca": {
+          "n": 23,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 26.2,
+          "tmin_media": 13.2,
+          "viento_media": 2.0
+        },
+        "Zamora": {
+          "n": 13,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.2,
+          "tmin_media": 10.1,
+          "viento_media": 5.2
+        },
+        "Cuenca": {
+          "n": 13,
+          "prec_media": 0.03,
+          "prec_max": 0.4,
+          "lluvia_pct": 7.7,
+          "tmax_media": 30.0,
+          "tmin_media": 14.8,
+          "viento_media": 4.4
+        },
+        "Palencia": {
+          "n": 8,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.5,
+          "tmin_media": 7.9,
+          "viento_media": 5.1
+        },
+        "Ávila": {
+          "n": 10,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 28.0,
+          "tmin_media": 10.7,
+          "viento_media": 2.6
+        },
+        "Segovia": {
+          "n": 8,
+          "prec_media": 1.02,
+          "prec_max": 4.4,
+          "lluvia_pct": 25.0,
+          "tmax_media": 25.6,
+          "tmin_media": 9.5,
+          "viento_media": 3.2
+        },
+        "Teruel": {
+          "n": 16,
+          "prec_media": 2.01,
+          "prec_max": 28.8,
+          "lluvia_pct": 18.8,
+          "tmax_media": 26.0,
+          "tmin_media": 11.6,
+          "viento_media": 3.1
+        },
+        "Soria": {
+          "n": 13,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.1,
+          "tmin_media": 8.5,
+          "viento_media": 4.4
+        },
+        "Ceuta": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 28.9,
+          "tmin_media": 19.1,
+          "viento_media": 1.9
+        },
+        "Melilla": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 28.0,
+          "tmin_media": 21.2,
+          "viento_media": 3.6
+        }
+      }
+    },
+    "2019-04-28": {
+      "n_estaciones": 832,
+      "provincias": {
+        "Madrid": {
+          "n": 22,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.5,
+          "tmin_media": 7.9,
+          "viento_media": 1.6
+        },
+        "Barcelona": {
+          "n": 23,
+          "prec_media": 0.03,
+          "prec_max": 0.4,
+          "lluvia_pct": 17.4,
+          "tmax_media": 17.5,
+          "tmin_media": 7.2,
+          "viento_media": 2.2
+        },
+        "Valencia / València": {
+          "n": 19,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.0,
+          "tmin_media": 9.3,
+          "viento_media": 2.2
+        },
+        "Sevilla": {
+          "n": 16,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 27.4,
+          "tmin_media": 10.5,
+          "viento_media": 2.8
+        },
+        "Alicante / Alacant": {
+          "n": 12,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.7,
+          "tmin_media": 9.7,
+          "viento_media": 2.0
+        },
+        "Málaga": {
+          "n": 22,
+          "prec_media": 0.0,
+          "prec_max": 0.1,
+          "lluvia_pct": 4.5,
+          "tmax_media": 22.3,
+          "tmin_media": 12.7,
+          "viento_media": 2.8
+        },
+        "Murcia": {
+          "n": 26,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.5,
+          "tmin_media": 9.0,
+          "viento_media": 2.4
+        },
+        "Coruña, A": {
+          "n": 17,
+          "prec_media": 0.01,
+          "prec_max": 0.2,
+          "lluvia_pct": 5.9,
+          "tmax_media": 21.8,
+          "tmin_media": 6.9,
+          "viento_media": 3.2
+        },
+        "Cádiz": {
+          "n": 15,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.2,
+          "tmin_media": 13.3,
+          "viento_media": 5.1
+        },
+        "Asturias": {
+          "n": 25,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 18.4,
+          "tmin_media": 7.5,
+          "viento_media": 3.0
+        },
+        "Bizkaia": {
+          "n": 10,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.8,
+          "tmin_media": 6.9,
+          "viento_media": 2.3
+        },
+        "Palmas, Las": {
+          "n": 36,
+          "prec_media": 0.01,
+          "prec_max": 0.2,
+          "lluvia_pct": 2.8,
+          "tmax_media": 22.8,
+          "tmin_media": 15.3,
+          "viento_media": 4.3
+        },
+        "Santa Cruz de Tenerife": {
+          "n": 23,
+          "prec_media": 0.01,
+          "prec_max": 0.2,
+          "lluvia_pct": 4.3,
+          "tmax_media": 21.2,
+          "tmin_media": 14.0,
+          "viento_media": 3.6
+        },
+        "Pontevedra": {
+          "n": 13,
+          "prec_media": 0.02,
+          "prec_max": 0.2,
+          "lluvia_pct": 7.7,
+          "tmax_media": 23.9,
+          "tmin_media": 7.5,
+          "viento_media": 2.1
+        },
+        "Balears, Illes": {
+          "n": 39,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.7,
+          "tmin_media": 8.2,
+          "viento_media": 2.6
+        },
+        "Granada": {
+          "n": 12,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 24.1,
+          "tmin_media": 8.5,
+          "viento_media": 2.2
+        },
+        "Zaragoza": {
+          "n": 14,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.0,
+          "tmin_media": 6.8,
+          "viento_media": 4.7
+        },
+        "Córdoba": {
+          "n": 15,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 27.2,
+          "tmin_media": 9.2,
+          "viento_media": 1.7
+        },
+        "Tarragona": {
+          "n": 13,
+          "prec_media": 0.02,
+          "prec_max": 0.2,
+          "lluvia_pct": 7.7,
+          "tmax_media": 21.9,
+          "tmin_media": 9.1,
+          "viento_media": 3.7
+        },
+        "Gipuzkoa": {
+          "n": 16,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.3,
+          "tmin_media": 6.8,
+          "viento_media": 1.8
+        },
+        "Girona": {
+          "n": 17,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.9,
+          "tmin_media": 7.8,
+          "viento_media": 2.2
+        },
+        "Toledo": {
+          "n": 10,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.1,
+          "tmin_media": 8.0,
+          "viento_media": 1.8
+        },
+        "Badajoz": {
+          "n": 22,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 27.2,
+          "tmin_media": 9.6,
+          "viento_media": 2.3
+        },
+        "Almería": {
+          "n": 10,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.2,
+          "tmin_media": 11.0,
+          "viento_media": 3.5
+        },
+        "Navarra": {
+          "n": 22,
+          "prec_media": 0.01,
+          "prec_max": 0.2,
+          "lluvia_pct": 9.1,
+          "tmax_media": 17.8,
+          "tmin_media": 5.6,
+          "viento_media": 3.7
+        },
+        "Cantabria": {
+          "n": 20,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.3,
+          "tmin_media": 6.7,
+          "viento_media": 2.9
+        },
+        "Jaén": {
+          "n": 12,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 27.1,
+          "tmin_media": 10.8,
+          "viento_media": 1.4
+        },
+        "Castellón / Castelló": {
+          "n": 9,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.2,
+          "tmin_media": 7.4,
+          "viento_media": 2.9
+        },
+        "Valladolid": {
+          "n": 9,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.4,
+          "tmin_media": 4.5,
+          "viento_media": 2.2
+        },
+        "León": {
+          "n": 14,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.4,
+          "tmin_media": 2.5,
+          "viento_media": 2.1
+        },
+        "Huelva": {
+          "n": 14,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 27.6,
+          "tmin_media": 11.1,
+          "viento_media": 2.3
+        },
+        "Ciudad Real": {
+          "n": 12,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.5,
+          "tmin_media": 8.0,
+          "viento_media": 1.4
+        },
+        "Ourense": {
+          "n": 12,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.2,
+          "tmin_media": 4.5,
+          "viento_media": 1.2
+        },
+        "Lugo": {
+          "n": 11,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.8,
+          "tmin_media": 7.0,
+          "viento_media": 2.1
+        },
+        "Cáceres": {
+          "n": 29,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 25.6,
+          "tmin_media": 10.8,
+          "viento_media": 1.9
+        },
+        "Lleida": {
+          "n": 21,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.9,
+          "tmin_media": 4.0,
+          "viento_media": 2.7
+        },
+        "Albacete": {
+          "n": 11,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.1,
+          "tmin_media": 6.6,
+          "viento_media": 2.0
+        },
+        "Salamanca": {
+          "n": 14,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.8,
+          "tmin_media": 4.7,
+          "viento_media": 2.2
+        },
+        "Burgos": {
+          "n": 14,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.5,
+          "tmin_media": 3.2,
+          "viento_media": 2.8
+        },
+        "Araba/Álava": {
+          "n": 9,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 18.8,
+          "tmin_media": 3.9,
+          "viento_media": 2.3
+        },
+        "Rioja, La": {
+          "n": 7,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.6,
+          "tmin_media": 5.6,
+          "viento_media": 2.5
+        },
+        "Guadalajara": {
+          "n": 9,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.2,
+          "tmin_media": 4.5,
+          "viento_media": 1.7
+        },
+        "Huesca": {
+          "n": 24,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 21.0,
+          "tmin_media": 3.9,
+          "viento_media": 2.9
+        },
+        "Zamora": {
+          "n": 12,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.0,
+          "tmin_media": 4.5,
+          "viento_media": 2.4
+        },
+        "Cuenca": {
+          "n": 14,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 23.5,
+          "tmin_media": 6.2,
+          "viento_media": 1.8
+        },
+        "Palencia": {
+          "n": 8,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.1,
+          "tmin_media": 3.7,
+          "viento_media": 1.9
+        },
+        "Ávila": {
+          "n": 10,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 22.7,
+          "tmin_media": 5.1,
+          "viento_media": 1.9
+        },
+        "Segovia": {
+          "n": 8,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.6,
+          "tmin_media": 4.4,
+          "viento_media": 2.3
+        },
+        "Teruel": {
+          "n": 17,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.8,
+          "tmin_media": 4.8,
+          "viento_media": 2.8
+        },
+        "Soria": {
+          "n": 12,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 20.1,
+          "tmin_media": 1.7,
+          "viento_media": 2.5
+        },
+        "Ceuta": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.4,
+          "tmin_media": 15.1,
+          "viento_media": 4.4
+        },
+        "Melilla": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 19.2,
+          "tmin_media": 14.9,
+          "viento_media": 3.9
+        }
+      }
+    },
+    "2019-11-10": {
+      "n_estaciones": 822,
+      "provincias": {
+        "Madrid": {
+          "n": 20,
+          "prec_media": 1.26,
+          "prec_max": 8.2,
+          "lluvia_pct": 40.0,
+          "tmax_media": 8.4,
+          "tmin_media": 2.2,
+          "viento_media": 3.9
+        },
+        "Barcelona": {
+          "n": 23,
+          "prec_media": 0.03,
+          "prec_max": 0.2,
+          "lluvia_pct": 13.0,
+          "tmax_media": 12.8,
+          "tmin_media": 3.8,
+          "viento_media": 1.9
+        },
+        "Valencia / València": {
+          "n": 21,
+          "prec_media": 0.02,
+          "prec_max": 0.2,
+          "lluvia_pct": 9.5,
+          "tmax_media": 15.4,
+          "tmin_media": 7.3,
+          "viento_media": 3.2
+        },
+        "Sevilla": {
+          "n": 15,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.1,
+          "tmin_media": 9.1,
+          "viento_media": 3.7
+        },
+        "Alicante / Alacant": {
+          "n": 11,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 16.0,
+          "tmin_media": 10.0,
+          "viento_media": 5.7
+        },
+        "Málaga": {
+          "n": 22,
+          "prec_media": 0.07,
+          "prec_max": 0.8,
+          "lluvia_pct": 13.6,
+          "tmax_media": 17.8,
+          "tmin_media": 12.3,
+          "viento_media": 4.6
+        },
+        "Murcia": {
+          "n": 26,
+          "prec_media": 0.02,
+          "prec_max": 0.2,
+          "lluvia_pct": 7.7,
+          "tmax_media": 15.9,
+          "tmin_media": 9.8,
+          "viento_media": 6.4
+        },
+        "Coruña, A": {
+          "n": 16,
+          "prec_media": 17.52,
+          "prec_max": 43.6,
+          "lluvia_pct": 100.0,
+          "tmax_media": 11.1,
+          "tmin_media": 8.1,
+          "viento_media": 3.6
+        },
+        "Cádiz": {
+          "n": 15,
+          "prec_media": 0.31,
+          "prec_max": 1.5,
+          "lluvia_pct": 53.3,
+          "tmax_media": 17.2,
+          "tmin_media": 11.4,
+          "viento_media": 5.0
+        },
+        "Asturias": {
+          "n": 18,
+          "prec_media": 20.18,
+          "prec_max": 37.0,
+          "lluvia_pct": 100.0,
+          "tmax_media": 7.8,
+          "tmin_media": 5.2,
+          "viento_media": 3.2
+        },
+        "Bizkaia": {
+          "n": 9,
+          "prec_media": 25.99,
+          "prec_max": 36.4,
+          "lluvia_pct": 100.0,
+          "tmax_media": 10.1,
+          "tmin_media": 5.6,
+          "viento_media": 4.6
+        },
+        "Palmas, Las": {
+          "n": 36,
+          "prec_media": 0.16,
+          "prec_max": 2.2,
+          "lluvia_pct": 25.0,
+          "tmax_media": 21.6,
+          "tmin_media": 16.2,
+          "viento_media": 5.8
+        },
+        "Santa Cruz de Tenerife": {
+          "n": 23,
+          "prec_media": 0.37,
+          "prec_max": 2.6,
+          "lluvia_pct": 30.4,
+          "tmax_media": 21.0,
+          "tmin_media": 15.3,
+          "viento_media": 6.1
+        },
+        "Pontevedra": {
+          "n": 13,
+          "prec_media": 10.98,
+          "prec_max": 15.0,
+          "lluvia_pct": 100.0,
+          "tmax_media": 9.8,
+          "tmin_media": 6.9,
+          "viento_media": 1.3
+        },
+        "Balears, Illes": {
+          "n": 34,
+          "prec_media": 21.2,
+          "prec_max": 74.2,
+          "lluvia_pct": 100.0,
+          "tmax_media": 15.6,
+          "tmin_media": 7.8,
+          "viento_media": 4.8
+        },
+        "Granada": {
+          "n": 12,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 13.0,
+          "tmin_media": 7.2,
+          "viento_media": 5.0
+        },
+        "Zaragoza": {
+          "n": 14,
+          "prec_media": 0.89,
+          "prec_max": 8.9,
+          "lluvia_pct": 35.7,
+          "tmax_media": 9.1,
+          "tmin_media": 4.0,
+          "viento_media": 5.9
+        },
+        "Córdoba": {
+          "n": 15,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 13.6,
+          "tmin_media": 8.4,
+          "viento_media": 4.2
+        },
+        "Tarragona": {
+          "n": 11,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 12.6,
+          "tmin_media": 5.8,
+          "viento_media": 6.4
+        },
+        "Gipuzkoa": {
+          "n": 16,
+          "prec_media": 18.39,
+          "prec_max": 30.6,
+          "lluvia_pct": 100.0,
+          "tmax_media": 8.8,
+          "tmin_media": 4.9,
+          "viento_media": 2.6
+        },
+        "Girona": {
+          "n": 19,
+          "prec_media": 0.01,
+          "prec_max": 0.1,
+          "lluvia_pct": 5.3,
+          "tmax_media": 12.6,
+          "tmin_media": 4.3,
+          "viento_media": 2.8
+        },
+        "Toledo": {
+          "n": 10,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 10.8,
+          "tmin_media": 4.2,
+          "viento_media": 3.4
+        },
+        "Badajoz": {
+          "n": 22,
+          "prec_media": 1.6,
+          "prec_max": 6.2,
+          "lluvia_pct": 77.3,
+          "tmax_media": 14.0,
+          "tmin_media": 7.5,
+          "viento_media": 4.9
+        },
+        "Almería": {
+          "n": 11,
+          "prec_media": 0.11,
+          "prec_max": 1.2,
+          "lluvia_pct": 9.1,
+          "tmax_media": 16.1,
+          "tmin_media": 9.2,
+          "viento_media": 5.9
+        },
+        "Navarra": {
+          "n": 20,
+          "prec_media": 14.06,
+          "prec_max": 29.0,
+          "lluvia_pct": 100.0,
+          "tmax_media": 5.9,
+          "tmin_media": 1.9,
+          "viento_media": 1.9
+        },
+        "Cantabria": {
+          "n": 19,
+          "prec_media": 20.21,
+          "prec_max": 42.6,
+          "lluvia_pct": 100.0,
+          "tmax_media": 9.0,
+          "tmin_media": 5.0,
+          "viento_media": 4.1
+        },
+        "Jaén": {
+          "n": 11,
+          "prec_media": 0.05,
+          "prec_max": 0.6,
+          "lluvia_pct": 9.1,
+          "tmax_media": 10.6,
+          "tmin_media": 6.5,
+          "viento_media": 3.1
+        },
+        "Castellón / Castelló": {
+          "n": 10,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 11.4,
+          "tmin_media": 5.7,
+          "viento_media": 7.4
+        },
+        "Valladolid": {
+          "n": 7,
+          "prec_media": 0.14,
+          "prec_max": 0.4,
+          "lluvia_pct": 57.1,
+          "tmax_media": 7.9,
+          "tmin_media": 1.2,
+          "viento_media": 3.9
+        },
+        "León": {
+          "n": 13,
+          "prec_media": 12.52,
+          "prec_max": 47.8,
+          "lluvia_pct": 100.0,
+          "tmax_media": 4.7,
+          "tmin_media": 1.6,
+          "viento_media": 3.8
+        },
+        "Huelva": {
+          "n": 13,
+          "prec_media": 1.83,
+          "prec_max": 4.2,
+          "lluvia_pct": 84.6,
+          "tmax_media": 17.1,
+          "tmin_media": 10.6,
+          "viento_media": 4.3
+        },
+        "Ciudad Real": {
+          "n": 10,
+          "prec_media": 0.06,
+          "prec_max": 0.4,
+          "lluvia_pct": 20.0,
+          "tmax_media": 10.4,
+          "tmin_media": 5.0,
+          "viento_media": 2.2
+        },
+        "Ourense": {
+          "n": 11,
+          "prec_media": 9.55,
+          "prec_max": 20.6,
+          "lluvia_pct": 100.0,
+          "tmax_media": 7.5,
+          "tmin_media": 5.1,
+          "viento_media": 2.3
+        },
+        "Lugo": {
+          "n": 8,
+          "prec_media": 14.57,
+          "prec_max": 21.4,
+          "lluvia_pct": 100.0,
+          "tmax_media": 7.7,
+          "tmin_media": 5.5,
+          "viento_media": 2.0
+        },
+        "Cáceres": {
+          "n": 28,
+          "prec_media": 0.55,
+          "prec_max": 3.2,
+          "lluvia_pct": 53.6,
+          "tmax_media": 11.1,
+          "tmin_media": 7.1,
+          "viento_media": 3.9
+        },
+        "Lleida": {
+          "n": 20,
+          "prec_media": 0.07,
+          "prec_max": 1.4,
+          "lluvia_pct": 5.0,
+          "tmax_media": 10.0,
+          "tmin_media": 1.1,
+          "viento_media": 2.7
+        },
+        "Albacete": {
+          "n": 11,
+          "prec_media": 0.09,
+          "prec_max": 1.0,
+          "lluvia_pct": 9.1,
+          "tmax_media": 9.5,
+          "tmin_media": 3.6,
+          "viento_media": 4.9
+        },
+        "Salamanca": {
+          "n": 12,
+          "prec_media": 0.6,
+          "prec_max": 4.2,
+          "lluvia_pct": 50.0,
+          "tmax_media": 6.7,
+          "tmin_media": 2.9,
+          "viento_media": 4.4
+        },
+        "Burgos": {
+          "n": 13,
+          "prec_media": 9.88,
+          "prec_max": 26.6,
+          "lluvia_pct": 92.3,
+          "tmax_media": 5.2,
+          "tmin_media": 0.5,
+          "viento_media": 2.6
+        },
+        "Araba/Álava": {
+          "n": 9,
+          "prec_media": 29.51,
+          "prec_max": 49.0,
+          "lluvia_pct": 100.0,
+          "tmax_media": 5.3,
+          "tmin_media": 1.4,
+          "viento_media": 2.1
+        },
+        "Rioja, La": {
+          "n": 7,
+          "prec_media": 11.17,
+          "prec_max": 19.4,
+          "lluvia_pct": 100.0,
+          "tmax_media": 5.0,
+          "tmin_media": 1.8,
+          "viento_media": 3.3
+        },
+        "Guadalajara": {
+          "n": 7,
+          "prec_media": 0.89,
+          "prec_max": 3.8,
+          "lluvia_pct": 57.1,
+          "tmax_media": 6.8,
+          "tmin_media": 0.5,
+          "viento_media": 2.7
+        },
+        "Huesca": {
+          "n": 24,
+          "prec_media": 0.59,
+          "prec_max": 4.4,
+          "lluvia_pct": 25.0,
+          "tmax_media": 8.4,
+          "tmin_media": 1.5,
+          "viento_media": 4.2
+        },
+        "Zamora": {
+          "n": 12,
+          "prec_media": 0.02,
+          "prec_max": 0.2,
+          "lluvia_pct": 8.3,
+          "tmax_media": 8.9,
+          "tmin_media": 3.1,
+          "viento_media": 4.4
+        },
+        "Cuenca": {
+          "n": 13,
+          "prec_media": 0.5,
+          "prec_max": 2.0,
+          "lluvia_pct": 61.5,
+          "tmax_media": 8.9,
+          "tmin_media": 1.4,
+          "viento_media": 4.1
+        },
+        "Palencia": {
+          "n": 8,
+          "prec_media": 4.02,
+          "prec_max": 12.2,
+          "lluvia_pct": 62.5,
+          "tmax_media": 5.4,
+          "tmin_media": -0.2,
+          "viento_media": 2.8
+        },
+        "Ávila": {
+          "n": 11,
+          "prec_media": 2.35,
+          "prec_max": 7.4,
+          "lluvia_pct": 90.9,
+          "tmax_media": 6.5,
+          "tmin_media": 2.3,
+          "viento_media": 4.0
+        },
+        "Segovia": {
+          "n": 7,
+          "prec_media": 1.99,
+          "prec_max": 5.8,
+          "lluvia_pct": 100.0,
+          "tmax_media": 4.2,
+          "tmin_media": -0.5,
+          "viento_media": 3.9
+        },
+        "Teruel": {
+          "n": 16,
+          "prec_media": 0.24,
+          "prec_max": 2.4,
+          "lluvia_pct": 31.2,
+          "tmax_media": 7.1,
+          "tmin_media": 1.7,
+          "viento_media": 7.1
+        },
+        "Soria": {
+          "n": 12,
+          "prec_media": 1.78,
+          "prec_max": 8.2,
+          "lluvia_pct": 83.3,
+          "tmax_media": 4.7,
+          "tmin_media": 0.1,
+          "viento_media": 4.9
+        },
+        "Ceuta": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 17.3,
+          "tmin_media": 13.3,
+          "viento_media": 5.3
+        },
+        "Melilla": {
+          "n": 1,
+          "prec_media": 0.2,
+          "prec_max": 0.2,
+          "lluvia_pct": 100.0,
+          "tmax_media": 17.6,
+          "tmin_media": 15.4,
+          "viento_media": 5.0
+        }
+      }
+    },
+    "2023-07-23": {
+      "n_estaciones": 855,
+      "provincias": {
+        "Madrid": {
+          "n": 23,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 33.9,
+          "tmin_media": 16.0,
+          "viento_media": 3.3
+        },
+        "Barcelona": {
+          "n": 21,
+          "prec_media": 0.0,
+          "prec_max": 0.1,
+          "lluvia_pct": 4.8,
+          "tmax_media": 31.3,
+          "tmin_media": 20.0,
+          "viento_media": 2.7
+        },
+        "Valencia / València": {
+          "n": 20,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 34.1,
+          "tmin_media": 23.5,
+          "viento_media": 2.3
+        },
+        "Sevilla": {
+          "n": 16,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 37.8,
+          "tmin_media": 19.1,
+          "viento_media": 2.6
+        },
+        "Alicante / Alacant": {
+          "n": 12,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 33.4,
+          "tmin_media": 23.2,
+          "viento_media": 2.3
+        },
+        "Málaga": {
+          "n": 22,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 32.9,
+          "tmin_media": 22.7,
+          "viento_media": 2.0
+        },
+        "Murcia": {
+          "n": 28,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 34.3,
+          "tmin_media": 22.7,
+          "viento_media": 2.6
+        },
+        "Coruña, A": {
+          "n": 18,
+          "prec_media": 2.51,
+          "prec_max": 8.8,
+          "lluvia_pct": 100.0,
+          "tmax_media": 21.9,
+          "tmin_media": 13.3,
+          "viento_media": 3.9
+        },
+        "Cádiz": {
+          "n": 14,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 31.8,
+          "tmin_media": 19.3,
+          "viento_media": 2.5
+        },
+        "Asturias": {
+          "n": 25,
+          "prec_media": 0.91,
+          "prec_max": 3.2,
+          "lluvia_pct": 64.0,
+          "tmax_media": 24.3,
+          "tmin_media": 14.7,
+          "viento_media": 1.8
+        },
+        "Bizkaia": {
+          "n": 10,
+          "prec_media": 0.48,
+          "prec_max": 1.8,
+          "lluvia_pct": 40.0,
+          "tmax_media": 26.1,
+          "tmin_media": 13.3,
+          "viento_media": 1.8
+        },
+        "Palmas, Las": {
+          "n": 36,
+          "prec_media": 0.05,
+          "prec_max": 1.0,
+          "lluvia_pct": 8.3,
+          "tmax_media": 27.1,
+          "tmin_media": 19.9,
+          "viento_media": 5.4
+        },
+        "Santa Cruz de Tenerife": {
+          "n": 25,
+          "prec_media": 0.06,
+          "prec_max": 1.0,
+          "lluvia_pct": 12.0,
+          "tmax_media": 25.6,
+          "tmin_media": 18.1,
+          "viento_media": 4.9
+        },
+        "Pontevedra": {
+          "n": 14,
+          "prec_media": 2.66,
+          "prec_max": 6.4,
+          "lluvia_pct": 100.0,
+          "tmax_media": 22.8,
+          "tmin_media": 12.9,
+          "viento_media": 1.9
+        },
+        "Balears, Illes": {
+          "n": 42,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 33.6,
+          "tmin_media": 23.7,
+          "viento_media": 3.1
+        },
+        "Granada": {
+          "n": 13,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 34.3,
+          "tmin_media": 20.6,
+          "viento_media": 2.5
+        },
+        "Zaragoza": {
+          "n": 14,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 37.0,
+          "tmin_media": 19.4,
+          "viento_media": 3.1
+        },
+        "Córdoba": {
+          "n": 14,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 38.0,
+          "tmin_media": 19.7,
+          "viento_media": 2.8
+        },
+        "Tarragona": {
+          "n": 11,
+          "prec_media": 0.05,
+          "prec_max": 0.5,
+          "lluvia_pct": 9.1,
+          "tmax_media": 31.5,
+          "tmin_media": 22.6,
+          "viento_media": 3.4
+        },
+        "Gipuzkoa": {
+          "n": 16,
+          "prec_media": 0.05,
+          "prec_max": 0.6,
+          "lluvia_pct": 12.5,
+          "tmax_media": 27.2,
+          "tmin_media": 15.7,
+          "viento_media": 1.5
+        },
+        "Girona": {
+          "n": 20,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 32.3,
+          "tmin_media": 17.9,
+          "viento_media": 3.0
+        },
+        "Toledo": {
+          "n": 11,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 36.5,
+          "tmin_media": 17.4,
+          "viento_media": 3.3
+        },
+        "Badajoz": {
+          "n": 24,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 35.6,
+          "tmin_media": 16.4,
+          "viento_media": 3.2
+        },
+        "Almería": {
+          "n": 13,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 33.7,
+          "tmin_media": 23.1,
+          "viento_media": 2.5
+        },
+        "Navarra": {
+          "n": 22,
+          "prec_media": 0.09,
+          "prec_max": 1.0,
+          "lluvia_pct": 18.2,
+          "tmax_media": 32.7,
+          "tmin_media": 15.3,
+          "viento_media": 2.4
+        },
+        "Cantabria": {
+          "n": 20,
+          "prec_media": 3.25,
+          "prec_max": 15.0,
+          "lluvia_pct": 75.0,
+          "tmax_media": 23.8,
+          "tmin_media": 14.7,
+          "viento_media": 2.2
+        },
+        "Jaén": {
+          "n": 10,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 38.0,
+          "tmin_media": 21.7,
+          "viento_media": 2.2
+        },
+        "Castellón / Castelló": {
+          "n": 10,
+          "prec_media": 0.02,
+          "prec_max": 0.2,
+          "lluvia_pct": 10.0,
+          "tmax_media": 30.0,
+          "tmin_media": 20.9,
+          "viento_media": 3.1
+        },
+        "Valladolid": {
+          "n": 9,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 32.9,
+          "tmin_media": 12.1,
+          "viento_media": 4.0
+        },
+        "León": {
+          "n": 14,
+          "prec_media": 0.1,
+          "prec_max": 1.4,
+          "lluvia_pct": 7.1,
+          "tmax_media": 26.5,
+          "tmin_media": 10.8,
+          "viento_media": 3.0
+        },
+        "Huelva": {
+          "n": 12,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 34.5,
+          "tmin_media": 17.1,
+          "viento_media": 2.9
+        },
+        "Ciudad Real": {
+          "n": 14,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 38.2,
+          "tmin_media": 18.8,
+          "viento_media": 2.8
+        },
+        "Ourense": {
+          "n": 12,
+          "prec_media": 0.68,
+          "prec_max": 1.6,
+          "lluvia_pct": 66.7,
+          "tmax_media": 25.8,
+          "tmin_media": 11.9,
+          "viento_media": 1.7
+        },
+        "Lugo": {
+          "n": 11,
+          "prec_media": 2.64,
+          "prec_max": 7.6,
+          "lluvia_pct": 81.8,
+          "tmax_media": 24.4,
+          "tmin_media": 12.4,
+          "viento_media": 2.3
+        },
+        "Cáceres": {
+          "n": 29,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 34.1,
+          "tmin_media": 17.2,
+          "viento_media": 2.8
+        },
+        "Lleida": {
+          "n": 21,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 31.4,
+          "tmin_media": 15.8,
+          "viento_media": 2.7
+        },
+        "Albacete": {
+          "n": 11,
+          "prec_media": 0.08,
+          "prec_max": 0.7,
+          "lluvia_pct": 18.2,
+          "tmax_media": 36.4,
+          "tmin_media": 19.1,
+          "viento_media": 2.7
+        },
+        "Salamanca": {
+          "n": 14,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 30.7,
+          "tmin_media": 12.6,
+          "viento_media": 3.8
+        },
+        "Burgos": {
+          "n": 13,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 31.7,
+          "tmin_media": 11.0,
+          "viento_media": 3.3
+        },
+        "Araba/Álava": {
+          "n": 9,
+          "prec_media": 0.02,
+          "prec_max": 0.2,
+          "lluvia_pct": 11.1,
+          "tmax_media": 31.8,
+          "tmin_media": 11.0,
+          "viento_media": 2.0
+        },
+        "Rioja, La": {
+          "n": 8,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 33.4,
+          "tmin_media": 14.0,
+          "viento_media": 2.5
+        },
+        "Guadalajara": {
+          "n": 8,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 33.7,
+          "tmin_media": 15.4,
+          "viento_media": 3.3
+        },
+        "Huesca": {
+          "n": 29,
+          "prec_media": 0.01,
+          "prec_max": 0.2,
+          "lluvia_pct": 3.4,
+          "tmax_media": 30.5,
+          "tmin_media": 16.2,
+          "viento_media": 2.9
+        },
+        "Zamora": {
+          "n": 14,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 30.3,
+          "tmin_media": 13.4,
+          "viento_media": 3.7
+        },
+        "Cuenca": {
+          "n": 14,
+          "prec_media": 0.01,
+          "prec_max": 0.2,
+          "lluvia_pct": 7.1,
+          "tmax_media": 35.8,
+          "tmin_media": 19.4,
+          "viento_media": 3.7
+        },
+        "Palencia": {
+          "n": 8,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 28.8,
+          "tmin_media": 11.2,
+          "viento_media": 3.6
+        },
+        "Ávila": {
+          "n": 10,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 32.4,
+          "tmin_media": 12.4,
+          "viento_media": 3.6
+        },
+        "Segovia": {
+          "n": 7,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 31.9,
+          "tmin_media": 13.8,
+          "viento_media": 4.5
+        },
+        "Teruel": {
+          "n": 17,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 35.0,
+          "tmin_media": 19.0,
+          "viento_media": 3.8
+        },
+        "Soria": {
+          "n": 12,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 32.0,
+          "tmin_media": 10.9,
+          "viento_media": 4.3
+        },
+        "Ceuta": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 29.8,
+          "tmin_media": 21.8,
+          "viento_media": 1.9
+        },
+        "Melilla": {
+          "n": 1,
+          "prec_media": 0.0,
+          "prec_max": 0.0,
+          "lluvia_pct": 0.0,
+          "tmax_media": 30.6,
+          "tmin_media": 24.0,
+          "viento_media": 2.5
+        }
+      }
+    }
+  }
+}

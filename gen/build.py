@@ -717,6 +717,14 @@ def write_censo_data(censo: dict) -> None:
     dump("censo-cera.csv", ["codigo", "pais", "electores"], censo.get("cera_paises", []))
 
 
+def write_m5_data(m5: dict) -> None:
+    if not m5:
+        return
+    os.makedirs(os.path.join(OUT, "data"), exist_ok=True)
+    with open(os.path.join(OUT, "data", "m5-results.json"), "w", encoding="utf-8") as f:
+        json.dump(m5, f, ensure_ascii=False, indent=2)
+
+
 def write_congreso_web(prov_part: dict, congreso: dict) -> None:
     if not prov_part:
         return
@@ -1002,6 +1010,10 @@ def main(out: str = "web") -> None:
     if os.path.exists("data/congreso.json"):
         with open("data/congreso.json", encoding="utf-8") as f:
             congreso = json.load(f)
+    m5 = {}
+    if os.path.exists("data/m5_results.json"):
+        with open("data/m5_results.json", encoding="utf-8") as f:
+            m5 = json.load(f)
     prov_part = {}
     if os.path.exists("data/participacion_provincial.json"):
         with open("data/participacion_provincial.json", encoding="utf-8") as f:
@@ -1115,6 +1127,7 @@ def main(out: str = "web") -> None:
         "resultados": resultados,
         "congreso": congreso,
         "prov_part": prov_part,
+        "m5": m5,
         "congreso_2023": congreso.get("elecciones", {}).get("2023-07-23", {}),
         "resultados_2023_rows": build_resultados_2023(
             congreso.get("elecciones", {}).get("2023-07-23", {}).get("nacional", {})
@@ -1154,6 +1167,7 @@ def main(out: str = "web") -> None:
     write_escanos_data(escanos)
     write_resultados_data(resultados)
     write_congreso_web(prov_part, congreso)
+    write_m5_data(m5)
 
     if not os.path.exists(os.path.join(OUT, "data/latest.json")):
         with open(os.path.join(OUT, "data/latest.json"), "w", encoding="utf-8") as f:

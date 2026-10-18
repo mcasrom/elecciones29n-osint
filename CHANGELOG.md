@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.0 — 2026-10-18
+
+- **M5 v1**: meteorología × participación con panel provincia × elección (806 obs, 16 elecciones), AEMET OpenData y OLS con efectos fijos y SE agrupados.
+- Resultados en `/factores.html` y `data/m5-results.json`: asociación negativa modesta; en 2004–2023, −0,041 pp/mm (p=0,007). Sin afirmación causal.
+
 ## 0.5.0 — 2026-10-18
 
 - **Datos provinciales**: 16 elecciones × 52 provincias; participación 1977–2023 con selector y comparación con la media nacional.

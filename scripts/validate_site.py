@@ -23,6 +23,7 @@ REQUIRED = [
     "manifest.webmanifest", "sw.js", "icons/icon-192.png", "icons/icon-512.png",
     "factores.html", "comportamiento.html", "version.json",
     "data/participacion-provincial.json", "data/resultados-2023.csv",
+    "data/m5-results.json",
 ]
 
 
@@ -208,6 +209,12 @@ def main() -> int:
                 errors.append(f"index.html sin versión v{ver}")
         except Exception as e:
             errors.append(f"version.json inválido: {e}")
+
+    facp = os.path.join(d, "factores.html")
+    if os.path.exists(facp):
+        fh = open(facp, encoding="utf-8", errors="ignore").read()
+        if "Resultados (v1)" not in fh:
+            errors.append("factores.html sin resultados M5")
 
     sm = os.path.join(d, "sitemap.xml")
     if os.path.exists(sm):
