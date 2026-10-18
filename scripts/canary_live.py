@@ -90,8 +90,8 @@ def main() -> int:
     code, nh = get(base + "/noche-electoral.html?canary=1")
     if code != 200:
         errors.append(f"noche-electoral.html HTTP {code}")
-    elif "Sin datos electorales todavía" not in nh:
-        errors.append("noche-electoral.html sin estado previo")
+    elif ("Sin datos electorales todavía" not in nh) and ("Participación" not in nh):
+        errors.append("noche-electoral.html sin estado ni resultados")
 
     code, _ = get(base + "/og.png?canary=1")
     if code != 200:

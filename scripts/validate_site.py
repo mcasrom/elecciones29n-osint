@@ -143,9 +143,18 @@ def main() -> int:
                 errors.append(f"{name} demasiado pequeño ({len(ph)} bytes)")
 
     ne = os.path.join(d, "noche-electoral.html")
+    res_path = os.path.join(d, "data/resultados-29n.json")
+    has_results = os.path.exists(res_path)
+    if has_results:
+        try:
+            json.load(open(res_path, encoding="utf-8"))
+        except Exception as e:
+            errors.append(f"resultados-29n.json inválido: {e}")
     if os.path.exists(ne):
         nh = open(ne, encoding="utf-8", errors="ignore").read()
-        if "Sin datos electorales todavía" not in nh:
+        if has_results and "Participación" not in nh:
+            errors.append("noche-electoral.html sin bloque de resultados")
+        if not has_results and "Sin datos electorales todavía" not in nh:
             errors.append("noche-electoral.html sin estado previo")
 
     sm = os.path.join(d, "sitemap.xml")

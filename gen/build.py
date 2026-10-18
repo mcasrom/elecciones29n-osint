@@ -619,6 +619,14 @@ def write_censo_data(censo: dict) -> None:
     dump("censo-cera.csv", ["codigo", "pais", "electores"], censo.get("cera_paises", []))
 
 
+def write_resultados_data(data: dict) -> None:
+    if not data:
+        return
+    os.makedirs(os.path.join(OUT, "data"), exist_ok=True)
+    with open(os.path.join(OUT, "data", "resultados-29n.json"), "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+
 def write_escanos_data(data: dict) -> None:
     import csv as _csv
 
@@ -856,6 +864,11 @@ def main(out: str = "web") -> None:
         autoescape=select_autoescape(["html", "xml"]),
     )
 
+    resultados = {}
+    if os.path.exists("data/resultados_29n.json"):
+        with open("data/resultados_29n.json", encoding="utf-8") as f:
+            resultados = json.load(f)
+
     escanos = {"provincias": [], "total_escanos": 0}
     if os.path.exists("data/escanos_2026.json"):
         with open("data/escanos_2026.json", encoding="utf-8") as f:
@@ -954,6 +967,7 @@ def main(out: str = "web") -> None:
         "part_kpis": part_kpis,
         "health": latest.get("health", {}),
         "escanos": escanos,
+        "resultados": resultados,
         "escanos_chart": build_escanos_chart(escanos.get("provincias", [])),
         "escanos_kpis": {
             "total": escanos.get("total_escanos", 0),
@@ -986,6 +1000,7 @@ def main(out: str = "web") -> None:
     write_censo_data(censo)
     write_participacion_data(participacion)
     write_escanos_data(escanos)
+    write_resultados_data(resultados)
 
     if not os.path.exists(os.path.join(OUT, "data/latest.json")):
         with open(os.path.join(OUT, "data/latest.json"), "w", encoding="utf-8") as f:

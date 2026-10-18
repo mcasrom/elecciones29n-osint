@@ -12,9 +12,36 @@
   <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">La noche electoral del 29N</h1>
   <p class="muted" style="margin:0 0 14px">Qué se publica, cuándo y con qué fuente. Antes de la jornada no hay datos electorales que mostrar.</p>
 
+  {% if not resultados or resultados.participacion is none %}
   <div class="alert warn">
     <strong>Sin datos electorales todavía.</strong> La participación y los resultados del 29N se publicarán <strong>después</strong> de la jornada, con fuente oficial. Hasta entonces, el observatorio muestra solo censo, participación histórica y estructura.
   </div>
+  {% else %}
+  <div class="kpis">
+    <div class="kpi"><span class="kpi-name">Participación</span><b>{{ fmt_pct(resultados.participacion) }}%</b><span class="kpi-range">sobre censo · dato oficial</span></div>
+    {% if resultados.diputados %}
+    <div class="kpi"><span class="kpi-name">Escaños contabilizados</span><b>{{ resultados.diputados.values()|sum }}</b><span class="kpi-range">de 350</span></div>
+    {% endif %}
+    <div class="kpi"><span class="kpi-name">Actualizado</span><b>{{ resultados.meta.actualizado[:10] }}</b><span class="kpi-range">UTC</span></div>
+  </div>
+
+  {% if resultados.diputados %}
+  <div class="card">
+    <div class="cardhead"><h2>Diputados</h2><span class="hint">datos oficiales</span></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Partido</th><th>Escaños</th></tr></thead>
+        <tbody>
+        {% for p, n in resultados.diputados.items() %}
+          <tr><td>{{ p }}</td><td class="num">{{ n }}</td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="muted small">Fuente: <a href="{{ resultados.meta.url }}" rel="noopener" target="_blank">Ministerio del Interior / JEC</a>. Actualizado: {{ resultados.meta.actualizado }}.</p>
+  </div>
+  {% endif %}
+  {% endif %}
 
   <div class="card">
     <div class="cardhead"><h2>Qué se publica y cuándo</h2><span class="hint">hora peninsular</span></div>

@@ -119,10 +119,11 @@ da edad/sexo. El gráfico debe decirlo.
 - Nuevas `/apoyo.html` (Ko-fi, compartir, colaboración) y `/sobre-mi.html` (autor, principios, proyectos, contacto).
 - Subnavegación en la portada y footer; sitemap 10 URLs.
 
-## Noche electoral (preparación) — ✅ HECHO 18-oct (`6f8d8b8`)
+## Noche electoral (preparación) — ✅ HECHO 18-oct (`6f8d8b8` + fallback manual)
 
 - Página `/noche-electoral.html`: calendario de publicación, qué no se publica, validación y estado previo.
 - Integrada en nav, subnav, sitemap (11 URLs), validador y canario.
+- **Acceso oficial bloqueado** (Interior 403, MIR timeout, `resultados.elecciones.gob.es` sin respuesta): plan y entrada manual en `docs/NOCHE-ELECTORAL.md`; `scripts/import_resultados.py` valida y publica participación/escaños con fuente obligatoria.
 
 ## Salud de la muestra y rutina semanal — ✅ HECHO 18-oct
 
@@ -130,6 +131,13 @@ da edad/sexo. El gráfico debe decirlo.
 - `health` en `latest.json`; `scripts/health_report.py`; validación y canario lo comprueban.
 - **`docs/RUTINA-SEMANAL.md`**: rutina de 10–15 min/semana, alta en lote con `add_poll.py --values`, criterios y reglas.
 - Objetivo operativo: ≥4 sondeos y ≥2 encuestadoras.
+
+## Alta manual y registro de fuentes — ✅ HECHO 18-oct (`689941b`)
+
+- **Registro de fuentes** (`data/fuentes_sondeos.csv` + `docs/FUENTES-SONDEOS.md`): encuestadora, medio, URL, frecuencia, estado y notas. Es la herramienta de exploración; no se publica.
+- **Inbox de sondeos** (`data/entrada_sondeos.csv`): una fila por sondeo con fecha, muestra, enlace y `PARTIDO=valor` separados por `;`.
+- **Importador** `scripts/import_polls.py`: valida partidos, fecha, muestra y suma (90–110 %), archiva el CSV y deja plantilla vacía.
+- **Fase actual**: diseño/desarrollo; la introducción de datos es una tarea aparte (10–15 min/semana) que no bloquea el producto.
 
 ## Orden de ejecución
 
