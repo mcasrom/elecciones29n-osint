@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.2 — 2026-10-18
+
+- **Anexo de transparencia meteorológico** en `/factores.html`: tabla nacional por elección (16 filas) en un `<details>` colapsable, con descarga JSON/CSV nacional y CSV provincial. Sin mapa ni cambios en la portada.
+
 ## 0.8.1 — 2026-10-18
 
 - **Auditoría de métricas**: `metrics.py` como fuente única (MA 14 d, resumen de tarjeta, periodo).

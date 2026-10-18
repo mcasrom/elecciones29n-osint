@@ -79,6 +79,25 @@
   </div>
   {% endif %}
 
+  {% if meteo_rows %}
+  <div class="card">
+    <details>
+      <summary><strong>Datos meteorológicos usados</strong> · {{ meteo_rows|length }} elecciones · AEMET</summary>
+      <div class="tablewrap" style="margin-top:12px">
+        <table>
+          <thead><tr><th>Fecha</th><th>Estaciones</th><th>Precip. media</th><th>Estaciones con lluvia</th><th>Tmax media</th></tr></thead>
+          <tbody>
+          {% for r in meteo_rows %}
+            <tr><td>{{ r.fecha }}</td><td class="num">{{ fmt_miles(r.n_estaciones) }}</td><td class="num">{% if r.prec_media is not none %}{{ fmt_pct(r.prec_media) }} mm{% endif %}</td><td class="num">{% if r.lluvia_pct is not none %}{{ fmt_pct(r.lluvia_pct) }}%{% endif %}</td><td class="num">{% if r.tmax_media is not none %}{{ fmt_pct(r.tmax_media) }} °C{% endif %}</td></tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <p class="muted small">Agregado nacional ponderado por número de estaciones; las provincias con menos cobertura pesan menos. 1979/1982 tienen menos estaciones. Es el dato usado en M5, no un pronóstico. <a href="/data/meteo-electoral.json">JSON</a> · <a href="/data/meteo-electoral.csv">CSV nacional</a> · <a href="/data/meteo-electoral-provincias.csv">CSV provincial</a>.</p>
+    </details>
+  </div>
+  {% endif %}
+
   <div class="card">
     <div class="cardhead"><h2>Voto por correo y otros factores</h2></div>
     <ul class="muted small">

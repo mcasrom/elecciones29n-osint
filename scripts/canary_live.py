@@ -119,6 +119,8 @@ def main() -> int:
         errors.append("factores.html sin título esperado")
     elif "Resultados (v1)" not in fh:
         errors.append("factores.html sin resultados M5")
+    elif "Datos meteorológicos usados" not in fh:
+        errors.append("factores.html sin anexo meteorológico")
 
     code, _ = get(base + "/og.png?canary=1")
     if code != 200:

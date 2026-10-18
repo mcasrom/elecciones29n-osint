@@ -29,6 +29,7 @@ REQUIRED = [
     "factores.html", "comportamiento.html", "version.json",
     "data/participacion-provincial.json", "data/resultados-2023.csv",
     "data/m5-results.json", "data/cis-m4-2026.json", "data/cis-m4-2023.csv",
+    "data/meteo-electoral.json", "data/meteo-electoral.csv", "data/meteo-electoral-provincias.csv",
 ]
 
 
@@ -220,6 +221,8 @@ def main() -> int:
         fh = open(facp, encoding="utf-8", errors="ignore").read()
         if "Resultados (v1)" not in fh:
             errors.append("factores.html sin resultados M5")
+        if "Datos meteorológicos usados" not in fh:
+            errors.append("factores.html sin anexo meteorológico")
 
     comp = os.path.join(d, "comportamiento.html")
     if os.path.exists(comp):

@@ -561,6 +561,28 @@ def fmt_pct(v) -> str:
         return str(v)
 
 
+def build_meteo_rows(meteo: dict) -> list:
+    rows = []
+    for date, e in sorted(meteo.get("elecciones", {}).items()):
+        provs = [p for p in e.get("provincias", {}).values() if p.get("n")]
+        n = sum(p["n"] for p in provs)
+        if not n:
+            continue
+        def w(key):
+            pairs = [(p[key], p["n"]) for p in provs if p.get(key) is not None]
+            if not pairs:
+                return None
+            return round(sum(v * nn for v, nn in pairs) / sum(nn for _, nn in pairs), 2)
+        rows.append({
+            "fecha": date,
+            "n_estaciones": int(n),
+            "prec_media": w("prec_media"),
+            "lluvia_pct": w("lluvia_pct"),
+            "tmax_media": w("tmax_media"),
+        })
+    return rows
+
+
 def build_house_compare(house: dict, parties: list) -> list:
     main = {p["party"]: p["mean"] for p in parties}
     rows = []
@@ -746,6 +768,31 @@ def write_m4_data(m4: dict) -> None:
             data = f.read()
         with open(os.path.join(OUT, "data", "cis-m4-2023.csv"), "w", encoding="utf-8") as f:
             f.write(data)
+
+
+def write_meteo_data(meteo: dict) -> None:
+    if not meteo:
+        return
+    import csv as _csv
+    data_dir = os.path.join(OUT, "data")
+    os.makedirs(data_dir, exist_ok=True)
+    with open(os.path.join(data_dir, "meteo-electoral.json"), "w", encoding="utf-8") as f:
+        json.dump(meteo, f, ensure_ascii=False, indent=2)
+    rows = build_meteo_rows(meteo)
+    with open(os.path.join(data_dir, "meteo-electoral.csv"), "w", encoding="utf-8", newline="") as f:
+        w = _csv.writer(f)
+        w.writerow(["fecha", "n_estaciones", "prec_media", "lluvia_pct", "tmax_media"])
+        for r in rows:
+            w.writerow([r["fecha"], r["n_estaciones"], r["prec_media"], r["lluvia_pct"], r["tmax_media"]])
+    with open(os.path.join(data_dir, "meteo-electoral-provincias.csv"), "w", encoding="utf-8", newline="") as f:
+        w = _csv.writer(f)
+        w.writerow(["fecha", "provincia", "n", "prec_media", "prec_max", "lluvia_pct", "tmax_media", "tmin_media", "viento_media"])
+        for date, e in sorted(meteo.get("elecciones", {}).items()):
+            for name, p in sorted(e.get("provincias", {}).items()):
+                if not p.get("n"):
+                    continue
+                w.writerow([date, name, p.get("n"), p.get("prec_media"), p.get("prec_max"),
+                            p.get("lluvia_pct"), p.get("tmax_media"), p.get("tmin_media"), p.get("viento_media")])
 
 
 def write_m5_data(m5: dict) -> None:
@@ -1051,6 +1098,11 @@ def main(out: str = "web") -> None:
     if os.path.exists("data/congreso.json"):
         with open("data/congreso.json", encoding="utf-8") as f:
             congreso = json.load(f)
+    meteo = {}
+    if os.path.exists("data/meteo_electoral.json"):
+        with open("data/meteo_electoral.json", encoding="utf-8") as f:
+            meteo = json.load(f)
+
     m4 = {}
     if os.path.exists("data/cis_m4_2026.json"):
         with open("data/cis_m4_2026.json", encoding="utf-8") as f:
@@ -1175,6 +1227,7 @@ def main(out: str = "web") -> None:
         "prov_part": prov_part,
         "m5": m5,
         "m4": m4,
+        "meteo_rows": build_meteo_rows(meteo),
         "congreso_2023": congreso.get("elecciones", {}).get("2023-07-23", {}),
         "resultados_2023_rows": build_resultados_2023(
             congreso.get("elecciones", {}).get("2023-07-23", {}).get("nacional", {})
@@ -1216,6 +1269,7 @@ def main(out: str = "web") -> None:
     write_congreso_web(prov_part, congreso)
     write_m5_data(m5)
     write_m4_data(m4)
+    write_meteo_data(meteo)
 
     if not os.path.exists(os.path.join(OUT, "data/latest.json")):
         with open(os.path.join(OUT, "data/latest.json"), "w", encoding="utf-8") as f:

@@ -51,3 +51,16 @@ pip install -r requirements-analysis.txt
 python scripts/m5_analysis.py
 bash scripts/run_daily.sh
 ```
+
+
+## Anexo de transparencia (18-oct, v0.8.2)
+
+En **`/factores.html` → Resultados (v1)** hay un `<details>` colapsable
+**«Datos meteorológicos usados»** con la tabla nacional por elección
+(16 filas): estaciones, precipitación media, % de estaciones con lluvia y
+tmax media. Se agrega **ponderando por número de estaciones**; 1979/1982
+tienen menos cobertura.
+
+Descargas: `/data/meteo-electoral.json`, `meteo-electoral.csv` (nacional) y
+`meteo-electoral-provincias.csv` (provincial). No hay mapa ni tarjeta en la
+portada: es un anexo de auditoría, no un dashboard.

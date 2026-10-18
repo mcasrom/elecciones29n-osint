@@ -118,20 +118,20 @@
       "diff": -3.61
     },
     {
-      "party": "JUNTS",
-      "votes": 395429,
-      "seats": 7,
-      "vote_pct": 1.62,
-      "seat_pct": 2.0,
-      "diff": 0.38
-    },
-    {
       "party": "ERC",
       "votes": 466020,
       "seats": 7,
       "vote_pct": 1.91,
       "seat_pct": 2.0,
       "diff": 0.09
+    },
+    {
+      "party": "JUNTS",
+      "votes": 395429,
+      "seats": 7,
+      "vote_pct": 1.62,
+      "seat_pct": 2.0,
+      "diff": 0.38
     },
     {
       "party": "EH Bildu",
@@ -158,14 +158,6 @@
       "diff": -0.19
     },
     {
-      "party": "UPN",
-      "votes": 52188,
-      "seats": 1,
-      "vote_pct": 0.21,
-      "seat_pct": 0.29,
-      "diff": 0.07
-    },
-    {
       "party": "BNG",
       "votes": 153995,
       "seats": 1,
@@ -174,12 +166,36 @@
       "diff": -0.34
     },
     {
-      "party": "ESCAÑOS EN BLANCO",
-      "votes": 7986,
+      "party": "UPN",
+      "votes": 52188,
+      "seats": 1,
+      "vote_pct": 0.21,
+      "seat_pct": 0.29,
+      "diff": 0.07
+    },
+    {
+      "party": "Zsi",
+      "votes": 1843,
       "seats": 0,
-      "vote_pct": 0.03,
+      "vote_pct": 0.01,
       "seat_pct": 0.0,
-      "diff": -0.03
+      "diff": -0.01
+    },
+    {
+      "party": "EV-PCAS-TC",
+      "votes": 1184,
+      "seats": 0,
+      "vote_pct": 0.0,
+      "seat_pct": 0.0,
+      "diff": -0.0
+    },
+    {
+      "party": "LB",
+      "votes": 263,
+      "seats": 0,
+      "vote_pct": 0.0,
+      "seat_pct": 0.0,
+      "diff": -0.0
     },
     {
       "party": "XAV",
@@ -190,48 +206,24 @@
       "diff": -0.03
     },
     {
-      "party": "ASTURIAS EXISTE EV",
-      "votes": 2314,
+      "party": "AHORA CANARIAS-PCPC",
+      "votes": 1674,
       "seats": 0,
       "vote_pct": 0.01,
       "seat_pct": 0.0,
       "diff": -0.01
     },
     {
-      "party": "VP",
-      "votes": 1917,
+      "party": "PAR",
+      "votes": 4173,
       "seats": 0,
-      "vote_pct": 0.01,
+      "vote_pct": 0.02,
       "seat_pct": 0.0,
-      "diff": -0.01
+      "diff": -0.02
     },
     {
-      "party": "PCTG",
-      "votes": 702,
-      "seats": 0,
-      "vote_pct": 0.0,
-      "seat_pct": 0.0,
-      "diff": -0.0
-    },
-    {
-      "party": "UNIDOS SI",
-      "votes": 253,
-      "seats": 0,
-      "vote_pct": 0.0,
-      "seat_pct": 0.0,
-      "diff": -0.0
-    },
-    {
-      "party": "CJ",
-      "votes": 691,
-      "seats": 0,
-      "vote_pct": 0.0,
-      "seat_pct": 0.0,
-      "diff": -0.0
-    },
-    {
-      "party": "EVC",
-      "votes": 265,
+      "party": "F.I.A.",
+      "votes": 506,
       "seats": 0,
       "vote_pct": 0.0,
       "seat_pct": 0.0,
@@ -246,12 +238,196 @@
       "diff": -0.1
     },
     {
+      "party": "ALM",
+      "votes": 874,
+      "seats": 0,
+      "vote_pct": 0.0,
+      "seat_pct": 0.0,
+      "diff": -0.0
+    },
+    {
+      "party": "NC-bc",
+      "votes": 45595,
+      "seats": 0,
+      "vote_pct": 0.19,
+      "seat_pct": 0.0,
+      "diff": -0.19
+    },
+    {
+      "party": "CJ",
+      "votes": 691,
+      "seats": 0,
+      "vote_pct": 0.0,
+      "seat_pct": 0.0,
+      "diff": -0.0
+    },
+    {
+      "party": "ADELANTE ANDALUCÍA",
+      "votes": 9191,
+      "seats": 0,
+      "vote_pct": 0.04,
+      "seat_pct": 0.0,
+      "diff": -0.04
+    },
+    {
+      "party": "ESCONS EN BLANC",
+      "votes": 462,
+      "seats": 0,
+      "vote_pct": 0.0,
+      "seat_pct": 0.0,
+      "diff": -0.0
+    },
+    {
+      "party": "PACMA",
+      "votes": 169237,
+      "seats": 0,
+      "vote_pct": 0.69,
+      "seat_pct": 0.0,
+      "diff": -0.69
+    },
+    {
+      "party": "FE de las JONS",
+      "votes": 4683,
+      "seats": 0,
+      "vote_pct": 0.02,
+      "seat_pct": 0.0,
+      "diff": -0.02
+    },
+    {
+      "party": "CCD",
+      "votes": 153,
+      "seats": 0,
+      "vote_pct": 0.0,
+      "seat_pct": 0.0,
+      "diff": -0.0
+    },
+    {
+      "party": "BQEX",
+      "votes": 5807,
+      "seats": 0,
+      "vote_pct": 0.02,
+      "seat_pct": 0.0,
+      "diff": -0.02
+    },
+    {
+      "party": "CUP-PR",
+      "votes": 99644,
+      "seats": 0,
+      "vote_pct": 0.41,
+      "seat_pct": 0.0,
+      "diff": -0.41
+    },
+    {
+      "party": "POR MI REGIÓN",
+      "votes": 1698,
+      "seats": 0,
+      "vote_pct": 0.01,
+      "seat_pct": 0.0,
+      "diff": -0.01
+    },
+    {
+      "party": "PCTG",
+      "votes": 702,
+      "seats": 0,
+      "vote_pct": 0.0,
+      "seat_pct": 0.0,
+      "diff": -0.0
+    },
+    {
+      "party": "GITV",
+      "votes": 366,
+      "seats": 0,
+      "vote_pct": 0.0,
+      "seat_pct": 0.0,
+      "diff": -0.0
+    },
+    {
       "party": "JM+",
       "votes": 8293,
       "seats": 0,
       "vote_pct": 0.03,
       "seat_pct": 0.0,
       "diff": -0.03
+    },
+    {
+      "party": "UNIDOS SI",
+      "votes": 253,
+      "seats": 0,
+      "vote_pct": 0.0,
+      "seat_pct": 0.0,
+      "diff": -0.0
+    },
+    {
+      "party": "PCTE",
+      "votes": 165,
+      "seats": 0,
+      "vote_pct": 0.0,
+      "seat_pct": 0.0,
+      "diff": -0.0
+    },
+    {
+      "party": "ESPAÑA VACIADA",
+      "votes": 3158,
+      "seats": 0,
+      "vote_pct": 0.01,
+      "seat_pct": 0.0,
+      "diff": -0.01
+    },
+    {
+      "party": "PCTE/ELAK",
+      "votes": 259,
+      "seats": 0,
+      "vote_pct": 0.0,
+      "seat_pct": 0.0,
+      "diff": -0.0
+    },
+    {
+      "party": "JxG",
+      "votes": 1218,
+      "seats": 0,
+      "vote_pct": 0.0,
+      "seat_pct": 0.0,
+      "diff": -0.0
+    },
+    {
+      "party": "VB",
+      "votes": 1774,
+      "seats": 0,
+      "vote_pct": 0.01,
+      "seat_pct": 0.0,
+      "diff": -0.01
+    },
+    {
+      "party": "EVC",
+      "votes": 265,
+      "seats": 0,
+      "vote_pct": 0.0,
+      "seat_pct": 0.0,
+      "diff": -0.0
+    },
+    {
+      "party": "EVB",
+      "votes": 1442,
+      "seats": 0,
+      "vote_pct": 0.01,
+      "seat_pct": 0.0,
+      "diff": -0.01
+    },
+    {
+      "party": "PUM+J",
+      "votes": 23290,
+      "seats": 0,
+      "vote_pct": 0.1,
+      "seat_pct": 0.0,
+      "diff": -0.1
+    },
+    {
+      "party": "PREPAL",
+      "votes": 964,
+      "seats": 0,
+      "vote_pct": 0.0,
+      "seat_pct": 0.0,
+      "diff": -0.0
     },
     {
       "party": "PUEDE",
@@ -270,46 +446,6 @@
       "diff": -0.01
     },
     {
-      "party": "POR MI REGIÓN",
-      "votes": 1698,
-      "seats": 0,
-      "vote_pct": 0.01,
-      "seat_pct": 0.0,
-      "diff": -0.01
-    },
-    {
-      "party": "PARTIDO AUTÓNOMOS",
-      "votes": 1446,
-      "seats": 0,
-      "vote_pct": 0.01,
-      "seat_pct": 0.0,
-      "diff": -0.01
-    },
-    {
-      "party": "FUERZA CÍVICA",
-      "votes": 115,
-      "seats": 0,
-      "vote_pct": 0.0,
-      "seat_pct": 0.0,
-      "diff": -0.0
-    },
-    {
-      "party": "EVB",
-      "votes": 1442,
-      "seats": 0,
-      "vote_pct": 0.01,
-      "seat_pct": 0.0,
-      "diff": -0.01
-    },
-    {
-      "party": "BQEX",
-      "votes": 5807,
-      "seats": 0,
-      "vote_pct": 0.02,
-      "seat_pct": 0.0,
-      "diff": -0.02
-    },
-    {
       "party": "PDeCAT-E-CiU",
       "votes": 32016,
       "seats": 0,
@@ -318,40 +454,16 @@
       "diff": -0.13
     },
     {
-      "party": "PACMA",
-      "votes": 169237,
+      "party": "ESCAÑOS EN BLANCO",
+      "votes": 7986,
       "seats": 0,
-      "vote_pct": 0.69,
+      "vote_pct": 0.03,
       "seat_pct": 0.0,
-      "diff": -0.69
+      "diff": -0.03
     },
     {
-      "party": "PUM+J",
-      "votes": 23290,
-      "seats": 0,
-      "vote_pct": 0.1,
-      "seat_pct": 0.0,
-      "diff": -0.1
-    },
-    {
-      "party": "ADELANTE ANDALUCÍA",
-      "votes": 9191,
-      "seats": 0,
-      "vote_pct": 0.04,
-      "seat_pct": 0.0,
-      "diff": -0.04
-    },
-    {
-      "party": "U.P.L.",
-      "votes": 23201,
-      "seats": 0,
-      "vote_pct": 0.09,
-      "seat_pct": 0.0,
-      "diff": -0.09
-    },
-    {
-      "party": "FO",
-      "votes": 3373,
+      "party": "PARTIDO AUTÓNOMOS",
+      "votes": 1446,
       "seats": 0,
       "vote_pct": 0.01,
       "seat_pct": 0.0,
@@ -366,62 +478,6 @@
       "diff": -0.0
     },
     {
-      "party": "PCTE",
-      "votes": 165,
-      "seats": 0,
-      "vote_pct": 0.0,
-      "seat_pct": 0.0,
-      "diff": -0.0
-    },
-    {
-      "party": "NC-bc",
-      "votes": 45595,
-      "seats": 0,
-      "vote_pct": 0.19,
-      "seat_pct": 0.0,
-      "diff": -0.19
-    },
-    {
-      "party": "EV-PCAS-TC",
-      "votes": 1184,
-      "seats": 0,
-      "vote_pct": 0.0,
-      "seat_pct": 0.0,
-      "diff": -0.0
-    },
-    {
-      "party": "CCD",
-      "votes": 153,
-      "seats": 0,
-      "vote_pct": 0.0,
-      "seat_pct": 0.0,
-      "diff": -0.0
-    },
-    {
-      "party": "Zsi",
-      "votes": 1843,
-      "seats": 0,
-      "vote_pct": 0.01,
-      "seat_pct": 0.0,
-      "diff": -0.01
-    },
-    {
-      "party": "PH",
-      "votes": 2902,
-      "seats": 0,
-      "vote_pct": 0.01,
-      "seat_pct": 0.0,
-      "diff": -0.01
-    },
-    {
-      "party": "FE de las JONS",
-      "votes": 4683,
-      "seats": 0,
-      "vote_pct": 0.02,
-      "seat_pct": 0.0,
-      "diff": -0.02
-    },
-    {
       "party": "SY",
       "votes": 9697,
       "seats": 0,
@@ -430,72 +486,32 @@
       "diff": -0.04
     },
     {
-      "party": "ESCONS EN BLANC",
-      "votes": 462,
-      "seats": 0,
-      "vote_pct": 0.0,
-      "seat_pct": 0.0,
-      "diff": -0.0
-    },
-    {
-      "party": "GBAI",
-      "votes": 9938,
-      "seats": 0,
-      "vote_pct": 0.04,
-      "seat_pct": 0.0,
-      "diff": -0.04
-    },
-    {
-      "party": "AHORA CANARIAS-PCPC",
-      "votes": 1674,
+      "party": "FO",
+      "votes": 3373,
       "seats": 0,
       "vote_pct": 0.01,
       "seat_pct": 0.0,
       "diff": -0.01
     },
     {
-      "party": "F.I.A.",
-      "votes": 506,
-      "seats": 0,
-      "vote_pct": 0.0,
-      "seat_pct": 0.0,
-      "diff": -0.0
-    },
-    {
-      "party": "+RDS+",
-      "votes": 165,
-      "seats": 0,
-      "vote_pct": 0.0,
-      "seat_pct": 0.0,
-      "diff": -0.0
-    },
-    {
-      "party": "JxG",
-      "votes": 1218,
-      "seats": 0,
-      "vote_pct": 0.0,
-      "seat_pct": 0.0,
-      "diff": -0.0
-    },
-    {
-      "party": "EXISTE",
-      "votes": 20440,
-      "seats": 0,
-      "vote_pct": 0.08,
-      "seat_pct": 0.0,
-      "diff": -0.08
-    },
-    {
-      "party": "ESPAÑA VACIADA",
-      "votes": 3158,
+      "party": "VP",
+      "votes": 1917,
       "seats": 0,
       "vote_pct": 0.01,
       "seat_pct": 0.0,
       "diff": -0.01
     },
     {
-      "party": "VB",
-      "votes": 1774,
+      "party": "U.P.L.",
+      "votes": 23201,
+      "seats": 0,
+      "vote_pct": 0.09,
+      "seat_pct": 0.0,
+      "diff": -0.09
+    },
+    {
+      "party": "ASTURIAS EXISTE EV",
+      "votes": 2314,
       "seats": 0,
       "vote_pct": 0.01,
       "seat_pct": 0.0,
@@ -510,28 +526,20 @@
       "diff": -0.0
     },
     {
-      "party": "PAR",
-      "votes": 4173,
-      "seats": 0,
-      "vote_pct": 0.02,
-      "seat_pct": 0.0,
-      "diff": -0.02
-    },
-    {
-      "party": "ALM",
-      "votes": 874,
+      "party": "+RDS+",
+      "votes": 165,
       "seats": 0,
       "vote_pct": 0.0,
       "seat_pct": 0.0,
       "diff": -0.0
     },
     {
-      "party": "PCTE/ELAK",
-      "votes": 259,
+      "party": "EXISTE",
+      "votes": 20440,
       "seats": 0,
-      "vote_pct": 0.0,
+      "vote_pct": 0.08,
       "seat_pct": 0.0,
-      "diff": -0.0
+      "diff": -0.08
     },
     {
       "party": "XH",
@@ -542,20 +550,12 @@
       "diff": -0.01
     },
     {
-      "party": "PREPAL",
-      "votes": 964,
+      "party": "GBAI",
+      "votes": 9938,
       "seats": 0,
-      "vote_pct": 0.0,
+      "vote_pct": 0.04,
       "seat_pct": 0.0,
-      "diff": -0.0
-    },
-    {
-      "party": "GITV",
-      "votes": 366,
-      "seats": 0,
-      "vote_pct": 0.0,
-      "seat_pct": 0.0,
-      "diff": -0.0
+      "diff": -0.04
     },
     {
       "party": "PCTC",
@@ -566,16 +566,16 @@
       "diff": -0.02
     },
     {
-      "party": "CUP-PR",
-      "votes": 99644,
+      "party": "PH",
+      "votes": 2902,
       "seats": 0,
-      "vote_pct": 0.41,
+      "vote_pct": 0.01,
       "seat_pct": 0.0,
-      "diff": -0.41
+      "diff": -0.01
     },
     {
-      "party": "LB",
-      "votes": 263,
+      "party": "FUERZA CÍVICA",
+      "votes": 115,
       "seats": 0,
       "vote_pct": 0.0,
       "seat_pct": 0.0,
