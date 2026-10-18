@@ -164,3 +164,26 @@ bash /home/miguelc/Desktop/demo/cf_purge.sh pruebapublica
 | Cambios de copy que rompan el JSON-LD | Test que compara FAQ visible con `FAQPage` |
 | Caché de edge sirviendo CSS viejo | `?v=` ya implementado; purga tras deploy |
 | Sprint se estira y se toca el motor sin tests | P0.4 antes de tocar nada del pipeline |
+
+---
+
+## Estado al cierre (18-oct-2026, ~08:40 CEST)
+
+**Hecho**
+- P0 dato: `sample` extraída y validada; ponderación `√n` + recencia (vida media 10 d);
+  mediana; `pollster`/`kind` y exclusión de `ElectoPromedio`; ventana adaptativa a 4
+  sondeos con aviso de `n` bajo.
+- P0 tests: `tests/` en `unittest` (15 pruebas) + hook `pre-push` (`core.hooksPath`).
+- P0 UI: SVG con `var()` (claro/oscuro), tablas con scroll, `prefers-reduced-motion`.
+- P1: `add_poll.py` con muestra/encuestadora/kind y validación de suma; calendario
+  electoral con próximo hito; launcher social `social-poster/publish_e29n_card.py`
+  (verificado en `--dry`); enlace desde el sidebar del blog con UTM; decisión sobre
+  la 2.ª fuente en `docs/FUENTES.md` (Wikipedia: viable pero frágil, no integrada).
+- P2: `web/cambios.xml` (RSS de nuevos sondeos) enlazado en `<head>` y pie; bandas
+  min–máx en el gráfico conjunto (top 3) y en los minigráficos.
+
+**Pendiente**
+- Publicar la tarjeta social (requiere OK explícito; el launcher está listo).
+- `sudo loginctl enable-linger miguelc` (requiere contraseña; el timer corre con sesión).
+- GSC: verificar cobertura (4+ URLs indexadas en 72 h).
+- Congreso por provincias: aplazado (sin fuente provincial fiable).
