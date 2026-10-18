@@ -28,6 +28,24 @@
   </div>
 
   <div class="card">
+    <h3>Métricas y bases</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Cifra</th><th>Definición</th><th>Base</th></tr></thead>
+        <tbody>
+          <tr><td>Media por sondeo</td><td>media de la ventana de 14 días</td><td>recencia + √n si hay muestra</td></tr>
+          <tr><td>Media por casa</td><td>última de cada casa en 45 días</td><td>peso igual por casa</td></tr>
+          <tr><td>Media móvil</td><td>±7 días (14 d centrada)</td><td>línea de los gráficos</td></tr>
+          <tr><td>Delta de la tarjeta</td><td>MA final − MA inicial</td><td>misma base; nunca último sondeo vs primero</td></tr>
+          <tr><td>n_polls</td><td>sondeos (fecha + casa)</td><td>no fechas</td></tr>
+          <tr><td>«Otros»</td><td>resto de partidos</td><td>residual; fuera de KPIs y gráficos</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted small">Un último sondeo no es una tendencia. Un punto aislado (p. ej. CIS) se muestra, pero no define la línea. <a href="https://github.com/mcasrom/elecciones29n-osint/blob/main/docs/METRICAS.md">Reglas de métricas</a>.</p>
+  </div>
+
+  <div class="card">
     <h3>2 · Censo</h3>
     <p class="muted">Cifras oficiales del <strong>INE · Oficina del Censo Electoral</strong> para el 29N. Distinguimos <strong>CER</strong> (residentes en España) y <strong>CERA</strong> (residentes en el extranjero).</p>
     <ul class="muted">

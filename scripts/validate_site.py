@@ -9,8 +9,13 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 import xml.etree.ElementTree as ET
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, ROOT)
+from metrics import moving_average, series_span  # noqa: E402
 
 REQUIRED = [
     "index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html",
@@ -251,6 +256,26 @@ def main() -> int:
             errors.append("og.png no es PNG")
         elif os.path.getsize(og) < 10000:
             errors.append(f"og.png demasiado pequeño ({os.path.getsize(og)} bytes)")
+
+    if data and os.path.exists(idx_path):
+        idxh = open(idx_path, encoding="utf-8", errors="ignore").read()
+        series_long = data.get("series_long", {})
+        for party in ("PP", "PSOE"):
+            ma = moving_average(series_long.get(party, []))
+            if not ma:
+                continue
+            m = re.search(r'<div class="sparkhead"><span>' + party + r'</span><b>([0-9.]+)%', idxh)
+            if not m:
+                errors.append(f"index sin sparkline de {party}")
+                continue
+            expected = round(ma[-1]["value"], 1)
+            if abs(float(m.group(1)) - expected) > 0.05:
+                errors.append(f"sparkline {party}={m.group(1)} != MA {expected}")
+        span = series_span(series_long)
+        if span and span not in idxh:
+            errors.append(f"index sin periodo real de la serie ({span})")
+        if "media móvil de 14 días" not in idxh:
+            errors.append("index sin etiqueta de media móvil")
 
     for w in warns:
         print("WARN", w)

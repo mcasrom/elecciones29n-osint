@@ -8,6 +8,7 @@ import pytz
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from agg import blackout
+from metrics import moving_average, series_span, spark_summary
 
 
 TZ = pytz.timezone("Europe/Madrid")
@@ -659,26 +660,21 @@ def build_participacion_chart(rows: list) -> str:
 
 
 def build_sparklines(series: dict, parties: list) -> str:
-    """Minigráficos por partido con media móvil de 14 días (centrada)."""
+    """Minigráficos por partido: línea = MA 14 d; puntos = sondeos; cifra = MA última."""
     order = [p["party"] for p in parties][:6]
     panels = []
     for party in order:
         pts = series.get(party, [])
         if not pts:
             continue
-        dates = sorted({p["date"] for p in pts})
-        ma = []
-        for d in dates:
-            dt = datetime.strptime(d, "%Y-%m-%d")
-            vals = [p["value"] for p in pts
-                    if abs((datetime.strptime(p["date"], "%Y-%m-%d") - dt).days) <= 7]
-            if vals:
-                ma.append({"date": d, "value": sum(vals) / len(vals)})
+        summary = spark_summary(pts)
+        ma = summary["ma"]
         if not ma:
             continue
+        dates = [m["date"] for m in ma]
+        values = [m["value"] for m in ma]
         W, H, pad = 300, 110, 12
-        vals = [m["value"] for m in ma]
-        vmin, vmax = min(vals), max(vals)
+        vmin, vmax = min(values), max(values)
         if vmax == vmin:
             vmax += 0.2
             vmin -= 0.2
@@ -697,14 +693,14 @@ def build_sparklines(series: dict, parties: list) -> str:
         idx = {d: i for i, d in enumerate(dates)}
         dots = "".join(
             f'<circle cx="{X(idx[p["date"]]):.1f}" cy="{Y(p["value"]):.1f}" r="1.7" fill="{color}" opacity="0.55"/>'
-            for p in pts
+            for p in pts if p["date"] in idx
         )
-        delta = vals[-1] - vals[0]
+        delta = summary["delta"]
         cls = "up" if delta > 0.05 else ("down" if delta < -0.05 else "flat")
         sign = "+" if delta > 0 else ""
         panels.append(
             f'<div class="spark">'
-            f'<div class="sparkhead"><span>{party}</span><b>{vals[-1]:.1f}%</b></div>'
+            f'<div class="sparkhead"><span>{party}</span><b>{summary["last"]:.1f}%</b></div>'
             f'<svg viewBox="0 0 {W} {H}" role="img" aria-label="Media móvil de {party}">'
             f'<path d="{dpath}" fill="none" stroke="{color}" stroke-width="2.2"/>{dots}</svg>'
             f'<div class="sparkfoot"><span>{dates[0][5:].replace("-", "/")}</span>'
@@ -929,11 +925,6 @@ def build_jsonld(parties: list, updated_at: str) -> str:
 CHART_COLORS = ["#ff5a1f", "#3ddc97", "#8ec5ff", "#f2c94c", "#bb6bd9", "#56ccf2"]
 
 
-def _series_span(series: dict) -> str:
-    dates = sorted({p["date"] for vals in series.values() for p in vals})
-    return f"{dates[0]} – {dates[-1]}" if dates else ""
-
-
 def _band(coords_lo, coords_hi) -> str:
     top = " L ".join(f"{x:.1f},{y:.1f}" for x, y in coords_hi)
     bot = " L ".join(f"{x:.1f},{y:.1f}" for x, y in reversed(coords_lo))
@@ -1009,16 +1000,12 @@ def build_chart(series: dict, parties: list) -> str:
             lo = [(x(i), y(min(vals[max(0, i - 1):i + 2]))) for i in range(len(pts))]
             hi = [(x(i), y(max(vals[max(0, i - 1):i + 2]))) for i in range(len(pts))]
             parts.append(f'<path d="{_band(lo, hi)}" fill="{color}" opacity="0.10" stroke="none"/>')
-        # media móvil centrada de 14 días (simple)
-        ma = []
-        for d in dates:
-            dt = datetime.strptime(d, "%Y-%m-%d")
-            vals = [p["value"] for p in pts
-                    if abs((datetime.strptime(p["date"], "%Y-%m-%d") - dt).days) <= 7]
-            if vals:
-                ma.append((x(dates.index(d)), y(sum(vals) / len(vals))))
+        # media móvil de 14 días (misma definición que metrics.moving_average)
+        ma = moving_average(pts)
         if len(ma) >= 2:
-            ma_path = "M " + " L ".join(f"{cx:.1f},{cy:.1f}" for cx, cy in ma)
+            ma_path = "M " + " L ".join(
+                f"{x(dates.index(m['date'])):.1f},{y(m['value']):.1f}" for m in ma
+            )
             parts.append(f'<path d="{ma_path}" fill="none" stroke="{color}" stroke-width="2.8" opacity="0.95"/>')
         for p, (cx, cy) in zip(pts, coords):
             title = f"{party} · {p.get('pollster','?')} · {p['date']} · {p['value']}%"
@@ -1162,7 +1149,7 @@ def main(out: str = "web") -> None:
         "censo_jsonld": build_censo_jsonld(censo),
         "person_jsonld": build_person_jsonld(),
         "sparks_svg": build_sparklines(latest.get("series_long", series), parties_main),
-        "series_span": _series_span(latest.get("series_long", {})),
+        "series_span": series_span(latest.get("series_long", {})),
         "updated_iso": latest.get("updated_at_iso", now.isoformat()),
         "low_n": latest.get("low_n", False),
         "window_span": latest.get("window_span", ""),

@@ -42,6 +42,8 @@ def main() -> int:
             errors.append("home sin gráfico")
         elif html.count("<circle") < 1:
             errors.append("gráfico sin puntos")
+        if "media móvil de 14 días" not in html:
+            errors.append("home sin etiqueta de media móvil")
         if "Salud de la muestra" not in html:
             errors.append("home sin panel de salud de la muestra")
         if 'id="tab-evolucion"' not in html:

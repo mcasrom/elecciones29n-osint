@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.1 — 2026-10-18
+
+- **Auditoría de métricas**: `metrics.py` como fuente única (MA 14 d, resumen de tarjeta, periodo).
+- Fix: la tarjeta de Evolución usaba el **último sondeo** (CIS) y un delta contra el primer sondeo de otra casa. Ahora cifra y delta son **MA 14 d**; periodo real.
+- Tests (`test_metrics.py`) y validador recalculan la MA y el periodo desde `latest.json`.
+
 ## 0.8.0 — 2026-10-18
 
 - **M4 v1**: voto declarado en 2023 por **edad, sexo e ideología** (CIS 3582, n=5.025), base de votantes a partidos, **N ponderado** y **celdas n<30 suprimidas**.

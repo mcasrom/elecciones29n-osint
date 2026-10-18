@@ -5,7 +5,7 @@
 [![En vivo](https://img.shields.io/badge/en%20vivo-elecciones29n.pruebapublica.com-ff5a1f)](https://elecciones29n.pruebapublica.com/)
 [![Licencia](https://img.shields.io/badge/licencia-AGPL--3.0-3ddc97)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.12-8ec5ff)](https://www.python.org/)
-[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.8.0-ff5a1f)](CHANGELOG.md)
+[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.8.1-ff5a1f)](CHANGELOG.md)
 
 ---
 
@@ -173,6 +173,13 @@ systemd/        servicio y timer
 
 Además de la media por sondeo (ponderada por recencia y muestra cuando existe), la portada muestra el **contraste por casa**: la última encuesta de cada casa en 45 días, con **peso igual por casa**. Sirve para detectar si la media está dominada por una encuestadora. Incluye CIS. No es la media principal.
 
+## Métricas y auditoría
+
+- **`metrics.py`** es la fuente única de las métricas derivadas (media móvil 14 d, resumen de tarjeta, periodo de serie).
+- Un **delta compara la misma base** (MA vs MA, media vs media); nunca último sondeo vs primero de otra casa.
+- **Tests** y **validador** recalculan la MA desde `latest.json` y comparan con la cifra renderizada.
+- Incidente y reglas: [`docs/METRICAS.md`](docs/METRICAS.md).
+
 ## PWA y actualizaciones
 
 - Instalable: `manifest.webmanifest`, iconos 192/512/maskable y service worker.
@@ -183,7 +190,7 @@ Además de la media por sondeo (ponderada por recencia y muestra cuando existe),
 
 ## Calidad
 
-- **51 tests** (`unittest`) y hook **pre-push**.
+- **55 tests** (`unittest`) y hook **pre-push**.
 - `scripts/check.sh`: compila, tests y valida el sitio local.
 - **Validador** de publicación: gráfico con puntos, pestañas, JSON, sitemap, OG,
   RSS, censo, participación y escaños.
