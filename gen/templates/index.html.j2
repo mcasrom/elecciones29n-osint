@@ -55,6 +55,7 @@
       <button class="tab" data-tab="senado" role="tab" aria-selected="false">Senado</button>
       <a class="tab" href="/electorado.html">Electorado</a>
       <a class="tab" href="/participacion.html">Participación</a>
+      <a class="tab" href="/territorio.html">Territorio</a>
       <a class="tab" href="/metodologia.html">Metodología</a>
       <a class="tab" href="/fuentes.html">Fuentes</a>
       <a class="tab" href="/caveat.html">Qué no dice</a>
@@ -245,6 +246,18 @@
       el mínimo, {{ fmt_pct(part_kpis.min.participacion) }} % ({{ part_kpis.min.eleccion }}).
     </p>
     <div class="cta"><a class="btn" href="/participacion.html">Ver la serie</a></div>
+    {% endif %}
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Territorio y representación</h2><span class="hint">350 escaños · 52 circunscripciones</span></div>
+    {% if escanos.provincias %}
+    <p class="muted" style="margin:0 0 6px">
+      {{ escanos_kpis.min.nombre }} elige {{ escanos_kpis.min.escanos }} diputados con {{ fmt_miles(escanos_kpis.min.electores) }} electores;
+      {{ escanos_kpis.max.nombre }}, {{ escanos_kpis.max.escanos }} con {{ fmt_miles(escanos_kpis.max.electores) }}.
+      Hay {{ (escanos_kpis.max.electores_por_escanos / escanos_kpis.min.electores_por_escanos)|round(1) }}× de diferencia por escaño.
+    </p>
+    <div class="cta"><a class="btn" href="/territorio.html">Ver el reparto</a></div>
     {% endif %}
   </div>
 

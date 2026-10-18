@@ -42,6 +42,11 @@ if [ ! -f data/participacion.json ] || [ -n "$(find data/participacion.json -mti
   PYTHONPATH="$REPO_DIR" python3 -m ingest.participacion || echo "[run_daily] aviso: participación no actualizada"
 fi
 
+# 1d) Escaños por provincia (estático; solo si falta o >30 días)
+if [ ! -f data/escanos_2026.json ] || [ -n "$(find data/escanos_2026.json -mtime +30 2>/dev/null)" ]; then
+  PYTHONPATH="$REPO_DIR" python3 -m ingest.escanos || echo "[run_daily] aviso: escaños no actualizados"
+fi
+
 # 2) Agregación (escribe en el staging)
 PYTHONPATH="$REPO_DIR" python3 -m agg.aggregate --out "$STAGE/data"
 

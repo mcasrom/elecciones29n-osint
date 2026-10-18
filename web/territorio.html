@@ -1,0 +1,559 @@
+
+
+
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Territorio y representación · elecciones generales 29N 2026</title>
+<meta name="description" content="Cuántos diputados elige cada provincia y cuántos electores hay por escaño. Asignación oficial del BOE (RD 806/2026) y censo del INE.">
+<link rel="canonical" href="https://elecciones29n.pruebapublica.com/territorio.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="stylesheet" href="/css/main.css?v=202610180904">
+<script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  function sync(){
+    var light = document.documentElement.dataset.theme === 'light';
+    document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+      var i=b.querySelector('.ticon'), l=b.querySelector('.tlabel');
+      if(i) i.textContent = light ? '☾' : '☀';
+      if(l) l.textContent = light ? 'Oscuro' : 'Claro';
+      b.setAttribute('title', light ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro');
+    });
+  }
+  sync();
+  document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var root = document.documentElement;
+      var next = root.dataset.theme === 'light' ? 'dark' : 'light';
+      root.dataset.theme = next;
+      try { localStorage.setItem('e29n-theme', next); } catch(e) {}
+      sync();
+    });
+  });
+});
+</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="elecciones29n-osint">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Territorio y representación · elecciones generales 29N 2026">
+<meta property="og:description" content="Cuántos diputados elige cada provincia y cuántos electores hay por escaño. Asignación oficial del BOE (RD 806/2026) y censo del INE.">
+<meta property="og:url" content="https://elecciones29n.pruebapublica.com/territorio.html">
+<meta property="og:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Territorio y representación · elecciones generales 29N 2026">
+<meta name="twitter:description" content="Cuántos diputados elige cada provincia y cuántos electores hay por escaño. Asignación oficial del BOE (RD 806/2026) y censo del INE.">
+<meta name="twitter:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<link rel="alternate" type="application/json" href="/data/latest.json" title="Datos agregados (JSON)">
+<link rel="alternate" type="application/rss+xml" href="/cambios.xml" title="Cambios · nuevos sondeos">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebSite", "name": "elecciones29n-osint", "url": "https://elecciones29n.pruebapublica.com/", "inLanguage": "es-ES", "description": "Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo y datos abiertos."}, {"@context": "https://schema.org", "@type": "Dataset", "name": "Media agregada de sondeos · Elecciones Generales 29N 2026", "description": "Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo y datos abiertos.", "url": "https://elecciones29n.pruebapublica.com/", "creator": {"@type": "Person", "name": "Miguel Castillo", "url": "https://elecciones29n.pruebapublica.com"}, "license": "https://www.gnu.org/licenses/agpl-3.0.html", "isAccessibleForFree": true, "dateModified": "2026-10-18 09:04 CEST", "temporalCoverage": "2026-09/2026-11", "spatialCoverage": "ES", "distribution": [{"@type": "DataDownload", "contentUrl": "https://elecciones29n.pruebapublica.com/data/latest.json", "encodingFormat": "application/json"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué es la media agregada de sondeos?", "acceptedAnswer": {"@type": "Answer", "text": "Es la media de los sondeos publicados en los últimos 14 días con su rango mínimo–máximo. No es un pronóstico ni una estimación de intención de voto."}}, {"@type": "Question", "name": "¿Puedo publicar sondeos el 24–28 de noviembre de 2026?", "acceptedAnswer": {"@type": "Answer", "text": "No. La normativa electoral prohíbe publicar, difundir o reproducir sondeos del 24 al 28 de noviembre de 2026, ambos inclusive."}}, {"@type": "Question", "name": "¿De dónde salen los datos?", "acceptedAnswer": {"@type": "Answer", "text": "De paneles publicados por Electomania, con enlace a la fuente y fecha. Se descartan paneles autonómicos y adelantos sin serie completa."}}]}]</script>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="brand">
+      <span class="brandname"><a href="/" style="color:inherit;text-decoration:none">elecciones29n-osint</a></span>
+      <span class="tag">Media agregada de sondeos · 29N 2026</span>
+    </div>
+    <div class="topbar"><div class="brand"><span class="mark"></span><span class="brandname"><a href="/">elecciones29n-osint</a></span></div><div class="status"><button class="themebtn" data-theme-toggle aria-label="Cambiar entre tema claro y oscuro" title="Cambiar tema"><span class="ticon">☀</span><span class="tlabel">Claro</span></button></div></div>
+    <nav>
+      <a href="/">Inicio</a>
+      <a href="/electorado.html">Electorado</a>
+      <a href="/participacion.html">Participación</a>
+      <a href="/territorio.html">Territorio</a>
+      <a href="/metodologia.html">Metodología</a>
+      <a href="/fuentes.html">Fuentes</a>
+      <a href="/caveat.html">Qué no dice</a>
+      <a href="/about.html">Acerca de</a>
+      <a href="/data/latest.json">Datos (JSON)</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Territorio y representación</h1>
+  <p class="muted" style="margin:0 0 14px">Cuántos diputados elige cada circunscripción y cuántos electores hay detrás de cada escaño. Asignación oficial del BOE y censo del INE.</p>
+
+  
+  <div class="kpis">
+    <div class="kpi"><span class="kpi-name">Diputados</span><b>350</b><span class="kpi-range">Congreso</span></div>
+    <div class="kpi"><span class="kpi-name">Circunscripciones</span><b>52</b><span class="kpi-range">provincias + Ceuta y Melilla</span></div>
+    <div class="kpi"><span class="kpi-name">Media</span><b>110.652</b><span class="kpi-range">electores por escaño</span></div>
+    <div class="kpi"><span class="kpi-name">Brecha</span><b>4.1×</b><span class="kpi-range">Teruel ↔ Madrid</span></div>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Electores por escaño</h2><span class="hint">menos electores por escaño = más peso relativo</span></div>
+    <svg class="chart" viewBox="0 0 760 694" role="img" aria-label="Electores por escaño en cada provincia"><text x="126" y="22" text-anchor="end" fill="var(--muted)" font-size="9.5">Teruel</text><rect x="132" y="13" width="133.7" height="9" rx="2" fill="#3ddc97" opacity="0.85"/><text x="270.7" y="22" fill="var(--muted)" font-size="9">35.417</text><text x="126" y="35" text-anchor="end" fill="var(--muted)" font-size="9.5">Soria</text><rect x="132" y="26" width="145.5" height="9" rx="2" fill="#3ddc97" opacity="0.85"/><text x="282.5" y="35" fill="var(--muted)" font-size="9">38.534</text><text x="126" y="48" text-anchor="end" fill="var(--muted)" font-size="9.5">Segovia</text><rect x="132" y="39" width="152.8" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="289.8" y="48" fill="var(--muted)" font-size="9">40.487</text><text x="126" y="61" text-anchor="end" fill="var(--muted)" font-size="9.5">Ávila</text><rect x="132" y="52" width="171.9" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="308.9" y="61" fill="var(--muted)" font-size="9">45.533</text><text x="126" y="74" text-anchor="end" fill="var(--muted)" font-size="9.5">Palencia</text><rect x="132" y="65" width="173.0" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="310.0" y="74" fill="var(--muted)" font-size="9">45.822</text><text x="126" y="87" text-anchor="end" fill="var(--muted)" font-size="9.5">Cuenca</text><rect x="132" y="78" width="190.5" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="327.5" y="87" fill="var(--muted)" font-size="9">50.470</text><text x="126" y="100" text-anchor="end" fill="var(--muted)" font-size="9.5">Zamora</text><rect x="132" y="91" width="204.1" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="341.1" y="100" fill="var(--muted)" font-size="9">54.084</text><text x="126" y="113" text-anchor="end" fill="var(--muted)" font-size="9.5">Huesca</text><rect x="132" y="104" width="221.4" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="358.4" y="113" fill="var(--muted)" font-size="9">58.651</text><text x="126" y="126" text-anchor="end" fill="var(--muted)" font-size="9.5">Melilla</text><rect x="132" y="117" width="241.5" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="378.5" y="126" fill="var(--muted)" font-size="9">63.968</text><text x="126" y="139" text-anchor="end" fill="var(--muted)" font-size="9.5">Rioja, La</text><rect x="132" y="130" width="245.2" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="382.2" y="139" fill="var(--muted)" font-size="9">64.950</text><text x="126" y="152" text-anchor="end" fill="var(--muted)" font-size="9.5">Ceuta</text><rect x="132" y="143" width="247.6" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="384.6" y="152" fill="var(--muted)" font-size="9">65.591</text><text x="126" y="165" text-anchor="end" fill="var(--muted)" font-size="9.5">Araba/Álava</text><rect x="132" y="156" width="252.3" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="389.3" y="165" fill="var(--muted)" font-size="9">66.831</text><text x="126" y="178" text-anchor="end" fill="var(--muted)" font-size="9.5">Guadalajara</text><rect x="132" y="169" width="262.7" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="399.7" y="178" fill="var(--muted)" font-size="9">69.591</text><text x="126" y="191" text-anchor="end" fill="var(--muted)" font-size="9.5">Burgos</text><rect x="132" y="182" width="283.7" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="420.7" y="191" fill="var(--muted)" font-size="9">75.158</text><text x="126" y="204" text-anchor="end" fill="var(--muted)" font-size="9.5">Salamanca</text><rect x="132" y="195" width="287.6" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="424.6" y="204" fill="var(--muted)" font-size="9">76.190</text><text x="126" y="217" text-anchor="end" fill="var(--muted)" font-size="9.5">Albacete</text><rect x="132" y="208" width="291.2" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="428.2" y="217" fill="var(--muted)" font-size="9">77.135</text><text x="126" y="230" text-anchor="end" fill="var(--muted)" font-size="9.5">Ciudad Real</text><rect x="132" y="221" width="297.0" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="434.0" y="230" fill="var(--muted)" font-size="9">78.684</text><text x="126" y="243" text-anchor="end" fill="var(--muted)" font-size="9.5">Lleida</text><rect x="132" y="234" width="307.9" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="444.9" y="243" fill="var(--muted)" font-size="9">81.575</text><text x="126" y="256" text-anchor="end" fill="var(--muted)" font-size="9.5">Huelva</text><rect x="132" y="247" width="308.7" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="445.7" y="256" fill="var(--muted)" font-size="9">81.782</text><text x="126" y="269" text-anchor="end" fill="var(--muted)" font-size="9.5">Cáceres</text><rect x="132" y="260" width="320.4" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="457.4" y="269" fill="var(--muted)" font-size="9">84.877</text><text x="126" y="282" text-anchor="end" fill="var(--muted)" font-size="9.5">Lugo</text><rect x="132" y="273" width="321.8" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="458.8" y="282" fill="var(--muted)" font-size="9">85.258</text><text x="126" y="295" text-anchor="end" fill="var(--muted)" font-size="9.5">Valladolid</text><rect x="132" y="286" width="332.3" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="469.3" y="295" fill="var(--muted)" font-size="9">88.044</text><text x="126" y="308" text-anchor="end" fill="var(--muted)" font-size="9.5">Castellón / Castelló</text><rect x="132" y="299" width="338.4" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="475.4" y="308" fill="var(--muted)" font-size="9">89.639</text><text x="126" y="321" text-anchor="end" fill="var(--muted)" font-size="9.5">Ourense</text><rect x="132" y="312" width="340.0" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="477.0" y="321" fill="var(--muted)" font-size="9">90.063</text><text x="126" y="334" text-anchor="end" fill="var(--muted)" font-size="9.5">Almería</text><rect x="132" y="325" width="340.4" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="477.4" y="334" fill="var(--muted)" font-size="9">90.182</text><text x="126" y="347" text-anchor="end" fill="var(--muted)" font-size="9.5">Toledo</text><rect x="132" y="338" width="358.3" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="495.3" y="347" fill="var(--muted)" font-size="9">94.925</text><text x="126" y="360" text-anchor="end" fill="var(--muted)" font-size="9.5">Girona</text><rect x="132" y="351" width="361.9" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="498.9" y="360" fill="var(--muted)" font-size="9">95.878</text><text x="126" y="373" text-anchor="end" fill="var(--muted)" font-size="9.5">Gipuzkoa</text><rect x="132" y="364" width="376.1" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="513.1" y="373" fill="var(--muted)" font-size="9">99.643</text><text x="126" y="386" text-anchor="end" fill="var(--muted)" font-size="9.5">Jaén</text><rect x="132" y="377" width="389.2" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="526.2" y="386" fill="var(--muted)" font-size="9">103.105</text><text x="126" y="399" text-anchor="end" fill="var(--muted)" font-size="9.5">Tarragona</text><rect x="132" y="390" width="393.9" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="530.9" y="399" fill="var(--muted)" font-size="9">104.360</text><text x="126" y="412" text-anchor="end" fill="var(--muted)" font-size="9.5">Cantabria</text><rect x="132" y="403" width="394.9" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="531.9" y="412" fill="var(--muted)" font-size="9">104.617</text><text x="126" y="425" text-anchor="end" fill="var(--muted)" font-size="9.5">León</text><rect x="132" y="416" width="402.0" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="539.0" y="425" fill="var(--muted)" font-size="9">106.496</text><text x="126" y="438" text-anchor="end" fill="var(--muted)" font-size="9.5">Navarra</text><rect x="132" y="429" width="405.5" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="542.5" y="438" fill="var(--muted)" font-size="9">107.439</text><text x="126" y="451" text-anchor="end" fill="var(--muted)" font-size="9.5">Córdoba</text><rect x="132" y="442" width="408.2" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="545.2" y="451" fill="var(--muted)" font-size="9">108.132</text><text x="126" y="464" text-anchor="end" fill="var(--muted)" font-size="9.5">Zaragoza</text><rect x="132" y="455" width="410.3" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="547.3" y="464" fill="var(--muted)" font-size="9">108.710</text><text x="126" y="477" text-anchor="end" fill="var(--muted)" font-size="9.5">Balears, Illes</text><rect x="132" y="468" width="410.8" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="547.8" y="477" fill="var(--muted)" font-size="9">108.840</text><text x="126" y="490" text-anchor="end" fill="var(--muted)" font-size="9.5">Badajoz</text><rect x="132" y="481" width="416.8" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="553.8" y="490" fill="var(--muted)" font-size="9">110.416</text><text x="126" y="503" text-anchor="end" fill="var(--muted)" font-size="9.5">Granada</text><rect x="132" y="494" width="426.6" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="563.6" y="503" fill="var(--muted)" font-size="9">113.009</text><text x="126" y="516" text-anchor="end" fill="var(--muted)" font-size="9.5">Alicante / Alacant</text><rect x="132" y="507" width="427.6" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="564.6" y="516" fill="var(--muted)" font-size="9">113.269</text><text x="126" y="529" text-anchor="end" fill="var(--muted)" font-size="9.5">Murcia</text><rect x="132" y="520" width="431.9" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="568.9" y="529" fill="var(--muted)" font-size="9">114.431</text><text x="126" y="542" text-anchor="end" fill="var(--muted)" font-size="9.5">Palmas, Las</text><rect x="132" y="533" width="443.2" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="580.2" y="542" fill="var(--muted)" font-size="9">117.401</text><text x="126" y="555" text-anchor="end" fill="var(--muted)" font-size="9.5">Málaga</text><rect x="132" y="546" width="443.7" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="580.7" y="555" fill="var(--muted)" font-size="9">117.543</text><text x="126" y="568" text-anchor="end" fill="var(--muted)" font-size="9.5">Bizkaia</text><rect x="132" y="559" width="452.8" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="589.8" y="568" fill="var(--muted)" font-size="9">119.963</text><text x="126" y="581" text-anchor="end" fill="var(--muted)" font-size="9.5">Valencia / València</text><rect x="132" y="572" width="487.8" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="624.8" y="581" fill="var(--muted)" font-size="9">129.237</text><text x="126" y="594" text-anchor="end" fill="var(--muted)" font-size="9.5">Cádiz</text><rect x="132" y="585" width="491.7" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="628.7" y="594" fill="var(--muted)" font-size="9">130.270</text><text x="126" y="607" text-anchor="end" fill="var(--muted)" font-size="9.5">Pontevedra</text><rect x="132" y="598" width="499.6" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="636.6" y="607" fill="var(--muted)" font-size="9">132.344</text><text x="126" y="620" text-anchor="end" fill="var(--muted)" font-size="9.5">Santa Cruz de Teneri</text><rect x="132" y="611" width="499.9" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="636.9" y="620" fill="var(--muted)" font-size="9">132.448</text><text x="126" y="633" text-anchor="end" fill="var(--muted)" font-size="9.5">Sevilla</text><rect x="132" y="624" width="505.5" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="642.5" y="633" fill="var(--muted)" font-size="9">133.914</text><text x="126" y="646" text-anchor="end" fill="var(--muted)" font-size="9.5">Barcelona</text><rect x="132" y="637" width="518.9" height="9" rx="2" fill="#ff5a1f" opacity="0.85"/><text x="655.9" y="646" fill="var(--muted)" font-size="9">137.461</text><text x="126" y="659" text-anchor="end" fill="var(--muted)" font-size="9.5">Coruña, A</text><rect x="132" y="650" width="522.2" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="659.2" y="659" fill="var(--muted)" font-size="9">138.336</text><text x="126" y="672" text-anchor="end" fill="var(--muted)" font-size="9.5">Asturias</text><rect x="132" y="663" width="528.0" height="9" rx="2" fill="#8ec5ff" opacity="0.85"/><text x="665.0" y="672" fill="var(--muted)" font-size="9">139.868</text><text x="126" y="685" text-anchor="end" fill="var(--muted)" font-size="9.5">Madrid</text><rect x="132" y="676" width="550.0" height="9" rx="2" fill="#ff5a1f" opacity="0.85"/><text x="687.0" y="685" fill="var(--muted)" font-size="9">145.708</text></svg>
+    <p class="muted small" style="margin-top:8px">Teruel elige 3 diputados con 106.251 electores; Madrid, 38 con 5.536.913. El mínimo de 2 escaños por provincia explica buena parte de la diferencia.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Provincia, escaños y electores</h2><span class="hint">52 circunscripciones</span></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Provincia</th><th>Escaños</th><th>Electores</th><th>Electores/escaño</th><th>vs media</th></tr></thead>
+        <tbody>
+        
+          <tr>
+            <td>Madrid</td>
+            <td class="num">38</td>
+            <td class="num">5.536.913</td>
+            <td class="num">145.708</td>
+            <td class="num">+31.7%</td>
+          </tr>
+        
+          <tr>
+            <td>Barcelona</td>
+            <td class="num">32</td>
+            <td class="num">4.398.757</td>
+            <td class="num">137.461</td>
+            <td class="num">+24.2%</td>
+          </tr>
+        
+          <tr>
+            <td>Valencia / València</td>
+            <td class="num">16</td>
+            <td class="num">2.067.797</td>
+            <td class="num">129.237</td>
+            <td class="num">+16.8%</td>
+          </tr>
+        
+          <tr>
+            <td>Alicante / Alacant</td>
+            <td class="num">12</td>
+            <td class="num">1.359.229</td>
+            <td class="num">113.269</td>
+            <td class="num">+2.4%</td>
+          </tr>
+        
+          <tr>
+            <td>Sevilla</td>
+            <td class="num">12</td>
+            <td class="num">1.606.972</td>
+            <td class="num">133.914</td>
+            <td class="num">+21.0%</td>
+          </tr>
+        
+          <tr>
+            <td>Málaga</td>
+            <td class="num">11</td>
+            <td class="num">1.292.972</td>
+            <td class="num">117.543</td>
+            <td class="num">+6.2%</td>
+          </tr>
+        
+          <tr>
+            <td>Murcia</td>
+            <td class="num">10</td>
+            <td class="num">1.144.308</td>
+            <td class="num">114.431</td>
+            <td class="num">+3.4%</td>
+          </tr>
+        
+          <tr>
+            <td>Balears, Illes</td>
+            <td class="num">8</td>
+            <td class="num">870.718</td>
+            <td class="num">108.840</td>
+            <td class="num">-1.6%</td>
+          </tr>
+        
+          <tr>
+            <td>Bizkaia</td>
+            <td class="num">8</td>
+            <td class="num">959.702</td>
+            <td class="num">119.963</td>
+            <td class="num">+8.4%</td>
+          </tr>
+        
+          <tr>
+            <td>Cádiz</td>
+            <td class="num">8</td>
+            <td class="num">1.042.157</td>
+            <td class="num">130.270</td>
+            <td class="num">+17.7%</td>
+          </tr>
+        
+          <tr>
+            <td>Coruña, A</td>
+            <td class="num">8</td>
+            <td class="num">1.106.690</td>
+            <td class="num">138.336</td>
+            <td class="num">+25.0%</td>
+          </tr>
+        
+          <tr>
+            <td>Palmas, Las</td>
+            <td class="num">8</td>
+            <td class="num">939.211</td>
+            <td class="num">117.401</td>
+            <td class="num">+6.1%</td>
+          </tr>
+        
+          <tr>
+            <td>Asturias</td>
+            <td class="num">7</td>
+            <td class="num">979.077</td>
+            <td class="num">139.868</td>
+            <td class="num">+26.4%</td>
+          </tr>
+        
+          <tr>
+            <td>Granada</td>
+            <td class="num">7</td>
+            <td class="num">791.066</td>
+            <td class="num">113.009</td>
+            <td class="num">+2.1%</td>
+          </tr>
+        
+          <tr>
+            <td>Pontevedra</td>
+            <td class="num">7</td>
+            <td class="num">926.408</td>
+            <td class="num">132.344</td>
+            <td class="num">+19.6%</td>
+          </tr>
+        
+          <tr>
+            <td>Santa Cruz de Tenerife</td>
+            <td class="num">7</td>
+            <td class="num">927.138</td>
+            <td class="num">132.448</td>
+            <td class="num">+19.7%</td>
+          </tr>
+        
+          <tr>
+            <td>Zaragoza</td>
+            <td class="num">7</td>
+            <td class="num">760.968</td>
+            <td class="num">108.710</td>
+            <td class="num">-1.8%</td>
+          </tr>
+        
+          <tr>
+            <td>Almería</td>
+            <td class="num">6</td>
+            <td class="num">541.093</td>
+            <td class="num">90.182</td>
+            <td class="num">-18.5%</td>
+          </tr>
+        
+          <tr>
+            <td>Córdoba</td>
+            <td class="num">6</td>
+            <td class="num">648.792</td>
+            <td class="num">108.132</td>
+            <td class="num">-2.3%</td>
+          </tr>
+        
+          <tr>
+            <td>Gipuzkoa</td>
+            <td class="num">6</td>
+            <td class="num">597.859</td>
+            <td class="num">99.643</td>
+            <td class="num">-9.9%</td>
+          </tr>
+        
+          <tr>
+            <td>Girona</td>
+            <td class="num">6</td>
+            <td class="num">575.269</td>
+            <td class="num">95.878</td>
+            <td class="num">-13.4%</td>
+          </tr>
+        
+          <tr>
+            <td>Tarragona</td>
+            <td class="num">6</td>
+            <td class="num">626.161</td>
+            <td class="num">104.360</td>
+            <td class="num">-5.7%</td>
+          </tr>
+        
+          <tr>
+            <td>Toledo</td>
+            <td class="num">6</td>
+            <td class="num">569.549</td>
+            <td class="num">94.925</td>
+            <td class="num">-14.2%</td>
+          </tr>
+        
+          <tr>
+            <td>Badajoz</td>
+            <td class="num">5</td>
+            <td class="num">552.081</td>
+            <td class="num">110.416</td>
+            <td class="num">-0.2%</td>
+          </tr>
+        
+          <tr>
+            <td>Cantabria</td>
+            <td class="num">5</td>
+            <td class="num">523.083</td>
+            <td class="num">104.617</td>
+            <td class="num">-5.5%</td>
+          </tr>
+        
+          <tr>
+            <td>Castellón / Castelló</td>
+            <td class="num">5</td>
+            <td class="num">448.196</td>
+            <td class="num">89.639</td>
+            <td class="num">-19.0%</td>
+          </tr>
+        
+          <tr>
+            <td>Ciudad Real</td>
+            <td class="num">5</td>
+            <td class="num">393.421</td>
+            <td class="num">78.684</td>
+            <td class="num">-28.9%</td>
+          </tr>
+        
+          <tr>
+            <td>Huelva</td>
+            <td class="num">5</td>
+            <td class="num">408.911</td>
+            <td class="num">81.782</td>
+            <td class="num">-26.1%</td>
+          </tr>
+        
+          <tr>
+            <td>Jaén</td>
+            <td class="num">5</td>
+            <td class="num">515.524</td>
+            <td class="num">103.105</td>
+            <td class="num">-6.8%</td>
+          </tr>
+        
+          <tr>
+            <td>Navarra</td>
+            <td class="num">5</td>
+            <td class="num">537.194</td>
+            <td class="num">107.439</td>
+            <td class="num">-2.9%</td>
+          </tr>
+        
+          <tr>
+            <td>Valladolid</td>
+            <td class="num">5</td>
+            <td class="num">440.219</td>
+            <td class="num">88.044</td>
+            <td class="num">-20.4%</td>
+          </tr>
+        
+          <tr>
+            <td>Albacete</td>
+            <td class="num">4</td>
+            <td class="num">308.541</td>
+            <td class="num">77.135</td>
+            <td class="num">-30.3%</td>
+          </tr>
+        
+          <tr>
+            <td>Araba/Álava</td>
+            <td class="num">4</td>
+            <td class="num">267.325</td>
+            <td class="num">66.831</td>
+            <td class="num">-39.6%</td>
+          </tr>
+        
+          <tr>
+            <td>Burgos</td>
+            <td class="num">4</td>
+            <td class="num">300.630</td>
+            <td class="num">75.158</td>
+            <td class="num">-32.1%</td>
+          </tr>
+        
+          <tr>
+            <td>Cáceres</td>
+            <td class="num">4</td>
+            <td class="num">339.508</td>
+            <td class="num">84.877</td>
+            <td class="num">-23.3%</td>
+          </tr>
+        
+          <tr>
+            <td>León</td>
+            <td class="num">4</td>
+            <td class="num">425.983</td>
+            <td class="num">106.496</td>
+            <td class="num">-3.8%</td>
+          </tr>
+        
+          <tr>
+            <td>Lleida</td>
+            <td class="num">4</td>
+            <td class="num">326.300</td>
+            <td class="num">81.575</td>
+            <td class="num">-26.3%</td>
+          </tr>
+        
+          <tr>
+            <td>Lugo</td>
+            <td class="num">4</td>
+            <td class="num">341.031</td>
+            <td class="num">85.258</td>
+            <td class="num">-22.9%</td>
+          </tr>
+        
+          <tr>
+            <td>Ourense</td>
+            <td class="num">4</td>
+            <td class="num">360.252</td>
+            <td class="num">90.063</td>
+            <td class="num">-18.6%</td>
+          </tr>
+        
+          <tr>
+            <td>Rioja, La</td>
+            <td class="num">4</td>
+            <td class="num">259.798</td>
+            <td class="num">64.950</td>
+            <td class="num">-41.3%</td>
+          </tr>
+        
+          <tr>
+            <td>Salamanca</td>
+            <td class="num">4</td>
+            <td class="num">304.762</td>
+            <td class="num">76.190</td>
+            <td class="num">-31.1%</td>
+          </tr>
+        
+          <tr>
+            <td>Ávila</td>
+            <td class="num">3</td>
+            <td class="num">136.598</td>
+            <td class="num">45.533</td>
+            <td class="num">-58.9%</td>
+          </tr>
+        
+          <tr>
+            <td>Cuenca</td>
+            <td class="num">3</td>
+            <td class="num">151.410</td>
+            <td class="num">50.470</td>
+            <td class="num">-54.4%</td>
+          </tr>
+        
+          <tr>
+            <td>Guadalajara</td>
+            <td class="num">3</td>
+            <td class="num">208.773</td>
+            <td class="num">69.591</td>
+            <td class="num">-37.1%</td>
+          </tr>
+        
+          <tr>
+            <td>Huesca</td>
+            <td class="num">3</td>
+            <td class="num">175.954</td>
+            <td class="num">58.651</td>
+            <td class="num">-47.0%</td>
+          </tr>
+        
+          <tr>
+            <td>Palencia</td>
+            <td class="num">3</td>
+            <td class="num">137.466</td>
+            <td class="num">45.822</td>
+            <td class="num">-58.6%</td>
+          </tr>
+        
+          <tr>
+            <td>Segovia</td>
+            <td class="num">3</td>
+            <td class="num">121.460</td>
+            <td class="num">40.487</td>
+            <td class="num">-63.4%</td>
+          </tr>
+        
+          <tr>
+            <td>Teruel</td>
+            <td class="num">3</td>
+            <td class="num">106.251</td>
+            <td class="num">35.417</td>
+            <td class="num">-68.0%</td>
+          </tr>
+        
+          <tr>
+            <td>Zamora</td>
+            <td class="num">3</td>
+            <td class="num">162.251</td>
+            <td class="num">54.084</td>
+            <td class="num">-51.1%</td>
+          </tr>
+        
+          <tr>
+            <td>Soria</td>
+            <td class="num">2</td>
+            <td class="num">77.069</td>
+            <td class="num">38.534</td>
+            <td class="num">-65.2%</td>
+          </tr>
+        
+          <tr>
+            <td>Ceuta</td>
+            <td class="num">1</td>
+            <td class="num">65.591</td>
+            <td class="num">65.591</td>
+            <td class="num">-40.7%</td>
+          </tr>
+        
+          <tr>
+            <td>Melilla</td>
+            <td class="num">1</td>
+            <td class="num">63.968</td>
+            <td class="num">63.968</td>
+            <td class="num">-42.2%</td>
+          </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    <p class="muted small"><a href="/data/escanos-2026.csv">Descargar CSV</a> · <a href="/data/escanos-2026.json">JSON</a>.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Cómo se reparten los escaños</h2></div>
+    <ul class="muted small">
+      <li><strong>Circunscripción provincial</strong>: cada provincia elige un número fijo de diputados; no hay distrito nacional único.</li>
+      <li><strong>Mínimo de 2 escaños</strong> por provincia (1 en Ceuta y Melilla); el resto se reparte según la población (LOREG, art. 162).</li>
+      <li>Dentro de cada provincia, los escaños se asignan por <strong>D'Hondt</strong> y con umbral del 3 % provincial.</li>
+      <li>Por eso dos partidos con un porcentaje nacional parecido pueden obtener representación muy distinta: depende de dónde se concentren los votos.</li>
+      <li><a href="/#congreso">La simulación de la portada</a> usa un distrito nacional único: sirve para ver el tamaño de los bloques, <strong>no</strong> para anticipar escaños.</li>
+    </ul>
+    <p class="muted small">Fuente: <a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-20742" rel="noopener" target="_blank">BOE · RD 806/2026 (anexo)</a> y <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1985-11672" rel="noopener" target="_blank">LOREG</a>.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Límites</h2></div>
+    <ul class="muted small">
+      <li>Esta página explica <strong>estructura</strong> (escaños y electores), no resultados. No proyecta el reparto del 29N.</li>
+      <li>La comparación <strong>votos ↔ escaños de 2023 por provincia</strong> requiere los resultados provinciales del Ministerio del Interior, que no son accesibles de forma fiable desde este servidor. Se añadirá cuando se pueda verificar.</li>
+      <li>El número de electores incluye residentes en España y en el extranjero; el reparto de escaños se fija por población, no por electores.</li>
+    </ul>
+    <div class="cta">
+      <a class="btn" href="/electorado.html">Ver el censo</a>
+      <a class="btn ghost" href="/participacion.html">Participación histórica</a>
+    </div>
+  </div>
+  
+</main>
+<footer class="footer">
+  <div class="container">
+    <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
+    <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
+    <p>Datos abiertos · <a href="/cambios.xml">RSS de cambios</a> · <a href="https://github.com/mcasrom/elecciones29n-osint">Código (AGPL-3.0)</a> · Hecho por Miguel Castillo.</p>
+    <p><a class="support" href="https://ko-fi.com/m_castillo" target="_blank" rel="noopener noreferrer">☕ Apoya el proyecto en Ko-fi</a></p>
+  </div>
+</footer>
+</body>
+</html>

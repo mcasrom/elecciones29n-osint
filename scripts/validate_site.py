@@ -18,6 +18,7 @@ REQUIRED = [
     "cambios.xml", "data/latest.json", "css/main.css",
     "electorado.html", "data/censo-2026.json", "data/censo-provincias.csv",
     "participacion.html", "data/participacion.json", "data/participacion.csv",
+    "territorio.html", "data/escanos-2026.json", "data/escanos-2026.csv",
 ]
 
 
@@ -110,13 +111,30 @@ def main() -> int:
         if len(ph) < 4000:
             errors.append(f"participacion.html demasiado pequeño ({len(ph)} bytes)")
 
+    esc_path = os.path.join(d, "data/escanos-2026.json")
+    if os.path.exists(esc_path):
+        try:
+            esc = json.load(open(esc_path, encoding="utf-8"))
+            provs = esc.get("provincias", [])
+            if len(provs) != 52:
+                errors.append(f"escaños: {len(provs)} provincias (esperadas 52)")
+            if sum(int(p.get("escanos", 0)) for p in provs) != 350:
+                errors.append("escaños: la suma no es 350")
+        except Exception as e:
+            errors.append(f"escanos-2026.json inválido: {e}")
+    terr = os.path.join(d, "territorio.html")
+    if os.path.exists(terr):
+        th = open(terr, encoding="utf-8", errors="ignore").read()
+        if "Teruel" not in th or "350" not in th:
+            errors.append("territorio.html sin datos de escaños")
+
     sm = os.path.join(d, "sitemap.xml")
     if os.path.exists(sm):
         try:
             ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
             urls = ET.parse(sm).getroot().findall(".//s:loc", ns)
-            if len(urls) < 7:
-                errors.append(f"sitemap con {len(urls)} URLs (esperadas >=7)")
+            if len(urls) < 8:
+                errors.append(f"sitemap con {len(urls)} URLs (esperadas >=8)")
         except Exception as e:
             errors.append(f"sitemap inválido: {e}")
 

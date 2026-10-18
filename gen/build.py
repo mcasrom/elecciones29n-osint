@@ -30,6 +30,7 @@ PAGES = [
     ("caveat.html", "caveat.html", "2026-10-17", "monthly", "0.5"),
     ("electorado.html", "electorado.html", "2026-10-18", "monthly", "0.7"),
     ("participacion.html", "participacion.html", "2026-10-18", "monthly", "0.7"),
+    ("territorio.html", "territorio.html", "2026-10-18", "monthly", "0.7"),
 ]
 
 
@@ -429,6 +430,26 @@ def fmt_pct(v) -> str:
         return str(v)
 
 
+def build_escanos_chart(provincias: list) -> str:
+    if not provincias:
+        return ""
+    rows = sorted(provincias, key=lambda p: p["electores_por_escanos"])
+    W, row_h, pad_l, pad_r, pad_t = 760, 13, 132, 78, 12
+    H = pad_t + row_h * len(rows) + 6
+    vmax = max(p["electores_por_escanos"] for p in rows) or 1
+    scale = (W - pad_l - pad_r) / vmax
+    parts = [f'<svg class="chart" viewBox="0 0 {W} {H}" role="img" aria-label="Electores por escaño en cada provincia">']
+    for i, p in enumerate(rows):
+        y = pad_t + i * row_h
+        w = p["electores_por_escanos"] * scale
+        color = "#ff5a1f" if p["nombre"] in ("Madrid", "Barcelona") else ("#3ddc97" if p["nombre"] in ("Teruel", "Soria") else "#8ec5ff")
+        parts.append(f'<text x="{pad_l-6}" y="{y+10}" text-anchor="end" fill="var(--muted)" font-size="9.5">{p["nombre"][:20]}</text>')
+        parts.append(f'<rect x="{pad_l}" y="{y+1}" width="{w:.1f}" height="9" rx="2" fill="{color}" opacity="0.85"/>')
+        parts.append(f'<text x="{pad_l+w+5:.1f}" y="{y+10}" fill="var(--muted)" font-size="9">{fmt_miles(p["electores_por_escanos"])}</text>')
+    parts.append("</svg>")
+    return "".join(parts)
+
+
 def build_participacion_chart(rows: list) -> str:
     if len(rows) < 2:
         return ""
@@ -543,6 +564,22 @@ def write_censo_data(censo: dict) -> None:
     dump("censo-edad.csv", ["grupo", "mujeres", "hombres", "total"], censo.get("edad_sexo", []))
     dump("censo-nuevos.csv", ["codigo", "nombre", "desde_2023", "desde_2024"], censo.get("nuevos_provincia", []))
     dump("censo-cera.csv", ["codigo", "pais", "electores"], censo.get("cera_paises", []))
+
+
+def write_escanos_data(data: dict) -> None:
+    import csv as _csv
+
+    rows = data.get("provincias", [])
+    if not rows:
+        return
+    os.makedirs(os.path.join(OUT, "data"), exist_ok=True)
+    with open(os.path.join(OUT, "data", "escanos-2026.json"), "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    with open(os.path.join(OUT, "data", "escanos-2026.csv"), "w", encoding="utf-8", newline="") as f:
+        w = _csv.writer(f)
+        w.writerow(["provincia", "escanos", "electores", "electores_por_escanos"])
+        for r in rows:
+            w.writerow([r["nombre"], r["escanos"], r["electores"], r["electores_por_escanos"]])
 
 
 def write_participacion_data(data: dict) -> None:
@@ -748,6 +785,11 @@ def main(out: str = "web") -> None:
         autoescape=select_autoescape(["html", "xml"]),
     )
 
+    escanos = {"provincias": [], "total_escanos": 0}
+    if os.path.exists("data/escanos_2026.json"):
+        with open("data/escanos_2026.json", encoding="utf-8") as f:
+            escanos = json.load(f)
+
     participacion = {"elecciones": []}
     if os.path.exists("data/participacion.json"):
         with open("data/participacion.json", encoding="utf-8") as f:
@@ -838,6 +880,15 @@ def main(out: str = "web") -> None:
         "participacion": participacion,
         "part_chart": build_participacion_chart(participacion.get("elecciones", [])),
         "part_kpis": part_kpis,
+        "escanos": escanos,
+        "escanos_chart": build_escanos_chart(escanos.get("provincias", [])),
+        "escanos_kpis": {
+            "total": escanos.get("total_escanos", 0),
+            "n": len(escanos.get("provincias", [])),
+            "media": round(sum(p["electores"] for p in escanos.get("provincias", [])) / max(1, escanos.get("total_escanos", 1)), 0),
+            "min": min(escanos.get("provincias", []), key=lambda p: p["electores_por_escanos"]) if escanos.get("provincias") else None,
+            "max": max(escanos.get("provincias", []), key=lambda p: p["electores_por_escanos"]) if escanos.get("provincias") else None,
+        },
         "days_to_election": latest.get("days_to_election", 0),
         "days_to_blackout": latest.get("days_to_blackout", 0),
         "last_poll_date": latest.get("last_poll_date"),
@@ -851,7 +902,7 @@ def main(out: str = "web") -> None:
         "share_url": SITE_URL + "/",
     }
 
-    for tname in ["index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "participacion.html"]:
+    for tname in ["index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "participacion.html", "territorio.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(**context)
         with open(os.path.join(OUT, tname), "w", encoding="utf-8") as f:
@@ -860,6 +911,7 @@ def main(out: str = "web") -> None:
     write_sitemap(today)
     write_censo_data(censo)
     write_participacion_data(participacion)
+    write_escanos_data(escanos)
 
     if not os.path.exists(os.path.join(OUT, "data/latest.json")):
         with open(os.path.join(OUT, "data/latest.json"), "w", encoding="utf-8") as f:

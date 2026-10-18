@@ -1,0 +1,80 @@
+{% set page_title = "Territorio y representación · elecciones generales 29N 2026" %}
+{% set page_desc = "Cuántos diputados elige cada provincia y cuántos electores hay por escaño. Asignación oficial del BOE (RD 806/2026) y censo del INE." %}
+{% set canonical = site_url ~ "/territorio.html" %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Territorio y representación</h1>
+  <p class="muted" style="margin:0 0 14px">Cuántos diputados elige cada circunscripción y cuántos electores hay detrás de cada escaño. Asignación oficial del BOE y censo del INE.</p>
+
+  {% if escanos.provincias %}
+  <div class="kpis">
+    <div class="kpi"><span class="kpi-name">Diputados</span><b>{{ escanos_kpis.total }}</b><span class="kpi-range">Congreso</span></div>
+    <div class="kpi"><span class="kpi-name">Circunscripciones</span><b>{{ escanos_kpis.n }}</b><span class="kpi-range">provincias + Ceuta y Melilla</span></div>
+    <div class="kpi"><span class="kpi-name">Media</span><b>{{ fmt_miles(escanos_kpis.media) }}</b><span class="kpi-range">electores por escaño</span></div>
+    <div class="kpi"><span class="kpi-name">Brecha</span><b>{{ (escanos_kpis.max.electores_por_escanos / escanos_kpis.min.electores_por_escanos)|round(1) }}×</b><span class="kpi-range">{{ escanos_kpis.min.nombre }} ↔ {{ escanos_kpis.max.nombre }}</span></div>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Electores por escaño</h2><span class="hint">menos electores por escaño = más peso relativo</span></div>
+    {{ escanos_chart|safe }}
+    <p class="muted small" style="margin-top:8px">Teruel elige 3 diputados con {{ fmt_miles(escanos_kpis.min.electores) }} electores; Madrid, 38 con {{ fmt_miles(escanos_kpis.max.electores) }}. El mínimo de 2 escaños por provincia explica buena parte de la diferencia.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Provincia, escaños y electores</h2><span class="hint">52 circunscripciones</span></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Provincia</th><th>Escaños</th><th>Electores</th><th>Electores/escaño</th><th>vs media</th></tr></thead>
+        <tbody>
+        {% for p in escanos.provincias %}
+          <tr>
+            <td>{{ p.nombre }}</td>
+            <td class="num">{{ p.escanos }}</td>
+            <td class="num">{{ fmt_miles(p.electores) }}</td>
+            <td class="num">{{ fmt_miles(p.electores_por_escanos) }}</td>
+            <td class="num">{{ "%+.1f"|format(p.electores_por_escanos / escanos_kpis.media * 100 - 100) }}%</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="muted small"><a href="/data/escanos-2026.csv">Descargar CSV</a> · <a href="/data/escanos-2026.json">JSON</a>.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Cómo se reparten los escaños</h2></div>
+    <ul class="muted small">
+      <li><strong>Circunscripción provincial</strong>: cada provincia elige un número fijo de diputados; no hay distrito nacional único.</li>
+      <li><strong>Mínimo de 2 escaños</strong> por provincia (1 en Ceuta y Melilla); el resto se reparte según la población (LOREG, art. 162).</li>
+      <li>Dentro de cada provincia, los escaños se asignan por <strong>D'Hondt</strong> y con umbral del 3 % provincial.</li>
+      <li>Por eso dos partidos con un porcentaje nacional parecido pueden obtener representación muy distinta: depende de dónde se concentren los votos.</li>
+      <li><a href="/#congreso">La simulación de la portada</a> usa un distrito nacional único: sirve para ver el tamaño de los bloques, <strong>no</strong> para anticipar escaños.</li>
+    </ul>
+    <p class="muted small">Fuente: <a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-20742" rel="noopener" target="_blank">BOE · RD 806/2026 (anexo)</a> y <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1985-11672" rel="noopener" target="_blank">LOREG</a>.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Límites</h2></div>
+    <ul class="muted small">
+      <li>Esta página explica <strong>estructura</strong> (escaños y electores), no resultados. No proyecta el reparto del 29N.</li>
+      <li>La comparación <strong>votos ↔ escaños de 2023 por provincia</strong> requiere los resultados provinciales del Ministerio del Interior, que no son accesibles de forma fiable desde este servidor. Se añadirá cuando se pueda verificar.</li>
+      <li>El número de electores incluye residentes en España y en el extranjero; el reparto de escaños se fija por población, no por electores.</li>
+    </ul>
+    <div class="cta">
+      <a class="btn" href="/electorado.html">Ver el censo</a>
+      <a class="btn ghost" href="/participacion.html">Participación histórica</a>
+    </div>
+  </div>
+  {% else %}
+  <div class="alert warn">La asignación de escaños no está disponible todavía. <a href="/">Volver al agregado</a>.</div>
+  {% endif %}
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>
