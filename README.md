@@ -52,6 +52,14 @@ No es un pronóstico, no estima intención de voto individual y no anticipa el r
 - Límite: participación **nacional**; el desglose provincial del Interior no es
   accesible desde el servidor (timeout) y se añadirá cuando se pueda verificar.
 
+## Territorio y representación
+
+- Asignación oficial de escaños por circunscripción: **BOE · RD 806/2026** (anexo), 350 diputados y 52 circunscripciones.
+- Cruce con el censo del INE: **electores por escaño** por provincia (Teruel 35.417 ↔ Madrid 145.708; 4,1× de diferencia).
+- `python -m ingest.escanos` → `data/escanos_2026.json` + CSV.
+- Página `/territorio.html`: gráfico de electores/escaño, tabla completa y explicador (mínimo de 2 escaños, D'Hondt provincial, umbral del 3 %).
+- Límite: no incluye votos↔escaños de 2023 por provincia (resultados del Interior no accesibles); no proyecta el 29N.
+
 ## Datos
 
 - Fuente de sondeos: **Electomania** (ElectoPanel) vía WordPress REST API, con paginación y backfill.

@@ -80,7 +80,7 @@ da edad/sexo. El gráfico debe decirlo.
   provincias = nacional.
 - **Aceptación**: cada punto enlaza a la fuente; no se proyecta participación.
 
-## M3 · Territorio y representación (P1, ~3–4 h)
+## M3 · Territorio y representación (P1) — ✅ HECHO 18-oct (`bdda73e`)
 
 **Pregunta**: ¿por qué un voto vale distinto según dónde se emite?
 
