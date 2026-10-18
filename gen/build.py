@@ -996,8 +996,9 @@ def build_chart(series: dict, parties: list) -> str:
             hi = [(x(i), y(max(vals[max(0, i - 1):i + 2]))) for i in range(len(pts))]
             parts.append(f'<path d="{_band(lo, hi)}" fill="{color}" opacity="0.10" stroke="none"/>')
         parts.append(f'<path d="{dpath}" fill="none" stroke="{color}" stroke-width="2.2"/>')
-        for cx, cy in coords:
-            parts.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="3" fill="{color}"/>')
+        for p, (cx, cy) in zip(pts, coords):
+            title = f"{party} · {p.get('pollster','?')} · {p['date']} · {p['value']}%"
+            parts.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="3" fill="{color}"><title>{title}</title></circle>')
     parts.append(f'<text x="12" y="{pad_t+4}" fill="currentColor" opacity="0.55" font-size="10">% voto</text>')
     parts.append("</svg>")
     return "".join(parts)

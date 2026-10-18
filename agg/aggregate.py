@@ -85,7 +85,8 @@ def _series(polls: List[Dict[str, Any]]) -> Dict[str, List[Dict[str, Any]]]:
     out: Dict[str, List[Dict[str, Any]]] = {}
     for p in polls:
         out.setdefault(p["party"], []).append(
-            {"date": p["date"].strftime("%Y-%m-%d"), "value": p["value"]}
+            {"date": p["date"].strftime("%Y-%m-%d"), "value": p["value"],
+             "pollster": p.get("pollster") or "?"}
         )
     for party in out:
         out[party].sort(key=lambda x: x["date"])
