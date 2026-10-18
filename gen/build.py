@@ -507,7 +507,7 @@ def main() -> None:
     calendar = [
         {"date": "6 oct", "label": "Convocatoria (BOE)", "state": "done"},
         {"date": "13–27 nov", "label": "Campaña electoral",
-         "state": "done" if now >= blackout_dt else ("active" if now >= campaign else "")},
+         "state": "done" if now >= blackout_dt else "active"},
         {"date": "24–28 nov", "label": "Prohibición de sondeos",
          "state": "done" if now >= election_dt else ("active" if now >= blackout_dt else "")},
         {"date": "29 nov", "label": "Jornada electoral",
