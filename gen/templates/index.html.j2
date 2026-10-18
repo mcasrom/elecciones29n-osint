@@ -54,6 +54,7 @@
       <button class="tab" data-tab="congreso" role="tab" aria-selected="false">Congreso</button>
       <button class="tab" data-tab="senado" role="tab" aria-selected="false">Senado</button>
       <a class="tab" href="/electorado.html">Electorado</a>
+      <a class="tab" href="/participacion.html">Participación</a>
       <a class="tab" href="/metodologia.html">Metodología</a>
       <a class="tab" href="/fuentes.html">Fuentes</a>
       <a class="tab" href="/caveat.html">Qué no dice</a>
@@ -232,6 +233,18 @@
       <strong>{{ fmt_miles(censo.nuevos_desde_2023) }}</strong> nuevos desde el 23-J-2023.
     </p>
     <div class="cta"><a class="btn" href="/electorado.html">Ver censo y distribución</a></div>
+    {% endif %}
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Participación histórica</h2><span class="hint">1979–2023 · JEC</span></div>
+    {% if part_kpis.n %}
+    <p class="muted" style="margin:0 0 6px">
+      En {{ part_kpis.ultima.eleccion }} votó el <strong>{{ fmt_pct(part_kpis.ultima.participacion) }} %</strong> del censo.
+      El máximo desde 1979 fue {{ fmt_pct(part_kpis.max.participacion) }} % ({{ part_kpis.max.eleccion }});
+      el mínimo, {{ fmt_pct(part_kpis.min.participacion) }} % ({{ part_kpis.min.eleccion }}).
+    </p>
+    <div class="cta"><a class="btn" href="/participacion.html">Ver la serie</a></div>
     {% endif %}
   </div>
 

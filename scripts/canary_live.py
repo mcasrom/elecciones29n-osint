@@ -66,6 +66,12 @@ def main() -> int:
     elif "38.728.356" not in eh:
         errors.append("electorado.html sin la cifra del censo")
 
+    code, ph = get(base + "/participacion.html?canary=1")
+    if code != 200:
+        errors.append(f"participacion.html HTTP {code}")
+    elif "66,59" not in ph:
+        errors.append("participacion.html sin la cifra de 2023")
+
     code, _ = get(base + "/og.png?canary=1")
     if code != 200:
         errors.append(f"og.png HTTP {code}")

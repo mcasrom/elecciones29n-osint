@@ -29,6 +29,7 @@ PAGES = [
     ("about.html", "about.html", "2026-10-17", "monthly", "0.5"),
     ("caveat.html", "caveat.html", "2026-10-17", "monthly", "0.5"),
     ("electorado.html", "electorado.html", "2026-10-18", "monthly", "0.7"),
+    ("participacion.html", "participacion.html", "2026-10-18", "monthly", "0.7"),
 ]
 
 
@@ -421,6 +422,55 @@ def build_cera_chart(paises: list) -> str:
     return "".join(parts)
 
 
+def fmt_pct(v) -> str:
+    try:
+        return f"{float(v):.2f}".replace(".", ",")
+    except Exception:
+        return str(v)
+
+
+def build_participacion_chart(rows: list) -> str:
+    if len(rows) < 2:
+        return ""
+    W, H = 760, 320
+    pad_l, pad_r, pad_t, pad_b = 46, 20, 22, 40
+    iw, ih = W - pad_l - pad_r, H - pad_t - pad_b
+    vmin, vmax = 60.0, 82.0
+
+    def x(i):
+        return pad_l + iw * i / (len(rows) - 1)
+
+    def y(v):
+        return pad_t + ih * (1 - (v - vmin) / (vmax - vmin))
+
+    parts = [f'<svg class="chart" viewBox="0 0 {W} {H}" role="img" aria-label="Participación en las elecciones generales">']
+    for g in range(5):
+        val = vmin + (vmax - vmin) * g / 4
+        yy = y(val)
+        parts.append(f'<line x1="{pad_l}" y1="{yy:.1f}" x2="{W-pad_r}" y2="{yy:.1f}" stroke="var(--line)" stroke-width="1"/>')
+        parts.append(f'<text x="6" y="{yy+4:.1f}" fill="var(--muted)" font-size="11">{val:.0f}%</text>')
+    coords = [(x(i), y(r["participacion"])) for i, r in enumerate(rows)]
+    dpath = "M " + " L ".join(f"{cx:.1f},{cy:.1f}" for cx, cy in coords)
+    parts.append(f'<path d="{dpath}" fill="none" stroke="#ff5a1f" stroke-width="2.2"/>')
+    parts.append("".join(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="3.2" fill="#ff5a1f"/>' for cx, cy in coords))
+    for i, r in enumerate(rows):
+        lbl = r["eleccion"]
+        if lbl.startswith("2019 ("):
+            lbl = "2019a" if "abr" in lbl else "2019n"
+        parts.append(f'<text x="{x(i):.1f}" y="{H-12}" fill="var(--muted)" font-size="10" text-anchor="middle">{lbl}</text>')
+    # etiquetas: primero, último, mínimo y máximo
+    labelled = {0, len(rows) - 1}
+    imax = max(range(len(rows)), key=lambda i: rows[i]["participacion"])
+    imin = min(range(len(rows)), key=lambda i: rows[i]["participacion"])
+    labelled |= {imax, imin}
+    for i in sorted(labelled):
+        cx, cy = coords[i]
+        dy = -8 if i not in (imin,) else 16
+        parts.append(f'<text x="{cx:.1f}" y="{cy+dy:.1f}" fill="var(--fg)" font-size="11" text-anchor="middle">{fmt_pct(rows[i]["participacion"])}%</text>')
+    parts.append("</svg>")
+    return "".join(parts)
+
+
 def build_sparklines(series: dict, parties: list) -> str:
     """Minigráficos por partido (serie larga) para la pestaña Evolución."""
     order = [p["party"] for p in parties][:6]
@@ -493,6 +543,22 @@ def write_censo_data(censo: dict) -> None:
     dump("censo-edad.csv", ["grupo", "mujeres", "hombres", "total"], censo.get("edad_sexo", []))
     dump("censo-nuevos.csv", ["codigo", "nombre", "desde_2023", "desde_2024"], censo.get("nuevos_provincia", []))
     dump("censo-cera.csv", ["codigo", "pais", "electores"], censo.get("cera_paises", []))
+
+
+def write_participacion_data(data: dict) -> None:
+    import csv as _csv
+
+    rows = data.get("elecciones", [])
+    if not rows:
+        return
+    os.makedirs(os.path.join(OUT, "data"), exist_ok=True)
+    with open(os.path.join(OUT, "data", "participacion.json"), "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    with open(os.path.join(OUT, "data", "participacion.csv"), "w", encoding="utf-8", newline="") as f:
+        w = _csv.writer(f)
+        w.writerow(["eleccion", "year", "participacion", "fuente_url"])
+        for r in rows:
+            w.writerow([r["eleccion"], r["year"], r["participacion"], r["fuente_url"]])
 
 
 def build_censo_jsonld(censo: dict) -> str:
@@ -682,6 +748,19 @@ def main(out: str = "web") -> None:
         autoescape=select_autoescape(["html", "xml"]),
     )
 
+    participacion = {"elecciones": []}
+    if os.path.exists("data/participacion.json"):
+        with open("data/participacion.json", encoding="utf-8") as f:
+            participacion = json.load(f)
+    els = participacion.get("elecciones", [])
+    part_kpis = {
+        "ultima": els[-1] if els else None,
+        "media": round(sum(r["participacion"] for r in els) / len(els), 2) if els else None,
+        "max": max(els, key=lambda r: r["participacion"]) if els else None,
+        "min": min(els, key=lambda r: r["participacion"]) if els else None,
+        "n": len(els),
+    }
+
     censo = {}
     if os.path.exists("data/censo_2026.json"):
         with open("data/censo_2026.json", encoding="utf-8") as f:
@@ -755,6 +834,10 @@ def main(out: str = "web") -> None:
         "age_svg": build_age_chart(censo.get("edad_sexo", [])),
         "cera_svg": build_cera_chart(censo.get("cera_paises", [])[:10]),
         "fmt_miles": fmt_miles,
+        "fmt_pct": fmt_pct,
+        "participacion": participacion,
+        "part_chart": build_participacion_chart(participacion.get("elecciones", [])),
+        "part_kpis": part_kpis,
         "days_to_election": latest.get("days_to_election", 0),
         "days_to_blackout": latest.get("days_to_blackout", 0),
         "last_poll_date": latest.get("last_poll_date"),
@@ -768,7 +851,7 @@ def main(out: str = "web") -> None:
         "share_url": SITE_URL + "/",
     }
 
-    for tname in ["index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html"]:
+    for tname in ["index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "participacion.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(**context)
         with open(os.path.join(OUT, tname), "w", encoding="utf-8") as f:
@@ -776,6 +859,7 @@ def main(out: str = "web") -> None:
 
     write_sitemap(today)
     write_censo_data(censo)
+    write_participacion_data(participacion)
 
     if not os.path.exists(os.path.join(OUT, "data/latest.json")):
         with open(os.path.join(OUT, "data/latest.json"), "w", encoding="utf-8") as f:

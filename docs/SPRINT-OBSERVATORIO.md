@@ -68,7 +68,7 @@ da edad/sexo. El gráfico debe decirlo.
 - **Aceptación**: las 4 cifras cuadran con La Moncloa; la página declara que
   edad/sexo no cubre el extranjero; 200 en vivo y en sitemap.
 
-## M2 · Participación histórica (P1, ~3–4 h)
+## M2 · Participación histórica (P1) — ✅ HECHO 18-oct (`M2`)
 
 **Pregunta**: ¿quién participa y cómo ha cambiado?
 

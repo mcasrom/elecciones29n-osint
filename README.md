@@ -39,6 +39,19 @@ No es un pronóstico, no estima intención de voto individual y no anticipa el r
 - Límite declarado: edad/sexo solo cubre residentes en España; el extranjero no
   tiene ese desglose. El censo no dice a quién se vota.
 
+## Participación histórica
+
+- Serie nacional 1979–2023 (15 elecciones) de participación sobre censo.
+- Fuente: **JEC**, con enlace a la tabla oficial de cada elección; serie
+  normalizada con validación de extremos (2023 66,59 %; máx. 1982 79,97 %;
+  mín. 2019-N 66,23 %).
+- `python -m ingest.participacion` → `data/participacion.json` + CSV en
+  `web/data/`.
+- Página `/participacion.html`: última cita, media, máximo, mínimo, evolución y
+  tabla con enlace a la JEC.
+- Límite: participación **nacional**; el desglose provincial del Interior no es
+  accesible desde el servidor (timeout) y se añadirá cuando se pueda verificar.
+
 ## Datos
 
 - Fuente de sondeos: **Electomania** (ElectoPanel) vía WordPress REST API, con paginación y backfill.

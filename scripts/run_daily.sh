@@ -37,6 +37,11 @@ if [ ! -f data/censo_2026.json ] || [ -n "$(find data/censo_2026.json -mtime +30
   PYTHONPATH="$REPO_DIR" python3 -m ingest.censo || echo "[run_daily] aviso: censo no actualizado"
 fi
 
+# 1c) Participación histórica (estática; solo si falta o >30 días)
+if [ ! -f data/participacion.json ] || [ -n "$(find data/participacion.json -mtime +30 2>/dev/null)" ]; then
+  PYTHONPATH="$REPO_DIR" python3 -m ingest.participacion || echo "[run_daily] aviso: participación no actualizada"
+fi
+
 # 2) Agregación (escribe en el staging)
 PYTHONPATH="$REPO_DIR" python3 -m agg.aggregate --out "$STAGE/data"
 

@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "fuente": "Junta Electoral Central (JEC) · tablas de resultados por elección",
+    "transcripcion": "Wikipedia ES (API de parseo, wikitexto) y validación de extremos",
+    "descargado": "2026-10-18T06:58:08.121629+00:00",
+    "nota": "Participación nacional sobre censo. Serie 1979–2023; 2026 aún sin datos."
+  },
+  "elecciones": [
+    {
+      "eleccion": "1979",
+      "year": 1979,
+      "participacion": 68.04,
+      "fuente_url": "https://www.juntaelectoralcentral.es/cs/jec/elecciones/Generales-marzo1979"
+    },
+    {
+      "eleccion": "1982",
+      "year": 1982,
+      "participacion": 79.97,
+      "fuente_url": "https://www.juntaelectoralcentral.es/cs/jec/elecciones/Generales-octubre1982"
+    },
+    {
+      "eleccion": "1986",
+      "year": 1986,
+      "participacion": 70.49,
+      "fuente_url": "https://www.juntaelectoralcentral.es/cs/jec/elecciones/Generales-junio1986"
+    },
+    {
+      "eleccion": "1989",
+      "year": 1989,
+      "participacion": 69.74,
+      "fuente_url": "https://www.juntaelectoralcentral.es/cs/jec/elecciones/Generales-octubre1989"
+    },
+    {
+      "eleccion": "1993",
+      "year": 1993,
+      "participacion": 76.44,
+      "fuente_url": "https://www.juntaelectoralcentral.es/cs/jec/elecciones/Generales-junio1993"
+    },
+    {
+      "eleccion": "1996",
+      "year": 1996,
+      "participacion": 77.38,
+      "fuente_url": "https://www.juntaelectoralcentral.es/cs/jec/elecciones/Generales-marzo1996"
+    },
+    {
+      "eleccion": "2000",
+      "year": 2000,
+      "participacion": 68.71,
+      "fuente_url": "https://www.juntaelectoralcentral.es/cs/jec/elecciones/Generales-marzo2000"
+    },
+    {
+      "eleccion": "2004",
+      "year": 2004,
+      "participacion": 75.66,
+      "fuente_url": "https://www.juntaelectoralcentral.es/cs/jec/elecciones/Generales-marzo2004"
+    },
+    {
+      "eleccion": "2008",
+      "year": 2008,
+      "participacion": 73.85,
+      "fuente_url": "https://www.juntaelectoralcentral.es/cs/jec/elecciones/Generales-marzo2008"
+    },
+    {
+      "eleccion": "2011",
+      "year": 2011,
+      "participacion": 68.94,
+      "fuente_url": "https://www.juntaelectoralcentral.es/cs/jec/elecciones/Generales-noviembre2011"
+    },
+    {
+      "eleccion": "2015",
+      "year": 2015,
+      "participacion": 69.67,
+      "fuente_url": "https://www.juntaelectoralcentral.es/cs/jec/elecciones/Generales-diciembre2015"
+    },
+    {
+      "eleccion": "2016",
+      "year": 2016,
+      "participacion": 66.48,
+      "fuente_url": "https://www.juntaelectoralcentral.es/cs/jec/elecciones/Generales-junio2016"
+    },
+    {
+      "eleccion": "2019 (abr)",
+      "year": 2019,
+      "participacion": 71.76,
+      "fuente_url": "https://www.juntaelectoralcentral.es/cs/jec/elecciones/Generales-abril2019"
+    },
+    {
+      "eleccion": "2019 (nov)",
+      "year": 2019,
+      "participacion": 66.23,
+      "fuente_url": "https://www.juntaelectoralcentral.es/cs/jec/elecciones/Generales-noviembre2019"
+    },
+    {
+      "eleccion": "2023",
+      "year": 2023,
+      "participacion": 66.59,
+      "fuente_url": "https://www.juntaelectoralcentral.es/cs/jec/elecciones/Generales-julio2023"
+    }
+  ]
+}

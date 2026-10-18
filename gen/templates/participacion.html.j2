@@ -1,0 +1,67 @@
+{% set page_title = "Participación en las elecciones generales · 1979–2023" %}
+{% set page_desc = "Evolución de la participación nacional en las elecciones generales de España desde 1979: última cita, media histórica, máximo y mínimo, con enlace a la JEC." %}
+{% set canonical = site_url ~ "/participacion.html" %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Participación en las elecciones generales</h1>
+  <p class="muted" style="margin:0 0 14px">Serie nacional desde 1979. Cada dato enlaza a la tabla de resultados de la Junta Electoral Central.</p>
+
+  {% if part_kpis.n %}
+  <div class="kpis">
+    <div class="kpi"><span class="kpi-name">Última cita · {{ part_kpis.ultima.eleccion }}</span><b>{{ fmt_pct(part_kpis.ultima.participacion) }}%</b><span class="kpi-range">sobre censo</span></div>
+    <div class="kpi"><span class="kpi-name">Media histórica</span><b>{{ fmt_pct(part_kpis.media) }}%</b><span class="kpi-range">{{ part_kpis.n }} elecciones</span></div>
+    <div class="kpi"><span class="kpi-name">Máximo</span><b>{{ fmt_pct(part_kpis.max.participacion) }}%</b><span class="kpi-range">{{ part_kpis.max.eleccion }}</span></div>
+    <div class="kpi"><span class="kpi-name">Mínimo</span><b>{{ fmt_pct(part_kpis.min.participacion) }}%</b><span class="kpi-range">{{ part_kpis.min.eleccion }}</span></div>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Evolución de la participación</h2><span class="hint">1979–2023 · % sobre censo</span></div>
+    {{ part_chart|safe }}
+    <p class="muted small" style="margin-top:8px">Cada punto es una elección general. No se proyecta la participación del 29N.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Serie por elección</h2><span class="hint">enlace a la JEC</span></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Elección</th><th>Participación</th><th>Fuente</th></tr></thead>
+        <tbody>
+        {% for r in participacion.elecciones|reverse %}
+          <tr>
+            <td>{{ r.eleccion }}</td>
+            <td class="num">{{ fmt_pct(r.participacion) }}%</td>
+            <td>{% if r.fuente_url %}<a href="{{ r.fuente_url }}" rel="noopener" target="_blank">JEC</a>{% endif %}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="muted small"><a href="/data/participacion.csv">Descargar CSV</a> · serie normalizada a partir de las tablas de la JEC.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Fuente y límites</h2></div>
+    <ul class="muted small">
+      <li><strong>Participación nacional</strong> sobre el censo de cada convocatoria. No es una estimación: es el dato oficial.</li>
+      <li>La <strong>participación por provincia/CCAA</strong> requiere el desglose territorial del Ministerio del Interior; se añadirá cuando la fuente sea accesible y verificable.</li>
+      <li>La cita del <strong>29N-2026</strong> se incorporará <strong>después</strong> de la jornada electoral. Antes no hay dato que mostrar.</li>
+      <li>Una participación alta o baja no explica por sí sola el resultado: mide cuántos votaron, no a quién.</li>
+    </ul>
+    <div class="cta">
+      <a class="btn" href="/electorado.html">Ver el censo</a>
+      <a class="btn ghost" href="/">Ver los sondeos</a>
+    </div>
+  </div>
+  {% else %}
+  <div class="alert warn">La serie de participación no está disponible todavía. <a href="/">Volver al agregado</a>.</div>
+  {% endif %}
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>

@@ -17,6 +17,7 @@ REQUIRED = [
     "robots.txt", "sitemap.xml", "llms.txt", "favicon.svg", "og.png",
     "cambios.xml", "data/latest.json", "css/main.css",
     "electorado.html", "data/censo-2026.json", "data/censo-provincias.csv",
+    "participacion.html", "data/participacion.json", "data/participacion.csv",
 ]
 
 
@@ -90,13 +91,32 @@ def main() -> int:
         if len(eh) < 5000:
             errors.append(f"electorado.html demasiado pequeño ({len(eh)} bytes)")
 
+    part_path = os.path.join(d, "data/participacion.json")
+    if os.path.exists(part_path):
+        try:
+            par = json.load(open(part_path, encoding="utf-8"))
+            els = par.get("elecciones", [])
+            if len(els) < 15:
+                errors.append(f"participación: {len(els)} elecciones (esperadas >=15)")
+            if not any(abs(float(r.get("participacion", 0)) - 66.59) < 0.01 for r in els):
+                errors.append("participación: falta el dato de 2023 (66,59)")
+        except Exception as e:
+            errors.append(f"participacion.json inválido: {e}")
+    partp = os.path.join(d, "participacion.html")
+    if os.path.exists(partp):
+        ph = open(partp, encoding="utf-8", errors="ignore").read()
+        if "66,59" not in ph:
+            errors.append("participacion.html sin la cifra de 2023")
+        if len(ph) < 4000:
+            errors.append(f"participacion.html demasiado pequeño ({len(ph)} bytes)")
+
     sm = os.path.join(d, "sitemap.xml")
     if os.path.exists(sm):
         try:
             ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
             urls = ET.parse(sm).getroot().findall(".//s:loc", ns)
-            if len(urls) < 6:
-                errors.append(f"sitemap con {len(urls)} URLs (esperadas >=6)")
+            if len(urls) < 7:
+                errors.append(f"sitemap con {len(urls)} URLs (esperadas >=7)")
         except Exception as e:
             errors.append(f"sitemap inválido: {e}")
 
