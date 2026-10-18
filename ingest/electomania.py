@@ -49,6 +49,28 @@ def strip_html(raw: str) -> str:
     return html.unescape(re.sub("<[^>]+>", " ", raw))
 
 
+def parse_sample(text: str) -> int | None:
+    m = re.search(r"Tamaño muestral:\s*([\d.]+)", text)
+    if not m:
+        m = re.search(r"([\d.]+)\s+cuestionarios", text)
+    if not m:
+        return None
+    try:
+        n = int(m.group(1).replace(".", ""))
+    except ValueError:
+        return None
+    return n if 200 <= n <= 20000 else None
+
+
+def pollster_of(title: str) -> tuple[str, str]:
+    tl = title.lower()
+    if "electopromedio" in tl:
+        return "ElectoPromedio", "average"
+    if "electopanel" in tl:
+        return "ElectoPanel", "tracking"
+    return "Electomania", "tracking"
+
+
 def extract_poll(post: dict) -> dict | None:
     title = html.unescape(re.sub("<[^>]+>", "", post["title"]["rendered"]))
     tl = title.lower()
@@ -71,10 +93,14 @@ def extract_poll(post: dict) -> dict | None:
     if not (90 <= total <= 110 and len(found) >= 6):
         return None
 
+    pollster, kind = pollster_of(title)
     return {
         "date": post["date"][:10],
         "source_url": post["link"],
         "values": found,
+        "sample": parse_sample(text),
+        "pollster": pollster,
+        "kind": kind,
     }
 
 
@@ -84,9 +110,12 @@ def append_rows(poll: dict) -> int:
     with open(HIST, "a", encoding="utf-8", newline="") as f:
         w = csv.writer(f)
         if new:
-            w.writerow(["party", "date", "value", "source_url", "sample"])
+            w.writerow(["party", "date", "value", "source_url", "sample", "pollster", "kind"])
         for party, val in sorted(poll["values"].items()):
-            w.writerow([party, poll["date"], val, poll["source_url"], ""])
+            w.writerow([
+                party, poll["date"], val, poll["source_url"],
+                poll.get("sample") or "", poll.get("pollster", ""), poll.get("kind", "tracking"),
+            ])
             n += 1
     return n
 
@@ -107,7 +136,11 @@ def main() -> int:
         if not poll or poll["date"] in done:
             continue
         n = append_rows(poll)
-        print(f"{poll['date']}  {len(poll['values'])} partidos  {poll['source_url']}")
+        print(
+            f"{poll['date']}  {len(poll['values'])} partidos  "
+            f"{poll.get('pollster','?')}/{poll.get('kind','?')}  "
+            f"n={poll.get('sample') or '?'}  {poll['source_url']}"
+        )
         added += n
 
     print(f"[electomania] {added} filas nuevas")

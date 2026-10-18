@@ -36,7 +36,7 @@
 
       <div class="hero-kpis">
         <div class="hk"><b>{{ days_to_election }}</b><span>días para el 29N</span></div>
-        <div class="hk"><b>{{ n_polls }}</b><span>sondeos en ventana 14d</span></div>
+        <div class="hk"><b>{{ n_polls }}</b><span>sondeos en la media</span></div>
         <div class="hk accent"><b>{% if gap_pp_psoe is not none %}+{{ "%.1f"|format(gap_pp_psoe) }}{% else %}—{% endif %}</b><span>puntos PP–PSOE</span></div>
         <div class="hk"><b>176</b><span>mayoría absoluta</span></div>
       </div>
@@ -64,6 +64,8 @@
 
   {% if in_blackout %}
   <div class="alert"><strong>Blackout electoral activo</strong> · {{ blackout_reason }}. El agregado queda congelado y no se actualiza.</div>
+  {% elif low_n %}
+  <div class="alert warn"><strong>Pocos sondeos en la media</strong> · solo {{ n_polls }}. Interpreta el rango con cautela: una media con tan pocos datos no estabiliza la tendencia.</div>
   {% endif %}
 
   <!-- TAB: AGREGADO -->
@@ -73,7 +75,7 @@
       <div class="kpi">
         <span class="kpi-name">{{ p.party }}</span>
         <b>{{ "%.1f"|format(p.mean) }}%</b>
-        <span class="kpi-range">rango {{ "%.1f"|format(p.min) }}–{{ "%.1f"|format(p.max) }} · n={{ p.n }}</span>
+        <span class="kpi-range">rango {{ "%.1f"|format(p.min) }}–{{ "%.1f"|format(p.max) }} · n={{ p.n }}{% if p.sample_total %} · {{ "{:,}".format(p.sample_total)|replace(",", ".") }} encuestados{% endif %}</span>
       </div>
       {% endfor %}
     </div>
@@ -91,16 +93,16 @@
     {% endif %}
 
     <div class="card">
-      <div class="cardhead"><h2>Media por partido</h2><span class="hint">ventana móvil de 14 días</span></div>
-      <table>
-        <thead><tr><th>Partido</th><th>Media</th><th>Mín</th><th>Máx</th><th>n</th></tr></thead>
+      <div class="cardhead"><h2>Media por partido</h2><span class="hint">{% if window_span %}{{ window_span }}{% endif %}{% if window_extended %} · ventana ampliada{% endif %}</span></div>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Partido</th><th>Media</th><th>Mediana</th><th>Mín</th><th>Máx</th><th>n</th></tr></thead>
         <tbody>
         {% for p in parties %}
-          <tr><td><strong>{{ p.party }}</strong></td><td class="num">{{ "%.2f"|format(p.mean) }}%</td><td class="num">{{ "%.2f"|format(p.min) }}%</td><td class="num">{{ "%.2f"|format(p.max) }}%</td><td class="num">{{ p.n }}</td></tr>
+          <tr><td><strong>{{ p.party }}</strong></td><td class="num">{{ "%.2f"|format(p.mean) }}%</td><td class="num">{{ "%.2f"|format(p.median) }}%</td><td class="num">{{ "%.2f"|format(p.min) }}%</td><td class="num">{{ "%.2f"|format(p.max) }}%</td><td class="num">{{ p.n }}</td></tr>
         {% endfor %}
         </tbody>
-      </table>
-      <p class="muted small">Actualizado: {{ updated_at }}. <a href="/data/latest.json">Descargar JSON</a> · <a href="/metodologia.html">Cómo se calcula</a></p>
+      </table></div>
+      <p class="muted small">Actualizado: {{ updated_at }}. Ponderación: {{ weight_basis }}. <a href="/data/latest.json">Descargar JSON</a> · <a href="/metodologia.html">Cómo se calcula</a></p>
     </div>
 
     <div class="card">
@@ -171,14 +173,14 @@
 
     <div class="card">
       <div class="cardhead"><h2>Congreso de referencia</h2><span class="hint">composición vigente (23J-2023)</span></div>
-      <table>
+      <div class="tablewrap"><table>
         <thead><tr><th>Partido</th><th>Escaños</th></tr></thead>
         <tbody>
         {% for name, seats in ref_congreso %}
           <tr><td>{{ name }}</td><td class="num">{{ seats }}</td></tr>
         {% endfor %}
         </tbody>
-      </table>
+      </table></div>
       <p class="muted small">Es la composición actual como referencia. No es una proyección del 29N.</p>
     </div>
 

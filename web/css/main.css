@@ -67,7 +67,8 @@ h3{font-size:15px;margin:16px 0 6px}
 .kpi-range{display:block;font-size:12px;color:var(--faint);margin-top:2px}
 
 /* table */
-table{width:100%;border-collapse:collapse}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;min-width:520px}
 th,td{border-bottom:1px solid var(--line);padding:9px 8px;text-align:left}
 th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);font-weight:700}
 td.num{font-variant-numeric:tabular-nums;text-align:right}
@@ -127,12 +128,18 @@ svg.chart{width:100%;height:auto;display:block}
 .footer{border-top:1px solid var(--line);padding:24px 0;color:var(--faint);font-size:13.5px;margin-top:24px}
 .footer p{margin:4px 0}
 
+@media (prefers-reduced-motion: reduce){
+  .dot,.stale{animation:none}
+  *{scroll-behavior:auto}
+}
+
 details{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0;background:var(--panel2)}
 summary{cursor:pointer;font-size:14px}
 summary::-webkit-details-marker{display:none}
 
 @media(max-width:760px){
   .hero-kpis,.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tab{padding:8px 11px;font-size:13px}
   .blocks{grid-template-columns:1fr}
   .seatrow{grid-template-columns:76px 1fr 40px}
 }

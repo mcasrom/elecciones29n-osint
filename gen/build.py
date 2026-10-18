@@ -106,7 +106,8 @@ h3{font-size:15px;margin:16px 0 6px}
 .kpi-range{display:block;font-size:12px;color:var(--faint);margin-top:2px}
 
 /* table */
-table{width:100%;border-collapse:collapse}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;min-width:520px}
 th,td{border-bottom:1px solid var(--line);padding:9px 8px;text-align:left}
 th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);font-weight:700}
 td.num{font-variant-numeric:tabular-nums;text-align:right}
@@ -166,12 +167,18 @@ svg.chart{width:100%;height:auto;display:block}
 .footer{border-top:1px solid var(--line);padding:24px 0;color:var(--faint);font-size:13.5px;margin-top:24px}
 .footer p{margin:4px 0}
 
+@media (prefers-reduced-motion: reduce){
+  .dot,.stale{animation:none}
+  *{scroll-behavior:auto}
+}
+
 details{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0;background:var(--panel2)}
 summary{cursor:pointer;font-size:14px}
 summary::-webkit-details-marker{display:none}
 
 @media(max-width:760px){
   .hero-kpis,.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tab{padding:8px 11px;font-size:13px}
   .blocks{grid-template-columns:1fr}
   .seatrow{grid-template-columns:76px 1fr 40px}
 }
@@ -429,11 +436,11 @@ def build_chart(series: dict, parties: list) -> str:
     for g in range(5):
         val = vmin + (vmax - vmin) * g / 4
         yy = y(val)
-        parts.append(f'<line x1="{pad_l}" y1="{yy:.1f}" x2="{W-pad_r}" y2="{yy:.1f}" stroke="#2a2b45" stroke-width="1"/>')
-        parts.append(f'<text x="6" y="{yy+4:.1f}" fill="#b9b9c3" font-size="11">{val:.0f}%</text>')
+        parts.append(f'<line x1="{pad_l}" y1="{yy:.1f}" x2="{W-pad_r}" y2="{yy:.1f}" stroke="var(--line)" stroke-width="1"/>')
+        parts.append(f'<text x="6" y="{yy+4:.1f}" fill="var(--muted)" font-size="11">{val:.0f}%</text>')
     for i, d in enumerate(dates):
         lbl = d[8:10] + "/" + d[5:7]
-        parts.append(f'<text x="{x(i):.1f}" y="{H-10}" fill="#b9b9c3" font-size="10" text-anchor="middle">{lbl}</text>')
+        parts.append(f'<text x="{x(i):.1f}" y="{H-10}" fill="var(--muted)" font-size="10" text-anchor="middle">{lbl}</text>')
     for idx, party in enumerate(order):
         pts = series.get(party, [])
         if not pts:
@@ -501,6 +508,10 @@ def main() -> None:
             if latest.get("series_long") else ""
         ),
         "updated_iso": latest.get("updated_at_iso", now.isoformat()),
+        "low_n": latest.get("low_n", False),
+        "window_span": latest.get("window_span", ""),
+        "window_extended": latest.get("window_extended", False),
+        "weight_basis": latest.get("weight_basis", ""),
         "days_to_election": latest.get("days_to_election", 0),
         "days_to_blackout": latest.get("days_to_blackout", 0),
         "last_poll_date": latest.get("last_poll_date"),
