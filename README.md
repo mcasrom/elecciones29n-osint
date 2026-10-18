@@ -176,8 +176,8 @@ Además de la media por sondeo (ponderada por recencia y muestra cuando existe),
 
 ## Avisos locales
 
-- **`scripts/needs.py`**: centro de pendientes (GSC, IRDP, tarjeta social) + chequeos automáticos (cron, datos, salud, inbox). Aviso diario de escritorio y panel `~/.config/elecciones29n/needs.html`.
-- Timer `elecciones29n-attention.timer` a las **08:20**; `run_daily.sh` y el autostart también llaman al digest. Detalle: [`docs/AVISOS.md`](docs/AVISOS.md).
+- **`scripts/needs.py`**: fuente de pendientes de 29N (GSC, IRDP, tarjeta social) + chequeos automáticos (cron, datos, salud, inbox); panel `~/.config/elecciones29n/needs.html`.
+- El aviso diario lo manda el **centro único** `~/Desktop/atencion` (un solo aviso, 21 servicios + 29N). Detalle: [`docs/AVISOS.md`](docs/AVISOS.md).
 
 ## Auditoría de datos
 

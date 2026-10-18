@@ -1,6 +1,6 @@
-# Avisos locales (centro de pendientes)
+# Avisos locales (fuente de 29N)
 
-El sistema no espera a que lo recuerdes: cada día revisa lo que necesita y lo anuncia.
+> **El aviso diario lo manda el centro único `~/Desktop/atencion`** (un solo panel y un solo aviso). `scripts/needs.py` es la **fuente de 29N** que lee ese centro; su timer propio está retirado para no duplicar.
 
 ## Qué revisa solo
 
@@ -30,15 +30,11 @@ python3 scripts/needs.py panel --open
 
 ## Cuándo avisa
 
-- **08:00**: `run_daily.sh` termina y llama a `digest --if-due`.
-- **08:20**: timer `elecciones29n-attention.timer` (si el de las 08:00 falló o no dejó aviso).
-- **Al entrar**: autostart `check_laptop_on.sh` llama a `digest --if-due`; si el aviso de las 08:00 no se pudo mostrar (sin sesión gráfica), se muestra ahora.
+- **08:25**: `atencion.timer` del centro único, después del run de 29N.
+- **Al entrar**: autostart del centro; si el aviso de las 08:25 no se pudo mostrar, se muestra ahora.
+- El centro lee esta fuente con `scripts/needs.py list --json`; no hay timer propio de 29N.
 
-`--if-due` muestra como máximo **un aviso por día**. Si no hay pendientes, no molesta. El aviso es una notificación de escritorio con el panel:
-
-`~/.config/elecciones29n/needs.html`
-
-También hay un acceso **29N - Pendientes** en el menú de aplicaciones.
+El panel de 29N sigue disponible en `~/.config/elecciones29n/needs.html`.
 
 ## Límites
 
@@ -46,6 +42,6 @@ También hay un acceso **29N - Pendientes** en el menú de aplicaciones.
 - No enciende el portátil: si está apagado, `Persistent=true` recupera al arrancar.
 - El panel es local y no se publica.
 
-## Extensión al resto de microservicios
+## Centro único
 
-El patrón es un `needs.json` por servicio + un `digest` diario. Para los ~20 servicios conviene un **único centro** que lea varios `needs.json` y avise en un solo mensaje (escritorio y/o Telegram). No está hecho todavía.
+`~/Desktop/atencion` lee esta fuente, comprueba 21 servicios y manda un solo aviso; ver su `README.md`. Para que un servicio aporte tareas propias, el siguiente paso es que publique su `needs.json` y el centro lo lea.

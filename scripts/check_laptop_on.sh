@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 STATE_DIR="$HOME/.config/elecciones29n"
 mkdir -p "$STATE_DIR"
 TODAY=$(date +%Y%m%d)
@@ -16,6 +15,3 @@ if [ ! -f "$STATE" ] && [ ! -f "$MISSED" ] && [ "$NOW_H" -ge 0805 ]; then
   touch "$MISSED"
 fi
 
-if [ -x "$REPO_DIR/scripts/needs.py" ]; then
-  /usr/bin/python3 "$REPO_DIR/scripts/needs.py" digest --if-due || true
-fi
