@@ -93,6 +93,11 @@ def main() -> int:
     elif ("Sin datos electorales todavía" not in nh) and ("Participación" not in nh):
         errors.append("noche-electoral.html sin estado ni resultados")
 
+    for p in ("/manifest.webmanifest", "/sw.js"):
+        code, _ = get(base + p + "?canary=1")
+        if code != 200:
+            errors.append(f"{p} HTTP {code}")
+
     code, _ = get(base + "/og.png?canary=1")
     if code != 200:
         errors.append(f"og.png HTTP {code}")

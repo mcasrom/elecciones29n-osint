@@ -20,6 +20,7 @@ REQUIRED = [
     "participacion.html", "data/participacion.json", "data/participacion.csv",
     "territorio.html", "data/escanos-2026.json", "data/escanos-2026.csv",
     "apoyo.html", "sobre-mi.html", "noche-electoral.html",
+    "manifest.webmanifest", "sw.js", "icons/icon-192.png", "icons/icon-512.png",
 ]
 
 
@@ -156,6 +157,18 @@ def main() -> int:
             errors.append("noche-electoral.html sin bloque de resultados")
         if not has_results and "Sin datos electorales todavía" not in nh:
             errors.append("noche-electoral.html sin estado previo")
+
+    man = os.path.join(d, "manifest.webmanifest")
+    if os.path.exists(man):
+        try:
+            m = json.load(open(man, encoding="utf-8"))
+            if not m.get("name") or not m.get("icons"):
+                errors.append("manifest sin name/icons")
+        except Exception as e:
+            errors.append(f"manifest inválido: {e}")
+    swp = os.path.join(d, "sw.js")
+    if os.path.exists(swp) and "CACHE" not in open(swp, encoding="utf-8", errors="ignore").read():
+        errors.append("sw.js sin CACHE")
 
     sm = os.path.join(d, "sitemap.xml")
     if os.path.exists(sm):

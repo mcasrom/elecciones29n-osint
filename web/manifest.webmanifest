@@ -1,0 +1,29 @@
+{
+  "name": "Observatorio electoral 29N",
+  "short_name": "29N",
+  "description": "Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo y datos abiertos.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0b0c1c",
+  "theme_color": "#ff5a1f",
+  "lang": "es-ES",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
