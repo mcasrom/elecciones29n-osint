@@ -90,10 +90,16 @@ ingest/escanos.py      ┘                                      │
                                      canary en vivo + IndexNow + purge CF
 ```
 
-- **Local-first**: la ingesta y el build corren en el portátil. El servidor solo
-  sirve estático (cero backend, cero cron en servidor).
+- **Local-first**: ingesta, agregado y build corren en Python; la publicación es
+  estática (nginx). El **cron del servidor** (`06:15 UTC`) ejecuta
+  `scripts/run_daily_server.sh` (ingesta → build en `web_tmp/` → validación →
+  swap atómico → rsync → canario → IndexNow → purge). No hay backend.
 - **Fail-safe**: si la ingesta o la validación fallan, **no se publica nada** y
   se conserva la última versión buena (`web_prev/` para revertir).
+- **Aviso de novedades**: chip en la cabecera («Nuevo sondeo · <casa> (DD/MM)»)
+  que solo aparece si la ejecución ha incorporado sondeos nuevos. Se mantiene
+  durante el día y desaparece al siguiente; las medias (`kind=average`) no
+  cuentan. Estado en `data/novedades_state.json` (no versionado).
 - **Sin terceros**: sin cookies, sin analítica externa, sin publicidad.
 
 ## Puesta en marcha

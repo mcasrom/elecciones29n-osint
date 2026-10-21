@@ -35,6 +35,11 @@
         {% else %}
         <span class="dot"></span> EN VIVO · actualizado {{ updated_at }}
         {% endif %}
+        {% if novedades %}
+        <a class="novedad" href="#tab-agregado" title="Ultima ingesta de sondeos">
+          <span class="ndot"></span>Nuevo sondeo · {{ novedades[0].pollster }} ({{ novedades[0].date[8:] }}/{{ novedades[0].date[5:7] }}){% if novedades|length > 1 %} +{{ novedades|length - 1 }}{% endif %}
+        </a>
+        {% endif %}
       </div>
     </div>
 

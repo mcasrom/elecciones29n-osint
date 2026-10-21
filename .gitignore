@@ -12,3 +12,5 @@ web_tmp/
 web_prev/
 data/censo_raw/
 data/audit_report.json
+
+data/novedades_state.json

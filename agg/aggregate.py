@@ -107,6 +107,44 @@ def _empty(now: datetime, in_blackout: bool) -> Dict[str, Any]:
     }
 
 
+NOVEDADES_STATE = "data/novedades_state.json"
+
+
+def _novedades(polls: List[Dict[str, Any]], now: datetime) -> List[Dict[str, str]]:
+    """Sondeos nuevos desde la ultima ejecucion. Si la ejecucion es del mismo dia
+    y no hay nuevos, se conserva el aviso (para que no desaparezca al reejecutar)."""
+    today = now.strftime("%Y-%m-%d")
+    cur = {
+        (p.get("pollster") or "", p["date"].strftime("%Y-%m-%d"))
+        for p in polls
+        if (p.get("kind") or "tracking") != "average"
+    }
+    prev: Dict[str, Any] = {}
+    try:
+        with open(NOVEDADES_STATE, encoding="utf-8") as f:
+            prev = json.load(f)
+    except Exception:
+        prev = {}
+    seen_prev = {tuple(x) for x in prev.get("seen", [])}
+    if not seen_prev:
+        novedades: List[Dict[str, str]] = []  # primera ejecucion: sembrar sin avisar
+    else:
+        nuevos = sorted(cur - seen_prev, key=lambda x: x[1], reverse=True)
+        novedades = [{"pollster": p, "date": d} for p, d in nuevos if p]
+        if not novedades and prev.get("date") == today:
+            novedades = prev.get("novedades", [])
+    try:
+        os.makedirs("data", exist_ok=True)
+        tmp = NOVEDADES_STATE + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump({"date": today, "seen": sorted(cur), "novedades": novedades[:3]}, f,
+                      ensure_ascii=False)
+        os.replace(tmp, NOVEDADES_STATE)
+    except Exception:
+        pass
+    return novedades[:3]
+
+
 def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
     now = datetime.now(TZ)
     latest_path = os.path.join(out_dir, "latest.json")
@@ -232,6 +270,8 @@ def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
         "reasons": reasons,
     }
 
+    novedades = _novedades(polls_all, now)
+
     election = now.replace(year=2026, month=11, day=29, hour=0, minute=0, second=0, microsecond=0)
     blackout_start = now.replace(year=2026, month=11, day=24, hour=0, minute=0, second=0, microsecond=0)
 
@@ -253,6 +293,7 @@ def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
         "sources": sources,
         "last_poll_date": poll_dates[-1] if poll_dates else None,
         "health": health,
+        "novedades": novedades,
         "house_mean": house_mean,
         "days_to_election": max(0, (election - now).days),
         "days_to_blackout": max(0, (blackout_start - now).days),

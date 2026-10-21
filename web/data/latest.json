@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-21 13:34 CEST",
-  "updated_at_iso": "2026-10-21T13:34:03.031188+02:00",
+  "updated_at": "2026-10-21 13:38 CEST",
+  "updated_at_iso": "2026-10-21T13:38:35.597014+02:00",
   "in_blackout": false,
   "window_days": 14,
   "parties": [
@@ -2218,6 +2218,16 @@
     "days_since_last": 2,
     "reasons": []
   },
+  "novedades": [
+    {
+      "pollster": "Sigma Dos",
+      "date": "2026-10-19"
+    },
+    {
+      "pollster": "ElectoPanel",
+      "date": "2026-10-18"
+    }
+  ],
   "house_mean": {
     "window_days": 45,
     "n_houses": 14,
