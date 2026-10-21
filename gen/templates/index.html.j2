@@ -148,7 +148,7 @@
       <details><summary><strong>¿Por qué mostrar el rango y no solo la media?</strong></summary><p class="muted small">Porque la dispersión entre encuestadoras es parte del dato. Una cifra única oculta la incertidumbre.</p></details>
     </div>
 
-    <div class="card">
+    <div class="card" id="salud">
       <div class="cardhead"><h2>Salud de la muestra</h2><span class="hint">qué sostiene la media</span></div>
       {% if health %}
       {% set hlabel = {'ok':'Muestra suficiente','warn':'Muestra frágil','bad':'Muestra insuficiente'}[health.status] %}
