@@ -50,6 +50,19 @@ class RobustezTest(unittest.TestCase):
         self.assertEqual(res["health"]["sample_pct"], 50)
         self.assertEqual(res["health"]["sample_polls"], 1)
 
+    def test_house_latest_nota_cis(self):
+        today = datetime.now(TZ).strftime("%Y-%m-%d")
+        res = self.run_with([
+            ("PP", today, 22.2, "u", 5025, "CIS", "tracking"),
+            ("PSOE", today, 34.0, "u", 5025, "CIS", "tracking"),
+            ("PP", today, 31.0, "u", 1000, "A", "tracking"),
+        ])
+        row = next(r for r in res["house_latest"] if r["pollster"] == "CIS")
+        self.assertEqual(row["nota"], "estimación de voto")
+        self.assertEqual(row["pp"], 22.2)
+        self.assertEqual(row["sample"], 5025)
+        self.assertIsNone(next(r for r in res["house_latest"] if r["pollster"] == "A")["nota"])
+
 
 if __name__ == "__main__":
     unittest.main()

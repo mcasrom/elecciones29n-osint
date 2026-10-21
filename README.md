@@ -98,8 +98,9 @@ ingest/escanos.py      ┘                                      │
   se conserva la última versión buena (`web_prev/` para revertir).
 - **Robustez del dato**: panel con cinco indicadores (sondeos, casas, días desde el
   último, % con muestra declarada y dispersión IQR entre casas), sin nota agregada.
-  La tabla muestra además casas e IQR por partido. Explicación y límites en
-  `/metodologia.html#robustez`.
+  La tabla muestra además casas e IQR por partido; el contraste por casa incluye el
+  último sondeo de cada una con su método (CIS = estimación de voto) y una nota sobre
+  mín–máx frente a IQR. Explicación y límites en `/metodologia.html#robustez`.
 - **Aviso de novedades**: chip en la cabecera («Nuevo sondeo · <casa> (DD/MM)»)
   que solo aparece si la ejecución ha incorporado sondeos nuevos. Se mantiene
   durante el día y desaparece al siguiente; las medias (`kind=average`) no

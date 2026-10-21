@@ -137,6 +137,7 @@
         {% endfor %}
         </tbody>
       </table></div>
+      <p class="muted small"><strong>Mín–máx</strong> son los sondeos observados, no un intervalo de confianza: un solo sondeo puede fijar ambos extremos. La dispersión típica es el <strong>IQR</strong>. El <strong>CIS</strong> publica estimación de voto, no intención directa, y su efecto de casa es mayor.</p>
       <p class="muted small">«Otros» es el resto de candidaturas, no un partido. Actualizado: {{ updated_at }}. Ponderación: {{ weight_basis }}. <a href="/data/latest.json">Descargar JSON</a> · <a href="/metodologia.html">Cómo se calcula</a></p>
     </div>
 
@@ -184,6 +185,18 @@
         </table>
       </div>
       <p class="muted small">Última encuesta de cada casa en 45 días, <strong>mismo peso por casa</strong>. Es un contraste de robustez, no la media principal (que pesa cada sondeo por recencia). Incluye CIS (barómetro de octubre, n=5.025). La media por sondeo pondera por muestra; este contraste iguala el peso por casa.</p>
+      <details style="margin-top:12px">
+        <summary class="muted small" style="cursor:pointer"><strong>Último sondeo de cada casa</strong> (con método cuando difiere)</summary>
+        <div class="tablewrap" style="margin-top:8px"><table>
+          <thead><tr><th>Casa</th><th>Fecha</th><th>PP</th><th>PSOE</th><th>Muestra</th><th>Método</th></tr></thead>
+          <tbody>
+          {% for r in house_latest %}
+            <tr><td>{{ r.pollster }}</td><td class="num">{{ r.date }}</td><td class="num">{% if r.pp is not none %}{{ fmt_pct(r.pp) }}%{% else %}—{% endif %}</td><td class="num">{% if r.psoe is not none %}{{ fmt_pct(r.psoe) }}%{% else %}—{% endif %}</td><td class="num">{% if r.sample %}{{ "{:,}".format(r.sample)|replace(",", ".") }}{% else %}—{% endif %}</td><td>{% if r.nota %}<span class="chip2">{{ r.nota }}</span>{% else %}—{% endif %}</td></tr>
+          {% endfor %}
+          </tbody>
+        </table></div>
+        <p class="muted small">El CIS estima voto (recuerdo y cocina propia); las demás casas publican intención directa. Por eso su valor no es comparable 1:1 y mueve los extremos del rango.</p>
+      </details>
     </div>
     {% endif %}
 

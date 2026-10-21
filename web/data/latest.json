@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-21 14:01 CEST",
-  "updated_at_iso": "2026-10-21T14:01:38.549661+02:00",
+  "updated_at": "2026-10-21 14:11 CEST",
+  "updated_at_iso": "2026-10-21T14:11:47.639730+02:00",
   "in_blackout": false,
   "window_days": 14,
   "parties": [
@@ -2358,6 +2358,120 @@
       }
     ]
   },
+  "house_latest": [
+    {
+      "pollster": "Sigma Dos",
+      "date": "2026-10-19",
+      "pp": 31.5,
+      "psoe": 25.3,
+      "sample": null,
+      "nota": null
+    },
+    {
+      "pollster": "ElectoPanel",
+      "date": "2026-10-18",
+      "pp": 31.8,
+      "psoe": 27.1,
+      "sample": 3141,
+      "nota": null
+    },
+    {
+      "pollster": "CIS",
+      "date": "2026-10-14",
+      "pp": 22.2,
+      "psoe": 34.0,
+      "sample": 5025,
+      "nota": "estimación de voto"
+    },
+    {
+      "pollster": "Sociométrica",
+      "date": "2026-10-12",
+      "pp": 32.6,
+      "psoe": 26.2,
+      "sample": null,
+      "nota": null
+    },
+    {
+      "pollster": "GESOP",
+      "date": "2026-10-12",
+      "pp": 28.7,
+      "psoe": 26.1,
+      "sample": null,
+      "nota": null
+    },
+    {
+      "pollster": "GAD3",
+      "date": "2026-10-12",
+      "pp": 31.4,
+      "psoe": 26.4,
+      "sample": null,
+      "nota": null
+    },
+    {
+      "pollster": "Target Point",
+      "date": "2026-10-11",
+      "pp": 32.0,
+      "psoe": 25.9,
+      "sample": null,
+      "nota": null
+    },
+    {
+      "pollster": "Invymark",
+      "date": "2026-10-09",
+      "pp": 32.8,
+      "psoe": 28.0,
+      "sample": null,
+      "nota": null
+    },
+    {
+      "pollster": "IMOP Insights",
+      "date": "2026-10-09",
+      "pp": 30.4,
+      "psoe": 26.5,
+      "sample": null,
+      "nota": null
+    },
+    {
+      "pollster": "DYM",
+      "date": "2026-10-09",
+      "pp": 34.0,
+      "psoe": 28.2,
+      "sample": null,
+      "nota": null
+    },
+    {
+      "pollster": "40dB",
+      "date": "2026-10-09",
+      "pp": 31.9,
+      "psoe": 28.1,
+      "sample": null,
+      "nota": null
+    },
+    {
+      "pollster": "NC Report",
+      "date": "2026-10-08",
+      "pp": 34.1,
+      "psoe": 25.0,
+      "sample": null,
+      "nota": null
+    },
+    {
+      "pollster": "Ateneo del Dato",
+      "date": "2026-10-03",
+      "pp": 33.2,
+      "psoe": 27.5,
+      "sample": null,
+      "nota": null
+    },
+    {
+      "pollster": "Celeste Tel",
+      "date": "2026-09-24",
+      "pp": 33.9,
+      "psoe": 25.4,
+      "sample": null,
+      "nota": null
+    }
+  ],
   "days_to_election": 38,
   "days_to_blackout": 33,
   "gap_pp_psoe": 2.77,

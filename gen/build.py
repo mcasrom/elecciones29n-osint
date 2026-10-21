@@ -231,6 +231,7 @@ svg.chart{width:100%;height:auto;display:block}
 .chip{padding:5px 11px;border-radius:999px;font-size:12px;font-weight:700;border:1px solid}
 .chip.ok{color:var(--accent2);border-color:var(--accent2);background:rgba(61,220,151,.10)}
 .chip.warn{color:#f2c94c;border-color:#f2c94c;background:rgba(242,201,76,.10)}
+.chip2{display:inline-block;padding:2px 7px;border-radius:999px;font-size:10.5px;font-weight:700;border:1px solid var(--line);color:var(--muted);background:var(--panel2);white-space:nowrap}
 .chip.bad{color:var(--accent);border-color:var(--accent);background:rgba(255,90,31,.10)}
 
 /* barras de progreso (censo) */
@@ -1299,6 +1300,7 @@ def main(out: str = "web") -> None:
         "health": latest.get("health", {}),
         "novedades": latest.get("novedades", []),
         "house_mean": latest.get("house_mean", {}),
+        "house_latest": latest.get("house_latest", []),
         "house_compare": build_house_compare(latest.get("house_mean", {}), parties),
         "escanos": escanos,
         "resultados": resultados,

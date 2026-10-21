@@ -19,6 +19,7 @@ HALF_LIFE_DAYS = 10.0
 LOW_N = 4
 HOUSE_WINDOW_DAYS = 45
 CANON = {"Podemos": "PODEMOS", "Bildu": "BILDU", "Junts": "JUNTS", "Cs": "Cs", "C's": "Cs", "Ciudadanos": "Cs"}
+HOUSE_NOTA = {"CIS": "estimación de voto"}
 
 
 def _parse_date(s: str) -> datetime | None:
@@ -275,6 +276,21 @@ def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
         "n_houses": len(latest_by_house),
         "parties": house_parties,
     }
+    house_latest = []
+    for _h, _obj in latest_by_house.items():
+        _v: Dict[str, List[float]] = {}
+        for _p in _obj["rows"]:
+            _v.setdefault(_p["party"], []).append(_p["value"])
+        _avg = {k: sum(x) / len(x) for k, x in _v.items()}
+        house_latest.append({
+            "pollster": _h,
+            "date": _obj["date"].strftime("%Y-%m-%d"),
+            "pp": round(_avg["PP"], 2) if "PP" in _avg else None,
+            "psoe": round(_avg["PSOE"], 2) if "PSOE" in _avg else None,
+            "sample": max((p.get("sample") or 0) for p in _obj["rows"]) or None,
+            "nota": HOUSE_NOTA.get(_h),
+        })
+    house_latest.sort(key=lambda r: (r["date"], r["pollster"]), reverse=True)
 
     _disp = [h["iqr"] for h in house_parties if h["n_houses"] >= 3 and h["mean"] >= 3]
     dispersion = round(sum(_disp) / len(_disp), 2) if _disp else None
@@ -323,6 +339,7 @@ def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
         "health": health,
         "novedades": novedades,
         "house_mean": house_mean,
+        "house_latest": house_latest,
         "days_to_election": max(0, (election - now).days),
         "days_to_blackout": max(0, (blackout_start - now).days),
         "gap_pp_psoe": round(means.get("PP", 0) - means.get("PSOE", 0), 2),
