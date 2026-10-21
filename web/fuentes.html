@@ -11,7 +11,7 @@
 <meta name="description" content="Fuentes de cada dato (Electomania, INE, JEC, BOE), formatos, enlaces oficiales y conjuntos de datos descargables con su esquema.">
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/fuentes.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202610210937">
+<link rel="stylesheet" href="/css/main.css?v=202610211334">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -148,6 +148,8 @@ document.addEventListener('DOMContentLoaded', function(){
       
       <li><a href="https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/" rel="nofollow noopener" target="_blank">https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/</a></li>
       
+      <li><a href="https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/" rel="nofollow noopener" target="_blank">https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/</a></li>
+      
       <li><a href="https://www.cis.es/documents/d/guest/3582_estimacion-pdf" rel="nofollow noopener" target="_blank">https://www.cis.es/documents/d/guest/3582_estimacion-pdf</a></li>
       
       <li><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="nofollow noopener" target="_blank">https://www.ondacero.es/elecciones/generales/encuestas/</a></li>
@@ -245,11 +247,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202610210937" hidden>
+<div class="swupdate" id="swupdate" data-build="202610211334" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610210937');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610211334');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -278,7 +280,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202610210937', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202610211334', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

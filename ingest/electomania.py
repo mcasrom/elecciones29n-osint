@@ -89,7 +89,10 @@ def extract_poll(post: dict) -> dict | None:
                 found[party] = val
 
     total = sum(found.values())
-    if not (90 <= total <= 110 and len(found) >= 6):
+    # Los sondeos reales suman ~87% (no listan "otros"/menores). El 18-oct
+    # daba 87,3 y se descartaba; 85-110 sigue excluyendo posts que no son
+    # intención de voto (p.ej. preferencia de Gobierno, suma 336).
+    if not (85 <= total <= 110 and len(found) >= 6):
         return None
 
     pollster, kind = pollster_of(title)

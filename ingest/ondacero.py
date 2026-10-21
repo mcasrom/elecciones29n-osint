@@ -11,7 +11,10 @@ URL = "https://www.ondacero.es/elecciones/generales/encuestas/"
 UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124.0 Safari/537.36"
 HIST = "data/polls_history.csv"
 
-MAP = {"pp": "PP", "psoe": "PSOE", "vox": "VOX", "sumar": "SUMAR",
+# "fa" = Frente Amplio: Sigma Dos etiqueta así la casilla que antes llamaba
+# Sumar (12-oct: sumar 7,6 / 19-oct: fa 8,1). Ninguna encuesta usa ambas,
+# así que se mapea al mismo espacio para no duplicar la serie.
+MAP = {"pp": "PP", "psoe": "PSOE", "vox": "VOX", "sumar": "SUMAR", "fa": "SUMAR",
        "podemos": "PODEMOS", "salf": "SAF", "otros": "Otros"}
 
 
