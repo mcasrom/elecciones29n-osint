@@ -130,10 +130,10 @@
     <div class="card">
       <div class="cardhead"><h2>Media por partido</h2><span class="hint">{% if window_span %}{{ window_span }}{% endif %}{% if window_extended %} · ventana ampliada{% endif %}</span></div>
       <div class="tablewrap"><table>
-        <thead><tr><th>Partido</th><th>Media</th><th>Mediana</th><th>Mín</th><th>Máx</th><th>n</th></tr></thead>
+        <thead><tr><th>Partido</th><th>Media</th><th>Mediana</th><th>Mín</th><th>Máx</th><th>n</th><th>Casas</th><th>IQR</th></tr></thead>
         <tbody>
         {% for p in parties %}
-          <tr><td><strong>{{ p.party }}</strong></td><td class="num">{{ "%.2f"|format(p.mean) }}%</td><td class="num">{{ "%.2f"|format(p.median) }}%</td><td class="num">{{ "%.2f"|format(p.min) }}%</td><td class="num">{{ "%.2f"|format(p.max) }}%</td><td class="num">{{ p.n }}</td></tr>
+          <tr><td><strong>{{ p.party }}</strong></td><td class="num">{{ "%.2f"|format(p.mean) }}%</td><td class="num">{{ "%.2f"|format(p.median) }}%</td><td class="num">{{ "%.2f"|format(p.min) }}%</td><td class="num">{{ "%.2f"|format(p.max) }}%</td><td class="num">{{ p.n }}</td><td class="num">{% if p.n_houses %}{{ p.n_houses }}{% else %}—{% endif %}</td><td class="num">{% if p.iqr is not none %}{{ "%.1f"|format(p.iqr) }}{% else %}—{% endif %}</td></tr>
         {% endfor %}
         </tbody>
       </table></div>
@@ -158,11 +158,14 @@
           <span><b>{{ health.n_polls }}</b>sondeos</span>
           <span><b>{{ health.n_pollsters }}</b>encuestadoras</span>
           <span><b>{% if health.days_since_last is not none %}{{ health.days_since_last }}{% else %}—{% endif %}</b>días desde el último</span>
+          <span><b>{% if health.sample_pct is not none %}{{ health.sample_pct }}%{% else %}—{% endif %}</b>con muestra declarada</span>
+          <span><b>{% if health.dispersion_iqr is not none %}{{ "%.1f"|format(health.dispersion_iqr) }}{% else %}—{% endif %}</b>pp de dispersión (IQR)</span>
         </div>
       </div>
       {% if health.reasons %}
       <p class="muted small" style="margin-top:10px">Aviso: {{ health.reasons|join(' · ') }}. La media se publica igualmente, pero con menos estabilidad.</p>
       {% endif %}
+      <p class="muted small" style="margin-top:10px">Qué mide esto: <a href="/metodologia.html#robustez">robustez del dato</a>. No es una nota de calidad, ni un pronóstico, ni una probabilidad.</p>
       <p class="muted small">Una sola encuestadora no es una media entre casas: es su serie. La salud mejora añadiendo sondeos de otras casas con fuente y muestra.</p>
       {% endif %}
     </div>

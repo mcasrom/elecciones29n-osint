@@ -46,6 +46,21 @@
     <p class="muted small">Un último sondeo no es una tendencia. Un punto aislado (p. ej. CIS) se muestra, pero no define la línea. <a href="https://github.com/mcasrom/elecciones29n-osint/blob/main/docs/METRICAS.md">Reglas de métricas</a>.</p>
   </div>
 
+  <div class="card" id="robustez">
+    <h3>Robustez del dato: qué mide y qué no</h3>
+    <p class="muted">La portada resume <strong>cinco propiedades del dato publicado</strong>. No son una nota de calidad ni un pronóstico: describen cuánto sostiene la media y permiten que cualquiera reproduzca el juicio.</p>
+    <ul class="muted">
+      <li><strong>Sondeos</strong>: cuántos sondeos distintos entran en la ventana (14 días; si no llega a cuatro, se amplía a los cuatro más recientes, máx. 90 días).</li>
+      <li><strong>Encuestadoras</strong>: casas distintas. Diez sondeos de la misma casa son su serie, no una media entre casas.</li>
+      <li><strong>Días desde el último</strong>: antigüedad del sondeo más reciente. Un dato de hace tres semanas no describe la campaña de esta semana.</li>
+      <li><strong>Muestra declarada</strong>: porcentaje de sondeos que publican <code>n</code>. No mide la calidad del sondeo: mide cuánta información permite ponderar. Onda Cero no publica muestra; por eso el valor es bajo aunque haya muchos sondeos.</li>
+      <li><strong>Dispersión (IQR)</strong>: rango intercuartílico entre la última encuesta de cada casa (45 días), promediado en los partidos con ≥3 casas y ≥3 % de voto. Mide acuerdo entre casas, no acierto.</li>
+    </ul>
+    <p class="muted"><strong>Estados</strong>: «suficiente» = ≥4 sondeos, ≥2 casas y último sondeo ≤10 días; «frágil» = 11–21 días o una sola casa; «insuficiente» = &lt;4 sondeos o &gt;21 días. Si la dispersión media supera 3 pp se añade un aviso, pero no cambia el estado por sí sola.</p>
+    <p class="muted"><strong>Qué no es</strong>: no es una puntuación de 0 a 100, no ordena encuestadoras, no estima probabilidades y no dice quién va a ganar. Es una descripción auditable de la base que sostiene la media; si falta un dato se muestra «—» en vez de inventarlo.</p>
+    <p class="muted small">Los umbrales son convencionales y están en el código (<code>agg/aggregate.py</code>); se publican para que puedan discutirse.</p>
+  </div>
+
   <div class="card">
     <h3>2 · Censo</h3>
     <p class="muted">Cifras oficiales del <strong>INE · Oficina del Censo Electoral</strong> para el 29N. Distinguimos <strong>CER</strong> (residentes en España) y <strong>CERA</strong> (residentes en el extranjero).</p>
@@ -96,6 +111,7 @@
       <li>No estima intención de voto individual ni corrige sesgos de las encuestadoras.</li>
       <li>No atribuye preferencias políticas por edad, sexo, renta o territorio.</li>
       <li>No convierte correlaciones en causas.</li>
+      <li>La «robustez del dato» no puntúa a las encuestadoras ni estima la verdad: solo describe cobertura, diversidad, antigüedad, muestra declarada y dispersión.</li>
     </ul>
     <div class="cta">
       <a class="btn" href="/fuentes.html">Ver fuentes y datos</a>

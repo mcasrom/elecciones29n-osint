@@ -72,6 +72,14 @@ def load_polls() -> List[Dict[str, Any]]:
     return polls
 
 
+def _iqr(vals: List[float]) -> float:
+    """Rango intercuartilico (Q3-Q1); 0 si hay menos de 2 valores."""
+    if len(vals) < 2:
+        return 0.0
+    q = statistics.quantiles(vals, n=4)
+    return q[2] - q[0]
+
+
 def _weight(p: Dict[str, Any], now: datetime) -> float:
     age_days = max(0.0, (now - p["date"]).total_seconds() / 86400.0)
     recency = 0.5 ** (age_days / HALF_LIFE_DAYS)
@@ -252,14 +260,31 @@ def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
             "mean": round(sum(vals) / len(vals), 2),
             "min": round(min(vals), 2),
             "max": round(max(vals), 2),
+            "median": round(statistics.median(vals), 2),
+            "iqr": round(_iqr(vals), 2),
             "n_houses": len(vals),
         })
     house_parties.sort(key=lambda x: x["mean"], reverse=True)
+    _hmap = {h["party"]: h for h in house_parties}
+    for _p in parties:
+        _h = _hmap.get(_p["party"], {})
+        _p["n_houses"] = _h.get("n_houses")
+        _p["iqr"] = _h.get("iqr")
     house_mean = {
         "window_days": HOUSE_WINDOW_DAYS,
         "n_houses": len(latest_by_house),
         "parties": house_parties,
     }
+
+    _disp = [h["iqr"] for h in house_parties if h["n_houses"] >= 3 and h["mean"] >= 3]
+    dispersion = round(sum(_disp) / len(_disp), 2) if _disp else None
+    _with_sample = {
+        (p["date"].strftime("%Y-%m-%d"), p.get("pollster"))
+        for p in recent if (p.get("sample") or 0) >= 200
+    }
+    sample_pct = round(100 * len(_with_sample) / n_polls) if n_polls else None
+    if dispersion is not None and dispersion > 3:
+        reasons.append(f"dispersión alta entre casas ({dispersion:.1f} pp)")
 
     health = {
         "status": status,
@@ -267,6 +292,9 @@ def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
         "n_pollsters": n_pollsters,
         "pollsters": pollsters,
         "days_since_last": days_since,
+        "sample_pct": sample_pct,
+        "sample_polls": len(_with_sample),
+        "dispersion_iqr": dispersion,
         "reasons": reasons,
     }
 
