@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-20 12:07 CEST",
-  "updated_at_iso": "2026-10-20T12:07:09.802326+02:00",
+  "updated_at": "2026-10-21 09:37 CEST",
+  "updated_at_iso": "2026-10-21T09:37:16.542280+02:00",
   "in_blackout": false,
   "window_days": 14,
   "parties": [
@@ -869,11 +869,6 @@
     ],
     "PODEMOS": [
       {
-        "date": "2026-07-23",
-        "value": 4.1,
-        "pollster": "DYM"
-      },
-      {
         "date": "2026-07-27",
         "value": 3.0,
         "pollster": "Sigma Dos"
@@ -1050,11 +1045,6 @@
       }
     ],
     "PP": [
-      {
-        "date": "2026-07-23",
-        "value": 34.9,
-        "pollster": "DYM"
-      },
       {
         "date": "2026-07-27",
         "value": 32.8,
@@ -1233,11 +1223,6 @@
     ],
     "PSOE": [
       {
-        "date": "2026-07-23",
-        "value": 27.0,
-        "pollster": "DYM"
-      },
-      {
         "date": "2026-07-27",
         "value": 26.1,
         "pollster": "Sigma Dos"
@@ -1415,11 +1400,6 @@
     ],
     "SAF": [
       {
-        "date": "2026-07-23",
-        "value": 1.0,
-        "pollster": "DYM"
-      },
-      {
         "date": "2026-08-10",
         "value": 2.3,
         "pollster": "Sociométrica"
@@ -1551,11 +1531,6 @@
       }
     ],
     "SUMAR": [
-      {
-        "date": "2026-07-23",
-        "value": 3.8,
-        "pollster": "DYM"
-      },
       {
         "date": "2026-07-27",
         "value": 7.4,
@@ -1734,11 +1709,6 @@
     ],
     "VOX": [
       {
-        "date": "2026-07-23",
-        "value": 16.5,
-        "pollster": "DYM"
-      },
-      {
         "date": "2026-07-27",
         "value": 17.3,
         "pollster": "Sigma Dos"
@@ -1916,11 +1886,6 @@
     ],
     "Otros": [
       {
-        "date": "2026-07-23",
-        "value": 12.7,
-        "pollster": "DYM"
-      },
-      {
         "date": "2026-07-27",
         "value": 13.4,
         "pollster": "Sigma Dos"
@@ -2097,7 +2062,7 @@
       "Sociométrica",
       "Target Point"
     ],
-    "days_since_last": 6,
+    "days_since_last": 7,
     "reasons": []
   },
   "house_mean": {
@@ -2183,8 +2148,8 @@
       }
     ]
   },
-  "days_to_election": 39,
-  "days_to_blackout": 34,
+  "days_to_election": 38,
+  "days_to_blackout": 33,
   "gap_pp_psoe": 1.97,
   "bloc_right": 48.42,
   "bloc_left": 37.19,
