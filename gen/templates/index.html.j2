@@ -139,7 +139,7 @@
         </tbody>
       </table></div>
       <p class="muted small"><strong>Mín–máx</strong> son los sondeos observados, no un intervalo de confianza: un solo sondeo puede fijar ambos extremos. La dispersión típica es el <strong>IQR</strong>. El <strong>CIS</strong> publica estimación de voto, no intención directa, y su efecto de casa es mayor. <strong>Sin CIS</strong> es una prueba de sensibilidad (misma media sin ese barómetro), no la media principal. <span style="color:#b45309">*</span> n&lt;4 o menos de 3 casas: media frágil.</p>
-      <p class="muted small">«Otros» es el resto de candidaturas, no un partido. Actualizado: {{ updated_at }}. Ponderación: {{ weight_basis }}. <a href="/data/latest.json">Descargar JSON</a> · <a href="/metodologia.html">Cómo se calcula</a> · <a href="/como-leer.html">Cómo leer</a> · <a href="/glosario.html">Glosario</a></p>
+      <p class="muted small">«Otros» es el resto de candidaturas, no un partido. Actualizado: {{ updated_at }}. Ponderación: {{ weight_basis }}.{% if weights and weights.top_source %} Hoy el {{ "%.1f"|format(weights.top_source_share_pct) }} % del peso viene de <strong>{{ weights.top_source }}</strong> (la casa con más peso: <strong>{{ weights.top_house }}</strong>, {{ "%.1f"|format(weights.top_share_pct) }} %); <a href="/robustez.html#peso">ver el reparto</a>.{% endif %} <a href="/data/latest.json">Descargar JSON</a> · <a href="/metodologia.html">Cómo se calcula</a> · <a href="/como-leer.html">Cómo leer</a> · <a href="/glosario.html">Glosario</a></p>
     </div>
 
     <div class="card">

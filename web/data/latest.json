@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-22 22:06 CEST",
-  "updated_at_iso": "2026-10-22T22:06:29.067974+02:00",
+  "updated_at": "2026-10-22 23:02 CEST",
+  "updated_at_iso": "2026-10-22T23:02:57.154493+02:00",
   "in_blackout": false,
   "window_days": 14,
   "parties": [
@@ -2263,6 +2263,283 @@
     "reasons": []
   },
   "novedades": [],
+  "weights": {
+    "window_days": 14,
+    "extended": false,
+    "total_polls": 13,
+    "total_weight": 7.9352,
+    "top_source": "Onda Cero",
+    "top_source_share_pct": 57.8,
+    "sources": [
+      {
+        "source": "Onda Cero",
+        "weight": 4.5876,
+        "n_polls": 10,
+        "n_houses": 9,
+        "share_pct": 57.8
+      },
+      {
+        "source": "Electomanía",
+        "weight": 2.1431,
+        "n_polls": 2,
+        "n_houses": 1,
+        "share_pct": 27.0
+      },
+      {
+        "source": "CIS",
+        "weight": 1.2046,
+        "n_polls": 1,
+        "n_houses": 1,
+        "share_pct": 15.2
+      }
+    ],
+    "top_house": "ElectoPanel",
+    "top_share_pct": 27.0,
+    "houses": [
+      {
+        "pollster": "ElectoPanel",
+        "source": "Electomanía",
+        "weight": 2.1431,
+        "n_polls": 2,
+        "last_date": "2026-10-18",
+        "sample": 4125,
+        "n_parties": 10,
+        "share_pct": 27.0
+      },
+      {
+        "pollster": "Sigma Dos",
+        "source": "Onda Cero",
+        "weight": 1.2277,
+        "n_polls": 2,
+        "last_date": "2026-10-19",
+        "sample": null,
+        "n_parties": 6,
+        "share_pct": 15.5
+      },
+      {
+        "pollster": "CIS",
+        "source": "CIS",
+        "weight": 1.2046,
+        "n_polls": 1,
+        "last_date": "2026-10-14",
+        "sample": 5025,
+        "n_parties": 11,
+        "share_pct": 15.2
+      },
+      {
+        "pollster": "Sociométrica",
+        "source": "Onda Cero",
+        "weight": 0.4678,
+        "n_polls": 1,
+        "last_date": "2026-10-12",
+        "sample": null,
+        "n_parties": 7,
+        "share_pct": 5.9
+      },
+      {
+        "pollster": "GESOP",
+        "source": "Onda Cero",
+        "weight": 0.4678,
+        "n_polls": 1,
+        "last_date": "2026-10-12",
+        "sample": null,
+        "n_parties": 7,
+        "share_pct": 5.9
+      },
+      {
+        "pollster": "GAD3",
+        "source": "Onda Cero",
+        "weight": 0.4678,
+        "n_polls": 1,
+        "last_date": "2026-10-12",
+        "sample": null,
+        "n_parties": 6,
+        "share_pct": 5.9
+      },
+      {
+        "pollster": "Target Point",
+        "source": "Onda Cero",
+        "weight": 0.4365,
+        "n_polls": 1,
+        "last_date": "2026-10-11",
+        "sample": null,
+        "n_parties": 7,
+        "share_pct": 5.5
+      },
+      {
+        "pollster": "Invymark",
+        "source": "Onda Cero",
+        "weight": 0.38,
+        "n_polls": 1,
+        "last_date": "2026-10-09",
+        "sample": null,
+        "n_parties": 7,
+        "share_pct": 4.8
+      },
+      {
+        "pollster": "IMOP Insights",
+        "source": "Onda Cero",
+        "weight": 0.38,
+        "n_polls": 1,
+        "last_date": "2026-10-09",
+        "sample": null,
+        "n_parties": 7,
+        "share_pct": 4.8
+      },
+      {
+        "pollster": "DYM",
+        "source": "Onda Cero",
+        "weight": 0.38,
+        "n_polls": 1,
+        "last_date": "2026-10-09",
+        "sample": null,
+        "n_parties": 7,
+        "share_pct": 4.8
+      },
+      {
+        "pollster": "40dB",
+        "source": "Onda Cero",
+        "weight": 0.38,
+        "n_polls": 1,
+        "last_date": "2026-10-09",
+        "sample": null,
+        "n_parties": 7,
+        "share_pct": 4.8
+      }
+    ],
+    "polls": [
+      {
+        "pollster": "ElectoPanel",
+        "source": "Electomanía",
+        "date": "2026-10-18",
+        "sample": 3141,
+        "kind": "tracking",
+        "weight": 1.2566,
+        "n_parties": 9,
+        "share_pct": 15.8
+      },
+      {
+        "pollster": "CIS",
+        "source": "CIS",
+        "date": "2026-10-14",
+        "sample": 5025,
+        "kind": "tracking",
+        "weight": 1.2046,
+        "n_parties": 11,
+        "share_pct": 15.2
+      },
+      {
+        "pollster": "ElectoPanel",
+        "source": "Electomanía",
+        "date": "2026-10-11",
+        "sample": 4125,
+        "kind": "tracking",
+        "weight": 0.8865,
+        "n_parties": 10,
+        "share_pct": 11.2
+      },
+      {
+        "pollster": "Sigma Dos",
+        "source": "Onda Cero",
+        "date": "2026-10-19",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.7599,
+        "n_parties": 6,
+        "share_pct": 9.6
+      },
+      {
+        "pollster": "Sociométrica",
+        "source": "Onda Cero",
+        "date": "2026-10-12",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.4678,
+        "n_parties": 7,
+        "share_pct": 5.9
+      },
+      {
+        "pollster": "Sigma Dos",
+        "source": "Onda Cero",
+        "date": "2026-10-12",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.4678,
+        "n_parties": 6,
+        "share_pct": 5.9
+      },
+      {
+        "pollster": "GESOP",
+        "source": "Onda Cero",
+        "date": "2026-10-12",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.4678,
+        "n_parties": 7,
+        "share_pct": 5.9
+      },
+      {
+        "pollster": "GAD3",
+        "source": "Onda Cero",
+        "date": "2026-10-12",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.4678,
+        "n_parties": 6,
+        "share_pct": 5.9
+      },
+      {
+        "pollster": "Target Point",
+        "source": "Onda Cero",
+        "date": "2026-10-11",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.4365,
+        "n_parties": 7,
+        "share_pct": 5.5
+      },
+      {
+        "pollster": "Invymark",
+        "source": "Onda Cero",
+        "date": "2026-10-09",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.38,
+        "n_parties": 7,
+        "share_pct": 4.8
+      },
+      {
+        "pollster": "IMOP Insights",
+        "source": "Onda Cero",
+        "date": "2026-10-09",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.38,
+        "n_parties": 7,
+        "share_pct": 4.8
+      },
+      {
+        "pollster": "DYM",
+        "source": "Onda Cero",
+        "date": "2026-10-09",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.38,
+        "n_parties": 7,
+        "share_pct": 4.8
+      },
+      {
+        "pollster": "40dB",
+        "source": "Onda Cero",
+        "date": "2026-10-09",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.38,
+        "n_parties": 7,
+        "share_pct": 4.8
+      }
+    ]
+  },
   "house_mean": {
     "window_days": 45,
     "n_houses": 14,

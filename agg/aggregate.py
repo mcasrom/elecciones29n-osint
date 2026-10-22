@@ -90,6 +90,115 @@ def _weight(p: Dict[str, Any], now: datetime) -> float:
     return recency
 
 
+def _poll_source(p: Dict[str, Any]) -> str:
+    """Fuente de captacion del sondeo: Onda Cero, Electomania o CIS."""
+    url = (p.get("source_url") or "").lower()
+    house = p.get("pollster") or ""
+    if "ondacero.es" in url:
+        return "Onda Cero"
+    if "electomania.es" in url:
+        return "Electomanía"
+    if "cis.es" in url:
+        return "CIS"
+    if house.startswith("Electo"):
+        return "Electomanía"
+    if house == "CIS":
+        return "CIS"
+    return "Otras fuentes"
+
+
+def _poll_weights(recent: List[Dict[str, Any]], now: datetime, extended: bool) -> Dict[str, Any]:
+    """Reparto del peso que usa la media: por fuente, casa y sondeo.
+
+    La cuota se calcula sobre sondeos distintos (fecha + casa), no sobre filas
+    por partido: asi una casa que publica mas partidos no pesa mas.
+    """
+    polls: Dict[tuple, Dict[str, Any]] = {}
+    for p in recent:
+        day = p["date"].strftime("%Y-%m-%d")
+        key = (day, p.get("pollster") or "?")
+        row = polls.get(key)
+        if row is None:
+            row = polls[key] = {
+                "pollster": p.get("pollster") or "?",
+                "source": _poll_source(p),
+                "date": day,
+                "sample": p.get("sample"),
+                "kind": p.get("kind") or "tracking",
+                "weight": _weight(p, now),
+                "n_parties": 0,
+            }
+        row["n_parties"] += 1
+
+    total = sum(r["weight"] for r in polls.values()) or 1.0
+    for r in polls.values():
+        r["share_pct"] = round(100 * r["weight"] / total, 1)
+        r["weight"] = round(r["weight"], 4)
+
+    by_house: Dict[str, Dict[str, Any]] = {}
+    for r in polls.values():
+        h = by_house.get(r["pollster"])
+        if h is None:
+            h = by_house[r["pollster"]] = {
+                "pollster": r["pollster"],
+                "source": r["source"],
+                "weight": 0.0,
+                "n_polls": 0,
+                "last_date": r["date"],
+                "sample": None,
+                "n_parties": 0,
+            }
+        h["weight"] += r["weight"]
+        h["n_polls"] += 1
+        h["last_date"] = max(h["last_date"], r["date"])
+        if r["sample"]:
+            h["sample"] = max(h["sample"] or 0, r["sample"])
+        h["n_parties"] = max(h["n_parties"], r["n_parties"])
+
+    houses = sorted(by_house.values(), key=lambda x: x["weight"], reverse=True)
+    for h in houses:
+        h["share_pct"] = round(100 * h["weight"] / total, 1)
+        h["weight"] = round(h["weight"], 4)
+
+    by_source: Dict[str, Dict[str, Any]] = {}
+    for r in polls.values():
+        s = by_source.get(r["source"])
+        if s is None:
+            s = by_source[r["source"]] = {
+                "source": r["source"],
+                "weight": 0.0,
+                "n_polls": 0,
+                "n_houses": 0,
+            }
+        s["weight"] += r["weight"]
+        s["n_polls"] += 1
+    for h in houses:
+        s = by_source.get(h["source"])
+        if s is not None:
+            s["n_houses"] += 1
+    sources = sorted(by_source.values(), key=lambda x: x["weight"], reverse=True)
+    for s in sources:
+        s["share_pct"] = round(100 * s["weight"] / total, 1)
+        s["weight"] = round(s["weight"], 4)
+
+    polls_sorted = sorted(polls.values(), key=lambda x: (x["weight"], x["date"]), reverse=True)
+    top = houses[0] if houses else None
+    top_src = sources[0] if sources else None
+    return {
+        "window_days": WINDOW_DAYS,
+        "extended": extended,
+        "total_polls": len(polls),
+        "total_weight": round(total, 4),
+        "top_source": top_src["source"] if top_src else None,
+        "top_source_share_pct": top_src["share_pct"] if top_src else None,
+        "sources": sources,
+        "top_house": top["pollster"] if top else None,
+        "top_share_pct": top["share_pct"] if top else None,
+        "houses": houses,
+        "polls": polls_sorted,
+    }
+
+
 def _series(polls: List[Dict[str, Any]]) -> Dict[str, List[Dict[str, Any]]]:
     out: Dict[str, List[Dict[str, Any]]] = {}
     for p in polls:
@@ -113,6 +222,7 @@ def _empty(now: datetime, in_blackout: bool) -> Dict[str, Any]:
         "series_long": {},
         "n_polls": 0,
         "low_n": True,
+        "weights": None,
     }
 
 
@@ -332,6 +442,7 @@ def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
     }
 
     novedades = _novedades(polls_all, now)
+    weights = _poll_weights(recent, now, extended)
 
     election = now.replace(year=2026, month=11, day=29, hour=0, minute=0, second=0, microsecond=0)
     blackout_start = now.replace(year=2026, month=11, day=24, hour=0, minute=0, second=0, microsecond=0)
@@ -356,6 +467,7 @@ def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
         "last_poll_date": poll_dates[-1] if poll_dates else None,
         "health": health,
         "novedades": novedades,
+        "weights": weights,
         "house_mean": house_mean,
         "house_latest": house_latest,
         "days_to_election": max(0, (election - now).days),

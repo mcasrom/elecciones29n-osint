@@ -45,6 +45,44 @@
     </table></div>
     <p class="muted small">Rango = mínimo y máximo observados: un solo sondeo puede fijar ambos extremos. El IQR (Q3−Q1) describe la dispersión típica. El CIS publica estimación de voto, no intención directa. <span style="color:#b45309">*</span> n&lt;4 o menos de 3 casas: media frágil.</p>
   </div>
+  {% if weights and weights.houses %}
+  <div class="card" id="peso">
+    <div class="cardhead"><h2>Peso de cada casa y sondeo</h2><span class="hint">cuota sobre el total de la ventana · se recalcula cada día</span></div>
+    {% if weights.top_source %}
+    <p class="muted small" style="margin-top:0">Hoy el <strong>{{ "%.1f"|format(weights.top_source_share_pct) }} %</strong> del peso viene de <strong>{{ weights.top_source }}</strong>{% if weights.top_source == 'Onda Cero' %} (compilación de varias casas){% endif %}. La casa con más peso es <strong>{{ weights.top_house }}</strong> ({{ "%.1f"|format(weights.top_share_pct) }} %). En total, {{ weights.total_polls }} sondeo{% if weights.total_polls != 1 %}s{% endif %}.</p>
+    {% endif %}
+    {% if weights.sources %}
+    <div class="tablewrap"><table>
+      <thead><tr><th>Fuente</th><th>Cuota</th><th>Sondeos</th><th>Casas</th></tr></thead>
+      <tbody>
+      {% for s in weights.sources %}
+        <tr><td><strong>{{ s.source }}</strong></td><td class="num"><span style="display:inline-block;width:70px;height:6px;margin-right:8px;border-radius:3px;background:var(--panel2);vertical-align:middle"><i style="display:block;width:{{ s.share_pct }}%;height:6px;border-radius:3px;background:var(--accent2)"></i></span>{{ "%.1f"|format(s.share_pct) }} %</td><td class="num">{{ s.n_polls }}</td><td class="num">{{ s.n_houses }}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table></div>
+    {% endif %}
+    {% if weights.top_house and weights.top_share_pct >= 50 %}
+    <p class="muted small" style="color:#b45309"><strong>Aviso:</strong> una sola casa concentra más de la mitad del peso. En la práctica, la media sigue su serie y el resto solo la corrige.</p>
+    {% endif %}
+    <div class="tablewrap" style="margin-top:14px"><table>
+      <thead><tr><th>Casa</th><th>Cuota</th><th>Sondeos</th><th>Último</th><th>Muestra</th></tr></thead>
+      <tbody>
+      {% for h in weights.houses %}
+        <tr><td><strong>{{ h.pollster }}</strong></td><td class="num"><span style="display:inline-block;width:70px;height:6px;margin-right:8px;border-radius:3px;background:var(--panel2);vertical-align:middle"><i style="display:block;width:{{ h.share_pct }}%;height:6px;border-radius:3px;background:var(--accent2)"></i></span>{{ "%.1f"|format(h.share_pct) }} %</td><td class="num">{{ h.n_polls }}</td><td class="num">{{ h.last_date }}</td><td class="num">{% if h.sample %}{{ h.sample }}{% else %}—{% endif %}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table></div>
+    <div class="tablewrap" style="margin-top:14px"><table>
+      <thead><tr><th>Sondeo</th><th>Casa</th><th>n</th><th>Cuota</th></tr></thead>
+      <tbody>
+      {% for r in weights.polls %}
+        <tr><td class="num">{{ r.date }}</td><td>{{ r.pollster }}</td><td class="num">{% if r.sample %}{{ r.sample }}{% else %}—{% endif %}</td><td class="num">{{ "%.1f"|format(r.share_pct) }} %</td></tr>
+      {% endfor %}
+      </tbody>
+    </table></div>
+    <p class="muted small">El peso combina la <strong>recencia</strong> (vida media 10 días) y la <strong>muestra declarada</strong> (√(n/1000)). La cuota es peso del sondeo o casa dividido por el peso total de la ventana. No es una nota de calidad ni de acierto; cada partido usa los sondeos que lo publican, así que su reparto puede variar unas décimas.</p>
+  </div>
+  {% endif %}
   {% else %}
   <div class="alert warn">No hay datos de robustez disponibles todavía.</div>
   {% endif %}

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.0 — 2026-10-22
+
+- **Peso de cada sondeo**: la portada indica cada día qué casa concentra el peso de la media; `/robustez.html#peso` publica el reparto completo (cuota por casa y por sondeo, muestra y fecha). El peso combina recencia y √n, y una cuota alta avisa de que la media sigue a esa casa.
+- `latest.json` y `robustez.json` incluyen `weights` (casas y sondeos).
+- Metodología: corregidas dos etiquetas HTML mal cerradas y enlazado el reparto diario.
+
 ## 0.9.0 — 2026-10-22
 
 - **Circunscripciones**: corregido el escaño marginal. La «primera candidatura sin escaño» ya no es el siguiente cociente (que podía tener escaño); el margen son los votos adicionales mínimos para obtener uno, recalculando D'Hondt y el umbral del 3 %.

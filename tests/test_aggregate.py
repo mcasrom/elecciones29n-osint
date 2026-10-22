@@ -121,6 +121,44 @@ class AggregateTest(unittest.TestCase):
         res = self.run_with([("X", today, 10.0, "u", 1000, "A", "tracking")])
         self.assertIn("muestra", res["weight_basis"])
 
+    def test_poll_weights_share_by_house_and_poll(self):
+        today = datetime.now(TZ).strftime("%Y-%m-%d")
+        res = self.run_with([
+            ("X", today, 10.0, "u", 5000, "A", "tracking"),
+            ("X", today, 20.0, "u", None, "B", "tracking"),
+        ])
+        w = res["weights"]
+        self.assertEqual(w["total_polls"], 2)
+        self.assertEqual(w["top_house"], "A")
+        self.assertAlmostEqual(sum(h["share_pct"] for h in w["houses"]), 100.0, places=0)
+        self.assertAlmostEqual(sum(x["share_pct"] for x in w["polls"]), 100.0, places=0)
+        house = next(h for h in w["houses"] if h["pollster"] == "A")
+        self.assertGreater(house["share_pct"], 50)
+        self.assertEqual(house["n_polls"], 1)
+        self.assertIsNone(w["houses"][-1]["sample"])
+
+    def test_poll_weights_source_grouping(self):
+        today = datetime.now(TZ).strftime("%Y-%m-%d")
+        res = self.run_with([
+            ("X", today, 10.0, "https://www.ondacero.es/x", None, "Sigma Dos", "tracking"),
+            ("X", today, 20.0, "https://electomania.es/x", 1000, "ElectoPanel", "tracking"),
+            ("X", today, 30.0, "https://www.cis.es/x", 4000, "CIS", "tracking"),
+        ])
+        w = res["weights"]
+        srcs = {s["source"]: s for s in w["sources"]}
+        self.assertEqual(set(srcs), {"Onda Cero", "Electomanía", "CIS"})
+        self.assertEqual(srcs["CIS"]["n_houses"], 1)
+        self.assertAlmostEqual(sum(s["share_pct"] for s in w["sources"]), 100.0, places=0)
+
+    def test_poll_weights_equal_without_sample(self):
+        today = datetime.now(TZ).strftime("%Y-%m-%d")
+        res = self.run_with([
+            ("X", today, 10.0, "u", None, "A", "tracking"),
+            ("X", today, 20.0, "u", None, "B", "tracking"),
+        ])
+        shares = [h["share_pct"] for h in res["weights"]["houses"]]
+        self.assertEqual(shares, [50.0, 50.0])
+
 
 class SampleParseTest(unittest.TestCase):
     def test_parse_sample(self):
