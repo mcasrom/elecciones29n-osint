@@ -1,0 +1,281 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cómo leer la media del 29N · observatorio electoral</title>
+<meta name="description" content="Guía breve para leer una media de sondeos: qué es el rango, por qué no es un intervalo de confianza, qué mide el IQR y qué no se puede concluir. Sin pronóstico.">
+<link rel="canonical" href="https://elecciones29n.pruebapublica.com/como-leer.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="stylesheet" href="/css/main.css?v=202610220759">
+<script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  function sync(){
+    var light = document.documentElement.dataset.theme === 'light';
+    document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+      var i=b.querySelector('.ticon'), l=b.querySelector('.tlabel');
+      if(i) i.textContent = light ? '☾' : '☀';
+      if(l) l.textContent = light ? 'Oscuro' : 'Claro';
+      b.setAttribute('title', light ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro');
+    });
+  }
+  sync();
+  document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var root = document.documentElement;
+      var next = root.dataset.theme === 'light' ? 'dark' : 'light';
+      root.dataset.theme = next;
+      try { localStorage.setItem('e29n-theme', next); } catch(e) {}
+      sync();
+    });
+  });
+});
+</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta name="theme-color" content="#0b0c1c">
+<meta name="generator" content="elecciones29n-osint v0.8.5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="elecciones29n-osint">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Cómo leer la media del 29N · observatorio electoral">
+<meta property="og:description" content="Guía breve para leer una media de sondeos: qué es el rango, por qué no es un intervalo de confianza, qué mide el IQR y qué no se puede concluir. Sin pronóstico.">
+<meta property="og:url" content="https://elecciones29n.pruebapublica.com/como-leer.html">
+<meta property="og:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cómo leer la media del 29N · observatorio electoral">
+<meta name="twitter:description" content="Guía breve para leer una media de sondeos: qué es el rango, por qué no es un intervalo de confianza, qué mide el IQR y qué no se puede concluir. Sin pronóstico.">
+<meta name="twitter:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<link rel="alternate" type="application/json" href="/data/latest.json" title="Datos agregados (JSON)">
+<link rel="alternate" type="application/rss+xml" href="/cambios.xml" title="Cambios · nuevos sondeos">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Cómo leer la media", "url": "https://elecciones29n.pruebapublica.com/como-leer.html", "description": "Guía breve para leer una media de sondeos sin sobreinterpretar.", "inLanguage": "es-ES"}</script>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">
+        <span class="mark"></span>
+        <span class="brandname"><a href="/">elecciones29n-osint</a></span>
+        <span class="tag">Media agregada de sondeos · 29N 2026</span>
+      </div>
+      <div class="status">
+        <button class="helpopen" id="helpbtn" aria-expanded="false" aria-controls="helppanel">? Ayuda</button>
+        <button class="themebtn" data-theme-toggle aria-label="Cambiar entre tema claro y oscuro" title="Cambiar tema"><span class="ticon">☀</span><span class="tlabel">Claro</span></button>
+      </div>
+    </div>
+
+    <nav class="mainnav" aria-label="Principal">
+      <div class="navrow navrow-primary">
+        <a class="navpill " href="/">Inicio</a>
+        <a class="navpill " href="/electorado.html">Electorado</a>
+        <a class="navpill " href="/participacion.html">Participación</a>
+        <a class="navpill " href="/territorio.html">Territorio</a>
+        <a class="navpill " href="/noche-electoral.html">Noche electoral</a>
+      </div>
+      <div class="navrow navrow-secondary">
+        <a class="" href="/metodologia.html">Metodología</a>
+        <a class="" href="/glosario.html">Glosario</a>
+        <a class="" href="/robustez.html">Robustez</a>
+        <a class="active" href="/como-leer.html">Cómo leer</a>
+        <a class="" href="/fuentes.html">Fuentes y datos</a>
+        <a class="" href="/factores.html">Factores</a>
+        <a class="" href="/comportamiento.html">Comportamiento</a>
+        <a class="" href="/caveat.html">Qué no dice</a>
+        <a class="" href="/apoyo.html">Apoyo</a>
+        <a class="" href="/sobre-mi.html">Sobre mí</a>
+        <a class="" href="/about.html">Acerca del proyecto</a>
+        <a class="navdata" href="/data/latest.json">Datos abiertos ↗</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Cómo leer la media</h1>
+  <p class="muted" style="margin:0 0 14px">Una media de sondeos no es un pronóstico. Es una forma de resumir lo que varias casas publican, con fecha y dispersión. Esta página explica cómo leerla sin sacar más conclusiones de las que el dato sostiene.</p>
+
+  <div class="card">
+    <div class="cardhead"><h2>1. Qué es la media</h2></div>
+    <p class="muted">La media combina los sondeos publicados en una ventana de <strong>14 días</strong>. Si no reúne cuatro sondeos, se amplía a los cuatro más recientes (máximo 90 días) y se indica «ventana ampliada». Cada sondeo pesa por <strong>recencia</strong> y, cuando la fuente declara muestra, por <strong>√n</strong>. No es una estimación propia de intención de voto: es un resumen de lo publicado.</p>
+    <p class="muted">Un sondeo aislado, como el CIS, no marca la tendencia. La media agregada es la de la tabla; la línea del gráfico solo ayuda a ver la evolución.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>2. El rango no es un intervalo de confianza</h2></div>
+    <p class="muted">El <strong>mínimo–máximo</strong> son los valores observados entre los sondeos incluidos. Si cuatro sondeos dan 30, 31, 32 y 34, el rango es 30–34. Eso no significa que el resultado esté entre 30 y 34 con un 95 % de confianza: significa que, en esa ventana, las casas publicaron esos valores.</p>
+    <p class="muted">Un solo sondeo puede fijar ambos extremos. Por eso el rango se publica junto al <a href="/robustez.html">IQR</a> y al número de casas: son la forma de saber si la horquilla la produce el conjunto o un outlier.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>3. Qué añade el IQR</h2></div>
+    <p class="muted">El <strong>IQR</strong> (rango intercuartílico) mide la dispersión típica: la diferencia entre el percentil 75 y el 25. Si el IQR es pequeño y el mínimo–máximo es grande, la horquilla está dominada por valores extremos. Si ambos son grandes, hay desacuerdo real entre casas.</p>
+    <p class="muted">El IQR no dice quién acierta. Dice cuánto se parecen entre sí los sondeos y las casas. <a href="/glosario.html#iqr">Definición en el glosario</a>.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>4. La muestra declarada</h2></div>
+    <p class="muted">No todos los sondeos publican su tamaño muestral. Cuando no lo hacen, el sondeo pesa solo por recencia. La <strong>muestra declarada</strong> indica qué porcentaje de los sondeos permite ponderar por <code>n</code>; no es una nota de calidad. Onda Cero, la fuente principal de la compilación, no publica <code>n</code>: por eso el valor es bajo aunque haya muchos sondeos.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>5. El efecto de casa</h2></div>
+    <p class="muted">Dos casas pueden publicar cifras distintas la misma semana. No es un error: es <strong>efecto de casa</strong> (metodología, cocina, trabajo de campo). El CIS publica <strong>estimación de voto</strong>, no intención directa; su resultado no es comparable 1:1 con las demás casas y suele mover los extremos del rango. La tabla de <a href="/robustez.html">robustez</a> muestra el último sondeo de cada casa con su método cuando difiere.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>6. Cómo leer la tabla</h2></div>
+    <ul class="muted">
+      <li><strong>Media</strong>: resumen ponderado de los sondeos de la ventana. <strong>Mediana</strong>: valor central; si se separa mucho de la media, hay extremos.</li>
+      <li><strong>Mín–máx</strong>: lo observado, no una probabilidad. <strong>n</strong>: sondeos que sostienen la media. <strong>Casas</strong>: encuestadoras distintas. <strong>IQR</strong>: dispersión típica.</li>
+      <li>Mira primero cuántos sondeos y casas hay; después la media. Una media con dos casas es frágil aunque el número sea preciso.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Qué no se puede concluir</h2></div>
+    <ul class="muted">
+      <li>No se puede predecir el resultado del 29N ni la participación.</li>
+      <li>No se puede atribuir intención de voto por edad, sexo, renta o territorio: el censo dice quién puede votar, no a quién vota.</li>
+      <li>No se puede convertir una coincidencia territorial o temporal en una causa.</li>
+      <li>No se puede usar el mínimo–máximo como intervalo de confianza ni como probabilidad de victoria.</li>
+      <li>No se puede comparar el CIS con las demás casas sin decir que es estimación de voto.</li>
+    </ul>
+    <div class="cta">
+      <a class="btn" href="/robustez.html">Robustez del dato</a>
+      <a class="btn ghost" href="/metodologia.html">Metodología</a>
+      <a class="btn ghost" href="/glosario.html">Glosario</a>
+    </div>
+  </div>
+</main>
+<footer class="footer">
+  <div class="container">
+    <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
+    <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
+    <p>Datos abiertos · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="https://github.com/mcasrom/elecciones29n-osint">Código (AGPL-3.0)</a> · Hecho por Miguel Castillo · v0.8.5 · 2026-10-22.</p>
+    <p class="eco">Ecosistema:
+      <a href="https://www.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Prueba Pública</a> ·
+      <a href="https://analisis.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Blog de análisis</a> ·
+      <a href="https://fimi.viajeinteligencia.com/?utm_source=elecciones29n&utm_medium=footer">Observatorio de amplificación</a> ·
+      <a href="https://vivienda.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Vivienda</a>
+    </p>
+    <p><a class="support" href="https://ko-fi.com/m_castillo" target="_blank" rel="noopener noreferrer">☕ Apoya el proyecto en Ko-fi</a></p>
+  </div>
+</footer>
+
+<aside class="helppanel" id="helppanel" role="dialog" aria-modal="true" aria-labelledby="helptitle" hidden>
+  <div class="helphead">
+    <h2 id="helptitle">Cómo leer el observatorio</h2>
+    <button class="helpclose" id="helpclose" aria-label="Cerrar ayuda">×</button>
+  </div>
+  <ol class="helpsteps">
+    <li><strong>Sondeos ≠ pronóstico.</strong> Es la media de los sondeos publicados, con rango mínimo–máximo. El rango no es un intervalo de confianza.</li>
+    <li><strong>Tres capas distintas.</strong> Quién puede votar (censo), quién vota (participación) y cómo se traduce (territorio).</li>
+    <li><strong>Datos oficiales.</strong> Censo (INE), participación (JEC) y escaños (BOE) no son estimaciones. Los sondeos sí.</li>
+    <li><strong>Lo que no dice.</strong> No predice el resultado ni atribuye preferencias por edad, sexo o territorio.</li>
+  </ol>
+  <div class="cta">
+    <a class="btn" href="/metodologia.html">Ver metodología</a>
+    <a class="btn ghost" href="/caveat.html">Qué no dice este sitio</a>
+  </div>
+</aside>
+<script>
+(function(){
+  var btn = document.getElementById('helpbtn');
+  var panel = document.getElementById('helppanel');
+  var bd = document.getElementById('helpbackdrop');
+  var close = document.getElementById('helpclose');
+  if (!btn || !panel) return;
+  var open = false;
+  function setOpen(v){
+    open = v;
+    panel.hidden = !v;
+    bd.hidden = !v;
+    btn.setAttribute('aria-expanded', v ? 'true' : 'false');
+    document.body.style.overflow = v ? 'hidden' : '';
+    if (v) close.focus();
+  }
+  btn.addEventListener('click', function(){ setOpen(true); });
+  close.addEventListener('click', function(){ setOpen(false); });
+  bd.addEventListener('click', function(){ setOpen(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && open) setOpen(false); });
+  var intro = document.getElementById('helpintro');
+  var INTRO_KEY = 'e29n_help_intro';
+  if (intro) {
+    try {
+      if (!localStorage.getItem(INTRO_KEY)) intro.hidden = false;
+    } catch(e) {}
+    var io = document.getElementById('helpintro-open');
+    var ic = document.getElementById('helpintro-off');
+    if (io) io.addEventListener('click', function(){
+      intro.hidden = true; setOpen(true);
+      try { localStorage.setItem(INTRO_KEY, 'off'); } catch(e) {}
+    });
+    if (ic) ic.addEventListener('click', function(){
+      intro.hidden = true;
+      try { localStorage.setItem(INTRO_KEY, 'off'); } catch(e) {}
+    });
+  }
+})();
+</script>
+
+<div class="swupdate" id="swupdate" data-build="202610220759" hidden>
+  <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
+  <button id="swupdate-btn" type="button">Recargar</button>
+  <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610220759');}catch(e){}">×</button>
+</div>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function(){
+    var box = document.getElementById('swupdate');
+    var btn = document.getElementById('swupdate-btn');
+    var close = document.getElementById('swupdate-close');
+    var reg = null;
+    var userClicked = false;
+    var DISMISS = 'e29n_sw_dismiss';
+    function isDismissed(){
+      try { return !!(reg && reg.waiting && localStorage.getItem(DISMISS) === reg.waiting.scriptURL); }
+      catch(e) { return false; }
+    }
+    function isHiddenHere(){
+      try { return sessionStorage.getItem('e29n_sw_hidden') === (box && box.dataset.build); }
+      catch(e) { return false; }
+    }
+    function show(){ if (box && !isDismissed() && !isHiddenHere()) box.hidden = false; }
+    if (close) close.addEventListener('click', function(){
+      box.hidden = true;
+      try { if (reg && reg.waiting) localStorage.setItem(DISMISS, reg.waiting.scriptURL); } catch(e) {}
+    });
+    if (btn) btn.addEventListener('click', function(){
+      box.hidden = true;
+      userClicked = true;
+      if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
+    });
+    navigator.serviceWorker.register('/sw.js?v=202610220759', {updateViaCache: 'none'}).then(function(r){
+      reg = r;
+      if (r.waiting && navigator.serviceWorker.controller) show();
+      r.addEventListener('updatefound', function(){
+        var nw = r.installing;
+        if (!nw) return;
+        nw.addEventListener('statechange', function(){
+          if (nw.state === 'installed' && navigator.serviceWorker.controller) show();
+        });
+      });
+    }).catch(function(){});
+    navigator.serviceWorker.addEventListener('controllerchange', function(){ if (userClicked) window.location.reload(); });
+  });
+}
+</script>
+</body>
+</html>

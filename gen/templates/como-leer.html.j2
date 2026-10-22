@@ -1,0 +1,71 @@
+{% set page_title = "Cómo leer la media del 29N · observatorio electoral" %}
+{% set page_desc = "Guía breve para leer una media de sondeos: qué es el rango, por qué no es un intervalo de confianza, qué mide el IQR y qué no se puede concluir. Sin pronóstico." %}
+{% set canonical = site_url ~ "/como-leer.html" %}
+{% set jsonld = webpages['como-leer.html'] %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Cómo leer la media</h1>
+  <p class="muted" style="margin:0 0 14px">Una media de sondeos no es un pronóstico. Es una forma de resumir lo que varias casas publican, con fecha y dispersión. Esta página explica cómo leerla sin sacar más conclusiones de las que el dato sostiene.</p>
+
+  <div class="card">
+    <div class="cardhead"><h2>1. Qué es la media</h2></div>
+    <p class="muted">La media combina los sondeos publicados en una ventana de <strong>14 días</strong>. Si no reúne cuatro sondeos, se amplía a los cuatro más recientes (máximo 90 días) y se indica «ventana ampliada». Cada sondeo pesa por <strong>recencia</strong> y, cuando la fuente declara muestra, por <strong>√n</strong>. No es una estimación propia de intención de voto: es un resumen de lo publicado.</p>
+    <p class="muted">Un sondeo aislado, como el CIS, no marca la tendencia. La media agregada es la de la tabla; la línea del gráfico solo ayuda a ver la evolución.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>2. El rango no es un intervalo de confianza</h2></div>
+    <p class="muted">El <strong>mínimo–máximo</strong> son los valores observados entre los sondeos incluidos. Si cuatro sondeos dan 30, 31, 32 y 34, el rango es 30–34. Eso no significa que el resultado esté entre 30 y 34 con un 95 % de confianza: significa que, en esa ventana, las casas publicaron esos valores.</p>
+    <p class="muted">Un solo sondeo puede fijar ambos extremos. Por eso el rango se publica junto al <a href="/robustez.html">IQR</a> y al número de casas: son la forma de saber si la horquilla la produce el conjunto o un outlier.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>3. Qué añade el IQR</h2></div>
+    <p class="muted">El <strong>IQR</strong> (rango intercuartílico) mide la dispersión típica: la diferencia entre el percentil 75 y el 25. Si el IQR es pequeño y el mínimo–máximo es grande, la horquilla está dominada por valores extremos. Si ambos son grandes, hay desacuerdo real entre casas.</p>
+    <p class="muted">El IQR no dice quién acierta. Dice cuánto se parecen entre sí los sondeos y las casas. <a href="/glosario.html#iqr">Definición en el glosario</a>.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>4. La muestra declarada</h2></div>
+    <p class="muted">No todos los sondeos publican su tamaño muestral. Cuando no lo hacen, el sondeo pesa solo por recencia. La <strong>muestra declarada</strong> indica qué porcentaje de los sondeos permite ponderar por <code>n</code>; no es una nota de calidad. Onda Cero, la fuente principal de la compilación, no publica <code>n</code>: por eso el valor es bajo aunque haya muchos sondeos.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>5. El efecto de casa</h2></div>
+    <p class="muted">Dos casas pueden publicar cifras distintas la misma semana. No es un error: es <strong>efecto de casa</strong> (metodología, cocina, trabajo de campo). El CIS publica <strong>estimación de voto</strong>, no intención directa; su resultado no es comparable 1:1 con las demás casas y suele mover los extremos del rango. La tabla de <a href="/robustez.html">robustez</a> muestra el último sondeo de cada casa con su método cuando difiere.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>6. Cómo leer la tabla</h2></div>
+    <ul class="muted">
+      <li><strong>Media</strong>: resumen ponderado de los sondeos de la ventana. <strong>Mediana</strong>: valor central; si se separa mucho de la media, hay extremos.</li>
+      <li><strong>Mín–máx</strong>: lo observado, no una probabilidad. <strong>n</strong>: sondeos que sostienen la media. <strong>Casas</strong>: encuestadoras distintas. <strong>IQR</strong>: dispersión típica.</li>
+      <li>Mira primero cuántos sondeos y casas hay; después la media. Una media con dos casas es frágil aunque el número sea preciso.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Qué no se puede concluir</h2></div>
+    <ul class="muted">
+      <li>No se puede predecir el resultado del 29N ni la participación.</li>
+      <li>No se puede atribuir intención de voto por edad, sexo, renta o territorio: el censo dice quién puede votar, no a quién vota.</li>
+      <li>No se puede convertir una coincidencia territorial o temporal en una causa.</li>
+      <li>No se puede usar el mínimo–máximo como intervalo de confianza ni como probabilidad de victoria.</li>
+      <li>No se puede comparar el CIS con las demás casas sin decir que es estimación de voto.</li>
+    </ul>
+    <div class="cta">
+      <a class="btn" href="/robustez.html">Robustez del dato</a>
+      <a class="btn ghost" href="/metodologia.html">Metodología</a>
+      <a class="btn ghost" href="/glosario.html">Glosario</a>
+    </div>
+  </div>
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>
