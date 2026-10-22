@@ -35,6 +35,9 @@ Cada `/circunscripcion/<slug>.html` incluye:
 
 El índice `/circunscripciones.html` ordena las 52 provincias y enlaza cada ficha.
 
+Acceso: enlace **Circunscripciones** en la nav principal y pestaña/CTA en la
+portada (`/territorio.html` mantiene su enlace a las fichas).
+
 ## Datos y fuente
 
 Fuente primaria: **Ministerio del Interior · Infoelectoral, Datos Abiertos**.
@@ -150,5 +153,6 @@ El build diario solo reingiere el XLSX si falta o si el fichero es más nuevo qu
 
 ## Estado
 
-Desplegado el **22-oct-2026**. `check.sh`: 87 tests, validación y auditoría sin
-fallos. Las 52 fichas responden 200 en producción.
+Desplegado el **22-oct-2026**, visible desde la nav y la portada. `check.sh`:
+87 tests, validación y auditoría sin fallos. Las 52 fichas responden 200 en
+producción.

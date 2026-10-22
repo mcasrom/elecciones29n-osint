@@ -11,7 +11,7 @@
 <meta name="description" content="Bizkaia: 8 diputados, 959.702 electores y resultado oficial de 2019 y 2023. Ficha, escaño marginal y calculadora D'Hondt.">
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/circunscripcion/bizkaia.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202610222104">
+<link rel="stylesheet" href="/css/main.css?v=202610222121">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -84,7 +84,8 @@ document.addEventListener('DOMContentLoaded', function(){
         <a class="navpill " href="/">Inicio</a>
         <a class="navpill " href="/electorado.html">Electorado</a>
         <a class="navpill " href="/participacion.html">Participación</a>
-        <a class="navpill active" href="/territorio.html">Territorio</a>
+        <a class="navpill " href="/territorio.html">Territorio</a>
+        <a class="navpill active" href="/circunscripciones.html">Circunscripciones</a>
         <a class="navpill " href="/noche-electoral.html">Noche electoral</a>
       </div>
       <div class="navrow navrow-secondary">
@@ -454,6 +455,7 @@ document.addEventListener('DOMContentLoaded', function(){
   </div>
 </footer>
 
+<div class="helpbackdrop" id="helpbackdrop" hidden></div>
 <aside class="helppanel" id="helppanel" role="dialog" aria-modal="true" aria-labelledby="helptitle" hidden>
   <div class="helphead">
     <h2 id="helptitle">Cómo leer el observatorio</h2>
@@ -510,11 +512,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202610222104" hidden>
+<div class="swupdate" id="swupdate" data-build="202610222121" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610222104');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610222121');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -543,7 +545,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202610222104', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202610222121', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

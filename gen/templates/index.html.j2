@@ -70,6 +70,7 @@
       <a class="tab" href="/electorado.html">Electorado</a>
       <a class="tab" href="/participacion.html">Participación</a>
       <a class="tab" href="/territorio.html">Territorio</a>
+      <a class="tab" href="/circunscripciones.html">Circunscripciones</a>
       <a class="tab" href="/noche-electoral.html">Noche electoral</a>
     </nav>
     <div class="subnav">
@@ -331,7 +332,7 @@
       {{ escanos_kpis.max.nombre }}, {{ escanos_kpis.max.escanos }} con {{ fmt_miles(escanos_kpis.max.electores) }}.
       Hay {{ (escanos_kpis.max.electores_por_escanos / escanos_kpis.min.electores_por_escanos)|round(1) }}× de diferencia por escaño.
     </p>
-    <div class="cta"><a class="btn" href="/territorio.html">Ver el reparto</a></div>
+    <div class="cta"><a class="btn" href="/territorio.html">Ver el reparto</a> <a class="btn ghost" href="/circunscripciones.html">Ficha y calculadora por provincia</a></div>
     {% endif %}
   </div>
 

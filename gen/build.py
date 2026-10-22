@@ -121,6 +121,8 @@ a{color:var(--blue)}
   .navrow-primary{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px}
   .navpill{white-space:nowrap}
   .navrow-secondary{font-size:13.5px;gap:11px}
+  .status{width:100%;flex-wrap:wrap;min-width:0}
+  .helpintro{flex:1 0 100%;margin:10px 0 0}
 }
 .subnav{display:flex;gap:16px;flex-wrap:wrap;padding:10px 0 0;font-size:14.5px}
 .subnav a{color:var(--faint);text-decoration:none}
@@ -1484,7 +1486,7 @@ def main(out: str = "web") -> None:
 
     tpl_circ = env.get_template("circunscripcion.html.j2")
     for p in circ_pages:
-        html = tpl_circ.render(current="territorio.html", circ=p, **context)
+        html = tpl_circ.render(current="circunscripciones.html", circ=p, **context)
         with open(os.path.join(OUT, "circunscripcion", p["slug"] + ".html"), "w", encoding="utf-8") as f:
             f.write(html)
 

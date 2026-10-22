@@ -266,6 +266,11 @@ def main() -> int:
                 errors.append("congreso-oficial 2019 contiene SUMAR (etiqueta anacrónica)")
         except Exception as e:
             errors.append(f"congreso-oficial.json inválido: {e}")
+    home = os.path.join(d, "index.html")
+    if os.path.exists(home):
+        hh = open(home, encoding="utf-8", errors="ignore").read()
+        if hh.count('href="/circunscripciones.html"') < 2:
+            errors.append("index.html sin enlace visible a circunscripciones (nav y portada)")
     ci = os.path.join(d, "circunscripciones.html")
     if os.path.exists(ci):
         ch = open(ci, encoding="utf-8", errors="ignore").read()
