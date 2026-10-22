@@ -80,6 +80,19 @@
       <a class="btn ghost" href="/participacion.html">Participación</a>
     </div>
   </div>
+  <div class="card">
+    <div class="cardhead"><h2>Comparte</h2></div>
+    {% set share_text = "Glosario del 29N: 30+ términos de sondeos y sistema electoral, en dos líneas." %}
+    {% set share_campaign = "29n-glosario" %}
+    <div class="share">
+      <a target="_blank" rel="noopener" href="https://mastodon.social/share?text={{ (share_text ~ ' ' ~ canonical ~ '?utm_source=mastodon&utm_medium=social&utm_campaign=' ~ share_campaign)|urlencode }}">Mastodon</a>
+      <a target="_blank" rel="noopener" href="https://bsky.app/intent/compose?text={{ (share_text ~ ' ' ~ canonical ~ '?utm_source=bluesky&utm_medium=social&utm_campaign=' ~ share_campaign)|urlencode }}">Bluesky</a>
+      <a target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text={{ (share_text ~ ' ' ~ canonical ~ '?utm_source=x&utm_medium=social&utm_campaign=' ~ share_campaign)|urlencode }}">X</a>
+      <a target="_blank" rel="noopener" href="https://api.whatsapp.com/send?text={{ (share_text ~ ' ' ~ canonical ~ '?utm_source=whatsapp&utm_medium=social&utm_campaign=' ~ share_campaign)|urlencode }}">WhatsApp</a>
+      <button class="btn ghost" type="button" onclick="navigator.clipboard.writeText('{{ canonical }}?utm_source=copy&utm_medium=social&utm_campaign={{ share_campaign }}');this.textContent='Copiado'">Copiar enlace</button>
+    </div>
+    <p class="muted small">Si te sirve, compártelo con la fuente.</p>
+  </div>
 </main>
 {% include "_footer.html.j2" %}
 </body>

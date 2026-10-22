@@ -140,6 +140,45 @@
   {% else %}
   <div class="alert warn">La asignación de escaños no está disponible todavía. <a href="/">Volver al agregado</a>.</div>
   {% endif %}
+  <div class="card" id="shareProv">
+    <div class="cardhead"><h2>Comparte esta provincia</h2></div>
+    <p class="muted small" id="shareProvText">Elige una provincia y comparte el enlace; incluye el censo, los escaños y el resultado de 2023.</p>
+    <div class="share">
+      <button class="btn ghost" type="button" data-ch="mastodon">Mastodon</button>
+      <button class="btn ghost" type="button" data-ch="bluesky">Bluesky</button>
+      <button class="btn ghost" type="button" data-ch="x">X</button>
+      <button class="btn ghost" type="button" data-ch="whatsapp">WhatsApp</button>
+      <button class="btn ghost" type="button" id="copyProv">Copiar enlace</button>
+    </div>
+  </div>
+  <script>
+  (function(){
+    var base = location.href.split('#')[0];
+    function prov(){ var q = new URLSearchParams(location.hash.slice(1)); return decodeURIComponent(q.get('prov') || 'Madrid'); }
+    function shareUrl(ch){ var u = new URL(base); u.searchParams.set('utm_source', ch); u.searchParams.set('utm_medium','social'); u.searchParams.set('utm_campaign','29n-provincias'); return u.toString() + '#prov=' + encodeURIComponent(prov()); }
+    function text(){ return 'El sistema es provincial: ' + prov() + ' en el observatorio del 29N. Censo, escaños y resultado 2023.'; }
+    document.querySelectorAll('#shareProv [data-ch]').forEach(function(b){
+      b.addEventListener('click', function(){
+        var ch = b.getAttribute('data-ch'), u = shareUrl(ch), t = text() + ' ' + u;
+        var dest = ch === 'mastodon' ? 'https://mastodon.social/share?text=' + encodeURIComponent(t)
+          : ch === 'bluesky' ? 'https://bsky.app/intent/compose?text=' + encodeURIComponent(t)
+          : ch === 'x' ? 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(t)
+          : 'https://api.whatsapp.com/send?text=' + encodeURIComponent(t);
+        window.open(dest, '_blank', 'noopener');
+      });
+    });
+    document.getElementById('copyProv').addEventListener('click', function(){
+      var u = shareUrl('copy');
+      if (navigator.clipboard) navigator.clipboard.writeText(u);
+      this.textContent = 'Copiado';
+    });
+    function updateText(){ var t = document.getElementById('shareProvText'); if (t) t.textContent = 'Comparte ' + prov() + ': censo, escaños y resultado de 2023.'; }
+    updateText();
+    var sel = document.getElementById('provSel2');
+    if (sel) sel.addEventListener('change', updateText);
+    window.addEventListener('hashchange', updateText);
+  })();
+  </script>
 </main>
 {% include "_footer.html.j2" %}
 </body>
