@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-10-21 14:31 CEST",
-  "updated_at_iso": "2026-10-21T14:31:45.040600+02:00",
+  "updated_at": "2026-10-22 06:59 CEST",
+  "updated_at_iso": "2026-10-22T06:59:42.352207+02:00",
   "in_blackout": false,
   "window_days": 14,
   "parties": [
     {
       "party": "PP",
-      "mean": 30.39,
-      "median": 31.85,
+      "mean": 30.23,
+      "median": 31.8,
       "min": 22.2,
-      "max": 34.1,
-      "n": 14,
+      "max": 34.0,
+      "n": 13,
       "sample_total": 12291,
       "pollsters": [
         "40dB",
@@ -21,7 +21,6 @@
         "GESOP",
         "IMOP Insights",
         "Invymark",
-        "NC Report",
         "Sigma Dos",
         "Sociométrica",
         "Target Point"
@@ -31,11 +30,11 @@
     },
     {
       "party": "PSOE",
-      "mean": 27.62,
-      "median": 26.45,
-      "min": 25.0,
+      "mean": 27.74,
+      "median": 26.5,
+      "min": 25.3,
       "max": 34.0,
-      "n": 14,
+      "n": 13,
       "sample_total": 12291,
       "pollsters": [
         "40dB",
@@ -46,7 +45,6 @@
         "GESOP",
         "IMOP Insights",
         "Invymark",
-        "NC Report",
         "Sigma Dos",
         "Sociométrica",
         "Target Point"
@@ -56,11 +54,11 @@
     },
     {
       "party": "VOX",
-      "mean": 18.61,
-      "median": 18.85,
+      "mean": 18.63,
+      "median": 18.9,
       "min": 17.1,
       "max": 19.5,
-      "n": 14,
+      "n": 13,
       "sample_total": 12291,
       "pollsters": [
         "40dB",
@@ -71,7 +69,6 @@
         "GESOP",
         "IMOP Insights",
         "Invymark",
-        "NC Report",
         "Sigma Dos",
         "Sociométrica",
         "Target Point"
@@ -81,11 +78,11 @@
     },
     {
       "party": "Otros",
-      "mean": 11.91,
-      "median": 12.7,
+      "mean": 11.81,
+      "median": 12.6,
       "min": 9.1,
       "max": 14.3,
-      "n": 12,
+      "n": 11,
       "sample_total": 5025,
       "pollsters": [
         "40dB",
@@ -95,7 +92,6 @@
         "GESOP",
         "IMOP Insights",
         "Invymark",
-        "NC Report",
         "Sigma Dos",
         "Sociométrica",
         "Target Point"
@@ -105,11 +101,11 @@
     },
     {
       "party": "SUMAR",
-      "mean": 6.41,
-      "median": 6.3,
+      "mean": 6.47,
+      "median": 6.6,
       "min": 4.9,
       "max": 8.1,
-      "n": 13,
+      "n": 12,
       "sample_total": 9150,
       "pollsters": [
         "40dB",
@@ -120,7 +116,6 @@
         "GESOP",
         "IMOP Insights",
         "Invymark",
-        "NC Report",
         "Sigma Dos",
         "Sociométrica",
         "Target Point"
@@ -130,11 +125,11 @@
     },
     {
       "party": "PODEMOS",
-      "mean": 2.82,
+      "mean": 2.77,
       "median": 2.8,
       "min": 2.1,
-      "max": 3.9,
-      "n": 14,
+      "max": 3.4,
+      "n": 13,
       "sample_total": 12291,
       "pollsters": [
         "40dB",
@@ -145,7 +140,6 @@
         "GESOP",
         "IMOP Insights",
         "Invymark",
-        "NC Report",
         "Sigma Dos",
         "Sociométrica",
         "Target Point"
@@ -307,11 +301,6 @@
     ],
     "PODEMOS": [
       {
-        "date": "2026-10-08",
-        "value": 3.9,
-        "pollster": "NC Report"
-      },
-      {
         "date": "2026-10-09",
         "value": 3.2,
         "pollster": "Invymark"
@@ -379,11 +368,6 @@
     ],
     "PP": [
       {
-        "date": "2026-10-08",
-        "value": 34.1,
-        "pollster": "NC Report"
-      },
-      {
         "date": "2026-10-09",
         "value": 32.8,
         "pollster": "Invymark"
@@ -450,11 +434,6 @@
       }
     ],
     "PSOE": [
-      {
-        "date": "2026-10-08",
-        "value": 25.0,
-        "pollster": "NC Report"
-      },
       {
         "date": "2026-10-09",
         "value": 28.0,
@@ -575,11 +554,6 @@
     ],
     "SUMAR": [
       {
-        "date": "2026-10-08",
-        "value": 5.3,
-        "pollster": "NC Report"
-      },
-      {
         "date": "2026-10-09",
         "value": 6.3,
         "pollster": "Invymark"
@@ -641,11 +615,6 @@
       }
     ],
     "VOX": [
-      {
-        "date": "2026-10-08",
-        "value": 18.2,
-        "pollster": "NC Report"
-      },
       {
         "date": "2026-10-09",
         "value": 18.8,
@@ -713,11 +682,6 @@
       }
     ],
     "Otros": [
-      {
-        "date": "2026-10-08",
-        "value": 13.5,
-        "pollster": "NC Report"
-      },
       {
         "date": "2026-10-09",
         "value": 9.1,
@@ -2200,7 +2164,6 @@
     ]
   },
   "poll_dates": [
-    "2026-10-08",
     "2026-10-09",
     "2026-10-11",
     "2026-10-12",
@@ -2208,10 +2171,10 @@
     "2026-10-18",
     "2026-10-19"
   ],
-  "n_polls": 14,
+  "n_polls": 13,
   "low_n": false,
   "window_extended": false,
-  "window_span": "2026-10-08 – 2026-10-19",
+  "window_span": "2026-10-09 – 2026-10-19",
   "sources": [
     "https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/",
     "https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/",
@@ -2221,8 +2184,8 @@
   "last_poll_date": "2026-10-19",
   "health": {
     "status": "ok",
-    "n_polls": 14,
-    "n_pollsters": 12,
+    "n_polls": 13,
+    "n_pollsters": 11,
     "pollsters": [
       "40dB",
       "CIS",
@@ -2232,27 +2195,17 @@
       "GESOP",
       "IMOP Insights",
       "Invymark",
-      "NC Report",
       "Sigma Dos",
       "Sociométrica",
       "Target Point"
     ],
-    "days_since_last": 2,
-    "sample_pct": 21,
+    "days_since_last": 3,
+    "sample_pct": 23,
     "sample_polls": 3,
     "dispersion_iqr": 1.97,
     "reasons": []
   },
-  "novedades": [
-    {
-      "pollster": "Sigma Dos",
-      "date": "2026-10-19"
-    },
-    {
-      "pollster": "ElectoPanel",
-      "date": "2026-10-18"
-    }
-  ],
+  "novedades": [],
   "house_mean": {
     "window_days": 45,
     "n_houses": 14,
@@ -2472,11 +2425,11 @@
       "nota": null
     }
   ],
-  "days_to_election": 38,
-  "days_to_blackout": 33,
-  "gap_pp_psoe": 2.77,
-  "bloc_right": 49.0,
-  "bloc_left": 36.85,
+  "days_to_election": 37,
+  "days_to_blackout": 32,
+  "gap_pp_psoe": 2.49,
+  "bloc_right": 48.86,
+  "bloc_left": 36.98,
   "weight_basis": "recencia (vida media 10 d); √n cuando la fuente declara muestra",
   "excluded_averages": [
     "ElectoPromedio"

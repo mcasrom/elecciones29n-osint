@@ -11,7 +11,7 @@
 <meta name="description" content="Fuentes de cada dato (Electomania, INE, JEC, BOE), formatos, enlaces oficiales y conjuntos de datos descargables con su esquema.">
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/fuentes.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202610211431">
+<link rel="stylesheet" href="/css/main.css?v=202610220659">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function(){
   <div class="container">
     <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
     <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
-    <p>Datos abiertos · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="https://github.com/mcasrom/elecciones29n-osint">Código (AGPL-3.0)</a> · Hecho por Miguel Castillo · v0.8.5 · 2026-10-21.</p>
+    <p>Datos abiertos · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="https://github.com/mcasrom/elecciones29n-osint">Código (AGPL-3.0)</a> · Hecho por Miguel Castillo · v0.8.5 · 2026-10-22.</p>
     <p class="eco">Ecosistema:
       <a href="https://www.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Prueba Pública</a> ·
       <a href="https://analisis.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Blog de análisis</a> ·
@@ -247,11 +247,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202610211431" hidden>
+<div class="swupdate" id="swupdate" data-build="202610220659" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610211431');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610220659');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -280,7 +280,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202610211431', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202610220659', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

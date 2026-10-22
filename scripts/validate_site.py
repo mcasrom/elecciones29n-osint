@@ -251,8 +251,36 @@ def main() -> int:
             urls = ET.parse(sm).getroot().findall(".//s:loc", ns)
             if len(urls) < 13:
                 errors.append(f"sitemap con {len(urls)} URLs (esperadas >=13)")
+            # indexabilidad: cada URL del sitemap debe existir, ser self-canonical y no noindex
+            for el in urls:
+                u = (el.text or "").strip()
+                if not u:
+                    continue
+                path = u.split("elecciones29n.pruebapublica.com", 1)[-1].lstrip("/") or "index.html"
+                if path.endswith("/") or path == "":
+                    path += "index.html"
+                fp = os.path.join(d, path)
+                if not os.path.exists(fp):
+                    errors.append(f"sitemap: falta {path}")
+                    continue
+                h = open(fp, encoding="utf-8", errors="ignore").read()
+                m = re.search(r'<link rel="canonical" href="([^"]+)"', h)
+                if not m:
+                    errors.append(f"{path}: sin canonical")
+                elif m.group(1) != u:
+                    errors.append(f"{path}: canonical {m.group(1)} != {u}")
+                if re.search(r'<meta name="robots" content="[^"]*noindex', h, re.I):
+                    errors.append(f"{path}: noindex en una URL del sitemap")
         except Exception as e:
             errors.append(f"sitemap inválido: {e}")
+
+    rb_path = os.path.join(d, "robots.txt")
+    if os.path.exists(rb_path):
+        rb = open(rb_path, encoding="utf-8", errors="ignore").read()
+        if re.search(r"(?im)^\s*disallow:\s*/\s*$", rb):
+            errors.append("robots.txt bloquea todo (Disallow: /)")
+        if "sitemap:" not in rb.lower():
+            errors.append("robots.txt sin Sitemap:")
 
     cx = os.path.join(d, "cambios.xml")
     if os.path.exists(cx) and data.get("n_polls", 0) > 0:
