@@ -31,6 +31,7 @@ dato, no en una nota al pie.
 - `/electorado.html` — Censo 29N: total, CER/CERA, edad y sexo, provincias y nuevos electores.
 - `/participacion.html` — Participación nacional 1979–2023 y **provincial 1977–2023** (selector + comparación con la media nacional).
 - `/territorio.html` — 350 escaños, 52 circunscripciones, electores por escaño y **votos↔escaños 2023 con índice de Gallagher**.
+- `/circunscripciones.html` — **52 fichas provinciales** con histórico oficial 2019/2023, escaño marginal y calculadora D'Hondt; detalle técnico en [`README-circunscripciones.md`](README-circunscripciones.md).
 - `/factores.html` — Factores y participación: día/festivo, meteorología (M5) y **resultados v1**.
 - `/comportamiento.html` — **M4 v1**: voto declarado en 2023 por edad, sexo e ideología (CIS 3582, n=5.025), con n por celda y celdas n<30 suprimidas.
 - `/noche-electoral.html` — Qué se publica el 29N, cuándo y con qué fuente.
@@ -68,7 +69,7 @@ agregado.
 | Participación | [JEC](https://www.juntaelectoralcentral.es/) | tablas por elección |
 | Escaños | [BOE · RD 806/2026](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-20742) | anexo |
 | Normativa | [LOREG](https://www.boe.es/buscar/act.php?id=BOE-A-1985-11672) | BOE consolidado |
-| Resultados provinciales | Ministerio del Interior (XLSX) | `data/raw/elecciones-congreso.xlsx` · 1977–2023 |
+| Resultados provinciales | [Ministerio del Interior · Infoelectoral](https://descargas.interior.gob.es/datasets/resultados_electorales/Elecciones-Congreso.xlsx) | XLSX (CC BY 4.0) · copia con SHA-256 en `data/raw/elecciones-congreso.xlsx` |
 
 Cada fila de sondeo guarda `pollster`, `date`, `source_url` y `sample`. Los
 metadatos del censo incluyen URL y **SHA-256** de cada XLSX.
@@ -164,13 +165,13 @@ otras casas y se excluye de la media principal.
 
 ```
 agg/            agregado, blackout y salud de la muestra
-ingest/         Electomania, censo (INE), participación (JEC), escaños (BOE)
+ingest/         Electomania, censo (INE), participación (JEC), escaños (BOE), resultados oficiales (Interior)
 gen/            build estático, OG, plantillas Jinja
 data/           histórico de sondeos y datasets normalizados (fuente de verdad)
 web/            salida estática publicada
 scripts/        run_daily, check, validate_site, canary, IndexNow, add_poll, health_report
 docs/           método, fuentes, rutina semanal, sprint del observatorio
-tests/          34 pruebas (datos, build, validador)
+tests/          87 pruebas (datos, build, validador, fichas provinciales)
 systemd/        servicio y timer
 ```
 
@@ -213,7 +214,7 @@ Además de la media por sondeo (ponderada por recencia y muestra cuando existe),
 
 ## Calidad
 
-- **62 tests** (`unittest`) y hook **pre-push**.
+- **87 tests** (`unittest`) y hook **pre-push**.
 - `scripts/check.sh`: compila, tests, valida el sitio local y ejecuta la auditoría de datos.
 - **Validador** de publicación: gráfico con puntos, pestañas, JSON, sitemap, OG,
   RSS, censo, participación y escaños.
@@ -223,7 +224,7 @@ Además de la media por sondeo (ponderada por recencia y muestra cuando existe),
 
 ## SEO y datos abiertos
 
-- `sitemap.xml` (13 URLs), `robots.txt`, `llms.txt` y RSS `cambios.xml`.
+- `sitemap.xml` (69 URLs, incluidas las 52 fichas provinciales), `robots.txt`, `llms.txt` y RSS `cambios.xml`.
 - OG 1200×630, `twitter:card`, canonical y JSON-LD (`WebSite`, `Dataset`,
   `FAQPage`, `Person`).
 - **IndexNow** en cada build; cache-busting `?v=` en CSS/JS.
@@ -237,7 +238,7 @@ Además de la media por sondeo (ponderada por recencia y muestra cuando existe),
 - El censo describe quién puede votar, no a quién vota.
 - La simulación de Congreso es mecánica (distrito único), no una proyección.
 - El Senado no se simula: depende de listas provinciales y designación autonómica.
-- No se simulan escaños provinciales ni el Senado sin encuestas provinciales.
+- La calculadora provincial es un escenario mecánico con votos introducidos a mano; no se simulan escaños desde encuestas nacionales. El Senado no se simula.
 - No se atribuyen preferencias por edad, sexo, renta o territorio.
 - No se mezclan señales sociales con sondeos, censo o participación.
 
