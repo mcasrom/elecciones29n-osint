@@ -20,7 +20,7 @@ from metrics import moving_average, series_span  # noqa: E402
 REQUIRED = [
     "index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html",
     "robots.txt", "sitemap.xml", "llms.txt", "favicon.svg", "og.png",
-    "cambios.xml", "data/latest.json", "css/main.css", "glosario.html", "robustez.html", "como-leer.html",
+    "cambios.xml", "data/latest.json", "data/robustez.json", "css/main.css", "glosario.html", "robustez.html", "como-leer.html",
     "electorado.html", "data/censo-2026.json", "data/censo-provincias.csv",
     "participacion.html", "data/participacion.json", "data/participacion.csv",
     "territorio.html", "data/escanos-2026.json", "data/escanos-2026.csv",

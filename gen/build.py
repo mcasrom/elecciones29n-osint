@@ -840,6 +840,25 @@ def write_resultados_data(data: dict) -> None:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
+def write_robustez_data(latest: dict) -> None:
+    os.makedirs(os.path.join(OUT, "data"), exist_ok=True)
+    keys = ("party", "mean", "median", "min", "max", "n", "mean_sin_cis",
+            "median_sin_cis", "min_sin_cis", "max_sin_cis", "n_sin_cis",
+            "n_houses", "iqr")
+    payload = {
+        "generado": latest.get("updated_at"),
+        "n_polls": latest.get("n_polls"),
+        "n_polls_sin_cis": latest.get("n_polls_sin_cis"),
+        "health": latest.get("health", {}),
+        "parties": [{k: p.get(k) for k in keys} for p in latest.get("parties", [])],
+        "house_latest": latest.get("house_latest", []),
+        "house_latest_sorted": sorted(latest.get("house_latest", []), key=lambda r: (r.get("pp") is None, -(r.get("pp") or 0))),
+        "nota": "Sensibilidad y dispersion del dato; no es una puntuacion ni un pronostico.",
+    }
+    with open(os.path.join(OUT, "data", "robustez.json"), "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, indent=2)
+
+
 def write_escanos_data(data: dict) -> None:
     import csv as _csv
 
@@ -1307,6 +1326,9 @@ def main(out: str = "web") -> None:
         "series": series,
         "poll_dates": latest.get("poll_dates", []),
         "n_polls": latest.get("n_polls", 0),
+        "n_polls_sin_cis": latest.get("n_polls_sin_cis", 0),
+        "pp_mean": next((p["mean"] for p in parties if p["party"] == "PP"), None),
+        "psoe_mean": next((p["mean"] for p in parties if p["party"] == "PSOE"), None),
         "sources": latest.get("sources", []),
         "chart_svg": build_chart(latest.get("series_long", series), parties_main),
         "chart_legend": chart_legend(parties_main),
@@ -1334,6 +1356,7 @@ def main(out: str = "web") -> None:
         "novedades": latest.get("novedades", []),
         "house_mean": latest.get("house_mean", {}),
         "house_latest": latest.get("house_latest", []),
+        "house_latest_sorted": sorted(latest.get("house_latest", []), key=lambda r: (r.get("pp") is None, -(r.get("pp") or 0))),
         "house_compare": build_house_compare(latest.get("house_mean", {}), parties),
         "escanos": escanos,
         "prov_selector": prov_selector,
@@ -1396,6 +1419,7 @@ def main(out: str = "web") -> None:
     write_censo_data(censo)
     write_participacion_data(participacion)
     write_escanos_data(escanos)
+    write_robustez_data(latest)
     write_resultados_data(resultados)
     write_congreso_web(prov_part, congreso)
     write_m5_data(m5)

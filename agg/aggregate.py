@@ -197,6 +197,20 @@ def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
         ws = [_weight(r, now) for r in rows]
         wsum = sum(ws)
         mean = sum(v * w for v, w in zip(vals, ws)) / wsum if wsum else sum(vals) / len(vals)
+        rows_sin = [r for r in rows if (r.get("pollster") or "") != "CIS"]
+        sin = {}
+        if rows_sin:
+            vals_s = [r["value"] for r in rows_sin]
+            ws_s = [_weight(r, now) for r in rows_sin]
+            wsum_s = sum(ws_s)
+            mean_s = sum(v * w for v, w in zip(vals_s, ws_s)) / wsum_s if wsum_s else sum(vals_s) / len(vals_s)
+            sin = {
+                "mean_sin_cis": round(mean_s, 2),
+                "median_sin_cis": round(statistics.median(vals_s), 2),
+                "min_sin_cis": round(min(vals_s), 2),
+                "max_sin_cis": round(max(vals_s), 2),
+                "n_sin_cis": len(vals_s),
+            }
         parties.append(
             {
                 "party": party,
@@ -207,6 +221,7 @@ def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
                 "n": len(vals),
                 "sample_total": sum((r.get("sample") or 0) for r in rows),
                 "pollsters": sorted({r.get("pollster") for r in rows if r.get("pollster")}),
+                **sin,
             }
         )
     parties.sort(key=lambda x: x["mean"], reverse=True)
@@ -217,6 +232,7 @@ def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
 
     poll_dates = sorted({p["date"].strftime("%Y-%m-%d") for p in recent})
     n_polls = len({(p["date"].strftime("%Y-%m-%d"), p.get("pollster")) for p in recent})
+    n_polls_sin_cis = len({(p["date"].strftime("%Y-%m-%d"), p.get("pollster")) for p in recent if (p.get("pollster") or "") != "CIS"})
     sources = sorted({p["source_url"] for p in recent if p.get("source_url")})
     means = {p["party"]: p["mean"] for p in parties}
     pollsters = sorted({p.get("pollster") for p in recent if p.get("pollster")})
@@ -305,6 +321,7 @@ def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
     health = {
         "status": status,
         "n_polls": n_polls,
+        "n_polls_sin_cis": n_polls_sin_cis,
         "n_pollsters": n_pollsters,
         "pollsters": pollsters,
         "days_since_last": days_since,
@@ -329,6 +346,7 @@ def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
         "series_long": series_long,
         "poll_dates": poll_dates,
         "n_polls": n_polls,
+        "n_polls_sin_cis": n_polls_sin_cis,
         "low_n": n_polls < LOW_N,
         "window_extended": extended,
         "window_span": (

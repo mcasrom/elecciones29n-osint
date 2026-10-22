@@ -58,7 +58,7 @@
       <p class="stamp">
         {% if last_poll_date %}Último sondeo: <strong>{{ last_poll_date }}</strong> · {% endif %}
         Próximo blackout en <strong>{{ days_to_blackout }} días</strong> (24–28 nov) ·
-        <a href="/data/latest.json">datos abiertos</a> · <a href="/robustez.html">robustez del dato</a>
+        <a href="/data/latest.json">datos abiertos</a> · <a href="/robustez.html">robustez del dato</a> · <a href="/caveat.html">qué no dice</a>
       </p>
     </div>
 
@@ -130,14 +130,14 @@
     <div class="card">
       <div class="cardhead"><h2>Media por partido</h2><span class="hint">{% if window_span %}{{ window_span }}{% endif %}{% if window_extended %} · ventana ampliada{% endif %}</span></div>
       <div class="tablewrap"><table>
-        <thead><tr><th>Partido</th><th>Media</th><th>Mediana</th><th>Mín</th><th>Máx</th><th>n</th><th>Casas</th><th>IQR</th></tr></thead>
+        <thead><tr><th>Partido</th><th>Media</th><th>Sin CIS</th><th>Mediana</th><th>Mín</th><th>Máx</th><th>n</th><th>Casas</th><th>IQR</th></tr></thead>
         <tbody>
         {% for p in parties %}
-          <tr><td><strong>{{ p.party }}</strong></td><td class="num">{{ "%.2f"|format(p.mean) }}%</td><td class="num">{{ "%.2f"|format(p.median) }}%</td><td class="num">{{ "%.2f"|format(p.min) }}%</td><td class="num">{{ "%.2f"|format(p.max) }}%</td><td class="num">{{ p.n }}</td><td class="num">{% if p.n_houses %}{{ p.n_houses }}{% else %}—{% endif %}</td><td class="num">{% if p.iqr is not none %}{{ "%.1f"|format(p.iqr) }}{% else %}—{% endif %}</td></tr>
+          <tr><td><strong>{{ p.party }}</strong></td><td class="num">{{ "%.2f"|format(p.mean) }}%</td><td class="num">{% if p.mean_sin_cis is not none %}{{ "%.2f"|format(p.mean_sin_cis) }}%{% else %}—{% endif %}</td><td class="num">{{ "%.2f"|format(p.median) }}%</td><td class="num">{{ "%.2f"|format(p.min) }}%</td><td class="num">{{ "%.2f"|format(p.max) }}%</td><td class="num">{{ p.n }}</td><td class="num">{% if p.n_houses %}{{ p.n_houses }}{% else %}—{% endif %}</td><td class="num">{% if p.iqr is not none %}{{ "%.1f"|format(p.iqr) }}{% else %}—{% endif %}</td></tr>
         {% endfor %}
         </tbody>
       </table></div>
-      <p class="muted small"><strong>Mín–máx</strong> son los sondeos observados, no un intervalo de confianza: un solo sondeo puede fijar ambos extremos. La dispersión típica es el <strong>IQR</strong>. El <strong>CIS</strong> publica estimación de voto, no intención directa, y su efecto de casa es mayor.</p>
+      <p class="muted small"><strong>Mín–máx</strong> son los sondeos observados, no un intervalo de confianza: un solo sondeo puede fijar ambos extremos. La dispersión típica es el <strong>IQR</strong>. El <strong>CIS</strong> publica estimación de voto, no intención directa, y su efecto de casa es mayor. <strong>Sin CIS</strong> es una prueba de sensibilidad (misma media sin ese barómetro), no la media principal.</p>
       <p class="muted small">«Otros» es el resto de candidaturas, no un partido. Actualizado: {{ updated_at }}. Ponderación: {{ weight_basis }}. <a href="/data/latest.json">Descargar JSON</a> · <a href="/metodologia.html">Cómo se calcula</a> · <a href="/como-leer.html">Cómo leer</a> · <a href="/glosario.html">Glosario</a></p>
     </div>
 
