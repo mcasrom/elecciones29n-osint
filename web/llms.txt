@@ -12,6 +12,8 @@
 
 ## Datos
 - https://elecciones29n.pruebapublica.com/data/latest.json
+- https://elecciones29n.pruebapublica.com/data/robustez.json
+- https://elecciones29n.pruebapublica.com/cambios.xml
 - https://elecciones29n.pruebapublica.com/sitemap.xml
 
 ## Límites

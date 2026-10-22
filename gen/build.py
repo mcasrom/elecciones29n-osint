@@ -458,6 +458,8 @@ def write_llms() -> None:
 
 ## Datos
 - {SITE_URL}/data/latest.json
+- {SITE_URL}/data/robustez.json
+- {SITE_URL}/cambios.xml
 - {SITE_URL}/sitemap.xml
 
 ## Límites

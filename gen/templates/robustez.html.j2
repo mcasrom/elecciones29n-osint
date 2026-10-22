@@ -1,6 +1,7 @@
 {% set page_title = "Robustez del dato · observatorio electoral 29N" %}
 {% set page_desc = "Cinco indicadores que describen la base de la media: sondeos, casas, días desde el último, muestra declarada y dispersión (IQR). Sin nota agregada y sin pronóstico." %}
 {% set canonical = site_url ~ "/robustez.html" %}
+{% set page_image = "/og-robustez.png" %}
 {% set jsonld = webpages['robustez.html'] %}
 <!DOCTYPE html>
 <html lang="es-ES">
@@ -38,11 +39,11 @@
       <thead><tr><th>Partido</th><th>Media</th><th>Rango</th><th>Casas</th><th>IQR</th></tr></thead>
       <tbody>
       {% for p in parties %}
-        <tr><td><strong>{{ p.party }}</strong></td><td class="num">{{ fmt_pct(p.mean) }}%</td><td class="num">{{ fmt_pct(p.min) }}–{{ fmt_pct(p.max) }}%</td><td class="num">{% if p.n_houses %}{{ p.n_houses }}{% else %}—{% endif %}</td><td class="num">{% if p.iqr is not none %}{{ "%.1f"|format(p.iqr) }}{% else %}—{% endif %}</td></tr>
+        <tr><td><strong>{{ p.party }}</strong>{% if p.n < 4 or (p.n_houses and p.n_houses < 3) %}<span title="n&lt;4 o menos de 3 casas: media frágil" style="color:#f2c94c">*</span>{% endif %}</td><td class="num">{{ fmt_pct(p.mean) }}%</td><td class="num">{{ fmt_pct(p.min) }}–{{ fmt_pct(p.max) }}%</td><td class="num">{% if p.n_houses %}{{ p.n_houses }}{% else %}—{% endif %}</td><td class="num">{% if p.iqr is not none %}{{ "%.1f"|format(p.iqr) }}{% else %}—{% endif %}</td></tr>
       {% endfor %}
       </tbody>
     </table></div>
-    <p class="muted small">Rango = mínimo y máximo observados: un solo sondeo puede fijar ambos extremos. El IQR (Q3−Q1) describe la dispersión típica. El CIS publica estimación de voto, no intención directa.</p>
+    <p class="muted small">Rango = mínimo y máximo observados: un solo sondeo puede fijar ambos extremos. El IQR (Q3−Q1) describe la dispersión típica. El CIS publica estimación de voto, no intención directa. <span style="color:#b45309">*</span> n&lt;4 o menos de 3 casas: media frágil.</p>
   </div>
   {% else %}
   <div class="alert warn">No hay datos de robustez disponibles todavía.</div>

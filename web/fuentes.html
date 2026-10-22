@@ -11,7 +11,7 @@
 <meta name="description" content="Fuentes de cada dato (Electomania, INE, JEC, BOE), formatos, enlaces oficiales y conjuntos de datos descargables con su esquema.">
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/fuentes.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202610221512">
+<link rel="stylesheet" href="/css/main.css?v=202610221517">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -50,13 +50,16 @@ document.addEventListener('DOMContentLoaded', function(){
 <meta property="og:title" content="Fuentes y datos abiertos · observatorio electoral 29N">
 <meta property="og:description" content="Fuentes de cada dato (Electomania, INE, JEC, BOE), formatos, enlaces oficiales y conjuntos de datos descargables con su esquema.">
 <meta property="og:url" content="https://elecciones29n.pruebapublica.com/fuentes.html">
+
 <meta property="og:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<meta property="og:image:alt" content="Fuentes y datos abiertos · observatorio electoral 29N">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Fuentes y datos abiertos · observatorio electoral 29N">
 <meta name="twitter:description" content="Fuentes de cada dato (Electomania, INE, JEC, BOE), formatos, enlaces oficiales y conjuntos de datos descargables con su esquema.">
 <meta name="twitter:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<meta name="twitter:image:alt" content="Fuentes y datos abiertos · observatorio electoral 29N">
 <link rel="alternate" type="application/json" href="/data/latest.json" title="Datos agregados (JSON)">
 <link rel="alternate" type="application/rss+xml" href="/cambios.xml" title="Cambios · nuevos sondeos">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Fuentes y datos abiertos", "url": "https://elecciones29n.pruebapublica.com/fuentes.html", "description": "Fuentes, catálogo de datos y licencias.", "inLanguage": "es-ES"}</script>
@@ -132,6 +135,8 @@ document.addEventListener('DOMContentLoaded', function(){
         <thead><tr><th>Fichero</th><th>Contenido</th><th>Campos principales</th></tr></thead>
         <tbody>
           <tr><td><a href="/data/latest.json">latest.json</a></td><td>Agregado de sondeos</td><td>parties (mean, median, min, max, n), series, n_polls, updated_at_iso</td></tr>
+          <tr><td><a href="/data/robustez.json">robustez.json</a></td><td>Robustez del dato</td><td>health (n_polls, sample_pct, dispersion_iqr), parties (mean, min, max, n_houses, iqr), house_latest</td></tr>
+          <tr><td><a href="/cambios.xml">cambios.xml</a></td><td>RSS de cambios</td><td>nuevos sondeos y cambios de series</td></tr>
           <tr><td><a href="/data/censo-2026.json">censo-2026.json</a></td><td>Censo 29N</td><td>total, cer, cera, provincias, edad_sexo, nuevos_provincia, cera_paises</td></tr>
           <tr><td><a href="/data/censo-provincias.csv">censo-provincias.csv</a></td><td>Censo por provincia</td><td>codigo, nombre, cer, cera, total</td></tr>
           <tr><td><a href="/data/censo-edad.csv">censo-edad.csv</a></td><td>Edad y sexo (CER)</td><td>grupo, mujeres, hombres, total</td></tr>
@@ -250,11 +255,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202610221512" hidden>
+<div class="swupdate" id="swupdate" data-build="202610221517" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610221512');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610221517');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -283,7 +288,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202610221512', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202610221517', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

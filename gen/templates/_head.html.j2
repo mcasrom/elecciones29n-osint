@@ -43,13 +43,16 @@ document.addEventListener('DOMContentLoaded', function(){
 <meta property="og:title" content="{{ page_title or site_title }}">
 <meta property="og:description" content="{{ page_desc or site_desc }}">
 <meta property="og:url" content="{{ canonical or (site_url ~ '/') }}">
-<meta property="og:image" content="{{ site_url }}/og.png">
+{% set _og = page_image|default('/og.png') %}
+<meta property="og:image" content="{{ site_url }}{{ _og }}">
+<meta property="og:image:alt" content="{{ page_title or site_title }}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ page_title or site_title }}">
 <meta name="twitter:description" content="{{ page_desc or site_desc }}">
-<meta name="twitter:image" content="{{ site_url }}/og.png">
+<meta name="twitter:image" content="{{ site_url }}{{ _og }}">
+<meta name="twitter:image:alt" content="{{ page_title or site_title }}">
 <link rel="alternate" type="application/json" href="/data/latest.json" title="Datos agregados (JSON)">
 <link rel="alternate" type="application/rss+xml" href="/cambios.xml" title="Cambios · nuevos sondeos">
 <script type="application/ld+json">{{ jsonld|safe }}</script>

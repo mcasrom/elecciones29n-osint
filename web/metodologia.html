@@ -11,7 +11,7 @@
 <meta name="description" content="Cómo se calcula cada dato: agregado de sondeos, censo, participación y escaños. Reglas comunes de fuente, validación y límites.">
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/metodologia.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202610221512">
+<link rel="stylesheet" href="/css/main.css?v=202610221517">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -50,13 +50,16 @@ document.addEventListener('DOMContentLoaded', function(){
 <meta property="og:title" content="Metodología · observatorio electoral 29N 2026">
 <meta property="og:description" content="Cómo se calcula cada dato: agregado de sondeos, censo, participación y escaños. Reglas comunes de fuente, validación y límites.">
 <meta property="og:url" content="https://elecciones29n.pruebapublica.com/metodologia.html">
+
 <meta property="og:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<meta property="og:image:alt" content="Metodología · observatorio electoral 29N 2026">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Metodología · observatorio electoral 29N 2026">
 <meta name="twitter:description" content="Cómo se calcula cada dato: agregado de sondeos, censo, participación y escaños. Reglas comunes de fuente, validación y límites.">
 <meta name="twitter:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<meta name="twitter:image:alt" content="Metodología · observatorio electoral 29N 2026">
 <link rel="alternate" type="application/json" href="/data/latest.json" title="Datos agregados (JSON)">
 <link rel="alternate" type="application/rss+xml" href="/cambios.xml" title="Cambios · nuevos sondeos">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Metodología", "url": "https://elecciones29n.pruebapublica.com/metodologia.html", "description": "Método de sondeos, censo, participación, territorio y M5.", "inLanguage": "es-ES"}</script>
@@ -149,6 +152,7 @@ document.addEventListener('DOMContentLoaded', function(){
       <li><strong>Dispersión (IQR)</strong>: rango intercuartílico entre la última encuesta de cada casa (45 días), promediado en los partidos con ≥3 casas y ≥3 % de voto. Mide acuerdo entre casas, no acierto.</li>
     </ul>
     <p class="muted"><strong>Estados</strong>: «suficiente» = ≥4 sondeos, ≥2 casas y último sondeo ≤10 días; «frágil» = 11–21 días o una sola casa; «insuficiente» = &lt;4 sondeos o &gt;21 días. Si la dispersión media supera 3 pp se añade un aviso, pero no cambia el estado por sí sola.</p>
+    <p class="muted"><strong>Sensibilidad CIS</strong>: en <a href="/robustez.html">robustez del dato</a> se publica la media sin el barómetro del CIS junto a la media principal. No es una media alternativa «buena»: sirve para ver cuánto mueve un solo sondeo. El CIS publica estimación de voto, no intención directa.</p>
     <p class="muted"><strong>Qué no es</strong>: no es una puntuación de 0 a 100, no ordena encuestadoras, no estima probabilidades y no dice quién va a ganar. Es una descripción auditable de la base que sostiene la media; si falta un dato se muestra «—» en vez de inventarlo.</p>
     <p class="muted small">Los umbrales son convencionales y están en el código (<code>agg/aggregate.py</code>); se publican para que puedan discutirse.</p>
   </div>
@@ -282,11 +286,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202610221512" hidden>
+<div class="swupdate" id="swupdate" data-build="202610221517" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610221512');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610221517');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -315,7 +319,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202610221512', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202610221517', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){
