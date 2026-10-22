@@ -48,6 +48,9 @@ fi
 mv "$STAGE" web
 
 rsync -a --delete web/ /var/www/elecciones29n/
+for _f in index.html glosario.html robustez.html como-leer.html; do
+  [ -f "/var/www/elecciones29n/$_f" ] || { echo "[run_daily_server] falta $_f en /var/www"; exit 1; }
+done
 
 sleep 3
 /usr/bin/python3 scripts/canary_live.py > "$HOME/.local/state/elecciones29n/canary.log" 2>&1 || echo "[run_daily_server] canario con aviso"

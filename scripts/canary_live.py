@@ -64,6 +64,15 @@ def main() -> int:
         except Exception as e:
             errors.append(f"latest.json inválido: {e}")
 
+    for _path, _needle in (("/glosario.html", "Glosario"),
+                           ("/robustez.html", "Robustez del dato"),
+                           ("/como-leer.html", "Cómo leer la media")):
+        _c, _h = get(base + _path + "?canary=1")
+        if _c != 200:
+            errors.append(f"{_path} HTTP {_c}")
+        elif _needle not in _h:
+            errors.append(f"{_path} sin «{_needle}»")
+
     code, eh = get(base + "/electorado.html?canary=1")
     if code != 200:
         errors.append(f"electorado.html HTTP {code}")
