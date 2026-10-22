@@ -68,6 +68,52 @@
   </div>
 
   <div class="card">
+    <div class="cardhead"><h2>Ficha por provincia</h2><span class="hint">censo y escaños 2026 · resultado 2023</span></div>
+    <div class="chart-controls">
+      <label for="provSel2">Provincia</label>
+      <select id="provSel2"></select>
+    </div>
+    <div class="kpis" id="pfKpis" style="margin-top:10px"></div>
+    <div class="tablewrap" style="margin-top:12px">
+      <table>
+        <thead><tr><th>Partido</th><th>Escaños 2023</th></tr></thead>
+        <tbody id="pfSeats"></tbody>
+      </table>
+    </div>
+    <p class="muted small" id="pfNote"></p>
+  </div>
+
+  <script>
+  (function(){
+    var PROV = {{ prov_selector_json|safe }};
+    var sel = document.getElementById('provSel2');
+    var kpis = document.getElementById('pfKpis');
+    var seats = document.getElementById('pfSeats');
+    var note = document.getElementById('pfNote');
+    if (!sel) return;
+    function fmt(n){ return (n==null||isNaN(n)) ? '—' : Number(n).toLocaleString('es-ES'); }
+    function pct(n){ return (n==null||isNaN(n)) ? '—' : Number(n).toFixed(2).replace('.', ',') + ' %'; }
+    PROV.forEach(function(p){ var o=document.createElement('option'); o.value=p.nombre; o.textContent=p.nombre; sel.appendChild(o); });
+    function render(name){
+      var p = PROV.find(function(x){ return x.nombre === name; });
+      if (!p) return;
+      kpis.innerHTML =
+        '<div class="kpi"><span class="kpi-name">Electores 2026</span><b>'+fmt(p.electores)+'</b><span class="kpi-range">censo</span></div>'+
+        '<div class="kpi"><span class="kpi-name">Escaños 2026</span><b>'+p.escanos+'</b><span class="kpi-range">Congreso</span></div>'+
+        '<div class="kpi"><span class="kpi-name">Electores/escaño</span><b>'+fmt(Math.round(p.electores_por_escanos))+'</b><span class="kpi-range">2026</span></div>'+
+        '<div class="kpi"><span class="kpi-name">Participación 2023</span><b>'+pct(p.participacion_2023)+'</b><span class="kpi-range">sobre censo</span></div>';
+      var rows = (p.escanos_2023||[]).map(function(x){ return '<tr><td>'+x.partido+'</td><td class="num">'+x.escanos+'</td></tr>'; }).join('');
+      seats.innerHTML = rows || '<tr><td colspan="2">—</td></tr>';
+      note.textContent = 'Resultado de 2023 en '+p.nombre+'; los escaños de 2026 son la asignación legal (RD 806/2026), no una proyección.';
+    }
+    sel.addEventListener('change', function(){ render(sel.value); if (history.replaceState) history.replaceState(null,'','#prov='+encodeURIComponent(sel.value)); });
+    var h = new URLSearchParams(location.hash.slice(1)).get('prov');
+    sel.value = PROV.some(function(x){ return x.nombre === h; }) ? h : 'Madrid';
+    render(sel.value);
+  })();
+  </script>
+
+  <div class="card">
     <div class="cardhead"><h2>Cómo se reparten los escaños</h2></div>
     <ul class="muted small">
       <li><strong>Circunscripción provincial</strong>: cada provincia elige un número fijo de diputados; no hay distrito nacional único.</li>

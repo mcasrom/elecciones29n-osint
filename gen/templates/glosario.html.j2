@@ -1,0 +1,85 @@
+{% set page_title = "Glosario electoral · elecciones 29N 2026" %}
+{% set page_desc = "Diccionario breve de los términos que aparecen en el observatorio: sondeos, muestra, media móvil, IQR, D'Hondt, censo, blackout y más. Definiciones claras, sin jerga." %}
+{% set canonical = site_url ~ "/glosario.html" %}
+{% set jsonld = webpages['glosario.html'] %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Glosario</h1>
+  <p class="muted" style="margin:0 0 14px">Las palabras que usa el observatorio, en dos líneas. No sustituye a la <a href="/metodologia.html">metodología</a>: aquí se define; allí se explica cómo se calcula y qué límites tiene.</p>
+
+  <div class="card">
+    <div class="cardhead"><h2>Sondeos y métodos</h2><span class="hint">cómo se mide</span></div>
+    <p id="sondeo"><strong>Sondeo</strong> — Medición de opinión sobre una muestra. No es una elección ni un pronóstico: es una foto con fecha, método y margen.</p>
+    <p id="tracking"><strong>Tracking</strong> — Serie de sondeos frecuentes de una misma casa. Sirve para ver evolución, pero no son observaciones independientes: comparten método y cocina.</p>
+    <p id="panel"><strong>Panel</strong> — Grupo de personas que responde varias veces a lo largo del tiempo. No es lo mismo que un tracking: aquí se sigue a los mismos participantes.</p>
+    <p id="intencion-directa"><strong>Intención directa</strong> — Respuesta literal a «¿a quién votaría?». Es la materia prima; no incorpora correcciones por participación ni por indecisos.</p>
+    <p id="estimacion-voto"><strong>Estimación de voto</strong> — Resultado después de asignar indecisos, ajustar por probabilidad de voto y otras correcciones. No es la intención directa: es una interpretación modelada.</p>
+    <p id="recuerdo-voto"><strong>Recuerdo de voto</strong> — Lo que la persona dice que votó en la elección anterior. Se usa para ponderar, pero está sesgado: se recuerda peor lo que no se votó.</p>
+    <p id="cocina"><strong>Cocina (y cocinero)</strong> — Conjunto de ajustes que una casa aplica a los datos brutos. El «cocinero» es quien decide esos ajustes. Dos casas con la misma muestra pueden publicar cifras distintas.</p>
+    <p id="indecisos"><strong>Indecisos</strong> — Quienes no responden o no han decidido. Cómo se reparten (o si se dejan fuera) cambia el resultado final.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Muestra y error</h2><span class="hint">qué sostiene el dato</span></div>
+    <p id="muestra"><strong>Muestra</strong> — Subconjunto de la población al que se pregunta. Su tamaño importa, pero no basta: también importa cómo se seleccionó.</p>
+    <p id="tamano-muestral"><strong>Tamaño muestral (n)</strong> — Número de entrevistas. Más n reduce el error de muestreo, no los sesgos de selección ni de cocina.</p>
+    <p id="ponderacion"><strong>Ponderación</strong> — Pesos que se aplican para que la muestra se parezca a la población (edad, sexo, territorio, recuerdo de voto). Corregir una variable puede desajustar otra.</p>
+    <p id="cuotas"><strong>Cuotas</strong> — Se fijan cuotas por grupos hasta completar la muestra. Es habitual en sondeos comerciales y no permite calcular el error como en un muestreo aleatorio simple.</p>
+    <p id="error-muestral"><strong>Error muestral</strong> — Incertidumbre atribuible al azar de muestrear. En cuotas no se calcula igual; desconfía de quien da un «±3 %» sin explicar el diseño.</p>
+    <p id="intervalo-confianza"><strong>Intervalo de confianza</strong> — Rango estadístico asociado a un nivel de confianza y a un diseño concreto. <strong>El mínimo–máximo de los sondeos no es un intervalo de confianza</strong>: es dispersión observada.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Lectura de la media</h2><span class="hint">cómo se resume</span></div>
+    <p id="media"><strong>Media</strong> — Promedio de los valores. Es sensible a un valor extremo: un solo sondeo puede moverla.</p>
+    <p id="mediana"><strong>Mediana</strong> — Valor central. Resiste mejor los extremos; si se separa mucho de la media, hay outliers.</p>
+    <p id="media-movil"><strong>Media móvil</strong> — Media calculada en una ventana (aquí, 14 días centrada). Suaviza el ruido; no anticipa el resultado.</p>
+    <p id="rango"><strong>Rango</strong> — Mínimo y máximo observados. No es una horquilla de probabilidad ni un intervalo de confianza: un solo sondeo puede fijar ambos extremos.</p>
+    <p id="iqr"><strong>IQR</strong> — Rango intercuartílico: diferencia entre el percentil 75 y el 25. Describe la dispersión típica sin dejarse arrastrar por los extremos.</p>
+    <p id="dispersion"><strong>Dispersión</strong> — Cuánto difieren los sondeos o las casas entre sí. Más dispersión = menos estabilidad de la media.</p>
+    <p id="outlier"><strong>Outlier</strong> — Valor atípico. Antes de descartarlo, comprueba casa, método, muestra y fecha; puede ser un aviso, no un error.</p>
+    <p id="efecto-casa"><strong>Efecto de casa</strong> — Diferencia sistemática entre encuestadoras. Explica por qué dos sondeos de la misma semana pueden discrepar.</p>
+    <p id="herding"><strong>Herding</strong> — Tendencia de las casas a acercarse a lo que publican las demás para no quedar fuera de rango. Puede ocultar incertidumbre real.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Sistema electoral</h2><span class="hint">cómo se traduce en escaños</span></div>
+    <p id="d-hondt"><strong>D'Hondt</strong> — Método de reparto de escaños dentro de cada circunscripción. Favorece a los partidos grandes y a los que concentran voto.</p>
+    <p id="circunscripcion"><strong>Circunscripción</strong> — En el Congreso, la provincia (más Ceuta y Melilla). Cada una elige un número fijo de diputados.</p>
+    <p id="escano"><strong>Escaño</strong> — Puesto en el Congreso. Son 350; la mayoría absoluta está en 176.</p>
+    <p id="barrera"><strong>Barrera electoral</strong> — Umbral mínimo para entrar en el reparto: 3 % de los votos válidos en la circunscripción.</p>
+    <p id="mayoria-absoluta"><strong>Mayoría absoluta</strong> — 176 escaños. No es lo mismo que ganar en votos: el sistema es provincial.</p>
+    <p id="censo"><strong>Censo, CER y CERA</strong> — CER: residentes en España; CERA: residentes ausentes (voto exterior). El censo no es el número de votantes: mide quién puede votar.</p>
+    <p id="participacion"><strong>Participación y abstención</strong> — Porcentaje del censo que vota y que no vota. No se proyecta: se mide cuando ocurre.</p>
+    <p id="voto-nulo"><strong>Voto nulo y en blanco</strong> — Nulo: no válido (por ejemplo, varias papeletas). Blanco: papeleta sin candidatura. Afectan al denominador de los porcentajes.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Regulación y publicación</h2><span class="hint">cuándo y cómo se puede publicar</span></div>
+    <p id="jec"><strong>JEC</strong> — Junta Electoral Central. Interpreta y aplica la normativa electoral durante el proceso.</p>
+    <p id="loreg"><strong>LOREG</strong> — Ley Orgánica del Régimen Electoral General. Fija el sistema, el censo y las reglas de publicación.</p>
+    <p id="blackout"><strong>Blackout electoral</strong> — Periodo en el que no se publican, difunden ni reproducen sondeos: del 24 al 28 de noviembre de 2026. El agregado se congela.</p>
+    <p id="agregado"><strong>Agregado</strong> — Resumen de varios sondeos con una regla publicada. No es un pronóstico ni una estimación propia de intención de voto.</p>
+    <p id="escenario"><strong>Escenario o banda</strong> — Rango de resultados posibles bajo supuestos. Sirve para ordenar la incertidumbre, no para asignar probabilidades.</p>
+    <p id="senal"><strong>Señal</strong> — Patrón observable (repetición, sincronía, amplificación). Una señal no es una atribución: para atribuir hacen falta pruebas.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Cómo usar el glosario</h2></div>
+    <p class="muted">Si un término no está, <a href="/contacto.html">escríbeme</a>. Si quieres el cálculo y los límites, están en la <a href="/metodologia.html">metodología</a>. Si buscas los datos, en <a href="/fuentes.html">fuentes y datos abiertos</a>.</p>
+    <div class="cta">
+      <a class="btn" href="/metodologia.html">Metodología</a>
+      <a class="btn ghost" href="/territorio.html">Territorio</a>
+      <a class="btn ghost" href="/participacion.html">Participación</a>
+    </div>
+  </div>
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>

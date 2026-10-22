@@ -35,6 +35,7 @@ PAGES = [
     ("noche-electoral.html", "noche-electoral.html", "2026-10-18", "weekly", "0.7"),
     ("factores.html", "factores.html", "2026-10-18", "monthly", "0.6"),
     ("comportamiento.html", "comportamiento.html", "2026-10-18", "monthly", "0.6"),
+    ("glosario.html", "glosario.html", "2026-10-22", "monthly", "0.6"),
     ("apoyo.html", "apoyo.html", "2026-10-18", "yearly", "0.5"),
     ("sobre-mi.html", "sobre-mi.html", "2026-10-18", "yearly", "0.5"),
 ]
@@ -1141,6 +1142,34 @@ def build_chart(series: dict, parties: list) -> str:
     return "".join(parts)
 
 
+def build_prov_selector(escanos: dict, congreso: dict) -> list:
+    import unicodedata
+
+    def norm(s: str) -> str:
+        s = unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode().lower()
+        return s.replace("/", " ").replace("-", " ").strip()
+
+    c23 = {}
+    for p in ((congreso.get("elecciones", {}) or {}).get("2023-07-23", {}) or {}).get("provincias", []) or []:
+        c23[norm(p.get("nombre"))] = p
+    out = []
+    for e in escanos.get("provincias", []) or []:
+        c = c23.get(norm(e.get("nombre")), {})
+        esc = c.get("escanos", {}) or {}
+        votos = c.get("votos", {}) or {}
+        top = sorted(esc.items(), key=lambda kv: (-kv[1], -votos.get(kv[0], 0)))[:6]
+        out.append({
+            "nombre": e.get("nombre"),
+            "escanos": e.get("escanos"),
+            "electores": e.get("electores"),
+            "electores_por_escanos": e.get("electores_por_escanos"),
+            "participacion_2023": c.get("participacion"),
+            "votantes_2023": c.get("votantes"),
+            "escanos_2023": [{"partido": k, "escanos": v} for k, v in top],
+        })
+    return sorted(out, key=lambda x: x["nombre"])
+
+
 def main(out: str = "web") -> None:
     global OUT
     OUT = out
@@ -1258,6 +1287,8 @@ def main(out: str = "web") -> None:
     series = latest.get("series", {})
 
     build_ts = now.strftime("%Y%m%d%H%M")
+    prov_selector = build_prov_selector(escanos, congreso)
+
     context = {
         "build_ts": build_ts,
         "build_date": build_date,
@@ -1303,6 +1334,8 @@ def main(out: str = "web") -> None:
         "house_latest": latest.get("house_latest", []),
         "house_compare": build_house_compare(latest.get("house_mean", {}), parties),
         "escanos": escanos,
+        "prov_selector": prov_selector,
+        "prov_selector_json": json.dumps(prov_selector, ensure_ascii=False),
         "resultados": resultados,
         "congreso": congreso,
         "prov_part": prov_part,
@@ -1317,6 +1350,7 @@ def main(out: str = "web") -> None:
             "metodologia.html": build_webpage_jsonld("Metodología", "/metodologia.html", "Método de sondeos, censo, participación, territorio y M5."),
             "fuentes.html": build_webpage_jsonld("Fuentes y datos abiertos", "/fuentes.html", "Fuentes, catálogo de datos y licencias."),
             "caveat.html": build_webpage_jsonld("Qué no dice este sitio", "/caveat.html", "Límites y no-objetivos del observatorio."),
+            "glosario.html": build_webpage_jsonld("Glosario", "/glosario.html", "Diccionario breve de términos electorales y de sondeos."),
             "apoyo.html": build_webpage_jsonld("Apoyar el proyecto", "/apoyo.html", "Ko-fi, compartir y colaboración."),
             "about.html": build_webpage_jsonld("Acerca del proyecto", "/about.html", "Proyecto local-first, estático y sin tracking."),
         },
@@ -1348,7 +1382,7 @@ def main(out: str = "web") -> None:
     }
 
     for tname in ["index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "participacion.html", "territorio.html",
-             "apoyo.html", "sobre-mi.html", "noche-electoral.html", "factores.html", "comportamiento.html"]:
+             "glosario.html", "apoyo.html", "sobre-mi.html", "noche-electoral.html", "factores.html", "comportamiento.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(current=tname, **context)
         with open(os.path.join(OUT, tname), "w", encoding="utf-8") as f:

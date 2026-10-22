@@ -1,0 +1,293 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glosario electoral · elecciones 29N 2026</title>
+<meta name="description" content="Diccionario breve de los términos que aparecen en el observatorio: sondeos, muestra, media móvil, IQR, D'Hondt, censo, blackout y más. Definiciones claras, sin jerga.">
+<link rel="canonical" href="https://elecciones29n.pruebapublica.com/glosario.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="stylesheet" href="/css/main.css?v=202610220721">
+<script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  function sync(){
+    var light = document.documentElement.dataset.theme === 'light';
+    document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+      var i=b.querySelector('.ticon'), l=b.querySelector('.tlabel');
+      if(i) i.textContent = light ? '☾' : '☀';
+      if(l) l.textContent = light ? 'Oscuro' : 'Claro';
+      b.setAttribute('title', light ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro');
+    });
+  }
+  sync();
+  document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var root = document.documentElement;
+      var next = root.dataset.theme === 'light' ? 'dark' : 'light';
+      root.dataset.theme = next;
+      try { localStorage.setItem('e29n-theme', next); } catch(e) {}
+      sync();
+    });
+  });
+});
+</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta name="theme-color" content="#0b0c1c">
+<meta name="generator" content="elecciones29n-osint v0.8.5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="elecciones29n-osint">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Glosario electoral · elecciones 29N 2026">
+<meta property="og:description" content="Diccionario breve de los términos que aparecen en el observatorio: sondeos, muestra, media móvil, IQR, D'Hondt, censo, blackout y más. Definiciones claras, sin jerga.">
+<meta property="og:url" content="https://elecciones29n.pruebapublica.com/glosario.html">
+<meta property="og:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Glosario electoral · elecciones 29N 2026">
+<meta name="twitter:description" content="Diccionario breve de los términos que aparecen en el observatorio: sondeos, muestra, media móvil, IQR, D'Hondt, censo, blackout y más. Definiciones claras, sin jerga.">
+<meta name="twitter:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<link rel="alternate" type="application/json" href="/data/latest.json" title="Datos agregados (JSON)">
+<link rel="alternate" type="application/rss+xml" href="/cambios.xml" title="Cambios · nuevos sondeos">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Glosario", "url": "https://elecciones29n.pruebapublica.com/glosario.html", "description": "Diccionario breve de términos electorales y de sondeos.", "inLanguage": "es-ES"}</script>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">
+        <span class="mark"></span>
+        <span class="brandname"><a href="/">elecciones29n-osint</a></span>
+        <span class="tag">Media agregada de sondeos · 29N 2026</span>
+      </div>
+      <div class="status">
+        <button class="helpopen" id="helpbtn" aria-expanded="false" aria-controls="helppanel">? Ayuda</button>
+        <button class="themebtn" data-theme-toggle aria-label="Cambiar entre tema claro y oscuro" title="Cambiar tema"><span class="ticon">☀</span><span class="tlabel">Claro</span></button>
+      </div>
+    </div>
+
+    <nav class="mainnav" aria-label="Principal">
+      <div class="navrow navrow-primary">
+        <a class="navpill " href="/">Inicio</a>
+        <a class="navpill " href="/electorado.html">Electorado</a>
+        <a class="navpill " href="/participacion.html">Participación</a>
+        <a class="navpill " href="/territorio.html">Territorio</a>
+        <a class="navpill " href="/noche-electoral.html">Noche electoral</a>
+      </div>
+      <div class="navrow navrow-secondary">
+        <a class="" href="/metodologia.html">Metodología</a>
+        <a class="active" href="/glosario.html">Glosario</a>
+        <a class="" href="/fuentes.html">Fuentes y datos</a>
+        <a class="" href="/factores.html">Factores</a>
+        <a class="" href="/comportamiento.html">Comportamiento</a>
+        <a class="" href="/caveat.html">Qué no dice</a>
+        <a class="" href="/apoyo.html">Apoyo</a>
+        <a class="" href="/sobre-mi.html">Sobre mí</a>
+        <a class="" href="/about.html">Acerca del proyecto</a>
+        <a class="navdata" href="/data/latest.json">Datos abiertos ↗</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Glosario</h1>
+  <p class="muted" style="margin:0 0 14px">Las palabras que usa el observatorio, en dos líneas. No sustituye a la <a href="/metodologia.html">metodología</a>: aquí se define; allí se explica cómo se calcula y qué límites tiene.</p>
+
+  <div class="card">
+    <div class="cardhead"><h2>Sondeos y métodos</h2><span class="hint">cómo se mide</span></div>
+    <p id="sondeo"><strong>Sondeo</strong> — Medición de opinión sobre una muestra. No es una elección ni un pronóstico: es una foto con fecha, método y margen.</p>
+    <p id="tracking"><strong>Tracking</strong> — Serie de sondeos frecuentes de una misma casa. Sirve para ver evolución, pero no son observaciones independientes: comparten método y cocina.</p>
+    <p id="panel"><strong>Panel</strong> — Grupo de personas que responde varias veces a lo largo del tiempo. No es lo mismo que un tracking: aquí se sigue a los mismos participantes.</p>
+    <p id="intencion-directa"><strong>Intención directa</strong> — Respuesta literal a «¿a quién votaría?». Es la materia prima; no incorpora correcciones por participación ni por indecisos.</p>
+    <p id="estimacion-voto"><strong>Estimación de voto</strong> — Resultado después de asignar indecisos, ajustar por probabilidad de voto y otras correcciones. No es la intención directa: es una interpretación modelada.</p>
+    <p id="recuerdo-voto"><strong>Recuerdo de voto</strong> — Lo que la persona dice que votó en la elección anterior. Se usa para ponderar, pero está sesgado: se recuerda peor lo que no se votó.</p>
+    <p id="cocina"><strong>Cocina (y cocinero)</strong> — Conjunto de ajustes que una casa aplica a los datos brutos. El «cocinero» es quien decide esos ajustes. Dos casas con la misma muestra pueden publicar cifras distintas.</p>
+    <p id="indecisos"><strong>Indecisos</strong> — Quienes no responden o no han decidido. Cómo se reparten (o si se dejan fuera) cambia el resultado final.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Muestra y error</h2><span class="hint">qué sostiene el dato</span></div>
+    <p id="muestra"><strong>Muestra</strong> — Subconjunto de la población al que se pregunta. Su tamaño importa, pero no basta: también importa cómo se seleccionó.</p>
+    <p id="tamano-muestral"><strong>Tamaño muestral (n)</strong> — Número de entrevistas. Más n reduce el error de muestreo, no los sesgos de selección ni de cocina.</p>
+    <p id="ponderacion"><strong>Ponderación</strong> — Pesos que se aplican para que la muestra se parezca a la población (edad, sexo, territorio, recuerdo de voto). Corregir una variable puede desajustar otra.</p>
+    <p id="cuotas"><strong>Cuotas</strong> — Se fijan cuotas por grupos hasta completar la muestra. Es habitual en sondeos comerciales y no permite calcular el error como en un muestreo aleatorio simple.</p>
+    <p id="error-muestral"><strong>Error muestral</strong> — Incertidumbre atribuible al azar de muestrear. En cuotas no se calcula igual; desconfía de quien da un «±3 %» sin explicar el diseño.</p>
+    <p id="intervalo-confianza"><strong>Intervalo de confianza</strong> — Rango estadístico asociado a un nivel de confianza y a un diseño concreto. <strong>El mínimo–máximo de los sondeos no es un intervalo de confianza</strong>: es dispersión observada.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Lectura de la media</h2><span class="hint">cómo se resume</span></div>
+    <p id="media"><strong>Media</strong> — Promedio de los valores. Es sensible a un valor extremo: un solo sondeo puede moverla.</p>
+    <p id="mediana"><strong>Mediana</strong> — Valor central. Resiste mejor los extremos; si se separa mucho de la media, hay outliers.</p>
+    <p id="media-movil"><strong>Media móvil</strong> — Media calculada en una ventana (aquí, 14 días centrada). Suaviza el ruido; no anticipa el resultado.</p>
+    <p id="rango"><strong>Rango</strong> — Mínimo y máximo observados. No es una horquilla de probabilidad ni un intervalo de confianza: un solo sondeo puede fijar ambos extremos.</p>
+    <p id="iqr"><strong>IQR</strong> — Rango intercuartílico: diferencia entre el percentil 75 y el 25. Describe la dispersión típica sin dejarse arrastrar por los extremos.</p>
+    <p id="dispersion"><strong>Dispersión</strong> — Cuánto difieren los sondeos o las casas entre sí. Más dispersión = menos estabilidad de la media.</p>
+    <p id="outlier"><strong>Outlier</strong> — Valor atípico. Antes de descartarlo, comprueba casa, método, muestra y fecha; puede ser un aviso, no un error.</p>
+    <p id="efecto-casa"><strong>Efecto de casa</strong> — Diferencia sistemática entre encuestadoras. Explica por qué dos sondeos de la misma semana pueden discrepar.</p>
+    <p id="herding"><strong>Herding</strong> — Tendencia de las casas a acercarse a lo que publican las demás para no quedar fuera de rango. Puede ocultar incertidumbre real.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Sistema electoral</h2><span class="hint">cómo se traduce en escaños</span></div>
+    <p id="d-hondt"><strong>D'Hondt</strong> — Método de reparto de escaños dentro de cada circunscripción. Favorece a los partidos grandes y a los que concentran voto.</p>
+    <p id="circunscripcion"><strong>Circunscripción</strong> — En el Congreso, la provincia (más Ceuta y Melilla). Cada una elige un número fijo de diputados.</p>
+    <p id="escano"><strong>Escaño</strong> — Puesto en el Congreso. Son 350; la mayoría absoluta está en 176.</p>
+    <p id="barrera"><strong>Barrera electoral</strong> — Umbral mínimo para entrar en el reparto: 3 % de los votos válidos en la circunscripción.</p>
+    <p id="mayoria-absoluta"><strong>Mayoría absoluta</strong> — 176 escaños. No es lo mismo que ganar en votos: el sistema es provincial.</p>
+    <p id="censo"><strong>Censo, CER y CERA</strong> — CER: residentes en España; CERA: residentes ausentes (voto exterior). El censo no es el número de votantes: mide quién puede votar.</p>
+    <p id="participacion"><strong>Participación y abstención</strong> — Porcentaje del censo que vota y que no vota. No se proyecta: se mide cuando ocurre.</p>
+    <p id="voto-nulo"><strong>Voto nulo y en blanco</strong> — Nulo: no válido (por ejemplo, varias papeletas). Blanco: papeleta sin candidatura. Afectan al denominador de los porcentajes.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Regulación y publicación</h2><span class="hint">cuándo y cómo se puede publicar</span></div>
+    <p id="jec"><strong>JEC</strong> — Junta Electoral Central. Interpreta y aplica la normativa electoral durante el proceso.</p>
+    <p id="loreg"><strong>LOREG</strong> — Ley Orgánica del Régimen Electoral General. Fija el sistema, el censo y las reglas de publicación.</p>
+    <p id="blackout"><strong>Blackout electoral</strong> — Periodo en el que no se publican, difunden ni reproducen sondeos: del 24 al 28 de noviembre de 2026. El agregado se congela.</p>
+    <p id="agregado"><strong>Agregado</strong> — Resumen de varios sondeos con una regla publicada. No es un pronóstico ni una estimación propia de intención de voto.</p>
+    <p id="escenario"><strong>Escenario o banda</strong> — Rango de resultados posibles bajo supuestos. Sirve para ordenar la incertidumbre, no para asignar probabilidades.</p>
+    <p id="senal"><strong>Señal</strong> — Patrón observable (repetición, sincronía, amplificación). Una señal no es una atribución: para atribuir hacen falta pruebas.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Cómo usar el glosario</h2></div>
+    <p class="muted">Si un término no está, <a href="/contacto.html">escríbeme</a>. Si quieres el cálculo y los límites, están en la <a href="/metodologia.html">metodología</a>. Si buscas los datos, en <a href="/fuentes.html">fuentes y datos abiertos</a>.</p>
+    <div class="cta">
+      <a class="btn" href="/metodologia.html">Metodología</a>
+      <a class="btn ghost" href="/territorio.html">Territorio</a>
+      <a class="btn ghost" href="/participacion.html">Participación</a>
+    </div>
+  </div>
+</main>
+<footer class="footer">
+  <div class="container">
+    <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
+    <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
+    <p>Datos abiertos · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="https://github.com/mcasrom/elecciones29n-osint">Código (AGPL-3.0)</a> · Hecho por Miguel Castillo · v0.8.5 · 2026-10-22.</p>
+    <p class="eco">Ecosistema:
+      <a href="https://www.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Prueba Pública</a> ·
+      <a href="https://analisis.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Blog de análisis</a> ·
+      <a href="https://fimi.viajeinteligencia.com/?utm_source=elecciones29n&utm_medium=footer">Observatorio de amplificación</a> ·
+      <a href="https://vivienda.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Vivienda</a>
+    </p>
+    <p><a class="support" href="https://ko-fi.com/m_castillo" target="_blank" rel="noopener noreferrer">☕ Apoya el proyecto en Ko-fi</a></p>
+  </div>
+</footer>
+
+<aside class="helppanel" id="helppanel" role="dialog" aria-modal="true" aria-labelledby="helptitle" hidden>
+  <div class="helphead">
+    <h2 id="helptitle">Cómo leer el observatorio</h2>
+    <button class="helpclose" id="helpclose" aria-label="Cerrar ayuda">×</button>
+  </div>
+  <ol class="helpsteps">
+    <li><strong>Sondeos ≠ pronóstico.</strong> Es la media de los sondeos publicados, con rango mínimo–máximo. El rango no es un intervalo de confianza.</li>
+    <li><strong>Tres capas distintas.</strong> Quién puede votar (censo), quién vota (participación) y cómo se traduce (territorio).</li>
+    <li><strong>Datos oficiales.</strong> Censo (INE), participación (JEC) y escaños (BOE) no son estimaciones. Los sondeos sí.</li>
+    <li><strong>Lo que no dice.</strong> No predice el resultado ni atribuye preferencias por edad, sexo o territorio.</li>
+  </ol>
+  <div class="cta">
+    <a class="btn" href="/metodologia.html">Ver metodología</a>
+    <a class="btn ghost" href="/caveat.html">Qué no dice este sitio</a>
+  </div>
+</aside>
+<script>
+(function(){
+  var btn = document.getElementById('helpbtn');
+  var panel = document.getElementById('helppanel');
+  var bd = document.getElementById('helpbackdrop');
+  var close = document.getElementById('helpclose');
+  if (!btn || !panel) return;
+  var open = false;
+  function setOpen(v){
+    open = v;
+    panel.hidden = !v;
+    bd.hidden = !v;
+    btn.setAttribute('aria-expanded', v ? 'true' : 'false');
+    document.body.style.overflow = v ? 'hidden' : '';
+    if (v) close.focus();
+  }
+  btn.addEventListener('click', function(){ setOpen(true); });
+  close.addEventListener('click', function(){ setOpen(false); });
+  bd.addEventListener('click', function(){ setOpen(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && open) setOpen(false); });
+  var intro = document.getElementById('helpintro');
+  var INTRO_KEY = 'e29n_help_intro';
+  if (intro) {
+    try {
+      if (!localStorage.getItem(INTRO_KEY)) intro.hidden = false;
+    } catch(e) {}
+    var io = document.getElementById('helpintro-open');
+    var ic = document.getElementById('helpintro-off');
+    if (io) io.addEventListener('click', function(){
+      intro.hidden = true; setOpen(true);
+      try { localStorage.setItem(INTRO_KEY, 'off'); } catch(e) {}
+    });
+    if (ic) ic.addEventListener('click', function(){
+      intro.hidden = true;
+      try { localStorage.setItem(INTRO_KEY, 'off'); } catch(e) {}
+    });
+  }
+})();
+</script>
+
+<div class="swupdate" id="swupdate" data-build="202610220721" hidden>
+  <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
+  <button id="swupdate-btn" type="button">Recargar</button>
+  <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610220721');}catch(e){}">×</button>
+</div>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function(){
+    var box = document.getElementById('swupdate');
+    var btn = document.getElementById('swupdate-btn');
+    var close = document.getElementById('swupdate-close');
+    var reg = null;
+    var userClicked = false;
+    var DISMISS = 'e29n_sw_dismiss';
+    function isDismissed(){
+      try { return !!(reg && reg.waiting && localStorage.getItem(DISMISS) === reg.waiting.scriptURL); }
+      catch(e) { return false; }
+    }
+    function isHiddenHere(){
+      try { return sessionStorage.getItem('e29n_sw_hidden') === (box && box.dataset.build); }
+      catch(e) { return false; }
+    }
+    function show(){ if (box && !isDismissed() && !isHiddenHere()) box.hidden = false; }
+    if (close) close.addEventListener('click', function(){
+      box.hidden = true;
+      try { if (reg && reg.waiting) localStorage.setItem(DISMISS, reg.waiting.scriptURL); } catch(e) {}
+    });
+    if (btn) btn.addEventListener('click', function(){
+      box.hidden = true;
+      userClicked = true;
+      if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
+    });
+    navigator.serviceWorker.register('/sw.js?v=202610220721', {updateViaCache: 'none'}).then(function(r){
+      reg = r;
+      if (r.waiting && navigator.serviceWorker.controller) show();
+      r.addEventListener('updatefound', function(){
+        var nw = r.installing;
+        if (!nw) return;
+        nw.addEventListener('statechange', function(){
+          if (nw.state === 'installed' && navigator.serviceWorker.controller) show();
+        });
+      });
+    }).catch(function(){});
+    navigator.serviceWorker.addEventListener('controllerchange', function(){ if (userClicked) window.location.reload(); });
+  });
+}
+</script>
+</body>
+</html>
