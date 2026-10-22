@@ -58,7 +58,7 @@
       <p class="stamp">
         {% if last_poll_date %}Último sondeo: <strong>{{ last_poll_date }}</strong> · {% endif %}
         Próximo blackout en <strong>{{ days_to_blackout }} días</strong> (24–28 nov) ·
-        <a href="/data/latest.json">datos abiertos</a>
+        <a href="/data/latest.json">datos abiertos</a> · <a href="/robustez.html">robustez del dato</a>
       </p>
     </div>
 
@@ -149,8 +149,8 @@
       <details><summary><strong>¿Por qué mostrar el rango y no solo la media?</strong></summary><p class="muted small">Porque la dispersión entre encuestadoras es parte del dato. Una cifra única oculta la incertidumbre.</p></details>
     </div>
 
-    <div class="card" id="salud">
-      <div class="cardhead"><h2>Salud de la muestra</h2><span class="hint">qué sostiene la media</span></div>
+    <div class="card" id="salud"><span id="robustez"></span>
+      <div class="cardhead"><h2><a href="/robustez.html">Robustez del dato</a></h2><span class="hint">qué sostiene la media · <a href="/robustez.html">ficha completa →</a></span></div>
       {% if health %}
       {% set hlabel = {'ok':'Muestra suficiente','warn':'Muestra frágil','bad':'Muestra insuficiente'}[health.status] %}
       <div class="health">

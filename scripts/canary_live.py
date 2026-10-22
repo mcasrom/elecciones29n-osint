@@ -44,8 +44,8 @@ def main() -> int:
             errors.append("gráfico sin puntos")
         if "media móvil de 14 días" not in html:
             errors.append("home sin etiqueta de media móvil")
-        if "Salud de la muestra" not in html:
-            errors.append("home sin panel de salud de la muestra")
+        if "Robustez del dato" not in html:
+            errors.append("home sin panel de robustez del dato")
         if 'id="tab-evolucion"' not in html:
             errors.append("sin pestaña Evolución")
         if 'property="og:image"' not in html:

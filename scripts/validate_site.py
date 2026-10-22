@@ -20,7 +20,7 @@ from metrics import moving_average, series_span  # noqa: E402
 REQUIRED = [
     "index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html",
     "robots.txt", "sitemap.xml", "llms.txt", "favicon.svg", "og.png",
-    "cambios.xml", "data/latest.json", "css/main.css", "glosario.html",
+    "cambios.xml", "data/latest.json", "css/main.css", "glosario.html", "robustez.html",
     "electorado.html", "data/censo-2026.json", "data/censo-provincias.csv",
     "participacion.html", "data/participacion.json", "data/participacion.csv",
     "territorio.html", "data/escanos-2026.json", "data/escanos-2026.csv",
@@ -63,8 +63,8 @@ def main() -> int:
         for meta in ('property="og:image"', 'name="twitter:card"', 'rel="canonical"', "application/ld+json"):
             if meta not in html:
                 errors.append(f"falta meta {meta}")
-        if "Salud de la muestra" not in html:
-            errors.append("index.html sin panel de salud de la muestra")
+        if "Robustez del dato" not in html:
+            errors.append("index.html sin panel de robustez del dato")
         if "cambios.xml" not in html:
             warns.append("index.html no enlaza cambios.xml")
 

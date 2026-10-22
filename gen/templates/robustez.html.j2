@@ -1,0 +1,70 @@
+{% set page_title = "Robustez del dato · observatorio electoral 29N" %}
+{% set page_desc = "Cinco indicadores que describen la base de la media: sondeos, casas, días desde el último, muestra declarada y dispersión (IQR). Sin nota agregada y sin pronóstico." %}
+{% set canonical = site_url ~ "/robustez.html" %}
+{% set jsonld = webpages['robustez.html'] %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Robustez del dato</h1>
+  <p class="muted" style="margin:0 0 14px">Cinco propiedades de la media publicada. No es una nota de calidad, ni una puntuación de 0 a 100, ni un pronóstico: describe <strong>cuánto sostiene</strong> el dato y qué parte falta.</p>
+
+  {% if health %}
+  {% set hlabel = {'ok':'Muestra suficiente','warn':'Muestra frágil','bad':'Muestra insuficiente'}[health.status] %}
+  <div class="card">
+    <div class="cardhead"><h2>Indicadores</h2><span class="chip {{ health.status }}">{{ hlabel }}</span></div>
+    <div class="health" style="margin-top:6px">
+      <div class="healthitems">
+        <span><b>{{ health.n_polls }}</b>sondeos</span>
+        <span><b>{{ health.n_pollsters }}</b>casas</span>
+        <span><b>{% if health.days_since_last is not none %}{{ health.days_since_last }}{% else %}—{% endif %}</b>días desde el último</span>
+        <span><b>{% if health.sample_pct is not none %}{{ health.sample_pct }}%{% else %}—{% endif %}</b>con muestra declarada</span>
+        <span><b>{% if health.dispersion_iqr is not none %}{{ "%.1f"|format(health.dispersion_iqr) }}{% else %}—{% endif %}</b>pp de dispersión (IQR)</span>
+      </div>
+    </div>
+    {% if health.reasons %}
+    <p class="muted small" style="margin-top:10px">Aviso: {{ health.reasons|join(' · ') }}. La media se publica igualmente, pero con menos estabilidad.</p>
+    {% endif %}
+    <p class="muted small">La <strong>muestra declarada</strong> es baja porque la fuente principal (Onda Cero) no publica <code>n</code>; no es un defecto de los sondeos, es un límite de la fuente. El <strong>IQR</strong> es la dispersión típica; el mínimo–máximo no es un intervalo de confianza.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Por partido</h2><span class="hint">media, rango entre sondeos, casas e IQR</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Partido</th><th>Media</th><th>Rango</th><th>Casas</th><th>IQR</th></tr></thead>
+      <tbody>
+      {% for p in parties %}
+        <tr><td><strong>{{ p.party }}</strong></td><td class="num">{{ fmt_pct(p.mean) }}%</td><td class="num">{{ fmt_pct(p.min) }}–{{ fmt_pct(p.max) }}%</td><td class="num">{% if p.n_houses %}{{ p.n_houses }}{% else %}—{% endif %}</td><td class="num">{% if p.iqr is not none %}{{ "%.1f"|format(p.iqr) }}{% else %}—{% endif %}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table></div>
+    <p class="muted small">Rango = mínimo y máximo observados: un solo sondeo puede fijar ambos extremos. El IQR (Q3−Q1) describe la dispersión típica. El CIS publica estimación de voto, no intención directa.</p>
+  </div>
+  {% else %}
+  <div class="alert warn">No hay datos de robustez disponibles todavía.</div>
+  {% endif %}
+
+  <div class="card">
+    <div class="cardhead"><h2>Qué mide cada indicador</h2></div>
+    <ul class="muted">
+      <li><strong>Sondeos</strong>: cuántos sondeos distintos entran en la ventana (14 días; ampliada a los cuatro más recientes si no llega).</li>
+      <li><strong>Casas</strong>: encuestadoras distintas. Diez sondeos de una casa son su serie, no una media entre casas.</li>
+      <li><strong>Días desde el último</strong>: antigüedad del sondeo más reciente.</li>
+      <li><strong>Muestra declarada</strong>: porcentaje de sondeos que publican <code>n</code>. Mide información disponible para ponderar, no calidad.</li>
+      <li><strong>Dispersión (IQR)</strong>: rango intercuartílico entre la última encuesta de cada casa (45 días), promediado en partidos con ≥3 casas y ≥3 % de voto.</li>
+    </ul>
+    <p class="muted small">Estados: «suficiente» = ≥4 sondeos, ≥2 casas y último ≤10 días; «frágil» = 11–21 días o una sola casa; «insuficiente» = &lt;4 sondeos o &gt;21 días. Si el IQR medio supera 3 pp se añade un aviso, pero no cambia el estado por sí solo.</p>
+    <div class="cta">
+      <a class="btn" href="/metodologia.html#robustez">Método y límites</a>
+      <a class="btn ghost" href="/data/latest.json">Datos (JSON)</a>
+      <a class="btn ghost" href="/glosario.html#iqr">Glosario: IQR</a>
+    </div>
+  </div>
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>

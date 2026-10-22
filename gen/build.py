@@ -35,6 +35,7 @@ PAGES = [
     ("noche-electoral.html", "noche-electoral.html", "2026-10-18", "weekly", "0.7"),
     ("factores.html", "factores.html", "2026-10-18", "monthly", "0.6"),
     ("comportamiento.html", "comportamiento.html", "2026-10-18", "monthly", "0.6"),
+    ("robustez.html", "robustez.html", "2026-10-22", "daily", "0.8"),
     ("glosario.html", "glosario.html", "2026-10-22", "monthly", "0.6"),
     ("apoyo.html", "apoyo.html", "2026-10-18", "yearly", "0.5"),
     ("sobre-mi.html", "sobre-mi.html", "2026-10-18", "yearly", "0.5"),
@@ -1351,6 +1352,7 @@ def main(out: str = "web") -> None:
             "fuentes.html": build_webpage_jsonld("Fuentes y datos abiertos", "/fuentes.html", "Fuentes, catálogo de datos y licencias."),
             "caveat.html": build_webpage_jsonld("Qué no dice este sitio", "/caveat.html", "Límites y no-objetivos del observatorio."),
             "glosario.html": build_webpage_jsonld("Glosario", "/glosario.html", "Diccionario breve de términos electorales y de sondeos."),
+            "robustez.html": build_webpage_jsonld("Robustez del dato", "/robustez.html", "Cinco indicadores de la base de la media: sondeos, casas, antigüedad, muestra e IQR."),
             "apoyo.html": build_webpage_jsonld("Apoyar el proyecto", "/apoyo.html", "Ko-fi, compartir y colaboración."),
             "about.html": build_webpage_jsonld("Acerca del proyecto", "/about.html", "Proyecto local-first, estático y sin tracking."),
         },
@@ -1382,7 +1384,7 @@ def main(out: str = "web") -> None:
     }
 
     for tname in ["index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "participacion.html", "territorio.html",
-             "glosario.html", "apoyo.html", "sobre-mi.html", "noche-electoral.html", "factores.html", "comportamiento.html"]:
+             "robustez.html", "glosario.html", "apoyo.html", "sobre-mi.html", "noche-electoral.html", "factores.html", "comportamiento.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(current=tname, **context)
         with open(os.path.join(OUT, tname), "w", encoding="utf-8") as f:

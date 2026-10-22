@@ -11,7 +11,7 @@
 <meta name="description" content="Un agregado local-first de sondeos publicados: estático, sin backend, sin tracking. Código abierto AGPL-3.0.">
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/about.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202610220732">
+<link rel="stylesheet" href="/css/main.css?v=202610220743">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function(){
       <div class="navrow navrow-secondary">
         <a class="" href="/metodologia.html">Metodología</a>
         <a class="" href="/glosario.html">Glosario</a>
+        <a class="" href="/robustez.html">Robustez</a>
         <a class="" href="/fuentes.html">Fuentes y datos</a>
         <a class="" href="/factores.html">Factores</a>
         <a class="" href="/comportamiento.html">Comportamiento</a>
@@ -197,11 +198,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202610220732" hidden>
+<div class="swupdate" id="swupdate" data-build="202610220743" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610220732');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610220743');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -230,7 +231,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202610220732', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202610220743', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){
