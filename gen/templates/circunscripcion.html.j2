@@ -1,0 +1,275 @@
+{% set page_title = circ.nombre ~ " · circunscripción · elecciones generales 29N 2026" %}
+{% set page_desc = circ.nombre ~ ": " ~ circ.escanos_2026 ~ " diputados, " ~ fmt_miles(circ.electores_2026) ~ " electores y resultado oficial de 2019 y 2023. Ficha, escaño marginal y calculadora D'Hondt." %}
+{% set canonical = site_url ~ "/circunscripcion/" ~ circ.slug ~ ".html" %}
+{% set jsonld = circ.jsonld %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <p class="eyebrow" style="margin:18px 0 4px"><a href="/circunscripciones.html" style="color:inherit;text-decoration:none">Circunscripciones</a> · {{ circ.nombre }}</p>
+  <h1 style="margin:0;font-size:clamp(30px,5vw,48px);letter-spacing:-.03em">{{ circ.nombre }}</h1>
+  <p class="muted" style="margin:8px 0 16px;max-width:72ch">Ficha electoral de la circunscripción: cuántos diputados elige, quién entra y quién se queda a las puertas con los votos de 2023. Los escaños de 2026 son la asignación legal; no es una proyección.</p>
+
+  <div class="kpis">
+    <div class="kpi"><span class="kpi-name">Diputados 2026</span><b>{{ circ.escanos_2026 }}</b><span class="kpi-range">Congreso</span></div>
+    <div class="kpi"><span class="kpi-name">Electores 2026</span><b>{{ fmt_miles(circ.electores_2026) }}</b><span class="kpi-range">censo</span></div>
+    <div class="kpi"><span class="kpi-name">Electores/escaño</span><b>{{ fmt_miles(circ.electores_por_escanos) }}</b><span class="kpi-range">2026</span></div>
+    <div class="kpi"><span class="kpi-name">Participación 2023</span><b>{{ fmt_pct(circ.participacion_2023) }} %</b><span class="kpi-range">sobre censo</span></div>
+  </div>
+
+  {% set m23 = circ.marginales['2023-07-23'] %}
+  {% set r23 = circ.resultados[0] %}
+  <div class="card">
+    <div class="cardhead"><h2>El escaño marginal en 2023</h2><span class="hint">quién se quedó con el último escaño</span></div>
+    {% if m23.ultimo %}
+    <div class="marginbox">
+      <div class="marginitem"><span>Último escaño</span><strong>{{ m23.ultimo.etiqueta }}</strong><small>cociente {{ fmt_pct(m23.ultimo.cociente) }} · {{ fmt_miles(m23.ultimo.votos) }} votos</small></div>
+      <div class="marginitem"><span>Primera candidatura fuera</span>{% if m23.siguiente %}<strong>{{ m23.siguiente.etiqueta }}</strong><small>{{ fmt_miles(m23.siguiente.votos) }} votos · cociente {{ fmt_pct(m23.siguiente.cociente) }}</small>{% else %}<strong>—</strong><small>sin otra candidatura con opciones</small>{% endif %}</div>
+      <div class="marginitem"><span>Margen</span>{% if m23.margen_votos is not none %}<strong>{{ fmt_miles(m23.margen_votos) }} votos</strong><small>para arrebatar el último escaño, con el resto constante</small>{% else %}<strong>—</strong><small>no calculable</small>{% endif %}</div>
+    </div>
+    <p class="muted small" style="margin:10px 0 0">El margen es la diferencia de cociente del último escaño, expresada en votos sobre la primera candidatura que quedó fuera. Es una aproximación: si cambian los votos de varias candidaturas, cambian todos los cocientes.</p>
+    {% else %}
+    <p class="muted small">No hay escaños o candidaturas suficientes para calcular el margen.</p>
+    {% endif %}
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Resultado oficial de 2023</h2><span class="hint">{{ fmt_miles(r23.validos) }} votos válidos · CERA incluida</span></div>
+    <div class="tablewrap">
+      <table class="circ-table">
+        <thead><tr><th>Candidatura</th><th>Votos</th><th>% válidos</th><th>Escaños</th></tr></thead>
+        <tbody>
+        {% for c in r23.candidaturas[:10] %}
+          <tr><td><strong>{{ c.acronimo }}</strong><div class="small muted">{{ c.etiqueta }}</div></td><td class="num">{{ fmt_miles(c.votos) }}</td><td class="num">{{ fmt_pct(c.pct) }} %</td><td class="num">{{ c.escanos }}</td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <details>
+      <summary>Ver todas las candidaturas de 2023 ({{ r23.candidaturas|length }})</summary>
+      <div class="tablewrap" style="margin-top:8px">
+        <table class="circ-table">
+          <thead><tr><th>Candidatura</th><th>Votos</th><th>% válidos</th><th>Escaños</th></tr></thead>
+          <tbody>
+          {% for c in r23.candidaturas %}
+            <tr><td><strong>{{ c.acronimo }}</strong><div class="small muted">{{ c.etiqueta }}</div></td><td class="num">{{ fmt_miles(c.votos) }}</td><td class="num">{{ fmt_pct(c.pct) }} %</td><td class="num">{{ c.escanos }}</td></tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <p class="muted small" style="margin:8px 0 0">Los votos incluyen CERA ({{ fmt_miles(r23.cera_total) }} en esta circunscripción). El desglose CERA es un subconjunto de los votos, no se suma aparte. Blancos: {{ fmt_miles(r23.blancos) }}; nulos: {{ fmt_miles(r23.nulos) }}.</p>
+  </div>
+
+  {% set m19 = circ.marginales['2019-11-10'] %}
+  {% set r19 = circ.resultados[1] %}
+  <div class="card">
+    <div class="cardhead"><h2>Comparación con 2019</h2><span class="hint">misma circunscripción, otro resultado</span></div>
+    <div class="tablewrap">
+      <table class="circ-table">
+        <thead><tr><th>Candidatura</th><th>Votos 2019</th><th>%</th><th>Escaños 2019</th></tr></thead>
+        <tbody>
+        {% for c in r19.candidaturas[:8] %}
+          <tr><td><strong>{{ c.acronimo }}</strong><div class="small muted">{{ c.etiqueta }}</div></td><td class="num">{{ fmt_miles(c.votos) }}</td><td class="num">{{ fmt_pct(c.pct) }} %</td><td class="num">{{ c.escanos }}</td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <details>
+      <summary>Ver todas las candidaturas de 2019 ({{ r19.candidaturas|length }})</summary>
+      <div class="tablewrap" style="margin-top:8px">
+        <table class="circ-table">
+          <thead><tr><th>Candidatura</th><th>Votos</th><th>% válidos</th><th>Escaños</th></tr></thead>
+          <tbody>
+          {% for c in r19.candidaturas %}
+            <tr><td><strong>{{ c.acronimo }}</strong><div class="small muted">{{ c.etiqueta }}</div></td><td class="num">{{ fmt_miles(c.votos) }}</td><td class="num">{{ fmt_pct(c.pct) }} %</td><td class="num">{{ c.escanos }}</td></tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </details>
+    {% if m19.ultimo %}<p class="muted small" style="margin:8px 0 0">En 2019 el último escaño fue para <strong>{{ m19.ultimo.etiqueta }}</strong>{% if m19.siguiente %}; la primera candidatura fuera fue <strong>{{ m19.siguiente.etiqueta }}</strong> y el margen fue de <strong>{{ fmt_miles(m19.margen_votos) }} votos</strong>{% endif %}.</p>{% endif %}
+  </div>
+
+  <div class="card" id="calculadora">
+    <div class="cardhead"><h2>Calculadora D'Hondt</h2><span class="hint">escenario, no predicción</span></div>
+    <p class="muted small" style="margin-top:0">Carga los votos de 2023 o 2019 y reparte los escaños de 2026. También puedes editar los votos y añadir candidaturas. El umbral es el <strong>3 % de los votos válidos</strong>; en Ceuta y Melilla se elige un solo diputado por lista más votada, pero el umbral sigue aplicándose.</p>
+    <div class="calcbar">
+      <button class="btn ghost" type="button" data-load="2023-07-23">Cargar 2023</button>
+      <button class="btn ghost" type="button" data-load="2019-11-10">Cargar 2019</button>
+      <button class="btn ghost" type="button" id="calcClear">Vaciar votos</button>
+      <label class="calclabel">Escaños <input id="calcSeats" type="number" min="1" max="350" value="{{ circ.escanos_2026 }}"></label>
+      <label class="calclabel">Blancos <input id="calcBlank" type="number" min="0" value="{{ circ.calc.years['2023-07-23'].blancos }}"></label>
+    </div>
+    <div class="calcadd">
+      <input id="calcNewLabel" type="text" placeholder="Nueva candidatura" aria-label="Nombre de la nueva candidatura">
+      <button class="btn ghost" type="button" id="calcAdd">Añadir</button>
+      <button class="btn" type="button" id="calcRun">Calcular reparto</button>
+    </div>
+    <div class="tablewrap" style="margin-top:12px">
+      <table class="circ-table">
+        <thead><tr><th>Candidatura</th><th>Votos</th><th>Escaños</th><th></th></tr></thead>
+        <tbody id="calcRows"></tbody>
+      </table>
+    </div>
+    <p class="muted small" id="calcValid">Votos válidos: —</p>
+    <div id="calcSummary" class="calcsummary" aria-live="polite"></div>
+    <div class="tablewrap" style="margin-top:10px"><table class="circ-table" id="calcResultTable"><thead><tr><th>Candidatura</th><th>Votos</th><th>%</th><th>Escaños</th></tr></thead><tbody></tbody></table></div>
+    <p class="muted small">El cálculo usa los votos que introduzcas y los escaños que fijes. No incorpora encuestas, pactos ni la asignación real del 29N. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Cómo se calcula</h2></div>
+    <ul class="muted small">
+      <li><strong>Circunscripción provincial</strong>: cada provincia reparte sus escaños por separado; no hay distrito nacional único.</li>
+      <li><strong>Umbral</strong>: solo compiten las candidaturas con al menos el 3 % de los votos válidos de la circunscripción.</li>
+      <li><strong>D'Hondt</strong>: se asignan los escaños uno a uno al mayor cociente <code>votos / (escaños ya obtenidos + 1)</code>.</li>
+      <li><strong>Ceuta y Melilla</strong>: eligen un diputado; con un solo escaño, gana la lista más votada que supere el umbral.</li>
+      <li>El <strong>margen</strong> se calcula por diferencia de cocientes del último escaño; no es un pronóstico de transferencia de votos.</li>
+    </ul>
+    <p class="muted small">Fuente de votos y escaños: Ministerio del Interior (XLSX de resultados, archivo facilitado). Asignación de escaños 2026: BOE, RD 806/2026. <a href="/metodologia.html">Metodología</a> · <a href="/fuentes.html">Fuentes</a>.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Límites</h2></div>
+    <ul class="muted small">
+      <li>Los resultados son <strong>oficiales</strong> de 2019 y 2023, no una estimación del 29N.</li>
+      <li>La calculadora es un <strong>escenario</strong>: no modela transferencias, abstenciones, pactos ni errores de encuesta.</li>
+      <li>Los votos incluyen CERA; el desglose por candidatura no separa voto exterior y voto en España.</li>
+      <li>La asignación de escaños de 2026 puede cambiar si cambia el censo o la ley; esta ficha usa el RD 806/2026.</li>
+    </ul>
+    <div class="cta">
+      <a class="btn" href="/territorio.html">Volver a territorio</a>
+      <a class="btn ghost" href="/circunscripciones.html">Las 52 circunscripciones</a>
+    </div>
+  </div>
+
+  <div class="pager">
+    {% if circ.prev %}<a href="/circunscripcion/{{ circ.prev.slug }}.html">← {{ circ.prev.nombre }}</a>{% else %}<span></span>{% endif %}
+    {% if circ.next %}<a href="/circunscripcion/{{ circ.next.slug }}.html">{{ circ.next.nombre }} →</a>{% else %}<span></span>{% endif %}
+  </div>
+
+  <script type="application/json" id="calcData">{{ circ.calc|tojson }}</script>
+  <script>
+  (function(){
+    var DATA = JSON.parse(document.getElementById('calcData').textContent);
+    var rows = document.getElementById('calcRows');
+    var seats = document.getElementById('calcSeats');
+    var blank = document.getElementById('calcBlank');
+    var valid = document.getElementById('calcValid');
+    var summary = document.getElementById('calcSummary');
+    var resultBody = document.querySelector('#calcResultTable tbody');
+    function fmt(n){ return Number(n||0).toLocaleString('es-ES'); }
+    function pct(n){ return (Number(n||0)).toFixed(2).replace('.', ',') + ' %'; }
+    function addRow(label, votes){
+      var tr = document.createElement('tr');
+      var td1 = document.createElement('td');
+      var strong = document.createElement('strong');
+      strong.textContent = label;
+      td1.appendChild(strong);
+      var td2 = document.createElement('td');
+      var inp = document.createElement('input');
+      inp.type = 'number'; inp.min = '0'; inp.step = '1'; inp.value = votes || 0; inp.className = 'calcinput';
+      inp.setAttribute('aria-label', 'Votos de ' + label);
+      td2.appendChild(inp);
+      var td3 = document.createElement('td'); td3.className = 'num calcseats'; td3.textContent = '—';
+      var td4 = document.createElement('td');
+      var del = document.createElement('button'); del.type = 'button'; del.className = 'calcdelete'; del.textContent = 'Quitar';
+      del.addEventListener('click', function(){ tr.remove(); });
+      td4.appendChild(del);
+      tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3); tr.appendChild(td4);
+      rows.appendChild(tr);
+    }
+    function loadYear(y){
+      rows.innerHTML = '';
+      var d = DATA.years[y];
+      d.candidaturas.forEach(function(c){ addRow(c.etiqueta, c.votos); });
+      blank.value = d.blancos;
+      seats.value = DATA.escanos;
+      run();
+    }
+    function items(){
+      return Array.prototype.map.call(rows.querySelectorAll('tr'), function(tr){
+        return {
+          label: tr.querySelector('strong').textContent,
+          votes: parseInt(tr.querySelector('input').value, 10) || 0,
+          node: tr
+        };
+      });
+    }
+    function allocate(list, n, validos){
+      var assigned = list.map(function(){ return 0; });
+      var threshold = validos * 0.03;
+      var eligible = list.map(function(x, i){ return i; }).filter(function(i){
+        return list[i].votes > 0 && list[i].votes >= threshold;
+      });
+      var last = null;
+      for (var s = 0; s < n; s++) {
+        var best = null, bestQ = -1, bestVotes = -1;
+        eligible.forEach(function(i){
+          var q = list[i].votes / (assigned[i] + 1);
+          if (q > bestQ || (q === bestQ && list[i].votes > bestVotes)) {
+            best = i; bestQ = q; bestVotes = list[i].votes;
+          }
+        });
+        if (best === null) break;
+        assigned[best] += 1;
+        last = { index: best, q: bestQ, votes: list[best].votes };
+      }
+      var next = null, nextQ = -1;
+      eligible.forEach(function(i){
+        if (last && i === last.index) return;
+        var q = list[i].votes / (assigned[i] + 1);
+        if (q > nextQ || (q === nextQ && list[i].votes > (next ? list[next].votes : -1))) {
+          next = i; nextQ = q;
+        }
+      });
+      return {assigned: assigned, last: last, next: next, nextQ: nextQ, validos: validos, threshold: threshold};
+    }
+    function run(){
+      var list = items();
+      var blankVotes = parseInt(blank.value, 10) || 0;
+      var validos = list.reduce(function(a, x){ return a + x.votes; }, 0) + blankVotes;
+      var n = Math.max(1, parseInt(seats.value, 10) || 1);
+      valid.textContent = 'Votos válidos: ' + fmt(validos) + ' · umbral 3 %: ' + fmt(Math.ceil(validos * 0.03)) + ' votos';
+      if (!validos) { summary.textContent = 'Introduce votos para calcular.'; resultBody.innerHTML = ''; return; }
+      var r = allocate(list, n, validos);
+      list.forEach(function(x, i){ x.node.querySelector('.calcseats').textContent = r.assigned[i]; });
+      if (!r.last) { summary.textContent = 'Ninguna candidatura supera el umbral del 3 %.'; resultBody.innerHTML = ''; return; }
+      var txt = 'Último escaño: ' + list[r.last.index].label + ' (cociente ' + r.last.q.toFixed(2).replace('.', ',') + ').';
+      if (r.next !== null) {
+        var needed = Math.floor(r.last.q * (r.assigned[r.next] + 1)) + 1 - list[r.next].votes;
+        txt += ' Primera candidatura fuera: ' + list[r.next].label + '; necesitaría ' + fmt(Math.max(0, needed)) + ' votos más para arrebatarlo, con el resto constante.';
+      }
+      summary.textContent = txt;
+      resultBody.innerHTML = '';
+      list.map(function(x, i){ return {x:x, i:i}; }).sort(function(a,b){ return b.x.votes - a.x.votes || a.i - b.i; }).forEach(function(o){
+        var tr = document.createElement('tr');
+        [o.x.label, fmt(o.x.votes), pct(validos ? 100 * o.x.votes / validos : 0), String(r.assigned[o.i])].forEach(function(v, j){
+          var td = document.createElement('td'); td.textContent = v; if (j > 0) td.className = 'num'; tr.appendChild(td);
+        });
+        resultBody.appendChild(tr);
+      });
+    }
+    document.querySelectorAll('[data-load]').forEach(function(b){ b.addEventListener('click', function(){ loadYear(b.getAttribute('data-load')); }); });
+    document.getElementById('calcClear').addEventListener('click', function(){ rows.querySelectorAll('input').forEach(function(i){ i.value = 0; }); run(); });
+    document.getElementById('calcAdd').addEventListener('click', function(){
+      var lab = document.getElementById('calcNewLabel').value.trim();
+      if (!lab) return;
+      addRow(lab, 0); document.getElementById('calcNewLabel').value = ''; run();
+    });
+    document.getElementById('calcRun').addEventListener('click', run);
+    rows.addEventListener('input', function(e){ if (e.target.matches('input')) run(); });
+    blank.addEventListener('input', run);
+    seats.addEventListener('input', run);
+    loadYear('2023-07-23');
+  })();
+  </script>
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>

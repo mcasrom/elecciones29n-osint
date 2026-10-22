@@ -226,6 +226,36 @@ details{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin
 summary{cursor:pointer;font-size:14px}
 summary::-webkit-details-marker{display:none}
 
+
+/* circunscripciones */
+.circgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-top:10px}
+.circcard{display:block;background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:12px 14px;text-decoration:none;color:var(--fg)}
+.circcard:hover{border-color:var(--muted);background:var(--panel)}
+.circcard strong{display:block;font-size:16px}
+.circcard span{display:block;color:var(--muted);font-size:12.5px;margin-top:3px}
+.circcard small{display:block;color:var(--faint);font-size:12px;margin-top:6px}
+.circ-table td{vertical-align:top}
+.circ-table td:first-child{min-width:220px}
+.marginbox{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:10px 0}
+.marginitem{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px}
+.marginitem span{display:block;font-size:12px;color:var(--muted)}
+.marginitem strong{display:block;font-size:17px;line-height:1.25;margin:3px 0}
+.marginitem small{display:block;font-size:12px;color:var(--faint)}
+.calcbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:10px 0}
+.calclabel{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
+.calclabel input,.calcadd input,.calcinput{background:var(--panel2);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:7px 9px;font:inherit;font-size:13px}
+.calclabel input{width:78px}
+.calcadd{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.calcadd input{flex:1 1 240px}
+.calcinput{width:110px}
+.calcdelete{appearance:none;border:0;background:transparent;color:var(--faint);font:inherit;font-size:12px;cursor:pointer;text-decoration:underline}
+.calcdelete:hover{color:var(--accent)}
+.calcsummary{margin-top:10px;padding:10px 12px;border:1px solid var(--line);border-left:3px solid var(--accent2);border-radius:9px;background:var(--panel2);font-size:13.5px;color:var(--muted)}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:16px 0;font-size:14px}
+.pager a{color:var(--muted);text-decoration:none;border:1px solid var(--line);border-radius:9px;padding:8px 12px}
+.pager a:hover{color:var(--fg);border-color:var(--muted)}
+@media(max-width:760px){.marginbox{grid-template-columns:1fr}.circ-table td:first-child{min-width:170px}}
+
 @media(max-width:760px){
   .hero-kpis,.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
   .tab{padding:8px 11px;font-size:13px}

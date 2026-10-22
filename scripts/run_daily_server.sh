@@ -31,6 +31,9 @@ PYTHONPATH="$REPO_DIR" python3 -m ingest.ondacero || echo "[run_daily_server] av
 [ ! -f data/censo_2026.json ] || [ -n "$(find data/censo_2026.json -mtime +30 2>/dev/null)" ] && PYTHONPATH="$REPO_DIR" python3 -m ingest.censo || true
 [ ! -f data/participacion.json ] || [ -n "$(find data/participacion.json -mtime +30 2>/dev/null)" ] && PYTHONPATH="$REPO_DIR" python3 -m ingest.participacion || true
 [ ! -f data/escanos_2026.json ] || [ -n "$(find data/escanos_2026.json -mtime +30 2>/dev/null)" ] && PYTHONPATH="$REPO_DIR" python3 -m ingest.escanos || true
+if [ ! -f data/congreso-oficial.json ] || [ data/raw/elecciones-congreso.xlsx -nt data/congreso-oficial.json ]; then
+  PYTHONPATH="$REPO_DIR" python3 -m ingest.congreso_oficial || echo "[run_daily_server] aviso: resultados oficiales sin actualizar"
+fi
 
 PYTHONPATH="$REPO_DIR" python3 -m agg.aggregate --out "$STAGE/data"
 PYTHONPATH="$REPO_DIR" python3 -m gen.build --out "$STAGE"
@@ -48,7 +51,7 @@ fi
 mv "$STAGE" web
 
 rsync -a --delete web/ /var/www/elecciones29n/
-for _f in index.html glosario.html robustez.html como-leer.html; do
+for _f in index.html glosario.html robustez.html como-leer.html circunscripciones.html circunscripcion/madrid.html; do
   [ -f "/var/www/elecciones29n/$_f" ] || { echo "[run_daily_server] falta $_f en /var/www"; exit 1; }
 done
 

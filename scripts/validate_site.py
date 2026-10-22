@@ -24,6 +24,7 @@ REQUIRED = [
     "electorado.html", "data/censo-2026.json", "data/censo-provincias.csv",
     "participacion.html", "data/participacion.json", "data/participacion.csv",
     "territorio.html", "data/escanos-2026.json", "data/escanos-2026.csv",
+    "circunscripciones.html", "data/congreso-oficial.json", "circunscripcion/madrid.html",
     "apoyo.html", "sobre-mi.html", "noche-electoral.html",
     "manifest.webmanifest", "sw.js", "icons/icon-192.png", "icons/icon-512.png",
     "factores.html", "comportamiento.html", "version.json", "favicon.ico",
@@ -243,6 +244,53 @@ def main() -> int:
             ph = open(pp, encoding="utf-8", errors="ignore").read()
             if needle not in ph:
                 errors.append(f"{page} sin JSON-LD esperado ({needle})")
+
+    co_path = os.path.join(d, "data/congreso-oficial.json")
+    if os.path.exists(co_path):
+        try:
+            co = json.load(open(co_path, encoding="utf-8"))
+            for fecha in ("2019-11-10", "2023-07-23"):
+                bloque = co.get("elecciones", {}).get(fecha, {})
+                provs = bloque.get("provincias", [])
+                if len(provs) != 52:
+                    errors.append(f"congreso-oficial {fecha}: {len(provs)} provincias")
+                total = sum(int(c.get("escanos", 0)) for p in provs for c in p.get("candidaturas", []))
+                if total != 350:
+                    errors.append(f"congreso-oficial {fecha}: {total} escaños")
+                for p in provs:
+                    if not p.get("candidaturas"):
+                        errors.append(f"congreso-oficial {fecha} {p.get('nombre')}: sin candidaturas")
+                    if p.get("candidaturas") and sum(c.get("votos", 0) for c in p["candidaturas"]) + p.get("blancos", 0) != p.get("validos", 0):
+                        errors.append(f"congreso-oficial {fecha} {p.get('nombre')}: válidos no cuadran")
+            if any(c.get("acronimo") == "SUMAR" for p in co.get("elecciones", {}).get("2019-11-10", {}).get("provincias", []) for c in p.get("candidaturas", [])):
+                errors.append("congreso-oficial 2019 contiene SUMAR (etiqueta anacrónica)")
+        except Exception as e:
+            errors.append(f"congreso-oficial.json inválido: {e}")
+    ci = os.path.join(d, "circunscripciones.html")
+    if os.path.exists(ci):
+        ch = open(ci, encoding="utf-8", errors="ignore").read()
+        if ch.count("/circunscripcion/") < 52:
+            errors.append("circunscripciones.html con menos de 52 enlaces")
+        for needle_txt in ("Las 52 circunscripciones", "D'Hondt"):
+            if needle_txt not in ch:
+                errors.append(f"circunscripciones.html sin «{needle_txt}»")
+    if os.path.exists(co_path):
+        try:
+            vistos = set()
+            cdir = os.path.join(d, "circunscripcion")
+            for f in (os.listdir(cdir) if os.path.isdir(cdir) else []):
+                if f.endswith(".html"):
+                    vistos.add(f[:-5])
+            if len(vistos) < 52:
+                errors.append(f"circunscripcion: {len(vistos)} fichas (esperadas 52)")
+            for slug in vistos:
+                fh = open(os.path.join(d, "circunscripcion", slug + ".html"), encoding="utf-8", errors="ignore").read()
+                if "Calculadora D'Hondt" not in fh:
+                    errors.append(f"circunscripcion/{slug}.html sin calculadora")
+                if "escaño marginal" not in fh:
+                    errors.append(f"circunscripcion/{slug}.html sin escaño marginal")
+        except Exception as e:
+            errors.append(f"fichas de circunscripción inválidas: {e}")
 
     sm = os.path.join(d, "sitemap.xml")
     if os.path.exists(sm):

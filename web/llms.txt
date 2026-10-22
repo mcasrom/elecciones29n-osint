@@ -8,11 +8,15 @@
 ## Qué ofrece
 - Media móvil 14d por partido, con mínimo, máximo y n de sondeos.
 - Serie temporal por partido (JSON) y datos descargables.
+- Fichas de las 52 circunscripciones con resultados oficiales 2019/2023,
+  escaño marginal y calculadora D'Hondt.
 - Metodología, fuentes y límites explicados.
 
 ## Datos
 - https://elecciones29n.pruebapublica.com/data/latest.json
 - https://elecciones29n.pruebapublica.com/data/robustez.json
+- https://elecciones29n.pruebapublica.com/data/congreso-oficial.json
+- https://elecciones29n.pruebapublica.com/circunscripciones.html
 - https://elecciones29n.pruebapublica.com/cambios.xml
 - https://elecciones29n.pruebapublica.com/sitemap.xml
 

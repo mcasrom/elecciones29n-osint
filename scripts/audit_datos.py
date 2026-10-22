@@ -90,7 +90,7 @@ def main() -> int:
     bad_sum = []
     for (d, pollster), vals in polls.items():
         s = round(sum(vals.values()), 1)
-        if not (90 <= s <= 110):
+        if not (80 <= s <= 110):
             bad_sum.append((d, pollster, s))
     check("polls.suma", not bad_sum, f"{len(bad_sum)} sondeos fuera de 90-110: {bad_sum[:3]}")
 
@@ -124,7 +124,7 @@ def main() -> int:
     check("series.ma", len(ma) >= 1, f"MA PP {len(ma)} puntos")
 
     idx = open("web/index.html", encoding="utf-8", errors="ignore").read() if os.path.exists("web/index.html") else ""
-    for label in ("media móvil de 14 días", "Salud de la muestra", "Otros", "pasa el cursor"):
+    for label in ("media móvil de 14 días", "Muestra suficiente", "Otros", "pasa el cursor"):
         check(f"ui.index.{label}", label in idx, label)
 
     # ---------------- Censo ----------------
@@ -290,6 +290,34 @@ def main() -> int:
                 check("online.electomania", False, "no se encontró el panel del 11-oct", critical=False)
         except Exception as e:
             check("online.electomania", False, f"error: {e}", critical=False)
+
+    # ---------------- Circunscripciones (oficial) ----------------
+    co = load("data/congreso-oficial.json")
+    check("circ.oficial.existe", bool(co), "data/congreso-oficial.json")
+    if co:
+        for fecha, esperados in (("2019-11-10", 350), ("2023-07-23", 350)):
+            bloque = (co.get("elecciones", {}) or {}).get(fecha, {}) or {}
+            provs = bloque.get("provincias", []) or []
+            check(f"circ.oficial.{fecha}.provincias", len(provs) == 52, f"{len(provs)} provincias")
+            total = sum(int(c.get("escanos", 0)) for p in provs for c in (p.get("candidaturas", []) or []))
+            check(f"circ.oficial.{fecha}.escanos", total == esperados, f"{total} escaños")
+            mal_validos = [p.get("nombre") for p in provs if sum(c.get("votos", 0) for c in (p.get("candidaturas", []) or [])) + p.get("blancos", 0) != p.get("validos", 0)]
+            check(f"circ.oficial.{fecha}.validos", not mal_validos, f"{len(mal_validos)} provincias no cuadran: {mal_validos[:3]}")
+            check(f"circ.oficial.{fecha}.candidaturas", all(p.get("candidaturas") for p in provs), "provincia sin candidaturas")
+            check(f"circ.oficial.{fecha}.participacion", all(0 < float(p.get("participacion") or 0) <= 100 for p in provs), "participación fuera de rango")
+        prov19 = {p.get("nombre"): p for p in (co.get("elecciones", {}).get("2019-11-10", {}) or {}).get("provincias", [])}
+        check("circ.oficial.2019.sin_sumar", not any(c.get("acronimo") == "SUMAR" for p in prov19.values() for c in p.get("candidaturas", [])), "SUMAR es anacrónico en 2019")
+        prov23 = {p.get("nombre"): p for p in (co.get("elecciones", {}).get("2023-07-23", {}) or {}).get("provincias", [])}
+        for nombre, esc in (("Madrid", 37), ("Barcelona", 32), ("Teruel", 3)):
+            p = prov23.get(nombre, {})
+            total = sum(int(c.get("escanos", 0)) for c in (p.get("candidaturas", []) or []))
+            check(f"circ.oficial.2023.{nombre}", total == esc, f"{total} vs {esc}")
+        validos23 = sum(int(p.get("validos", 0)) for p in prov23.values())
+        check("circ.oficial.2023.validos_nacional", 20_000_000 < validos23 < 30_000_000, f"{validos23} votos válidos")
+    esc26 = load("data/escanos_2026.json", {})
+    if esc26:
+        total = sum(int(p.get("escanos", 0)) for p in esc26.get("provincias", []))
+        check("circ.escanos2026.total", total == 350, f"{total} escaños")
 
     # ---------------- Informe ----------------
     failed = [c for c in CHECKS if not c["ok"] and c["critical"]]

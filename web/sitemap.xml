@@ -8,6 +8,7 @@
   <url><loc>https://elecciones29n.pruebapublica.com/electorado.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://elecciones29n.pruebapublica.com/participacion.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://elecciones29n.pruebapublica.com/territorio.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripciones.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://elecciones29n.pruebapublica.com/noche-electoral.html</loc><lastmod>2026-10-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://elecciones29n.pruebapublica.com/factores.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://elecciones29n.pruebapublica.com/comportamiento.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -16,4 +17,56 @@
   <url><loc>https://elecciones29n.pruebapublica.com/glosario.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://elecciones29n.pruebapublica.com/apoyo.html</loc><lastmod>2026-10-22</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
   <url><loc>https://elecciones29n.pruebapublica.com/sobre-mi.html</loc><lastmod>2026-10-22</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/albacete.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/alicante.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/almeria.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/alava.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/asturias.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/badajoz.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/baleares.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/barcelona.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/bizkaia.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/burgos.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/cantabria.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/castellon.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/ceuta.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/ciudad-real.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/a-coruna.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/cuenca.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/caceres.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/cadiz.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/cordoba.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/gipuzkoa.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/girona.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/granada.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/guadalajara.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/huelva.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/huesca.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/jaen.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/leon.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/lleida.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/lugo.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/madrid.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/melilla.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/murcia.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/malaga.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/navarra.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/ourense.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/palencia.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/las-palmas.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/pontevedra.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/la-rioja.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/salamanca.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/santa-cruz-de-tenerife.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/segovia.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/sevilla.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/soria.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/tarragona.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/teruel.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/toledo.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/valencia.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/valladolid.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/zamora.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/zaragoza.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://elecciones29n.pruebapublica.com/circunscripcion/avila.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
 </urlset>

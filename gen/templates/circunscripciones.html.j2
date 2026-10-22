@@ -1,0 +1,60 @@
+{% set page_title = "Las 52 circunscripciones · elecciones generales 29N 2026" %}
+{% set page_desc = "Fichas de las 52 circunscripciones: escaños, censo, resultado oficial de 2019 y 2023, escaño marginal y calculadora D'Hondt." %}
+{% set canonical = site_url ~ "/circunscripciones.html" %}
+{% set jsonld = circ_index_jsonld %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <p class="eyebrow" style="margin:18px 0 4px">Territorio · 52 circunscripciones</p>
+  <h1 style="margin:0;font-size:clamp(30px,5vw,48px);letter-spacing:-.03em">Las 52 circunscripciones</h1>
+  <p class="muted" style="margin:8px 0 16px;max-width:70ch">Cada provincia elige un número fijo de diputados. Aquí tienes su ficha: censo y escaños de 2026, resultado oficial de 2019 y 2023, quién se quedó con el último escaño y una calculadora D'Hondt. Los escaños de 2026 son la asignación legal, no una proyección.</p>
+
+  <div class="kpis">
+    <div class="kpi"><span class="kpi-name">Circunscripciones</span><b>{{ circ_pages|length }}</b><span class="kpi-range">provincias + Ceuta y Melilla</span></div>
+    <div class="kpi"><span class="kpi-name">Diputados</span><b>350</b><span class="kpi-range">Congreso</span></div>
+    <div class="kpi"><span class="kpi-name">Datos</span><b>2019 · 2023</b><span class="kpi-range">resultados oficiales</span></div>
+    <div class="kpi"><span class="kpi-name">Herramienta</span><b>D'Hondt</b><span class="kpi-range">calculadora de escenario</span></div>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Fichas por circunscripción</h2><span class="hint">ordenadas por nombre</span></div>
+    <div class="circgrid">
+      {% for p in circ_pages %}
+      {% set m = p.marginales['2023-07-23'] %}
+      <a class="circcard" href="/circunscripcion/{{ p.slug }}.html">
+        <strong>{{ p.nombre }}</strong>
+        <span>{{ p.escanos_2026 }} diputados · {{ fmt_miles(p.electores_2026) }} electores</span>
+        {% if m.ultimo %}<small>Último escaño 2023: {{ m.ultimo.etiqueta }}{% if m.margen_votos is not none %} · margen {{ fmt_miles(m.margen_votos) }} votos{% endif %}</small>{% endif %}
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Cómo usar las fichas</h2></div>
+    <ul class="muted small">
+      <li><strong>Resultado oficial</strong>: votos y escaños de 2019 y 2023, con la etiqueta original de cada candidatura.</li>
+      <li><strong>Escaño marginal</strong>: el último escaño y la primera candidatura que se quedó fuera, con el margen en votos.</li>
+      <li><strong>Calculadora</strong>: carga los votos de 2023 o 2019 y reparte los escaños de 2026; puedes editar votos y añadir candidaturas.</li>
+      <li>El cálculo es un <strong>escenario</strong>: no modela transferencias, abstenciones, pactos ni errores de encuesta.</li>
+    </ul>
+    <div class="cta">
+      <a class="btn" href="/territorio.html">Territorio y representación</a>
+      <a class="btn ghost" href="/metodologia.html">Metodología</a>
+      <a class="btn ghost" href="/caveat.html">Qué no dice este sitio</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Fuente y límites</h2></div>
+    <p class="muted small">Votos y escaños: Ministerio del Interior (XLSX de resultados, archivo facilitado). Asignación de escaños 2026: BOE, RD 806/2026. Los votos incluyen CERA; el desglose por candidatura no separa voto exterior y voto en España. La ficha no atribuye intención de voto ni anticipa el resultado del 29N.</p>
+  </div>
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>

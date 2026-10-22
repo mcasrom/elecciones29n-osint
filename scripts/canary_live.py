@@ -85,6 +85,18 @@ def main() -> int:
     elif "66,59" not in ph:
         errors.append("participacion.html sin la cifra de 2023")
 
+    code, cih = get(base + "/circunscripciones.html?canary=1")
+    if code != 200:
+        errors.append(f"circunscripciones.html HTTP {code}")
+    elif "Las 52 circunscripciones" not in cih or "D'Hondt" not in cih:
+        errors.append("circunscripciones.html sin índice ni calculadora")
+
+    code, cmh = get(base + "/circunscripcion/madrid.html?canary=1")
+    if code != 200:
+        errors.append(f"circunscripcion/madrid.html HTTP {code}")
+    elif "Calculadora D'Hondt" not in cmh or "escaño marginal" not in cmh:
+        errors.append("circunscripcion/madrid.html sin calculadora o marginal")
+
     code, th = get(base + "/territorio.html?canary=1")
     if code != 200:
         errors.append(f"territorio.html HTTP {code}")

@@ -8,6 +8,7 @@ import pytz
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from agg import blackout
+from gen import circunscripciones
 from metrics import moving_average, series_span, spark_summary
 
 
@@ -32,6 +33,7 @@ PAGES = [
     ("electorado.html", "electorado.html", "2026-10-18", "monthly", "0.7"),
     ("participacion.html", "participacion.html", "2026-10-18", "monthly", "0.7"),
     ("territorio.html", "territorio.html", "2026-10-18", "monthly", "0.7"),
+    ("circunscripciones.html", "circunscripciones.html", "2026-10-22", "monthly", "0.6"),
     ("noche-electoral.html", "noche-electoral.html", "2026-10-18", "weekly", "0.7"),
     ("factores.html", "factores.html", "2026-10-18", "monthly", "0.6"),
     ("comportamiento.html", "comportamiento.html", "2026-10-18", "monthly", "0.6"),
@@ -45,6 +47,7 @@ PAGES = [
 
 def ensure_dirs() -> None:
     os.makedirs(os.path.join(OUT, "css"), exist_ok=True)
+    os.makedirs(os.path.join(OUT, "circunscripcion"), exist_ok=True)
     os.makedirs(os.path.join(OUT, "js"), exist_ok=True)
     os.makedirs(os.path.join(OUT, "data"), exist_ok=True)
 
@@ -278,6 +281,36 @@ details{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin
 summary{cursor:pointer;font-size:14px}
 summary::-webkit-details-marker{display:none}
 
+
+/* circunscripciones */
+.circgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-top:10px}
+.circcard{display:block;background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:12px 14px;text-decoration:none;color:var(--fg)}
+.circcard:hover{border-color:var(--muted);background:var(--panel)}
+.circcard strong{display:block;font-size:16px}
+.circcard span{display:block;color:var(--muted);font-size:12.5px;margin-top:3px}
+.circcard small{display:block;color:var(--faint);font-size:12px;margin-top:6px}
+.circ-table td{vertical-align:top}
+.circ-table td:first-child{min-width:220px}
+.marginbox{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:10px 0}
+.marginitem{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px}
+.marginitem span{display:block;font-size:12px;color:var(--muted)}
+.marginitem strong{display:block;font-size:17px;line-height:1.25;margin:3px 0}
+.marginitem small{display:block;font-size:12px;color:var(--faint)}
+.calcbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:10px 0}
+.calclabel{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
+.calclabel input,.calcadd input,.calcinput{background:var(--panel2);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:7px 9px;font:inherit;font-size:13px}
+.calclabel input{width:78px}
+.calcadd{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.calcadd input{flex:1 1 240px}
+.calcinput{width:110px}
+.calcdelete{appearance:none;border:0;background:transparent;color:var(--faint);font:inherit;font-size:12px;cursor:pointer;text-decoration:underline}
+.calcdelete:hover{color:var(--accent)}
+.calcsummary{margin-top:10px;padding:10px 12px;border:1px solid var(--line);border-left:3px solid var(--accent2);border-radius:9px;background:var(--panel2);font-size:13.5px;color:var(--muted)}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:16px 0;font-size:14px}
+.pager a{color:var(--muted);text-decoration:none;border:1px solid var(--line);border-radius:9px;padding:8px 12px}
+.pager a:hover{color:var(--fg);border-color:var(--muted)}
+@media(max-width:760px){.marginbox{grid-template-columns:1fr}.circ-table td:first-child{min-width:170px}}
+
 @media(max-width:760px){
   .hero-kpis,.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
   .tab{padding:8px 11px;font-size:13px}
@@ -416,9 +449,12 @@ def write_robots() -> None:
         f.write(robots)
 
 
-def write_sitemap(today: str) -> None:
+def write_sitemap(today: str, extra_pages: list | None = None) -> None:
     rows = []
-    for path, loc, lastmod, freq, prio in PAGES:
+    pages = list(PAGES)
+    for loc in extra_pages or []:
+        pages.append((loc, loc, today, "monthly", "0.5"))
+    for path, loc, lastmod, freq, prio in pages:
         url = f"{SITE_URL}/{loc}" if loc else f"{SITE_URL}/"
         rows.append(
             "  <url>"
@@ -454,11 +490,15 @@ def write_llms() -> None:
 ## Qué ofrece
 - Media móvil 14d por partido, con mínimo, máximo y n de sondeos.
 - Serie temporal por partido (JSON) y datos descargables.
+- Fichas de las 52 circunscripciones con resultados oficiales 2019/2023,
+  escaño marginal y calculadora D'Hondt.
 - Metodología, fuentes y límites explicados.
 
 ## Datos
 - {SITE_URL}/data/latest.json
 - {SITE_URL}/data/robustez.json
+- {SITE_URL}/data/congreso-oficial.json
+- {SITE_URL}/circunscripciones.html
 - {SITE_URL}/cambios.xml
 - {SITE_URL}/sitemap.xml
 
@@ -877,6 +917,15 @@ def write_escanos_data(data: dict) -> None:
             w.writerow([r["nombre"], r["escanos"], r["electores"], r["electores_por_escanos"]])
 
 
+def write_congreso_oficial_data(oficial: dict) -> None:
+    if not oficial:
+        return
+    data_dir = os.path.join(OUT, "data")
+    os.makedirs(data_dir, exist_ok=True)
+    with open(os.path.join(data_dir, "congreso-oficial.json"), "w", encoding="utf-8") as f:
+        json.dump(oficial, f, ensure_ascii=False, indent=2)
+
+
 def write_participacion_data(data: dict) -> None:
     import csv as _csv
 
@@ -1276,6 +1325,15 @@ def main(out: str = "web") -> None:
         with open("data/censo_2026.json", encoding="utf-8") as f:
             censo = json.load(f)
 
+    oficial = circunscripciones.load()
+    circ_pages = circunscripciones.build_pages(oficial, escanos, censo)
+    for p in circ_pages:
+        p["jsonld"] = build_webpage_jsonld(
+            f"{p['nombre']} · circunscripción 29N",
+            f"/circunscripcion/{p['slug']}.html",
+            f"{p['nombre']}: {p['escanos_2026']} diputados, censo y resultados oficiales de 2019 y 2023.",
+        )
+
     latest = {"parties": []}
     if os.path.exists(os.path.join(OUT, "data/latest.json")):
         with open(os.path.join(OUT, "data/latest.json"), encoding="utf-8") as f:
@@ -1370,6 +1428,13 @@ def main(out: str = "web") -> None:
         "m4": m4,
         "part_jsonld": build_participacion_jsonld(),
         "territorio_jsonld": build_territorio_jsonld(),
+        "circ_pages": circ_pages,
+        "circ_count": len(circ_pages),
+        "circ_index_jsonld": build_webpage_jsonld(
+            "Las 52 circunscripciones",
+            "/circunscripciones.html",
+            "Fichas de las 52 circunscripciones con escaños, censo, resultados de 2019 y 2023 y calculadora D'Hondt.",
+        ),
         "factores_jsonld": build_factores_jsonld(),
         "m4_jsonld": build_m4_jsonld(),
         "noche_jsonld": build_webpage_jsonld("Noche electoral 29N", "/noche-electoral.html", "Qué se publica, cuándo y con qué fuente."),
@@ -1411,16 +1476,23 @@ def main(out: str = "web") -> None:
     }
 
     for tname in ["index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "participacion.html", "territorio.html",
-             "como-leer.html", "robustez.html", "glosario.html", "apoyo.html", "sobre-mi.html", "noche-electoral.html", "factores.html", "comportamiento.html"]:
+             "circunscripciones.html", "como-leer.html", "robustez.html", "glosario.html", "apoyo.html", "sobre-mi.html", "noche-electoral.html", "factores.html", "comportamiento.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(current=tname, **context)
         with open(os.path.join(OUT, tname), "w", encoding="utf-8") as f:
             f.write(html)
 
-    write_sitemap(today)
+    tpl_circ = env.get_template("circunscripcion.html.j2")
+    for p in circ_pages:
+        html = tpl_circ.render(current="territorio.html", circ=p, **context)
+        with open(os.path.join(OUT, "circunscripcion", p["slug"] + ".html"), "w", encoding="utf-8") as f:
+            f.write(html)
+
+    write_sitemap(today, [f"circunscripcion/{p['slug']}.html" for p in circ_pages])
     write_censo_data(censo)
     write_participacion_data(participacion)
     write_escanos_data(escanos)
+    write_congreso_oficial_data(oficial)
     write_robustez_data(latest)
     write_resultados_data(resultados)
     write_congreso_web(prov_part, congreso)
