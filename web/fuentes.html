@@ -8,10 +8,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fuentes y datos abiertos · observatorio electoral 29N</title>
-<meta name="description" content="Fuentes de cada dato (Electomania, INE, JEC, BOE), formatos, enlaces oficiales y conjuntos de datos descargables con su esquema.">
+<meta name="description" content="Fuentes de cada dato (Onda Cero, Electomanía, CIS, INE, JEC, BOE), formatos, enlaces oficiales y conjuntos de datos descargables con su esquema.">
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/fuentes.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202610222121">
+<link rel="stylesheet" href="/css/main.css?v=202610222206">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -41,14 +41,14 @@ document.addEventListener('DOMContentLoaded', function(){
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <meta name="theme-color" content="#0b0c1c">
-<meta name="generator" content="elecciones29n-osint v0.8.5">
+<meta name="generator" content="elecciones29n-osint v0.9.0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="elecciones29n-osint">
 <meta property="og:locale" content="es_ES">
 <meta property="og:title" content="Fuentes y datos abiertos · observatorio electoral 29N">
-<meta property="og:description" content="Fuentes de cada dato (Electomania, INE, JEC, BOE), formatos, enlaces oficiales y conjuntos de datos descargables con su esquema.">
+<meta property="og:description" content="Fuentes de cada dato (Onda Cero, Electomanía, CIS, INE, JEC, BOE), formatos, enlaces oficiales y conjuntos de datos descargables con su esquema.">
 <meta property="og:url" content="https://elecciones29n.pruebapublica.com/fuentes.html">
 
 <meta property="og:image" content="https://elecciones29n.pruebapublica.com/og.png">
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Fuentes y datos abiertos · observatorio electoral 29N">
-<meta name="twitter:description" content="Fuentes de cada dato (Electomania, INE, JEC, BOE), formatos, enlaces oficiales y conjuntos de datos descargables con su esquema.">
+<meta name="twitter:description" content="Fuentes de cada dato (Onda Cero, Electomanía, CIS, INE, JEC, BOE), formatos, enlaces oficiales y conjuntos de datos descargables con su esquema.">
 <meta name="twitter:image" content="https://elecciones29n.pruebapublica.com/og.png">
 <meta name="twitter:image:alt" content="Fuentes y datos abiertos · observatorio electoral 29N">
 <link rel="alternate" type="application/json" href="/data/latest.json" title="Datos agregados (JSON)">
@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function(){
         <a class="" href="/robustez.html">Robustez</a>
         <a class="" href="/como-leer.html">Cómo leer</a>
         <a class="active" href="/fuentes.html">Fuentes y datos</a>
+        <a class="" href="/novedades.html">Novedades</a>
         <a class="" href="/factores.html">Factores</a>
         <a class="" href="/comportamiento.html">Comportamiento</a>
         <a class="" href="/caveat.html">Qué no dice</a>
@@ -115,8 +116,8 @@ document.addEventListener('DOMContentLoaded', function(){
       <table>
         <thead><tr><th>Módulo</th><th>Fuente</th><th>Formato</th><th>Enlace</th></tr></thead>
         <tbody>
-          <tr><td>Sondeos (primaria)</td><td>Electomania · ElectoPanel</td><td>WordPress REST API</td><td><a href="https://electomania.es/" rel="noopener" target="_blank">electomania.es</a></td></tr>
-          <tr><td>Sondeos (secundaria)</td><td>Onda Cero · compilación de encuestas</td><td>HTML/JSON incrustado</td><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">ondacero.es/…/encuestas</a></td></tr>
+          <tr><td>Sondeos (compilación principal)</td><td>Onda Cero · encuestas publicadas</td><td>HTML/JSON incrustado</td><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">ondacero.es/…/encuestas</a></td></tr>
+          <tr><td>Sondeos (paneles propios)</td><td>Electomanía · ElectoPanel</td><td>WordPress REST API</td><td><a href="https://electomania.es/" rel="noopener" target="_blank">electomania.es</a></td></tr>
           <tr><td>CIS</td><td>Centro de Investigaciones Sociológicas</td><td>PDF (manual)</td><td><a href="https://www.cis.es/" rel="noopener" target="_blank">cis.es</a></td></tr>
           <tr><td>Contraste</td><td>Política Sin Ruido</td><td>HTML (referencia)</td><td><a href="https://politicasinruido.com/encuestas" rel="noopener" target="_blank">politicasinruido.com</a></td></tr>
           <tr><td>Censo</td><td>INE · Oficina del Censo Electoral</td><td>XLSX (tablas 2/3/6/9/12)</td><td><a href="https://www.ine.es/dyngs/CEL/es/index.htm?cid=1703" rel="noopener" target="_blank">ine.es · CEL</a></td></tr>
@@ -173,12 +174,13 @@ document.addEventListener('DOMContentLoaded', function(){
     <div class="cardhead"><h2>Higiene y licencias</h2></div>
     <ul class="muted small">
       <li>Se descartan paneles autonómicos, adelantos incompletos y textos que no suman un rango plausible.</li>
-      <li><strong>Onda Cero</strong>: se usan los <strong>sondeos individuales</strong> de su compilación (94 sondeos, 14 casas), no su promedio. La fecha es de <strong>publicación</strong>, no de campo. «Otros» es un residual y no se usa en los gráficos de partidos.</li>
+      <li><strong>Onda Cero</strong>: se usan los <strong>sondeos individuales</strong> de su compilación (94 sondeos, 14 casas), no su promedio. La fecha es de <strong>publicación</strong>, no de campo. «Otros» es un residual y no se usa en los gráficos de partidos. No se reproducen sus tablas, gráficos ni bases de datos; su reutilización requiere autorización.</li>
       <li><strong>CIS</strong>: barómetro añadido a mano desde su PDF, con muestra y fecha. <strong>Política Sin Ruido</strong> se usa como contraste metodológico (una encuesta por casa), no como fuente de la media.</li>
       <li>Si la ingesta o la validación fallan, no se publica: se conserva la última versión buena.</li>
       <li><strong>INE</strong>: reutilización con cita de la fuente (CC BY 4.0 en los datos derivados).</li>
       <li><strong>JEC / BOE</strong>: reutilización citando la fuente.</li>
-      <li><strong>Electomania</strong>: se enlaza cada sondeo a su artículo original.</li>
+      <li><strong>Electomanía</strong>: se enlaza cada sondeo a su artículo original. Sus tablas, gráficos y bases están reservados; no se reutilizan como material propio.</li>
+      <li><strong>Ministerio del Interior</strong>: resultados provinciales del XLSX oficial, CC BY 4.0, con atribución y fecha de actualización.</li>
       <li><strong>Este sitio</strong>: código AGPL-3.0; datos agregados reutilizables citando el proyecto.</li>
     </ul>
     <div class="cta">
@@ -191,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function(){
   <div class="container">
     <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
     <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
-    <p>Datos abiertos · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="https://github.com/mcasrom/elecciones29n-osint">Código (AGPL-3.0)</a> · Hecho por Miguel Castillo · v0.8.5 · 2026-10-22.</p>
+    <p>Datos abiertos · <a href="/novedades.html">Novedades</a> · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="https://github.com/mcasrom/elecciones29n-osint">Código (AGPL-3.0)</a> · Hecho por Miguel Castillo · v0.9.0 · 2026-10-22.</p>
     <p class="eco">Ecosistema:
       <a href="https://www.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Prueba Pública</a> ·
       <a href="https://analisis.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Blog de análisis</a> ·
@@ -259,11 +261,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202610222121" hidden>
+<div class="swupdate" id="swupdate" data-build="202610222206" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610222121');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610222206');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -292,7 +294,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202610222121', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202610222206', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

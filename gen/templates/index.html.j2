@@ -118,7 +118,7 @@
 
     {% if chart_svg %}
     <div class="card">
-      <div class="cardhead"><h2>Evolución de los sondeos</h2><span class="hint">serie completa · cada punto = un sondeo</span></div>
+      <div class="cardhead"><h2>Evolución de los sondeos</h2><span class="hint">últimos 90 días · cada punto = un sondeo</span></div>
       <div class="chartwrap">{{ chart_svg|safe }}</div>
       <div class="legend">
         {% for l in chart_legend %}<span class="lg"><i style="background:{{ l.color }}"></i>{{ l.party }}</span>{% endfor %}
@@ -146,7 +146,7 @@
       <div class="cardhead"><h2>Preguntas frecuentes</h2></div>
       <details><summary><strong>¿Es un pronóstico?</strong></summary><p class="muted small">No. Es la media de sondeos publicados con su rango. No anticipa el resultado del 29N.</p></details>
       <details><summary><strong>¿Puedo publicar esto durante el blackout?</strong></summary><p class="muted small">No. Del 24 al 28 de noviembre de 2026 no se publican, difunden ni reproducen sondeos. El agregado queda congelado.</p></details>
-      <details><summary><strong>¿De dónde salen los datos?</strong></summary><p class="muted small">De paneles publicados por Electomania, con enlace a la fuente y fecha. Se descartan autonómicos y adelantos incompletos.</p></details>
+      <details><summary><strong>¿De dónde salen los datos?</strong></summary><p class="muted small">De sondeos publicados por Onda Cero (compilación), Electomanía (paneles propios) y el CIS, con enlace a la fuente y fecha. Se descartan autonómicos, adelantos incompletos y piezas sin ficha verificable.</p></details>
       <details><summary><strong>¿Por qué mostrar el rango y no solo la media?</strong></summary><p class="muted small">Porque la dispersión entre encuestadoras es parte del dato. Una cifra única oculta la incertidumbre.</p></details>
     </div>
 
@@ -224,14 +224,14 @@
       <div class="cardhead"><h2>Variación de los sondeos en el tiempo</h2><span class="hint">{% if series_span %}{{ series_span }}{% endif %}</span></div>
       {% if sparks_svg %}
       {{ sparks_svg|safe }}
-      <p class="muted small" style="margin-top:12px">Cifra grande = última media móvil de 14 días (centrada); delta = cambio de la media móvil en el periodo. La línea es la media móvil y los puntos son sondeos individuales: un punto aislado (p. ej. CIS) no marca la tendencia. La cifra grande es el último valor y el delta es la diferencia con el primer sondeo del periodo. Solo se muestran los seis partidos con más media actual.</p>
+      <p class="muted small" style="margin-top:12px">Cifra grande = última media móvil de 14 días (centrada); delta = cambio de esa media móvil entre el inicio y el final del periodo. La línea es la media móvil y los puntos son sondeos individuales: un punto aislado (p. ej. CIS) no marca la tendencia. Solo se muestran los seis partidos con más media actual.</p>
       {% else %}
       <p class="muted">Aún no hay suficientes sondeos para mostrar una serie.</p>
       {% endif %}
     </div>
     {% if chart_svg %}
     <div class="card">
-      <div class="cardhead"><h2>Vista conjunta</h2><span class="hint">serie completa</span></div>
+      <div class="cardhead"><h2>Vista conjunta</h2><span class="hint">últimos 90 días</span></div>
       <div class="chartwrap">{{ chart_svg|safe }}</div>
       <div class="legend">
         {% for l in chart_legend %}<span class="lg"><i style="background:{{ l.color }}"></i>{{ l.party }}</span>{% endfor %}

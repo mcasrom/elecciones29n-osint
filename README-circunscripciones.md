@@ -27,8 +27,10 @@ Cada `/circunscripcion/<slug>.html` incluye:
 - escaños y electores de 2026, y electores por escaño;
 - participación, votos válidos, nulos, blancos y CERA de 2023 y 2019;
 - resultados por candidatura, con **etiqueta oficial** y acrónimo;
-- **escaño marginal**: último escaño, primera candidatura fuera, cociente y
-  votos aproximados que necesitaría con el resto constante;
+- **escaño marginal**: último escaño, primera candidatura que se quedó sin
+  escaño (entre las que superan el 3 %) y votos adicionales mínimos que
+  necesitaba para obtener uno, recalculando D'Hondt y el umbral con el resto
+  de candidaturas constante;
 - **calculadora D'Hondt**: carga los votos de 2023 o 2019, permite editar votos,
   añadir candidaturas y fijar escaños y blancos;
 - navegación anterior/siguiente y enlace a los límites del sitio.
@@ -79,9 +81,11 @@ redondeo:
 - Ceuta y Melilla: con un escaño, gana la lista más votada que supere el umbral;
 - blancos: se usan en el denominador del umbral, no compiten por escaños.
 
-El **escaño marginal** se calcula por diferencia de cocientes del último escaño.
-No es una previsión de transferencia de votos: es un escenario mecánico con el
-resto de votos constante.
+El **escaño marginal** identifica la primera candidatura que se quedó sin
+escaño entre las que superan el 3 %. El margen son los votos adicionales
+mínimos que necesitaba para obtener uno, recalculando D'Hondt y el umbral del
+3 % con el resto de candidaturas constante. No es una previsión de
+transferencia de votos ni una simple diferencia de cocientes.
 
 ## Validación
 

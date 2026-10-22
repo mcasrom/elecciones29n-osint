@@ -15,8 +15,9 @@ def _candidaturas(candidaturas) -> list[tuple[str, int]]:
     return sorted(out, key=lambda x: (-x[1], x[0]))
 
 
-def reparto(candidaturas: Iterable, escanos: int, validos: int) -> dict[str, int]:
-    items = _candidaturas(candidaturas)
+def _reparto_con_traza(
+    items: list[tuple[str, int]], escanos: int, validos: int
+) -> tuple[dict[str, int], dict | None, list[tuple[str, int]]]:
     if escanos < 0:
         raise ValueError("escanos no puede ser negativo")
     if validos <= 0:
@@ -26,69 +27,113 @@ def reparto(candidaturas: Iterable, escanos: int, validos: int) -> dict[str, int
         (label, votos) for label, votos in items
         if votos > 0 and Fraction(votos, validos) >= Fraction(3, 100)
     ]
-    if not elegibles:
-        return asignados
-    for _ in range(escanos):
-        mejor = None
-        mejor_q = None
-        for label, votos in elegibles:
-            q = Fraction(votos, asignados[label] + 1)
-            if mejor is None or q > mejor_q or (q == mejor_q and votos > dict(elegibles)[mejor]):
-                mejor, mejor_q = label, q
-        asignados[mejor] += 1
-    return asignados
-
-
-def marginal(candidaturas: Iterable, escanos: int, validos: int) -> dict:
-    items = _candidaturas(candidaturas)
-    if validos <= 0:
-        raise ValueError("validos debe ser positivo")
-    asignados = {label: 0 for label, _ in items}
-    elegibles = [
-        (label, votos) for label, votos in items
-        if votos > 0 and Fraction(votos, validos) >= Fraction(3, 100)
-    ]
     if not elegibles or escanos < 1:
-        return {"ultimo": None, "siguiente": None, "margen_votos": None}
+        return asignados, None, elegibles
+    votos_por_label = dict(elegibles)
     ultimo = None
     for _ in range(escanos):
         mejor = None
         mejor_q = None
         for label, votos in elegibles:
             q = Fraction(votos, asignados[label] + 1)
-            if mejor is None or q > mejor_q or (q == mejor_q and votos > dict(elegibles)[mejor]):
+            if (
+                mejor is None
+                or q > mejor_q
+                or (q == mejor_q and votos > votos_por_label[mejor])
+            ):
                 mejor, mejor_q = label, q
         asignados[mejor] += 1
         ultimo = {
             "etiqueta": mejor,
-            "votos": dict(elegibles)[mejor],
+            "votos": votos_por_label[mejor],
             "escanos_previos": asignados[mejor] - 1,
             "divisor": asignados[mejor],
             "cociente": mejor_q,
         }
-    siguientes = [
+    return asignados, ultimo, elegibles
+
+
+def reparto(candidaturas: Iterable, escanos: int, validos: int) -> dict[str, int]:
+    asignados, _, _ = _reparto_con_traza(_candidaturas(candidaturas), escanos, validos)
+    return asignados
+
+
+def _margen_para_escaro(
+    items: list[tuple[str, int]], escanos: int, validos: int, label: str
+) -> int | None:
+    """Votos adicionales mínimos para que `label` obtenga escaño.
+
+    Se recalcula D'Hondt añadiendo esos votos a la candidatura y al total de
+    válidos (el resto de candidaturas no cambia). Así se contempla también el
+    efecto del umbral del 3 %. No es una diferencia de cocientes.
+    """
+    base = dict(items)
+
+    def gana(extra: int) -> bool:
+        candidaturas = dict(base)
+        candidaturas[label] += extra
+        return reparto(candidaturas, escanos, validos + extra).get(label, 0) > 0
+
+    if gana(0):
+        return 0
+    hi = max(1, validos)
+    for _ in range(40):
+        if gana(hi):
+            break
+        hi *= 2
+        if hi > 50_000_000:
+            return None
+    else:
+        return None
+    lo = 0
+    while lo + 1 < hi:
+        mid = (lo + hi) // 2
+        if gana(mid):
+            hi = mid
+        else:
+            lo = mid
+    return hi
+
+
+def marginal(candidaturas: Iterable, escanos: int, validos: int) -> dict:
+    """Último escaño y primera candidatura que se quedó sin escaño.
+
+    `siguiente` es la primera candidatura *sin escaño* entre las que superan el
+    3 %, ordenada por su cociente final. `margen_votos` son los votos
+    adicionales que necesitaba para obtener escaño, recalculando D'Hondt y el
+    umbral con el resto de candidaturas constante.
+    """
+    items = _candidaturas(candidaturas)
+    if validos <= 0:
+        raise ValueError("validos debe ser positivo")
+    if escanos < 1:
+        return {"ultimo": None, "siguiente": None, "margen_votos": None}
+    asignados, ultimo, elegibles = _reparto_con_traza(items, escanos, validos)
+    if ultimo is None:
+        return {"ultimo": None, "siguiente": None, "margen_votos": None}
+
+    fuera = [
         (label, votos) for label, votos in elegibles
-        if label != ultimo["etiqueta"]
+        if asignados[label] == 0
     ]
-    if not siguientes:
+    if not fuera:
         return {"ultimo": _json_round(ultimo), "siguiente": None, "margen_votos": None}
+
     sig_label, sig_votos = max(
-        siguientes,
+        fuera,
         key=lambda x: (Fraction(x[1], asignados[x[0]] + 1), x[1], x[0]),
     )
-    sig_q = Fraction(sig_votos, asignados[sig_label] + 1)
-    necesario = int(ultimo["cociente"] * (asignados[sig_label] + 1)) + 1
-    margen = max(0, necesario - sig_votos)
+    margen = _margen_para_escaro(items, escanos, validos, sig_label)
     return {
         "ultimo": _json_round(ultimo),
         "siguiente": {
             "etiqueta": sig_label,
             "votos": sig_votos,
             "escanos": asignados[sig_label],
-            "cociente": round(float(sig_q), 2),
+            "cociente": round(float(Fraction(sig_votos, asignados[sig_label] + 1)), 2),
         },
         "margen_votos": margen,
-        "margen_pct": round(100.0 * margen / validos, 3) if validos else None,
+        "margen_pct": round(100.0 * margen / validos, 3) if margen is not None else None,
     }
 
 

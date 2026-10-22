@@ -66,7 +66,8 @@ def main() -> int:
 
     for _path, _needle in (("/glosario.html", "Glosario"),
                            ("/robustez.html", "Robustez del dato"),
-                           ("/como-leer.html", "Cómo leer la media")):
+                           ("/como-leer.html", "Cómo leer la media"),
+                           ("/novedades.html", "Novedades")):
         _c, _h = get(base + _path + "?canary=1")
         if _c != 200:
             errors.append(f"{_path} HTTP {_c}")

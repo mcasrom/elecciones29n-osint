@@ -19,8 +19,15 @@ class DhondtTest(unittest.TestCase):
     def test_marginal(self):
         m = marginal({"A": 100, "B": 60, "C": 20}, 2, 180)
         self.assertEqual(m["ultimo"]["etiqueta"], "B")
-        self.assertEqual(m["siguiente"]["etiqueta"], "A")
-        self.assertEqual(m["margen_votos"], 21)
+        self.assertEqual(m["siguiente"]["etiqueta"], "C")
+        self.assertEqual(m["siguiente"]["escanos"], 0)
+        self.assertEqual(m["margen_votos"], 41)
+
+    def test_marginal_no_confunde_ganador_con_primera_fuera(self):
+        m = marginal({"A": 100, "B": 60, "C": 20}, 2, 180)
+        self.assertNotEqual(m["siguiente"]["etiqueta"], m["ultimo"]["etiqueta"])
+        self.assertGreater(m["siguiente"]["votos"], 0)
+        self.assertIsNotNone(m["margen_pct"])
 
     def test_marginal_sin_siguiente(self):
         m = marginal({"A": 100}, 2, 100)

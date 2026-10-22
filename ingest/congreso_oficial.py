@@ -14,7 +14,11 @@ from ingest.congreso import norm_prov
 SRC = "data/raw/elecciones-congreso.xlsx"
 OUT = "data/congreso-oficial.json"
 ELECCIONES = ("2019-11-10", "2023-07-23")
-FUENTE = "Ministerio del Interior / open data (archivo facilitado)"
+FUENTE = "Ministerio del Interior"
+FUENTE_URL = "https://descargas.interior.gob.es/datasets/resultados_electorales/Elecciones-Congreso.xlsx"
+FUENTE_LICENCIA = "CC BY 4.0"
+FUENTE_ACTUALIZADO = "2024-01-01"
+FUENTE_ATRIBUCION = "Origen de los datos: Ministerio del Interior"
 
 
 def acronimo(label: str) -> str:
@@ -160,6 +164,10 @@ def main() -> int:
     data = {
         "meta": {
             "fuente": FUENTE,
+            "fuente_url": FUENTE_URL,
+            "licencia": FUENTE_LICENCIA,
+            "actualizado": FUENTE_ACTUALIZADO,
+            "atribucion": FUENTE_ATRIBUCION,
             "fichero": os.path.basename(SRC),
             "sha256": sha,
             "generado": datetime.now(timezone.utc).isoformat(),

@@ -2,6 +2,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="es-ES">
 <head>
@@ -11,7 +12,7 @@
 <meta name="description" content="Tarragona: 6 diputados, 626.161 electores y resultado oficial de 2019 y 2023. Ficha, escaño marginal y calculadora D'Hondt.">
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/circunscripcion/tarragona.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202610222121">
+<link rel="stylesheet" href="/css/main.css?v=202610222206">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -41,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <meta name="theme-color" content="#0b0c1c">
-<meta name="generator" content="elecciones29n-osint v0.8.5">
+<meta name="generator" content="elecciones29n-osint v0.9.0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta property="og:type" content="website">
@@ -94,6 +95,7 @@ document.addEventListener('DOMContentLoaded', function(){
         <a class="" href="/robustez.html">Robustez</a>
         <a class="" href="/como-leer.html">Cómo leer</a>
         <a class="" href="/fuentes.html">Fuentes y datos</a>
+        <a class="" href="/novedades.html">Novedades</a>
         <a class="" href="/factores.html">Factores</a>
         <a class="" href="/comportamiento.html">Comportamiento</a>
         <a class="" href="/caveat.html">Qué no dice</a>
@@ -124,10 +126,10 @@ document.addEventListener('DOMContentLoaded', function(){
     
     <div class="marginbox">
       <div class="marginitem"><span>Último escaño</span><strong>JUNTS PER CATALUNYA - JUNTS - JxCAT - JUNTS</strong><small>cociente 40791,00 · 40.791 votos</small></div>
-      <div class="marginitem"><span>Primera candidatura fuera</span><strong>PARTIT DELS SOCIALISTES DE CATALUNYA (PSC-PSOE) - PSC</strong><small>121.126 votos · cociente 40375,33</small></div>
-      <div class="marginitem"><span>Margen</span><strong>1.248 votos</strong><small>para arrebatar el último escaño, con el resto constante</small></div>
+      <div class="marginitem"><span>Primera candidatura sin escaño</span><strong>VOX - VOX</strong><small>38.039 votos · 0 escaños</small></div>
+      <div class="marginitem"><span>Margen para entrar</span><strong>2.753 votos</strong><small>más para obtener escaño, con el resto constante</small></div>
     </div>
-    <p class="muted small" style="margin:10px 0 0">El margen es la diferencia de cociente del último escaño, expresada en votos sobre la primera candidatura que quedó fuera. Es una aproximación: si cambian los votos de varias candidaturas, cambian todos los cocientes.</p>
+    <p class="muted small" style="margin:10px 0 0">La primera candidatura sin escaño es la mejor situada entre las que superan el 3 % y no obtuvieron ningún escaño. El margen son los votos adicionales mínimos que necesitaba para obtener uno, recalculando D'Hondt y el umbral del 3 % con el resto de candidaturas constante. No es una diferencia de cocientes ni una predicción de transferencia de votos.</p>
     
   </div>
 
@@ -270,7 +272,7 @@ document.addEventListener('DOMContentLoaded', function(){
         </table>
       </div>
     </details>
-    <p class="muted small" style="margin:8px 0 0">En 2019 el último escaño fue para <strong>PARTIT DELS SOCIALISTES DE CATALUNYA - PSC-PSOE</strong>; la primera candidatura fuera fue <strong>ESQUERRA REPUBLICANA DE CATALUNYA-SOBIRANISTES - ERC-SOBIRANISTES</strong> y el margen fue de <strong>11.680 votos</strong>.</p>
+    <p class="muted small" style="margin:8px 0 0">En 2019 el último escaño fue para <strong>PARTIT DELS SOCIALISTES DE CATALUNYA - PSC-PSOE</strong>; la primera candidatura sin escaño fue <strong>VOX - VOX</strong> y necesitaba <strong>5.697 votos más</strong> para obtener uno.</p>
   </div>
 
   <div class="card" id="calculadora">
@@ -307,9 +309,9 @@ document.addEventListener('DOMContentLoaded', function(){
       <li><strong>Umbral</strong>: solo compiten las candidaturas con al menos el 3 % de los votos válidos de la circunscripción.</li>
       <li><strong>D'Hondt</strong>: se asignan los escaños uno a uno al mayor cociente <code>votos / (escaños ya obtenidos + 1)</code>.</li>
       <li><strong>Ceuta y Melilla</strong>: eligen un diputado; con un solo escaño, gana la lista más votada que supere el umbral.</li>
-      <li>El <strong>margen</strong> se calcula por diferencia de cocientes del último escaño; no es un pronóstico de transferencia de votos.</li>
+      <li>El <strong>margen</strong> es el mínimo de votos adicionales que necesitaba la primera candidatura sin escaño para obtener uno, recalculando D'Hondt y el umbral del 3 % con el resto constante. No es una diferencia de cocientes ni un pronóstico de transferencia de votos.</li>
     </ul>
-    <p class="muted small">Fuente de votos y escaños: Ministerio del Interior (XLSX de resultados, archivo facilitado). Asignación de escaños 2026: BOE, RD 806/2026. <a href="/metodologia.html">Metodología</a> · <a href="/fuentes.html">Fuentes</a>.</p>
+    <p class="muted small">Fuente de votos y escaños: <a href="https://descargas.interior.gob.es/datasets/resultados_electorales/Elecciones-Congreso.xlsx" rel="noopener" target="_blank">Ministerio del Interior</a> · CC BY 4.0 · actualización 2024-01-01. Atribución: «Origen de los datos: Ministerio del Interior». Asignación de escaños 2026: BOE, RD 806/2026. <a href="/metodologia.html">Metodología</a> · <a href="/fuentes.html">Fuentes</a>.</p>
   </div>
 
   <div class="card">
@@ -341,7 +343,7 @@ document.addEventListener('DOMContentLoaded', function(){
     var valid = document.getElementById('calcValid');
     var summary = document.getElementById('calcSummary');
     var resultBody = document.querySelector('#calcResultTable tbody');
-    function fmt(n){ return Number(n||0).toLocaleString('es-ES'); }
+    function fmt(n){ return String(Math.round(Number(n||0))).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
     function pct(n){ return (Number(n||0)).toFixed(2).replace('.', ',') + ' %'; }
     function addRow(label, votes){
       var tr = document.createElement('tr');
@@ -398,15 +400,30 @@ document.addEventListener('DOMContentLoaded', function(){
         assigned[best] += 1;
         last = { index: best, q: bestQ, votes: list[best].votes };
       }
-      var next = null, nextQ = -1;
+      var firstOut = null;
       eligible.forEach(function(i){
-        if (last && i === last.index) return;
-        var q = list[i].votes / (assigned[i] + 1);
-        if (q > nextQ || (q === nextQ && list[i].votes > (next ? list[next].votes : -1))) {
-          next = i; nextQ = q;
+        if (assigned[i] === 0 && (firstOut === null || list[i].votes > list[firstOut].votes)) {
+          firstOut = i;
         }
       });
-      return {assigned: assigned, last: last, next: next, nextQ: nextQ, validos: validos, threshold: threshold};
+      return {assigned: assigned, last: last, firstOut: firstOut};
+    }
+    function extraToWin(list, n, blankVotes, target){
+      var base = list.reduce(function(a, x){ return a + x.votes; }, 0) + blankVotes;
+      function wins(extra){
+        var copy = list.map(function(x){ return {votes: x.votes}; });
+        copy[target].votes += extra;
+        return allocate(copy, n, base + extra).assigned[target] > 0;
+      }
+      if (wins(0)) return 0;
+      var lo = 0, hi = Math.max(1, base), guard = 0;
+      while (!wins(hi) && guard < 40) { lo = hi; hi *= 2; guard += 1; }
+      if (!wins(hi)) return null;
+      while (lo + 1 < hi) {
+        var mid = Math.floor((lo + hi) / 2);
+        if (wins(mid)) hi = mid; else lo = mid;
+      }
+      return hi;
     }
     function run(){
       var list = items();
@@ -419,9 +436,14 @@ document.addEventListener('DOMContentLoaded', function(){
       list.forEach(function(x, i){ x.node.querySelector('.calcseats').textContent = r.assigned[i]; });
       if (!r.last) { summary.textContent = 'Ninguna candidatura supera el umbral del 3 %.'; resultBody.innerHTML = ''; return; }
       var txt = 'Último escaño: ' + list[r.last.index].label + ' (cociente ' + r.last.q.toFixed(2).replace('.', ',') + ').';
-      if (r.next !== null) {
-        var needed = Math.floor(r.last.q * (r.assigned[r.next] + 1)) + 1 - list[r.next].votes;
-        txt += ' Primera candidatura fuera: ' + list[r.next].label + '; necesitaría ' + fmt(Math.max(0, needed)) + ' votos más para arrebatarlo, con el resto constante.';
+      if (r.firstOut !== null) {
+        var needed = extraToWin(list, n, blankVotes, r.firstOut);
+        txt += ' Primera candidatura sin escaño: ' + list[r.firstOut].label;
+        if (needed === null) {
+          txt += '; no se pudo calcular el margen.';
+        } else {
+          txt += '; necesitaba ' + fmt(needed) + ' votos más para obtener escaño, con el resto constante.';
+        }
       }
       summary.textContent = txt;
       resultBody.innerHTML = '';
@@ -452,7 +474,7 @@ document.addEventListener('DOMContentLoaded', function(){
   <div class="container">
     <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
     <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
-    <p>Datos abiertos · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="https://github.com/mcasrom/elecciones29n-osint">Código (AGPL-3.0)</a> · Hecho por Miguel Castillo · v0.8.5 · 2026-10-22.</p>
+    <p>Datos abiertos · <a href="/novedades.html">Novedades</a> · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="https://github.com/mcasrom/elecciones29n-osint">Código (AGPL-3.0)</a> · Hecho por Miguel Castillo · v0.9.0 · 2026-10-22.</p>
     <p class="eco">Ecosistema:
       <a href="https://www.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Prueba Pública</a> ·
       <a href="https://analisis.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Blog de análisis</a> ·
@@ -520,11 +542,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202610222121" hidden>
+<div class="swupdate" id="swupdate" data-build="202610222206" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610222121');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610222206');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -553,7 +575,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202610222121', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202610222206', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

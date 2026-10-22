@@ -1,0 +1,37 @@
+{% set page_title = "Novedades · elecciones generales 29N 2026" %}
+{% set page_desc = "Cambios publicados en el observatorio electoral 29N: correcciones, mejoras de datos y nuevas páginas." %}
+{% set canonical = site_url ~ "/novedades.html" %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <p class="eyebrow" style="margin:18px 0 4px">Proyecto · registro de cambios</p>
+  <h1 style="margin:0;font-size:clamp(30px,5vw,48px);letter-spacing:-.03em">Novedades</h1>
+  <p class="muted" style="margin:8px 0 16px;max-width:70ch">Lo que cambia en el observatorio, con fecha y versión. Incluye correcciones de datos y de método, no solo páginas nuevas. El registro completo vive en el repositorio.</p>
+
+  {% if changelog %}
+    {% for e in changelog %}
+    <div class="card">
+      <div class="cardhead"><h2>{{ e.version }}</h2><span class="hint">{{ e.date }}</span></div>
+      {% if e.bullets %}
+      <ul class="muted small" style="margin:0">
+        {% for item in e.bullets %}<li>{{ item }}</li>{% endfor %}
+      </ul>
+      {% else %}
+      <p class="muted small">Sin detalle adicional.</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  {% else %}
+  <div class="card"><p class="muted">Todavía no hay entradas publicadas.</p></div>
+  {% endif %}
+
+  <p class="muted small">Versión actual: <strong>{{ version }}</strong> · <a href="https://github.com/mcasrom/elecciones29n-osint/blob/main/CHANGELOG.md" rel="noopener">CHANGELOG.md</a></p>
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>

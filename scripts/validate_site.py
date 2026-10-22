@@ -20,7 +20,7 @@ from metrics import moving_average, series_span  # noqa: E402
 REQUIRED = [
     "index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html",
     "robots.txt", "sitemap.xml", "llms.txt", "favicon.svg", "og.png",
-    "cambios.xml", "data/latest.json", "data/robustez.json", "css/main.css", "glosario.html", "robustez.html", "como-leer.html",
+    "cambios.xml", "data/latest.json", "data/robustez.json", "css/main.css", "glosario.html", "robustez.html", "como-leer.html", "novedades.html",
     "electorado.html", "data/censo-2026.json", "data/censo-provincias.csv",
     "participacion.html", "data/participacion.json", "data/participacion.csv",
     "territorio.html", "data/escanos-2026.json", "data/escanos-2026.csv",
@@ -164,6 +164,16 @@ def main() -> int:
         th = open(terr, encoding="utf-8", errors="ignore").read()
         if "Teruel" not in th or "350" not in th:
             errors.append("territorio.html sin datos de escaños")
+
+    nov = os.path.join(d, "novedades.html")
+    if os.path.exists(nov):
+        nh = open(nov, encoding="utf-8", errors="ignore").read()
+        if "Novedades" not in nh:
+            errors.append("novedades.html sin título")
+        if "0.9.0" not in nh:
+            errors.append("novedades.html sin la versión 0.9.0")
+        if 'href="/novedades.html"' not in nh:
+            warns.append("novedades.html no está enlazada desde la propia página")
 
     for name, needle in (("apoyo.html", "ko-fi.com/m_castillo"), ("sobre-mi.html", "Miguel Castillo")):
         pp = os.path.join(d, name)

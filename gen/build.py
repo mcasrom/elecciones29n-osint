@@ -8,7 +8,7 @@ import pytz
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from agg import blackout
-from gen import circunscripciones
+from gen import circunscripciones, novedades
 from metrics import moving_average, series_span, spark_summary
 
 
@@ -40,6 +40,7 @@ PAGES = [
     ("como-leer.html", "como-leer.html", "2026-10-22", "monthly", "0.8"),
     ("robustez.html", "robustez.html", "2026-10-22", "daily", "0.8"),
     ("glosario.html", "glosario.html", "2026-10-22", "monthly", "0.6"),
+    ("novedades.html", "novedades.html", "2026-10-22", "monthly", "0.4"),
     ("apoyo.html", "apoyo.html", "2026-10-18", "yearly", "0.5"),
     ("sobre-mi.html", "sobre-mi.html", "2026-10-18", "yearly", "0.5"),
 ]
@@ -501,6 +502,7 @@ def write_llms() -> None:
 - {SITE_URL}/data/robustez.json
 - {SITE_URL}/data/congreso-oficial.json
 - {SITE_URL}/circunscripciones.html
+- {SITE_URL}/novedades.html
 - {SITE_URL}/cambios.xml
 - {SITE_URL}/sitemap.xml
 
@@ -1115,7 +1117,7 @@ def build_jsonld(parties: list, updated_at: str) -> str:
                 "name": "¿De dónde salen los datos?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "De paneles publicados por Electomania, con enlace a la fuente y fecha. Se descartan paneles autonómicos y adelantos sin serie completa.",
+                    "text": "De sondeos publicados por Onda Cero (compilación), Electomanía (paneles propios) y el CIS, con enlace a la fuente y fecha. Se descartan sondeos autonómicos, adelantos sin serie completa y piezas sin ficha verificable.",
                 },
             },
         ],
@@ -1333,7 +1335,7 @@ def main(out: str = "web") -> None:
         p["jsonld"] = build_webpage_jsonld(
             f"{p['nombre']} · circunscripción 29N",
             f"/circunscripcion/{p['slug']}.html",
-            f"{p['nombre']}: {p['escanos_2026']} diputados, censo y resultados oficiales de 2019 y 2023.",
+            f"{p['nombre']}: {p['escanos_2026']} {'diputado' if p['escanos_2026'] == 1 else 'diputados'}, censo y resultados oficiales de 2019 y 2023.",
         )
 
     latest = {"parties": []}
@@ -1432,6 +1434,8 @@ def main(out: str = "web") -> None:
         "territorio_jsonld": build_territorio_jsonld(),
         "circ_pages": circ_pages,
         "circ_count": len(circ_pages),
+        "fuente_congreso": oficial.get("meta", {}),
+        "changelog": novedades.parse("CHANGELOG.md"),
         "circ_index_jsonld": build_webpage_jsonld(
             "Las 52 circunscripciones",
             "/circunscripciones.html",
@@ -1478,7 +1482,7 @@ def main(out: str = "web") -> None:
     }
 
     for tname in ["index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "participacion.html", "territorio.html",
-             "circunscripciones.html", "como-leer.html", "robustez.html", "glosario.html", "apoyo.html", "sobre-mi.html", "noche-electoral.html", "factores.html", "comportamiento.html"]:
+             "circunscripciones.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "noche-electoral.html", "factores.html", "comportamiento.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(current=tname, **context)
         with open(os.path.join(OUT, tname), "w", encoding="utf-8") as f:

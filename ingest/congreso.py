@@ -13,7 +13,7 @@ import openpyxl
 
 SRC = "data/raw/elecciones-congreso.xlsx"
 OUT = "data/congreso.json"
-UA = "Ministerio del Interior / open data (archivo facilitado)"
+UA = "Ministerio del Interior"
 
 MAP_PROV = {
     "A Coruña": "Coruña, A",
@@ -173,6 +173,10 @@ def main() -> int:
     data = {
         "meta": {
             "fuente": UA,
+            "fuente_url": "https://descargas.interior.gob.es/datasets/resultados_electorales/Elecciones-Congreso.xlsx",
+            "licencia": "CC BY 4.0",
+            "actualizado": "2024-01-01",
+            "atribucion": "Origen de los datos: Ministerio del Interior",
             "fichero": "Elecciones-Congreso.xlsx",
             "sha256": sha,
             "generado": datetime.now(timezone.utc).isoformat(),

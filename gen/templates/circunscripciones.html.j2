@@ -28,8 +28,8 @@
       {% set m = p.marginales['2023-07-23'] %}
       <a class="circcard" href="/circunscripcion/{{ p.slug }}.html">
         <strong>{{ p.nombre }}</strong>
-        <span>{{ p.escanos_2026 }} diputados · {{ fmt_miles(p.electores_2026) }} electores</span>
-        {% if m.ultimo %}<small>Último escaño 2023: {{ m.ultimo.etiqueta }}{% if m.margen_votos is not none %} · margen {{ fmt_miles(m.margen_votos) }} votos{% endif %}</small>{% endif %}
+        <span>{{ p.escanos_2026 }} {{ 'diputado' if p.escanos_2026 == 1 else 'diputados' }} · {{ fmt_miles(p.electores_2026) }} electores</span>
+        {% if m.ultimo %}<small>Último escaño 2023: {{ m.ultimo.etiqueta }}{% if m.margen_votos is not none %} · la primera sin escaño necesitaba {{ fmt_miles(m.margen_votos) }} votos más{% endif %}</small>{% endif %}
       </a>
       {% endfor %}
     </div>
@@ -39,7 +39,7 @@
     <div class="cardhead"><h2>Cómo usar las fichas</h2></div>
     <ul class="muted small">
       <li><strong>Resultado oficial</strong>: votos y escaños de 2019 y 2023, con la etiqueta original de cada candidatura.</li>
-      <li><strong>Escaño marginal</strong>: el último escaño y la primera candidatura que se quedó fuera, con el margen en votos.</li>
+      <li><strong>Escaño marginal</strong>: el último escaño, la primera candidatura que se quedó sin escaño y los votos adicionales que necesitaba para entrar.</li>
       <li><strong>Calculadora</strong>: carga los votos de 2023 o 2019 y reparte los escaños de 2026; puedes editar votos y añadir candidaturas.</li>
       <li>El cálculo es un <strong>escenario</strong>: no modela transferencias, abstenciones, pactos ni errores de encuesta.</li>
     </ul>
@@ -52,7 +52,7 @@
 
   <div class="card">
     <div class="cardhead"><h2>Fuente y límites</h2></div>
-    <p class="muted small">Votos y escaños: Ministerio del Interior (XLSX de resultados, archivo facilitado). Asignación de escaños 2026: BOE, RD 806/2026. Los votos incluyen CERA; el desglose por candidatura no separa voto exterior y voto en España. La ficha no atribuye intención de voto ni anticipa el resultado del 29N.</p>
+    <p class="muted small">Votos y escaños: <a href="{{ fuente_congreso.fuente_url }}" rel="noopener" target="_blank">{{ fuente_congreso.fuente }}</a> · {{ fuente_congreso.licencia }} · actualización {{ fuente_congreso.actualizado }}. Atribución: «{{ fuente_congreso.atribucion }}». Asignación de escaños 2026: BOE, RD 806/2026. Los votos incluyen CERA; el desglose por candidatura no separa voto exterior y voto en España. La ficha no atribuye intención de voto ni anticipa el resultado del 29N.</p>
   </div>
 </main>
 {% include "_footer.html.j2" %}

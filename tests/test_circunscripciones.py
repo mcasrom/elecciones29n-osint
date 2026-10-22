@@ -37,10 +37,16 @@ class CircunscripcionesTest(unittest.TestCase):
             self.assertIn("2019-11-10", p["calc"]["years"])
 
     def test_marginales(self):
-        m = next(p for p in self.pages if p["slug"] == "madrid")["marginales"]["2023-07-23"]
+        m = next(p for p in self.pages if p["slug"] == "teruel")["marginales"]["2019-11-10"]
         self.assertIsNotNone(m["ultimo"])
         self.assertIsNotNone(m["siguiente"])
         self.assertGreaterEqual(m["margen_votos"], 0)
+
+    def test_teruel_2019_primera_fuera_es_vox(self):
+        m = next(p for p in self.pages if p["slug"] == "teruel")["marginales"]["2019-11-10"]
+        self.assertEqual(m["siguiente"]["escanos"], 0)
+        self.assertIn("VOX", m["siguiente"]["etiqueta"])
+        self.assertEqual(m["margen_votos"], 8175)
 
     def test_orden_y_enlaces(self):
         nombres = [p["nombre"] for p in self.pages]

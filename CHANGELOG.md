@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.9.0 — 2026-10-22
+
+- **Circunscripciones**: corregido el escaño marginal. La «primera candidatura sin escaño» ya no es el siguiente cociente (que podía tener escaño); el margen son los votos adicionales mínimos para obtener uno, recalculando D'Hondt y el umbral del 3 %.
+- **Fuente oficial**: los resultados provinciales se atribuyen al Ministerio del Interior (XLSX oficial, CC BY 4.0, actualización 2024-01-01) en fichas, índice y JSON; se retira «archivo facilitado».
+- **Plural**: «1 diputado» / «N diputados» en títulos, descripciones y tarjetas.
+- **Sondeos**: la FAQ y las fuentes aclaran Onda Cero, Electomanía y CIS; se declara que no se reutilizan tablas, gráficos ni bases de terceros.
+- **Portada**: «serie completa» pasa a «últimos 90 días», que es la ventana real de la serie.
+- **Novedades**: página `/novedades.html` generada desde este changelog, con enlace en la navegación y el pie.
+
 ## 0.8.5 — 2026-10-18
 
 - **Navegación**: `Factores` y `Comportamiento` pasan a la barra común de todas las páginas (antes solo estaban en el submenú de la portada).
