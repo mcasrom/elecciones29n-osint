@@ -47,7 +47,7 @@
 
 | Fuente | Uso | Riesgo / pendiente |
 |---|---|---|
-| **Electomanía** | API pública de WordPress; se enlaza cada sondeo | **Riesgo alto**: sus términos permiten cita parcial, pero **prohíben scraping, extracción automatizada y reutilización sistemática sin autorización escrita**. La API pública no equivale a permiso. **Solicitud enviada 23-oct-2026** (`delivered`); pendiente de respuesta. Si no autorizan, retirar ElectoPanel/ElectoPromedio. |
+| **Electomanía** | API pública de WordPress; se enlaza cada sondeo | **Autorizado por escrito el 23-oct-2026**: uso limitado y no sustitutivo de los datos en abierto del **ElectoPanel** (voto y escaños), histórico incluido, sin coste. Condiciones: **«Fuente: Electomanía»**, **enlace a cada pieza**, **escaños publicados sin recalcular** y no reproducir tablas/gráficos/microdatos. |
 | **CIS** | PDF del barómetro, añadido a mano con muestra y fecha | Reutilización permitida con condiciones: citar «Origen: CIS», no desnaturalizar, no sugerir patrocinio y conservar fecha/metadatos. Guardar nº de estudio y ficha técnica. |
 | **Política Sin Ruido** | Contraste metodológico, no fuente de la media | Revisar condiciones si se incorporan sus datos de forma sistemática |
 | **Onda Cero** | Compilación secundaria | Autorización pendiente (ver arriba) |
@@ -170,8 +170,9 @@ fuente no autoriza el uso, se retira y se recalcula.
 ## 11. Prioridades antes del 24-N
 
 1. **Alta**: Onda Cero enviada; decidir el fallback si no responde.
-2. **Alta**: Electomanía **solicitada** el 23-oct; pendiente de respuesta. Si
-   no autorizan, retirar ElectoPanel/ElectoPromedio o limitar a cita puntual.
+2. **Hecho**: Electomanía **autorizó por escrito** el 23-oct-2026 (ElectoPanel
+   en abierto, histórico, sin coste; «Fuente: Electomanía» + enlace por pieza;
+   escaños publicados sin recalcular). Mantener esas condiciones en cada build.
 3. **Alta**: revisar la ficha técnica del art. 69.1 LOREG y la redacción del
    aviso de blackout; bloquear redes 24–28-N.
 4. **Alta**: privacidad publicada (`/privacidad.html`); queda la revisión legal

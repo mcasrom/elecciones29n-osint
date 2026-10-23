@@ -5,7 +5,7 @@
 [![En vivo](https://img.shields.io/badge/en%20vivo-elecciones29n.pruebapublica.com-ff5a1f)](https://elecciones29n.pruebapublica.com/)
 [![Licencia](https://img.shields.io/badge/licencia-AGPL--3.0-3ddc97)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.12-8ec5ff)](https://www.python.org/)
-[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.10.5-ff5a1f)](CHANGELOG.md)
+[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.10.6-ff5a1f)](CHANGELOG.md)
 
 ---
 
@@ -76,13 +76,13 @@ agregado.
 - **Frente Amplio → SUMAR**: el ElectoPanel del 18-oct publica «Frente Amplio … 4,9 %»; se mapea a SUMAR y se backfilla la fila (suma del sondeo 87,3 → 92,2).
 - **Sin doble conteo territorial**: ERC, Junts, Bildu y PNV salen de la tabla principal (en Onda Cero ya van dentro de «Otros») y se publican aparte. La tabla muestra su suma: **98,83**.
 - **Etiquetas y auditoría**: «Datos suficientes/frágiles/insuficientes», muestra «3/9 con muestra (12.291 encuestados)» y casas a 45/14 d. `audit_datos.py` exige 90–110 en sondeos tracking y comprueba la suma.
-- Verificación: **102 tests**, **233 comprobaciones, 0 fallos críticos**; `n_polls=9` (11–19 oct). Versión **0.10.5**.
+- Verificación: **103 tests**, **233 comprobaciones, 0 fallos críticos**; `n_polls=9` (11–19 oct). Versión **0.10.6**.
 
 ## Fuentes
 
 | Dato | Fuente | Formato |
 |---|---|---|
-| Sondeos | [Electomania · ElectoPanel](https://electomania.es/) | WordPress REST API |
+| Sondeos | [Electomania · ElectoPanel](https://electomania.es/) | WordPress REST API · autorización escrita 23-oct-2026, enlace por pieza y escaños publicados sin recalcular |
 | Sondeos (secundaria) | [Onda Cero · Encuestas 29N](https://www.ondacero.es/elecciones/generales/encuestas/) | HTML/JSON |
 | Sondeos (manual) | [CIS · barómetros](https://www.cis.es/) | PDF |
 | Contraste | [Política Sin Ruido](https://politicasinruido.com/encuestas) | HTML |

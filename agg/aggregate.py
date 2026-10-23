@@ -441,6 +441,7 @@ def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[st
             "psoe": round(_avg["PSOE"], 2) if "PSOE" in _avg else None,
             "sample": max((p.get("sample") or 0) for p in _obj["rows"]) or None,
             "nota": HOUSE_NOTA.get(_h),
+            "url": next((p.get("source_url") for p in _obj["rows"] if p.get("source_url")), None),
         })
     house_latest.sort(key=lambda r: (r["date"], r["pollster"]), reverse=True)
 

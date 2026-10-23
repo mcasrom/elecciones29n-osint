@@ -76,3 +76,21 @@ https://elecciones29n.pruebapublica.com
   verificado ese dominio; `pruebapublica.com` no está verificado para envío.
 - **Seguimiento**: si no responden en 7–10 días, un único recordatorio breve.
   No insistir después.
+
+---
+
+## Respuesta recibida (23-oct-2026, 13:45)
+
+**Autorizado por escrito** por `info@electomania.es`.
+
+- Uso limitado y no sustitutivo de los datos **en abierto del ElectoPanel**
+  (voto y escaños para generales).
+- **Usar los escaños publicados, sin recalcularlos**.
+- Atribución **«Fuente: Electomanía»** y **enlace a cada pieza** (no solo a la
+  portada).
+- Cubre el **histórico**; sin límite de plazo o volumen si se respetan las
+  pautas.
+- **Sin coste** mientras sean datos publicados en abierto, con enlace y mención.
+
+No publicar el correo completo: lleva aviso de confidencialidad. Registro
+interno en `demo/electromania_autorizacion_20261023.md`.

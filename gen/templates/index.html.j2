@@ -204,11 +204,11 @@
           <thead><tr><th>Casa</th><th>Fecha</th><th>PP</th><th>PSOE</th><th>Muestra</th><th>Método</th></tr></thead>
           <tbody>
           {% for r in house_latest %}
-            <tr><td>{{ r.pollster }}</td><td class="num">{{ r.date }}</td><td class="num">{% if r.pp is not none %}{{ fmt_pct(r.pp) }}%{% else %}—{% endif %}</td><td class="num">{% if r.psoe is not none %}{{ fmt_pct(r.psoe) }}%{% else %}—{% endif %}</td><td class="num">{% if r.sample %}{{ "{:,}".format(r.sample)|replace(",", ".") }}{% else %}—{% endif %}</td><td>{% if r.nota %}<span class="chip2">{{ r.nota }}</span>{% else %}—{% endif %}</td></tr>
+            <tr><td>{% if r.url %}<a href="{{ r.url }}" rel="noopener" target="_blank">{{ r.pollster }}</a>{% else %}{{ r.pollster }}{% endif %}</td><td class="num">{{ r.date }}</td><td class="num">{% if r.pp is not none %}{{ fmt_pct(r.pp) }}%{% else %}—{% endif %}</td><td class="num">{% if r.psoe is not none %}{{ fmt_pct(r.psoe) }}%{% else %}—{% endif %}</td><td class="num">{% if r.sample %}{{ "{:,}".format(r.sample)|replace(",", ".") }}{% else %}—{% endif %}</td><td>{% if r.nota %}<span class="chip2">{{ r.nota }}</span>{% else %}—{% endif %}</td></tr>
           {% endfor %}
           </tbody>
         </table></div>
-        <p class="muted small">El CIS estima voto (recuerdo y cocina propia); las demás casas publican intención directa. Por eso su valor no es comparable 1:1 y mueve los extremos del rango.</p>
+        <p class="muted small">El CIS estima voto (recuerdo y cocina propia); las demás casas publican intención directa. Por eso su valor no es comparable 1:1 y mueve los extremos del rango. <strong>Fuente: Electomanía</strong> en las filas de ElectoPanel, con enlace a cada pieza; no se recalculan escaños a partir de sus porcentajes.</p>
       </details>
     </div>
     {% endif %}

@@ -1,5 +1,5 @@
 encuestadora,medio,url,frecuencia,estado,notas
-Electomania,Electomania,https://electomania.es/,diario/semanal,automatico,ElectoPanel; API WordPress
+Electomania,Electomania,https://electomania.es/,diario/semanal,automatico,ElectoPanel; API WordPress; autorizado 23-oct-2026: solo datos abiertos, Fuente: Electomania + enlace a cada pieza, escaños publicados sin recalcular
 CIS,CIS,https://www.cis.es/,mensual,manual,Barometros; PDF; sep-2026 n=4042 y oct-2026 n=5025
 40dB,El Pais / 40dB,https://40db.es/,semanal,manual,
 GAD3,ABC / La Vanguardia,https://www.gad3.com/,semanal,manual,

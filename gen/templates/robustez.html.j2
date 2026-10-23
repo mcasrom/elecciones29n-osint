@@ -107,11 +107,11 @@
       <thead><tr><th>Casa</th><th>Fecha</th><th>PP</th><th>PP vs media</th><th>PSOE</th><th>PSOE vs media</th><th>Método</th></tr></thead>
       <tbody>
       {% for r in house_latest_sorted %}
-        <tr><td>{{ r.pollster }}</td><td class="num">{{ r.date }}</td><td class="num">{% if r.pp is not none %}{{ fmt_pct(r.pp) }}%{% else %}—{% endif %}</td><td class="num">{% if r.pp is not none and pp_mean is not none %}{{ "%+.1f"|format(r.pp - pp_mean) }} pp{% else %}—{% endif %}</td><td class="num">{% if r.psoe is not none %}{{ fmt_pct(r.psoe) }}%{% else %}—{% endif %}</td><td class="num">{% if r.psoe is not none and psoe_mean is not none %}{{ "%+.1f"|format(r.psoe - psoe_mean) }} pp{% else %}—{% endif %}</td><td>{% if r.nota %}<span class="chip2">{{ r.nota }}</span>{% else %}—{% endif %}</td></tr>
+        <tr><td>{% if r.url %}<a href="{{ r.url }}" rel="noopener" target="_blank">{{ r.pollster }}</a>{% else %}{{ r.pollster }}{% endif %}</td><td class="num">{{ r.date }}</td><td class="num">{% if r.pp is not none %}{{ fmt_pct(r.pp) }}%{% else %}—{% endif %}</td><td class="num">{% if r.pp is not none and pp_mean is not none %}{{ "%+.1f"|format(r.pp - pp_mean) }} pp{% else %}—{% endif %}</td><td class="num">{% if r.psoe is not none %}{{ fmt_pct(r.psoe) }}%{% else %}—{% endif %}</td><td class="num">{% if r.psoe is not none and psoe_mean is not none %}{{ "%+.1f"|format(r.psoe - psoe_mean) }} pp{% else %}—{% endif %}</td><td>{% if r.nota %}<span class="chip2">{{ r.nota }}</span>{% else %}—{% endif %}</td></tr>
       {% endfor %}
       </tbody>
     </table></div>
-    <p class="muted small">No es una nota de sesgo: es la última foto de cada casa frente a la media. Una diferencia grande puede ser método, trabajo de campo o cocina; no acierto ni error.</p>
+    <p class="muted small">No es una nota de sesgo: es la última foto de cada casa frente a la media. Una diferencia grande puede ser método, trabajo de campo o cocina; no acierto ni error. <strong>Fuente: Electomanía</strong> en ElectoPanel, con enlace a la pieza; no se recalculan escaños.</p>
   </div>
   {% endif %}
 

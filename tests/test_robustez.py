@@ -63,6 +63,16 @@ class RobustezTest(unittest.TestCase):
         self.assertEqual(row["sample"], 5025)
         self.assertIsNone(next(r for r in res["house_latest"] if r["pollster"] == "A")["nota"])
 
+    def test_house_latest_enlaza_pieza(self):
+        today = datetime.now(TZ).strftime("%Y-%m-%d")
+        url = "https://electomania.es/electopanel-18-oct/"
+        res = self.run_with([
+            ("PP", today, 31.8, url, 3141, "ElectoPanel", "tracking"),
+            ("PSOE", today, 27.1, url, 3141, "ElectoPanel", "tracking"),
+        ])
+        row = next(r for r in res["house_latest"] if r["pollster"] == "ElectoPanel")
+        self.assertEqual(row["url"], url)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.10.6 — 2026-10-23
+
+- **Electomanía autoriza por escrito** (23-oct-2026) el uso de los datos en abierto del ElectoPanel (voto y escaños), histórico incluido y sin coste, con «Fuente: Electomanía» y enlace a cada pieza.
+- **Atribución por pieza**: la tabla de últimas casas (portada y `/robustez.html`) enlaza cada fila a su artículo original; se añade `url` a `house_latest`.
+- **Sin escaños recalculados**: se usan los escaños publicados por Electomanía; el sitio no deriva escaños de los porcentajes.
+- **Tests**: 103 (nuevo test de enlace por pieza).
+
 ## 0.10.5 — 2026-10-23
 
 - **Autochequeo de privacidad**: la política se ajusta a lo que hace el servicio: responsable y contacto, versión del consentimiento (`2026-10-23-v1`), retención de logs (14 días) y copias (30 días), y encargados con enlaces a los DPA de Resend y Cloudflare (SCC/DPF).
