@@ -40,7 +40,7 @@
 - Etiquetas: resultados, anexo meteorológico, no causalidad.
 
 **Fuentes online**
-- **Onda Cero**: se compara el histórico con los 95 sondeos de la página (valores/fechas/casas).
+- **Onda Cero**: se compara el histórico con los sondeos de la página (valores/fechas/casas).
 - **CIS 3582**: PDF de estimación contrastado con el histórico (PP 22,2, PSOE 34,0, VOX 17,1, SUMAR 6,1…).
 - **Electomania**: panel del 11-oct contrastado con la API.
 - Las comprobaciones online son **avisos** (la fuente puede cambiar); las offline son **críticas**.
