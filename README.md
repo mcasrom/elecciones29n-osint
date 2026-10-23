@@ -28,7 +28,7 @@ dato, no en una nota al pie.
 ## Módulos publicados
 
 - `/` — Agregado, evolución, Congreso (D'Hondt etiquetado como simulación) y Senado.
-- `/hemiciclo.html` — **350 escaños por fecha de sondeo**: D'Hondt nacional sobre la media, selector de fecha, bloques y serie completa. Simulación mecánica, no proyección; sin territoriales.
+- `/hemiciclo.html` — **350 escaños por fecha de sondeo**: D'Hondt nacional sobre la media, selector de fecha, bloques y serie completa. Simulación mecánica, no proyección; sin territoriales. Enlace visible en la portada (pestaña **Hemiciclo** y botón bajo los indicadores) y en la navegación del resto de páginas.
 - `/electorado.html` — Censo 29N: total, CER/CERA, edad y sexo, provincias y nuevos electores.
 - `/participacion.html` — Participación nacional 1979–2023 y **provincial 1977–2023** (selector + comparación con la media nacional).
 - `/territorio.html` — 350 escaños, 52 circunscripciones, electores por escaño y **votos↔escaños 2023 con índice de Gallagher**.
