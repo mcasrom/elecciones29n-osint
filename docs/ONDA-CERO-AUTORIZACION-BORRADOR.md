@@ -1,46 +1,30 @@
-# Borrador — autorización de Onda Cero
+# Onda Cero — solicitud de autorización (enviada)
 
-> **No enviado.** Pendiente de la autorización del responsable del proyecto.
-> Sustituir `[correo de contacto]` por la dirección que corresponda.
-> Estado: 23-oct-2026. Revisar antes de enviar.
-
-**Para:** [correo de contacto]
-**Asunto:** Uso de la compilación de encuestas del 29N: autorización, atribución y reutilización
+> **Enviado:** 23-oct-2026, 08:30 UTC.
+> **Estado Resend:** `delivered`.
+> **ID Resend:** `01a167e2-6a8d-7b4b-9ac4-a1c938291d7a`.
+> **De:** Miguel Castillo · Observatorio 29N `<prensa@viajeinteligencia.com>`.
+> **Reply-To:** `info.elecciones29n@pruebapublica.com`.
+> **Para:** `nacional@ondacero.es`.
+> **CC:** `oyentes@atresmediaradio.com`.
+> **Asunto:** Uso de la compilación de encuestas del 29N: autorización y atribución.
 
 Hola:
 
-Me dirijo a ustedes como autor de **Observatorio 29N**
-(`https://elecciones29n.pruebapublica.com`), un proyecto individual, sin ánimo
-de lucro y de código abierto (AGPL-3.0), que publica una media agregada de
-sondeos para las elecciones generales del 29 de noviembre de 2026. No es un
-pronóstico ni una estimación propia de intención de voto.
+Me dirijo a ustedes como autor de Observatorio 29N (https://elecciones29n.pruebapublica.com), un proyecto individual, sin ánimo de lucro y de código abierto (AGPL-3.0), que publica una media agregada de sondeos para las elecciones generales del 29 de noviembre de 2026. No es un pronóstico ni una estimación propia de intención de voto.
 
-Desde el 18 de octubre he utilizado la página de encuestas de Onda Cero
-(`https://www.ondacero.es/elecciones/generales/encuestas/`) como fuente de
-sondeos individuales: fecha de publicación, casa, porcentajes por partido y,
-cuando consta, tamaño de muestra. **No reproduzco su tabla, sus gráficos ni su
-base de datos**: publico una media propia, con enlace a la fuente y la fecha de
-cada sondeo.
+Desde el 18 de octubre he utilizado la página de encuestas de Onda Cero (https://www.ondacero.es/elecciones/generales/encuestas/) como fuente de sondeos individuales: fecha de publicación, casa, porcentajes por partido y, cuando consta, tamaño de muestra. No reproduzco su tabla, sus gráficos ni su base de datos: publico una media propia, con enlace a la fuente y la fecha de cada sondeo.
 
-Quiero confirmar que este uso les parece correcto y, si lo autorizan, conocer
-sus condiciones de atribución. En concreto:
+Quiero confirmar que este uso les parece correcto y, si lo autorizan, conocer sus condiciones de atribución. En concreto:
 
-1. ¿Autorizan el uso de los sondeos individuales de su compilación para
-   calcular una media propia y publicar los sondeos con su fecha y casa?
-2. ¿Qué atribución prefieren exactamente («Fuente: Onda Cero», enlace a la
-   página general o enlace a cada pieza) y dónde quieren que aparezca?
-3. ¿Hay alguna condición para conservar el histórico ya publicado o para
-   reutilizar los datos en los ficheros agregados (JSON/CSV) del proyecto?
-4. ¿La autorización tiene un plazo o puede revocarse? Si es así, retiraré la
-   fuente y los sondeos que dependan de ella en cuanto me lo indiquen.
+1. ¿Autorizan el uso de los sondeos individuales de su compilación para calcular una media propia y publicar los sondeos con su fecha y casa?
+2. ¿Qué atribución prefieren exactamente («Fuente: Onda Cero», enlace a la página general o enlace a cada pieza) y dónde quieren que aparezca?
+3. ¿Hay alguna condición para conservar el histórico ya publicado o para reutilizar los datos en los ficheros agregados (JSON/CSV) del proyecto?
+4. ¿La autorización tiene un plazo o puede revocarse? Si es así, retiraré la fuente y los sondeos que dependan de ella en cuanto me lo indiquen.
 
-No incluyo datos personales ni microdatos: solo datos electorales publicados.
-Si necesitan un acuerdo de uso o una mención adicional, indíquenmelo y lo
-incorporo.
+No incluyo datos personales ni microdatos: solo datos electorales publicados. Si necesitan un acuerdo de uso o una mención adicional, indíquenmelo y lo incorporo.
 
-Si la autorización no cubre este uso, retiraré la fuente y los sondeos que
-dependan de ella de la media y de los ficheros públicos. Si detectan algún
-error de atribución o de dato, lo corregiré en cuanto me lo indiquen.
+Si la autorización no cubre este uso, retiraré la fuente y los sondeos que dependan de ella de la media y de los ficheros públicos. Si detectan algún error de atribución o de dato, lo corregiré en cuanto me lo indiquen.
 
 Gracias por su tiempo.
 
@@ -62,6 +46,8 @@ https://elecciones29n.pruebapublica.com
 - **Si no hay autorización**: retirar la fuente de `data/polls_history.csv`,
   recalcular la media y regenerar. No dejar los sondeos de Onda Cero en los
   ficheros públicos.
-- **Antes de enviar**: completar `[correo de contacto]`, revisar que la fecha y
-  el enlace siguen vigentes y guardar el id de Resend en este mismo fichero.
-- **No enviar** sin confirmación expresa del responsable del proyecto.
+- **Remitente**: se usó `prensa@viajeinteligencia.com` porque Resend solo tiene
+  verificado ese dominio; `pruebapublica.com` no está verificado para envío.
+  Las respuestas van a `info.elecciones29n@pruebapublica.com`.
+- **Seguimiento**: si no responden en 7–10 días, un único recordatorio breve.
+  No insistir después.
