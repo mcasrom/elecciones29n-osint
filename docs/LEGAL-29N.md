@@ -30,8 +30,13 @@
   textos.
 - **Qué se publica**: media propia, rango mínimo–máximo, método y JSON/CSV
   agregados, con enlace a la fuente.
-- **Estado**: autorización **pendiente**. Borrador en
+- **Estado**: solicitud **enviada** el 23-oct-2026 (08:30 UTC), `delivered`;
+  pendiente de respuesta. Registro en
   `docs/ONDA-CERO-AUTORIZACION-BORRADOR.md`.
+- **Límite**: la autorización de Onda Cero, si llega, no cubre por sí sola los
+  derechos de cada casa encuestadora sobre sus propios sondeos. Si su
+  condición es enlazar/citar, mantener el enlace individual; si exige retirar,
+  hacerlo.
 - **Si no autorizan**: retirar sus filas de `data/polls_history.csv`,
   recalcular la media y regenerar. No dejar sus sondeos en los ficheros
   públicos.
@@ -42,8 +47,8 @@
 
 | Fuente | Uso | Riesgo / pendiente |
 |---|---|---|
-| **Electomanía** | API pública de WordPress; se enlaza cada sondeo | Revisar condiciones de reutilización y atribución; no copiar tablas ni gráficos |
-| **CIS** | PDF del barómetro, añadido a mano con muestra y fecha | Verificar condiciones de reutilización; citar estudio y no alterar el dato |
+| **Electomanía** | API pública de WordPress; se enlaza cada sondeo | **Riesgo alto**: sus términos permiten cita parcial, pero **prohíben scraping, extracción automatizada y reutilización sistemática sin autorización escrita**. La API pública no equivale a permiso. Pedir autorización o limitar a cita puntual. |
+| **CIS** | PDF del barómetro, añadido a mano con muestra y fecha | Reutilización permitida con condiciones: citar «Origen: CIS», no desnaturalizar, no sugerir patrocinio y conservar fecha/metadatos. Guardar nº de estudio y ficha técnica. |
 | **Política Sin Ruido** | Contraste metodológico, no fuente de la media | Revisar condiciones si se incorporan sus datos de forma sistemática |
 | **Onda Cero** | Compilación secundaria | Autorización pendiente (ver arriba) |
 
@@ -52,9 +57,15 @@ fuente no autoriza el uso, se retira y se recalcula.
 
 ## 4. Blackout electoral (LOREG)
 
-- **Norma**: LOREG, art. 69.7. Durante los **cinco días anteriores** a la
+- **Norma**: LOREG, art. 69. Durante los **cinco días anteriores** a la
   votación no se publican, difunden ni reproducen por ningún medio resultados
-  de encuestas o sondeos de opinión referidos a las elecciones.
+  de encuestas o sondeos de opinión referidos a las elecciones (art. 69.7).
+- **Ficha técnica (art. 69.1)**: al publicar un sondeo, la norma exige
+  identificar el organismo y su domicilio, las características técnicas
+  (universo, tamaño, muestreo, error, fechas de campo), el texto de las
+  preguntas y el número de no respuesta. **Pendiente**: revisar si el sitio
+  entra en el ámbito de «medio de comunicación» y, por prudencia, publicar una
+  ficha técnica por sondeo cuando la fuente la ofrezca.
 - **Fechas**: **24–28 de noviembre de 2026**, ambos inclusive. El **29** se
   restablece la publicación.
 - **Implementación**: `agg/blackout.py` y `gen/build.py`. Durante la ventana:
@@ -141,11 +152,14 @@ fuente no autoriza el uso, se retira y se recalcula.
 
 ## 11. Prioridades antes del 24-N
 
-1. **Alta**: enviar/autorizar Onda Cero y decidir el fallback.
-2. **Alta**: revisar la redacción del aviso de blackout y bloquear redes.
-3. **Alta**: publicar privacidad/aviso legal y política de logs.
-4. **Media**: verificar condiciones de Electomanía y CIS.
-5. **Media**: revisar la licencia/cita de los datos agregados.
+1. **Alta**: Onda Cero enviada; decidir el fallback si no responde.
+2. **Alta**: pedir autorización a **Electomanía** o dejar de usar su API de
+   forma sistemática; sus términos no cubren el uso actual.
+3. **Alta**: revisar la ficha técnica del art. 69.1 LOREG y la redacción del
+   aviso de blackout; bloquear redes 24–28-N.
+4. **Alta**: publicar privacidad/aviso legal y política de logs.
+5. **Media**: conservar número de estudio y condiciones del CIS; revisar
+   licencia/cita de los datos agregados.
 6. **Baja**: revisar Ko-fi y obligaciones fiscales.
 
 ## 12. Referencias

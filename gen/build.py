@@ -269,6 +269,11 @@ svg.chart{width:100%;height:auto;display:block}
 /* apoyo */
 .support{display:inline-flex;align-items:center;gap:7px;margin-top:6px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:var(--panel2);color:var(--fg);text-decoration:none;font-size:13.5px;font-weight:600}
 .support:hover{border-color:var(--accent);color:var(--accent)}
+.footer-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.footer-actions .support{margin-top:0}
+.support.kofi,.btn.kofi{background:#ff5e5b;border-color:#ff5e5b;color:#180b0b;font-weight:700}
+.support.kofi:hover,.btn.kofi:hover{background:#ff7875;border-color:#ff7875;color:#180b0b}
+.support.kofi:focus-visible,.btn.kofi:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
 
 /* ayuda */
 .helpopen{appearance:none;border:1px solid var(--line);background:var(--panel);color:var(--muted);border-radius:999px;padding:6px 12px;font:inherit;font-size:13px;font-weight:700;cursor:pointer}
