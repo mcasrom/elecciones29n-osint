@@ -69,6 +69,9 @@ def main() -> int:
                 errors.append(f"blackout {path} HTTP {c}")
             elif "Blackout" not in h:
                 errors.append(f"blackout {path} sin aviso")
+        c, h = get(base + "/privacidad.html?canary=1")
+        if c != 200 or "Privacidad" not in h:
+            errors.append("blackout privacidad.html")
         c, h = get(base + "/metodologia.html?canary=1")
         if c != 200 or "se retiran" not in h:
             errors.append("blackout metodologia.html sin método actualizado")
@@ -177,12 +180,23 @@ def main() -> int:
     elif "Teruel" not in th or "350" not in th:
         errors.append("territorio.html sin datos de escaños")
 
-    for path, needle in (("/apoyo.html", "ko-fi.com/m_castillo"), ("/sobre-mi.html", "Miguel Castillo")):
+    for path, needle in (("/apoyo.html", "ko-fi.com/m_castillo"), ("/sobre-mi.html", "Miguel Castillo"), ("/privacidad.html", "Privacidad")):
         code, ph = get(base + path + "?canary=1")
         if code != 200:
             errors.append(f"{path} HTTP {code}")
         elif needle not in ph:
             errors.append(f"{path} sin contenido esperado")
+
+    code, ah = get(base + "/api/health?canary=1")
+    if code != 200:
+        errors.append(f"api/health HTTP {code}")
+    else:
+        try:
+            h = json.loads(ah)
+            if not h.get("ok") or h.get("service") != "elecciones29n-subs":
+                errors.append("api/health inválido")
+        except Exception as e:
+            errors.append(f"api/health no JSON: {e}")
 
     code, nh = get(base + "/noche-electoral.html?canary=1")
     if code != 200:

@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.10.5 — 2026-10-23
+
+- **Autochequeo de privacidad**: la política se ajusta a lo que hace el servicio: responsable y contacto, versión del consentimiento (`2026-10-23-v1`), retención de logs (14 días) y copias (30 días), y encargados con enlaces a los DPA de Resend y Cloudflare (SCC/DPF).
+- **Baja con minimización**: al darse de baja se borran página, UTM y referrer; solo quedan email y fecha en la lista de exclusión. El alta guarda la versión del consentimiento.
+- **Límites declarados**: autochequeo técnico, no dictamen jurídico; si hay actividad económica, faltarían los datos de la LSSI.
+
+## 0.10.4 — 2026-10-23
+
+- **Doble opt-in a prueba de escáneres**: `GET /api/confirm` y `GET /api/unsubscribe` ya no cambian el estado; muestran una página con botón y la acción exige `POST`. Un prefetch del correo (Outlook, antivirus, proxy) no puede confirmar ni dar de baja por su cuenta.
+- **CSP del servicio**: `form-action 'self'` para permitir el formulario de confirmación.
+- **Copia de seguridad**: el build diario guarda `data/subs.db` en `~/backups/elecciones29n/` (30 días, permisos `0600`).
+
+## 0.10.3 — 2026-10-23
+
+- **Aviso por correo**: formulario en portada, robustez, territorio y fichas provinciales; **doble opt-in** y baja en un clic. Guarda solo email, estado, fecha, página, UTM y host del referrer; sin cookies ni IP. Retención de pendientes: 30 días.
+- **API**: `POST /api/subscribe`, `GET /api/confirm`, `GET /api/unsubscribe` y `GET /api/health` en `scripts/subs_api.py` (puerto 3031, PM2 `elecciones29n-api`, SQLite `data/subs.db`, rate limit y `RESEND_DRY_RUN` para pruebas).
+- **Privacidad**: `/privacidad.html` con responsable, finalidad, base jurídica, conservación, Resend y derechos; enlazada en nav, pie y formularios.
+- **Medición**: `scripts/subs_report.py` agrega altas por fuente, página, UTM, referrer y día, sin PII.
+- **Resultados 2023**: orden estable por escaños, votos y partido (antes cambiaba entre builds por empate).
+- **Operación**: el build diario verifica `/privacidad.html`; el canario comprueba la página y `/api/health`. 102 tests.
+
 ## 0.10.2 — 2026-10-23
 
 - **Blackout 24–28 nov**: no se conserva la media congelada. La portada, `/robustez.html` y `/novedades.html` pasan a un aviso legal; se retiran `data/latest.json`, `data/robustez.json` y `og-robustez.png`; el canario y el validador verifican que no queden publicados. El 29 se restablece.

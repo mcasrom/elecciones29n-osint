@@ -97,3 +97,18 @@ La tarjeta **«Salud de la muestra»** de la portada muestra los mismos números
 
 Cada alta queda en `data/polls_history.csv` con `pollster`, `source_url` y
 `sample`. El histórico es el registro: no hace falta un fichero aparte.
+
+## 7. Suscriptores del aviso (semanal)
+
+```bash
+python3 scripts/subs_report.py          # resumen legible, sin PII
+python3 scripts/subs_report.py --json   # para métricas
+```
+
+Mide altas por fuente, página, UTM, referrer y día, y la tasa de confirmación.
+No imprime emails. Si baja la confirmación, revisar el remitente o el texto del
+correo antes de tocar el formulario.
+
+La API vive en `scripts/subs_api.py` (PM2 `elecciones29n-api`, puerto 3031,
+SQLite `data/subs.db`). Para una prueba sin enviar correo:
+`RESEND_DRY_RUN=1 pm2 restart elecciones29n-api --update-env`.

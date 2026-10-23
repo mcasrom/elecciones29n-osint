@@ -41,6 +41,7 @@ BLACKOUT_SITEMAP = [
     ("apoyo.html", 0.5),
     ("sobre-mi.html", 0.5),
     ("about.html", 0.5),
+    ("privacidad.html", 0.2),
 ]
 
 PAGES = [
@@ -58,6 +59,7 @@ PAGES = [
     ("comportamiento.html", "comportamiento.html", "2026-10-18", "monthly", "0.6"),
     ("como-leer.html", "como-leer.html", "2026-10-22", "monthly", "0.8"),
     ("robustez.html", "robustez.html", "2026-10-22", "daily", "0.8"),
+    ("privacidad.html", "privacidad.html", "2026-10-23", "yearly", "0.2"),
     ("glosario.html", "glosario.html", "2026-10-22", "monthly", "0.6"),
     ("novedades.html", "novedades.html", "2026-10-22", "monthly", "0.4"),
     ("apoyo.html", "apoyo.html", "2026-10-18", "yearly", "0.5"),
@@ -294,6 +296,26 @@ svg.chart{width:100%;height:auto;display:block}
 .eco a{color:var(--faint)}
 .eco a:hover{color:var(--fg)}
 
+/* captura por correo */
+.subscribe{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:center;background:linear-gradient(135deg,color-mix(in oklab,var(--accent) 10%,var(--panel)),var(--panel));border:1px solid var(--line);border-radius:16px;padding:20px;margin:22px 0 10px}
+.subscribe-copy .eyebrow{margin-bottom:7px;color:var(--accent)}
+.subscribe h2{font-size:22px;line-height:1.25;margin:0 0 8px}
+.subscribe p{margin:0;color:var(--muted);font-size:14.5px}
+.subform{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.subform input[type="email"]{flex:1 1 190px;min-width:0;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:9px;padding:11px 12px;font:inherit;font-size:14px}
+.subform input[type="email"]:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.subform button{appearance:none;border:0;border-radius:9px;background:var(--accent);color:var(--btn-fg);padding:11px 15px;font:inherit;font-size:14px;font-weight:800;cursor:pointer}
+.subform button:hover{filter:brightness(1.06)}
+.subform button:disabled{opacity:.65;cursor:wait}
+.submsg{flex:1 0 100%;min-height:1.2em;font-size:12.5px;color:var(--muted)}
+.submsg.ok{color:var(--accent2)}
+.submsg.bad{color:var(--accent)}
+.sublegal{flex:1 0 100%;font-size:11.5px;color:var(--faint);margin:0!important}
+.sublegal a{color:var(--faint)}
+.sublegal a:hover{color:var(--fg)}
+.hp{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:760px){.subscribe{grid-template-columns:1fr;gap:14px;padding:18px}.subform button{width:100%}}
 
 /* footer */
 .footer{border-top:1px solid var(--line);padding:24px 0;color:var(--faint);font-size:13.5px;margin-top:24px}
@@ -661,6 +683,7 @@ def write_llms() -> None:
 - {SITE_URL}/circunscripciones.html
 - {SITE_URL}/novedades.html
 - {SITE_URL}/cambios.xml
+- {SITE_URL}/privacidad.html
 - {SITE_URL}/sitemap.xml
 
 ## Límites
@@ -819,7 +842,7 @@ def build_resultados_2023(n: dict) -> list:
     vtot = sum(votes.values()) or 1
     stot = sum(seats.values()) or 1
     rows = []
-    for party in sorted(set(votes) | set(seats), key=lambda k: -seats.get(k, 0)):
+    for party in sorted(set(votes) | set(seats), key=lambda k: (-seats.get(k, 0), -votes.get(k, 0), k)):
         v = votes.get(party, 0)
         e = seats.get(party, 0)
         vp = 100.0 * v / vtot
@@ -1631,6 +1654,7 @@ def main(out: str = "web") -> None:
             "robustez.html": build_webpage_jsonld("Robustez del dato", "/robustez.html", "Cinco indicadores de la base de la media: sondeos, casas, antigüedad, muestra e IQR."),
             "como-leer.html": build_webpage_jsonld("Cómo leer la media", "/como-leer.html", "Guía breve para leer una media de sondeos sin sobreinterpretar."),
             "apoyo.html": build_webpage_jsonld("Apoyar el proyecto", "/apoyo.html", "Ko-fi, compartir y colaboración."),
+            "privacidad.html": build_webpage_jsonld("Privacidad", "/privacidad.html", "Datos del aviso por correo, finalidad, conservación y derechos. Sin cookies ni perfilado."),
             "about.html": build_webpage_jsonld("Acerca del proyecto", "/about.html", "Proyecto local-first, estático y sin tracking."),
         },
         "meteo_rows": build_meteo_rows(meteo),
@@ -1662,7 +1686,7 @@ def main(out: str = "web") -> None:
     }
 
     for tname in ["index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "participacion.html", "territorio.html",
-             "circunscripciones.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "noche-electoral.html", "factores.html", "comportamiento.html"]:
+             "circunscripciones.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(current=tname, **context)
         with open(os.path.join(OUT, tname), "w", encoding="utf-8") as f:

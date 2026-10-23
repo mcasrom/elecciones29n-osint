@@ -54,6 +54,7 @@
     <div class="cardhead"><h2>Fuente y límites</h2></div>
     <p class="muted small">Votos y escaños: <a href="{{ fuente_congreso.fuente_url }}" rel="noopener" target="_blank">{{ fuente_congreso.fuente }}</a> · {{ fuente_congreso.licencia }} · actualización {{ fuente_congreso.actualizado }}. Atribución: «{{ fuente_congreso.atribucion }}». Asignación de escaños 2026: BOE, RD 806/2026. Los votos incluyen CERA; el desglose por candidatura no separa voto exterior y voto en España. La ficha no atribuye intención de voto ni anticipa el resultado del 29N.</p>
   </div>
+  {% include "_captura.html.j2" %}
 </main>
 {% include "_footer.html.j2" %}
 </body>

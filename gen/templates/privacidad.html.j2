@@ -1,0 +1,67 @@
+{% set page_title = "Privacidad · observatorio electoral 29N" %}
+{% set page_desc = "Qué datos guarda el aviso por correo del Observatorio 29N, para qué se usan y cómo darse de baja. Sin cookies ni perfilado." %}
+{% set canonical = site_url ~ "/privacidad.html" %}
+{% set jsonld = webpages['privacidad.html'] %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:32px;letter-spacing:-0.02em">Privacidad</h1>
+  <p class="muted" style="margin:0 0 16px">Última actualización: 23 de octubre de 2026 · Versión del consentimiento: <code>2026-10-23-v1</code>.</p>
+
+  <div class="card">
+    <div class="cardhead"><h2>Lo esencial</h2></div>
+    <p>El responsable del tratamiento es <strong>Miguel Castillo</strong>, que mantiene el Observatorio 29N como proyecto personal e independiente. Para enviarte avisos por correo guardo únicamente tu dirección de email y datos técnicos mínimos de la suscripción. No uso cookies de analítica, no hago perfilado y no vendo ni cedo datos.</p>
+    <p>Contacto para cualquier cuestión de privacidad: <a href="mailto:info.elecciones29n@pruebapublica.com">info.elecciones29n@pruebapublica.com</a>.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Qué guardo</h2></div>
+    <ul>
+      <li><strong>Email</strong> que escribes en el formulario.</li>
+      <li><strong>Estado</strong>: pendiente, confirmado o de baja.</li>
+      <li><strong>Origen</strong>: página desde la que te suscribes, parámetros UTM y dominio de procedencia (por ejemplo, <code>mastodon.social</code>), sin la URL completa del referrer.</li>
+      <li><strong>Fechas</strong>: alta, confirmación, último envío y baja.</li>
+      <li><strong>Versión del consentimiento</strong>: el identificador del texto que aceptaste (<code>2026-10-23-v1</code>), para poder demostrar qué aceptaste y cuándo.</li>
+    </ul>
+    <p>La API no guarda tu dirección IP. El servidor conserva logs técnicos de acceso (IP, fecha, agente y URL) durante <strong>14 días</strong> para seguridad y diagnóstico; esos logs están separados de la lista de suscripción y no se cruzan con ella. Las copias de la base de datos se conservan <strong>30 días</strong>, con permisos restringidos.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Para qué y con qué base</h2></div>
+    <p>Uso tu email solo para enviarte un aviso cuando cambie la media de sondeos o se publique una encuesta nueva. La base jurídica es tu <strong>consentimiento</strong> (art. 6.1.a RGPD), que das al confirmar el botón del correo de doble opt-in. Puedes retirarlo en cualquier momento.</p>
+    <p>No tomo decisiones automatizadas sobre ti, no hago perfilado y no uso tus datos para publicidad.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Cuánto tiempo</h2></div>
+    <p>Si no confirmas la suscripción, borro el registro a los <strong>30 días</strong>. Si la confirmas, conservo el email y la prueba del consentimiento hasta que te des de baja.</p>
+    <p>Si te das de baja, borro los datos de origen (página, UTM y referrer) y conservo solo el email y la fecha de baja en una <strong>lista de exclusión</strong>, para no volver a escribirte. Esa lista se mantiene mientras el servicio siga activo; si pides la supresión, borro también el email.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Quién lo trata</h2></div>
+    <p>El envío se realiza mediante <a href="https://resend.com/" target="_blank" rel="noopener noreferrer">Resend</a> (Plus Five Five, Inc.), que actúa como encargado del tratamiento. Su <a href="https://resend.com/legal/dpa" target="_blank" rel="noopener noreferrer">DPA</a> incorpora las Cláusulas Contractuales Tipo de la Comisión Europea; su tratamiento principal está en Estados Unidos y su lista de subencargados se publica en <a href="https://resend.com/legal/subprocessors" target="_blank" rel="noopener noreferrer">resend.com/legal/subprocessors</a>.</p>
+    <p>El sitio se aloja en un servidor propio en la Unión Europea y se sirve a través de <a href="https://www.cloudflare.com/" target="_blank" rel="noopener noreferrer">Cloudflare</a>, que presta CDN y protección y actúa como encargado; su <a href="https://www.cloudflare.com/cloudflare-customer-dpa/" target="_blank" rel="noopener noreferrer">DPA</a> incluye las Cláusulas Contractuales Tipo y el marco de privacidad UE-EE. UU. Los proveedores de correo de los destinatarios reciben el mensaje para entregarlo. No hay otros destinatarios.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Tus derechos</h2></div>
+    <p>Puedes pedir acceso, rectificación, supresión, oposición, limitación o portabilidad, y retirar el consentimiento sin que ello afecte a la licitud del tratamiento anterior. Escríbeme a <a href="mailto:info.elecciones29n@pruebapublica.com">info.elecciones29n@pruebapublica.com</a>. También puedes reclamar ante la <a href="https://www.aepd.es/" target="_blank" rel="noopener noreferrer">Agencia Española de Protección de Datos</a>.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Seguridad y cambios</h2></div>
+    <p>El servidor está en la UE, con acceso restringido, TLS y copias con permisos limitados. Si cambio esta política, actualizaré la fecha y la versión del consentimiento; si afecta al uso de tus datos, te lo avisaré por correo antes de aplicarlo.</p>
+  </div>
+
+  <p class="muted small"><a href="/">Volver al observatorio</a> · <a href="/cambios.xml">RSS de cambios</a></p>
+  {% include "_captura.html.j2" %}
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>

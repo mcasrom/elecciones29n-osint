@@ -53,9 +53,35 @@ fi
 mv "$STAGE" web
 
 rsync -a --delete web/ /var/www/elecciones29n/
-for _f in index.html glosario.html robustez.html como-leer.html circunscripciones.html circunscripcion/madrid.html; do
+for _f in index.html glosario.html robustez.html como-leer.html circunscripciones.html circunscripcion/madrid.html privacidad.html; do
   [ -f "/var/www/elecciones29n/$_f" ] || { echo "[run_daily_server] falta $_f en /var/www"; exit 1; }
 done
+
+if [ -f data/subs.db ]; then
+  _backup_dir="$HOME/backups/elecciones29n"
+  _backup="$_backup_dir/subs-$TODAY.db"
+  mkdir -p "$_backup_dir"
+  if python3 - "$PWD/data/subs.db" "$_backup" <<'PY'
+import os
+import sqlite3
+import sys
+
+src = sqlite3.connect(sys.argv[1])
+dst = sqlite3.connect(sys.argv[2])
+with dst:
+    src.backup(dst)
+dst.close()
+src.close()
+os.chmod(sys.argv[2], 0o600)
+PY
+  then
+    find "$_backup_dir" -name 'subs-*.db' -mtime +30 -delete
+    echo "[run_daily_server] copia de suscriptores: $_backup"
+  else
+    rm -f "$_backup"
+    echo "[run_daily_server] aviso: no se pudo copiar data/subs.db"
+  fi
+fi
 
 sleep 3
 /usr/bin/python3 scripts/canary_live.py > "$HOME/.local/state/elecciones29n/canary.log" 2>&1 || echo "[run_daily_server] canario con aviso"

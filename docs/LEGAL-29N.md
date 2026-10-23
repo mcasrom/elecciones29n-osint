@@ -82,17 +82,34 @@ fuente no autoriza el uso, se retira y se recalcula.
 
 ## 5. Protección de datos (RGPD/LOPDGDD)
 
-- **Situación actual**: sitio estático, sin cookies, sin analítica de terceros,
-  sin formularios y sin newsletter. El único canal es el correo de contacto.
+- **Situación actual (23-oct-2026)**: sitio estático, sin cookies ni analítica
+  de terceros, con **aviso por correo** de doble opt-in (`/privacidad.html`).
+  El alta guarda **email, fecha, página, UTM y host del referrer**; no guarda IP
+  ni URL completa del referrer. El único canal sigue siendo el correo de
+  contacto.
 - **Datos que pueden existir**:
   - logs del servidor (IP, fecha, agente) por seguridad y funcionamiento;
-  - correos recibidos, para responder.
+  - correos recibidos, para responder;
+  - suscripciones al aviso: email, estado, fecha, página/UTM y host del
+    referrer; sin perfilado.
+- **Implementado (autochequeo 23-oct-2026)**: página de privacidad,
+  doble opt-in con confirmación por `POST` (un `GET` no cambia el estado),
+  baja con botón, retención de pendientes 30 días, borrado de página/UTM/referrer
+  al darse de baja (solo queda email + fecha en lista de exclusión), versión del
+  consentimiento (`2026-10-23-v1`), sin cookies y sin cesión a terceros.
+  - Logs de acceso: **14 días** (rotación de nginx).
+  - Copias de `subs.db`: **30 días**, permisos `0600`, en
+    `~/backups/elecciones29n/`.
+  - Envío transaccional: **Resend** como encargado, con DPA y SCC publicadas
+    (tratamiento principal en EE. UU.); **Cloudflare** como encargado de CDN y
+    seguridad, con DPA/SCC/DPF. Enlaces en `/privacidad.html`.
+- **Límites honestos**: esto es un autochequeo técnico, no un dictamen jurídico.
+  No hay revisión externa. Si el proyecto se convierte en actividad económica,
+  habría que añadir los datos identificativos que exige la LSSI.
 - **Pendiente**:
-  - página de **privacidad / aviso legal** con identidad del responsable,
-    finalidad, base jurídica, conservación y derechos;
-  - política de conservación de logs;
-  - si se añade newsletter o formulario, consentimiento, doble opt-in, baja y
-    registro de altas.
+  - decidir si el aviso pasa a tener envíos periódicos (hoy solo confirmación);
+  - mantener actualizada la versión del consentimiento si cambia el texto y
+    revisar anualmente los DPA/subencargados de Resend y Cloudflare.
 - **Principio**: no recoger más datos de los necesarios y no cederlos a
   terceros.
 
@@ -157,7 +174,8 @@ fuente no autoriza el uso, se retira y se recalcula.
    no autorizan, retirar ElectoPanel/ElectoPromedio o limitar a cita puntual.
 3. **Alta**: revisar la ficha técnica del art. 69.1 LOREG y la redacción del
    aviso de blackout; bloquear redes 24–28-N.
-4. **Alta**: publicar privacidad/aviso legal y política de logs.
+4. **Alta**: privacidad publicada (`/privacidad.html`); queda la revisión legal
+   y la política de logs.
 5. **Media**: conservar número de estudio y condiciones del CIS; revisar
    licencia/cita de los datos agregados.
 6. **Baja**: revisar Ko-fi y obligaciones fiscales.

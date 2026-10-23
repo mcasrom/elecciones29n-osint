@@ -5,7 +5,7 @@
 [![En vivo](https://img.shields.io/badge/en%20vivo-elecciones29n.pruebapublica.com-ff5a1f)](https://elecciones29n.pruebapublica.com/)
 [![Licencia](https://img.shields.io/badge/licencia-AGPL--3.0-3ddc97)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.12-8ec5ff)](https://www.python.org/)
-[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.10.2-ff5a1f)](CHANGELOG.md)
+[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.10.5-ff5a1f)](CHANGELOG.md)
 
 ---
 
@@ -36,6 +36,19 @@ dato, no en una nota al pie.
 - `/comportamiento.html` — **M4 v1**: voto declarado en 2023 por edad, sexo e ideología (CIS 3582, n=5.025), con n por celda y celdas n<30 suprimidas.
 - `/noche-electoral.html` — Qué se publica el 29N, cuándo y con qué fuente.
 - `/metodologia.html` y `/fuentes.html` — Método, fuentes, catálogo de datos y licencias.
+- `/privacidad.html` — Datos del aviso por correo, finalidad, conservación y derechos. Sin cookies.
+
+## Aviso por correo
+
+La web incluye un **aviso de doble opt-in** para saber cuándo cambia la media o
+sale un sondeo nuevo. No hay cuentas ni cookies: el alta guarda email, fecha,
+página, UTM, **host** del referrer (nunca la URL completa ni la IP) y la
+**versión del consentimiento**. Confirmar y darse de baja exige pulsar un botón
+(un `GET` no cambia el estado, para que no lo haga un escáner de correo). Los
+logs de acceso se conservan 14 días y las copias de la base 30 días. La API vive
+en `scripts/subs_api.py` (puerto 3031, PM2 `elecciones29n-api`, SQLite
+`data/subs.db`) y el informe agregado sin PII —incluidas las versiones de
+consentimiento— se obtiene con `python3 scripts/subs_report.py`.
 
 ## Salud de la muestra
 
@@ -63,7 +76,7 @@ agregado.
 - **Frente Amplio → SUMAR**: el ElectoPanel del 18-oct publica «Frente Amplio … 4,9 %»; se mapea a SUMAR y se backfilla la fila (suma del sondeo 87,3 → 92,2).
 - **Sin doble conteo territorial**: ERC, Junts, Bildu y PNV salen de la tabla principal (en Onda Cero ya van dentro de «Otros») y se publican aparte. La tabla muestra su suma: **98,83**.
 - **Etiquetas y auditoría**: «Datos suficientes/frágiles/insuficientes», muestra «3/9 con muestra (12.291 encuestados)» y casas a 45/14 d. `audit_datos.py` exige 90–110 en sondeos tracking y comprueba la suma.
-- Verificación: **94 tests**, **233 comprobaciones, 0 fallos críticos**; `n_polls=9` (11–19 oct). Versión **0.10.2**.
+- Verificación: **102 tests**, **233 comprobaciones, 0 fallos críticos**; `n_polls=9` (11–19 oct). Versión **0.10.5**.
 
 ## Fuentes
 

@@ -19,6 +19,7 @@
 - https://elecciones29n.pruebapublica.com/circunscripciones.html
 - https://elecciones29n.pruebapublica.com/novedades.html
 - https://elecciones29n.pruebapublica.com/cambios.xml
+- https://elecciones29n.pruebapublica.com/privacidad.html
 - https://elecciones29n.pruebapublica.com/sitemap.xml
 
 ## Límites

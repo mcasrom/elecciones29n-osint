@@ -10,7 +10,7 @@
 <meta name="description" content="Cambios publicados en el observatorio electoral 29N: correcciones, mejoras de datos y nuevas páginas.">
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/novedades.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202610231038">
+<link rel="stylesheet" href="/css/main.css?v=202610231232">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <meta name="theme-color" content="#0b0c1c">
-<meta name="generator" content="elecciones29n-osint v0.10.2">
+<meta name="generator" content="elecciones29n-osint v0.10.5">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta property="og:type" content="website">
@@ -100,6 +100,7 @@ document.addEventListener('DOMContentLoaded', function(){
         <a class="" href="/apoyo.html">Apoyo</a>
         <a class="" href="/sobre-mi.html">Sobre mí</a>
         <a class="" href="/about.html">Acerca del proyecto</a>
+        <a class="" href="/privacidad.html">Privacidad</a>
         <a class="navdata" href="/data/latest.json">Datos abiertos ↗</a>
       </div>
     </nav>
@@ -111,6 +112,33 @@ document.addEventListener('DOMContentLoaded', function(){
   <p class="muted" style="margin:8px 0 16px;max-width:70ch">Lo que cambia en el observatorio, con fecha y versión. Incluye correcciones de datos y de método, no solo páginas nuevas. El registro completo vive en el repositorio.</p>
 
   
+    
+    <div class="card">
+      <div class="cardhead"><h2>0.10.5</h2><span class="hint">2026-10-23</span></div>
+      
+      <ul class="muted small" style="margin:0">
+        <li><strong>Autochequeo de privacidad</strong>: la política se ajusta a lo que hace el servicio: responsable y contacto, versión del consentimiento (<code>2026-10-23-v1</code>), retención de logs (14 días) y copias (30 días), y encargados con enlaces a los DPA de Resend y Cloudflare (SCC/DPF).</li><li><strong>Baja con minimización</strong>: al darse de baja se borran página, UTM y referrer; solo quedan email y fecha en la lista de exclusión. El alta guarda la versión del consentimiento.</li><li><strong>Límites declarados</strong>: autochequeo técnico, no dictamen jurídico; si hay actividad económica, faltarían los datos de la LSSI.</li>
+      </ul>
+      
+    </div>
+    
+    <div class="card">
+      <div class="cardhead"><h2>0.10.4</h2><span class="hint">2026-10-23</span></div>
+      
+      <ul class="muted small" style="margin:0">
+        <li><strong>Doble opt-in a prueba de escáneres</strong>: <code>GET /api/confirm</code> y <code>GET /api/unsubscribe</code> ya no cambian el estado; muestran una página con botón y la acción exige <code>POST</code>. Un prefetch del correo (Outlook, antivirus, proxy) no puede confirmar ni dar de baja por su cuenta.</li><li><strong>CSP del servicio</strong>: <code>form-action 'self'</code> para permitir el formulario de confirmación.</li><li><strong>Copia de seguridad</strong>: el build diario guarda <code>data/subs.db</code> en <code>~/backups/elecciones29n/</code> (30 días, permisos <code>0600</code>).</li>
+      </ul>
+      
+    </div>
+    
+    <div class="card">
+      <div class="cardhead"><h2>0.10.3</h2><span class="hint">2026-10-23</span></div>
+      
+      <ul class="muted small" style="margin:0">
+        <li><strong>Aviso por correo</strong>: formulario en portada, robustez, territorio y fichas provinciales; <strong>doble opt-in</strong> y baja en un clic. Guarda solo email, estado, fecha, página, UTM y host del referrer; sin cookies ni IP. Retención de pendientes: 30 días.</li><li><strong>API</strong>: <code>POST /api/subscribe</code>, <code>GET /api/confirm</code>, <code>GET /api/unsubscribe</code> y <code>GET /api/health</code> en <code>scripts/subs_api.py</code> (puerto 3031, PM2 <code>elecciones29n-api</code>, SQLite <code>data/subs.db</code>, rate limit y <code>RESEND_DRY_RUN</code> para pruebas).</li><li><strong>Privacidad</strong>: <code>/privacidad.html</code> con responsable, finalidad, base jurídica, conservación, Resend y derechos; enlazada en nav, pie y formularios.</li><li><strong>Medición</strong>: <code>scripts/subs_report.py</code> agrega altas por fuente, página, UTM, referrer y día, sin PII.</li><li><strong>Resultados 2023</strong>: orden estable por escaños, votos y partido (antes cambiaba entre builds por empate).</li><li><strong>Operación</strong>: el build diario verifica <code>/privacidad.html</code>; el canario comprueba la página y <code>/api/health</code>. 102 tests.</li>
+      </ul>
+      
+    </div>
     
     <div class="card">
       <div class="cardhead"><h2>0.10.2</h2><span class="hint">2026-10-23</span></div>
@@ -267,13 +295,13 @@ document.addEventListener('DOMContentLoaded', function(){
     
   
 
-  <p class="muted small">Versión actual: <strong>0.10.2</strong> · <a href="https://github.com/mcasrom/elecciones29n-osint/blob/main/CHANGELOG.md" rel="noopener">CHANGELOG.md</a></p>
+  <p class="muted small">Versión actual: <strong>0.10.5</strong> · <a href="https://github.com/mcasrom/elecciones29n-osint/blob/main/CHANGELOG.md" rel="noopener">CHANGELOG.md</a></p>
 </main>
 <footer class="footer">
   <div class="container">
     <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
     <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
-    <p>Datos abiertos · <a href="/novedades.html">Novedades</a> · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · Hecho por Miguel Castillo · software v0.10.2 · 2026-10-23.</p>
+    <p>Datos abiertos · <a href="/novedades.html">Novedades</a> · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="/privacidad.html">Privacidad</a> · Hecho por Miguel Castillo · software v0.10.5 · 2026-10-23.</p>
     <p class="eco">Ecosistema:
       <a href="https://www.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Prueba Pública</a> ·
       <a href="https://analisis.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Blog de análisis</a> ·
@@ -344,11 +372,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202610231038" hidden>
+<div class="swupdate" id="swupdate" data-build="202610231232" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610231038');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610231232');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -377,7 +405,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202610231038', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202610231232', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

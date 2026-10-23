@@ -12,7 +12,7 @@
 <meta name="description" content="Rioja, La: 4 diputados, 259.798 electores y resultado oficial de 2019 y 2023. Ficha, escaño marginal y calculadora D'Hondt.">
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/circunscripcion/la-rioja.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202610231038">
+<link rel="stylesheet" href="/css/main.css?v=202610231232">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <meta name="theme-color" content="#0b0c1c">
-<meta name="generator" content="elecciones29n-osint v0.10.2">
+<meta name="generator" content="elecciones29n-osint v0.10.5">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta property="og:type" content="website">
@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded', function(){
         <a class="" href="/apoyo.html">Apoyo</a>
         <a class="" href="/sobre-mi.html">Sobre mí</a>
         <a class="" href="/about.html">Acerca del proyecto</a>
+        <a class="" href="/privacidad.html">Privacidad</a>
         <a class="navdata" href="/data/latest.json">Datos abiertos ↗</a>
       </div>
     </nav>
@@ -455,12 +456,83 @@ document.addEventListener('DOMContentLoaded', function(){
     loadYear('2023-07-23');
   })();
   </script>
+  <section class="subscribe" id="aviso" aria-labelledby="aviso-title">
+  <div class="subscribe-copy">
+    <p class="eyebrow">Aviso por correo</p>
+    <h2 id="aviso-title">Avísame cuando cambie la media o salga un sondeo nuevo</h2>
+    <p>Un correo cuando haya un cambio en los datos. Sin pronósticos, sin ruido y sin cookies. Baja en un clic.</p>
+  </div>
+  <form class="subform" data-29n-subscribe novalidate>
+    <label class="sr-only" for="sub-email">Tu correo electrónico</label>
+    <input id="sub-email" name="email" type="email" inputmode="email" autocomplete="email" required placeholder="tu@correo.com">
+    <button type="submit">Recibir aviso</button>
+    <p class="submsg" role="status" aria-live="polite"></p>
+    <p class="sublegal">Doble confirmación · <a href="/privacidad.html">Privacidad</a> · <a href="/cambios.xml">RSS de cambios</a></p>
+    <input class="hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+  </form>
+  <noscript><p class="sublegal">Para suscribirte necesitas JavaScript. También puedes seguir los cambios por <a href="/cambios.xml">RSS</a>.</p></noscript>
+</section>
+<script>
+(function(){
+  var form = document.querySelector('form[data-29n-subscribe]');
+  if (!form) return;
+  var input = form.querySelector('input[name="email"]');
+  var msg = form.querySelector('.submsg');
+  var button = form.querySelector('button[type="submit"]');
+  var hp = form.querySelector('input[name="website"]');
+  function say(text, bad){
+    if (!msg) return;
+    msg.textContent = text;
+    msg.className = 'submsg' + (bad ? ' bad' : ' ok');
+  }
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    if (hp && hp.value) { say('Revisa tu correo para confirmar.', false); return; }
+    var email = (input.value || '').trim();
+    if (!email || email.indexOf('@') < 1) { say('Escribe un correo válido.', true); input.focus(); return; }
+    var q = new URLSearchParams(location.search);
+    var payload = {
+      email: email,
+      source: '29n',
+      page: location.pathname,
+      utm_source: q.get('utm_source') || '',
+      utm_medium: q.get('utm_medium') || '',
+      utm_campaign: q.get('utm_campaign') || '',
+      referrer: document.referrer || ''
+    };
+    button.disabled = true;
+    button.textContent = 'Enviando…';
+    say('', false);
+    fetch('/api/subscribe', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(payload)
+    }).then(function(res){
+      if (res.ok) {
+        say('Revisa tu correo: te he enviado un enlace para confirmar.', false);
+        form.reset();
+      } else if (res.status === 400) {
+        say('El correo no parece válido.', true);
+      } else if (res.status === 429) {
+        say('Demasiados intentos. Prueba de nuevo en unos minutos.', true);
+      } else {
+        say('No he podido enviar el correo. Inténtalo más tarde o usa el RSS.', true);
+      }
+    }).catch(function(){
+      say('No he podido conectar. Inténtalo más tarde o usa el RSS.', true);
+    }).then(function(){
+      button.disabled = false;
+      button.textContent = 'Recibir aviso';
+    });
+  });
+})();
+</script>
 </main>
 <footer class="footer">
   <div class="container">
     <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
     <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
-    <p>Datos abiertos · <a href="/novedades.html">Novedades</a> · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · Hecho por Miguel Castillo · software v0.10.2 · 2026-10-23.</p>
+    <p>Datos abiertos · <a href="/novedades.html">Novedades</a> · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="/privacidad.html">Privacidad</a> · Hecho por Miguel Castillo · software v0.10.5 · 2026-10-23.</p>
     <p class="eco">Ecosistema:
       <a href="https://www.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Prueba Pública</a> ·
       <a href="https://analisis.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Blog de análisis</a> ·
@@ -531,11 +603,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202610231038" hidden>
+<div class="swupdate" id="swupdate" data-build="202610231232" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610231038');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610231232');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -564,7 +636,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202610231038', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202610231232', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

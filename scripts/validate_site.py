@@ -25,7 +25,7 @@ REQUIRED = [
     "participacion.html", "data/participacion.json", "data/participacion.csv",
     "territorio.html", "data/escanos-2026.json", "data/escanos-2026.csv",
     "circunscripciones.html", "data/congreso-oficial.json", "circunscripcion/madrid.html",
-    "apoyo.html", "sobre-mi.html", "noche-electoral.html",
+    "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html",
     "manifest.webmanifest", "sw.js", "icons/icon-192.png", "icons/icon-512.png",
     "factores.html", "comportamiento.html", "version.json", "favicon.ico",
     "data/participacion-provincial.json", "data/resultados-2023.csv",
@@ -41,7 +41,7 @@ def validate_blackout(d: str) -> int:
         "index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html",
         "glosario.html", "electorado.html", "participacion.html", "territorio.html",
         "circunscripciones.html", "noche-electoral.html", "factores.html",
-        "comportamiento.html", "como-leer.html", "apoyo.html", "sobre-mi.html",
+        "comportamiento.html", "como-leer.html", "apoyo.html", "sobre-mi.html", "privacidad.html",
         "robots.txt", "sitemap.xml", "llms.txt", "favicon.svg", "og.png",
         "cambios.xml", "css/main.css", "sw.js", "manifest.webmanifest", "version.json",
         "data/blackout.json", "data/censo-2026.json", "data/participacion.json",
@@ -351,6 +351,12 @@ def main() -> int:
             errors.append("comportamiento.html sin tablas M4")
         if "Módulo en preparación" in ch:
             errors.append("comportamiento.html sigue en diseño")
+
+    pp = os.path.join(d, "privacidad.html")
+    if os.path.exists(pp):
+        ph = open(pp, encoding="utf-8", errors="ignore").read()
+        if "Privacidad" not in ph or "info.elecciones29n@pruebapublica.com" not in ph:
+            errors.append("privacidad.html sin contenido esperado")
 
     for page, needle in (
         ("participacion.html", "Participación en las elecciones generales"),
