@@ -48,6 +48,7 @@
 | Fuente | Uso | Riesgo / pendiente |
 |---|---|---|
 | **Electomanía** | API pública de WordPress; se enlaza cada sondeo | **Autorizado por escrito el 23-oct-2026**: uso limitado y no sustitutivo de los datos en abierto del **ElectoPanel** (voto y escaños), histórico incluido, sin coste. Condiciones: **«Fuente: Electomanía»**, **enlace a cada pieza**, **escaños publicados sin recalcular** y no reproducir tablas/gráficos/microdatos. |
+| **Electomanía · hemiciclo** | El hemiciclo **no usa sus escaños publicados**; aplica D'Hondt a la media agregada de voto, que incluye sondeos de varias casas. | Riesgo interpretativo: derivar escaños de porcentajes que incluyen ElectoPanel podría leerse como recálculo. Mitigación: etiqueta «simulación propia», sin atribuir a la casa. Si hay objeción, excluir Electomanía del cálculo del hemiciclo o retirar esa capa; la media principal no cambia. |
 | **CIS** | PDF del barómetro, añadido a mano con muestra y fecha | Reutilización permitida con condiciones: citar «Origen: CIS», no desnaturalizar, no sugerir patrocinio y conservar fecha/metadatos. Guardar nº de estudio y ficha técnica. |
 | **Política Sin Ruido** | Contraste metodológico, no fuente de la media | Revisar condiciones si se incorporan sus datos de forma sistemática |
 | **Onda Cero** | Compilación secundaria | Autorización pendiente (ver arriba) |
@@ -69,7 +70,7 @@ fuente no autoriza el uso, se retira y se recalcula.
 - **Fechas**: **24–28 de noviembre de 2026**, ambos inclusive. El **29** se
   restablece la publicación.
 - **Implementación**: `agg/blackout.py` y `gen/build.py`. Durante la ventana:
-  - la portada, `/robustez.html` y `/novedades.html` muestran un aviso legal;
+  - la portada, `/robustez.html`, `/novedades.html` y `/hemiciclo.html` muestran un aviso legal;
   - se retiran `data/latest.json`, `data/robustez.json` y `og-robustez.png`;
   - el sitemap y el RSS no anuncian los datos retirados;
   - `validate_site.py` y `canary_live.py` comprueban el estado.
@@ -173,6 +174,9 @@ fuente no autoriza el uso, se retira y se recalcula.
 2. **Hecho**: Electomanía **autorizó por escrito** el 23-oct-2026 (ElectoPanel
    en abierto, histórico, sin coste; «Fuente: Electomanía» + enlace por pieza;
    escaños publicados sin recalcular). Mantener esas condiciones en cada build.
+   **Hemiciclo**: no usa sus escaños publicados; es una simulación propia sobre
+   la media agregada. Revisar la etiqueta y, si la casa objeta, excluirla del
+   cálculo del hemiciclo o retirar la capa.
 3. **Alta**: revisar la ficha técnica del art. 69.1 LOREG y la redacción del
    aviso de blackout; bloquear redes 24–28-N.
 4. **Alta**: privacidad publicada (`/privacidad.html`); queda la revisión legal

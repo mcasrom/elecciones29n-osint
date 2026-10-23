@@ -266,6 +266,7 @@
         {% endfor %}
       </div>
       <p class="muted small">Total del reparto hipotético: {{ sim_congress.values()|sum }} escaños entre partidos estatales. Mayoría absoluta: 176. No es la composición real del Congreso.</p>
+      <div class="cta"><a class="btn" href="/hemiciclo.html">Ver el hemiciclo por sondeo →</a><span class="muted small">350 escaños, fecha a fecha, con método y límites.</span></div>
       {% else %}
       <p class="muted">Sin datos suficientes para simular.</p>
       {% endif %}

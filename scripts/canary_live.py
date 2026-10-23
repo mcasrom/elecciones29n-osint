@@ -63,7 +63,7 @@ def main() -> int:
             c = status(base + path + "?canary=1")
             if c not in (404, 410):
                 errors.append(f"blackout: {path} sigue publicado (HTTP {c})")
-        for path in ("/robustez.html", "/novedades.html"):
+        for path in ("/robustez.html", "/novedades.html", "/hemiciclo.html"):
             c, h = get(base + path + "?canary=1")
             if c != 200:
                 errors.append(f"blackout {path} HTTP {c}")
@@ -92,6 +92,7 @@ def main() -> int:
             ("/noche-electoral.html", "Noche electoral"),
             ("/comportamiento.html", "Recuerdo de voto 2023"),
             ("/factores.html", "Factores y participación"),
+            ("/hemiciclo.html", "Hemiciclo simulado"),
         ):
             c, h = get(base + path + "?canary=1")
             if c != 200:
@@ -137,11 +138,19 @@ def main() -> int:
                 errors.append("latest.json sin partidos")
             if not d.get("series_long"):
                 errors.append("latest.json sin series_long")
+            hem = d.get("hemicycle") or []
+            if not hem:
+                errors.append("latest.json sin hemiciclo")
+            for e in hem:
+                if sum(int(r.get("seats") or 0) for r in e.get("seats", [])) != 350:
+                    errors.append(f"hemiciclo {e.get('date')} no suma 350")
+                    break
         except Exception as e:
             errors.append(f"latest.json inválido: {e}")
 
     for _path, _needle in (("/glosario.html", "Glosario"),
                            ("/robustez.html", "Robustez del dato"),
+                           ("/hemiciclo.html", "Hemiciclo simulado"),
                            ("/como-leer.html", "Cómo leer la media"),
                            ("/novedades.html", "Novedades")):
         _c, _h = get(base + _path + "?canary=1")

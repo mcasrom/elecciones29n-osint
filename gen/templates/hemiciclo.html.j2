@@ -1,0 +1,162 @@
+{% set page_title = "Hemiciclo simulado · 350 escaños por sondeo · 29N" %}
+{% set page_desc = "Hemiciclo de bloques con D'Hondt nacional aplicado a la media de sondeos del 29N. Simulación mecánica, no proyección ni composición real del Congreso." %}
+{% set canonical = site_url ~ "/hemiciclo.html" %}
+{% set jsonld = webpages['hemiciclo.html'] %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Hemiciclo simulado</h1>
+  <p class="muted" style="margin:0 0 14px">Cómo repartiría los <strong>350 escaños</strong> la media de voto de cada fecha con sondeo, con D'Hondt nacional. Es una <strong>simulación mecánica de bloques</strong>: no es una proyección, no es la composición real del Congreso y no incorpora partidos territoriales.</p>
+
+  <div class="alert warn"><strong>No es una proyección.</strong> Aplico D'Hondt a la media nacional con un distrito único de 350 escaños y umbral del 3%, solo entre partidos estatales. La ley real reparte por provincias y ERC, Junts, EH Bildu y PNV no se simulan: su ausencia infla a PP y PSOE. Sirve para ver el tamaño de los bloques, no para anticipar escaños ni mayorías.</div>
+
+  {% if hemicycle %}
+  {% set last = hemicycle[-1] %}
+  <div class="card">
+    <div class="cardhead"><h2>Reparto por fecha de sondeo</h2><span class="hint">350 escaños · umbral 3% · sin territoriales</span></div>
+    <div class="chart-controls hemi-controls">
+      <label for="hemi-date">Fecha</label>
+      <button class="btn ghost smallbtn" type="button" id="hemi-prev" aria-label="Fecha anterior">‹</button>
+      <input type="range" id="hemi-date" min="0" max="{{ hemicycle|length - 1 }}" value="{{ hemicycle|length - 1 }}" step="1" aria-label="Elegir fecha de sondeo">
+      <button class="btn ghost smallbtn" type="button" id="hemi-next" aria-label="Fecha siguiente">›</button>
+      <output id="hemi-label" for="hemi-date">{{ last.label }}</output>
+    </div>
+    <p class="muted small" style="margin:0 0 10px">Una fecha por día con sondeo, más la foto de hoy. No se interpolan días sin sondeo: la serie avanza cuando hay dato nuevo.</p>
+
+    <div class="hemi-stage">
+      {% for h in hemicycle %}
+      <div class="hemi-slide" data-idx="{{ loop.index0 }}" data-label="{{ h.label }}" {% if not loop.last %}hidden{% endif %}>
+        <div class="hemi-head">
+          <div><strong>{{ h.label }}</strong> <span class="muted small">· ventana {{ h.window_label }}</span></div>
+          <span class="chip {{ 'bad' if h.low_n else 'ok' }}">{{ h.n_polls }} sondeo{% if h.n_polls != 1 %}s{% endif %} · {{ h.n_houses }} casa{% if h.n_houses != 1 %}s{% endif %}{% if h.low_n %} · base corta{% endif %}</span>
+        </div>
+        <div class="hemi-wrap">{{ h.svg|safe }}</div>
+        <div class="hemi-legend">
+          <span><i></i>cada punto = 1 escaño</span>
+          <span><b class="dot" style="background:#3b82f6"></b>PP</span>
+          <span><b class="dot" style="background:#22c55e"></b>VOX</span>
+          <span><b class="dot" style="background:#ef4444"></b>PSOE</span>
+          <span><b class="dot" style="background:#d946ef"></b>Sumar</span>
+          <span><b class="dot" style="background:#7c3aed"></b>Podemos</span>
+          <span><b class="dot" style="background:#94a3b8"></b>Otros</span>
+        </div>
+        <div class="hemi-blocks">
+          <div class="block {{ 'win' if h.majority == 'right' else '' }}"><span>PP + VOX</span><b>{{ h.blocks.right }}</b><small>{% if h.majority == 'right' %}mayoría en la simulación{% else %}a {{ 176 - h.blocks.right }} de 176{% endif %}</small></div>
+          <div class="block {{ 'win' if h.majority == 'left' else '' }}"><span>PSOE + Sumar + Podemos</span><b>{{ h.blocks.left }}</b><small>{% if h.majority == 'left' %}mayoría en la simulación{% else %}a {{ 176 - h.blocks.left }} de 176{% endif %}</small></div>
+          <div class="block"><span>Otros</span><b>{{ h.blocks.others }}</b><small>resto del reparto estatal</small></div>
+        </div>
+        <div class="tablewrap" style="margin-top:12px"><table>
+          <thead><tr><th>Partido</th><th>Escaños</th><th>Cuota</th></tr></thead>
+          <tbody>
+          {% for r in h.seat_rows %}
+            <tr><td><b class="dot" style="background:{{ r.color }}"></b> {{ r.party }}</td><td class="num">{{ r.seats }}</td><td class="num">{{ "%.1f"|format(r.seats / 350 * 100) }}%</td></tr>
+          {% endfor %}
+          </tbody>
+        </table></div>
+        <p class="muted small">Mayoría en esta simulación: <strong>{{ h.majority_label }}</strong>. Un bloque con 176 o más es mayoría <em>en este reparto nacional</em>, no en el Congreso real.</p>
+      </div>
+      {% endfor %}
+    </div>
+    <noscript><p class="muted small">Sin JavaScript se muestra la última fecha. La tabla siguiente resume todas.</p></noscript>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Serie completa</h2><span class="hint">bloques por fecha · sin interpolar</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Fecha</th><th>Sondeos</th><th>Casas</th><th>PP + VOX</th><th>PSOE + Sumar + Podemos</th><th>Otros</th><th>Mayoría</th></tr></thead>
+      <tbody>
+      {% for h in hemicycle %}
+        <tr>
+          <td><strong>{{ h.label }}</strong></td>
+          <td class="num">{{ h.n_polls }}</td>
+          <td class="num">{{ h.n_houses }}</td>
+          <td class="num">{{ h.blocks.right }}</td>
+          <td class="num">{{ h.blocks.left }}</td>
+          <td class="num">{{ h.blocks.others }}</td>
+          <td>{% if h.majority == 'none' %}<span class="muted">sin mayoría</span>{% else %}{{ h.majority_label }}{% endif %}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table></div>
+    <p class="muted small">La columna «Sondeos» cuenta sondeos distintos en la ventana de 14 días; «Casas», encuestadoras distintas. Si la base es corta, se marca en el gráfico. La fecha «hoy» usa la ventana vigente aunque no haya sondeo nuevo.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Cómo se calcula</h2></div>
+    <ol class="muted">
+      <li><strong>Media por fecha.</strong> Para cada fecha tomo los sondeos de los 14 días anteriores, con el mismo peso por recencia y muestra que la media publicada. Si no hay cuatro sondeos, se amplía a los cuatro más recientes y se marca «base corta».</li>
+      <li><strong>D'Hondt nacional.</strong> Convierto la media a enteros y reparto 350 escaños en un distrito único, con umbral del 3%. Solo entran partidos estatales; los territoriales quedan fuera.</li>
+      <li><strong>Bloques.</strong> Sumo PP + VOX y PSOE + Sumar + Podemos. «Otros» es el resto del reparto estatal. La mayoría se marca a partir de 176.</li>
+    </ol>
+    <p class="muted small">No se usan los escaños publicados por las casas ni se recalcula su reparto. Este gráfico es una simulación propia sobre la media de voto agregada.</p>
+    <div class="cta">
+      <a class="btn" href="/metodologia.html#hemiciclo">Método de la media</a>
+      <a class="btn ghost" href="/robustez.html">Robustez del dato</a>
+      <a class="btn ghost" href="/como-leer.html">Cómo leer</a>
+      <a class="btn ghost" href="/data/latest.json">Datos (JSON)</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Qué no dice este hemiciclo</h2></div>
+    <ul class="muted">
+      <li><strong>No es una proyección electoral.</strong> Es aritmética sobre una media de sondeos, no un modelo de resultado.</li>
+      <li><strong>No es el Congreso real.</strong> El reparto real es provincial; un distrito único de 350 escaños cambia el resultado, sobre todo para partidos con voto concentrado.</li>
+      <li><strong>No incluye territoriales.</strong> ERC, Junts, EH Bildu y PNV no aparecen; su ausencia infla a PP y PSOE.</li>
+      <li><strong>No dice quién gobernará.</strong> Una mayoría de bloque no implica investidura, pactos ni estabilidad parlamentaria.</li>
+      <li><strong>No simula el Senado.</strong> El Senado se elige por circunscripción provincial y no se puede aproximar con una media nacional.</li>
+      <li><strong>No usa los escaños publicados por Electomanía.</strong> La media incluye sondeos de varias casas, entre ellas Electomanía; el gráfico aplica D'Hondt a los porcentajes agregados y se identifica como simulación propia, no como escaños de esa casa. Los escaños publicados se incorporarán, si procede, en una capa separada con su fuente y enlace.</li>
+    </ul>
+    <p class="muted small">Si un bloque aparece cerca de 176, la lectura correcta es «la media dibuja un empate técnico en esta simulación», no «hay mayoría». La incertidumbre de los sondeos y el reparto provincial pueden mover el resultado.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Comparte</h2></div>
+    {% set share_text = "El hemiciclo que dibuja la media del 29N, fecha a fecha. Simulación mecánica de bloques, no proyección." %}
+    {% set share_campaign = "29n-hemiciclo" %}
+    <div class="share">
+      <a target="_blank" rel="noopener" href="https://mastodon.social/share?text={{ (share_text ~ ' ' ~ canonical ~ '?utm_source=mastodon&utm_medium=social&utm_campaign=' ~ share_campaign)|urlencode }}">Mastodon</a>
+      <a target="_blank" rel="noopener" href="https://bsky.app/intent/compose?text={{ (share_text ~ ' ' ~ canonical ~ '?utm_source=bluesky&utm_medium=social&utm_campaign=' ~ share_campaign)|urlencode }}">Bluesky</a>
+      <a target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text={{ (share_text ~ ' ' ~ canonical ~ '?utm_source=x&utm_medium=social&utm_campaign=' ~ share_campaign)|urlencode }}">X</a>
+      <a target="_blank" rel="noopener" href="https://api.whatsapp.com/send?text={{ (share_text ~ ' ' ~ canonical ~ '?utm_source=whatsapp&utm_medium=social&utm_campaign=' ~ share_campaign)|urlencode }}">WhatsApp</a>
+      <button class="btn ghost" type="button" onclick="navigator.clipboard.writeText('{{ canonical }}?utm_source=copy&utm_medium=social&utm_campaign={{ share_campaign }}');this.textContent='Copiado'">Copiar enlace</button>
+    </div>
+    <p class="muted small">Con la etiqueta «simulación», no como pronóstico.</p>
+  </div>
+  {% include "_captura.html.j2" %}
+  {% else %}
+  <div class="card"><p class="muted">Sin datos suficientes para dibujar el hemiciclo. La media necesita al menos cuatro sondeos en la ventana.</p></div>
+  {% endif %}
+</main>
+{% include "_footer.html.j2" %}
+{% if hemicycle %}
+<script>
+(function(){
+  var range = document.getElementById('hemi-date');
+  if (!range) return;
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.hemi-slide'));
+  var out = document.getElementById('hemi-label');
+  var prev = document.getElementById('hemi-prev');
+  var next = document.getElementById('hemi-next');
+  function show(i){
+    i = Math.max(0, Math.min(slides.length - 1, i));
+    range.value = i;
+    slides.forEach(function(s, j){ s.hidden = j !== i; });
+    out.textContent = slides[i].dataset.label;
+    prev.disabled = i === 0;
+    next.disabled = i === slides.length - 1;
+  }
+  range.addEventListener('input', function(){ show(+range.value); });
+  prev.addEventListener('click', function(){ show(+range.value - 1); });
+  next.addEventListener('click', function(){ show(+range.value + 1); });
+  show(+range.value);
+})();
+</script>
+{% endif %}
+</body>
+</html>

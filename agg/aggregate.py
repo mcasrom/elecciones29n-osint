@@ -10,7 +10,7 @@ from typing import Any, Dict, List
 
 import pytz
 
-from agg import blackout
+from agg import blackout, dhondt
 
 TZ = pytz.timezone("Europe/Madrid")
 WINDOW_DAYS = 14
@@ -225,6 +225,84 @@ def _series(polls: List[Dict[str, Any]]) -> Dict[str, List[Dict[str, Any]]]:
     return out
 
 
+def _hemicycle(tracking: List[Dict[str, Any]], now: datetime) -> List[Dict[str, Any]]:
+    """Simulación nacional de bloques para cada fecha con sondeo.
+
+    No es una proyección ni usa los escaños publicados por las casas: aplica
+    D'Hondt a la media ponderada de 14 días, solo con partidos estatales. La
+    fecha final es hoy, aunque no haya sondeo, para que el gráfico no termine
+    en una foto antigua.
+    """
+    dates = sorted({
+        p["date"].strftime("%Y-%m-%d")
+        for p in tracking
+        if p["date"].date() >= _cutoff_date(now, LONG_DAYS)
+    })
+    today = now.strftime("%Y-%m-%d")
+    if dates and dates[-1] != today:
+        dates.append(today)
+    elif not dates:
+        dates = [today]
+
+    out: List[Dict[str, Any]] = []
+    for ds in dates:
+        day = TZ.localize(
+            datetime.strptime(ds, "%Y-%m-%d").replace(hour=23, minute=59)
+        )
+        cutoff = _cutoff_date(day, WINDOW_DAYS)
+        window = [
+            p for p in tracking
+            if cutoff <= p["date"].date() <= day.date()
+        ]
+        poll_keys = {
+            (p["date"].strftime("%Y-%m-%d"), p.get("pollster")) for p in window
+        }
+        if len(poll_keys) < LOW_N:
+            if ds != today:
+                continue
+            # Misma extensión que la media: los últimos LOW_N sondeos.
+            all_dates = sorted({p["date"].strftime("%Y-%m-%d") for p in tracking if p["date"].date() <= day.date()})
+            keep = set(all_dates[-LOW_N:])
+            window = [p for p in tracking if p["date"].strftime("%Y-%m-%d") in keep]
+            poll_keys = {(p["date"].strftime("%Y-%m-%d"), p.get("pollster")) for p in window}
+
+        by_party: Dict[str, List[Dict[str, Any]]] = {}
+        for p in window:
+            by_party.setdefault(p["party"], []).append(p)
+        means: Dict[str, float] = {}
+        for party, rows in by_party.items():
+            if party in TERRITORIAL or party == "Otros":
+                continue
+            ws = [_weight(r, day) for r in rows]
+            wsum = sum(ws)
+            if wsum:
+                means[party] = sum(r["value"] * w for r, w in zip(rows, ws)) / wsum
+        cands = {party: int(round(v * 100)) for party, v in means.items() if v >= 3.0}
+        if not cands:
+            continue
+        seats = dhondt.reparto(cands, 350, sum(cands.values()))
+        right = sum(seats.get(p, 0) for p in ("PP", "VOX"))
+        left = sum(seats.get(p, 0) for p in ("PSOE", "SUMAR", "PODEMOS"))
+        rows = [
+            {"party": party, "seats": n}
+            for party, n in sorted(
+                seats.items(), key=lambda kv: (-kv[1], kv[0])
+            ) if n > 0
+        ]
+        out.append({
+            "date": ds,
+            "is_current": ds == today,
+            "window_start": cutoff.isoformat(),
+            "n_polls": len(poll_keys),
+            "n_houses": len({p.get("pollster") for p in window if p.get("pollster")}),
+            "low_n": len(poll_keys) < LOW_N,
+            "seats": rows,
+            "blocks": {"right": right, "left": left, "others": 350 - right - left},
+            "majority": "right" if right >= 176 else ("left" if left >= 176 else "none"),
+        })
+    return out
+
+
 def _empty(now: datetime, in_blackout: bool) -> Dict[str, Any]:
     return {
         "updated_at": now.strftime("%Y-%m-%d %H:%M %Z"),
@@ -234,6 +312,7 @@ def _empty(now: datetime, in_blackout: bool) -> Dict[str, Any]:
         "parties": [],
         "series": {},
         "series_long": {},
+        "hemicycle": [],
         "n_polls": 0,
         "low_n": True,
         "weights": None,
@@ -366,6 +445,7 @@ def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[st
     long_cutoff = _cutoff_date(now, LONG_DAYS)
     series_long = _series([p for p in tracking if p["date"].date() >= long_cutoff])
     series = _series(recent)
+    hemicycle = _hemicycle(tracking, now)
 
     poll_dates = sorted({p["date"].strftime("%Y-%m-%d") for p in recent})
     n_polls = len({(p["date"].strftime("%Y-%m-%d"), p.get("pollster")) for p in recent})
@@ -483,6 +563,7 @@ def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[st
         "table_sum": table_sum,
         "series": series,
         "series_long": series_long,
+        "hemicycle": hemicycle,
         "poll_dates": poll_dates,
         "n_polls": n_polls,
         "n_polls_sin_cis": n_polls_sin_cis,

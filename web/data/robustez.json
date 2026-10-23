@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-23 08:20 CEST",
+  "generado": "2026-10-23 15:06 CEST",
   "n_polls": 9,
   "n_polls_sin_cis": 8,
   "health": {
@@ -393,7 +393,8 @@
       "pp": 31.5,
       "psoe": 25.3,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "ElectoPanel",
@@ -401,7 +402,8 @@
       "pp": 31.8,
       "psoe": 27.1,
       "sample": 3141,
-      "nota": null
+      "nota": null,
+      "url": "https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/"
     },
     {
       "pollster": "CIS",
@@ -409,7 +411,8 @@
       "pp": 22.2,
       "psoe": 34.0,
       "sample": 5025,
-      "nota": "estimación de voto"
+      "nota": "estimación de voto",
+      "url": "https://www.cis.es/documents/d/guest/3582_estimacion-pdf"
     },
     {
       "pollster": "Sociométrica",
@@ -417,7 +420,8 @@
       "pp": 32.6,
       "psoe": 26.2,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "GESOP",
@@ -425,7 +429,8 @@
       "pp": 28.7,
       "psoe": 26.1,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "GAD3",
@@ -433,7 +438,8 @@
       "pp": 31.4,
       "psoe": 26.4,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "Target Point",
@@ -441,7 +447,8 @@
       "pp": 32.0,
       "psoe": 25.9,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "Invymark",
@@ -449,7 +456,8 @@
       "pp": 32.8,
       "psoe": 28.0,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "IMOP Insights",
@@ -457,7 +465,8 @@
       "pp": 30.4,
       "psoe": 26.5,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "DYM",
@@ -465,7 +474,8 @@
       "pp": 34.0,
       "psoe": 28.2,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "40dB",
@@ -473,7 +483,8 @@
       "pp": 31.9,
       "psoe": 28.1,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "NC Report",
@@ -481,7 +492,8 @@
       "pp": 34.1,
       "psoe": 25.0,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "Ateneo del Dato",
@@ -489,7 +501,8 @@
       "pp": 33.2,
       "psoe": 27.5,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "Celeste Tel",
@@ -497,7 +510,8 @@
       "pp": 33.9,
       "psoe": 25.4,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     }
   ],
   "house_latest_sorted": [
@@ -507,7 +521,8 @@
       "pp": 34.1,
       "psoe": 25.0,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "DYM",
@@ -515,7 +530,8 @@
       "pp": 34.0,
       "psoe": 28.2,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "Celeste Tel",
@@ -523,7 +539,8 @@
       "pp": 33.9,
       "psoe": 25.4,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "Ateneo del Dato",
@@ -531,7 +548,8 @@
       "pp": 33.2,
       "psoe": 27.5,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "Invymark",
@@ -539,7 +557,8 @@
       "pp": 32.8,
       "psoe": 28.0,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "Sociométrica",
@@ -547,7 +566,8 @@
       "pp": 32.6,
       "psoe": 26.2,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "Target Point",
@@ -555,7 +575,8 @@
       "pp": 32.0,
       "psoe": 25.9,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "40dB",
@@ -563,7 +584,8 @@
       "pp": 31.9,
       "psoe": 28.1,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "ElectoPanel",
@@ -571,7 +593,8 @@
       "pp": 31.8,
       "psoe": 27.1,
       "sample": 3141,
-      "nota": null
+      "nota": null,
+      "url": "https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/"
     },
     {
       "pollster": "Sigma Dos",
@@ -579,7 +602,8 @@
       "pp": 31.5,
       "psoe": 25.3,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "GAD3",
@@ -587,7 +611,8 @@
       "pp": 31.4,
       "psoe": 26.4,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "IMOP Insights",
@@ -595,7 +620,8 @@
       "pp": 30.4,
       "psoe": 26.5,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "GESOP",
@@ -603,7 +629,8 @@
       "pp": 28.7,
       "psoe": 26.1,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "CIS",
@@ -611,7 +638,8 @@
       "pp": 22.2,
       "psoe": 34.0,
       "sample": 5025,
-      "nota": "estimación de voto"
+      "nota": "estimación de voto",
+      "url": "https://www.cis.es/documents/d/guest/3582_estimacion-pdf"
     }
   ],
   "nota": "Sensibilidad y dispersion del dato; no es una puntuacion ni un pronostico."

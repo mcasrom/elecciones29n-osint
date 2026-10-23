@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import math
 import os
 from datetime import datetime
 
@@ -46,6 +47,7 @@ BLACKOUT_SITEMAP = [
 
 PAGES = [
     ("index.html", "", "2026-10-17", "daily", "1.0"),
+    ("hemiciclo.html", "hemiciclo.html", "2026-10-23", "daily", "0.8"),
     ("metodologia.html", "metodologia.html", "2026-10-17", "monthly", "0.8"),
     ("fuentes.html", "fuentes.html", "2026-10-17", "weekly", "0.7"),
     ("about.html", "about.html", "2026-10-17", "monthly", "0.5"),
@@ -227,6 +229,21 @@ svg.chart{width:100%;height:auto;display:block}
 .block{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 .block span{display:block;font-size:12px;color:var(--muted)}
 .block b{display:block;font-size:26px;letter-spacing:-.02em}
+.block small{display:block;margin-top:2px;color:var(--muted);font-size:12px}
+.block.win{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.hemi-stage{margin-top:6px}
+.hemi-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:2px 0 4px}
+.hemi-wrap{max-width:780px;margin:0 auto 4px;padding:4px 0}
+.hemi{display:block;width:100%;height:auto;overflow:visible}
+.hemi-seat{transition:opacity .12s ease}
+.hemi-seat:hover{stroke:var(--fg);stroke-width:1}
+.hemi-legend{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:center;color:var(--muted);font-size:12px;margin:2px 0 10px}
+.hemi-legend i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--muted);margin-right:5px}
+.hemi-blocks{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:middle}
+.smallbtn{padding:5px 10px;min-width:34px;line-height:1}
+#hemi-date{accent-color:var(--accent);flex:1;max-width:360px}
+#hemi-label{font-variant-numeric:tabular-nums;color:var(--fg);font-size:13px;min-width:110px}
 
 /* share + cta */
 .cta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px}
@@ -364,7 +381,18 @@ summary::-webkit-details-marker{display:none}
   .hero-kpis,.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
   .tab{padding:8px 11px;font-size:13px}
   .blocks{grid-template-columns:1fr}
+  .hemi-blocks{grid-template-columns:1fr}
+  .hemi-controls{flex-wrap:wrap}
+  .hemi-controls #hemi-date{flex:1 1 120px;min-width:0}
+  .hemi-controls #hemi-label{flex-basis:100%;text-align:right;min-width:0}
   .seatrow{grid-template-columns:76px 1fr 40px}
+}
+
+@media(max-width:360px){
+  .hemi-controls #hemi-date{flex:1 1 100%;order:4}
+  .hemi-controls #hemi-prev{order:2}
+  .hemi-controls #hemi-next{order:3}
+  .hemi-controls #hemi-label{order:5}
 }
 """
     with open(os.path.join(OUT, "css/main.css"), "w", encoding="utf-8") as f:
@@ -553,6 +581,7 @@ def write_blackout_llms() -> None:
 - {SITE_URL}/data/latest.json
 - {SITE_URL}/data/robustez.json
 - Los datos de robustez (`/robustez.html` muestra solo el aviso).
+- El hemiciclo simulado (`/hemiciclo.html` muestra solo el aviso).
 
 ## Qué sigue disponible
 - Metodología, fuentes y límites.
@@ -593,6 +622,7 @@ def write_blackout_site(
         ("index.html", "Blackout electoral 24–28 nov 2026", "Blackout electoral", "/"),
         ("robustez.html", "Robustez del dato · blackout", "Robustez del dato retirada", "/robustez.html"),
         ("novedades.html", "Novedades · blackout", "Novedades retiradas", "/novedades.html"),
+        ("hemiciclo.html", "Hemiciclo · blackout", "Hemiciclo retirado", "/hemiciclo.html"),
     ]
     for filename, title, heading, canonical in pages:
         html = tpl.render(
@@ -674,6 +704,8 @@ def write_llms() -> None:
 - Serie temporal por partido (JSON) y datos descargables.
 - Fichas de las 52 circunscripciones con resultados oficiales 2019/2023,
   escaño marginal y calculadora D'Hondt.
+- Hemiciclo simulado por fecha de sondeo (D'Hondt nacional, 350 escaños),
+  con método y límites: no es una proyección ni la composición real.
 - Metodología, fuentes y límites explicados.
 
 ## Datos
@@ -681,6 +713,7 @@ def write_llms() -> None:
 - {SITE_URL}/data/robustez.json
 - {SITE_URL}/data/congreso-oficial.json
 - {SITE_URL}/circunscripciones.html
+- {SITE_URL}/hemiciclo.html
 - {SITE_URL}/novedades.html
 - {SITE_URL}/cambios.xml
 - {SITE_URL}/privacidad.html
@@ -719,6 +752,18 @@ def write_favicon() -> None:
         f.write(svg)
 
 
+HEMI_PARTY_COLORS = {
+    "PP": "#3b82f6",
+    "PSOE": "#ef4444",
+    "VOX": "#22c55e",
+    "SUMAR": "#d946ef",
+    "PODEMOS": "#7c3aed",
+    "Otros": "#94a3b8",
+    "Cs": "#f59e0b",
+}
+HEMI_LEFT = ["PODEMOS", "SUMAR", "PSOE"]
+HEMI_RIGHT = ["PP", "VOX"]
+
 REF_CONGRESO = [
     ("PP", 137), ("PSOE", 121), ("VOX", 33), ("SUMAR", 31),
     ("ERC", 7), ("Junts", 7), ("EH Bildu", 6), ("PNV", 5),
@@ -736,6 +781,137 @@ def simulate_congress(parties: list, total: int = 350, threshold: float = 3.0) -
         best = max(cands, key=lambda c: c[1] / (seats[c[0]] + 1))
         seats[best[0]] += 1
     return dict(sorted(seats.items(), key=lambda kv: kv[1], reverse=True))
+
+
+MESES_CORTOS = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
+
+
+def fmt_fecha_corta(iso: str) -> str:
+    try:
+        d = datetime.strptime(iso, "%Y-%m-%d")
+    except Exception:
+        return iso
+    return f"{d.day} {MESES_CORTOS[d.month - 1]} {d.year}"
+
+
+def _hemi_rows(total: int = 350, rows: int = 11) -> list[list[tuple[float, float]]]:
+    """Filas de escaños del semicírculo, de la interior a la exterior."""
+    radii = [55.0 + i * (160.0 - 55.0) / (rows - 1) for i in range(rows)]
+    raw = [total * r / sum(radii) for r in radii]
+    counts = [int(x) for x in raw]
+    falta = total - sum(counts)
+    orden = sorted(range(rows), key=lambda i: raw[i] - counts[i], reverse=True)
+    for i in orden[:falta]:
+        counts[i] += 1
+
+    cx, cy = 180.0, 184.0
+    out: list[list[tuple[float, float]]] = []
+    for r, n in zip(radii, counts):
+        row = []
+        for i in range(n):
+            ang = math.pi - (i + 0.5) * math.pi / n
+            row.append((cx + r * math.cos(ang), cy - r * math.sin(ang)))
+        out.append(row)
+    return out
+
+
+def _hemi_order(seats: dict[str, int]) -> list[str]:
+    left = [p for p in HEMI_LEFT if seats.get(p)]
+    right = [p for p in HEMI_RIGHT if seats.get(p)]
+    center = sorted(
+        [p for p, n in seats.items() if n and p not in HEMI_LEFT + HEMI_RIGHT],
+        key=lambda p: (-seats[p], p),
+    )
+    return left + center + right
+
+
+def _hemi_alloc(counts: dict[str, int], row_sizes: list[int]) -> list[dict[str, int]]:
+    """Reparte cada partido entre las filas sin romper las cuñas izquierda-derecha."""
+    order = _hemi_order(counts)
+    remaining = dict(counts)
+    out: list[dict[str, int]] = []
+    for idx, n in enumerate(row_sizes):
+        if idx == len(row_sizes) - 1:
+            alloc = {p: remaining[p] for p in order if remaining.get(p)}
+        else:
+            remtot = sum(remaining.values())
+            q = {p: n * remaining.get(p, 0) / remtot for p in order}
+            alloc = {p: int(math.floor(q[p])) for p in order}
+            left = n - sum(alloc.values())
+            for p in sorted(
+                order, key=lambda p: (q[p] - alloc[p], -order.index(p)), reverse=True
+            )[:left]:
+                alloc[p] += 1
+        for p in order:
+            remaining[p] -= alloc.get(p, 0)
+        out.append({p: k for p, k in alloc.items() if k})
+    return out
+
+
+def build_hemicycle_svg(seats: list[dict]) -> str:
+    """SVG de 350 escaños. No es una proyección: solo dibuja el reparto recibido."""
+    counts = {r["party"]: int(r["seats"]) for r in seats if int(r.get("seats") or 0) > 0}
+    total = sum(counts.values())
+    if total < 350:
+        counts["Otros"] = counts.get("Otros", 0) + (350 - total)
+    elif total > 350:
+        sobra = total - 350
+        for p in sorted(counts, key=lambda x: counts[x]):
+            if sobra <= 0:
+                break
+            quita = min(sobra, counts[p])
+            counts[p] -= quita
+            sobra -= quita
+        counts = {p: n for p, n in counts.items() if n > 0}
+
+    rows = _hemi_rows(350)
+    alloc = _hemi_alloc(counts, [len(r) for r in rows])
+
+    right = sum(counts.get(p, 0) for p in ("PP", "VOX"))
+    left = sum(counts.get(p, 0) for p in ("PSOE", "SUMAR", "PODEMOS"))
+    parts = [
+        '<svg class="hemi" viewBox="0 0 360 205" role="img" '
+        f'aria-label="Hemiciclo simulado: {right} escaños PP y VOX, {left} PSOE, Sumar y Podemos, '
+        f'{350 - right - left} otros">'
+    ]
+    for row, block in zip(rows, alloc):
+        sequence: list[str] = []
+        for p in _hemi_order(counts):
+            sequence.extend([p] * block.get(p, 0))
+        for (x, y), party in zip(row, sequence):
+            color = HEMI_PARTY_COLORS.get(party, HEMI_PARTY_COLORS["Otros"])
+            parts.append(
+                f'<circle cx="{x:.2f}" cy="{y:.2f}" r="3.6" fill="{color}" '
+                f'stroke="var(--panel)" stroke-width=".5" class="hemi-seat">'
+                f'<title>{party}</title></circle>'
+            )
+    parts.append('<text x="18" y="202" fill="var(--muted)" font-size="10">Izquierda</text>')
+    parts.append('<text x="342" y="202" fill="var(--muted)" font-size="10" text-anchor="end">Derecha</text>')
+    parts.append('</svg>')
+    return "".join(parts)
+
+
+def build_hemicycle(entries: list) -> list:
+    out = []
+    for e in entries:
+        seat_rows = [
+            {**r, "color": HEMI_PARTY_COLORS.get(r["party"], HEMI_PARTY_COLORS["Otros"])}
+            for r in e.get("seats", [])
+        ]
+        majority = e.get("majority", "none")
+        out.append({
+            **e,
+            "label": fmt_fecha_corta(e["date"]) + (" · hoy" if e.get("is_current") else ""),
+            "window_label": fmt_fecha_corta(e["window_start"]) + " – " + fmt_fecha_corta(e["date"]),
+            "svg": build_hemicycle_svg(e.get("seats", [])),
+            "seat_rows": seat_rows,
+            "majority_label": (
+                "PP + VOX" if majority == "right"
+                else "PSOE + Sumar + Podemos" if majority == "left"
+                else "Sin mayoría"
+            ),
+        })
+    return out
 
 
 def fmt_miles(n) -> str:
@@ -1589,6 +1765,7 @@ def main(out: str = "web") -> None:
         "table_sum": latest.get("table_sum", round(sum(p["mean"] for p in parties_table), 2)),
         "parties_main": parties_main,
         "series": series,
+        "hemicycle": build_hemicycle(latest.get("hemicycle", [])),
         "poll_dates": latest.get("poll_dates", []),
         "n_polls": latest.get("n_polls", 0),
         "n_polls_sin_cis": latest.get("n_polls_sin_cis", 0),
@@ -1652,6 +1829,7 @@ def main(out: str = "web") -> None:
             "caveat.html": build_webpage_jsonld("Qué no dice este sitio", "/caveat.html", "Límites y no-objetivos del observatorio."),
             "glosario.html": build_webpage_jsonld("Glosario", "/glosario.html", "Diccionario breve de términos electorales y de sondeos."),
             "robustez.html": build_webpage_jsonld("Robustez del dato", "/robustez.html", "Cinco indicadores de la base de la media: sondeos, casas, antigüedad, muestra e IQR."),
+            "hemiciclo.html": build_webpage_jsonld("Hemiciclo simulado", "/hemiciclo.html", "Simulación mecánica de bloques con D'Hondt nacional por fecha de sondeo. No es una proyección ni la composición real del Congreso."),
             "como-leer.html": build_webpage_jsonld("Cómo leer la media", "/como-leer.html", "Guía breve para leer una media de sondeos sin sobreinterpretar."),
             "apoyo.html": build_webpage_jsonld("Apoyar el proyecto", "/apoyo.html", "Ko-fi, compartir y colaboración."),
             "privacidad.html": build_webpage_jsonld("Privacidad", "/privacidad.html", "Datos del aviso por correo, finalidad, conservación y derechos. Sin cookies ni perfilado."),
@@ -1685,7 +1863,7 @@ def main(out: str = "web") -> None:
         "share_url": SITE_URL + "/",
     }
 
-    for tname in ["index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "participacion.html", "territorio.html",
+    for tname in ["index.html", "hemiciclo.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "participacion.html", "territorio.html",
              "circunscripciones.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(current=tname, **context)

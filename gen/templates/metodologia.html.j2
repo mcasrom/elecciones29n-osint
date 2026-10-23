@@ -62,6 +62,18 @@
     <p class="muted small">Los umbrales son convencionales y están en el código (<code>agg/aggregate.py</code>); se publican para que puedan discutirse.</p>
   </div>
 
+  <div class="card" id="hemiciclo">
+    <h3>Hemiciclo simulado: una mecánica, no una proyección</h3>
+    <p class="muted">La página <a href="/hemiciclo.html">Hemiciclo simulado</a> aplica <strong>D'Hondt nacional</strong> a la media de cada fecha con sondeo: 350 escaños, distrito único y umbral del 3%. Solo entran partidos estatales. La fecha «hoy» usa la ventana vigente aunque no haya sondeo nuevo; no se interpolan días.</p>
+    <ul class="muted">
+      <li><strong>No es el Congreso real</strong>: la ley reparte por provincias (52 circunscripciones). Un distrito único cambia el resultado y favorece a los partidos con voto disperso.</li>
+      <li><strong>No incluye territoriales</strong>: ERC, Junts, EH Bildu y PNV quedan fuera; su ausencia infla a PP y PSOE.</li>
+      <li><strong>No usa los escaños publicados por las casas</strong> ni los recalcula: es una simulación propia sobre la media de voto. Los escaños publicados por Electomanía, si se incorporan, irán en una capa separada con su fuente y enlace.</li>
+      <li><strong>No dice quién gobernará</strong>: una mayoría de bloque no implica investidura ni pactos. El Senado no se simula.</li>
+      <li><strong>Base corta</strong>: si la ventana no reúne cuatro sondeos, el gráfico lo marca. La incertidumbre y el reparto provincial pueden mover el resultado.</li>
+    </ul>
+  </div>
+
   <div class="card">
     <h3>2 · Censo</h3>
     <p class="muted">Cifras oficiales del <strong>INE · Oficina del Censo Electoral</strong> para el 29N. Distinguimos <strong>CER</strong> (residentes en España) y <strong>CERA</strong> (residentes en el extranjero).</p>
@@ -88,7 +100,7 @@
     <ul class="muted">
       <li>El Congreso se elige en <strong>52 circunscripciones provinciales</strong>, con un mínimo de 2 escaños (1 en Ceuta y Melilla) y el resto según población (LOREG, art. 162).</li>
       <li>Dentro de cada provincia se aplica <strong>D'Hondt</strong> con umbral del 3 % provincial.</li>
-      <li>La <strong>simulación de la portada</strong> usa un distrito nacional único: sirve para ver el tamaño de los bloques, no para anticipar escaños.</li>
+      <li>La <strong>simulación de la portada y el hemiciclo</strong> usan un distrito nacional único: sirven para ver el tamaño de los bloques, no para anticipar escaños.</li>
       <li>El Senado no se simula: se elige por circunscripción provincial y designación autonómica.</li>
     </ul>
   </div>

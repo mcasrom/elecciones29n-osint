@@ -150,6 +150,21 @@ svg.chart{width:100%;height:auto;display:block}
 .block{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 .block span{display:block;font-size:12px;color:var(--muted)}
 .block b{display:block;font-size:26px;letter-spacing:-.02em}
+.block small{display:block;margin-top:2px;color:var(--muted);font-size:12px}
+.block.win{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.hemi-stage{margin-top:6px}
+.hemi-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:2px 0 4px}
+.hemi-wrap{max-width:780px;margin:0 auto 4px;padding:4px 0}
+.hemi{display:block;width:100%;height:auto;overflow:visible}
+.hemi-seat{transition:opacity .12s ease}
+.hemi-seat:hover{stroke:var(--fg);stroke-width:1}
+.hemi-legend{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:center;color:var(--muted);font-size:12px;margin:2px 0 10px}
+.hemi-legend i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--muted);margin-right:5px}
+.hemi-blocks{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:middle}
+.smallbtn{padding:5px 10px;min-width:34px;line-height:1}
+#hemi-date{accent-color:var(--accent);flex:1;max-width:360px}
+#hemi-label{font-variant-numeric:tabular-nums;color:var(--fg);font-size:13px;min-width:110px}
 
 /* share + cta */
 .cta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px}
@@ -287,5 +302,16 @@ summary::-webkit-details-marker{display:none}
   .hero-kpis,.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
   .tab{padding:8px 11px;font-size:13px}
   .blocks{grid-template-columns:1fr}
+  .hemi-blocks{grid-template-columns:1fr}
+  .hemi-controls{flex-wrap:wrap}
+  .hemi-controls #hemi-date{flex:1 1 120px;min-width:0}
+  .hemi-controls #hemi-label{flex-basis:100%;text-align:right;min-width:0}
   .seatrow{grid-template-columns:76px 1fr 40px}
+}
+
+@media(max-width:360px){
+  .hemi-controls #hemi-date{flex:1 1 100%;order:4}
+  .hemi-controls #hemi-prev{order:2}
+  .hemi-controls #hemi-next{order:3}
+  .hemi-controls #hemi-label{order:5}
 }

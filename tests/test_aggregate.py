@@ -219,3 +219,41 @@ class SampleParseTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+    def test_hemicycle_sums_350_and_excludes_territorial(self):
+        rows = [
+            ("PP", "2026-10-20", 32.0, "u", 1000, "A", "tracking"),
+            ("PSOE", "2026-10-20", 29.0, "u", 1000, "A", "tracking"),
+            ("VOX", "2026-10-20", 16.0, "u", 1000, "A", "tracking"),
+            ("SUMAR", "2026-10-20", 12.0, "u", 1000, "B", "tracking"),
+            ("PODEMOS", "2026-10-20", 4.0, "u", 1000, "B", "tracking"),
+            ("ERC", "2026-10-20", 3.0, "u", 1000, "B", "tracking"),
+        ]
+        res = self.run_with(rows, now=datetime(2026, 10, 23, 8, 0, tzinfo=TZ))
+        h = res["hemicycle"][-1]
+        self.assertEqual(h["date"], "2026-10-23")
+        self.assertTrue(h["is_current"])
+        self.assertEqual(sum(x["seats"] for x in h["seats"]), 350)
+        self.assertNotIn("ERC", [x["party"] for x in h["seats"]])
+        self.assertEqual(h["blocks"]["right"] + h["blocks"]["left"] + h["blocks"]["others"], 350)
+        self.assertIn(h["majority"], ("right", "left", "none"))
+
+    def test_hemicycle_has_one_entry_per_poll_date_plus_today(self):
+        rows = []
+        for d in ("2026-10-20", "2026-10-21", "2026-10-22"):
+            rows.append(("PP", d, 30.0, "u", 1000, "A", "tracking"))
+            rows.append(("PSOE", d, 28.0, "u", 1000, "A", "tracking"))
+        res = self.run_with(rows, now=datetime(2026, 10, 23, 8, 0, tzinfo=TZ))
+        dates = [h["date"] for h in res["hemicycle"]]
+        self.assertEqual(dates, ["2026-10-20", "2026-10-21", "2026-10-22", "2026-10-23"])
+
+    def test_hemicycle_marks_low_n_without_dropping_today(self):
+        res = self.run_with(
+            [("PP", "2026-10-20", 30.0, "u", 1000, "A", "tracking")],
+            now=datetime(2026, 10, 23, 8, 0, tzinfo=TZ),
+        )
+        self.assertEqual(len(res["hemicycle"]), 1)
+        h = res["hemicycle"][0]
+        self.assertTrue(h["low_n"])
+        self.assertEqual(h["n_polls"], 1)
+        self.assertEqual(sum(x["seats"] for x in h["seats"]), 350)

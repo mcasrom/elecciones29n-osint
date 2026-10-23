@@ -10,6 +10,8 @@
 - Serie temporal por partido (JSON) y datos descargables.
 - Fichas de las 52 circunscripciones con resultados oficiales 2019/2023,
   escaño marginal y calculadora D'Hondt.
+- Hemiciclo simulado por fecha de sondeo (D'Hondt nacional, 350 escaños),
+  con método y límites: no es una proyección ni la composición real.
 - Metodología, fuentes y límites explicados.
 
 ## Datos
@@ -17,6 +19,7 @@
 - https://elecciones29n.pruebapublica.com/data/robustez.json
 - https://elecciones29n.pruebapublica.com/data/congreso-oficial.json
 - https://elecciones29n.pruebapublica.com/circunscripciones.html
+- https://elecciones29n.pruebapublica.com/hemiciclo.html
 - https://elecciones29n.pruebapublica.com/novedades.html
 - https://elecciones29n.pruebapublica.com/cambios.xml
 - https://elecciones29n.pruebapublica.com/privacidad.html

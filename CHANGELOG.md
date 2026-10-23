@@ -1,10 +1,19 @@
 # Changelog
 
+## 0.11.0 — 2026-10-23
+
+- **Hemiciclo simulado (`/hemiciclo.html`)**: 350 escaños por fecha de sondeo, con D'Hondt nacional (umbral 3%, solo partidos estatales) sobre la media ponderada de 14 días. Selector de fecha, bloques PP+VOX / PSOE+Sumar+Podemos, tabla por partido, serie completa, método y límites. Enlace en la nav principal, en la pestaña Congreso y en el sitemap.
+- **Sin falsa precisión**: una entrada por fecha con sondeo, más la foto de hoy; no se interpolan días. Si la ventana no reúne cuatro sondeos, se marca «base corta». La página repite que no es una proyección ni la composición real del Congreso, que no incluye territoriales y que no simula el Senado.
+- **Datos**: `latest.json.hemicycle` con fecha, ventana, sondeos, casas, escaños, bloques y mayoría. Cada entrada suma 350; el validador y el canario lo comprueban.
+- **Blackout**: `/hemiciclo.html` también se retira del 24 al 28 de noviembre; el validador y el canario verifican el aviso.
+- **Electomanía**: el hemiciclo no usa ni atribuye los escaños publicados por la casa; es una simulación propia sobre la media de voto agregada y se identifica como tal. Los escaños publicados quedan para una capa separada con fuente y enlace.
+- **Tests**: 107 (4 nuevos: 3 de agregado y 1 de build).
+
 ## 0.10.6 — 2026-10-23
 
 - **Electomanía autoriza por escrito** (23-oct-2026) el uso de los datos en abierto del ElectoPanel (voto y escaños), histórico incluido y sin coste, con «Fuente: Electomanía» y enlace a cada pieza.
 - **Atribución por pieza**: la tabla de últimas casas (portada y `/robustez.html`) enlaza cada fila a su artículo original; se añade `url` a `house_latest`.
-- **Sin escaños recalculados**: se usan los escaños publicados por Electomanía; el sitio no deriva escaños de los porcentajes.
+- **Sin escaños recalculados en la capa de sondeos**: se usan los escaños publicados por Electomanía; la media no los deriva. La simulación de bloques se publica aparte y etiquetada (ver 0.11.0).
 - **Tests**: 103 (nuevo test de enlace por pieza).
 
 ## 0.10.5 — 2026-10-23

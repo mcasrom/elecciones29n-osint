@@ -20,7 +20,7 @@ from metrics import moving_average, series_span  # noqa: E402
 REQUIRED = [
     "index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html",
     "robots.txt", "sitemap.xml", "llms.txt", "favicon.svg", "og.png",
-    "cambios.xml", "data/latest.json", "data/robustez.json", "css/main.css", "glosario.html", "robustez.html", "como-leer.html", "novedades.html",
+    "cambios.xml", "data/latest.json", "data/robustez.json", "css/main.css", "glosario.html", "robustez.html", "hemiciclo.html", "como-leer.html", "novedades.html",
     "electorado.html", "data/censo-2026.json", "data/censo-provincias.csv",
     "participacion.html", "data/participacion.json", "data/participacion.csv",
     "territorio.html", "data/escanos-2026.json", "data/escanos-2026.csv",
@@ -41,7 +41,7 @@ def validate_blackout(d: str) -> int:
         "index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html",
         "glosario.html", "electorado.html", "participacion.html", "territorio.html",
         "circunscripciones.html", "noche-electoral.html", "factores.html",
-        "comportamiento.html", "como-leer.html", "apoyo.html", "sobre-mi.html", "privacidad.html",
+        "comportamiento.html", "como-leer.html", "hemiciclo.html", "apoyo.html", "sobre-mi.html", "privacidad.html",
         "robots.txt", "sitemap.xml", "llms.txt", "favicon.svg", "og.png",
         "cambios.xml", "css/main.css", "sw.js", "manifest.webmanifest", "version.json",
         "data/blackout.json", "data/censo-2026.json", "data/participacion.json",
@@ -71,7 +71,7 @@ def validate_blackout(d: str) -> int:
         if 'rel="canonical"' not in h:
             errors.append("index.html sin canonical")
 
-    for page in ("robustez.html", "novedades.html"):
+    for page in ("robustez.html", "novedades.html", "hemiciclo.html"):
         path = os.path.join(d, page)
         if os.path.exists(path):
             h = open(path, encoding="utf-8", errors="ignore").read()
@@ -178,6 +178,16 @@ def main() -> int:
         if "cambios.xml" not in html:
             warns.append("index.html no enlaza cambios.xml")
 
+    hemi_path = os.path.join(d, "hemiciclo.html")
+    if os.path.exists(hemi_path):
+        hh = open(hemi_path, encoding="utf-8", errors="ignore").read()
+        if "Hemiciclo simulado" not in hh:
+            errors.append("hemiciclo.html sin título")
+        if hh.count('class="hemi-seat"') < 350:
+            errors.append(f"hemiciclo.html con {hh.count('class="hemi-seat"')} escaños (esperados >=350)")
+        if "No es una proyección" not in hh:
+            errors.append("hemiciclo.html sin aviso de no proyección")
+
     data_path = os.path.join(d, "data/latest.json")
     data = {}
     if os.path.exists(data_path):
@@ -194,6 +204,13 @@ def main() -> int:
                 errors.append("latest.json sin health")
             if not data.get("series_long"):
                 errors.append("latest.json sin series_long")
+            hem = data.get("hemicycle") or []
+            if not hem:
+                errors.append("latest.json sin hemiciclo")
+            for e in hem:
+                if sum(int(r.get("seats") or 0) for r in e.get("seats", [])) != 350:
+                    errors.append(f"hemiciclo {e.get('date')} no suma 350")
+                    break
             if int(data.get("n_polls", 0)) < 1:
                 errors.append("latest.json sin sondeos (n_polls=0)")
             if data.get("parties") and "class=\"spark\"" not in (open(idx_path, encoding="utf-8", errors="ignore").read() if os.path.exists(idx_path) else ""):

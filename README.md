@@ -28,6 +28,7 @@ dato, no en una nota al pie.
 ## Módulos publicados
 
 - `/` — Agregado, evolución, Congreso (D'Hondt etiquetado como simulación) y Senado.
+- `/hemiciclo.html` — **350 escaños por fecha de sondeo**: D'Hondt nacional sobre la media, selector de fecha, bloques y serie completa. Simulación mecánica, no proyección; sin territoriales.
 - `/electorado.html` — Censo 29N: total, CER/CERA, edad y sexo, provincias y nuevos electores.
 - `/participacion.html` — Participación nacional 1979–2023 y **provincial 1977–2023** (selector + comparación con la media nacional).
 - `/territorio.html` — 350 escaños, 52 circunscripciones, electores por escaño y **votos↔escaños 2023 con índice de Gallagher**.
@@ -259,7 +260,7 @@ Además de la media por sondeo (ponderada por recencia y muestra cuando existe),
 - El censo describe quién puede votar, no a quién vota.
 - La simulación de Congreso es mecánica (distrito único), no una proyección.
 - El Senado no se simula: depende de listas provinciales y designación autonómica.
-- La calculadora provincial es un escenario mecánico con votos introducidos a mano; no se simulan escaños desde encuestas nacionales. El Senado no se simula.
+- La calculadora provincial es un escenario mecánico con votos introducidos a mano. El hemiciclo nacional sí simula escaños desde la media, pero se etiqueta como mecánica de bloques: no es una proyección ni el Congreso real. El Senado no se simula.
 - No se atribuyen preferencias por edad, sexo, renta o territorio.
 - No se mezclan señales sociales con sondeos, censo o participación.
 

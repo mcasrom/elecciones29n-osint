@@ -14,6 +14,7 @@
 | Delta de la tarjeta | **MA final − MA inicial** | nunca último sondeo vs primer sondeo de otra casa |
 | `n_polls` | nº de sondeos (fecha + casa) | no nº de fechas |
 | «Otros» | resto de partidos | residual; fuera de KPIs/gráficos/simulación |
+| Hemiciclo | 350 escaños por D'Hondt nacional sobre la media de cada fecha | solo partidos estatales, umbral 3%; una entrada por sondeo + hoy; nunca proyección |
 | M4 | voto declarado 2023 por grupo | N ponderado; celdas n<30 suprimidas |
 | M5 | asociación meteorología-participación | observacional; sin causalidad |
 

@@ -53,7 +53,7 @@ fi
 mv "$STAGE" web
 
 rsync -a --delete web/ /var/www/elecciones29n/
-for _f in index.html glosario.html robustez.html como-leer.html circunscripciones.html circunscripcion/madrid.html privacidad.html; do
+for _f in index.html glosario.html robustez.html como-leer.html circunscripciones.html circunscripcion/madrid.html hemiciclo.html privacidad.html; do
   [ -f "/var/www/elecciones29n/$_f" ] || { echo "[run_daily_server] falta $_f en /var/www"; exit 1; }
 done
 

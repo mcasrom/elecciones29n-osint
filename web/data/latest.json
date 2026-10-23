@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-23 08:20 CEST",
-  "updated_at_iso": "2026-10-23T08:20:10.761818+02:00",
+  "updated_at": "2026-10-23 15:06 CEST",
+  "updated_at_iso": "2026-10-23T15:06:46.477891+02:00",
   "in_blackout": false,
   "window_days": 14,
   "parties": [
@@ -2105,6 +2105,644 @@
       }
     ]
   },
+  "hemicycle": [
+    {
+      "date": "2026-07-27",
+      "is_current": false,
+      "window_start": "2026-07-14",
+      "n_polls": 4,
+      "n_houses": 4,
+      "low_n": false,
+      "seats": [
+        {
+          "party": "PP",
+          "seats": 134
+        },
+        {
+          "party": "PSOE",
+          "seats": 108
+        },
+        {
+          "party": "VOX",
+          "seats": 70
+        },
+        {
+          "party": "SUMAR",
+          "seats": 25
+        },
+        {
+          "party": "PODEMOS",
+          "seats": 13
+        }
+      ],
+      "blocks": {
+        "right": 204,
+        "left": 146,
+        "others": 0
+      },
+      "majority": "right"
+    },
+    {
+      "date": "2026-09-07",
+      "is_current": false,
+      "window_start": "2026-08-25",
+      "n_polls": 6,
+      "n_houses": 5,
+      "low_n": false,
+      "seats": [
+        {
+          "party": "PP",
+          "seats": 132
+        },
+        {
+          "party": "PSOE",
+          "seats": 106
+        },
+        {
+          "party": "VOX",
+          "seats": 75
+        },
+        {
+          "party": "SUMAR",
+          "seats": 24
+        },
+        {
+          "party": "PODEMOS",
+          "seats": 13
+        }
+      ],
+      "blocks": {
+        "right": 207,
+        "left": 143,
+        "others": 0
+      },
+      "majority": "right"
+    },
+    {
+      "date": "2026-09-13",
+      "is_current": false,
+      "window_start": "2026-08-31",
+      "n_polls": 8,
+      "n_houses": 7,
+      "low_n": false,
+      "seats": [
+        {
+          "party": "PP",
+          "seats": 132
+        },
+        {
+          "party": "PSOE",
+          "seats": 105
+        },
+        {
+          "party": "VOX",
+          "seats": 76
+        },
+        {
+          "party": "SUMAR",
+          "seats": 25
+        },
+        {
+          "party": "PODEMOS",
+          "seats": 12
+        }
+      ],
+      "blocks": {
+        "right": 208,
+        "left": 142,
+        "others": 0
+      },
+      "majority": "right"
+    },
+    {
+      "date": "2026-09-20",
+      "is_current": false,
+      "window_start": "2026-09-07",
+      "n_polls": 7,
+      "n_houses": 6,
+      "low_n": false,
+      "seats": [
+        {
+          "party": "PP",
+          "seats": 132
+        },
+        {
+          "party": "PSOE",
+          "seats": 105
+        },
+        {
+          "party": "VOX",
+          "seats": 76
+        },
+        {
+          "party": "SUMAR",
+          "seats": 24
+        },
+        {
+          "party": "PODEMOS",
+          "seats": 13
+        }
+      ],
+      "blocks": {
+        "right": 208,
+        "left": 142,
+        "others": 0
+      },
+      "majority": "right"
+    },
+    {
+      "date": "2026-09-23",
+      "is_current": false,
+      "window_start": "2026-09-10",
+      "n_polls": 5,
+      "n_houses": 4,
+      "low_n": false,
+      "seats": [
+        {
+          "party": "PP",
+          "seats": 121
+        },
+        {
+          "party": "PSOE",
+          "seats": 117
+        },
+        {
+          "party": "VOX",
+          "seats": 74
+        },
+        {
+          "party": "SUMAR",
+          "seats": 24
+        },
+        {
+          "party": "PODEMOS",
+          "seats": 14
+        }
+      ],
+      "blocks": {
+        "right": 195,
+        "left": 155,
+        "others": 0
+      },
+      "majority": "right"
+    },
+    {
+      "date": "2026-09-24",
+      "is_current": false,
+      "window_start": "2026-09-11",
+      "n_polls": 7,
+      "n_houses": 6,
+      "low_n": false,
+      "seats": [
+        {
+          "party": "PP",
+          "seats": 128
+        },
+        {
+          "party": "PSOE",
+          "seats": 113
+        },
+        {
+          "party": "VOX",
+          "seats": 73
+        },
+        {
+          "party": "SUMAR",
+          "seats": 22
+        },
+        {
+          "party": "PODEMOS",
+          "seats": 14
+        }
+      ],
+      "blocks": {
+        "right": 201,
+        "left": 149,
+        "others": 0
+      },
+      "majority": "right"
+    },
+    {
+      "date": "2026-09-27",
+      "is_current": false,
+      "window_start": "2026-09-14",
+      "n_polls": 6,
+      "n_houses": 5,
+      "low_n": false,
+      "seats": [
+        {
+          "party": "PP",
+          "seats": 129
+        },
+        {
+          "party": "PSOE",
+          "seats": 112
+        },
+        {
+          "party": "VOX",
+          "seats": 73
+        },
+        {
+          "party": "SUMAR",
+          "seats": 22
+        },
+        {
+          "party": "PODEMOS",
+          "seats": 14
+        }
+      ],
+      "blocks": {
+        "right": 202,
+        "left": 148,
+        "others": 0
+      },
+      "majority": "right"
+    },
+    {
+      "date": "2026-10-03",
+      "is_current": false,
+      "window_start": "2026-09-20",
+      "n_polls": 7,
+      "n_houses": 6,
+      "low_n": false,
+      "seats": [
+        {
+          "party": "PP",
+          "seats": 129
+        },
+        {
+          "party": "PSOE",
+          "seats": 111
+        },
+        {
+          "party": "VOX",
+          "seats": 73
+        },
+        {
+          "party": "SUMAR",
+          "seats": 23
+        },
+        {
+          "party": "PODEMOS",
+          "seats": 14
+        }
+      ],
+      "blocks": {
+        "right": 202,
+        "left": 148,
+        "others": 0
+      },
+      "majority": "right"
+    },
+    {
+      "date": "2026-10-04",
+      "is_current": false,
+      "window_start": "2026-09-21",
+      "n_polls": 7,
+      "n_houses": 6,
+      "low_n": false,
+      "seats": [
+        {
+          "party": "PP",
+          "seats": 129
+        },
+        {
+          "party": "PSOE",
+          "seats": 110
+        },
+        {
+          "party": "VOX",
+          "seats": 75
+        },
+        {
+          "party": "SUMAR",
+          "seats": 22
+        },
+        {
+          "party": "PODEMOS",
+          "seats": 14
+        }
+      ],
+      "blocks": {
+        "right": 204,
+        "left": 146,
+        "others": 0
+      },
+      "majority": "right"
+    },
+    {
+      "date": "2026-10-05",
+      "is_current": false,
+      "window_start": "2026-09-22",
+      "n_polls": 10,
+      "n_houses": 8,
+      "low_n": false,
+      "seats": [
+        {
+          "party": "PP",
+          "seats": 130
+        },
+        {
+          "party": "PSOE",
+          "seats": 110
+        },
+        {
+          "party": "VOX",
+          "seats": 75
+        },
+        {
+          "party": "SUMAR",
+          "seats": 22
+        },
+        {
+          "party": "PODEMOS",
+          "seats": 13
+        }
+      ],
+      "blocks": {
+        "right": 205,
+        "left": 145,
+        "others": 0
+      },
+      "majority": "right"
+    },
+    {
+      "date": "2026-10-08",
+      "is_current": false,
+      "window_start": "2026-09-25",
+      "n_polls": 8,
+      "n_houses": 6,
+      "low_n": false,
+      "seats": [
+        {
+          "party": "PP",
+          "seats": 132
+        },
+        {
+          "party": "PSOE",
+          "seats": 107
+        },
+        {
+          "party": "VOX",
+          "seats": 76
+        },
+        {
+          "party": "SUMAR",
+          "seats": 22
+        },
+        {
+          "party": "PODEMOS",
+          "seats": 13
+        }
+      ],
+      "blocks": {
+        "right": 208,
+        "left": 142,
+        "others": 0
+      },
+      "majority": "right"
+    },
+    {
+      "date": "2026-10-09",
+      "is_current": false,
+      "window_start": "2026-09-26",
+      "n_polls": 12,
+      "n_houses": 9,
+      "low_n": false,
+      "seats": [
+        {
+          "party": "PP",
+          "seats": 131
+        },
+        {
+          "party": "PSOE",
+          "seats": 109
+        },
+        {
+          "party": "VOX",
+          "seats": 75
+        },
+        {
+          "party": "SUMAR",
+          "seats": 23
+        },
+        {
+          "party": "PODEMOS",
+          "seats": 12
+        }
+      ],
+      "blocks": {
+        "right": 206,
+        "left": 144,
+        "others": 0
+      },
+      "majority": "right"
+    },
+    {
+      "date": "2026-10-11",
+      "is_current": false,
+      "window_start": "2026-09-28",
+      "n_polls": 12,
+      "n_houses": 10,
+      "low_n": false,
+      "seats": [
+        {
+          "party": "PP",
+          "seats": 130
+        },
+        {
+          "party": "PSOE",
+          "seats": 109
+        },
+        {
+          "party": "VOX",
+          "seats": 76
+        },
+        {
+          "party": "SUMAR",
+          "seats": 23
+        },
+        {
+          "party": "PODEMOS",
+          "seats": 12
+        }
+      ],
+      "blocks": {
+        "right": 206,
+        "left": 144,
+        "others": 0
+      },
+      "majority": "right"
+    },
+    {
+      "date": "2026-10-12",
+      "is_current": false,
+      "window_start": "2026-09-29",
+      "n_polls": 16,
+      "n_houses": 12,
+      "low_n": false,
+      "seats": [
+        {
+          "party": "PP",
+          "seats": 130
+        },
+        {
+          "party": "PSOE",
+          "seats": 108
+        },
+        {
+          "party": "VOX",
+          "seats": 76
+        },
+        {
+          "party": "SUMAR",
+          "seats": 24
+        },
+        {
+          "party": "PODEMOS",
+          "seats": 12
+        }
+      ],
+      "blocks": {
+        "right": 206,
+        "left": 144,
+        "others": 0
+      },
+      "majority": "right"
+    },
+    {
+      "date": "2026-10-14",
+      "is_current": false,
+      "window_start": "2026-10-01",
+      "n_polls": 17,
+      "n_houses": 13,
+      "low_n": false,
+      "seats": [
+        {
+          "party": "PP",
+          "seats": 124
+        },
+        {
+          "party": "PSOE",
+          "seats": 113
+        },
+        {
+          "party": "VOX",
+          "seats": 76
+        },
+        {
+          "party": "SUMAR",
+          "seats": 25
+        },
+        {
+          "party": "PODEMOS",
+          "seats": 12
+        }
+      ],
+      "blocks": {
+        "right": 200,
+        "left": 150,
+        "others": 0
+      },
+      "majority": "right"
+    },
+    {
+      "date": "2026-10-18",
+      "is_current": false,
+      "window_start": "2026-10-05",
+      "n_polls": 16,
+      "n_houses": 12,
+      "low_n": false,
+      "seats": [
+        {
+          "party": "PP",
+          "seats": 129
+        },
+        {
+          "party": "PSOE",
+          "seats": 118
+        },
+        {
+          "party": "VOX",
+          "seats": 78
+        },
+        {
+          "party": "SUMAR",
+          "seats": 25
+        }
+      ],
+      "blocks": {
+        "right": 207,
+        "left": 143,
+        "others": 0
+      },
+      "majority": "right"
+    },
+    {
+      "date": "2026-10-19",
+      "is_current": false,
+      "window_start": "2026-10-06",
+      "n_polls": 14,
+      "n_houses": 12,
+      "low_n": false,
+      "seats": [
+        {
+          "party": "PP",
+          "seats": 129
+        },
+        {
+          "party": "PSOE",
+          "seats": 117
+        },
+        {
+          "party": "VOX",
+          "seats": 78
+        },
+        {
+          "party": "SUMAR",
+          "seats": 26
+        }
+      ],
+      "blocks": {
+        "right": 207,
+        "left": 143,
+        "others": 0
+      },
+      "majority": "right"
+    },
+    {
+      "date": "2026-10-23",
+      "is_current": true,
+      "window_start": "2026-10-10",
+      "n_polls": 9,
+      "n_houses": 7,
+      "low_n": false,
+      "seats": [
+        {
+          "party": "PP",
+          "seats": 127
+        },
+        {
+          "party": "PSOE",
+          "seats": 118
+        },
+        {
+          "party": "VOX",
+          "seats": 79
+        },
+        {
+          "party": "SUMAR",
+          "seats": 26
+        }
+      ],
+      "blocks": {
+        "right": 206,
+        "left": 144,
+        "others": 0
+      },
+      "majority": "right"
+    }
+  ],
   "poll_dates": [
     "2026-10-11",
     "2026-10-12",
@@ -2454,7 +3092,8 @@
       "pp": 31.5,
       "psoe": 25.3,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "ElectoPanel",
@@ -2462,7 +3101,8 @@
       "pp": 31.8,
       "psoe": 27.1,
       "sample": 3141,
-      "nota": null
+      "nota": null,
+      "url": "https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/"
     },
     {
       "pollster": "CIS",
@@ -2470,7 +3110,8 @@
       "pp": 22.2,
       "psoe": 34.0,
       "sample": 5025,
-      "nota": "estimación de voto"
+      "nota": "estimación de voto",
+      "url": "https://www.cis.es/documents/d/guest/3582_estimacion-pdf"
     },
     {
       "pollster": "Sociométrica",
@@ -2478,7 +3119,8 @@
       "pp": 32.6,
       "psoe": 26.2,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "GESOP",
@@ -2486,7 +3128,8 @@
       "pp": 28.7,
       "psoe": 26.1,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "GAD3",
@@ -2494,7 +3137,8 @@
       "pp": 31.4,
       "psoe": 26.4,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "Target Point",
@@ -2502,7 +3146,8 @@
       "pp": 32.0,
       "psoe": 25.9,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "Invymark",
@@ -2510,7 +3155,8 @@
       "pp": 32.8,
       "psoe": 28.0,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "IMOP Insights",
@@ -2518,7 +3164,8 @@
       "pp": 30.4,
       "psoe": 26.5,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "DYM",
@@ -2526,7 +3173,8 @@
       "pp": 34.0,
       "psoe": 28.2,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "40dB",
@@ -2534,7 +3182,8 @@
       "pp": 31.9,
       "psoe": 28.1,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "NC Report",
@@ -2542,7 +3191,8 @@
       "pp": 34.1,
       "psoe": 25.0,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "Ateneo del Dato",
@@ -2550,7 +3200,8 @@
       "pp": 33.2,
       "psoe": 27.5,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "Celeste Tel",
@@ -2558,7 +3209,8 @@
       "pp": 33.9,
       "psoe": 25.4,
       "sample": null,
-      "nota": null
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     }
   ],
   "days_to_election": 36,

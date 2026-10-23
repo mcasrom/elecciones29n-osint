@@ -11,7 +11,7 @@
 <meta name="description" content="Cómo se calcula cada dato: agregado de sondeos, censo, participación y escaños. Reglas comunes de fuente, validación y límites.">
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/metodologia.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202610231232">
+<link rel="stylesheet" href="/css/main.css?v=202610231506">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <meta name="theme-color" content="#0b0c1c">
-<meta name="generator" content="elecciones29n-osint v0.10.5">
+<meta name="generator" content="elecciones29n-osint v0.11.0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta property="og:type" content="website">
@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function(){
     <nav class="mainnav" aria-label="Principal">
       <div class="navrow navrow-primary">
         <a class="navpill " href="/">Inicio</a>
+        <a class="navpill " href="/hemiciclo.html">Hemiciclo</a>
         <a class="navpill " href="/electorado.html">Electorado</a>
         <a class="navpill " href="/participacion.html">Participación</a>
         <a class="navpill " href="/territorio.html">Territorio</a>
@@ -160,6 +161,18 @@ document.addEventListener('DOMContentLoaded', function(){
     <p class="muted small">Los umbrales son convencionales y están en el código (<code>agg/aggregate.py</code>); se publican para que puedan discutirse.</p>
   </div>
 
+  <div class="card" id="hemiciclo">
+    <h3>Hemiciclo simulado: una mecánica, no una proyección</h3>
+    <p class="muted">La página <a href="/hemiciclo.html">Hemiciclo simulado</a> aplica <strong>D'Hondt nacional</strong> a la media de cada fecha con sondeo: 350 escaños, distrito único y umbral del 3%. Solo entran partidos estatales. La fecha «hoy» usa la ventana vigente aunque no haya sondeo nuevo; no se interpolan días.</p>
+    <ul class="muted">
+      <li><strong>No es el Congreso real</strong>: la ley reparte por provincias (52 circunscripciones). Un distrito único cambia el resultado y favorece a los partidos con voto disperso.</li>
+      <li><strong>No incluye territoriales</strong>: ERC, Junts, EH Bildu y PNV quedan fuera; su ausencia infla a PP y PSOE.</li>
+      <li><strong>No usa los escaños publicados por las casas</strong> ni los recalcula: es una simulación propia sobre la media de voto. Los escaños publicados por Electomanía, si se incorporan, irán en una capa separada con su fuente y enlace.</li>
+      <li><strong>No dice quién gobernará</strong>: una mayoría de bloque no implica investidura ni pactos. El Senado no se simula.</li>
+      <li><strong>Base corta</strong>: si la ventana no reúne cuatro sondeos, el gráfico lo marca. La incertidumbre y el reparto provincial pueden mover el resultado.</li>
+    </ul>
+  </div>
+
   <div class="card">
     <h3>2 · Censo</h3>
     <p class="muted">Cifras oficiales del <strong>INE · Oficina del Censo Electoral</strong> para el 29N. Distinguimos <strong>CER</strong> (residentes en España) y <strong>CERA</strong> (residentes en el extranjero).</p>
@@ -186,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function(){
     <ul class="muted">
       <li>El Congreso se elige en <strong>52 circunscripciones provinciales</strong>, con un mínimo de 2 escaños (1 en Ceuta y Melilla) y el resto según población (LOREG, art. 162).</li>
       <li>Dentro de cada provincia se aplica <strong>D'Hondt</strong> con umbral del 3 % provincial.</li>
-      <li>La <strong>simulación de la portada</strong> usa un distrito nacional único: sirve para ver el tamaño de los bloques, no para anticipar escaños.</li>
+      <li>La <strong>simulación de la portada y el hemiciclo</strong> usan un distrito nacional único: sirven para ver el tamaño de los bloques, no para anticipar escaños.</li>
       <li>El Senado no se simula: se elige por circunscripción provincial y designación autonómica.</li>
     </ul>
   </div>
@@ -222,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function(){
   <div class="container">
     <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
     <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
-    <p>Datos abiertos · <a href="/novedades.html">Novedades</a> · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="/privacidad.html">Privacidad</a> · Hecho por Miguel Castillo · software v0.10.5 · 2026-10-23.</p>
+    <p>Datos abiertos · <a href="/novedades.html">Novedades</a> · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="/privacidad.html">Privacidad</a> · Hecho por Miguel Castillo · software v0.11.0 · 2026-10-23.</p>
     <p class="eco">Ecosistema:
       <a href="https://www.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Prueba Pública</a> ·
       <a href="https://analisis.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Blog de análisis</a> ·
@@ -293,11 +306,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202610231232" hidden>
+<div class="swupdate" id="swupdate" data-build="202610231506" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610231232');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610231506');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -326,7 +339,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202610231232', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202610231506', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

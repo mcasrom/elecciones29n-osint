@@ -1,4 +1,4 @@
-const CACHE = 'e29n-202610231232';
+const CACHE = 'e29n-202610231506';
 const ASSETS = ['/', '/css/main.css', '/js/charts.js', '/favicon.svg', '/og.png', '/manifest.webmanifest'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
