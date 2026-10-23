@@ -11,6 +11,8 @@ VALIDATOR = os.path.join(ROOT, "scripts", "validate_site.py")
 
 class ValidateSiteTest(unittest.TestCase):
     def setUp(self):
+        if os.path.exists(os.path.join(ROOT, "web", "data", "blackout.json")):
+            self.skipTest("blackout activo: el sitio no publica gráfico de sondeos")
         self.tmp = tempfile.mkdtemp()
         self.site = os.path.join(self.tmp, "site")
         shutil.copytree(os.path.join(ROOT, "web"), self.site)

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.2 — 2026-10-23
+
+- **Blackout 24–28 nov**: no se conserva la media congelada. La portada, `/robustez.html` y `/novedades.html` pasan a un aviso legal; se retiran `data/latest.json`, `data/robustez.json` y `og-robustez.png`; el canario y el validador verifican que no queden publicados. El 29 se restablece.
+- **Portada**: la brecha PP–PSOE muestra también la media sin CIS (`+5.2`). La simulación D'Hondt se etiqueta como «bloques» y advierte de que solo incluye partidos estatales: ERC, Junts, EH Bildu y PNV no se simulan y su ausencia infla PP/PSOE; no es la composición real del Congreso.
+- **Operación**: `needs.py` y la auditoría detectan el blackout y no generan falsos avisos por falta de `latest.json`. 94 tests.
+
 ## 0.10.1 — 2026-10-23
 
 - **Ventana por fecha, no por hora**: la media usa 14 días naturales contando hoy (y 45/90 en sus ventanas). Un sondeo del día 14 ya no entra a las 23:00 y desaparece a las 08:00; el peso por recencia también se calcula en días naturales. Test de invariancia 08:00/23:00.

@@ -8,6 +8,7 @@ import argparse
 import json
 import sys
 import time
+import urllib.error
 import urllib.request
 
 UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
@@ -27,12 +28,84 @@ def get(url: str, tries: int = 3) -> tuple[int, str]:
     return last
 
 
+
+def status(url: str) -> int:
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": UA, "Cache-Control": "no-cache"})
+        with urllib.request.urlopen(req, timeout=25) as r:
+            return r.status
+    except urllib.error.HTTPError as e:
+        return e.code
+    except Exception:
+        return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--base", default=BASE)
     a = ap.parse_args()
     base = a.base.rstrip("/")
     errors = []
+
+    code, marker = get(base + "/data/blackout.json?canary=1")
+    if code == 200:
+        if '"active": true' not in marker:
+            errors.append("data/blackout.json sin active=true")
+        code, html = get(base + "/?canary=1")
+        if code != 200:
+            errors.append(f"blackout home HTTP {code}")
+        else:
+            if "Blackout electoral" not in html:
+                errors.append("blackout home sin aviso")
+            if 'class="chart"' in html:
+                errors.append("blackout home sigue mostrando el gráfico")
+        for path in ("/data/latest.json", "/data/robustez.json", "/og-robustez.png"):
+            c = status(base + path + "?canary=1")
+            if c not in (404, 410):
+                errors.append(f"blackout: {path} sigue publicado (HTTP {c})")
+        for path in ("/robustez.html", "/novedades.html"):
+            c, h = get(base + path + "?canary=1")
+            if c != 200:
+                errors.append(f"blackout {path} HTTP {c}")
+            elif "Blackout" not in h:
+                errors.append(f"blackout {path} sin aviso")
+        c, h = get(base + "/metodologia.html?canary=1")
+        if c != 200 or "se retiran" not in h:
+            errors.append("blackout metodologia.html sin método actualizado")
+        c, h = get(base + "/glosario.html?canary=1")
+        if c != 200 or "se retiran" not in h:
+            errors.append("blackout glosario.html sin blackout actualizado")
+        c, h = get(base + "/cambios.xml?canary=1")
+        if c != 200 or "Blackout" not in h:
+            errors.append("blackout cambios.xml sin aviso")
+        c, h = get(base + "/sitemap.xml?canary=1")
+        if c != 200 or "latest.json" in h or "robustez.json" in h:
+            errors.append("blackout sitemap.xml con datos retirados")
+        for path, needle in (
+            ("/electorado.html", "38.728.356"),
+            ("/participacion.html", "66,59"),
+            ("/territorio.html", "Teruel"),
+            ("/circunscripciones.html", "Las 52 circunscripciones"),
+            ("/noche-electoral.html", "Noche electoral"),
+            ("/comportamiento.html", "Recuerdo de voto 2023"),
+            ("/factores.html", "Factores y participación"),
+        ):
+            c, h = get(base + path + "?canary=1")
+            if c != 200:
+                errors.append(f"blackout {path} HTTP {c}")
+            elif needle not in h:
+                errors.append(f"blackout {path} sin «{needle}»")
+        for p in ("/version.json", "/favicon.ico", "/manifest.webmanifest", "/sw.js", "/og.png"):
+            c = status(base + p + "?canary=1")
+            if c != 200:
+                errors.append(f"blackout {p} HTTP {c}")
+        if errors:
+            print("CANARIO BLACKOUT FALLIDO:")
+            for e in errors:
+                print(" -", e)
+            return 1
+        print("canario OK · blackout activo · agregado y JSON retirados")
+        return 0
 
     code, html = get(base + "/?canary=1")
     if code != 200:

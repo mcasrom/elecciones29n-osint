@@ -24,6 +24,25 @@ SITE_DESC = (
 
 INDEXNOW_KEY = "e29n0sint2026b7f3c1a9d4e6"
 
+BLACKOUT_SITEMAP = [
+    ("", 1.0),
+    ("metodologia.html", 0.8),
+    ("fuentes.html", 0.7),
+    ("caveat.html", 0.5),
+    ("glosario.html", 0.6),
+    ("electorado.html", 0.7),
+    ("participacion.html", 0.7),
+    ("territorio.html", 0.7),
+    ("circunscripciones.html", 0.6),
+    ("noche-electoral.html", 0.7),
+    ("factores.html", 0.6),
+    ("comportamiento.html", 0.6),
+    ("como-leer.html", 0.8),
+    ("apoyo.html", 0.5),
+    ("sobre-mi.html", 0.5),
+    ("about.html", 0.5),
+]
+
 PAGES = [
     ("index.html", "", "2026-10-17", "daily", "1.0"),
     ("metodologia.html", "metodologia.html", "2026-10-17", "monthly", "0.8"),
@@ -442,6 +461,139 @@ self.addEventListener('fetch', e => {{
         f.write(js)
 
 
+def _remove_if_exists(rel: str) -> None:
+    path = os.path.join(OUT, rel)
+    if os.path.isfile(path):
+        os.remove(path)
+
+
+def write_blackout_sitemap(today: str) -> None:
+    rows = []
+    for loc, prio in BLACKOUT_SITEMAP:
+        url = f"{SITE_URL}/{loc}" if loc else f"{SITE_URL}/"
+        rows.append(
+            "  <url>"
+            f"<loc>{url}</loc>"
+            f"<lastmod>{today}</lastmod>"
+            "<changefreq>daily</changefreq>"
+            f"<priority>{prio}</priority>"
+            "</url>"
+        )
+    xml = (
+        '<?xml version="1.0" encoding="UTF-8"?>'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+        + "".join(rows)
+        + "</urlset>"
+    )
+    with open(os.path.join(OUT, "sitemap.xml"), "w", encoding="utf-8") as f:
+        f.write(xml)
+
+
+def write_blackout_cambios(now: datetime) -> None:
+    stamp = now.strftime("%a, %d %b %Y %H:%M:%S %z")
+    reason = blackout.blackout_reason()
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Observatorio 29N · cambios</title>
+    <link>{SITE_URL}/</link>
+    <description>Blackout electoral: del 24 al 28 de noviembre de 2026 no se publican ni difunden sondeos.</description>
+    <language>es</language>
+    <lastBuildDate>{stamp}</lastBuildDate>
+    <item>
+      <title>Blackout electoral 24–28 de noviembre</title>
+      <link>{SITE_URL}/</link>
+      <guid isPermaLink="false">blackout-2026-11</guid>
+      <pubDate>{stamp}</pubDate>
+      <description>{reason}</description>
+    </item>
+  </channel>
+</rss>
+"""
+    with open(os.path.join(OUT, "cambios.xml"), "w", encoding="utf-8") as f:
+        f.write(xml)
+
+
+def write_blackout_llms() -> None:
+    txt = f"""# {SITE_NAME}
+
+> Blackout electoral del 24 al 28 de noviembre de 2026. Durante estos días no
+> se publican, difunden ni reproducen sondeos electorales (LOREG art. 69.7).
+> La media agregada, la robustez y sus JSON quedan retirados hasta el 29.
+
+## Qué no está disponible
+- Media agregada y simulación de escaños.
+- {SITE_URL}/data/latest.json
+- {SITE_URL}/data/robustez.json
+- Los datos de robustez (`/robustez.html` muestra solo el aviso).
+
+## Qué sigue disponible
+- Metodología, fuentes y límites.
+- Censo, participación, territorio y circunscripciones.
+- Resultados oficiales de elecciones anteriores y datos abiertos que no son sondeos.
+
+## Estado
+- Inicio del blackout: 24 de noviembre de 2026.
+- Fin del blackout: 28 de noviembre de 2026.
+- Restablecimiento: 29 de noviembre de 2026.
+
+## Contacto
+- info.elecciones29n@pruebapublica.com
+"""
+    with open(os.path.join(OUT, "llms.txt"), "w", encoding="utf-8") as f:
+        f.write(txt)
+
+
+def write_blackout_site(
+    now: datetime, build_ts: str, build_date: str, version: str, commit: str
+) -> None:
+    ensure_dirs()
+    write_css()
+    write_js()
+    write_robots()
+    write_indexnow_key()
+    write_favicon()
+    write_manifest(version)
+    write_sw(build_ts)
+    write_version_json(version, build_ts, build_date, commit)
+
+    env = Environment(
+        loader=FileSystemLoader("gen/templates"),
+        autoescape=select_autoescape(["html", "xml"]),
+    )
+    tpl = env.get_template("blackout.html.j2")
+    pages = [
+        ("index.html", "Blackout electoral 24–28 nov 2026", "Blackout electoral", "/"),
+        ("robustez.html", "Robustez del dato · blackout", "Robustez del dato retirada", "/robustez.html"),
+        ("novedades.html", "Novedades · blackout", "Novedades retiradas", "/novedades.html"),
+    ]
+    for filename, title, heading, canonical in pages:
+        html = tpl.render(
+            site_url=SITE_URL,
+            page_title=title,
+            page_heading=heading,
+            canonical=canonical,
+        )
+        with open(os.path.join(OUT, filename), "w", encoding="utf-8") as f:
+            f.write(html)
+
+    for rel in ("data/latest.json", "data/robustez.json", "og-robustez.png"):
+        _remove_if_exists(rel)
+
+    marker = {
+        "active": True,
+        "start": blackout.BLACKOUT_START.isoformat(),
+        "end": blackout.BLACKOUT_END.isoformat(),
+        "reason": blackout.blackout_reason(),
+    }
+    with open(os.path.join(OUT, "data", "blackout.json"), "w", encoding="utf-8") as f:
+        json.dump(marker, f, ensure_ascii=False, indent=2)
+
+    write_blackout_sitemap(now.strftime("%Y-%m-%d"))
+    write_blackout_cambios(now)
+    write_blackout_llms()
+
+
 def write_robots() -> None:
     robots = (
         "User-agent: *\n"
@@ -509,7 +661,7 @@ def write_llms() -> None:
 ## Límites
 - Solo sondeos publicados (no hay microdatos ni cocina de encuestas).
 - Prohibido publicar sondeos del 24 al 28 de noviembre (JEC/LOREG); el
-  agregado se congela en esas fechas y no se actualiza.
+  agregado y sus JSON se retiran en esas fechas y se restablecen el 29.
 - Una media no sustituye a la incertidumbre: revisar siempre el rango.
 
 ## Código
@@ -1263,6 +1415,12 @@ def main(out: str = "web") -> None:
         ).strip()
     except Exception:
         build_commit = "dev"
+    now = datetime.now(TZ)
+    if blackout.is_blackout(now):
+        write_blackout_site(now, build_ts, build_date, version, build_commit)
+        print(f"blackout activo · {now.date().isoformat()} · agregado y JSON retirados")
+        return
+    _remove_if_exists("data/blackout.json")
     ensure_dirs()
     write_css()
     write_js()
@@ -1374,6 +1532,14 @@ def main(out: str = "web") -> None:
     parties_territorial = [p for p in parties if p.get("territorial")]
     parties_main = [p for p in parties if p.get("party") != "Otros" and not p.get("territorial")]
     series = latest.get("series", {})
+    pp_row = next((p for p in parties if p.get("party") == "PP"), None)
+    psoe_row = next((p for p in parties if p.get("party") == "PSOE"), None)
+    gap_sin_cis = None
+    if pp_row and psoe_row:
+        pp_sin = pp_row.get("mean_sin_cis")
+        psoe_sin = psoe_row.get("mean_sin_cis")
+        if pp_sin is not None and psoe_sin is not None:
+            gap_sin_cis = round(pp_sin - psoe_sin, 2)
 
     build_ts = now.strftime("%Y%m%d%H%M")
     prov_selector = build_prov_selector(escanos, congreso)
@@ -1480,6 +1646,7 @@ def main(out: str = "web") -> None:
         "days_to_blackout": latest.get("days_to_blackout", 0),
         "last_poll_date": latest.get("last_poll_date"),
         "gap_pp_psoe": latest.get("gap_pp_psoe"),
+        "gap_pp_psoe_sin_cis": gap_sin_cis,
         "bloc_right": latest.get("bloc_right"),
         "bloc_left": latest.get("bloc_left"),
         "sim_congress": simulate_congress(parties_main),
@@ -1515,8 +1682,9 @@ def main(out: str = "web") -> None:
     write_meteo_data(meteo)
 
     if not os.path.exists(os.path.join(OUT, "data/latest.json")):
+        safe_context = {k: v for k, v in context.items() if not callable(v)}
         with open(os.path.join(OUT, "data/latest.json"), "w", encoding="utf-8") as f:
-            json.dump(context, f, ensure_ascii=False, indent=2)
+            json.dump(safe_context, f, ensure_ascii=False, indent=2)
 
     print("build ok", now)
 

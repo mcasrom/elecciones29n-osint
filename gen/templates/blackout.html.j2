@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ page_title }} · Observatorio 29N</title>
+{% if canonical != "/" %}<meta name="robots" content="noindex,follow">{% endif %}
+<link rel="canonical" href="{{ site_url }}{{ canonical }}">
+<meta name="description" content="Blackout electoral del 24 al 28 de noviembre de 2026: no se publican ni difunden sondeos. La media agregada y sus JSON quedan retirados hasta el 29.">
+<meta property="og:title" content="{{ page_title }} · Observatorio 29N">
+<meta property="og:description" content="Del 24 al 28 de noviembre no se publican ni difunden sondeos electorales. La agregación y los datos abiertos quedan retirados.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ site_url }}{{ canonical }}">
+<meta property="og:image" content="{{ site_url }}/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{color-scheme:dark light;--bg:#0b0c1c;--panel:#12142a;--fg:#eef0f6;--muted:#a7abc4;--line:#262a4a;--accent:#ff5a1f;--blue:#8ec5ff}
+@media (prefers-color-scheme:light){:root{--bg:#f4f6fb;--panel:#fff;--fg:#131a28;--muted:#4d5a73;--line:#d9e0ee;--blue:#1b62c9}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+.container{max-width:780px;margin:0 auto;padding:48px 20px 64px}
+.brand{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:750}
+h1{font-size:clamp(30px,6vw,52px);line-height:1.05;letter-spacing:-.035em;margin:12px 0 16px;max-width:18ch}
+.lead{font-size:clamp(17px,2.4vw,21px);color:var(--muted);max-width:62ch;margin:0 0 28px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin:18px 0}
+.card h2{font-size:18px;margin:0 0 10px}
+.card p{margin:8px 0}
+ul{margin:8px 0 0;padding-left:20px}
+li{margin:6px 0}
+a{color:var(--blue)}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.links a{border:1px solid var(--line);border-radius:999px;padding:8px 13px;text-decoration:none;font-size:14px;font-weight:600}
+.note{font-size:13px;color:var(--muted)}
+footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<main class="container">
+  <div class="brand">Observatorio electoral 29N</div>
+  <h1>{{ page_heading }}</h1>
+  <p class="lead">Del <strong>24 al 28 de noviembre de 2026</strong> no se publican, difunden ni reproducen sondeos electorales. Es la prohibición del artículo 69.7 de la LOREG.</p>
+
+  <section class="card">
+    <h2>Qué queda retirado</h2>
+    <p>La media agregada, la simulación de escaños, el panel de robustez y los ficheros <code>latest.json</code> y <code>robustez.json</code> no están disponibles durante estos días.</p>
+    <p>No se publican cifras nuevas ni se mantiene la última media visible. El <strong>29 de noviembre</strong> se restablece la información con los datos que correspondan.</p>
+  </section>
+
+  <section class="card">
+    <h2>Qué sigue disponible</h2>
+    <p>La documentación del método, las fuentes, los límites y los datos electorales oficiales que no son sondeos:</p>
+    <div class="links">
+      <a href="/metodologia.html">Metodología</a>
+      <a href="/fuentes.html">Fuentes</a>
+      <a href="/caveat.html">Qué no dice</a>
+      <a href="/glosario.html">Glosario</a>
+      <a href="/electorado.html">Electorado</a>
+      <a href="/participacion.html">Participación</a>
+      <a href="/territorio.html">Territorio</a>
+      <a href="/noche-electoral.html">Noche electoral</a>
+    </div>
+  </section>
+
+  <p class="note">Si has llegado desde una búsqueda o un enlace compartido: la página volverá a estar operativa el 29 de noviembre. No hay una media “provisional” que consultar.</p>
+  <footer>Observatorio electoral 29N · <a href="mailto:info.elecciones29n@pruebapublica.com">info.elecciones29n@pruebapublica.com</a></footer>
+</main>
+</body>
+</html>

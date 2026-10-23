@@ -9,7 +9,7 @@
 <meta name="description" content="Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo, fuentes y datos abiertos. No es un pronóstico.">
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202610230820">
+<link rel="stylesheet" href="/css/main.css?v=202610231021">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <meta name="theme-color" content="#0b0c1c">
-<meta name="generator" content="elecciones29n-osint v0.10.1">
+<meta name="generator" content="elecciones29n-osint v0.10.2">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta property="og:type" content="website">
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function(){
       <div class="hero-kpis">
         <div class="hk"><b>36</b><span>días para el 29N</span></div>
         <div class="hk"><b>9</b><span>sondeos en la media</span></div>
-        <div class="hk accent"><b>+2.0</b><span>puntos PP–PSOE</span></div>
+        <div class="hk accent"><b>+2.0</b><span>puntos PP–PSOE<br>sin CIS: +5.2</span></div>
         <div class="hk"><b>176</b><span>mayoría absoluta</span></div>
       </div>
 
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function(){
         <div class="calev "><b>29 nov</b><span>Jornada electoral</span></div>
         
       </div>
-      <p class="muted small" style="margin-top:10px">Del 24 al 28 de noviembre no se publican ni difunden sondeos (JEC/LOREG). El agregado se congela.</p>
+      <p class="muted small" style="margin-top:10px">Del 24 al 28 de noviembre no se publican ni difunden sondeos (JEC/LOREG). La agregación y sus JSON se retiran hasta el 29.</p>
     </div>
 
     
@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function(){
     <div class="card">
       <div class="cardhead"><h2>Preguntas frecuentes</h2></div>
       <details><summary><strong>¿Es un pronóstico?</strong></summary><p class="muted small">No. Es la media de sondeos publicados con su rango. No anticipa el resultado del 29N.</p></details>
-      <details><summary><strong>¿Puedo publicar esto durante el blackout?</strong></summary><p class="muted small">No. Del 24 al 28 de noviembre de 2026 no se publican, difunden ni reproducen sondeos. El agregado queda congelado.</p></details>
+      <details><summary><strong>¿Puedo publicar esto durante el blackout?</strong></summary><p class="muted small">No. Del 24 al 28 de noviembre de 2026 no se publican, difunden ni reproducen sondeos. La agregación y sus JSON se retiran.</p></details>
       <details><summary><strong>¿De dónde salen los datos?</strong></summary><p class="muted small">De sondeos publicados por Onda Cero (compilación), Electomanía (paneles propios) y el CIS, con enlace a la fuente y fecha. Se descartan autonómicos, adelantos incompletos y piezas sin ficha verificable.</p></details>
       <details><summary><strong>¿Por qué mostrar el rango y no solo la media?</strong></summary><p class="muted small">Porque la dispersión entre encuestadoras es parte del dato. Una cifra única oculta la incertidumbre.</p></details>
     </div>
@@ -376,10 +376,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
   <!-- TAB: CONGRESO -->
   <section id="tab-congreso" class="tabpanel" role="tabpanel">
-    <div class="alert warn"><strong>Simulación mecánica, no proyección.</strong> Aplico D'Hondt a la media nacional con un distrito único de 350 escaños y umbral del 3%. La ley electoral real reparte por provincias: esto sirve para ver el tamaño de los bloques, no para anticipar el resultado.</div>
+    <div class="alert warn"><strong>Simulación mecánica, no proyección.</strong> Aplico D'Hondt a la media nacional con un distrito único de 350 escaños y umbral del 3%, solo entre partidos estatales. La ley real reparte por provincias y los partidos territoriales (ERC, Junts, EH Bildu, PNV) no se simulan aquí: su ausencia infla el reparto de PP y PSOE. Sirve para ver el tamaño de los bloques, no para anticipar escaños ni mayorías.</div>
 
     <div class="card">
-      <div class="cardhead"><h2>Simulación de escaños (D'Hondt nacional)</h2><span class="hint">350 escaños · umbral 3%</span></div>
+      <div class="cardhead"><h2>Simulación de bloques (D'Hondt nacional)</h2><span class="hint">350 escaños · umbral 3% · sin territoriales</span></div>
       
       <div class="seats">
         
@@ -392,7 +392,7 @@ document.addEventListener('DOMContentLoaded', function(){
         <div class="seatrow"><span class="sname">SUMAR</span><span class="sbar"><i style="width:7.4%"></i></span><span class="snum">26</span></div>
         
       </div>
-      <p class="muted small">Total: 350 escaños. Mayoría absoluta: 176.</p>
+      <p class="muted small">Total del reparto hipotético: 350 escaños entre partidos estatales. Mayoría absoluta: 176. No es la composición real del Congreso.</p>
       
     </div>
 
@@ -509,14 +509,17 @@ document.addEventListener('DOMContentLoaded', function(){
   <div class="container">
     <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
     <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
-    <p>Datos abiertos · <a href="/novedades.html">Novedades</a> · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="https://github.com/mcasrom/elecciones29n-osint">Código (AGPL-3.0)</a> · Hecho por Miguel Castillo · software v0.10.1 · 2026-10-23.</p>
+    <p>Datos abiertos · <a href="/novedades.html">Novedades</a> · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · Hecho por Miguel Castillo · software v0.10.2 · 2026-10-23.</p>
     <p class="eco">Ecosistema:
       <a href="https://www.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Prueba Pública</a> ·
       <a href="https://analisis.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Blog de análisis</a> ·
       <a href="https://fimi.viajeinteligencia.com/?utm_source=elecciones29n&utm_medium=footer">Observatorio de amplificación</a> ·
       <a href="https://vivienda.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Vivienda</a>
     </p>
-    <p><a class="support" href="https://ko-fi.com/m_castillo" target="_blank" rel="noopener noreferrer">☕ Apoya el proyecto en Ko-fi</a></p>
+    <div class="footer-actions">
+      <a class="support repo" href="https://github.com/mcasrom/elecciones29n-osint" target="_blank" rel="noopener noreferrer">GitHub · AGPL-3.0</a>
+      <a class="support kofi" href="https://ko-fi.com/m_castillo" target="_blank" rel="noopener noreferrer">☕ Apoyar en Ko-fi</a>
+    </div>
   </div>
 </footer>
 
@@ -577,11 +580,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202610230820" hidden>
+<div class="swupdate" id="swupdate" data-build="202610231021" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610230820');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610231021');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -610,7 +613,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202610230820', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202610231021', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

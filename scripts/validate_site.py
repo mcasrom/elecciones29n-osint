@@ -34,11 +34,120 @@ REQUIRED = [
 ]
 
 
+def validate_blackout(d: str) -> int:
+    errors: list[str] = []
+    warns: list[str] = []
+    required = [
+        "index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html",
+        "glosario.html", "electorado.html", "participacion.html", "territorio.html",
+        "circunscripciones.html", "noche-electoral.html", "factores.html",
+        "comportamiento.html", "como-leer.html", "apoyo.html", "sobre-mi.html",
+        "robots.txt", "sitemap.xml", "llms.txt", "favicon.svg", "og.png",
+        "cambios.xml", "css/main.css", "sw.js", "manifest.webmanifest", "version.json",
+        "data/blackout.json", "data/censo-2026.json", "data/participacion.json",
+        "data/escanos-2026.json", "data/congreso-oficial.json",
+    ]
+    for f in required:
+        path = os.path.join(d, f)
+        if not os.path.exists(path):
+            errors.append(f"falta {f}")
+        elif os.path.getsize(path) == 0:
+            errors.append(f"{f} vacío")
+
+    for rel in ("data/latest.json", "data/robustez.json", "og-robustez.png"):
+        if os.path.exists(os.path.join(d, rel)):
+            errors.append(f"blackout: {rel} sigue publicado")
+
+    idx = os.path.join(d, "index.html")
+    if os.path.exists(idx):
+        h = open(idx, encoding="utf-8", errors="ignore").read()
+        if len(h) < 1500:
+            errors.append(f"index.html demasiado pequeño ({len(h)} bytes)")
+        for needle in ("Blackout electoral", "24 al 28 de noviembre", "69.7"):
+            if needle not in h:
+                errors.append(f"index.html sin «{needle}»")
+        if 'class="chart"' in h:
+            errors.append("index.html todavía muestra el gráfico de sondeos")
+        if 'rel="canonical"' not in h:
+            errors.append("index.html sin canonical")
+
+    for page in ("robustez.html", "novedades.html"):
+        path = os.path.join(d, page)
+        if os.path.exists(path):
+            h = open(path, encoding="utf-8", errors="ignore").read()
+            if "Blackout" not in h:
+                errors.append(f"{page} no muestra el aviso de blackout")
+
+    for page in ("metodologia.html", "caveat.html", "glosario.html"):
+        path = os.path.join(d, page)
+        if os.path.exists(path):
+            h = open(path, encoding="utf-8", errors="ignore").read()
+            if "se retiran" not in h and "se retira" not in h:
+                errors.append(f"{page} no explica que el agregado se retira")
+
+    marker = os.path.join(d, "data/blackout.json")
+    if os.path.exists(marker):
+        try:
+            m = json.load(open(marker, encoding="utf-8"))
+            if not m.get("active"):
+                errors.append("data/blackout.json no está activo")
+            if m.get("start") != "2026-11-24" or m.get("end") != "2026-11-28":
+                errors.append("data/blackout.json con fechas distintas de 24–28 nov")
+        except Exception as e:
+            errors.append(f"data/blackout.json inválido: {e}")
+
+    sm = os.path.join(d, "sitemap.xml")
+    if os.path.exists(sm):
+        try:
+            ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+            urls = ET.parse(sm).getroot().findall(".//s:loc", ns)
+            if len(urls) < 10:
+                errors.append(f"sitemap con {len(urls)} URLs (esperadas >=10)")
+            for el in urls:
+                u = (el.text or "").strip()
+                if "latest.json" in u or "robustez.json" in u:
+                    errors.append(f"sitemap: {u} no debe publicarse en blackout")
+                path = u.split("elecciones29n.pruebapublica.com", 1)[-1].lstrip("/") or "index.html"
+                fp = os.path.join(d, path)
+                if not os.path.exists(fp):
+                    errors.append(f"sitemap: falta {path}")
+        except Exception as e:
+            errors.append(f"sitemap inválido: {e}")
+
+    for name in ("cambios.xml",):
+        path = os.path.join(d, name)
+        if os.path.exists(path):
+            h = open(path, encoding="utf-8", errors="ignore").read()
+            if "Blackout" not in h:
+                errors.append(f"{name} sin aviso de blackout")
+            try:
+                ET.fromstring(h)
+            except Exception as e:
+                errors.append(f"{name} inválido: {e}")
+
+    llms = os.path.join(d, "llms.txt")
+    if os.path.exists(llms):
+        h = open(llms, encoding="utf-8", errors="ignore").read()
+        if "Blackout" not in h or "latest.json" in h.split("## Qué sigue disponible", 1)[-1]:
+            errors.append("llms.txt no declara el blackout correctamente")
+
+    for w in warns:
+        print(f"WARN  {w}")
+    for e in errors:
+        print(f"FAIL  {e}")
+    if errors:
+        return 1
+    print(f"validación blackout OK · {d} · agregado y JSON retirados")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("dir", nargs="?", default="web")
     a = ap.parse_args()
     d = a.dir
+    if os.path.exists(os.path.join(d, "data/blackout.json")):
+        return validate_blackout(d)
     errors: list[str] = []
     warns: list[str] = []
 

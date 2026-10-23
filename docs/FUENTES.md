@@ -12,7 +12,7 @@
 ## Secundaria (compilación)
 
 - **Onda Cero · Encuestas 29N** — `https://www.ondacero.es/elecciones/generales/encuestas/`.
-  94 sondeos de 14 casas (sep-2025 → oct-2026). Se usan los **sondeos
+  95 sondeos de 14 casas (sep-2025 → oct-2026). Se usan los **sondeos
   individuales**, no su promedio. La fecha es de **publicación**, no de campo.
   Robots permite la ruta; se cita la compilación y la encuestadora/medio.
   «Otros» es un residual: se guarda para la suma, pero no se usa en gráficos.

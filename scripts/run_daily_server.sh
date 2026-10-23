@@ -38,7 +38,9 @@ fi
 PYTHONPATH="$REPO_DIR" python3 -m agg.aggregate --out "$STAGE/data"
 PYTHONPATH="$REPO_DIR" python3 -m gen.build --out "$STAGE"
 /usr/bin/python3 -c "import PIL" 2>/dev/null && /usr/bin/python3 gen/gen_og.py --out "$STAGE/og.png" || true
-/usr/bin/python3 gen/gen_card_robustez.py --data "$STAGE/data/latest.json" --out "$STAGE/og-robustez.png" || true
+if [ ! -f "$STAGE/data/blackout.json" ]; then
+  /usr/bin/python3 gen/gen_card_robustez.py --data "$STAGE/data/latest.json" --out "$STAGE/og-robustez.png" || true
+fi
 /usr/bin/python3 gen/gen_card_glosario.py --out "$STAGE/og-glosario.png" || true
 
 if ! /usr/bin/python3 scripts/validate_site.py "$STAGE" > "$HOME/.local/state/elecciones29n/validate.log" 2>&1; then

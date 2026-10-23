@@ -56,6 +56,10 @@ def main() -> int:
     ap.add_argument("--online", action="store_true")
     a = ap.parse_args()
 
+    if os.path.exists("web/data/blackout.json"):
+        print("blackout activo: auditoría de sondeos omitida (agregado y JSON retirados)")
+        return 0
+
     # ---------------- Sondeos ----------------
     hist = "data/polls_history.csv"
     rows = list(csv.DictReader(open(hist, encoding="utf-8", newline="")))

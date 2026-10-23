@@ -5,7 +5,7 @@
 [![En vivo](https://img.shields.io/badge/en%20vivo-elecciones29n.pruebapublica.com-ff5a1f)](https://elecciones29n.pruebapublica.com/)
 [![Licencia](https://img.shields.io/badge/licencia-AGPL--3.0-3ddc97)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.12-8ec5ff)](https://www.python.org/)
-[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.10.1-ff5a1f)](CHANGELOG.md)
+[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.10.2-ff5a1f)](CHANGELOG.md)
 
 ---
 
@@ -63,7 +63,7 @@ agregado.
 - **Frente Amplio → SUMAR**: el ElectoPanel del 18-oct publica «Frente Amplio … 4,9 %»; se mapea a SUMAR y se backfilla la fila (suma del sondeo 87,3 → 92,2).
 - **Sin doble conteo territorial**: ERC, Junts, Bildu y PNV salen de la tabla principal (en Onda Cero ya van dentro de «Otros») y se publican aparte. La tabla muestra su suma: **98,83**.
 - **Etiquetas y auditoría**: «Datos suficientes/frágiles/insuficientes», muestra «3/9 con muestra (12.291 encuestados)» y casas a 45/14 d. `audit_datos.py` exige 90–110 en sondeos tracking y comprueba la suma.
-- Verificación: **93 tests**, **233 comprobaciones, 0 fallos críticos**; `n_polls=9` (11–19 oct). Versión **0.10.1**.
+- Verificación: **94 tests**, **233 comprobaciones, 0 fallos críticos**; `n_polls=9` (11–19 oct). Versión **0.10.2**.
 
 ## Fuentes
 
@@ -178,8 +178,8 @@ gen/            build estático, OG, plantillas Jinja
 data/           histórico de sondeos y datasets normalizados (fuente de verdad)
 web/            salida estática publicada
 scripts/        run_daily, check, validate_site, canary, IndexNow, add_poll, health_report
-docs/           método, fuentes, rutina semanal, sprint del observatorio
-tests/          93 pruebas (datos, build, validador, fichas provinciales)
+docs/           método, fuentes, rutina semanal, legal y sprint del observatorio
+tests/          94 pruebas (datos, build, validador, fichas provinciales)
 systemd/        servicio y timer
 ```
 
@@ -222,7 +222,7 @@ Además de la media por sondeo (ponderada por recencia y muestra cuando existe),
 
 ## Calidad
 
-- **93 tests** (`unittest`) y hook **pre-push**.
+- **94 tests** (`unittest`) y hook **pre-push**.
 - `scripts/check.sh`: compila, tests, valida el sitio local y ejecuta la auditoría de datos.
 - **Validador** de publicación: gráfico con puntos, pestañas, JSON, sitemap, OG,
   RSS, censo, participación y escaños.
@@ -267,3 +267,8 @@ el proyecto.
 > Miguel Castillo. *Observatorio electoral 29N*. https://elecciones29n.pruebapublica.com
 
 Contacto: **info.elecciones29n@pruebapublica.com**
+
+## Documentación legal
+
+- `docs/LEGAL-29N.md` — fuentes, blackout, privacidad, licencias y pendientes.
+- `docs/ONDA-CERO-AUTORIZACION-BORRADOR.md` — correo de autorización (no enviado).

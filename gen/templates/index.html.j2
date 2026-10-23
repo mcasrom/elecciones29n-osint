@@ -31,7 +31,7 @@
   </div>
 
   {% if in_blackout %}
-        <span class="dot off"></span> BLACKOUT · datos congelados
+        <span class="dot off"></span> BLACKOUT · datos retirados
         {% else %}
         <span class="dot"></span> EN VIVO · actualizado {{ updated_at }}
         {% endif %}
@@ -51,7 +51,7 @@
       <div class="hero-kpis">
         <div class="hk"><b>{{ days_to_election }}</b><span>días para el 29N</span></div>
         <div class="hk"><b>{{ n_polls }}</b><span>sondeos en la media</span></div>
-        <div class="hk accent"><b>{% if gap_pp_psoe is not none %}+{{ "%.1f"|format(gap_pp_psoe) }}{% else %}—{% endif %}</b><span>puntos PP–PSOE</span></div>
+        <div class="hk accent"><b>{% if gap_pp_psoe is not none %}+{{ "%.1f"|format(gap_pp_psoe) }}{% else %}—{% endif %}</b><span>puntos PP–PSOE{% if gap_pp_psoe_sin_cis is not none %}<br>sin CIS: +{{ "%.1f"|format(gap_pp_psoe_sin_cis) }}{% endif %}</span></div>
         <div class="hk"><b>176</b><span>mayoría absoluta</span></div>
       </div>
 
@@ -89,7 +89,7 @@
 <main class="container">
 
   {% if in_blackout %}
-  <div class="alert"><strong>Blackout electoral activo</strong> · {{ blackout_reason }}. El agregado queda congelado y no se actualiza.</div>
+  <div class="alert"><strong>Blackout electoral activo</strong> · {{ blackout_reason }}. La agregación y sus JSON quedan retirados.</div>
   {% elif low_n %}
   <div class="alert warn"><strong>Pocos sondeos en la media</strong> · solo {{ n_polls }}. Interpreta el rango con cautela: una media con tan pocos datos no estabiliza la tendencia.</div>
   {% endif %}
@@ -113,7 +113,7 @@
         <div class="calev {{ e.state }}"><b>{{ e.date }}</b><span>{{ e.label }}</span></div>
         {% endfor %}
       </div>
-      <p class="muted small" style="margin-top:10px">Del 24 al 28 de noviembre no se publican ni difunden sondeos (JEC/LOREG). El agregado se congela.</p>
+      <p class="muted small" style="margin-top:10px">Del 24 al 28 de noviembre no se publican ni difunden sondeos (JEC/LOREG). La agregación y sus JSON se retiran hasta el 29.</p>
     </div>
 
     {% if chart_svg %}
@@ -157,7 +157,7 @@
     <div class="card">
       <div class="cardhead"><h2>Preguntas frecuentes</h2></div>
       <details><summary><strong>¿Es un pronóstico?</strong></summary><p class="muted small">No. Es la media de sondeos publicados con su rango. No anticipa el resultado del 29N.</p></details>
-      <details><summary><strong>¿Puedo publicar esto durante el blackout?</strong></summary><p class="muted small">No. Del 24 al 28 de noviembre de 2026 no se publican, difunden ni reproducen sondeos. El agregado queda congelado.</p></details>
+      <details><summary><strong>¿Puedo publicar esto durante el blackout?</strong></summary><p class="muted small">No. Del 24 al 28 de noviembre de 2026 no se publican, difunden ni reproducen sondeos. La agregación y sus JSON se retiran.</p></details>
       <details><summary><strong>¿De dónde salen los datos?</strong></summary><p class="muted small">De sondeos publicados por Onda Cero (compilación), Electomanía (paneles propios) y el CIS, con enlace a la fuente y fecha. Se descartan autonómicos, adelantos incompletos y piezas sin ficha verificable.</p></details>
       <details><summary><strong>¿Por qué mostrar el rango y no solo la media?</strong></summary><p class="muted small">Porque la dispersión entre encuestadoras es parte del dato. Una cifra única oculta la incertidumbre.</p></details>
     </div>
@@ -255,17 +255,17 @@
 
   <!-- TAB: CONGRESO -->
   <section id="tab-congreso" class="tabpanel" role="tabpanel">
-    <div class="alert warn"><strong>Simulación mecánica, no proyección.</strong> Aplico D'Hondt a la media nacional con un distrito único de 350 escaños y umbral del 3%. La ley electoral real reparte por provincias: esto sirve para ver el tamaño de los bloques, no para anticipar el resultado.</div>
+    <div class="alert warn"><strong>Simulación mecánica, no proyección.</strong> Aplico D'Hondt a la media nacional con un distrito único de 350 escaños y umbral del 3%, solo entre partidos estatales. La ley real reparte por provincias y los partidos territoriales (ERC, Junts, EH Bildu, PNV) no se simulan aquí: su ausencia infla el reparto de PP y PSOE. Sirve para ver el tamaño de los bloques, no para anticipar escaños ni mayorías.</div>
 
     <div class="card">
-      <div class="cardhead"><h2>Simulación de escaños (D'Hondt nacional)</h2><span class="hint">350 escaños · umbral 3%</span></div>
+      <div class="cardhead"><h2>Simulación de bloques (D'Hondt nacional)</h2><span class="hint">350 escaños · umbral 3% · sin territoriales</span></div>
       {% if sim_congress %}
       <div class="seats">
         {% for name, seats in sim_congress.items() %}
         <div class="seatrow"><span class="sname">{{ name }}</span><span class="sbar"><i style="width:{{ (seats / 350 * 100)|round(1) }}%"></i></span><span class="snum">{{ seats }}</span></div>
         {% endfor %}
       </div>
-      <p class="muted small">Total: {{ sim_congress.values()|sum }} escaños. Mayoría absoluta: 176.</p>
+      <p class="muted small">Total del reparto hipotético: {{ sim_congress.values()|sum }} escaños entre partidos estatales. Mayoría absoluta: 176. No es la composición real del Congreso.</p>
       {% else %}
       <p class="muted">Sin datos suficientes para simular.</p>
       {% endif %}

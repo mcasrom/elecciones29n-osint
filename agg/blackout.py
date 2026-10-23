@@ -25,7 +25,6 @@ def blackout_window() -> Tuple[date, date]:
 
 def blackout_reason() -> str:
     return (
-        "Periodo de reflexión y jornada electoral (24–28 nov 2026). "
-        "No se publican nuevos sondeos por cumplimiento de la normativa electoral (JEC/LOREG). "
-        "Se mantiene la última agregación válida con su fecha/hora de actualización."
+        "Prohibición de publicar, difundir o reproducir sondeos (24–28 nov 2026, LOREG art. 69.7). "
+        "La agregación, la robustez y sus JSON quedan retirados; se restablecen el 29 de noviembre."
     )

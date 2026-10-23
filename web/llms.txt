@@ -24,7 +24,7 @@
 ## Límites
 - Solo sondeos publicados (no hay microdatos ni cocina de encuestas).
 - Prohibido publicar sondeos del 24 al 28 de noviembre (JEC/LOREG); el
-  agregado se congela en esas fechas y no se actualiza.
+  agregado y sus JSON se retiran en esas fechas y se restablecen el 29.
 - Una media no sustituye a la incertidumbre: revisar siempre el rango.
 
 ## Código

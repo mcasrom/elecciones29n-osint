@@ -27,9 +27,9 @@
   <div class="card">
     <h3>Periodo electoral</h3>
     {% if in_blackout %}
-    <p class="muted"><strong>Blackout activo</strong>: {{ blackout_reason }}. Los sondeos no se publican, difunden ni reproducen en esas fechas; el agregado queda congelado sin cambios.</p>
+    <p class="muted"><strong>Blackout activo</strong>: {{ blackout_reason }}. Los sondeos no se publican, difunden ni reproducen en esas fechas; la agregación y sus JSON quedan retirados.</p>
     {% else %}
-    <p class="muted">Del <strong>24 al 28 de noviembre de 2026</strong> (ambos inclusive) no se actualizarán ni difundirán sondeos, por cumplimiento de la normativa electoral (JEC/LOREG). Durante ese periodo el sitio conserva el último agregado válido y no genera cifras nuevas.</p>
+    <p class="muted">Del <strong>24 al 28 de noviembre de 2026</strong> (ambos inclusive) no se publicarán ni difundirán sondeos, por cumplimiento de la normativa electoral (JEC/LOREG). Durante ese periodo la agregación, la robustez y sus JSON se retiran; el 29 se restablecen.</p>
     {% endif %}
   </div>
 

@@ -108,6 +108,18 @@ def load() -> dict:
 
 
 def _latest() -> dict | None:
+    marker = ROOT / "web" / "data" / "blackout.json"
+    if marker.exists():
+        try:
+            m = json.loads(marker.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            m = {}
+        return {
+            "in_blackout": True,
+            "updated_at": f"blackout hasta {m.get('end', '2026-11-28')}",
+            "last_poll_date": "-",
+            "health": {"status": "ok", "n_polls": None, "n_pollsters": None, "days_since_last": None},
+        }
     path = ROOT / "web" / "data" / "latest.json"
     if not path.exists():
         return None
@@ -167,7 +179,7 @@ def auto_tasks() -> list[dict]:
         houses = health.get("n_pollsters")
         if houses is None:
             houses = len(health.get("pollsters") or [])
-        if isinstance(houses, int) and houses < 2:
+        if not latest.get("in_blackout") and isinstance(houses, int) and houses < 2:
             tasks.append(_item("auto:few-houses", "Pocas casas", f"Solo hay {houses} casa(s) independiente(s); el objetivo es 2 o más.", "warning"))
 
         days = health.get("days_since_last")

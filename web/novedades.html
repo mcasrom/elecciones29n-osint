@@ -10,7 +10,7 @@
 <meta name="description" content="Cambios publicados en el observatorio electoral 29N: correcciones, mejoras de datos y nuevas páginas.">
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/novedades.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202610230820">
+<link rel="stylesheet" href="/css/main.css?v=202610231021">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <meta name="theme-color" content="#0b0c1c">
-<meta name="generator" content="elecciones29n-osint v0.10.1">
+<meta name="generator" content="elecciones29n-osint v0.10.2">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta property="og:type" content="website">
@@ -111,6 +111,15 @@ document.addEventListener('DOMContentLoaded', function(){
   <p class="muted" style="margin:8px 0 16px;max-width:70ch">Lo que cambia en el observatorio, con fecha y versión. Incluye correcciones de datos y de método, no solo páginas nuevas. El registro completo vive en el repositorio.</p>
 
   
+    
+    <div class="card">
+      <div class="cardhead"><h2>0.10.2</h2><span class="hint">2026-10-23</span></div>
+      
+      <ul class="muted small" style="margin:0">
+        <li><strong>Blackout 24–28 nov</strong>: no se conserva la media congelada. La portada, <code>/robustez.html</code> y <code>/novedades.html</code> pasan a un aviso legal; se retiran <code>data/latest.json</code>, <code>data/robustez.json</code> y <code>og-robustez.png</code>; el canario y el validador verifican que no queden publicados. El 29 se restablece.</li><li><strong>Portada</strong>: la brecha PP–PSOE muestra también la media sin CIS (<code>+5.2</code>). La simulación D'Hondt se etiqueta como «bloques» y advierte de que solo incluye partidos estatales: ERC, Junts, EH Bildu y PNV no se simulan y su ausencia infla PP/PSOE; no es la composición real del Congreso.</li><li><strong>Operación</strong>: <code>needs.py</code> y la auditoría detectan el blackout y no generan falsos avisos por falta de <code>latest.json</code>. 94 tests.</li>
+      </ul>
+      
+    </div>
     
     <div class="card">
       <div class="cardhead"><h2>0.10.1</h2><span class="hint">2026-10-23</span></div>
@@ -258,20 +267,23 @@ document.addEventListener('DOMContentLoaded', function(){
     
   
 
-  <p class="muted small">Versión actual: <strong>0.10.1</strong> · <a href="https://github.com/mcasrom/elecciones29n-osint/blob/main/CHANGELOG.md" rel="noopener">CHANGELOG.md</a></p>
+  <p class="muted small">Versión actual: <strong>0.10.2</strong> · <a href="https://github.com/mcasrom/elecciones29n-osint/blob/main/CHANGELOG.md" rel="noopener">CHANGELOG.md</a></p>
 </main>
 <footer class="footer">
   <div class="container">
     <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
     <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
-    <p>Datos abiertos · <a href="/novedades.html">Novedades</a> · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="https://github.com/mcasrom/elecciones29n-osint">Código (AGPL-3.0)</a> · Hecho por Miguel Castillo · software v0.10.1 · 2026-10-23.</p>
+    <p>Datos abiertos · <a href="/novedades.html">Novedades</a> · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · Hecho por Miguel Castillo · software v0.10.2 · 2026-10-23.</p>
     <p class="eco">Ecosistema:
       <a href="https://www.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Prueba Pública</a> ·
       <a href="https://analisis.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Blog de análisis</a> ·
       <a href="https://fimi.viajeinteligencia.com/?utm_source=elecciones29n&utm_medium=footer">Observatorio de amplificación</a> ·
       <a href="https://vivienda.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Vivienda</a>
     </p>
-    <p><a class="support" href="https://ko-fi.com/m_castillo" target="_blank" rel="noopener noreferrer">☕ Apoya el proyecto en Ko-fi</a></p>
+    <div class="footer-actions">
+      <a class="support repo" href="https://github.com/mcasrom/elecciones29n-osint" target="_blank" rel="noopener noreferrer">GitHub · AGPL-3.0</a>
+      <a class="support kofi" href="https://ko-fi.com/m_castillo" target="_blank" rel="noopener noreferrer">☕ Apoyar en Ko-fi</a>
+    </div>
   </div>
 </footer>
 
@@ -332,11 +344,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202610230820" hidden>
+<div class="swupdate" id="swupdate" data-build="202610231021" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610230820');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610231021');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -365,7 +377,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202610230820', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202610231021', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){
