@@ -55,15 +55,18 @@
         <div class="hk"><b>176</b><span>mayoría absoluta</span></div>
       </div>
 
+      <div class="cta"><a class="btn" href="/hemiciclo.html">Ver el hemiciclo por sondeo →</a><span class="muted small">350 escaños, fecha a fecha, con método y límites.</span></div>
+
       <p class="stamp">
         {% if last_poll_date %}Último sondeo: <strong>{{ last_poll_date }}</strong> · {% endif %}
         Próximo blackout en <strong>{{ days_to_blackout }} días</strong> (24–28 nov) ·
-        <a href="/data/latest.json">datos abiertos</a> · <a href="/robustez.html">robustez del dato</a> · <a href="/caveat.html">qué no dice</a>
+        <a href="/data/latest.json">datos abiertos</a> · <a href="/robustez.html">robustez del dato</a> · <a href="/hemiciclo.html">hemiciclo por sondeo</a> · <a href="/caveat.html">qué no dice</a>
       </p>
     </div>
 
     <nav class="tabs" role="tablist" aria-label="Secciones">
       <button class="tab active" data-tab="agregado" role="tab" aria-selected="true">Agregado</button>
+      <a class="tab" href="/hemiciclo.html">Hemiciclo</a>
       <button class="tab" data-tab="evolucion" role="tab" aria-selected="false">Evolución</button>
       <button class="tab" data-tab="congreso" role="tab" aria-selected="false">Congreso</button>
       <button class="tab" data-tab="senado" role="tab" aria-selected="false">Senado</button>

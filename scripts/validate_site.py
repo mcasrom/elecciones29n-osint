@@ -177,6 +177,8 @@ def main() -> int:
             errors.append("index.html sin panel de robustez del dato")
         if "cambios.xml" not in html:
             warns.append("index.html no enlaza cambios.xml")
+        if 'href="/hemiciclo.html"' not in html:
+            errors.append("index.html sin enlace visible al hemiciclo")
 
     hemi_path = os.path.join(d, "hemiciclo.html")
     if os.path.exists(hemi_path):
