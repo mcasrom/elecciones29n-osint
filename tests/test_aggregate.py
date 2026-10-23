@@ -12,7 +12,7 @@ HEADER = "party,date,value,source_url,sample,pollster,kind\n"
 
 
 class AggregateTest(unittest.TestCase):
-    def run_with(self, rows):
+    def run_with(self, rows, now=None):
         tmp = tempfile.TemporaryDirectory()
         old = os.getcwd()
         try:
@@ -23,10 +23,54 @@ class AggregateTest(unittest.TestCase):
                 f.write(HEADER)
                 for r in rows:
                     f.write(",".join(str(x) for x in r) + "\n")
-            return agg.aggregate()
+            return agg.aggregate(now=now)
         finally:
             os.chdir(old)
             tmp.cleanup()
+
+    def test_window_is_date_based_and_stable_within_day(self):
+        rows = [
+            ("X", "2026-10-09", 10.0, "u", 1000, "A", "tracking"),
+            ("X", "2026-10-10", 20.0, "u", 1000, "B", "tracking"),
+            ("X", "2026-10-11", 30.0, "u", 1000, "C", "tracking"),
+            ("X", "2026-10-12", 40.0, "u", 1000, "D", "tracking"),
+            ("X", "2026-10-13", 50.0, "u", 1000, "E", "tracking"),
+            ("X", "2026-10-18", 60.0, "u", 1000, "F", "tracking"),
+        ]
+        at8 = self.run_with(rows, now=datetime(2026, 10, 23, 8, 0, tzinfo=TZ))
+        at23 = self.run_with(rows, now=datetime(2026, 10, 23, 23, 0, tzinfo=TZ))
+        # La ventana son 14 días naturales contando hoy: 10..23, no 9..23.
+        self.assertEqual(at8["n_polls"], 5)
+        self.assertEqual(at8["n_polls"], at23["n_polls"])
+        self.assertEqual(
+            [(p["party"], p["mean"]) for p in at8["parties"]],
+            [(p["party"], p["mean"]) for p in at23["parties"]],
+        )
+        # El 9-oct sale al cambiar el día, no a las 08:00 del build.
+        at22 = self.run_with(rows, now=datetime(2026, 10, 22, 23, 0, tzinfo=TZ))
+        self.assertEqual(at22["n_polls"], 6)
+        self.assertTrue(at22["window_span"].startswith("2026-10-09"))
+
+    def test_table_sum_excludes_territorial_and_counts_houses(self):
+        rows = [
+            ("PP", "2026-10-20", 30.0, "u", 1000, "A", "tracking"),
+            ("PSOE", "2026-10-20", 28.0, "u", 1000, "A", "tracking"),
+            ("VOX", "2026-10-20", 18.0, "u", 1000, "A", "tracking"),
+            ("SUMAR", "2026-10-20", 7.0, "u", 1000, "A", "tracking"),
+            ("PODEMOS", "2026-10-20", 3.0, "u", 1000, "A", "tracking"),
+            ("SAF", "2026-10-20", 2.0, "u", 1000, "A", "tracking"),
+            ("Otros", "2026-10-20", 10.0, "u", None, "A", "tracking"),
+            ("ERC", "2026-10-20", 2.0, "u", 1000, "A", "tracking"),
+        ]
+        res = self.run_with(rows, now=datetime(2026, 10, 23, 8, 0, tzinfo=TZ))
+        self.assertEqual(res["table_sum"], 98.0)
+        erc = next(p for p in res["parties"] if p["party"] == "ERC")
+        self.assertTrue(erc["territorial"])
+        self.assertEqual(erc["n_houses_recent"], 1)
+        self.assertEqual(erc["n_houses_window"], 1)
+        pp = next(p for p in res["parties"] if p["party"] == "PP")
+        self.assertEqual(pp["sample_n"], 1)
+        self.assertEqual(pp["n_houses_recent"], 1)
 
     def test_weighting_favours_big_sample(self):
         today = datetime.now(TZ).strftime("%Y-%m-%d")

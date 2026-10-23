@@ -20,6 +20,9 @@ LOW_N = 4
 HOUSE_WINDOW_DAYS = 45
 CANON = {"Podemos": "PODEMOS", "Bildu": "BILDU", "Junts": "JUNTS", "Cs": "Cs", "C's": "Cs", "Ciudadanos": "Cs"}
 HOUSE_NOTA = {"CIS": "estimación de voto"}
+# Partidos que solo se presentan en algunas circunscripciones. Se publican,
+# pero no se suman a la tabla principal: en Onda Cero ya van dentro de "Otros".
+TERRITORIAL = {"ERC", "JUNTS", "BILDU", "PNV"}
 
 
 def _parse_date(s: str) -> datetime | None:
@@ -81,8 +84,19 @@ def _iqr(vals: List[float]) -> float:
     return q[2] - q[0]
 
 
+def _cutoff_date(now: datetime, days: int):
+    """Corte por fecha natural: 'days' días contando hoy (14 -> hace 13 días).
+
+    La ventana no puede depender de la hora del build: con un corte por
+    timestamp, un sondeo del día 14 entraba a las 23:00 y salía a las 08:00.
+    """
+    return now.date() - timedelta(days=max(0, days - 1))
+
+
 def _weight(p: Dict[str, Any], now: datetime) -> float:
-    age_days = max(0.0, (now - p["date"]).total_seconds() / 86400.0)
+    # Edad en días naturales: la fecha del sondeo no tiene hora, así que el
+    # peso es estable durante todo el día (08:00 y 23:00 dan lo mismo).
+    age_days = float(max(0, (now.date() - p["date"].date()).days))
     recency = 0.5 ** (age_days / HALF_LIFE_DAYS)
     sample = p.get("sample")
     if sample:
@@ -264,8 +278,8 @@ def _novedades(polls: List[Dict[str, Any]], now: datetime) -> List[Dict[str, str
     return novedades[:3]
 
 
-def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
-    now = datetime.now(TZ)
+def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[str, Any]:
+    now = now or datetime.now(TZ)
     latest_path = os.path.join(out_dir, "latest.json")
 
     if blackout.is_blackout(now):
@@ -282,8 +296,8 @@ def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
                 return json.load(f)
         return _empty(now, False)
 
-    cutoff = now - timedelta(days=WINDOW_DAYS)
-    recent = [p for p in tracking if p["date"] >= cutoff]
+    cutoff = _cutoff_date(now, WINDOW_DAYS)
+    recent = [p for p in tracking if p["date"].date() >= cutoff]
 
     # Si la ventana de 14 d no llega a LOW_N sondeos, se extiende a los últimos
     # LOW_N sondeos (máx. LONG_DAYS) para no publicar una "media" de un solo dato.
@@ -295,6 +309,14 @@ def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
         recent = [p for p in tracking if p["date"].strftime("%Y-%m-%d") in keep]
         extended = True
     recent_dates = sorted({p["date"].strftime("%Y-%m-%d") for p in recent})
+
+    # Casas que han publicado cada partido en los 45 días (no solo la última
+    # encuesta de cada casa, que es lo que mide n_houses).
+    house_cutoff = _cutoff_date(now, HOUSE_WINDOW_DAYS)
+    houses_window: Dict[str, set] = {}
+    for p in tracking:
+        if p["date"].date() >= house_cutoff:
+            houses_window.setdefault(p["party"], set()).add(p.get("pollster") or "?")
 
     by_party: Dict[str, List[Dict[str, Any]]] = {}
     for p in recent:
@@ -330,14 +352,19 @@ def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
                 "max": round(max(vals), 2),
                 "n": len(vals),
                 "sample_total": sum((r.get("sample") or 0) for r in rows),
+                "sample_n": sum(1 for r in rows if (r.get("sample") or 0) > 0),
+                "n_houses_window": len(houses_window.get(party, set())),
+                "n_houses_recent": len({r.get("pollster") for r in rows if r.get("pollster")}),
+                "territorial": party in TERRITORIAL,
                 "pollsters": sorted({r.get("pollster") for r in rows if r.get("pollster")}),
                 **sin,
             }
         )
     parties.sort(key=lambda x: x["mean"], reverse=True)
+    table_sum = round(sum(p["mean"] for p in parties if not p["territorial"]), 2)
 
-    long_cutoff = now - timedelta(days=LONG_DAYS)
-    series_long = _series([p for p in tracking if p["date"] >= long_cutoff])
+    long_cutoff = _cutoff_date(now, LONG_DAYS)
+    series_long = _series([p for p in tracking if p["date"].date() >= long_cutoff])
     series = _series(recent)
 
     poll_dates = sorted({p["date"].strftime("%Y-%m-%d") for p in recent})
@@ -363,8 +390,7 @@ def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
         status = "bad" if days_since > 21 else ("warn" if status == "ok" else status)
         reasons.append(f"último sondeo hace {days_since} días")
     # Contraste por casa: última encuesta de cada casa (45 d), mismo peso
-    house_cutoff = now - timedelta(days=HOUSE_WINDOW_DAYS)
-    house_polls = [p for p in tracking if p["date"] >= house_cutoff]
+    house_polls = [p for p in tracking if p["date"].date() >= house_cutoff]
     latest_by_house: Dict[str, Dict[str, Any]] = {}
     for p in house_polls:
         h = p.get("pollster") or "?"
@@ -453,6 +479,7 @@ def aggregate(out_dir: str = "web/data") -> Dict[str, Any]:
         "in_blackout": False,
         "window_days": WINDOW_DAYS,
         "parties": parties,
+        "table_sum": table_sum,
         "series": series,
         "series_long": series_long,
         "poll_dates": poll_dates,

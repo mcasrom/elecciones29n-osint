@@ -101,7 +101,7 @@
       <div class="kpi">
         <span class="kpi-name">{{ p.party }}</span>
         <b>{{ "%.1f"|format(p.mean) }}%</b>
-        <span class="kpi-range">rango {{ "%.1f"|format(p.min) }}–{{ "%.1f"|format(p.max) }} · n={{ p.n }}{% if p.sample_total %} · {{ "{:,}".format(p.sample_total)|replace(",", ".") }} encuestados{% endif %}</span>
+        <span class="kpi-range">rango {{ "%.1f"|format(p.min) }}–{{ "%.1f"|format(p.max) }} · n={{ p.n }}{% if p.sample_total %} · {{ p.sample_n }}/{{ p.n }} con muestra ({{ "{:,}".format(p.sample_total)|replace(",", ".") }} encuestados){% endif %}</span>
       </div>
       {% endfor %}
     </div>
@@ -131,15 +131,27 @@
     <div class="card">
       <div class="cardhead"><h2>Media por partido</h2><span class="hint">{% if window_span %}{{ window_span }}{% endif %}{% if window_extended %} · ventana ampliada{% endif %}</span></div>
       <div class="tablewrap"><table>
-        <thead><tr><th>Partido</th><th>Media</th><th>Sin CIS</th><th>Mediana</th><th>Mín</th><th>Máx</th><th>n</th><th>Casas</th><th>IQR</th></tr></thead>
+        <thead><tr><th>Partido</th><th>Media</th><th>Sin CIS</th><th>Mediana</th><th>Mín</th><th>Máx</th><th>n (14 d)</th><th>Casas (45 d)</th><th>Casas (14 d)</th><th>IQR</th></tr></thead>
         <tbody>
-        {% for p in parties %}
-          <tr><td><strong>{{ p.party }}</strong>{% if p.n < 4 or (p.n_houses and p.n_houses < 3) %}<span title="n&lt;4 o menos de 3 casas: media frágil" style="color:#f2c94c">*</span>{% endif %}</td><td class="num">{{ "%.2f"|format(p.mean) }}%</td><td class="num">{% if p.mean_sin_cis is not none %}{{ "%.2f"|format(p.mean_sin_cis) }}%{% else %}—{% endif %}</td><td class="num">{{ "%.2f"|format(p.median) }}%</td><td class="num">{{ "%.2f"|format(p.min) }}%</td><td class="num">{{ "%.2f"|format(p.max) }}%</td><td class="num">{{ p.n }}</td><td class="num">{% if p.n_houses %}{{ p.n_houses }}{% else %}—{% endif %}</td><td class="num">{% if p.iqr is not none %}{{ "%.1f"|format(p.iqr) }}{% else %}—{% endif %}</td></tr>
+        {% for p in parties_table %}
+          <tr><td><strong>{{ p.party }}</strong>{% if p.n < 4 or (p.n_houses_recent and p.n_houses_recent < 3) %}<span title="n&lt;4 o menos de 3 casas en 14 d: media frágil" style="color:#f2c94c">*</span>{% endif %}</td><td class="num">{{ "%.2f"|format(p.mean) }}%</td><td class="num">{% if p.mean_sin_cis is not none %}{{ "%.2f"|format(p.mean_sin_cis) }}%{% else %}—{% endif %}</td><td class="num">{{ "%.2f"|format(p.median) }}%</td><td class="num">{{ "%.2f"|format(p.min) }}%</td><td class="num">{{ "%.2f"|format(p.max) }}%</td><td class="num">{{ p.n }}</td><td class="num">{% if p.n_houses_window %}{{ p.n_houses_window }}{% else %}—{% endif %}</td><td class="num">{% if p.n_houses_recent %}{{ p.n_houses_recent }}{% else %}—{% endif %}</td><td class="num">{% if p.iqr is not none %}{{ "%.1f"|format(p.iqr) }}{% else %}—{% endif %}</td></tr>
         {% endfor %}
         </tbody>
       </table></div>
       <p class="muted small"><strong>Mín–máx</strong> son los sondeos observados, no un intervalo de confianza: un solo sondeo puede fijar ambos extremos. La dispersión típica es el <strong>IQR</strong>. El <strong>CIS</strong> publica estimación de voto, no intención directa, y su efecto de casa es mayor. <strong>Sin CIS</strong> es una prueba de sensibilidad (misma media sin ese barómetro), no la media principal. <span style="color:#b45309">*</span> n&lt;4 o menos de 3 casas: media frágil.</p>
-      <p class="muted small">«Otros» es el resto de candidaturas, no un partido. Actualizado: {{ updated_at }}. Ponderación: {{ weight_basis }}.{% if weights and weights.top_source %} Hoy el {{ "%.1f"|format(weights.top_source_share_pct) }} % del peso viene de <strong>{{ weights.top_source }}</strong> (la casa con más peso: <strong>{{ weights.top_house }}</strong>, {{ "%.1f"|format(weights.top_share_pct) }} %); <a href="/robustez.html#peso">ver el reparto</a>.{% endif %} <a href="/data/latest.json">Descargar JSON</a> · <a href="/metodologia.html">Cómo se calcula</a> · <a href="/como-leer.html">Cómo leer</a> · <a href="/glosario.html">Glosario</a></p>
+      <p class="muted small">«Otros» es el residual de las casas que lo publican; en Onda Cero incluye ERC, Junts, Bildu y PNV. Por eso los partidos territoriales van en la tabla de abajo y <strong>no se suman</strong> a la principal. Suma de la tabla: <strong>{{ "%.1f"|format(table_sum) }} %</strong> (las casas no listan todos los minoritarios). Actualizado: {{ updated_at }}. Ponderación: {{ weight_basis }}.{% if weights and weights.top_source %} Hoy el {{ "%.1f"|format(weights.top_source_share_pct) }} % del peso viene de <strong>{{ weights.top_source }}</strong> (la casa con más peso: <strong>{{ weights.top_house }}</strong>, {{ "%.1f"|format(weights.top_share_pct) }} %); <a href="/robustez.html#peso">ver el reparto</a>.{% endif %} <a href="/data/latest.json">Descargar JSON</a> · <a href="/metodologia.html">Cómo se calcula</a> · <a href="/como-leer.html">Cómo leer</a> · <a href="/glosario.html">Glosario</a></p>
+      {% if parties_territorial %}
+      <h3 style="margin:16px 0 6px;font-size:15px">Partidos territoriales</h3>
+      <p class="muted small" style="margin:0 0 8px">Se presentan solo en algunas circunscripciones. En Onda Cero van dentro de «Otros»; por eso esta tabla <strong>no se suma</strong> a la principal. Su media es la de los sondeos que los desglosan.</p>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Partido</th><th>Media</th><th>n (14 d)</th><th>Casas (45 d)</th><th>Casas (14 d)</th></tr></thead>
+        <tbody>
+        {% for p in parties_territorial %}
+          <tr><td><strong>{{ p.party }}</strong></td><td class="num">{{ "%.2f"|format(p.mean) }}%</td><td class="num">{{ p.n }}</td><td class="num">{% if p.n_houses_window %}{{ p.n_houses_window }}{% else %}—{% endif %}</td><td class="num">{% if p.n_houses_recent %}{{ p.n_houses_recent }}{% else %}—{% endif %}</td></tr>
+        {% endfor %}
+        </tbody>
+      </table></div>
+      {% endif %}
     </div>
 
     <div class="card">
@@ -153,7 +165,7 @@
     <div class="card" id="salud"><span id="robustez"></span>
       <div class="cardhead"><h2><a href="/robustez.html">Robustez del dato</a></h2><span class="hint">qué sostiene la media · <a href="/robustez.html">ficha completa →</a></span></div>
       {% if health %}
-      {% set hlabel = {'ok':'Muestra suficiente','warn':'Muestra frágil','bad':'Muestra insuficiente'}[health.status] %}
+      {% set hlabel = {'ok':'Datos suficientes','warn':'Datos frágiles','bad':'Datos insuficientes'}[health.status] %}
       <div class="health">
         <span class="chip {{ health.status }}">{{ hlabel }}</span>
         <div class="healthitems">

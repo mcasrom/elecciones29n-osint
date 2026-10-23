@@ -62,6 +62,7 @@ def main() -> int:
     check("polls.filas", len(rows) > 0, f"{len(rows)} filas")
     check("polls.campos", all(set(r) == {"party", "date", "value", "source_url", "sample", "pollster", "kind"} for r in rows), "cabecera")
     polls = {}
+    polls_avg = {}
     bad_val = bad_date = 0
     for r in rows:
         p = r["party"].strip()
@@ -75,7 +76,8 @@ def main() -> int:
             bad_val += 1
         if d > date.today():
             bad_date += 1
-        polls.setdefault((r["date"], r["pollster"]), {})[p] = v
+        kind = (r.get("kind") or "tracking").lower()
+        (polls_avg if kind != "tracking" else polls).setdefault((r["date"], r["pollster"]), {})[p] = v
     check("polls.valores", bad_val == 0, f"{bad_val} fuera de 0-100")
     check("polls.fechas", bad_date == 0, f"{bad_date} fechas inválidas/futuras")
 
@@ -90,9 +92,15 @@ def main() -> int:
     bad_sum = []
     for (d, pollster), vals in polls.items():
         s = round(sum(vals.values()), 1)
-        if not (80 <= s <= 110):
+        if not (90 <= s <= 110):
             bad_sum.append((d, pollster, s))
     check("polls.suma", not bad_sum, f"{len(bad_sum)} sondeos fuera de 90-110: {bad_sum[:3]}")
+    bad_avg = []
+    for (d, pollster), vals in polls_avg.items():
+        s = round(sum(vals.values()), 1)
+        if not (80 <= s <= 110):
+            bad_avg.append((d, pollster, s))
+    check("polls.suma_media", not bad_avg, f"{len(bad_avg)} medias fuera de 80-110: {bad_avg[:3]}", critical=False)
 
     latest = load("web/data/latest.json", {})
     check("latest.existe", bool(latest), "web/data/latest.json")
@@ -106,6 +114,15 @@ def main() -> int:
         check(f"latest.{p['party']}.mean", q and approx(p["mean"], q["mean"]), f"{p['mean']} vs {q and q['mean']}")
         check(f"latest.{p['party']}.minmax", q and p["min"] <= p["mean"] <= p["max"], "media dentro de min-max")
         check(f"latest.{p['party']}.n", q and p["n"] == q["n"], f"{p['n']} vs {q and q['n']}")
+
+    non_terr = [p for p in latest.get("parties", []) if not p.get("territorial")]
+    table_sum = round(sum(p.get("mean", 0) for p in non_terr), 2)
+    check("latest.table_sum", approx(latest.get("table_sum"), table_sum), f"{latest.get('table_sum')} vs {table_sum}")
+    check("latest.table_sum_range", 95 <= table_sum <= 102, table_sum)
+    for p in latest.get("parties", []):
+        check(f"latest.{p['party']}.casas14", p.get("n_houses_recent", 0) <= p.get("n", 0), f"{p.get('n_houses_recent')} vs {p.get('n')}")
+        check(f"latest.{p['party']}.muestra", p.get("sample_n", 0) <= p.get("n", 0), f"{p.get('sample_n')} vs {p.get('n')}")
+    check("latest.territorial", all("territorial" in p for p in latest.get("parties", [])), "bandera territorial")
 
     h = latest.get("health", {})
     check("health.n_polls", h.get("n_polls") == latest.get("n_polls"), f"{h.get('n_polls')} vs {latest.get('n_polls')}")
@@ -124,7 +141,7 @@ def main() -> int:
     check("series.ma", len(ma) >= 1, f"MA PP {len(ma)} puntos")
 
     idx = open("web/index.html", encoding="utf-8", errors="ignore").read() if os.path.exists("web/index.html") else ""
-    for label in ("media móvil de 14 días", "Muestra suficiente", "Otros", "pasa el cursor"):
+    for label in ("media móvil de 14 días", "Datos suficientes", "Otros", "pasa el cursor"):
         check(f"ui.index.{label}", label in idx, label)
 
     # ---------------- Censo ----------------

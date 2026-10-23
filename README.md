@@ -5,7 +5,7 @@
 [![En vivo](https://img.shields.io/badge/en%20vivo-elecciones29n.pruebapublica.com-ff5a1f)](https://elecciones29n.pruebapublica.com/)
 [![Licencia](https://img.shields.io/badge/licencia-AGPL--3.0-3ddc97)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.12-8ec5ff)](https://www.python.org/)
-[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.8.4-ff5a1f)](CHANGELOG.md)
+[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.10.1-ff5a1f)](CHANGELOG.md)
 
 ---
 
@@ -45,17 +45,25 @@ agregado.
 
 | Estado | Criterio | Qué significa |
 |---|---|---|
-| **Suficiente** | ≥4 sondeos, ≥2 casas, último ≤10 días | media entre encuestadoras |
-| **Frágil** | 4 sondeos pero una sola casa, o último >10 días | se publica con aviso |
-| **Insuficiente** | <4 sondeos o último >21 días | se publica con aviso visible |
+| **Datos suficientes** | ≥4 sondeos, ≥2 casas, último ≤10 días | media entre encuestadoras |
+| **Datos frágiles** | 4 sondeos pero una sola casa, o último >10 días | se publica con aviso |
+| **Datos insuficientes** | <4 sondeos o último >21 días | se publica con aviso visible |
 
-> Al 18-oct: **15 sondeos, 12 encuestadoras, último hace 4 días → suficiente**.
+> Al 23-oct: **9 sondeos y 7 encuestadoras en la ventana de 14 d** (14 en 45 d), último hace 4 días → **datos suficientes**.
 > Se combinan Electomania, la compilación de Onda Cero y el CIS (septiembre y octubre). Ver
 > [`docs/RUTINA-SEMANAL.md`](docs/RUTINA-SEMANAL.md).
 
 ```bash
 .venv/bin/python scripts/health_report.py
 ```
+
+## Revisión P0 (23-oct-2026)
+
+- **Ventana por fecha natural**, no por hora: 14 días contando hoy (45/90 en sus ventanas). Un sondeo del día 14 ya no entra a las 23:00 y desaparece a las 08:00.
+- **Frente Amplio → SUMAR**: el ElectoPanel del 18-oct publica «Frente Amplio … 4,9 %»; se mapea a SUMAR y se backfilla la fila (suma del sondeo 87,3 → 92,2).
+- **Sin doble conteo territorial**: ERC, Junts, Bildu y PNV salen de la tabla principal (en Onda Cero ya van dentro de «Otros») y se publican aparte. La tabla muestra su suma: **98,83**.
+- **Etiquetas y auditoría**: «Datos suficientes/frágiles/insuficientes», muestra «3/9 con muestra (12.291 encuestados)» y casas a 45/14 d. `audit_datos.py` exige 90–110 en sondeos tracking y comprueba la suma.
+- Verificación: **93 tests**, **233 comprobaciones, 0 fallos críticos**; `n_polls=9` (11–19 oct). Versión **0.10.1**.
 
 ## Fuentes
 
@@ -171,7 +179,7 @@ data/           histórico de sondeos y datasets normalizados (fuente de verdad)
 web/            salida estática publicada
 scripts/        run_daily, check, validate_site, canary, IndexNow, add_poll, health_report
 docs/           método, fuentes, rutina semanal, sprint del observatorio
-tests/          87 pruebas (datos, build, validador, fichas provinciales)
+tests/          93 pruebas (datos, build, validador, fichas provinciales)
 systemd/        servicio y timer
 ```
 
@@ -193,7 +201,7 @@ Además de la media por sondeo (ponderada por recencia y muestra cuando existe),
 
 ## Auditoría de datos
 
-- **`scripts/audit_datos.py`**: **202 comprobaciones, 0 fallos críticos** (190 offline + 12 online). Recalcula medias/MA, sumas, censo, participación, escaños, M4/M5, etiquetas de UI y contrasta Onda Cero/CIS/Electomania.
+- **`scripts/audit_datos.py`**: **233 comprobaciones offline, 0 fallos críticos** (más 12 online con `--online`). Recalcula medias/MA, sumas, censo, participación, escaños, M4/M5, etiquetas de UI y contrasta Onda Cero/CIS/Electomania.
 - `check.sh` la ejecuta en modo offline; informe: [`docs/AUDITORIA-DATOS.md`](docs/AUDITORIA-DATOS.md).
 - Límites: no verifica el trabajo de campo de las encuestas ni el indexado de buscadores.
 
@@ -214,7 +222,7 @@ Además de la media por sondeo (ponderada por recencia y muestra cuando existe),
 
 ## Calidad
 
-- **87 tests** (`unittest`) y hook **pre-push**.
+- **93 tests** (`unittest`) y hook **pre-push**.
 - `scripts/check.sh`: compila, tests, valida el sitio local y ejecuta la auditoría de datos.
 - **Validador** de publicación: gráfico con puntos, pestañas, JSON, sitemap, OG,
   RSS, censo, participación y escaños.

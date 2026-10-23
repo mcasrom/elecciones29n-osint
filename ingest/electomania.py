@@ -17,7 +17,7 @@ PARTIES = {
     "PP": r"\bPP\b",
     "PSOE": r"\bPSOE\b",
     "VOX": r"\bVox\b",
-    "SUMAR": r"\bSumar\b",
+    "SUMAR": r"\b(?:Sumar|Frente Amplio)\b",
     "PODEMOS": r"\bPodemos\b",
     "ERC": r"\bERC\b",
     "JUNTS": r"\bJunts\b",
@@ -79,7 +79,10 @@ def extract_poll(post: dict) -> dict | None:
     text = strip_html(post["content"]["rendered"])
     found: dict[str, float] = {}
     for party, pat in PARTIES.items():
-        m = re.search(pat + r"[^.]{0,60}?(\d{1,2}[.,]\d)\s*%", text)
+        # "Frente Amplio, que concurre por primera vez como coalición estatal,
+        # obtiene el 4,9%" deja 66 caracteres hasta la cifra: 60 no bastaban.
+        window = 90 if party == "SUMAR" else 60
+        m = re.search(pat + rf"[^.]{{0,{window}}}?(\d{{1,2}}[.,]\d)\s*%", text)
         if m and m.group(1):
             try:
                 val = float(m.group(1).replace(",", "."))
@@ -89,9 +92,10 @@ def extract_poll(post: dict) -> dict | None:
                 found[party] = val
 
     total = sum(found.values())
-    # Los sondeos reales suman ~87% (no listan "otros"/menores). El 18-oct
-    # daba 87,3 y se descartaba; 85-110 sigue excluyendo posts que no son
-    # intención de voto (p.ej. preferencia de Gobierno, suma 336).
+    # Los sondeos reales suman ~90-95 % (no listan "otros"/menores). El 18-oct
+    # daba 87,3 y se descartaba porque faltaba Frente Amplio (4,9); con FA
+    # suma 92,2. 85-110 sigue excluyendo posts que no son intención de voto
+    # (p.ej. preferencia de Gobierno, suma 336).
     if not (85 <= total <= 110 and len(found) >= 6):
         return None
 

@@ -15,14 +15,14 @@
 
   <div class="card">
     <h3>1 · Sondeos</h3>
-    <p class="muted">Es una <strong>media de los sondeos publicados</strong>, no una estimación propia de intención de voto. Se combinan los paneles de Electomania con la compilación de <strong>Onda Cero</strong> (94 sondeos de 14 casas): se usan los sondeos individuales, no su promedio, y la fecha es de <strong>publicación</strong>. La ventana es de 14 días; si no reúne cuatro sondeos, se amplía a los cuatro más recientes (máx. 90 días) y se indica «ventana ampliada».</p>
+    <p class="muted">Es una <strong>media de los sondeos publicados</strong>, no una estimación propia de intención de voto. Se combinan los paneles de Electomania con la compilación de <strong>Onda Cero</strong> (94 sondeos de 14 casas): se usan los sondeos individuales, no su promedio, y la fecha es de <strong>publicación</strong>. La ventana es de 14 días naturales contando hoy (no depende de la hora del build); si no reúne cuatro sondeos, se amplía a los cuatro más recientes (máx. 90 días) y se indica «ventana ampliada».</p>
     <ul class="muted">
       <li><strong>Ponderación</strong>: {{ weight_basis }}. Onda Cero no publica muestra; esos sondeos pesan solo por recencia. El reparto del peso por casa y por sondeo se publica cada día en <a href="/robustez.html#peso">Robustez del dato</a>.</li>
       <li><strong>Mediana</strong>: se publica junto a la media. Si difieren, hay valores extremos.</li>
       <li><strong>Solo paneles completos</strong>: se excluyen adelantos parciales, autonómicos y regionales. `ElectoPromedio` (media de medias) se marca como promedio y se excluye de la media principal.</li>
       <li><strong>La suma de entrevistados no es una muestra única</strong>: son muestras distintas, en fechas y metodologías distintas.</li>
       <li><strong>El rango mín–máx no es un intervalo de confianza</strong>: describe la dispersión observada entre los sondeos incluidos.</li>
-      <li><strong>«Otros»</strong> es el resto de candidaturas: se muestra en la tabla, pero no en los gráficos ni en la simulación.</li>
+      <li><strong>«Otros»</strong> es el residual de las casas que lo publican. En Onda Cero incluye ERC, Junts, Bildu y PNV; esos partidos van en una tabla aparte y <strong>no se suman</strong> a la principal.</li>
       <li><strong>Contraste por casa</strong>: además de la media por sondeo, se calcula la <strong>última encuesta de cada casa</strong> en 45 días con <strong>peso igual por casa</strong>. Sirve para ver si la media está dominada por una encuestadora; no es la media principal.</li>
       <li><strong>Blackout</strong>: del 24 al 28 de noviembre de 2026 no se publican, difunden ni reproducen sondeos. El agregado se congela.</li>
     </ul>
@@ -34,12 +34,12 @@
       <table>
         <thead><tr><th>Cifra</th><th>Definición</th><th>Base</th></tr></thead>
         <tbody>
-          <tr><td>Media por sondeo</td><td>media de la ventana de 14 días</td><td>recencia + √n si hay muestra</td></tr>
+          <tr><td>Media por sondeo</td><td>media de la ventana de 14 días naturales</td><td>recencia + √n si hay muestra</td></tr>
           <tr><td>Media por casa</td><td>última de cada casa en 45 días</td><td>peso igual por casa</td></tr>
           <tr><td>Media móvil</td><td>±7 días (14 d centrada)</td><td>línea de los gráficos</td></tr>
           <tr><td>Delta de la tarjeta</td><td>MA final − MA inicial</td><td>misma base; nunca último sondeo vs primero</td></tr>
           <tr><td>n_polls</td><td>sondeos (fecha + casa)</td><td>no fechas</td></tr>
-          <tr><td>«Otros»</td><td>resto de partidos</td><td>residual; fuera de KPIs y gráficos</td></tr>
+          <tr><td>«Otros»</td><td>residual de las casas</td><td>puede incluir territoriales; fuera de KPIs y gráficos</td></tr>
         </tbody>
       </table>
     </div>

@@ -15,7 +15,7 @@
   <p class="muted" style="margin:0 0 14px">Cinco propiedades de la media publicada. No es una nota de calidad, ni una puntuación de 0 a 100, ni un pronóstico: describe <strong>cuánto sostiene</strong> el dato y qué parte falta.</p>
 
   {% if health %}
-  {% set hlabel = {'ok':'Muestra suficiente','warn':'Muestra frágil','bad':'Muestra insuficiente'}[health.status] %}
+  {% set hlabel = {'ok':'Datos suficientes','warn':'Datos frágiles','bad':'Datos insuficientes'}[health.status] %}
   <div class="card">
     <div class="cardhead"><h2>Indicadores</h2><span class="chip {{ health.status }}">{{ hlabel }}</span></div>
     <div class="health" style="margin-top:6px">
@@ -36,14 +36,14 @@
   <div class="card">
     <div class="cardhead"><h2>Por partido</h2><span class="hint">media, rango entre sondeos, casas e IQR</span></div>
     <div class="tablewrap"><table>
-      <thead><tr><th>Partido</th><th>Media</th><th>Rango</th><th>Casas</th><th>IQR</th></tr></thead>
+      <thead><tr><th>Partido</th><th>Media</th><th>Rango</th><th>Casas (45 d)</th><th>Casas (14 d)</th><th>IQR</th></tr></thead>
       <tbody>
-      {% for p in parties %}
-        <tr><td><strong>{{ p.party }}</strong>{% if p.n < 4 or (p.n_houses and p.n_houses < 3) %}<span title="n&lt;4 o menos de 3 casas: media frágil" style="color:#f2c94c">*</span>{% endif %}</td><td class="num">{{ fmt_pct(p.mean) }}%</td><td class="num">{{ fmt_pct(p.min) }}–{{ fmt_pct(p.max) }}%</td><td class="num">{% if p.n_houses %}{{ p.n_houses }}{% else %}—{% endif %}</td><td class="num">{% if p.iqr is not none %}{{ "%.1f"|format(p.iqr) }}{% else %}—{% endif %}</td></tr>
+      {% for p in parties_table %}
+        <tr><td><strong>{{ p.party }}</strong>{% if p.n < 4 or (p.n_houses_recent and p.n_houses_recent < 3) %}<span title="n&lt;4 o menos de 3 casas en 14 d: media frágil" style="color:#f2c94c">*</span>{% endif %}</td><td class="num">{{ fmt_pct(p.mean) }}%</td><td class="num">{{ fmt_pct(p.min) }}–{{ fmt_pct(p.max) }}%</td><td class="num">{% if p.n_houses_window %}{{ p.n_houses_window }}{% else %}—{% endif %}</td><td class="num">{% if p.n_houses_recent %}{{ p.n_houses_recent }}{% else %}—{% endif %}</td><td class="num">{% if p.iqr is not none %}{{ "%.1f"|format(p.iqr) }}{% else %}—{% endif %}</td></tr>
       {% endfor %}
       </tbody>
     </table></div>
-    <p class="muted small">Rango = mínimo y máximo observados: un solo sondeo puede fijar ambos extremos. El IQR (Q3−Q1) describe la dispersión típica. El CIS publica estimación de voto, no intención directa. <span style="color:#b45309">*</span> n&lt;4 o menos de 3 casas: media frágil.</p>
+    <p class="muted small">Rango = mínimo y máximo observados: un solo sondeo puede fijar ambos extremos. El IQR (Q3−Q1) describe la dispersión típica. El CIS publica estimación de voto, no intención directa. <strong>Casas (45 d)</strong> cuenta todas las casas que publicaron al partido en 45 días; <strong>Casas (14 d)</strong>, las de la media. Los partidos territoriales (ERC, Junts, Bildu, PNV) están en la <a href="/#agregado">tabla de la portada</a> y no se suman aquí. <span style="color:#b45309">*</span> n&lt;4 o menos de 3 casas en 14 d: media frágil.</p>
   </div>
   {% if weights and weights.houses %}
   <div class="card" id="peso">

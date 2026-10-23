@@ -1,6 +1,6 @@
 # Auditoría de datos (18-oct-2026)
 
-> **Resultado: 202 comprobaciones · 0 fallos críticos** (190 offline + 12 online).
+> **Resultado: 233 comprobaciones offline · 0 fallos críticos** (más 12 online con `--online`).
 > Reproducible: `python scripts/audit_datos.py --online`.
 
 ## Qué se verifica
@@ -56,7 +56,8 @@
 
 - **`metrics.py`** es la fuente única de MA, resumen y span.
 - Un **delta compara la misma base**; nunca último sondeo vs primero de otra casa.
-- El **rango no es un IC**; la **suma de entrevistados no es una muestra única**; **«Otros»** es residual; **n ponderado**; **celdas n<30 suprimidas**.
+- El **rango no es un IC**; la **suma de entrevistados no es una muestra única**; **«Otros»** es residual (en Onda Cero incluye ERC/Junts/Bildu/PNV, que van en tabla aparte y no se suman); **n ponderado**; **celdas n<30 suprimidas**.
+- La ventana es de **14 días naturales** contando hoy; la auditoría exige **90–110** en la suma de cada sondeo tracking y comprueba que la **suma de la tabla principal** no duplique territoriales.
 - **Tests + validador** fijan las etiquetas y recalculan MA/periodo.
 - Regla 37 en `AGENTS.md`.
 

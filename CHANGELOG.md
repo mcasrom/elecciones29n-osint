@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.10.1 — 2026-10-23
+
+- **Ventana por fecha, no por hora**: la media usa 14 días naturales contando hoy (y 45/90 en sus ventanas). Un sondeo del día 14 ya no entra a las 23:00 y desaparece a las 08:00; el peso por recencia también se calcula en días naturales. Test de invariancia 08:00/23:00.
+- **Frente Amplio → SUMAR**: ElectoPanel del 18-oct publica «Frente Amplio … 4,9 %»; el parser solo buscaba «Sumar» y la fila se descartaba (suma 87,3). Se mapea FA a SUMAR, se amplía la ventana de captura de la cifra y se backfilla la fila (suma 92,2).
+- **Sin doble conteo territorial**: ERC, Junts, Bildu y PNV salen de la tabla principal (en Onda Cero ya están dentro de «Otros») y se publican aparte. La tabla muestra su suma y distingue casas de 45 d y de 14 d; `latest.json` añade `table_sum`, `n_houses_window`, `n_houses_recent` y `sample_n`.
+- **Etiquetas y auditoría**: «Datos suficientes/frágiles/insuficientes»; la muestra se lee como «3/9 con muestra (12.291 encuestados)». `audit_datos.py` exige 90–110 en sondeos tracking, comprueba la suma de la tabla y las casas de la media. 93 tests y 233 comprobaciones offline.
+
 ## 0.10.0 — 2026-10-22
 
 - **Peso de cada sondeo**: la portada indica cada día qué casa concentra el peso de la media; `/robustez.html#peso` publica el reparto completo (cuota por casa y por sondeo, muestra y fecha). El peso combina recencia y √n, y una cuota alta avisa de que la media sigue a esa casa.

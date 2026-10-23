@@ -1,179 +1,179 @@
 {
-  "updated_at": "2026-10-22 23:02 CEST",
-  "updated_at_iso": "2026-10-22T23:02:57.154493+02:00",
+  "updated_at": "2026-10-23 08:20 CEST",
+  "updated_at_iso": "2026-10-23T08:20:10.761818+02:00",
   "in_blackout": false,
   "window_days": 14,
   "parties": [
     {
       "party": "PP",
-      "mean": 30.23,
-      "median": 31.8,
+      "mean": 29.74,
+      "median": 31.5,
       "min": 22.2,
-      "max": 34.0,
-      "n": 13,
+      "max": 32.6,
+      "n": 9,
       "sample_total": 12291,
+      "sample_n": 3,
+      "n_houses_window": 14,
+      "n_houses_recent": 7,
+      "territorial": false,
       "pollsters": [
-        "40dB",
         "CIS",
-        "DYM",
         "ElectoPanel",
         "GAD3",
         "GESOP",
-        "IMOP Insights",
-        "Invymark",
         "Sigma Dos",
         "Sociométrica",
         "Target Point"
       ],
-      "mean_sin_cis": 31.67,
-      "median_sin_cis": 31.85,
+      "mean_sin_cis": 31.49,
+      "median_sin_cis": 31.65,
       "min_sin_cis": 28.7,
-      "max_sin_cis": 34.0,
-      "n_sin_cis": 12,
+      "max_sin_cis": 32.6,
+      "n_sin_cis": 8,
       "n_houses": 14,
       "iqr": 2.23
     },
     {
       "party": "PSOE",
-      "mean": 27.74,
-      "median": 26.5,
+      "mean": 27.75,
+      "median": 26.2,
       "min": 25.3,
       "max": 34.0,
-      "n": 13,
+      "n": 9,
       "sample_total": 12291,
+      "sample_n": 3,
+      "n_houses_window": 14,
+      "n_houses_recent": 7,
+      "territorial": false,
       "pollsters": [
-        "40dB",
         "CIS",
-        "DYM",
         "ElectoPanel",
         "GAD3",
         "GESOP",
-        "IMOP Insights",
-        "Invymark",
         "Sigma Dos",
         "Sociométrica",
         "Target Point"
       ],
-      "mean_sin_cis": 26.62,
-      "median_sin_cis": 26.45,
+      "mean_sin_cis": 26.31,
+      "median_sin_cis": 26.15,
       "min_sin_cis": 25.3,
-      "max_sin_cis": 28.2,
-      "n_sin_cis": 12,
+      "max_sin_cis": 27.1,
+      "n_sin_cis": 8,
       "n_houses": 14,
       "iqr": 2.25
     },
     {
       "party": "VOX",
-      "mean": 18.63,
+      "mean": 18.6,
       "median": 18.9,
       "min": 17.1,
       "max": 19.5,
-      "n": 13,
+      "n": 9,
       "sample_total": 12291,
+      "sample_n": 3,
+      "n_houses_window": 14,
+      "n_houses_recent": 7,
+      "territorial": false,
       "pollsters": [
-        "40dB",
         "CIS",
-        "DYM",
         "ElectoPanel",
         "GAD3",
         "GESOP",
-        "IMOP Insights",
-        "Invymark",
         "Sigma Dos",
         "Sociométrica",
         "Target Point"
       ],
-      "mean_sin_cis": 18.9,
+      "mean_sin_cis": 18.95,
       "median_sin_cis": 18.9,
       "min_sin_cis": 18.2,
       "max_sin_cis": 19.5,
-      "n_sin_cis": 12,
+      "n_sin_cis": 8,
       "n_houses": 14,
       "iqr": 0.72
     },
     {
       "party": "Otros",
-      "mean": 11.81,
-      "median": 12.6,
+      "mean": 11.92,
+      "median": 12.8,
       "min": 9.1,
       "max": 14.3,
-      "n": 11,
+      "n": 7,
       "sample_total": 5025,
+      "sample_n": 1,
+      "n_houses_window": 13,
+      "n_houses_recent": 6,
+      "territorial": false,
       "pollsters": [
-        "40dB",
         "CIS",
-        "DYM",
         "GAD3",
         "GESOP",
-        "IMOP Insights",
-        "Invymark",
         "Sigma Dos",
         "Sociométrica",
         "Target Point"
       ],
-      "mean_sin_cis": 12.52,
-      "median_sin_cis": 12.7,
-      "min_sin_cis": 9.1,
+      "mean_sin_cis": 13.02,
+      "median_sin_cis": 12.9,
+      "min_sin_cis": 11.8,
       "max_sin_cis": 14.3,
-      "n_sin_cis": 10,
+      "n_sin_cis": 6,
       "n_houses": 13,
       "iqr": 2.45
     },
     {
       "party": "SUMAR",
-      "mean": 6.47,
-      "median": 6.6,
+      "mean": 6.25,
+      "median": 6.9,
       "min": 4.9,
       "max": 8.1,
-      "n": 12,
-      "sample_total": 9150,
+      "n": 9,
+      "sample_total": 12291,
+      "sample_n": 3,
+      "n_houses_window": 14,
+      "n_houses_recent": 7,
+      "territorial": false,
       "pollsters": [
-        "40dB",
         "CIS",
-        "DYM",
         "ElectoPanel",
         "GAD3",
         "GESOP",
-        "IMOP Insights",
-        "Invymark",
         "Sigma Dos",
         "Sociométrica",
         "Target Point"
       ],
-      "mean_sin_cis": 6.55,
-      "median_sin_cis": 6.9,
+      "mean_sin_cis": 6.28,
+      "median_sin_cis": 7.15,
       "min_sin_cis": 4.9,
       "max_sin_cis": 8.1,
-      "n_sin_cis": 11,
-      "n_houses": 13,
+      "n_sin_cis": 8,
+      "n_houses": 14,
       "iqr": 2.2
     },
     {
       "party": "PODEMOS",
-      "mean": 2.77,
+      "mean": 2.81,
       "median": 2.8,
       "min": 2.1,
       "max": 3.4,
-      "n": 13,
+      "n": 9,
       "sample_total": 12291,
+      "sample_n": 3,
+      "n_houses_window": 14,
+      "n_houses_recent": 7,
+      "territorial": false,
       "pollsters": [
-        "40dB",
         "CIS",
-        "DYM",
         "ElectoPanel",
         "GAD3",
         "GESOP",
-        "IMOP Insights",
-        "Invymark",
         "Sigma Dos",
         "Sociométrica",
         "Target Point"
       ],
-      "mean_sin_cis": 2.71,
-      "median_sin_cis": 2.7,
+      "mean_sin_cis": 2.75,
+      "median_sin_cis": 2.8,
       "min_sin_cis": 2.1,
       "max_sin_cis": 3.4,
-      "n_sin_cis": 12,
+      "n_sin_cis": 8,
       "n_houses": 14,
       "iqr": 1.0
     },
@@ -185,6 +185,10 @@
       "max": 3.0,
       "n": 3,
       "sample_total": 12291,
+      "sample_n": 3,
+      "n_houses_window": 2,
+      "n_houses_recent": 2,
+      "territorial": true,
       "pollsters": [
         "CIS",
         "ElectoPanel"
@@ -199,28 +203,28 @@
     },
     {
       "party": "SAF",
-      "mean": 1.7,
-      "median": 1.8,
-      "min": 0.5,
+      "mean": 1.76,
+      "median": 1.75,
+      "min": 1.3,
       "max": 2.1,
-      "n": 10,
+      "n": 6,
       "sample_total": 12291,
+      "sample_n": 3,
+      "n_houses_window": 10,
+      "n_houses_recent": 5,
+      "territorial": false,
       "pollsters": [
-        "40dB",
         "CIS",
-        "DYM",
         "ElectoPanel",
         "GESOP",
-        "IMOP Insights",
-        "Invymark",
         "Sociométrica",
         "Target Point"
       ],
-      "mean_sin_cis": 1.67,
-      "median_sin_cis": 1.8,
-      "min_sin_cis": 0.5,
+      "mean_sin_cis": 1.74,
+      "median_sin_cis": 1.7,
+      "min_sin_cis": 1.3,
       "max_sin_cis": 2.1,
-      "n_sin_cis": 9,
+      "n_sin_cis": 5,
       "n_houses": 10,
       "iqr": 0.32
     },
@@ -232,6 +236,10 @@
       "max": 1.6,
       "n": 3,
       "sample_total": 12291,
+      "sample_n": 3,
+      "n_houses_window": 2,
+      "n_houses_recent": 2,
+      "territorial": true,
       "pollsters": [
         "CIS",
         "ElectoPanel"
@@ -252,6 +260,10 @@
       "max": 1.2,
       "n": 3,
       "sample_total": 12291,
+      "sample_n": 3,
+      "n_houses_window": 2,
+      "n_houses_recent": 2,
+      "territorial": true,
       "pollsters": [
         "CIS",
         "ElectoPanel"
@@ -272,6 +284,10 @@
       "max": 1.1,
       "n": 3,
       "sample_total": 12291,
+      "sample_n": 3,
+      "n_houses_window": 2,
+      "n_houses_recent": 2,
+      "territorial": true,
       "pollsters": [
         "CIS",
         "ElectoPanel"
@@ -285,6 +301,7 @@
       "iqr": 0.6
     }
   ],
+  "table_sum": 98.83,
   "series": {
     "BILDU": [
       {
@@ -356,26 +373,6 @@
     ],
     "PODEMOS": [
       {
-        "date": "2026-10-09",
-        "value": 3.2,
-        "pollster": "Invymark"
-      },
-      {
-        "date": "2026-10-09",
-        "value": 2.3,
-        "pollster": "IMOP Insights"
-      },
-      {
-        "date": "2026-10-09",
-        "value": 2.6,
-        "pollster": "DYM"
-      },
-      {
-        "date": "2026-10-09",
-        "value": 2.3,
-        "pollster": "40dB"
-      },
-      {
         "date": "2026-10-11",
         "value": 3.4,
         "pollster": "ElectoPanel"
@@ -422,26 +419,6 @@
       }
     ],
     "PP": [
-      {
-        "date": "2026-10-09",
-        "value": 32.8,
-        "pollster": "Invymark"
-      },
-      {
-        "date": "2026-10-09",
-        "value": 30.4,
-        "pollster": "IMOP Insights"
-      },
-      {
-        "date": "2026-10-09",
-        "value": 34.0,
-        "pollster": "DYM"
-      },
-      {
-        "date": "2026-10-09",
-        "value": 31.9,
-        "pollster": "40dB"
-      },
       {
         "date": "2026-10-11",
         "value": 31.5,
@@ -490,26 +467,6 @@
     ],
     "PSOE": [
       {
-        "date": "2026-10-09",
-        "value": 28.0,
-        "pollster": "Invymark"
-      },
-      {
-        "date": "2026-10-09",
-        "value": 26.5,
-        "pollster": "IMOP Insights"
-      },
-      {
-        "date": "2026-10-09",
-        "value": 28.2,
-        "pollster": "DYM"
-      },
-      {
-        "date": "2026-10-09",
-        "value": 28.1,
-        "pollster": "40dB"
-      },
-      {
         "date": "2026-10-11",
         "value": 26.9,
         "pollster": "ElectoPanel"
@@ -557,26 +514,6 @@
     ],
     "SAF": [
       {
-        "date": "2026-10-09",
-        "value": 1.8,
-        "pollster": "Invymark"
-      },
-      {
-        "date": "2026-10-09",
-        "value": 1.9,
-        "pollster": "IMOP Insights"
-      },
-      {
-        "date": "2026-10-09",
-        "value": 0.5,
-        "pollster": "DYM"
-      },
-      {
-        "date": "2026-10-09",
-        "value": 1.8,
-        "pollster": "40dB"
-      },
-      {
         "date": "2026-10-11",
         "value": 1.7,
         "pollster": "ElectoPanel"
@@ -608,26 +545,6 @@
       }
     ],
     "SUMAR": [
-      {
-        "date": "2026-10-09",
-        "value": 6.3,
-        "pollster": "Invymark"
-      },
-      {
-        "date": "2026-10-09",
-        "value": 7.6,
-        "pollster": "IMOP Insights"
-      },
-      {
-        "date": "2026-10-09",
-        "value": 5.3,
-        "pollster": "DYM"
-      },
-      {
-        "date": "2026-10-09",
-        "value": 5.3,
-        "pollster": "40dB"
-      },
       {
         "date": "2026-10-11",
         "value": 4.9,
@@ -664,32 +581,17 @@
         "pollster": "CIS"
       },
       {
+        "date": "2026-10-18",
+        "value": 4.9,
+        "pollster": "ElectoPanel"
+      },
+      {
         "date": "2026-10-19",
         "value": 8.1,
         "pollster": "Sigma Dos"
       }
     ],
     "VOX": [
-      {
-        "date": "2026-10-09",
-        "value": 18.8,
-        "pollster": "Invymark"
-      },
-      {
-        "date": "2026-10-09",
-        "value": 19.0,
-        "pollster": "IMOP Insights"
-      },
-      {
-        "date": "2026-10-09",
-        "value": 18.2,
-        "pollster": "DYM"
-      },
-      {
-        "date": "2026-10-09",
-        "value": 18.9,
-        "pollster": "40dB"
-      },
       {
         "date": "2026-10-11",
         "value": 19.1,
@@ -737,26 +639,6 @@
       }
     ],
     "Otros": [
-      {
-        "date": "2026-10-09",
-        "value": 9.1,
-        "pollster": "Invymark"
-      },
-      {
-        "date": "2026-10-09",
-        "value": 12.3,
-        "pollster": "IMOP Insights"
-      },
-      {
-        "date": "2026-10-09",
-        "value": 12.9,
-        "pollster": "DYM"
-      },
-      {
-        "date": "2026-10-09",
-        "value": 11.7,
-        "pollster": "40dB"
-      },
       {
         "date": "2026-10-11",
         "value": 11.8,
@@ -1878,6 +1760,11 @@
         "pollster": "CIS"
       },
       {
+        "date": "2026-10-18",
+        "value": 4.9,
+        "pollster": "ElectoPanel"
+      },
+      {
         "date": "2026-10-19",
         "value": 8.1,
         "pollster": "Sigma Dos"
@@ -2219,18 +2106,17 @@
     ]
   },
   "poll_dates": [
-    "2026-10-09",
     "2026-10-11",
     "2026-10-12",
     "2026-10-14",
     "2026-10-18",
     "2026-10-19"
   ],
-  "n_polls": 13,
-  "n_polls_sin_cis": 12,
+  "n_polls": 9,
+  "n_polls_sin_cis": 8,
   "low_n": false,
   "window_extended": false,
-  "window_span": "2026-10-09 – 2026-10-19",
+  "window_span": "2026-10-11 – 2026-10-19",
   "sources": [
     "https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/",
     "https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/",
@@ -2240,24 +2126,20 @@
   "last_poll_date": "2026-10-19",
   "health": {
     "status": "ok",
-    "n_polls": 13,
-    "n_polls_sin_cis": 12,
-    "n_pollsters": 11,
+    "n_polls": 9,
+    "n_polls_sin_cis": 8,
+    "n_pollsters": 7,
     "pollsters": [
-      "40dB",
       "CIS",
-      "DYM",
       "ElectoPanel",
       "GAD3",
       "GESOP",
-      "IMOP Insights",
-      "Invymark",
       "Sigma Dos",
       "Sociométrica",
       "Target Point"
     ],
-    "days_since_last": 3,
-    "sample_pct": 23,
+    "days_since_last": 4,
+    "sample_pct": 33,
     "sample_polls": 3,
     "dispersion_iqr": 1.97,
     "reasons": []
@@ -2266,145 +2148,105 @@
   "weights": {
     "window_days": 14,
     "extended": false,
-    "total_polls": 13,
-    "total_weight": 7.9352,
+    "total_polls": 9,
+    "total_weight": 6.3977,
     "top_source": "Onda Cero",
-    "top_source_share_pct": 57.8,
+    "top_source_share_pct": 47.8,
     "sources": [
       {
         "source": "Onda Cero",
-        "weight": 4.5876,
-        "n_polls": 10,
-        "n_houses": 9,
-        "share_pct": 57.8
+        "weight": 3.0592,
+        "n_polls": 6,
+        "n_houses": 5,
+        "share_pct": 47.8
       },
       {
         "source": "Electomanía",
-        "weight": 2.1431,
+        "weight": 2.1372,
         "n_polls": 2,
         "n_houses": 1,
-        "share_pct": 27.0
+        "share_pct": 33.4
       },
       {
         "source": "CIS",
-        "weight": 1.2046,
+        "weight": 1.2013,
         "n_polls": 1,
         "n_houses": 1,
-        "share_pct": 15.2
+        "share_pct": 18.8
       }
     ],
     "top_house": "ElectoPanel",
-    "top_share_pct": 27.0,
+    "top_share_pct": 33.4,
     "houses": [
       {
         "pollster": "ElectoPanel",
         "source": "Electomanía",
-        "weight": 2.1431,
+        "weight": 2.1372,
         "n_polls": 2,
         "last_date": "2026-10-18",
         "sample": 4125,
         "n_parties": 10,
-        "share_pct": 27.0
+        "share_pct": 33.4
       },
       {
         "pollster": "Sigma Dos",
         "source": "Onda Cero",
-        "weight": 1.2277,
+        "weight": 1.2244,
         "n_polls": 2,
         "last_date": "2026-10-19",
         "sample": null,
         "n_parties": 6,
-        "share_pct": 15.5
+        "share_pct": 19.1
       },
       {
         "pollster": "CIS",
         "source": "CIS",
-        "weight": 1.2046,
+        "weight": 1.2013,
         "n_polls": 1,
         "last_date": "2026-10-14",
         "sample": 5025,
         "n_parties": 11,
-        "share_pct": 15.2
+        "share_pct": 18.8
       },
       {
         "pollster": "Sociométrica",
         "source": "Onda Cero",
-        "weight": 0.4678,
+        "weight": 0.4665,
         "n_polls": 1,
         "last_date": "2026-10-12",
         "sample": null,
         "n_parties": 7,
-        "share_pct": 5.9
+        "share_pct": 7.3
       },
       {
         "pollster": "GESOP",
         "source": "Onda Cero",
-        "weight": 0.4678,
+        "weight": 0.4665,
         "n_polls": 1,
         "last_date": "2026-10-12",
         "sample": null,
         "n_parties": 7,
-        "share_pct": 5.9
+        "share_pct": 7.3
       },
       {
         "pollster": "GAD3",
         "source": "Onda Cero",
-        "weight": 0.4678,
+        "weight": 0.4665,
         "n_polls": 1,
         "last_date": "2026-10-12",
         "sample": null,
         "n_parties": 6,
-        "share_pct": 5.9
+        "share_pct": 7.3
       },
       {
         "pollster": "Target Point",
         "source": "Onda Cero",
-        "weight": 0.4365,
+        "weight": 0.4353,
         "n_polls": 1,
         "last_date": "2026-10-11",
         "sample": null,
         "n_parties": 7,
-        "share_pct": 5.5
-      },
-      {
-        "pollster": "Invymark",
-        "source": "Onda Cero",
-        "weight": 0.38,
-        "n_polls": 1,
-        "last_date": "2026-10-09",
-        "sample": null,
-        "n_parties": 7,
-        "share_pct": 4.8
-      },
-      {
-        "pollster": "IMOP Insights",
-        "source": "Onda Cero",
-        "weight": 0.38,
-        "n_polls": 1,
-        "last_date": "2026-10-09",
-        "sample": null,
-        "n_parties": 7,
-        "share_pct": 4.8
-      },
-      {
-        "pollster": "DYM",
-        "source": "Onda Cero",
-        "weight": 0.38,
-        "n_polls": 1,
-        "last_date": "2026-10-09",
-        "sample": null,
-        "n_parties": 7,
-        "share_pct": 4.8
-      },
-      {
-        "pollster": "40dB",
-        "source": "Onda Cero",
-        "weight": 0.38,
-        "n_polls": 1,
-        "last_date": "2026-10-09",
-        "sample": null,
-        "n_parties": 7,
-        "share_pct": 4.8
+        "share_pct": 6.8
       }
     ],
     "polls": [
@@ -2414,9 +2256,9 @@
         "date": "2026-10-18",
         "sample": 3141,
         "kind": "tracking",
-        "weight": 1.2566,
-        "n_parties": 9,
-        "share_pct": 15.8
+        "weight": 1.2532,
+        "n_parties": 10,
+        "share_pct": 19.6
       },
       {
         "pollster": "CIS",
@@ -2424,9 +2266,9 @@
         "date": "2026-10-14",
         "sample": 5025,
         "kind": "tracking",
-        "weight": 1.2046,
+        "weight": 1.2013,
         "n_parties": 11,
-        "share_pct": 15.2
+        "share_pct": 18.8
       },
       {
         "pollster": "ElectoPanel",
@@ -2434,9 +2276,9 @@
         "date": "2026-10-11",
         "sample": 4125,
         "kind": "tracking",
-        "weight": 0.8865,
+        "weight": 0.884,
         "n_parties": 10,
-        "share_pct": 11.2
+        "share_pct": 13.8
       },
       {
         "pollster": "Sigma Dos",
@@ -2444,9 +2286,9 @@
         "date": "2026-10-19",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.7599,
+        "weight": 0.7579,
         "n_parties": 6,
-        "share_pct": 9.6
+        "share_pct": 11.8
       },
       {
         "pollster": "Sociométrica",
@@ -2454,9 +2296,9 @@
         "date": "2026-10-12",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.4678,
+        "weight": 0.4665,
         "n_parties": 7,
-        "share_pct": 5.9
+        "share_pct": 7.3
       },
       {
         "pollster": "Sigma Dos",
@@ -2464,9 +2306,9 @@
         "date": "2026-10-12",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.4678,
+        "weight": 0.4665,
         "n_parties": 6,
-        "share_pct": 5.9
+        "share_pct": 7.3
       },
       {
         "pollster": "GESOP",
@@ -2474,9 +2316,9 @@
         "date": "2026-10-12",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.4678,
+        "weight": 0.4665,
         "n_parties": 7,
-        "share_pct": 5.9
+        "share_pct": 7.3
       },
       {
         "pollster": "GAD3",
@@ -2484,9 +2326,9 @@
         "date": "2026-10-12",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.4678,
+        "weight": 0.4665,
         "n_parties": 6,
-        "share_pct": 5.9
+        "share_pct": 7.3
       },
       {
         "pollster": "Target Point",
@@ -2494,49 +2336,9 @@
         "date": "2026-10-11",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.4365,
+        "weight": 0.4353,
         "n_parties": 7,
-        "share_pct": 5.5
-      },
-      {
-        "pollster": "Invymark",
-        "source": "Onda Cero",
-        "date": "2026-10-09",
-        "sample": null,
-        "kind": "tracking",
-        "weight": 0.38,
-        "n_parties": 7,
-        "share_pct": 4.8
-      },
-      {
-        "pollster": "IMOP Insights",
-        "source": "Onda Cero",
-        "date": "2026-10-09",
-        "sample": null,
-        "kind": "tracking",
-        "weight": 0.38,
-        "n_parties": 7,
-        "share_pct": 4.8
-      },
-      {
-        "pollster": "DYM",
-        "source": "Onda Cero",
-        "date": "2026-10-09",
-        "sample": null,
-        "kind": "tracking",
-        "weight": 0.38,
-        "n_parties": 7,
-        "share_pct": 4.8
-      },
-      {
-        "pollster": "40dB",
-        "source": "Onda Cero",
-        "date": "2026-10-09",
-        "sample": null,
-        "kind": "tracking",
-        "weight": 0.38,
-        "n_parties": 7,
-        "share_pct": 4.8
+        "share_pct": 6.8
       }
     ]
   },
@@ -2582,12 +2384,12 @@
       },
       {
         "party": "SUMAR",
-        "mean": 6.41,
+        "mean": 6.3,
         "min": 4.9,
         "max": 8.1,
-        "median": 6.3,
+        "median": 6.2,
         "iqr": 2.2,
-        "n_houses": 13
+        "n_houses": 14
       },
       {
         "party": "PODEMOS",
@@ -2759,11 +2561,11 @@
       "nota": null
     }
   ],
-  "days_to_election": 37,
-  "days_to_blackout": 32,
-  "gap_pp_psoe": 2.49,
-  "bloc_right": 48.86,
-  "bloc_left": 36.98,
+  "days_to_election": 36,
+  "days_to_blackout": 31,
+  "gap_pp_psoe": 1.99,
+  "bloc_right": 48.34,
+  "bloc_left": 36.81,
   "weight_basis": "recencia (vida media 10 d); √n cuando la fuente declara muestra",
   "excluded_averages": [
     "ElectoPromedio"

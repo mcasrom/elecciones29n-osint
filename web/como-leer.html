@@ -11,7 +11,7 @@
 <meta name="description" content="Guía breve para leer una media de sondeos: qué es el rango, por qué no es un intervalo de confianza, qué mide el IQR y qué no se puede concluir. Sin pronóstico.">
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/como-leer.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202610222302">
+<link rel="stylesheet" href="/css/main.css?v=202610230820">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <meta name="theme-color" content="#0b0c1c">
-<meta name="generator" content="elecciones29n-osint v0.10.0">
+<meta name="generator" content="elecciones29n-osint v0.10.1">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta property="og:type" content="website">
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   <div class="card">
     <div class="cardhead"><h2>1. Qué es la media</h2></div>
-    <p class="muted">La media combina los sondeos publicados en una ventana de <strong>14 días</strong>. Si no reúne cuatro sondeos, se amplía a los cuatro más recientes (máximo 90 días) y se indica «ventana ampliada». Cada sondeo pesa por <strong>recencia</strong> y, cuando la fuente declara muestra, por <strong>√n</strong>. No es una estimación propia de intención de voto: es un resumen de lo publicado.</p>
+    <p class="muted">La media combina los sondeos publicados en una ventana de <strong>14 días naturales</strong> contando hoy; no depende de la hora del build. Si no reúne cuatro sondeos, se amplía a los cuatro más recientes (máximo 90 días) y se indica «ventana ampliada». Cada sondeo pesa por <strong>recencia</strong> y, cuando la fuente declara muestra, por <strong>√n</strong>. No es una estimación propia de intención de voto: es un resumen de lo publicado.</p>
     <p class="muted">Un sondeo aislado, como el CIS, no marca la tendencia. La media agregada es la de la tabla; la línea del gráfico solo ayuda a ver la evolución.</p>
   </div>
 
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function(){
     <div class="cardhead"><h2>6. Cómo leer la tabla</h2></div>
     <ul class="muted">
       <li><strong>Media</strong>: resumen ponderado de los sondeos de la ventana. <strong>Mediana</strong>: valor central; si se separa mucho de la media, hay extremos.</li>
-      <li><strong>Mín–máx</strong>: lo observado, no una probabilidad. <strong>n</strong>: sondeos que sostienen la media. <strong>Casas</strong>: encuestadoras distintas. <strong>IQR</strong>: dispersión típica.</li>
+      <li><strong>Mín–máx</strong>: lo observado, no una probabilidad. <strong>n (14 d)</strong>: sondeos que sostienen la media. <strong>Casas (45 d)</strong>: encuestadoras que publicaron al partido; <strong>Casas (14 d)</strong>: las de la media. <strong>IQR</strong>: dispersión típica.</li>
       <li>Mira primero cuántos sondeos y casas hay; después la media. Una media con dos casas es frágil aunque el número sea preciso.</li>
     </ul>
   </div>
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function(){
   <div class="container">
     <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
     <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
-    <p>Datos abiertos · <a href="/novedades.html">Novedades</a> · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="https://github.com/mcasrom/elecciones29n-osint">Código (AGPL-3.0)</a> · Hecho por Miguel Castillo · v0.10.0 · 2026-10-22.</p>
+    <p>Datos abiertos · <a href="/novedades.html">Novedades</a> · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="https://github.com/mcasrom/elecciones29n-osint">Código (AGPL-3.0)</a> · Hecho por Miguel Castillo · software v0.10.1 · 2026-10-23.</p>
     <p class="eco">Ecosistema:
       <a href="https://www.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Prueba Pública</a> ·
       <a href="https://analisis.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Blog de análisis</a> ·
@@ -235,11 +235,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202610222302" hidden>
+<div class="swupdate" id="swupdate" data-build="202610230820" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610222302');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610230820');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -268,7 +268,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202610222302', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202610230820', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

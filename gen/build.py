@@ -640,9 +640,10 @@ def build_meteo_rows(meteo: dict) -> list:
 
 def build_house_compare(house: dict, parties: list) -> list:
     main = {p["party"]: p["mean"] for p in parties}
+    territorial = {p["party"] for p in parties if p.get("territorial")}
     rows = []
     for p in house.get("parties", []):
-        if p.get("party") == "Otros":
+        if p.get("party") == "Otros" or p.get("party") in territorial:
             continue
         m = main.get(p["party"])
         rows.append({
@@ -1369,7 +1370,9 @@ def main(out: str = "web") -> None:
     ]
     in_blackout = blackout.is_blackout(now)
     parties = latest.get("parties", [])
-    parties_main = [p for p in parties if p.get("party") != "Otros"]
+    parties_table = [p for p in parties if not p.get("territorial")]
+    parties_territorial = [p for p in parties if p.get("territorial")]
+    parties_main = [p for p in parties if p.get("party") != "Otros" and not p.get("territorial")]
     series = latest.get("series", {})
 
     build_ts = now.strftime("%Y%m%d%H%M")
@@ -1387,6 +1390,9 @@ def main(out: str = "web") -> None:
         "in_blackout": in_blackout,
         "blackout_reason": blackout.blackout_reason(),
         "parties": parties,
+        "parties_table": parties_table,
+        "parties_territorial": parties_territorial,
+        "table_sum": latest.get("table_sum", round(sum(p["mean"] for p in parties_table), 2)),
         "parties_main": parties_main,
         "series": series,
         "poll_dates": latest.get("poll_dates", []),
