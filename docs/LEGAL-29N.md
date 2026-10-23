@@ -47,7 +47,7 @@
 
 | Fuente | Uso | Riesgo / pendiente |
 |---|---|---|
-| **Electomanía** | API pública de WordPress; se enlaza cada sondeo | **Riesgo alto**: sus términos permiten cita parcial, pero **prohíben scraping, extracción automatizada y reutilización sistemática sin autorización escrita**. La API pública no equivale a permiso. Pedir autorización o limitar a cita puntual. |
+| **Electomanía** | API pública de WordPress; se enlaza cada sondeo | **Riesgo alto**: sus términos permiten cita parcial, pero **prohíben scraping, extracción automatizada y reutilización sistemática sin autorización escrita**. La API pública no equivale a permiso. **Solicitud enviada 23-oct-2026** (`delivered`); pendiente de respuesta. Si no autorizan, retirar ElectoPanel/ElectoPromedio. |
 | **CIS** | PDF del barómetro, añadido a mano con muestra y fecha | Reutilización permitida con condiciones: citar «Origen: CIS», no desnaturalizar, no sugerir patrocinio y conservar fecha/metadatos. Guardar nº de estudio y ficha técnica. |
 | **Política Sin Ruido** | Contraste metodológico, no fuente de la media | Revisar condiciones si se incorporan sus datos de forma sistemática |
 | **Onda Cero** | Compilación secundaria | Autorización pendiente (ver arriba) |
@@ -153,8 +153,8 @@ fuente no autoriza el uso, se retira y se recalcula.
 ## 11. Prioridades antes del 24-N
 
 1. **Alta**: Onda Cero enviada; decidir el fallback si no responde.
-2. **Alta**: pedir autorización a **Electomanía** o dejar de usar su API de
-   forma sistemática; sus términos no cubren el uso actual.
+2. **Alta**: Electomanía **solicitada** el 23-oct; pendiente de respuesta. Si
+   no autorizan, retirar ElectoPanel/ElectoPromedio o limitar a cita puntual.
 3. **Alta**: revisar la ficha técnica del art. 69.1 LOREG y la redacción del
    aviso de blackout; bloquear redes 24–28-N.
 4. **Alta**: publicar privacidad/aviso legal y política de logs.
