@@ -19,7 +19,7 @@ from metrics import moving_average, series_span  # noqa: E402
 
 REQUIRED = [
     "index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html",
-    "robots.txt", "sitemap.xml", "llms.txt", "favicon.svg", "og.png",
+    "robots.txt", "sitemap.xml", "llms.txt", "favicon.svg",
     "cambios.xml", "data/latest.json", "data/robustez.json", "css/main.css", "glosario.html", "robustez.html", "hemiciclo.html", "como-leer.html", "novedades.html",
     "electorado.html", "data/censo-2026.json", "data/censo-provincias.csv",
     "participacion.html", "data/participacion.json", "data/participacion.csv",
@@ -42,7 +42,7 @@ def validate_blackout(d: str) -> int:
         "glosario.html", "electorado.html", "participacion.html", "territorio.html",
         "circunscripciones.html", "noche-electoral.html", "factores.html",
         "comportamiento.html", "como-leer.html", "hemiciclo.html", "apoyo.html", "sobre-mi.html", "privacidad.html",
-        "robots.txt", "sitemap.xml", "llms.txt", "favicon.svg", "og.png",
+        "robots.txt", "sitemap.xml", "llms.txt", "favicon.svg",
         "cambios.xml", "css/main.css", "sw.js", "manifest.webmanifest", "version.json",
         "data/blackout.json", "data/censo-2026.json", "data/participacion.json",
         "data/escanos-2026.json", "data/congreso-oficial.json",
@@ -54,7 +54,7 @@ def validate_blackout(d: str) -> int:
         elif os.path.getsize(path) == 0:
             errors.append(f"{f} vacío")
 
-    for rel in ("data/latest.json", "data/robustez.json", "og-robustez.png"):
+    for rel in ("data/latest.json", "data/robustez.json", "og-robustez.png", "og.png", "og-hemiciclo.png"):
         if os.path.exists(os.path.join(d, rel)):
             errors.append(f"blackout: {rel} sigue publicado")
 
@@ -189,6 +189,10 @@ def main() -> int:
             errors.append(f"hemiciclo.html con {hh.count('class="hemi-seat"')} escaños (esperados >=350)")
         if "No es una proyección" not in hh:
             errors.append("hemiciclo.html sin aviso de no proyección")
+        if "og-hemiciclo.png" not in hh:
+            errors.append("hemiciclo.html sin OG propio")
+        if not os.path.exists(os.path.join(d, "og-hemiciclo.png")):
+            errors.append("falta og-hemiciclo.png")
 
     data_path = os.path.join(d, "data/latest.json")
     data = {}

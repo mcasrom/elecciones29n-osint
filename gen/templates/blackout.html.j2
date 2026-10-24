@@ -11,8 +11,6 @@
 <meta property="og:description" content="Del 24 al 28 de noviembre no se publican ni difunden sondeos electorales. La agregación y los datos abiertos quedan retirados.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ site_url }}{{ canonical }}">
-<meta property="og:image" content="{{ site_url }}/og.png">
-<meta name="twitter:card" content="summary_large_image">
 <style>
 :root{color-scheme:dark light;--bg:#0b0c1c;--panel:#12142a;--fg:#eef0f6;--muted:#a7abc4;--line:#262a4a;--accent:#ff5a1f;--blue:#8ec5ff}
 @media (prefers-color-scheme:light){:root{--bg:#f4f6fb;--panel:#fff;--fg:#131a28;--muted:#4d5a73;--line:#d9e0ee;--blue:#1b62c9}}
@@ -64,5 +62,11 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);font-si
   <p class="note">Si has llegado desde una búsqueda o un enlace compartido: la página volverá a estar operativa el 29 de noviembre. No hay una media “provisional” que consultar.</p>
   <footer>Observatorio electoral 29N · <a href="mailto:info.elecciones29n@pruebapublica.com">info.elecciones29n@pruebapublica.com</a></footer>
 </main>
+<script>
+(function(){try{
+  if ('caches' in window) caches.keys().then(function(ks){ks.forEach(function(k){caches.delete(k);});});
+  if ('serviceWorker' in navigator) navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister();});});
+}catch(e){}})();
+</script>
 </body>
 </html>

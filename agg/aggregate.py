@@ -198,6 +198,11 @@ def _poll_weights(recent: List[Dict[str, Any]], now: datetime, extended: bool) -
     polls_sorted = sorted(polls.values(), key=lambda x: (x["weight"], x["date"]), reverse=True)
     top = houses[0] if houses else None
     top_src = sources[0] if sources else None
+
+    def effective_number(items):
+        hhi = sum((x["share_pct"] / 100) ** 2 for x in items)
+        return round(1 / hhi, 2) if hhi else None
+
     return {
         "window_days": WINDOW_DAYS,
         "extended": extended,
@@ -206,9 +211,11 @@ def _poll_weights(recent: List[Dict[str, Any]], now: datetime, extended: bool) -
         "top_source": top_src["source"] if top_src else None,
         "top_source_share_pct": top_src["share_pct"] if top_src else None,
         "sources": sources,
+        "effective_sources": effective_number(sources),
         "top_house": top["pollster"] if top else None,
         "top_share_pct": top["share_pct"] if top else None,
         "houses": houses,
+        "effective_houses": effective_number(houses),
         "polls": polls_sorted,
     }
 

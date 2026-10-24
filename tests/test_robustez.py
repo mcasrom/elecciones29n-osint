@@ -40,6 +40,11 @@ class RobustezTest(unittest.TestCase):
         pp = next(p for p in res["parties"] if p["party"] == "PP")
         self.assertEqual(pp["n_houses"], 3)
         self.assertGreater(pp["iqr"], 0)
+        w = res["weights"]
+        self.assertGreaterEqual(w["effective_sources"], 1)
+        self.assertGreaterEqual(w["effective_houses"], 1)
+        self.assertLessEqual(w["effective_sources"], len(w["sources"]) + 0.05)
+        self.assertLessEqual(w["effective_houses"], len(w["houses"]) + 0.05)
 
     def test_sample_pct_with_missing(self):
         today = datetime.now(TZ).strftime("%Y-%m-%d")

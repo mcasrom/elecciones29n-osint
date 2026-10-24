@@ -49,7 +49,11 @@
   <div class="card" id="peso">
     <div class="cardhead"><h2>Peso de cada casa y sondeo</h2><span class="hint">cuota sobre el total de la ventana · se recalcula cada día</span></div>
     {% if weights.top_source %}
-    <p class="muted small" style="margin-top:0">Hoy el <strong>{{ "%.1f"|format(weights.top_source_share_pct) }} %</strong> del peso viene de <strong>{{ weights.top_source }}</strong>{% if weights.top_source == 'Onda Cero' %} (compilación de varias casas){% endif %}. La casa con más peso es <strong>{{ weights.top_house }}</strong> ({{ "%.1f"|format(weights.top_share_pct) }} %). En total, {{ weights.total_polls }} sondeo{% if weights.total_polls != 1 %}s{% endif %}.</p>
+    <p class="muted small" style="margin-top:0">Hoy el <strong>{{ "%.1f"|format(weights.top_source_share_pct) }} %</strong> del peso viene de la <strong>fuente</strong> <strong>{{ weights.top_source }}</strong>{% if weights.top_source == 'Onda Cero' %} (compilación de varias casas){% endif %}; la <strong>casa</strong> con más peso es <strong>{{ weights.top_house }}</strong> ({{ "%.1f"|format(weights.top_share_pct) }} %). En total, {{ weights.total_polls }} sondeo{% if weights.total_polls != 1 %}s{% endif %}.</p>
+    <p class="muted small">Fuente y casa son ejes distintos: una fuente puede agrupar varias casas y una casa puede aparecer en una sola fuente. <strong>No se suman.</strong>{% if weights.effective_sources %} Concentración efectiva: <strong>{{ "%.2f"|format(weights.effective_sources) }}</strong> fuentes y <strong>{{ "%.2f"|format(weights.effective_houses) }}</strong> casas.{% endif %}</p>
+    {% endif %}
+    {% if weights.top_source_share_pct and weights.top_source_share_pct >= 50 %}
+    <p class="muted small" style="color:#b45309"><strong>Aviso de concentración de fuente:</strong> una sola fuente supera la mitad del peso. No es lo mismo que una sola casa: la compilación puede repartir ese peso entre varias encuestadoras, pero la dependencia de esa fuente sigue siendo alta.</p>
     {% endif %}
     {% if weights.sources %}
     <div class="tablewrap"><table>

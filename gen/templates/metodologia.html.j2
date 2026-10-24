@@ -17,7 +17,7 @@
     <h3>1 · Sondeos</h3>
     <p class="muted">Es una <strong>media de los sondeos publicados</strong>, no una estimación propia de intención de voto. Se combinan los paneles de Electomania con la compilación de <strong>Onda Cero</strong> (14 casas): se usan los sondeos individuales, no su promedio, y la fecha es de <strong>publicación</strong>. La ventana es de 14 días naturales contando hoy (no depende de la hora del build); si no reúne cuatro sondeos, se amplía a los cuatro más recientes (máx. 90 días) y se indica «ventana ampliada».</p>
     <ul class="muted">
-      <li><strong>Ponderación</strong>: {{ weight_basis }}. Onda Cero no publica muestra; esos sondeos pesan solo por recencia. El reparto del peso por casa y por sondeo se publica cada día en <a href="/robustez.html#peso">Robustez del dato</a>.</li>
+      <li><strong>Ponderación</strong>: {{ weight_basis }}. Onda Cero no publica muestra; esos sondeos pesan solo por recencia. El reparto del peso por fuente, casa y sondeo se publica cada día en <a href="/robustez.html#peso">Robustez del dato</a>. La cuota por <strong>fuente</strong> y la cuota por <strong>casa</strong> son ejes distintos y no se suman.</li>
       <li><strong>Mediana</strong>: se publica junto a la media. Si difieren, hay valores extremos.</li>
       <li><strong>Solo paneles completos</strong>: se excluyen adelantos parciales, autonómicos y regionales. `ElectoPromedio` (media de medias) se marca como promedio y se excluye de la media principal.</li>
       <li><strong>La suma de entrevistados no es una muestra única</strong>: son muestras distintas, en fechas y metodologías distintas.</li>

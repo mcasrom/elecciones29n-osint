@@ -36,6 +36,12 @@ class BlackoutSiteTest(unittest.TestCase):
         )
         self.assertFalse(os.path.exists(os.path.join(self.site, "data/latest.json")))
         self.assertFalse(os.path.exists(os.path.join(self.site, "data/robustez.json")))
+        for rel in ("og.png", "og-hemiciclo.png", "og-robustez.png"):
+            self.assertFalse(os.path.exists(os.path.join(self.site, rel)), rel)
+        sw = open(os.path.join(self.site, "sw.js"), encoding="utf-8").read()
+        self.assertIn("url.pathname.startsWith('/data/')", sw)
+        self.assertNotIn("'/og.png'", sw)
+        self.assertIn("self.skipWaiting()", sw)
         html = open(os.path.join(self.site, "index.html"), encoding="utf-8").read()
         self.assertIn("Blackout electoral", html)
         self.assertNotIn('class="chart"', html)
