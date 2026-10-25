@@ -55,6 +55,10 @@ dato, no en una nota al pie.
 - `scripts/archive_check.py`: comprueba si hay instantáneas en Archive.org (0 sin capturas, 1 con capturas, 2 consulta incompleta).
 - **Sección EN**: `/en.html`, `/en/method.html`, `/en/hemicycle.html`, `/en/robustness.html`, `/en/competitive.html`, `/en/majorities.html`, `/en/limits.html`, `/en/data.html`, `/en/post-election.html`; nav propia y `hreflang` recíproco.
 
+## Parte matinal de campaña
+
+`scripts/campaign_digest.py` publica a las **08:00 (13–23 nov)** solo si hay cambio relevante: nuevo sondeo, cambio de bloque/mayoría, Δ≥1 pp o Δ≥3 escaños. Encola en Mastodon/Bluesky/Telegram y manda al dueño el texto de X; sin cambio, silencio. Detalle y cron en [`docs/CAMPANA-29N.md`](docs/CAMPANA-29N.md).
+
 ## Aviso por correo
 
 La web incluye un **aviso de doble opt-in** para saber cuándo cambia la media o
