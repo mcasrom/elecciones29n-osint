@@ -40,6 +40,7 @@ PYTHONPATH="$REPO_DIR" python3 -m gen.build --out "$STAGE"
 /usr/bin/python3 -c "import PIL" 2>/dev/null && /usr/bin/python3 gen/gen_og.py --out "$STAGE/og.png" || true
 if [ ! -f "$STAGE/data/blackout.json" ]; then
   /usr/bin/python3 gen/gen_card_robustez.py --data "$STAGE/data/latest.json" --out "$STAGE/og-robustez.png" || true
+  /usr/bin/python3 gen/gen_card_hemiciclo.py --data "$STAGE/data/latest.json" --out "$STAGE/og-hemiciclo.png" || true
 fi
 /usr/bin/python3 gen/gen_card_glosario.py --out "$STAGE/og-glosario.png" || true
 
@@ -87,7 +88,11 @@ sleep 3
 /usr/bin/python3 scripts/canary_live.py > "$HOME/.local/state/elecciones29n/canary.log" 2>&1 || echo "[run_daily_server] canario con aviso"
 
 /usr/bin/python3 scripts/indexnow_push.py 2>/dev/null || true
-[ -x /home/deploy/scripts/cf_purge.sh ] && /home/deploy/scripts/cf_purge.sh pruebapublica 2>/dev/null || true
+if [ -x /home/deploy/scripts/cf_purge.sh ]; then
+  /home/deploy/scripts/cf_purge.sh pruebapublica || echo "[run_daily_server] aviso: purge CF falló"
+else
+  echo "[run_daily_server] aviso: falta /home/deploy/scripts/cf_purge.sh; purgar CF a mano"
+fi
 
 rm -f "$HOME/.config/elecciones29n/last_error"
 touch "$HOME/.config/elecciones29n/last_run_$TODAY"

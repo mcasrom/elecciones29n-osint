@@ -57,6 +57,7 @@ PYTHONPATH="$REPO_DIR" python3 -m gen.build --out "$STAGE"
 # 4) OG (PIL del sistema; best-effort)
 if /usr/bin/python3 -c "import PIL" 2>/dev/null; then
   /usr/bin/python3 gen/gen_og.py --out "$STAGE/og.png" || echo "[run_daily] aviso: og.png no generado"
+  /usr/bin/python3 gen/gen_card_hemiciclo.py --data "$STAGE/data/latest.json" --out "$STAGE/og-hemiciclo.png" || echo "[run_daily] aviso: og-hemiciclo.png no generado"
 fi
 
 # 5) Validación: si falla, NO se publica y se conserva la última versión
