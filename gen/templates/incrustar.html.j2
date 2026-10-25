@@ -1,0 +1,75 @@
+{% set page_title = "Incrustar los datos del 29N · guía de uso" %}
+{% set page_desc = "Cómo incrustar la media, la robustez o el hemiciclo del observatorio 29N: código, atribución, altura, frescura y límites." %}
+{% set canonical = site_url ~ "/incrustar.html" %}
+{% set jsonld = webpages['incrustar.html'] %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Incrustar los datos del 29N</h1>
+  <p class="muted" style="margin:0 0 12px">Tres paneles públicos para medios, blogs y analistas. Son <strong>datos descriptivos</strong>, no una proyección. La atribución y el enlace al observatorio son parte del uso.</p>
+
+  <div class="alert warn"><strong>No es tiempo real.</strong> Los embeds se actualizan con el build diario del observatorio. Si no hay sondeo nuevo, la tabla puede ser la misma que ayer; no la presentes como “última hora”.</div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Qué puedes incrustar</h2><span class="hint">todos son responsive y no requieren JS externo</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Panel</th><th>URL</th><th>Altura recomendada</th><th>Qué muestra</th></tr></thead>
+      <tbody>
+        <tr><td><a href="/embed/medias.html" target="_blank" rel="noopener">Media</a></td><td><code>/embed/medias.html</code></td><td>430 px</td><td>Media, rango y número de sondeos por partido.</td></tr>
+        <tr><td><a href="/embed/robustez.html" target="_blank" rel="noopener">Robustez</a></td><td><code>/embed/robustez.html</code></td><td>300 px</td><td>Sondeos, casas, muestra, IQR y concentración de fuente/casa.</td></tr>
+        <tr><td><a href="/embed/hemiciclo.html" target="_blank" rel="noopener">Hemiciclo</a></td><td><code>/embed/hemiciclo.html</code></td><td>430 px</td><td>Escaños y bloques de la simulación nacional.</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Cómo se construye</h2><span class="hint">copia, ajusta la altura y conserva la atribución</span></div>
+    <p class="muted small">El iframe carga una página aislada, sin navegación, con un enlace de vuelta al observatorio. No modifiques el contenido ni lo presentes como un pronóstico.</p>
+    <pre style="overflow:auto;padding:12px;background:var(--panel2);border-radius:8px"><code>&lt;iframe
+  src="https://elecciones29n.pruebapublica.com/embed/medias.html"
+  width="100%"
+  height="430"
+  style="border:0"
+  title="Media 29N · observatorio electoral"
+  loading="lazy"&gt;
+&lt;/iframe&gt;</code></pre>
+    <p class="muted small">Para robustez, cambia la ruta y la altura: <code>/embed/robustez.html</code> (300) · <code>/embed/hemiciclo.html</code> (430).</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Condiciones de uso</h2></div>
+    <ul class="muted">
+      <li><strong>Atribución visible</strong>: mantén el enlace “Observatorio 29N” que incluye el propio panel.</li>
+      <li><strong>No alterar los datos</strong> ni recortar la tabla para cambiar la lectura.</li>
+      <li><strong>No presentarlo como pronóstico</strong> ni como estimación propia de intención de voto.</li>
+      <li><strong>No usarlo para atribuir</strong> una campaña o coordinación: el observatorio mide datos publicados.</li>
+      <li><strong>Enlace a método</strong>: si citas una cifra, enlaza también <a href="/metodologia.html">metodología</a> y <a href="/caveat.html">límites</a>.</li>
+      <li>Datos reutilizables citando la fuente; código AGPL-3.0.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Frescura y blackout</h2></div>
+    <ul class="muted">
+      <li>El build diario actualiza los paneles; no hay ingesta en tiempo real.</li>
+      <li>El último sondeo se indica en la portada, separado de la hora de generación.</li>
+      <li>Del <strong>24 al 28 de noviembre</strong> no se publican sondeos: los embeds y JSON retirados responden <strong>410</strong>.</li>
+      <li>Si necesitas datos para un análisis propio, usa <a href="/data/latest.json">latest.json</a>, <a href="/data/status.json">status.json</a> y el <a href="/data/v1/schema.json">esquema</a>.</li>
+    </ul>
+  </div>
+
+  <div class="cta">
+    <a class="btn" href="/embed/medias.html" target="_blank" rel="noopener">Ver embed de media</a>
+    <a class="btn ghost" href="/fuentes.html">Fuentes y datos</a>
+    <a class="btn ghost" href="/metodologia.html">Método</a>
+    <a class="btn ghost" href="/en/data.html">Data (EN)</a>
+  </div>
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>

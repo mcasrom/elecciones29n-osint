@@ -35,7 +35,7 @@
   {% if in_blackout %}
         <span class="dot off"></span> BLACKOUT · datos retirados
         {% else %}
-        <span class="dot"></span> EN VIVO · actualizado {{ updated_at }}
+        <span class="dot" title="Hora de generación del sitio, no del último sondeo"></span> Actualizado {{ updated_at }} · {% if last_poll_date == build_date %}último sondeo hoy{% elif last_poll_date %}último sondeo {{ last_poll_date[8:10] }}/{{ last_poll_date[5:7] }}{% if last_poll_date != build_date %} · sin sondeo nuevo hoy{% endif %}{% else %}sin sondeo{% endif %}
         {% endif %}
         {% if novedades %}
         <a class="novedad" href="#tab-agregado" title="Ultima ingesta de sondeos">
