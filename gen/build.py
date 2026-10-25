@@ -759,6 +759,11 @@ def write_llms() -> None:
 - {SITE_URL}/en/robustness.html
 - {SITE_URL}/en/limits.html
 - {SITE_URL}/en/data.html
+- {SITE_URL}/en/competitive.html
+- {SITE_URL}/en/majorities.html
+- {SITE_URL}/en/post-election.html
+- {SITE_URL}/embed/robustez.html
+- {SITE_URL}/embed/hemiciclo.html
 - {SITE_URL}/novedades.html
 - {SITE_URL}/cambios.xml
 - {SITE_URL}/privacidad.html
