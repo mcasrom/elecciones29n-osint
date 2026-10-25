@@ -1,0 +1,85 @@
+{% set page_title = "Calibración post-electoral · 29N" %}
+{% set page_desc = "Comparación entre la última media pre-electoral y el escrutinio oficial: error por partido, sesgo y escaños. Se activa tras el 29N." %}
+{% set canonical = site_url ~ "/postelectoral.html" %}
+{% set jsonld = webpages['postelectoral.html'] %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Calibración post-electoral</h1>
+  <p class="muted" style="margin:0 0 12px">Qué tal se comportó la media frente al escrutinio oficial. Es una evaluación retrospectiva, no una excusa ni una predicción: mide error, no acierto de titular.</p>
+
+  {% if calibration.status == 'pending' %}
+  <div class="alert warn"><strong>Pendiente del escrutinio del 29N.</strong> Esta página se activará cuando existan resultados oficiales importados y una foto pre-electoral congelada. No se inventan cifras.</div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Qué se publicará</h2></div>
+    <ul class="muted">
+      <li><strong>Media pre-electoral vs resultado oficial</strong> por partido, con error en puntos porcentuales.</li>
+      <li><strong>MAE y sesgo medio</strong>: error absoluto medio y signo del error (si la media sobrestimó o subestimó).</li>
+      <li><strong>Escaños simulados vs escaños oficiales</strong>, con la distancia en cada partido.</li>
+      <li><strong>Foto congelada</strong>: fecha y número de sondeos de la última media antes del blackout.</li>
+      <li><strong>Fuente</strong> oficial y fecha de actualización del escrutinio.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Cómo se hará</h2></div>
+    <ul class="muted">
+      <li>La foto pre-electoral se guarda automáticamente en los builds del 1 al 23 de noviembre; el último build antes del blackout es el que cuenta.</li>
+      <li>Los resultados se importan desde el escenario oficial con <code>scripts/import_resultados.py</code>; sin fuente, no se publica.</li>
+      <li>El error se calcula sobre votos a partidos, no sobre escaños, salvo la tabla específica de escaños.</li>
+      <li>No se comparan casas individuales con el resultado si no publicaron una pieza pre-electoral verificable.</li>
+    </ul>
+  </div>
+
+  {% else %}
+  <div class="kpis">
+    <div class="kpi"><span class="kpi-name">MAE</span><b>{{ "%.2f"|format(calibration.mae) if calibration.mae is not none else "—" }} pp</b><span class="kpi-range">error absoluto medio</span></div>
+    <div class="kpi"><span class="kpi-name">Sesgo</span><b>{% if calibration.bias is not none %}{{ "%+.2f"|format(calibration.bias) }}{% else %}—{% endif %} pp</b><span class="kpi-range">media − oficial</span></div>
+    <div class="kpi"><span class="kpi-name">Partidos</span><b>{{ calibration.n }}</b><span class="kpi-range">comparados</span></div>
+    <div class="kpi"><span class="kpi-name">Foto</span><b>{{ calibration.snapshot_updated[:10] if calibration.snapshot_updated else "—" }}</b><span class="kpi-range">{{ calibration.snapshot_n_polls or "—" }} sondeos</span></div>
+  </div>
+
+  {% if calibration.rows %}
+  <div class="card">
+    <div class="cardhead"><h2>Media pre-electoral vs oficial</h2><span class="hint">votos a partidos · puntos porcentuales</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Partido</th><th>Media</th><th>Oficial</th><th>Error</th></tr></thead>
+      <tbody>{% for r in calibration.rows %}<tr><td><strong>{{ r.party }}</strong></td><td class="num">{{ fmt_pct(r.poll) }}%</td><td class="num">{{ fmt_pct(r.official) }}%</td><td class="num">{{ "%+.2f"|format(r.error) }} pp</td></tr>{% endfor %}</tbody>
+    </table></div>
+    <p class="muted small">Error = media − oficial. Positivo: la media sobrestimó. Negativo: subestimó. MAE: {{ "%.2f"|format(calibration.mae) }} pp; sesgo: {{ "%+.2f"|format(calibration.bias) }} pp.</p>
+  </div>
+  {% endif %}
+
+  {% if calibration.seat_rows %}
+  <div class="card">
+    <div class="cardhead"><h2>Escaños simulados vs oficiales</h2><span class="hint">simulación nacional D'Hondt</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Partido</th><th>Simulación</th><th>Oficial</th><th>Error</th></tr></thead>
+      <tbody>{% for r in calibration.seat_rows %}<tr><td><strong>{{ r.party }}</strong></td><td class="num">{{ r.sim }}</td><td class="num">{{ r.official }}</td><td class="num">{{ "%+d"|format(r.error) }}</td></tr>{% endfor %}</tbody>
+    </table></div>
+    <p class="muted small">La simulación no incorpora la asignación provincial ni los partidos territoriales; el error de escaños no es comparable al de votos.</p>
+  </div>
+  {% endif %}
+
+  <div class="card">
+    <div class="cardhead"><h2>Fuente y método</h2></div>
+    <p class="muted small">Resultado oficial: {% if calibration.official_url %}<a href="{{ calibration.official_url }}" target="_blank" rel="noopener">fuente</a>{% else %}—{% endif %} · actualizado: {{ calibration.official_updated or "—" }}. Foto pre-electoral: {{ calibration.snapshot_updated or "—" }} ({{ calibration.snapshot_n_polls or "—" }} sondeos).</p>
+    <p class="muted small">La media es la publicada antes del blackout, no una reconstrucción posterior. No se ajusta a posteriori para “acertar”.</p>
+  </div>
+  {% endif %}
+
+  <div class="cta">
+    <a class="btn" href="/noche-electoral.html">Noche electoral</a>
+    <a class="btn ghost" href="/metodologia.html">Método</a>
+    <a class="btn ghost" href="/en/limits.html">Límites (EN)</a>
+  </div>
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>

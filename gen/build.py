@@ -76,6 +76,7 @@ PAGES = [
     ("en/data.html", "en/data.html", "2026-10-25", "weekly", "0.6"),
     ("competitivas.html", "competitivas.html", "2026-10-25", "weekly", "0.7"),
     ("mayorias.html", "mayorias.html", "2026-10-25", "weekly", "0.7"),
+    ("postelectoral.html", "postelectoral.html", "2026-10-25", "weekly", "0.7"),
 ]
 
 
@@ -655,7 +656,7 @@ def write_blackout_site(
         with open(os.path.join(OUT, filename), "w", encoding="utf-8") as f:
             f.write(html)
 
-    for rel in ("data/latest.json", "data/robustez.json", "data/status.json", "data/changelog.json", "data/v1/latest.json", "data/v1/robustez.json", "data/v1/status.json", "og-robustez.png", "og.png", "og-hemiciclo.png", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "embed/medias.html", "mayorias.html"):
+    for rel in ("data/latest.json", "data/robustez.json", "data/status.json", "data/changelog.json", "data/v1/latest.json", "data/v1/robustez.json", "data/v1/status.json", "og-robustez.png", "og.png", "og-hemiciclo.png", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "embed/medias.html", "mayorias.html", "postelectoral.html"):
         _remove_if_exists(rel)
 
     marker = {
@@ -1031,6 +1032,58 @@ def build_house_compare(house: dict, parties: list) -> list:
     return rows[:6]
 
 
+
+
+def build_calibration(resultados: dict, snapshot: dict) -> dict:
+    """Comparación pre-electoral vs escrutinio oficial, si ambos existen."""
+    if not resultados or not snapshot:
+        return {"status": "pending"}
+    votes = resultados.get("votos") or {}
+    total_votes = sum(votes.values()) or 0
+    snap = {p.get("party"): p for p in snapshot.get("parties", [])}
+    rows = []
+    if total_votes:
+        for party in ("PP", "PSOE", "VOX", "SUMAR", "PODEMOS"):
+            if party not in votes or party not in snap:
+                continue
+            poll = float(snap[party].get("mean") or 0)
+            official = 100.0 * votes[party] / total_votes
+            rows.append({
+                "party": party,
+                "poll": round(poll, 2),
+                "official": round(official, 2),
+                "error": round(poll - official, 2),
+            })
+    mae = round(sum(abs(r["error"]) for r in rows) / len(rows), 2) if rows else None
+    bias = round(sum(r["error"] for r in rows) / len(rows), 2) if rows else None
+
+    seats = []
+    hem = snapshot.get("hemicycle_last") or {}
+    sim = {r.get("party"): int(r.get("seats") or 0) for r in hem.get("seats", [])}
+    dip = resultados.get("diputados") or {}
+    for party in ("PP", "PSOE", "VOX", "SUMAR", "PODEMOS"):
+        if party in sim and party in dip:
+            seats.append({
+                "party": party,
+                "sim": sim[party],
+                "official": int(dip[party]),
+                "error": sim[party] - int(dip[party]),
+            })
+    seat_mae = round(sum(abs(r["error"]) for r in seats) / len(seats), 2) if seats else None
+
+    return {
+        "status": "ready" if (rows or seats) else "pending",
+        "rows": rows,
+        "mae": mae,
+        "bias": bias,
+        "seat_rows": seats,
+        "seat_mae": seat_mae,
+        "n": len(rows),
+        "snapshot_updated": snapshot.get("updated_at"),
+        "snapshot_n_polls": snapshot.get("n_polls"),
+        "official_url": (resultados.get("meta") or {}).get("url"),
+        "official_updated": (resultados.get("meta") or {}).get("actualizado"),
+    }
 
 def build_competitive_provinces(congreso: dict, oficial: dict, circ_pages: list) -> tuple:
     """Provincias ordenadas por margen oficial 2023 entre los dos primeros.
@@ -1819,6 +1872,11 @@ def main(out: str = "web") -> None:
     if os.path.exists("data/resultados_29n.json"):
         with open("data/resultados_29n.json", encoding="utf-8") as f:
             resultados = json.load(f)
+    snapshot = {}
+    if os.path.exists("data/pre_election_snapshot.json"):
+        with open("data/pre_election_snapshot.json", encoding="utf-8") as f:
+            snapshot = json.load(f)
+    calibration = build_calibration(resultados, snapshot)
 
     escanos = {"provincias": [], "total_escanos": 0}
     if os.path.exists("data/escanos_2026.json"):
@@ -1967,6 +2025,7 @@ def main(out: str = "web") -> None:
         "circ_count": len(circ_pages),
         "competitive_provinces": competitive_provinces,
         "competitive_summary": competitive_summary,
+        "calibration": calibration,
         "fuente_congreso": oficial.get("meta", {}),
         "changelog": novedades.parse("CHANGELOG.md"),
         "circ_index_jsonld": build_webpage_jsonld(
@@ -1996,6 +2055,7 @@ def main(out: str = "web") -> None:
             "en/data.html": build_webpage_jsonld("Data", "/en/data.html", "Open JSON, versioned data and reproducibility."),
             "competitivas.html": build_webpage_jsonld("Provincias competitivas", "/competitivas.html", "Provincias ordenadas por el margen oficial de 2023 entre los dos primeros. Contexto factual, no proyección."),
             "mayorias.html": build_webpage_jsonld("Calculadora de mayorías", "/mayorias.html", "Suma aritmética de escaños simulados con umbral 176. No predice pactos ni investidura."),
+            "postelectoral.html": build_webpage_jsonld("Calibración post-electoral", "/postelectoral.html", "Comparación entre la última media pre-electoral y el escrutinio oficial."),
         },
         "meteo_rows": build_meteo_rows(meteo),
         "congreso_2023": congreso.get("elecciones", {}).get("2023-07-23", {}),
@@ -2026,7 +2086,7 @@ def main(out: str = "web") -> None:
     }
 
     for tname in ["index.html", "hemiciclo.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "participacion.html", "territorio.html",
-             "circunscripciones.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html", "competitivas.html", "mayorias.html", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html"]:
+             "circunscripciones.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html", "competitivas.html", "mayorias.html", "postelectoral.html", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(current=tname, **context)
         with open(os.path.join(OUT, tname), "w", encoding="utf-8") as f:
@@ -2060,6 +2120,17 @@ def main(out: str = "web") -> None:
         safe_context = {k: v for k, v in context.items() if not callable(v)}
         with open(os.path.join(OUT, "data/latest.json"), "w", encoding="utf-8") as f:
             json.dump(safe_context, f, ensure_ascii=False, indent=2)
+
+    if datetime(2026, 11, 1).date() <= now.date() < datetime(2026, 11, 29).date():
+        os.makedirs("data", exist_ok=True)
+        snap = {
+            "updated_at": latest.get("updated_at"),
+            "n_polls": latest.get("n_polls"),
+            "parties": [{k: p.get(k) for k in ("party", "mean", "min", "max", "n")} for p in latest.get("parties", [])],
+            "hemicycle_last": (latest.get("hemicycle") or [{}])[-1],
+        }
+        with open("data/pre_election_snapshot.json", "w", encoding="utf-8") as f:
+            json.dump(snap, f, ensure_ascii=False, indent=2)
 
     print("build ok", now)
 
