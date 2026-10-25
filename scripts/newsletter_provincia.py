@@ -197,7 +197,7 @@ def main():
     print(f"confirmados: {len(rows)}")
     if not rows:
         return 0
-    subject, html, text = render(rows[0], latest, prov)
+    subject, html, text = render(dict(rows[0]), latest, prov)
     Path("/tmp/29n_email_preview.html").write_text(html, encoding="utf-8")
     print("preview: /tmp/29n_email_preview.html")
     print("asunto:", subject)
