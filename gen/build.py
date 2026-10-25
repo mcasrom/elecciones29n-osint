@@ -74,6 +74,7 @@ PAGES = [
     ("en/robustness.html", "en/robustness.html", "2026-10-25", "weekly", "0.6"),
     ("en/limits.html", "en/limits.html", "2026-10-25", "monthly", "0.5"),
     ("en/data.html", "en/data.html", "2026-10-25", "weekly", "0.6"),
+    ("competitivas.html", "competitivas.html", "2026-10-25", "weekly", "0.7"),
 ]
 
 
@@ -1029,6 +1030,50 @@ def build_house_compare(house: dict, parties: list) -> list:
     return rows[:6]
 
 
+
+def build_competitive_provinces(congreso: dict, oficial: dict, circ_pages: list) -> tuple:
+    """Provincias ordenadas por margen oficial 2023 entre los dos primeros.
+
+    Es contexto factual, no una proyección: usa el resultado oficial de 2023.
+    """
+    punto = (congreso.get("elecciones") or {}).get("2023-07-23") or {}
+    provincias = punto.get("provincias") or []
+    off = {p.get("nombre"): p for p in ((oficial.get("elecciones") or {}).get("2023-07-23") or {}).get("provincias", [])}
+    slug = {p.get("nombre"): p.get("slug") for p in circ_pages}
+    rows = []
+    for p in provincias:
+        nombre = p.get("nombre")
+        votos = p.get("votos") or {}
+        escanos = p.get("escanos") or {}
+        if not votos:
+            continue
+        top = sorted(votos.items(), key=lambda kv: (-kv[1], kv[0]))
+        if len(top) < 2:
+            continue
+        (p1, v1), (p2, v2) = top[0], top[1]
+        validos = (off.get(nombre) or {}).get("validos") or sum(votos.values()) or 1
+        rows.append({
+            "nombre": nombre,
+            "slug": slug.get(nombre),
+            "escanos": sum(escanos.values()),
+            "winner": p1,
+            "second": p2,
+            "winner_votes": v1,
+            "second_votes": v2,
+            "winner_seats": int(escanos.get(p1, 0)),
+            "second_seats": int(escanos.get(p2, 0)),
+            "margin": round(100.0 * (v1 - v2) / validos, 2),
+            "seat_gap": abs(int(escanos.get(p1, 0)) - int(escanos.get(p2, 0))),
+            "turnout": p.get("participacion"),
+        })
+    rows.sort(key=lambda r: (r["margin"], r["nombre"] or ""))
+    summary = {
+        "n": len(rows),
+        "lt5": sum(1 for r in rows if r["margin"] < 5),
+        "lt10": sum(1 for r in rows if r["margin"] < 10),
+    }
+    return rows, summary
+
 def build_resultados_2023(n: dict) -> list:
     votes = n.get("votos", {})
     seats = n.get("escanos", {})
@@ -1799,6 +1844,7 @@ def main(out: str = "web") -> None:
 
     oficial = circunscripciones.load()
     circ_pages = circunscripciones.build_pages(oficial, escanos, censo)
+    competitive_provinces, competitive_summary = build_competitive_provinces(congreso, oficial, circ_pages)
     for p in circ_pages:
         p["jsonld"] = build_webpage_jsonld(
             f"{p['nombre']} · circunscripción 29N",
@@ -1918,6 +1964,8 @@ def main(out: str = "web") -> None:
         "territorio_jsonld": build_territorio_jsonld(),
         "circ_pages": circ_pages,
         "circ_count": len(circ_pages),
+        "competitive_provinces": competitive_provinces,
+        "competitive_summary": competitive_summary,
         "fuente_congreso": oficial.get("meta", {}),
         "changelog": novedades.parse("CHANGELOG.md"),
         "circ_index_jsonld": build_webpage_jsonld(
@@ -1945,6 +1993,7 @@ def main(out: str = "web") -> None:
             "en/robustness.html": build_webpage_jsonld("Robustness", "/en/robustness.html", "Sample, dispersion, source and house weights."),
             "en/limits.html": build_webpage_jsonld("Limits and glossary", "/en/limits.html", "What the observatory does not say."),
             "en/data.html": build_webpage_jsonld("Data", "/en/data.html", "Open JSON, versioned data and reproducibility."),
+            "competitivas.html": build_webpage_jsonld("Provincias competitivas", "/competitivas.html", "Provincias ordenadas por el margen oficial de 2023 entre los dos primeros. Contexto factual, no proyección."),
         },
         "meteo_rows": build_meteo_rows(meteo),
         "congreso_2023": congreso.get("elecciones", {}).get("2023-07-23", {}),
@@ -1975,7 +2024,7 @@ def main(out: str = "web") -> None:
     }
 
     for tname in ["index.html", "hemiciclo.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "participacion.html", "territorio.html",
-             "circunscripciones.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html"]:
+             "circunscripciones.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html", "competitivas.html", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(current=tname, **context)
         with open(os.path.join(OUT, tname), "w", encoding="utf-8") as f:

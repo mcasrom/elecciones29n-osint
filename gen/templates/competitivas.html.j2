@@ -1,0 +1,63 @@
+{% set page_title = "Provincias competitivas · resultado oficial 2023 · 29N" %}
+{% set page_desc = "Provincias ordenadas por el margen oficial de 2023 entre los dos primeros partidos. Contexto factual, no una proyección del 29N." %}
+{% set canonical = site_url ~ "/competitivas.html" %}
+{% set jsonld = webpages['competitivas.html'] %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Provincias competitivas</h1>
+  <p class="muted" style="margin:0 0 12px">Resultado oficial de las generales de <strong>2023</strong>, ordenado por el margen entre los dos primeros partidos. Es contexto factual: <strong>no es una proyección del 29N</strong>.</p>
+
+  <div class="hero-kpis">
+    <div class="hk"><b>{{ competitive_summary.n }}</b><span>provincias</span></div>
+    <div class="hk"><b>{{ competitive_summary.lt5 }}</b><span>con margen &lt; 5 pp</span></div>
+    <div class="hk"><b>{{ competitive_summary.lt10 }}</b><span>con margen &lt; 10 pp</span></div>
+    <div class="hk"><b>2023</b><span>último resultado oficial</span></div>
+  </div>
+
+  <div class="alert warn"><strong>Ojo:</strong> un margen pequeño en 2023 no significa que la provincia vaya a cambiar el 29N. No se proyectan escaños desde encuestas; esta tabla solo describe el punto de partida oficial.</div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Margen entre los dos primeros</h2><span class="hint">votos válidos · orden ascendente</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Provincia</th><th>Escaños</th><th>Primero</th><th>Segundo</th><th>Margen</th><th>Diferencia escaños</th><th>Participación</th></tr></thead>
+      <tbody>
+      {% for r in competitive_provinces %}
+        <tr>
+          <td>{% if r.slug %}<a href="/circunscripcion/{{ r.slug }}.html">{{ r.nombre }}</a>{% else %}{{ r.nombre }}{% endif %}</td>
+          <td class="num">{{ r.escanos }}</td>
+          <td>{{ r.winner }} <span class="muted small">({{ r.winner_seats }})</span></td>
+          <td>{{ r.second }} <span class="muted small">({{ r.second_seats }})</span></td>
+          <td class="num">{{ "%.2f"|format(r.margin) }} pp {% if r.margin < 5 %}<span class="chip2">≤5</span>{% endif %}</td>
+          <td class="num">{{ r.seat_gap }}</td>
+          <td class="num">{% if r.turnout is not none %}{{ fmt_pct(r.turnout) }}%{% else %}—{% endif %}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table></div>
+    <p class="muted small">Margen = diferencia de votos entre el primero y el segundo dividida por los votos válidos de la provincia. La columna de escaños es el resultado oficial, no una estimación. Fuente: Ministerio del Interior, resultados de 2023.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Cómo leerla</h2></div>
+    <ul class="muted">
+      <li><strong>Margen &lt; 5 pp</strong>: provincia muy ajustada en 2023; suele concentrar la atención, pero no garantiza un vuelco.</li>
+      <li><strong>Diferencia de escaños</strong>: un margen pequeño puede convivir con una diferencia de varios escaños por el reparto provincial.</li>
+      <li><strong>Participación</strong>: un cambio de participación puede alterar el resultado sin que cambien las intenciones declaradas.</li>
+      <li><strong>No es una proyección</strong>: para el 29N no se asignan escaños desde encuestas; el hemiciclo nacional es una simulación de bloques separada.</li>
+    </ul>
+    <div class="cta">
+      <a class="btn" href="/circunscripciones.html">Las 52 circunscripciones</a>
+      <a class="btn ghost" href="/territorio.html">Territorio y escaños</a>
+      <a class="btn ghost" href="/hemiciclo.html">Hemiciclo simulado</a>
+    </div>
+  </div>
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>
