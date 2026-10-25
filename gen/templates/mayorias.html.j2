@@ -1,0 +1,109 @@
+{% set page_title = "Calculadora de mayorías · hemiciclo simulado 29N" %}
+{% set page_desc = "Suma aritmética de los escaños del hemiciclo simulado, con umbral de 176. No es una proyección ni predice pactos o investidura." %}
+{% set canonical = site_url ~ "/mayorias.html" %}
+{% set jsonld = webpages['mayorias.html'] %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Calculadora de mayorías</h1>
+  <p class="muted" style="margin:0 0 12px">Suma los escaños de la simulación nacional del 29N. Es <strong>aritmética de bloques</strong>: no es una proyección, no predice pactos y no decide una investidura.</p>
+
+  {% if hemicycle %}
+  {% set h = hemicycle[-1] %}
+  {% set colors = {'PP':'#3b82f6','PSOE':'#ef4444','VOX':'#22c55e','SUMAR':'#d946ef','PODEMOS':'#7c3aed','Otros':'#94a3b8'} %}
+  <div class="alert warn"><strong>No es un gobierno.</strong> Una suma de 176 o más solo indica mayoría aritmética en esta simulación. Los pactos, la abstención y la investidura dependen de negociaciones que no se modelan aquí.</div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Suma de escaños</h2><span class="hint">{{ h.label }} · {{ h.n_polls }} sondeos · 350 escaños</span></div>
+    <div style="display:flex;gap:22px;flex-wrap:wrap;align-items:flex-start">
+      <div style="flex:1 1 320px;min-width:0">
+        <p class="muted small" style="margin:0 0 8px">Selecciona partidos:</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:6px 12px">
+          {% for r in h.seats %}
+          <label style="display:flex;align-items:center;gap:8px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;cursor:pointer">
+            <input type="checkbox" class="calc-seat" data-party="{{ r.party }}" data-seats="{{ r.seats }}" style="accent-color:var(--accent)">
+            <span class="dot" style="background:{{ colors.get(r.party, '#94a3b8') }}"></span>
+            <strong>{{ r.party }}</strong>
+            <span class="muted small" style="margin-left:auto">{{ r.seats }}</span>
+          </label>
+          {% endfor %}
+        </div>
+      </div>
+      <div style="flex:0 1 250px;min-width:210px;border-left:1px solid var(--line);padding-left:20px">
+        <p class="muted small" style="margin:0">Total seleccionado</p>
+        <p style="margin:2px 0 0"><b id="calc-total" style="font-size:44px;line-height:1;letter-spacing:-.03em">0</b><span class="muted"> / 350</span></p>
+        <p id="calc-status" class="muted small" aria-live="polite" style="min-height:44px;margin:8px 0">Selecciona una combinación.</p>
+        <div class="cta" style="margin-top:8px">
+          <button class="btn ghost smallbtn" type="button" data-preset="right">PP + VOX</button>
+          <button class="btn ghost smallbtn" type="button" data-preset="left">PSOE + Sumar</button>
+          <button class="btn ghost smallbtn" type="button" data-preset="all">Todos</button>
+          <button class="btn ghost smallbtn" type="button" data-preset="none">Ninguno</button>
+        </div>
+        <p class="muted small" style="margin:10px 0 0">Mayoría absoluta: <strong>176</strong>.</p>
+      </div>
+    </div>
+    <noscript><p class="muted small">Sin JavaScript puedes consultar los escaños en la tabla de abajo.</p></noscript>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Escaños de la simulación</h2><span class="hint">misma foto que el hemiciclo</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Partido</th><th>Escaños</th></tr></thead>
+      <tbody>{% for r in h.seats %}<tr><td><strong>{{ r.party }}</strong></td><td class="num">{{ r.seats }}</td></tr>{% endfor %}</tbody>
+    </table></div>
+    <p class="muted small">D'Hondt nacional, 350 escaños, umbral 3%, solo partidos estatales. No incluye ERC, Junts, EH Bildu ni PNV; no es la composición real del Congreso.</p>
+  </div>
+
+  <div class="cta">
+    <a class="btn" href="/hemiciclo.html">Ver el hemiciclo por fecha</a>
+    <a class="btn ghost" href="/metodologia.html#hemiciclo">Método de la simulación</a>
+    <a class="btn ghost" href="/caveat.html">Qué no dice</a>
+  </div>
+
+  <script>
+  (function(){
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('.calc-seat'));
+    var totalEl = document.getElementById('calc-total');
+    var statusEl = document.getElementById('calc-status');
+    var THRESHOLD = 176;
+    function update(){
+      var total = 0;
+      boxes.forEach(function(b){ if (b.checked) total += parseInt(b.dataset.seats, 10) || 0; });
+      totalEl.textContent = total;
+      var diff = total - THRESHOLD;
+      if (total >= THRESHOLD) {
+        statusEl.textContent = 'Mayoría aritmética: ' + diff + ' por encima de 176.';
+        statusEl.style.color = 'var(--accent2)';
+      } else {
+        statusEl.textContent = 'Sin mayoría aritmética: faltan ' + (THRESHOLD - total) + ' para 176.';
+        statusEl.style.color = 'var(--muted)';
+      }
+    }
+    boxes.forEach(function(b){ b.addEventListener('change', update); });
+    document.querySelectorAll('[data-preset]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var preset = btn.dataset.preset;
+        var map = { right: ['PP','VOX'], left: ['PSOE','SUMAR','PODEMOS'] };
+        boxes.forEach(function(b){
+          if (preset === 'all') b.checked = true;
+          else if (preset === 'none') b.checked = false;
+          else b.checked = (map[preset] || []).indexOf(b.dataset.party) >= 0;
+        });
+        update();
+      });
+    });
+    update();
+  })();
+  </script>
+  {% else %}
+  <div class="alert warn">No hay datos del hemiciclo todavía.</div>
+  {% endif %}
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>

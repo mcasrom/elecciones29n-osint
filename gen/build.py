@@ -75,6 +75,7 @@ PAGES = [
     ("en/limits.html", "en/limits.html", "2026-10-25", "monthly", "0.5"),
     ("en/data.html", "en/data.html", "2026-10-25", "weekly", "0.6"),
     ("competitivas.html", "competitivas.html", "2026-10-25", "weekly", "0.7"),
+    ("mayorias.html", "mayorias.html", "2026-10-25", "weekly", "0.7"),
 ]
 
 
@@ -654,7 +655,7 @@ def write_blackout_site(
         with open(os.path.join(OUT, filename), "w", encoding="utf-8") as f:
             f.write(html)
 
-    for rel in ("data/latest.json", "data/robustez.json", "data/status.json", "data/changelog.json", "data/v1/latest.json", "data/v1/robustez.json", "data/v1/status.json", "og-robustez.png", "og.png", "og-hemiciclo.png", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "embed/medias.html"):
+    for rel in ("data/latest.json", "data/robustez.json", "data/status.json", "data/changelog.json", "data/v1/latest.json", "data/v1/robustez.json", "data/v1/status.json", "og-robustez.png", "og.png", "og-hemiciclo.png", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "embed/medias.html", "mayorias.html"):
         _remove_if_exists(rel)
 
     marker = {
@@ -1994,6 +1995,7 @@ def main(out: str = "web") -> None:
             "en/limits.html": build_webpage_jsonld("Limits and glossary", "/en/limits.html", "What the observatory does not say."),
             "en/data.html": build_webpage_jsonld("Data", "/en/data.html", "Open JSON, versioned data and reproducibility."),
             "competitivas.html": build_webpage_jsonld("Provincias competitivas", "/competitivas.html", "Provincias ordenadas por el margen oficial de 2023 entre los dos primeros. Contexto factual, no proyección."),
+            "mayorias.html": build_webpage_jsonld("Calculadora de mayorías", "/mayorias.html", "Suma aritmética de escaños simulados con umbral 176. No predice pactos ni investidura."),
         },
         "meteo_rows": build_meteo_rows(meteo),
         "congreso_2023": congreso.get("elecciones", {}).get("2023-07-23", {}),
@@ -2024,7 +2026,7 @@ def main(out: str = "web") -> None:
     }
 
     for tname in ["index.html", "hemiciclo.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "participacion.html", "territorio.html",
-             "circunscripciones.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html", "competitivas.html", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html"]:
+             "circunscripciones.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html", "competitivas.html", "mayorias.html", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(current=tname, **context)
         with open(os.path.join(OUT, tname), "w", encoding="utf-8") as f:
