@@ -68,6 +68,7 @@ PAGES = [
     ("novedades.html", "novedades.html", "2026-10-22", "monthly", "0.4"),
     ("apoyo.html", "apoyo.html", "2026-10-18", "yearly", "0.5"),
     ("sobre-mi.html", "sobre-mi.html", "2026-10-18", "yearly", "0.5"),
+    ("en.html", "en.html", "2026-10-25", "weekly", "0.6"),
 ]
 
 
@@ -645,7 +646,7 @@ def write_blackout_site(
         with open(os.path.join(OUT, filename), "w", encoding="utf-8") as f:
             f.write(html)
 
-    for rel in ("data/latest.json", "data/robustez.json", "data/status.json", "data/changelog.json", "data/v1/latest.json", "data/v1/robustez.json", "data/v1/status.json", "og-robustez.png", "og.png", "og-hemiciclo.png"):
+    for rel in ("data/latest.json", "data/robustez.json", "data/status.json", "data/changelog.json", "data/v1/latest.json", "data/v1/robustez.json", "data/v1/status.json", "og-robustez.png", "og.png", "og-hemiciclo.png", "en.html"):
         _remove_if_exists(rel)
 
     marker = {
@@ -1931,6 +1932,7 @@ def main(out: str = "web") -> None:
             "apoyo.html": build_webpage_jsonld("Apoyar el proyecto", "/apoyo.html", "Ko-fi, compartir y colaboración."),
             "privacidad.html": build_webpage_jsonld("Privacidad", "/privacidad.html", "Datos del aviso por correo, finalidad, conservación y derechos. Sin cookies ni perfilado."),
             "about.html": build_webpage_jsonld("Acerca del proyecto", "/about.html", "Proyecto local-first, estático y sin tracking."),
+            "en.html": build_webpage_jsonld("Spain 29N polls", "/en.html", "Aggregated average of published polls with range, sources and limits. Not a forecast."),
         },
         "meteo_rows": build_meteo_rows(meteo),
         "congreso_2023": congreso.get("elecciones", {}).get("2023-07-23", {}),
@@ -1961,7 +1963,7 @@ def main(out: str = "web") -> None:
     }
 
     for tname in ["index.html", "hemiciclo.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "participacion.html", "territorio.html",
-             "circunscripciones.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html"]:
+             "circunscripciones.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html", "en.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(current=tname, **context)
         with open(os.path.join(OUT, tname), "w", encoding="utf-8") as f:

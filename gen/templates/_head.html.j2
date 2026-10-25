@@ -3,6 +3,7 @@
 <title>{{ page_title or site_title }}</title>
 <meta name="description" content="{{ page_desc or site_desc }}">
 <link rel="canonical" href="{{ canonical or (site_url ~ '/') }}">
+{% if page_lang == 'en' %}<link rel="alternate" hreflang="es" href="{{ site_url }}/"><link rel="alternate" hreflang="en" href="{{ site_url }}/en.html">{% endif %}
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="stylesheet" href="/css/main.css?v={{ build_ts }}">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
