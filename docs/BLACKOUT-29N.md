@@ -28,6 +28,10 @@
 
 ## Archive.org
 
+- Comprobación automatizada: `python3 scripts/archive_check.py` (0 = sin capturas, 1 = hay capturas, 2 = consulta incompleta).
+- **25-oct**: CDX sin capturas en las URLs comprobadas; una consulta de disponibilidad dio error intermitente. **Recheck 23, 24 y 28 nov**.
+- Texto de solicitud y alcance: `demo/archive_org_29n_20261025.md` (privado). **No enviar sin OK expreso.**
+
 - [ ] Solicitar exclusión/eliminación de las instantáneas con datos, usando el procedimiento de Archive.org. **No se puede garantizar**: es un tercero y puede rechazar o tardar.
 - [ ] Guardar el identificador de la solicitud y la fecha.
 - [ ] No enviar la solicitud sin OK expreso del titular (regla 31).
