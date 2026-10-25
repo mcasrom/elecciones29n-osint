@@ -85,6 +85,9 @@ en `scripts/subs_api.py` (puerto 3031, PM2 `elecciones29n-api`, SQLite
 `data/subs.db`) y el informe agregado sin PII —incluidas las versiones de
 consentimiento— se obtiene con `python3 scripts/subs_report.py`.
 
+Si el correo **ya está confirmado**, el formulario no reenvía la confirmación:
+muestra «Ya estabas suscrito» y no consume el límite de email. Límites: **2 intentos/10 min por email** y **5/10 min por IP**; no reintentar en bucle.
+
 ## Salud de la muestra
 
 La portada muestra un panel de **salud de la muestra**: número de sondeos,
