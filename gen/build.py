@@ -83,6 +83,7 @@ def ensure_dirs() -> None:
     os.makedirs(os.path.join(OUT, "js"), exist_ok=True)
     os.makedirs(os.path.join(OUT, "data"), exist_ok=True)
     os.makedirs(os.path.join(OUT, "en"), exist_ok=True)
+    os.makedirs(os.path.join(OUT, "embed"), exist_ok=True)
 
 
 def write_css() -> None:
@@ -652,7 +653,7 @@ def write_blackout_site(
         with open(os.path.join(OUT, filename), "w", encoding="utf-8") as f:
             f.write(html)
 
-    for rel in ("data/latest.json", "data/robustez.json", "data/status.json", "data/changelog.json", "data/v1/latest.json", "data/v1/robustez.json", "data/v1/status.json", "og-robustez.png", "og.png", "og-hemiciclo.png", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html"):
+    for rel in ("data/latest.json", "data/robustez.json", "data/status.json", "data/changelog.json", "data/v1/latest.json", "data/v1/robustez.json", "data/v1/status.json", "og-robustez.png", "og.png", "og-hemiciclo.png", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "embed/medias.html"):
         _remove_if_exists(rel)
 
     marker = {
@@ -1979,6 +1980,11 @@ def main(out: str = "web") -> None:
         html = tpl.render(current=tname, **context)
         with open(os.path.join(OUT, tname), "w", encoding="utf-8") as f:
             f.write(html)
+
+    tpl_embed = env.get_template("embed/medias.html.j2")
+    html = tpl_embed.render(current="embed/medias.html", **context)
+    with open(os.path.join(OUT, "embed", "medias.html"), "w", encoding="utf-8") as f:
+        f.write(html)
 
     tpl_circ = env.get_template("circunscripcion.html.j2")
     for p in circ_pages:
