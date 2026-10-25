@@ -104,6 +104,41 @@
     <p class="muted small">{{ n_polls }} sondeos · sin CIS {{ n_polls_sin_cis }}. Es una prueba de sensibilidad, no una media alternativa “buena” ni un pronóstico.</p>
   </div>
 
+  {% if sensitivity %}
+  <div class="card" id="sensibilidad">
+    <div class="cardhead"><h2>Quita una fuente o casa</h2><span class="hint">media recalculada sin ese bloque · Δ frente a la media</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Exclusión</th><th>PP</th><th>PSOE</th><th>VOX</th><th>SUMAR</th><th>Sondeos</th></tr></thead>
+      <tbody>
+      {% for s in sensitivity %}
+        <tr><td><strong>{{ s.name }}</strong><br><span class="muted small">{{ s.kind }}</span></td>
+        {% for p in ("PP", "PSOE", "VOX", "SUMAR") %}
+          {% set m = s.means.get(p) %}
+          <td class="num">{% if m %}{{ fmt_pct(m.mean) }}%<br><span class="muted small">{{ "%+.1f"|format(m.delta) }} pp</span>{% else %}—{% endif %}</td>
+        {% endfor %}
+        <td class="num">{{ s.n_polls }}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table></div>
+    <p class="muted small">Sensibilidad descriptiva: no es una media alternativa ni una prueba de sesgo. Si el Δ es grande, la media depende de ese bloque.</p>
+  </div>
+  {% endif %}
+
+  {% if house_latest %}
+  <div class="card" id="metodo-casas">
+    <div class="cardhead"><h2>Método y cobertura por casa</h2><span class="hint">lo que publica cada casa · no se inventa lo que falta</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Casa</th><th>Última</th><th>Muestra</th><th>Método</th><th>Fuente</th></tr></thead>
+      <tbody>
+      {% for r in house_latest_sorted %}
+        <tr><td><strong>{{ r.pollster }}</strong></td><td class="num">{{ r.date }}</td><td class="num">{% if r.sample %}{{ "{:,}".format(r.sample)|replace(",", ".") }}{% else %}no consta{% endif %}</td><td>{% if r.nota %}{{ r.nota }}{% else %}no consta{% endif %}</td><td>{% if r.url %}<a href="{{ r.url }}" rel="noopener" target="_blank">enlace</a>{% else %}—{% endif %}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table></div>
+    <p class="muted small">No se publican cuotas ni cobertura por edad o territorio; por eso no se afirma sesgo online/mayor/rural. Si una casa no declara método, figura «no consta».</p>
+  </div>
+  {% endif %}
+
   {% if house_latest_sorted %}
   <div class="card">
     <div class="cardhead"><h2>Efecto de casa</h2><span class="hint">último sondeo de cada casa · diferencia con la media</span></div>

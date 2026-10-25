@@ -220,6 +220,43 @@ def _poll_weights(recent: List[Dict[str, Any]], now: datetime, extended: bool) -
     }
 
 
+
+def _sensitivity(recent: List[Dict[str, Any]], parties: List[Dict[str, Any]],
+                 weights: Dict[str, Any], now: datetime) -> List[Dict[str, Any]]:
+    """Media recalculada al quitar la fuente/casa con más peso y el CIS."""
+    main = {p["party"]: p["mean"] for p in parties}
+    targets: List[tuple] = []
+    top_src = weights.get("top_source")
+    top_house = weights.get("top_house")
+    if top_src:
+        targets.append(("Fuente", top_src, lambda p, x=top_src: _poll_source(p) == x))
+    if top_house:
+        targets.append(("Casa", top_house, lambda p, x=top_house: (p.get("pollster") or "") == x))
+    if top_src != "CIS":
+        targets.append(("Fuente", "CIS", lambda p: _poll_source(p) == "CIS"))
+    seen = set()
+    out = []
+    for kind, name, pred in targets:
+        key = (kind, name)
+        if key in seen:
+            continue
+        seen.add(key)
+        rows = [p for p in recent if pred(p)]
+        if not rows:
+            continue
+        n_polls = len({(p["date"].strftime("%Y-%m-%d"), p.get("pollster")) for p in rows})
+        means = {}
+        for party, base in main.items():
+            vals = [p for p in rows if p["party"] == party]
+            if not vals:
+                continue
+            sw = sum(_weight(p, now) for p in vals) or 1.0
+            mean = sum(p["value"] * _weight(p, now) for p in vals) / sw
+            means[party] = {"mean": round(mean, 2), "delta": round(mean - base, 2)}
+        if means:
+            out.append({"kind": kind, "name": name, "n_polls": n_polls, "means": means})
+    return out
+
 def _series(polls: List[Dict[str, Any]]) -> Dict[str, List[Dict[str, Any]]]:
     out: Dict[str, List[Dict[str, Any]]] = {}
     for p in polls:
@@ -557,6 +594,7 @@ def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[st
 
     novedades = _novedades(polls_all, now)
     weights = _poll_weights(recent, now, extended)
+    sensitivity = _sensitivity(recent, parties, weights, now)
 
     election = now.replace(year=2026, month=11, day=29, hour=0, minute=0, second=0, microsecond=0)
     blackout_start = now.replace(year=2026, month=11, day=24, hour=0, minute=0, second=0, microsecond=0)
@@ -584,6 +622,7 @@ def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[st
         "health": health,
         "novedades": novedades,
         "weights": weights,
+        "sensitivity": sensitivity,
         "house_mean": house_mean,
         "house_latest": house_latest,
         "days_to_election": max(0, (election - now).days),

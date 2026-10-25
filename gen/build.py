@@ -1894,6 +1894,7 @@ def main(out: str = "web") -> None:
         "novedades": latest.get("novedades", []),
         "house_mean": latest.get("house_mean", {}),
         "weights": latest.get("weights") or {},
+        "sensitivity": latest.get("sensitivity", []),
         "house_latest": latest.get("house_latest", []),
         "house_latest_sorted": sorted(latest.get("house_latest", []), key=lambda r: (r.get("pp") is None, -(r.get("pp") or 0))),
         "house_compare": build_house_compare(latest.get("house_mean", {}), parties),

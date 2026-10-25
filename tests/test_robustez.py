@@ -45,6 +45,7 @@ class RobustezTest(unittest.TestCase):
         self.assertGreaterEqual(w["effective_houses"], 1)
         self.assertLessEqual(w["effective_sources"], len(w["sources"]) + 0.05)
         self.assertLessEqual(w["effective_houses"], len(w["houses"]) + 0.05)
+        self.assertIn("sensitivity", res)
 
     def test_sample_pct_with_missing(self):
         today = datetime.now(TZ).strftime("%Y-%m-%d")
