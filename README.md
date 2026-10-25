@@ -34,6 +34,7 @@ dato, no en una nota al pie.
 - `/mayorias.html` — **calculadora de mayorías** sobre el hemiciclo simulado: suma de escaños, umbral 176 y presets. No predice pactos ni investidura.
 - `/postelectoral.html` — **calibración post-electoral**: pendiente hasta el escrutinio; comparará media pre-electoral, resultado oficial, MAE, sesgo y escaños.
 - `/embed/medias.html`, `/embed/robustez.html`, `/embed/hemiciclo.html` — **paneles incrustables** con atribución; ejemplos iframe en sus páginas y en `/fuentes.html`.
+- `/aviso.html` — **landing de avisos**: un correo solo cuando cambia la media o el hemiciclo; doble opt-in y baja en un clic.
 - `/electorado.html` — Censo 29N: total, CER/CERA, edad y sexo, provincias y nuevos electores.
 - `/participacion.html` — Participación nacional 1979–2023 y **provincial 1977–2023** (selector + comparación con la media nacional).
 - `/territorio.html` — 350 escaños, 52 circunscripciones, electores por escaño y **votos↔escaños 2023 con índice de Gallagher**.

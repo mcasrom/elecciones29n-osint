@@ -1,0 +1,55 @@
+{% set page_title = "Avisos del 29N · un correo cuando cambie el dato" %}
+{% set page_desc = "Aviso por correo solo cuando cambie la media o el hemiciclo del 29N. Doble confirmación, sin cookies y baja en un clic." %}
+{% set canonical = site_url ~ "/aviso.html" %}
+{% set jsonld = webpages['aviso.html'] %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:32px;letter-spacing:-0.03em">Un aviso, no un boletín diario</h1>
+  <p class="muted" style="margin:0 0 14px">Te escribo <strong>solo cuando cambia algo relevante</strong> en los datos del 29N: un sondeo nuevo, un movimiento de la media o un cambio en el hemiciclo. Si no hay cambio, no hay correo.</p>
+
+  <div class="alert warn"><strong>Sin ruido y sin pronóstico.</strong> No vas a recibir una predicción ni una cifra “en vivo”. Recibirás el dato publicado, su fecha y el enlace para verificarlo.</div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Qué recibes</h2></div>
+    <ul class="muted">
+      <li><strong>Un aviso cuando cambie la media</strong> de PP, PSOE, VOX o Sumar respecto al último aviso.</li>
+      <li><strong>Un aviso cuando cambie el hemiciclo</strong> o la mayoría de bloque en la simulación.</li>
+      <li><strong>El enlace al dato</strong> y a la metodología, para que puedas comprobarlo.</li>
+      <li><strong>Nada más</strong>: sin publicidad, sin terceros y sin perfilado.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Qué no recibes</h2></div>
+    <ul class="muted">
+      <li>Un correo diario si no hay cambios.</li>
+      <li>Una predicción del resultado ni una estimación propia de intención de voto.</li>
+      <li>Sondeos durante el <strong>blackout</strong> del 24 al 28 de noviembre.</li>
+    </ul>
+  </div>
+
+  {% include "_captura.html.j2" %}
+
+  <div class="card">
+    <div class="cardhead"><h2>Preguntas frecuentes</h2></div>
+    <details><summary><strong>¿Cada cuánto llega?</strong></summary><p class="muted small">Solo cuando hay un cambio relevante. En una semana tranquila puede no llegar nada; en campaña, varios días.</p></details>
+    <details><summary><strong>¿Qué es “relevante”?</strong></summary><p class="muted small">Nuevo sondeo, cambio de bloque o mayoría, Δ≥1 pp en un partido principal o Δ≥3 escaños. Los umbrales están publicados y se revisan.</p></details>
+    <details><summary><strong>¿Cómo sé que no es spam?</strong></summary><p class="muted small">Doble confirmación: tras dejar tu correo recibes un enlace; hasta que lo pulses, no se envía nada. La baja es un clic y borra página, UTM y referrer.</p></details>
+    <details><summary><strong>¿Puedo seguir sin correo?</strong></summary><p class="muted small">Sí: <a href="/cambios.xml">RSS de cambios</a>, el <a href="/hemiciclo.html">hemiciclo</a> o los datos JSON. El correo es solo el canal de aviso.</p></details>
+  </div>
+
+  <div class="cta">
+    <a class="btn" href="/hemiciclo.html">Ver el hemiciclo</a>
+    <a class="btn ghost" href="/metodologia.html">Método</a>
+    <a class="btn ghost" href="/privacidad.html">Privacidad</a>
+  </div>
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>

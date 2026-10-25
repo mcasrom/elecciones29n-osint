@@ -81,6 +81,7 @@ PAGES = [
     ("mayorias.html", "mayorias.html", "2026-10-25", "weekly", "0.7"),
     ("postelectoral.html", "postelectoral.html", "2026-10-25", "weekly", "0.7"),
     ("incrustar.html", "incrustar.html", "2026-10-25", "monthly", "0.4"),
+    ("aviso.html", "aviso.html", "2026-10-25", "monthly", "0.7"),
 ]
 
 
@@ -766,6 +767,7 @@ def write_llms() -> None:
 - {SITE_URL}/embed/robustez.html
 - {SITE_URL}/embed/hemiciclo.html
 - {SITE_URL}/incrustar.html
+- {SITE_URL}/aviso.html
 - {SITE_URL}/novedades.html
 - {SITE_URL}/cambios.xml
 - {SITE_URL}/privacidad.html
@@ -2091,6 +2093,7 @@ def main(out: str = "web") -> None:
             "mayorias.html": build_webpage_jsonld("Calculadora de mayorías", "/mayorias.html", "Suma aritmética de escaños simulados con umbral 176. No predice pactos ni investidura."),
             "postelectoral.html": build_webpage_jsonld("Calibración post-electoral", "/postelectoral.html", "Comparación entre la última media pre-electoral y el escrutinio oficial."),
             "incrustar.html": build_webpage_jsonld("Incrustar los datos del 29N", "/incrustar.html", "Guía de uso de los embeds de media, robustez y hemiciclo, con atribución y límites."),
+            "aviso.html": build_webpage_jsonld("Avisos del 29N", "/aviso.html", "Aviso por correo solo cuando cambie la media o el hemiciclo. Doble opt-in y baja en un clic."),
         },
         "meteo_rows": build_meteo_rows(meteo),
         "congreso_2023": congreso.get("elecciones", {}).get("2023-07-23", {}),
@@ -2121,7 +2124,7 @@ def main(out: str = "web") -> None:
     }
 
     for tname in ["index.html", "hemiciclo.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "participacion.html", "territorio.html",
-             "circunscripciones.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html", "competitivas.html", "mayorias.html", "postelectoral.html", "incrustar.html", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html", "en/post-election.html"]:
+             "circunscripciones.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html", "competitivas.html", "mayorias.html", "postelectoral.html", "incrustar.html", "aviso.html", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html", "en/post-election.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(current=tname, **context)
         with open(os.path.join(OUT, tname), "w", encoding="utf-8") as f:
