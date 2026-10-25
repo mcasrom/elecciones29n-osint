@@ -29,6 +29,7 @@ dato, no en una nota al pie.
 
 - `/` — Agregado, evolución, Congreso (D'Hondt etiquetado como simulación) y Senado.
 - `/hemiciclo.html` — **350 escaños por fecha de sondeo**: D'Hondt nacional sobre la media, selector de fecha, bloques y serie completa. Simulación mecánica, no proyección; sin territoriales. Enlace visible en la portada (pestaña **Hemiciclo** y botón bajo los indicadores) y en la navegación del resto de páginas.
+- `/en.html` — **resumen mínimo en inglés**: media, rango, límites, método, datos y enlaces. `hreflang` es/en; el resto del sitio sigue en español.
 - `/electorado.html` — Censo 29N: total, CER/CERA, edad y sexo, provincias y nuevos electores.
 - `/participacion.html` — Participación nacional 1979–2023 y **provincial 1977–2023** (selector + comparación con la media nacional).
 - `/territorio.html` — 350 escaños, 52 circunscripciones, electores por escaño y **votos↔escaños 2023 con índice de Gallagher**.
@@ -38,6 +39,16 @@ dato, no en una nota al pie.
 - `/noche-electoral.html` — Qué se publica el 29N, cuándo y con qué fuente.
 - `/metodologia.html` y `/fuentes.html` — Método, fuentes, catálogo de datos y licencias.
 - `/privacidad.html` — Datos del aviso por correo, finalidad, conservación y derechos. Sin cookies.
+
+## Datos abiertos y reproducibilidad
+
+- `data/latest.json` y `data/robustez.json`: agregado y robustez.
+- `data/status.json`: build, commit, fuentes y **hashes SHA-256** de los ficheros publicados.
+- `data/changelog.json`: historial de builds/datos (máximo 100 entradas).
+- `/data/v1/latest.json`, `/data/v1/robustez.json`, `/data/v1/status.json` y `/data/v1/schema.json`: contrato versionado y esquema.
+- `scripts/reproduce.sh`: reconstruye con el CSV y los datos actuales y devuelve los hashes. El cálculo es **determinista** (D’Hondt y ponderación); no usa semilla. Para reproducir un build histórico hay que congelar antes el CSV y los JSON de entrada.
+- En **blackout** (24–28 nov), los JSON y OG retirados responden **410**; el service worker no cachea `/data/` ni `.json`.
+- `scripts/archive_check.py`: comprueba si hay instantáneas en Archive.org (0 sin capturas, 1 con capturas, 2 consulta incompleta).
 
 ## Aviso por correo
 
@@ -123,7 +134,7 @@ ingest/escanos.py      ┘                                      │
   último, % con muestra declarada y dispersión IQR entre casas), sin nota agregada.
   La tabla muestra además casas e IQR por partido; el contraste por casa incluye el
   último sondeo de cada una con su método (CIS = estimación de voto) y una nota sobre
-  mín–máx frente a IQR. Explicación y límites en `/metodologia.html#robustez`. El build diario genera también `og-robustez.png` (1200×630) para RRSS.
+  mín–máx frente a IQR. Explicación y límites en `/metodologia.html#robustez`. El build diario genera también `og-robustez.png` (1200×630) para RRSS. La robustez separa **fuente** y **casa** (no se suman), muestra concentración efectiva, aviso si una fuente supera el 50 %, sensibilidad al quitar Onda Cero/ElectoPanel/CIS y una ficha de **método/cobertura por casa** con «no consta» cuando la fuente no lo publica.
 - **Aviso de novedades**: chip en la cabecera («Nuevo sondeo · <casa> (DD/MM)»)
   que solo aparece si la ejecución ha incorporado sondeos nuevos. Se mantiene
   durante el día y desaparece al siguiente; las medias (`kind=average`) no
