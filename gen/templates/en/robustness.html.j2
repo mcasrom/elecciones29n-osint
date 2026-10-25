@@ -1,0 +1,81 @@
+{% set page_title = "Robustness · Spain 29N observatory" %}
+{% set page_desc = "Sample, dispersion, source and house weights, leave-one-out sensitivity and method availability. No aggregate score and no forecast." %}
+{% set canonical = site_url ~ "/en/robustness.html" %}
+{% set page_lang = "en" %}
+{% set page_alt_es = site_url ~ "/robustez.html" %}
+{% set page_alt_en = canonical %}
+{% set jsonld = webpages['en/robustness.html'] %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_en_nav.html.j2" %}
+
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:32px;letter-spacing:-0.03em">Robustness</h1>
+  <p class="muted">Descriptive indicators, not a quality score. They show how much the average depends on the sample, the houses and a single source.</p>
+
+  <div class="hero-kpis">
+    <div class="hk"><b>{{ health.n_polls or n_polls }}</b><span>polls</span></div>
+    <div class="hk"><b>{{ health.n_pollsters or "—" }}</b><span>houses</span></div>
+    <div class="hk"><b>{{ health.days_since_last if health.days_since_last is not none else "—" }}</b><span>days since last poll</span></div>
+    <div class="hk"><b>{{ health.sample_pct or 0 }}%</b><span>with declared sample</span></div>
+    <div class="hk"><b>{{ "%.1f"|format(health.dispersion_iqr) if health.dispersion_iqr is not none else "—" }}</b><span>dispersion (IQR, pp)</span></div>
+  </div>
+
+  {% if weights and weights.sources %}
+  <div class="card">
+    <div class="cardhead"><h2>Source and house concentration</h2><span class="hint">different axes · do not add them</span></div>
+    <p class="muted small">Top source: <strong>{{ weights.top_source }}</strong> ({{ "%.1f"|format(weights.top_source_share_pct) }}%). Top house: <strong>{{ weights.top_house }}</strong> ({{ "%.1f"|format(weights.top_share_pct) }}%). Effective concentration: <strong>{{ "%.2f"|format(weights.effective_sources) }}</strong> sources and <strong>{{ "%.2f"|format(weights.effective_houses) }}</strong> houses.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Source</th><th>Share</th><th>Polls</th><th>Houses</th></tr></thead>
+      <tbody>{% for s in weights.sources %}<tr><td><strong>{{ s.source }}</strong></td><td class="num">{{ "%.1f"|format(s.share_pct) }}%</td><td class="num">{{ s.n_polls }}</td><td class="num">{{ s.n_houses }}</td></tr>{% endfor %}</tbody>
+    </table></div>
+    <div class="tablewrap" style="margin-top:12px"><table>
+      <thead><tr><th>House</th><th>Share</th><th>Polls</th><th>Last</th><th>Sample</th></tr></thead>
+      <tbody>{% for h in weights.houses %}<tr><td><strong>{{ h.pollster }}</strong></td><td class="num">{{ "%.1f"|format(h.share_pct) }}%</td><td class="num">{{ h.n_polls }}</td><td class="num">{{ h.last_date }}</td><td class="num">{% if h.sample %}{{ h.sample }}{% else %}—{% endif %}</td></tr>{% endfor %}</tbody>
+    </table></div>
+    <p class="muted small">A source above 50% is flagged even if no single house is above 50%. Onda Cero is a compilation of several houses; Electomanía is one source with ElectoPanel.</p>
+  </div>
+  {% endif %}
+
+  {% if sensitivity %}
+  <div class="card">
+    <div class="cardhead"><h2>Leave one out</h2><span class="hint">average without that source or house · Δ vs main average</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Excluded</th><th>PP</th><th>PSOE</th><th>VOX</th><th>SUMAR</th><th>Polls left</th></tr></thead>
+      <tbody>
+      {% for s in sensitivity %}
+      <tr><td><strong>{{ s.name }}</strong><br><span class="muted small">{{ s.kind }}</span></td>
+      {% for p in ("PP", "PSOE", "VOX", "SUMAR") %}{% set m = s.means.get(p) %}<td class="num">{% if m %}{{ fmt_pct(m.mean) }}%<br><span class="muted small">{{ "%+.1f"|format(m.delta) }} pp</span>{% else %}—{% endif %}</td>{% endfor %}
+      <td class="num">{{ s.n_polls }}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table></div>
+    <p class="muted small">If the delta is large, the average depends on that block. This is a sensitivity check, not an alternative “better” average.</p>
+  </div>
+  {% endif %}
+
+  {% if house_latest_sorted %}
+  <div class="card">
+    <div class="cardhead"><h2>Method and coverage by house</h2><span class="hint">only what the source publishes</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>House</th><th>Last</th><th>Sample</th><th>Method</th><th>Source</th></tr></thead>
+      <tbody>{% for r in house_latest_sorted %}<tr><td><strong>{{ r.pollster }}</strong></td><td class="num">{{ r.date }}</td><td class="num">{% if r.sample %}{{ r.sample }}{% else %}not stated{% endif %}</td><td>{% if r.nota %}{{ r.nota }}{% else %}not stated{% endif %}</td><td>{% if r.url %}<a href="{{ r.url }}" rel="noopener" target="_blank">link</a>{% else %}—{% endif %}</td></tr>{% endfor %}</tbody>
+    </table></div>
+    <p class="muted small">The site does not publish quotas or coverage by age or territory, so it does not claim online/rural/age bias. Missing methods are shown as “not stated”.</p>
+  </div>
+  {% endif %}
+
+  <div class="cta">
+    <a class="btn" href="/en/data.html">Data and hashes</a>
+    <a class="btn ghost" href="/en/method.html">Method</a>
+    <a class="btn ghost" href="/robustez.html">Full robustness (ES)</a>
+  </div>
+</main>
+
+{% include "_en_footer.html.j2" %}
+</body>
+</html>

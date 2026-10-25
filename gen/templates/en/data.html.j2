@@ -1,0 +1,61 @@
+{% set page_title = "Data and reproducibility · Spain 29N observatory" %}
+{% set page_desc = "Open JSON, versioned data, SHA-256 hashes, schema and a reproduction script for the 29N average." %}
+{% set canonical = site_url ~ "/en/data.html" %}
+{% set page_lang = "en" %}
+{% set page_alt_es = site_url ~ "/fuentes.html" %}
+{% set page_alt_en = canonical %}
+{% set jsonld = webpages['en/data.html'] %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_en_nav.html.j2" %}
+
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:32px;letter-spacing:-0.03em">Data and reproducibility</h1>
+  <p class="muted">The site is static and has no private API. These are the public data files and the reproducibility trail.</p>
+
+  <div class="card">
+    <div class="cardhead"><h2>Current files</h2></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>File</th><th>What it contains</th></tr></thead>
+      <tbody>
+        <tr><td><a href="/data/latest.json"><code>/data/latest.json</code></a></td><td>Current average, range, series, hemicycle, weights.</td></tr>
+        <tr><td><a href="/data/robustez.json"><code>/data/robustez.json</code></a></td><td>Robustness indicators, house contrast, weights.</td></tr>
+        <tr><td><a href="/data/status.json"><code>/data/status.json</code></a></td><td>Build, commit, counts, sources and SHA-256 hashes.</td></tr>
+        <tr><td><a href="/data/changelog.json"><code>/data/changelog.json</code></a></td><td>Build/data history with hashes.</td></tr>
+        <tr><td><a href="/data/v1/latest.json"><code>/data/v1/latest.json</code></a></td><td>Versioned copy of the current aggregate.</td></tr>
+        <tr><td><a href="/data/v1/robustez.json"><code>/data/v1/robustez.json</code></a></td><td>Versioned copy of robustness.</td></tr>
+        <tr><td><a href="/data/v1/status.json"><code>/data/v1/status.json</code></a></td><td>Versioned status/hashes copy.</td></tr>
+        <tr><td><a href="/data/v1/schema.json"><code>/data/v1/schema.json</code></a></td><td>JSON Schema for <code>latest.json</code>.</td></tr>
+        <tr><td><a href="/version.json"><code>/version.json</code></a></td><td>Site version, build, date and commit.</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Reproduce it</h2></div>
+    <p class="muted">The calculation is deterministic: D’Hondt and the weighting use no random seed. To reproduce a build you need the code, the frozen input CSV and the same parameters.</p>
+    <pre style="overflow:auto;padding:12px;background:var(--panel2);border-radius:8px"><code>git clone https://github.com/mcasrom/elecciones29n-osint
+cd elecciones29n-osint
+bash scripts/reproduce.sh /tmp/e29n-repro</code></pre>
+    <p class="muted small">The script rebuilds from the current <code>data/polls_history.csv</code> and prints SHA-256 hashes. For a historical build, freeze that CSV and the input JSON first.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Licence and use</h2></div>
+    <ul class="muted">
+      <li><strong>Code:</strong> AGPL-3.0. <a href="https://github.com/mcasrom/elecciones29n-osint" target="_blank" rel="noopener noreferrer">Repository</a>.</li>
+      <li><strong>Data:</strong> reuse with attribution to the observatory and the original polling houses. Do not present the average as a forecast.</li>
+      <li><strong>No API key:</strong> the JSON files are public and static. There is no private endpoint or tracking.</li>
+      <li><strong>Blackout:</strong> during 24–28 November 2026, data and OG files are withdrawn and return 410.</li>
+    </ul>
+    <p class="muted small">Contact: <a href="mailto:info.elecciones29n@pruebapublica.com">info.elecciones29n@pruebapublica.com</a>.</p>
+  </div>
+</main>
+
+{% include "_en_footer.html.j2" %}
+</body>
+</html>

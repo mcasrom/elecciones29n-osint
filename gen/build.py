@@ -69,6 +69,11 @@ PAGES = [
     ("apoyo.html", "apoyo.html", "2026-10-18", "yearly", "0.5"),
     ("sobre-mi.html", "sobre-mi.html", "2026-10-18", "yearly", "0.5"),
     ("en.html", "en.html", "2026-10-25", "weekly", "0.6"),
+    ("en/method.html", "en/method.html", "2026-10-25", "monthly", "0.6"),
+    ("en/hemicycle.html", "en/hemicycle.html", "2026-10-25", "weekly", "0.6"),
+    ("en/robustness.html", "en/robustness.html", "2026-10-25", "weekly", "0.6"),
+    ("en/limits.html", "en/limits.html", "2026-10-25", "monthly", "0.5"),
+    ("en/data.html", "en/data.html", "2026-10-25", "weekly", "0.6"),
 ]
 
 
@@ -77,6 +82,7 @@ def ensure_dirs() -> None:
     os.makedirs(os.path.join(OUT, "circunscripcion"), exist_ok=True)
     os.makedirs(os.path.join(OUT, "js"), exist_ok=True)
     os.makedirs(os.path.join(OUT, "data"), exist_ok=True)
+    os.makedirs(os.path.join(OUT, "en"), exist_ok=True)
 
 
 def write_css() -> None:
@@ -646,7 +652,7 @@ def write_blackout_site(
         with open(os.path.join(OUT, filename), "w", encoding="utf-8") as f:
             f.write(html)
 
-    for rel in ("data/latest.json", "data/robustez.json", "data/status.json", "data/changelog.json", "data/v1/latest.json", "data/v1/robustez.json", "data/v1/status.json", "og-robustez.png", "og.png", "og-hemiciclo.png", "en.html"):
+    for rel in ("data/latest.json", "data/robustez.json", "data/status.json", "data/changelog.json", "data/v1/latest.json", "data/v1/robustez.json", "data/v1/status.json", "og-robustez.png", "og.png", "og-hemiciclo.png", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html"):
         _remove_if_exists(rel)
 
     marker = {
@@ -1933,6 +1939,11 @@ def main(out: str = "web") -> None:
             "privacidad.html": build_webpage_jsonld("Privacidad", "/privacidad.html", "Datos del aviso por correo, finalidad, conservación y derechos. Sin cookies ni perfilado."),
             "about.html": build_webpage_jsonld("Acerca del proyecto", "/about.html", "Proyecto local-first, estático y sin tracking."),
             "en.html": build_webpage_jsonld("Spain 29N polls", "/en.html", "Aggregated average of published polls with range, sources and limits. Not a forecast."),
+            "en/method.html": build_webpage_jsonld("Method", "/en/method.html", "How the average, weights and limits are built."),
+            "en/hemicycle.html": build_webpage_jsonld("Hemicycle", "/en/hemicycle.html", "Mechanical national D'Hondt simulation. Not a projection."),
+            "en/robustness.html": build_webpage_jsonld("Robustness", "/en/robustness.html", "Sample, dispersion, source and house weights."),
+            "en/limits.html": build_webpage_jsonld("Limits and glossary", "/en/limits.html", "What the observatory does not say."),
+            "en/data.html": build_webpage_jsonld("Data", "/en/data.html", "Open JSON, versioned data and reproducibility."),
         },
         "meteo_rows": build_meteo_rows(meteo),
         "congreso_2023": congreso.get("elecciones", {}).get("2023-07-23", {}),
@@ -1963,7 +1974,7 @@ def main(out: str = "web") -> None:
     }
 
     for tname in ["index.html", "hemiciclo.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "participacion.html", "territorio.html",
-             "circunscripciones.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html", "en.html"]:
+             "circunscripciones.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(current=tname, **context)
         with open(os.path.join(OUT, tname), "w", encoding="utf-8") as f:

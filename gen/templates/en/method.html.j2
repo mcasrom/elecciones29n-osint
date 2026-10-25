@@ -1,0 +1,74 @@
+{% set page_title = "Method · Spain 29N observatory" %}
+{% set page_desc = "How the 29N average is built: 14-day window, recency and sample weights, range vs IQR, house contrast, source concentration and limits." %}
+{% set canonical = site_url ~ "/en/method.html" %}
+{% set page_lang = "en" %}
+{% set page_alt_es = site_url ~ "/metodologia.html" %}
+{% set page_alt_en = canonical %}
+{% set jsonld = webpages['en/method.html'] %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_en_nav.html.j2" %}
+
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:32px;letter-spacing:-0.03em">Method</h1>
+  <p class="muted">A short English version of the Spanish methodology. The full method and source catalogue are at <a href="/metodologia.html">/metodologia.html</a>.</p>
+
+  <div class="card">
+    <div class="cardhead"><h2>What the average is</h2></div>
+    <ul class="muted">
+      <li><strong>Published polls only.</strong> The observatory does not estimate voting intention from scratch. It aggregates polls that polling houses have already published.</li>
+      <li><strong>14-day window.</strong> The window counts calendar days including today. If fewer than four polls are available, it extends to the four most recent (maximum 90 days) and is marked as extended.</li>
+      <li><strong>One poll per date and house.</strong> A house publishing more parties does not get more weight.</li>
+      <li><strong>Weighting.</strong> Each poll weighs by recency (half-life 10 days) and, when the source declares it, by <strong>√(n/1000)</strong> from its sample size. Polls without a declared sample weigh by recency only.</li>
+      <li><strong>Excluded.</strong> Partial or regional polls, averages of averages, and incomplete ranges.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Range, median and house contrast</h2></div>
+    <ul class="muted">
+      <li><strong>Range</strong> is the minimum and maximum observed among the polls included. It is <strong>not a confidence interval</strong>.</li>
+      <li><strong>Median</strong> is published next to the average. A large gap between them signals outliers.</li>
+      <li><strong>IQR</strong> is the interquartile range: a more robust measure of dispersion than min–max.</li>
+      <li><strong>House contrast</strong> uses the latest poll from each house in 45 days with equal weight per house. It is a robustness check, not the main average.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Source versus house</h2></div>
+    <p class="muted">A <strong>source</strong> is where the poll was captured; a <strong>house</strong> is the pollster that produced it. One source can compile several houses. They are different axes and <strong>must not be added together</strong>.</p>
+    {% if weights and weights.sources %}
+    <p class="muted small">Today: the top source is <strong>{{ weights.top_source }}</strong> ({{ "%.1f"|format(weights.top_source_share_pct) }}% of weight); the top house is <strong>{{ weights.top_house }}</strong> ({{ "%.1f"|format(weights.top_share_pct) }}%). Effective concentration: <strong>{{ "%.2f"|format(weights.effective_sources) }}</strong> sources and <strong>{{ "%.2f"|format(weights.effective_houses) }}</strong> houses.</p>
+    {% endif %}
+    <p class="muted small">A source above 50% is flagged even when no single house is above 50%. The site also publishes a leave-one-out sensitivity table: the average without the top source, the top house and CIS.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Seat simulation</h2></div>
+    <p class="muted">The <a href="/en/hemicycle.html">hemicycle</a> applies <strong>national D'Hondt</strong> with a 3% threshold to the average of each poll date, using 350 seats and only statewide parties. It is a mechanical simulation: it is <strong>not a projection</strong>, not the real Congress and does not include ERC, Junts, EH Bildu or PNV.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Uncertainty and coverage</h2></div>
+    <ul class="muted">
+      <li><strong>Sample declared:</strong> {{ health.sample_pct or 0 }}% of the polls in the current window declare a sample size.</li>
+      <li><strong>No demographic correction:</strong> the observatory does not model age, sex, income or territory. Sources may use quotas, but those quotas are not published in a comparable way.</li>
+      <li><strong>Method “no consta”:</strong> when a house does not publish its fieldwork method, the site says so instead of inferring it.</li>
+      <li><strong>No attribution:</strong> this is not a poll-of-polls about who is “winning”; it is a descriptive average with explicit limits.</li>
+    </ul>
+  </div>
+
+  <div class="cta">
+    <a class="btn" href="/en/data.html">Data and hashes</a>
+    <a class="btn ghost" href="/en/robustness.html">Robustness</a>
+    <a class="btn ghost" href="/metodologia.html">Full method (ES)</a>
+  </div>
+</main>
+
+{% include "_en_footer.html.j2" %}
+</body>
+</html>

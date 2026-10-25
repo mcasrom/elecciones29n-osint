@@ -1,0 +1,54 @@
+{% set page_title = "Hemicycle · Spain 29N observatory" %}
+{% set page_desc = "Mechanical 350-seat national D'Hondt simulation from the poll average, with current seats and blocks. Not a projection or the real Congress." %}
+{% set canonical = site_url ~ "/en/hemicycle.html" %}
+{% set page_lang = "en" %}
+{% set page_alt_es = site_url ~ "/hemiciclo.html" %}
+{% set page_alt_en = canonical %}
+{% set page_image = "/og-hemiciclo.png" %}
+{% set jsonld = webpages['en/hemicycle.html'] %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_en_nav.html.j2" %}
+
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:32px;letter-spacing:-0.03em">Hemicycle</h1>
+  <p class="muted">A mechanical simulation: <strong>350 seats</strong>, national D'Hondt, 3% threshold, statewide parties only. It is <strong>not a projection</strong> and not the real Congress.</p>
+
+  {% if hemicycle %}
+  {% set h = hemicycle[-1] %}
+  <div class="alert warn"><strong>Not a projection.</strong> Spanish law allocates seats by province. A single national district changes the result and favours parties with dispersed support. ERC, Junts, EH Bildu and PNV are not simulated, so their absence inflates PP and PSOE.</div>
+
+  <div class="card">
+    <div class="cardhead"><h2>{{ h.label }}</h2><span class="hint">{{ h.n_polls }} polls · window {{ h.window_label }}</span></div>
+    <div class="hemi-wrap">{{ h.svg|safe }}</div>
+    <div class="hemi-blocks">
+      <div class="block {{ 'win' if h.majority == 'right' else '' }}"><small>PP + VOX</small><b>{{ h.blocks.right }}</b><small>{{ 'majority in the simulation' if h.majority == 'right' else 'seats' }}</small></div>
+      <div class="block {{ 'win' if h.majority == 'left' else '' }}"><small>PSOE + Sumar</small><b>{{ h.blocks.left }}</b><small>{{ 'majority in the simulation' if h.majority == 'left' else 'seats' }}</small></div>
+      <div class="block"><small>Others</small><b>{{ h.blocks.others }}</b><small>residual</small></div>
+    </div>
+    <div class="tablewrap" style="margin-top:14px"><table>
+      <thead><tr><th>Party</th><th>Seats</th></tr></thead>
+      <tbody>
+      {% for r in h.seats %}<tr><td><strong>{{ r.party }}</strong></td><td class="num">{{ r.seats }}</td></tr>{% endfor %}
+      </tbody>
+    </table></div>
+    <p class="muted small">Majority: <strong>{{ h.majority_label }}</strong>. 176 seats are needed for an absolute majority in this simulation. A bloc majority does not imply an investiture or a government.</p>
+  </div>
+
+  <div class="cta">
+    <a class="btn" href="/hemiciclo.html">Open the interactive slider (ES)</a>
+    <a class="btn ghost" href="/en/method.html">Method</a>
+    <a class="btn ghost" href="/en/limits.html">Limits</a>
+  </div>
+  {% else %}
+  <div class="alert warn">No data available.</div>
+  {% endif %}
+</main>
+
+{% include "_en_footer.html.j2" %}
+</body>
+</html>

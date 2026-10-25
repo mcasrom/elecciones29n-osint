@@ -1,0 +1,25 @@
+<header>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">
+        <span class="mark"></span>
+        <span class="brandname"><a href="/en.html">{{ site_name }}</a></span>
+        <span class="tag">Spain · 29N 2026</span>
+      </div>
+      <div class="status">
+        <a class="navpill" href="/">Español</a>
+        <a class="navpill" href="/en/data.html">Data</a>
+      </div>
+    </div>
+    <nav class="mainnav" aria-label="English">
+      <div class="navrow navrow-primary">
+        <a class="navpill {{ 'active' if current == 'en.html' else '' }}" href="/en.html">Summary</a>
+        <a class="navpill {{ 'active' if current == 'en/method.html' else '' }}" href="/en/method.html">Method</a>
+        <a class="navpill {{ 'active' if current == 'en/hemicycle.html' else '' }}" href="/en/hemicycle.html">Hemicycle</a>
+        <a class="navpill {{ 'active' if current == 'en/robustness.html' else '' }}" href="/en/robustness.html">Robustness</a>
+        <a class="navpill {{ 'active' if current == 'en/limits.html' else '' }}" href="/en/limits.html">Limits</a>
+        <a class="navpill {{ 'active' if current == 'en/data.html' else '' }}" href="/en/data.html">Data</a>
+      </div>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,56 @@
+{% set page_title = "Limits and glossary · Spain 29N observatory" %}
+{% set page_desc = "What the 29N observatory does not say, and the key terms: average, range, IQR, house effect, D'Hondt, blackout." %}
+{% set canonical = site_url ~ "/en/limits.html" %}
+{% set page_lang = "en" %}
+{% set page_alt_es = site_url ~ "/caveat.html" %}
+{% set page_alt_en = canonical %}
+{% set jsonld = webpages['en/limits.html'] %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_en_nav.html.j2" %}
+
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:32px;letter-spacing:-0.03em">Limits and glossary</h1>
+  <p class="muted">A short list of what this observatory does not do, followed by the terms needed to read it.</p>
+
+  <div class="card">
+    <div class="cardhead"><h2>What it does not say</h2></div>
+    <ul class="muted">
+      <li><strong>It does not predict the result.</strong> It is an average of published polls, not a forecast or a seat projection.</li>
+      <li><strong>It does not estimate voting intention.</strong> It aggregates what polling houses publish.</li>
+      <li><strong>The range is not a confidence interval.</strong> It is the observed min–max among the polls included.</li>
+      <li><strong>It does not correct for demographics.</strong> It does not model age, sex, income or territory.</li>
+      <li><strong>The hemicycle is not the Congress.</strong> It uses a national district and excludes regional parties.</li>
+      <li><strong>It does not attribute coordination or campaigns.</strong> It measures published polls, not actors’ intentions.</li>
+      <li><strong>It does not publish polls during the blackout.</strong> From 24 to 28 November 2026 the data and OG files are withdrawn and the endpoints return 410.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Key terms</h2></div>
+    <ul class="muted">
+      <li><strong>Poll average:</strong> weighted mean of published polls in a window. Not a single survey.</li>
+      <li><strong>Range:</strong> minimum and maximum observed. Sensitive to a single outlier.</li>
+      <li><strong>IQR:</strong> interquartile range; the middle 50% of the polls. More robust than min–max.</li>
+      <li><strong>House effect:</strong> the difference between a pollster’s latest result and the average. Not a bias score.</li>
+      <li><strong>Source vs house:</strong> a source is where the poll was captured; a house is the pollster. One source can compile several houses; they are not added.</li>
+      <li><strong>D’Hondt:</strong> the seat allocation method used in Spain. The hemicycle applies it nationally as a mechanical exercise.</li>
+      <li><strong>Closed and blocked list:</strong> voters choose a party list, not the order of its members (Congress).</li>
+      <li><strong>Blackout:</strong> the legal period when polls cannot be published, disseminated or reproduced (24–28 November 2026).</li>
+    </ul>
+  </div>
+
+  <div class="cta">
+    <a class="btn" href="/en/method.html">Method</a>
+    <a class="btn ghost" href="/caveat.html">Full limits (ES)</a>
+    <a class="btn ghost" href="/glosario.html">Full glossary (ES)</a>
+  </div>
+</main>
+
+{% include "_en_footer.html.j2" %}
+</body>
+</html>

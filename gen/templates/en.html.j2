@@ -2,6 +2,8 @@
 {% set page_desc = "Aggregated average of published polls for Spain's 29 November 2026 general election, with range, sources and limits. Not a forecast." %}
 {% set canonical = site_url ~ "/en.html" %}
 {% set page_lang = "en" %}
+{% set page_alt_es = site_url ~ "/" %}
+{% set page_alt_en = canonical %}
 {% set jsonld = webpages['en.html'] %}
 <!DOCTYPE html>
 <html lang="en">
@@ -9,25 +11,11 @@
 {% include "_head.html.j2" %}
 </head>
 <body>
-<header>
-  <div class="container">
-    <div class="topbar">
-      <div class="brand">
-        <span class="mark"></span>
-        <span class="brandname"><a href="/">{{ site_name }}</a></span>
-        <span class="tag">Spain · 29N 2026</span>
-      </div>
-      <div class="status">
-        <a class="navpill" href="/">Español</a>
-        <a class="navpill" href="/data/latest.json">Data JSON</a>
-      </div>
-    </div>
-  </div>
-</header>
+{% include "_en_nav.html.j2" %}
 
 <main class="container">
   <h1 style="margin:18px 0 4px;font-size:34px;letter-spacing:-0.03em">Spain 29N: polls, range and limits</h1>
-  <p class="muted" style="margin:0 0 16px">A minimal English summary of the <strong>29N</strong> observatory. The full site, sources and methodology are in Spanish. This is an aggregated average of published polls, not a forecast.</p>
+  <p class="muted" style="margin:0 0 16px">An English guide to the <strong>29N</strong> observatory. The full interactive site and source notes are in Spanish; this section explains the data, the method and what it does not say.</p>
 
   <div class="hero-kpis">
     <div class="hk"><b>{{ n_polls }}</b><span>polls in the average</span></div>
@@ -57,39 +45,31 @@
         </tbody>
       </table>
     </div>
-    <p class="muted small">The average combines published polls with <strong>recency</strong> and <strong>declared sample size</strong> when available. The range is descriptive: it is not a confidence interval and is not a prediction.</p>
+    <p class="muted small">The average combines published polls with <strong>recency</strong> and <strong>declared sample size</strong> when available. The range is descriptive: not a confidence interval, not a prediction.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Read next</h2></div>
+    <ul class="muted">
+      <li><a href="/en/method.html"><strong>Method</strong></a> — how the average, weights and house contrast are built.</li>
+      <li><a href="/en/hemicycle.html"><strong>Hemicycle</strong></a> — the 350-seat mechanical simulation, with its limits.</li>
+      <li><a href="/en/robustness.html"><strong>Robustness</strong></a> — sample, dispersion, source and house concentration.</li>
+      <li><a href="/en/limits.html"><strong>Limits and glossary</strong></a> — what the observatory does not say, and the key terms.</li>
+      <li><a href="/en/data.html"><strong>Data</strong></a> — JSON, versioned files, hashes and reproducibility.</li>
+    </ul>
   </div>
 
   <div class="card">
     <div class="cardhead"><h2>What this is not</h2></div>
     <ul class="muted">
-      <li><strong>Not a forecast.</strong> It does not estimate the election result or seat distribution.</li>
+      <li><strong>Not a forecast.</strong> It does not estimate the election result or the next government.</li>
       <li><strong>Not a single poll.</strong> It is a weighted average of polls published in the last 14 days.</li>
-      <li><strong>Not demographically corrected.</strong> The site does not model age, sex, income or territory; sources may use quotas that are not published.</li>
-      <li><strong>Not the full Congress.</strong> The hemicycle page applies national D'Hondt as a mechanical simulation; it is not the real provincial allocation and excludes regional parties.</li>
+      <li><strong>Not demographically corrected.</strong> The site does not model age, sex, income or territory.</li>
+      <li><strong>Not the full Congress.</strong> The hemicycle is a national D'Hondt simulation, not the real provincial allocation.</li>
     </ul>
-  </div>
-
-  <div class="card">
-    <div class="cardhead"><h2>Data and method</h2></div>
-    <div class="cta">
-      <a class="btn" href="/data/latest.json">Latest JSON</a>
-      <a class="btn ghost" href="/data/status.json">Data status and hashes</a>
-      <a class="btn ghost" href="/data/v1/schema.json">JSON schema</a>
-      <a class="btn ghost" href="/metodologia.html">Method (ES)</a>
-      <a class="btn ghost" href="/fuentes.html">Sources (ES)</a>
-      <a class="btn ghost" href="/hemiciclo.html">Hemicycle (ES)</a>
-      <a class="btn ghost" href="/robustez.html">Robustness (ES)</a>
-    </div>
-    <p class="muted small">Code: <a href="https://github.com/mcasrom/elecciones29n-osint" target="_blank" rel="noopener noreferrer">AGPL-3.0</a> · contact: <a href="mailto:info.elecciones29n@pruebapublica.com">info.elecciones29n@pruebapublica.com</a> · {{ site_name }} v{{ version }} · {{ build_date }}.</p>
   </div>
 </main>
 
-<footer class="footer">
-  <div class="container">
-    <p>{{ site_name }} · aggregated average of published polls for Spain's 29 November 2026 general election.</p>
-    <p><a href="/">Español</a> · <a href="/caveat.html">Limits (ES)</a> · <a href="/privacidad.html">Privacy (ES)</a> · <a href="/apoyo.html">Support</a></p>
-  </div>
-</footer>
+{% include "_en_footer.html.j2" %}
 </body>
 </html>
