@@ -1,8 +1,10 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import math
 import os
+import shutil
 from datetime import datetime
 
 import pytz
@@ -643,7 +645,7 @@ def write_blackout_site(
         with open(os.path.join(OUT, filename), "w", encoding="utf-8") as f:
             f.write(html)
 
-    for rel in ("data/latest.json", "data/robustez.json", "og-robustez.png", "og.png", "og-hemiciclo.png"):
+    for rel in ("data/latest.json", "data/robustez.json", "data/status.json", "data/changelog.json", "data/v1/latest.json", "data/v1/robustez.json", "data/v1/status.json", "og-robustez.png", "og.png", "og-hemiciclo.png"):
         _remove_if_exists(rel)
 
     marker = {
@@ -1272,6 +1274,91 @@ def write_robustez_data(latest: dict) -> None:
         json.dump(payload, f, ensure_ascii=False, indent=2)
 
 
+
+def write_repro_data(version: str, build_ts: str, build_date: str, build_commit: str, latest: dict) -> None:
+    """Estado, changelog y copia versionada de los datos públicos."""
+    data_dir = os.path.join(OUT, "data")
+    v1 = os.path.join(data_dir, "v1")
+    os.makedirs(v1, exist_ok=True)
+
+    def sha(rel):
+        path = os.path.join(OUT, rel) if rel.startswith("data/") else rel
+        if not os.path.isfile(path):
+            return None
+        h = hashlib.sha256()
+        with open(path, "rb") as f:
+            for chunk in iter(lambda: f.read(1024 * 1024), b""):
+                h.update(chunk)
+        return h.hexdigest()
+
+    files = {
+        "data/latest.json": sha("data/latest.json"),
+        "data/robustez.json": sha("data/robustez.json"),
+        "data/polls_history.csv": sha("data/polls_history.csv"),
+    }
+    status = {
+        "version": version,
+        "build": build_ts,
+        "date": build_date,
+        "commit": build_commit,
+        "generated_at": latest.get("updated_at_iso") or datetime.now(TZ).isoformat(),
+        "n_polls": latest.get("n_polls"),
+        "n_pollsters": (latest.get("health") or {}).get("n_pollsters"),
+        "window_days": latest.get("window_days"),
+        "files": files,
+        "sources": [
+            {"source": s.get("source"), "share_pct": s.get("share_pct"), "n_polls": s.get("n_polls")}
+            for s in (latest.get("weights") or {}).get("sources", [])
+        ],
+        "nota": "Hashes SHA-256 de los ficheros publicados; no incluye datos personales.",
+    }
+    with open(os.path.join(data_dir, "status.json"), "w", encoding="utf-8") as f:
+        json.dump(status, f, ensure_ascii=False, indent=2)
+
+    for rel in ("latest.json", "robustez.json"):
+        src = os.path.join(data_dir, rel)
+        if os.path.isfile(src):
+            shutil.copyfile(src, os.path.join(v1, rel))
+    shutil.copyfile(os.path.join(data_dir, "status.json"), os.path.join(v1, "status.json"))
+    schema = {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "title": "Elecciones 29N · latest.json",
+        "type": "object",
+        "required": ["updated_at", "n_polls", "parties", "weights", "hemicycle"],
+        "properties": {
+            "updated_at": {"type": "string"},
+            "n_polls": {"type": "integer", "minimum": 0},
+            "parties": {"type": "array"},
+            "weights": {"type": ["object", "null"]},
+            "hemicycle": {"type": "array"},
+        },
+    }
+    with open(os.path.join(v1, "schema.json"), "w", encoding="utf-8") as f:
+        json.dump(schema, f, ensure_ascii=False, indent=2)
+
+    cl_path = os.path.join(data_dir, "changelog.json")
+    entries = []
+    if os.path.isfile(cl_path):
+        try:
+            with open(cl_path, encoding="utf-8") as f:
+                entries = json.load(f)
+        except Exception:
+            entries = []
+    entry = {
+        "build": build_ts,
+        "date": build_date,
+        "commit": build_commit,
+        "n_polls": latest.get("n_polls"),
+        "files": files,
+    }
+    last = entries[-1] if entries else {}
+    if (last.get("commit") != build_commit
+            or (last.get("files") or {}).get("data/latest.json") != files["data/latest.json"]):
+        entries.append(entry)
+    entries = entries[-100:]
+    with open(cl_path, "w", encoding="utf-8") as f:
+        json.dump(entries, f, ensure_ascii=False, indent=2)
+
 def write_escanos_data(data: dict) -> None:
     import csv as _csv
 
@@ -1896,6 +1983,7 @@ def main(out: str = "web") -> None:
     write_m5_data(m5)
     write_m4_data(m4)
     write_meteo_data(meteo)
+    write_repro_data(version, build_ts, build_date, build_commit, latest)
 
     if not os.path.exists(os.path.join(OUT, "data/latest.json")):
         safe_context = {k: v for k, v in context.items() if not callable(v)}
