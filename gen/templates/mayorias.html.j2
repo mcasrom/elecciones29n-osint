@@ -85,19 +85,24 @@
       }
     }
     boxes.forEach(function(b){ b.addEventListener('change', update); });
+    function applyPreset(preset){
+      var map = { right: ['PP','VOX'], left: ['PSOE','SUMAR','PODEMOS'] };
+      boxes.forEach(function(b){
+        if (preset === 'all') b.checked = true;
+        else if (preset === 'none') b.checked = false;
+        else b.checked = (map[preset] || []).indexOf(b.dataset.party) >= 0;
+      });
+      update();
+    }
     document.querySelectorAll('[data-preset]').forEach(function(btn){
       btn.addEventListener('click', function(){
-        var preset = btn.dataset.preset;
-        var map = { right: ['PP','VOX'], left: ['PSOE','SUMAR','PODEMOS'] };
-        boxes.forEach(function(b){
-          if (preset === 'all') b.checked = true;
-          else if (preset === 'none') b.checked = false;
-          else b.checked = (map[preset] || []).indexOf(b.dataset.party) >= 0;
-        });
-        update();
+        applyPreset(btn.dataset.preset);
+        try { history.replaceState(null, '', '#' + btn.dataset.preset); } catch(e) {}
       });
     });
-    update();
+    var initial = (location.hash || '').replace('#', '');
+    if (['right','left','all','none'].indexOf(initial) >= 0) applyPreset(initial);
+    else update();
   })();
   </script>
   {% else %}
