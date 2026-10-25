@@ -1,0 +1,76 @@
+{% set page_title = "Kit de prensa · Observatorio 29N" %}
+{% set page_desc = "Titular canónico, cifras con rango, método, cita y contacto para medios. Sin pronóstico ni proyección." %}
+{% set canonical = site_url ~ "/prensa.html" %}
+{% set jsonld = webpages['prensa.html'] %}
+{% set pp = parties|selectattr('party', 'equalto', 'PP')|first %}
+{% set psoe = parties|selectattr('party', 'equalto', 'PSOE')|first %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Kit de prensa</h1>
+  <p class="muted" style="margin:0 0 12px">Para medios y analistas. Una cifra canónica, su rango y el método. El observatorio mide sondeos publicados; <strong>no es un pronóstico</strong>.</p>
+
+  <div class="card">
+    <div class="cardhead"><h2>Titular canónico</h2><span class="hint">usa esta cifra, no la mediana ni la columna sin CIS</span></div>
+    {% if pp and psoe %}
+    <p style="font-size:20px;line-height:1.45;margin:0 0 10px"><strong>La media ponderada del 29N sitúa al PP en {{ fmt_pct(pp.mean) }}% (rango {{ fmt_pct(pp.min) }}–{{ fmt_pct(pp.max) }}) y al PSOE en {{ fmt_pct(psoe.mean) }}% (rango {{ fmt_pct(psoe.min) }}–{{ fmt_pct(psoe.max) }}), con {{ n_polls }} sondeos.</strong></p>
+    {% endif %}
+    <p class="muted small">La <strong>media ponderada</strong> es el titular. La <strong>mediana</strong> y la <strong>media sin CIS</strong> son pruebas de sensibilidad: sirven para explicar la robustez, no para sustituir la cifra principal.</p>
+    <p class="muted small">Actualizado: {{ updated_at }} · último sondeo: {{ last_poll_date or "—" }} · ventana: {{ window_span or "—" }}.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Cifras principales</h2><span class="hint">media y rango observado</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Partido</th><th>Media</th><th>Rango</th><th>n</th></tr></thead>
+      <tbody>{% for p in parties_table[:6] %}<tr><td><strong>{{ p.party }}</strong></td><td class="num">{{ fmt_pct(p.mean) }}%</td><td class="num">{{ fmt_pct(p.min) }}–{{ fmt_pct(p.max) }}</td><td class="num">{{ p.n }}</td></tr>{% endfor %}</tbody>
+    </table></div>
+    <p class="muted small">El rango es la dispersión observada entre los sondeos incluidos; <strong>no es un intervalo de confianza</strong>.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Qué es y qué no es</h2></div>
+    <ul class="muted">
+      <li><strong>Es</strong> una media ponderada de sondeos publicados en los últimos 14 días, con rango, mediana y contraste por casa.</li>
+      <li><strong>No es</strong> un pronóstico ni una estimación propia de intención de voto.</li>
+      <li><strong>No es</strong> una proyección de escaños: el hemiciclo es una simulación nacional de bloques, no el Congreso real.</li>
+      <li><strong>No atribuye</strong> campañas ni coordinación: mide datos publicados.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Cómo citar</h2></div>
+    <p class="muted">Miguel Castillo. <em>Observatorio 29N: media agregada de sondeos, elecciones generales 29N 2026</em>. {{ site_url }}/prensa.html · consultado el {{ build_date }}.</p>
+    <p class="muted small">Datos reutilizables citando la fuente y el periodo. Código AGPL-3.0. No presentar la media como pronóstico.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Datos, método y embeds</h2></div>
+    <div class="cta">
+      <a class="btn" href="/data/latest.json">latest.json</a>
+      <a class="btn ghost" href="/metodologia.html">Metodología</a>
+      <a class="btn ghost" href="/hemiciclo.html">Hemiciclo</a>
+      <a class="btn ghost" href="/incrustar.html">Guía de embeds</a>
+      <a class="btn ghost" href="/fuentes.html">Fuentes</a>
+    </div>
+    <p class="muted small" style="margin-top:10px">Contacto: <a href="mailto:info.elecciones29n@pruebapublica.com">info.elecciones29n@pruebapublica.com</a>.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Antes de publicar</h2></div>
+    <ul class="muted">
+      <li>Comprueba que la cifra lleva su <strong>rango</strong> y la fecha del último sondeo.</li>
+      <li>No presentes la mediana o la columna sin CIS como “la media”.</li>
+      <li>Durante el <strong>24–28 de noviembre</strong> no se publican ni difunden sondeos; los datos retirados responden 410.</li>
+      <li>Si citas una provincia, enlaza su ficha y no la presentes como proyección.</li>
+    </ul>
+  </div>
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>

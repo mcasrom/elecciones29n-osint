@@ -114,6 +114,8 @@
       {% endfor %}
     </div>
 
+  {% include "_captura.html.j2" %}
+
     <div class="card">
       <div class="cardhead"><h2>Calendario electoral</h2><span class="hint">próximo hito: {{ next_milestone }}</span></div>
       <div class="cal">
@@ -146,6 +148,7 @@
         {% endfor %}
         </tbody>
       </table></div>
+      <p class="muted small"><strong>Titular canónico:</strong> la <strong>media ponderada</strong>. La <strong>mediana</strong> y la columna <strong>sin CIS</strong> son pruebas de sensibilidad, no cifras alternativas para un titular. <a href="/prensa.html">Kit de prensa</a>.</p>
       <p class="muted small"><strong>Mín–máx</strong> son los sondeos observados, no un intervalo de confianza: un solo sondeo puede fijar ambos extremos. La dispersión típica es el <strong>IQR</strong>. El <strong>CIS</strong> publica estimación de voto, no intención directa, y su efecto de casa es mayor. <strong>Sin CIS</strong> es una prueba de sensibilidad (misma media sin ese barómetro), no la media principal. <span style="color:#b45309">*</span> n&lt;4 o menos de 3 casas: media frágil.</p>
       <p class="muted small">«Otros» es el residual de las casas que lo publican; en Onda Cero incluye ERC, Junts, Bildu y PNV. Por eso los partidos territoriales van en la tabla de abajo y <strong>no se suman</strong> a la principal. Suma de la tabla: <strong>{{ "%.1f"|format(table_sum) }} %</strong> (las casas no listan todos los minoritarios). Actualizado: {{ updated_at }}. Ponderación: {{ weight_basis }}.{% if weights and weights.top_source %} Hoy el {{ "%.1f"|format(weights.top_source_share_pct) }} % del peso viene de la <strong>fuente</strong> <strong>{{ weights.top_source }}</strong>; la <strong>casa</strong> con más peso es <strong>{{ weights.top_house }}</strong> ({{ "%.1f"|format(weights.top_share_pct) }} %). Fuente y casa no se suman; <a href="/robustez.html#peso">ver el reparto</a>.{% endif %} <a href="/data/latest.json">Descargar JSON</a> · <a href="/metodologia.html">Cómo se calcula</a> · <a href="/como-leer.html">Cómo leer</a> · <a href="/glosario.html">Glosario</a></p>
       {% if parties_territorial %}
@@ -368,7 +371,6 @@
     </div>
   </div>
 
-  {% include "_captura.html.j2" %}
 </main>
 {% include "_footer.html.j2" %}
 <script>

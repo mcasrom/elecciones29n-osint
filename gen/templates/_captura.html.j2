@@ -1,15 +1,15 @@
 <section class="subscribe" id="aviso" aria-labelledby="aviso-title">
   <div class="subscribe-copy">
     <p class="eyebrow">Aviso por correo</p>
-    <h2 id="aviso-title">Avísame cuando cambie la media o salga un sondeo nuevo</h2>
-    <p>Un correo cuando haya un cambio en los datos. Sin pronósticos, sin ruido y sin cookies. Baja en un clic.</p>
+    <h2 id="aviso-title">{{ captura_title | default("Avísame cuando cambie la media o salga un sondeo nuevo") }}</h2>
+    <p>{{ captura_desc | default("Un correo cuando haya un cambio en los datos. Sin pronósticos, sin ruido y sin cookies. Baja en un clic.") }}</p>
   </div>
   <form class="subform" data-29n-subscribe novalidate>
     <label class="sr-only" for="sub-email">Tu correo electrónico</label>
     <input id="sub-email" name="email" type="email" inputmode="email" autocomplete="email" required placeholder="tu@correo.com">
     <button type="submit">Recibir aviso</button>
     <p class="submsg" role="status" aria-live="polite"></p>
-    <p class="sublegal">Doble confirmación · <a href="/privacidad.html">Privacidad</a> · <a href="/cambios.xml">RSS de cambios</a></p>
+    <p class="sublegal">Doble confirmación · <a href="/aviso.html">Qué recibes</a> · <a href="/privacidad.html">Privacidad</a> · <a href="/cambios.xml">RSS de cambios</a></p>
     <input class="hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
   </form>
   <noscript><p class="sublegal">Para suscribirte necesitas JavaScript. También puedes seguir los cambios por <a href="/cambios.xml">RSS</a>.</p></noscript>

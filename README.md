@@ -35,6 +35,7 @@ dato, no en una nota al pie.
 - `/postelectoral.html` — **calibración post-electoral**: pendiente hasta el escrutinio; comparará media pre-electoral, resultado oficial, MAE, sesgo y escaños.
 - `/embed/medias.html`, `/embed/robustez.html`, `/embed/hemiciclo.html` — **paneles incrustables** con atribución; ejemplos iframe en sus páginas y en `/fuentes.html`.
 - `/aviso.html` — **landing de avisos**: un correo solo cuando cambia la media o el hemiciclo; doble opt-in y baja en un clic.
+- `/prensa.html` — **kit de prensa**: titular canónico (media ponderada + rango), cifras, método, cita, contacto y enlaces a datos/embeds.
 - `/electorado.html` — Censo 29N: total, CER/CERA, edad y sexo, provincias y nuevos electores.
 - `/participacion.html` — Participación nacional 1979–2023 y **provincial 1977–2023** (selector + comparación con la media nacional).
 - `/territorio.html` — 350 escaños, 52 circunscripciones, electores por escaño y **votos↔escaños 2023 con índice de Gallagher**.
