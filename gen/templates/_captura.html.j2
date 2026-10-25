@@ -50,16 +50,22 @@
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(payload)
     }).then(function(res){
-      if (res.ok) {
-        say('Revisa tu correo: te he enviado un enlace para confirmar.', false);
-        form.reset();
-      } else if (res.status === 400) {
-        say('El correo no parece válido.', true);
-      } else if (res.status === 429) {
-        say('Demasiados intentos. Prueba de nuevo en unos minutos.', true);
-      } else {
-        say('No he podido enviar el correo. Inténtalo más tarde o usa el RSS.', true);
-      }
+      return res.json().catch(function(){ return {}; }).then(function(data){
+        if (res.ok) {
+          if (data && data.already) {
+            say('Ya estabas suscrito. No hace falta confirmar ni volver a pedir el aviso.', false);
+          } else {
+            say('Revisa tu correo: te he enviado un enlace para confirmar.', false);
+            form.reset();
+          }
+        } else if (res.status === 400) {
+          say('El correo no parece válido.', true);
+        } else if (res.status === 429) {
+          say('Demasiados intentos. Espera unos minutos o comprueba si ya estabas suscrito.', true);
+        } else {
+          say('No he podido enviar el correo. Inténtalo más tarde o usa el RSS.', true);
+        }
+      });
     }).catch(function(){
       say('No he podido conectar. Inténtalo más tarde o usa el RSS.', true);
     }).then(function(){

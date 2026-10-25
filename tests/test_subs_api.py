@@ -60,6 +60,13 @@ class SubsApiTest(unittest.TestCase):
         self.assertEqual(token, token2)
         self.assertFalse(send)
 
+    def test_is_confirmed(self):
+        self.assertFalse(subs_api.is_confirmed("persona@example.com"))
+        token, _ = subs_api.subscribe("persona@example.com")
+        subs_api.mark_confirmed(token)
+        self.assertTrue(subs_api.is_confirmed("PERSONA@example.com"))
+        self.assertFalse(subs_api.is_confirmed("otra@example.com"))
+
     def test_rate_limiter(self):
         limiter = subs_api.RateLimiter()
         self.assertTrue(limiter.allow("x", 2, 60))

@@ -212,6 +212,15 @@ def subscribe(
             raise
 
 
+def is_confirmed(email: str) -> bool:
+    email = norm_email(email)
+    if not email:
+        return False
+    with db() as conn:
+        row = conn.execute("SELECT status FROM subscribers WHERE email = ?", (email,)).fetchone()
+    return bool(row and row["status"] == "confirmed")
+
+
 def mark_confirmed(token: str) -> str:
     with db() as conn:
         row = conn.execute("SELECT status FROM subscribers WHERE id = ?", (token,)).fetchone()
@@ -478,6 +487,13 @@ class Handler(BaseHTTPRequestHandler):
         email = norm_email(data.get("email"))
         if not email:
             self.send_json(400, {"ok": False, "error": "email"})
+            return
+        if is_confirmed(email):
+            self.send_json(200, {
+                "ok": True,
+                "already": True,
+                "message": "Ya estabas suscrito. No hace falta confirmar ni volver a pedir el aviso.",
+            })
             return
         if not LIMITER.allow(f"email:{email}", 2, 600):
             self.send_json(429, {"ok": False, "error": "rate_limited"})
