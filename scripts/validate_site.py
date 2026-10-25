@@ -29,7 +29,7 @@ REQUIRED = [
     "manifest.webmanifest", "sw.js", "icons/icon-192.png", "icons/icon-512.png",
     "factores.html", "comportamiento.html", "version.json", "favicon.ico",
     "data/participacion-provincial.json", "data/resultados-2023.csv", "data/status.json", "data/changelog.json", "data/v1/latest.json", "data/v1/robustez.json", "data/v1/status.json",
-    "data/m5-results.json", "data/cis-m4-2026.json", "data/cis-m4-2023.csv",
+    "data/m5-results.json", "data/cis-m4-2026.json", "data/cis-m4-2023.csv", "og/provincia-madrid.png",
     "data/meteo-electoral.json", "data/meteo-electoral.csv", "data/meteo-electoral-provincias.csv",
 ]
 

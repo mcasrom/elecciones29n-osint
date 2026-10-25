@@ -93,6 +93,7 @@ def ensure_dirs() -> None:
     os.makedirs(os.path.join(OUT, "data"), exist_ok=True)
     os.makedirs(os.path.join(OUT, "en"), exist_ok=True)
     os.makedirs(os.path.join(OUT, "embed"), exist_ok=True)
+    os.makedirs(os.path.join(OUT, "og"), exist_ok=True)
 
 
 def write_css() -> None:
@@ -735,6 +736,7 @@ def write_llms() -> None:
 - Hemiciclo simulado por fecha de sondeo (D'Hondt nacional, 350 escaños),
   con método y límites: no es una proyección ni la composición real.
 - Provincias competitivas por margen oficial 2023 (contexto, no proyección).
+- OG 1200×630 por provincia para compartir cada ficha local.
 - Calculadora de mayorías sobre el hemiciclo (aritmética, no pactos).
 - Calibración post-electoral (se activa tras el escrutinio).
 - Sección EN (Summary, Method, Hemicycle, Robustness, Limits, Data).

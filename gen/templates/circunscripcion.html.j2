@@ -2,6 +2,7 @@
 {% set dip_txt = 'diputado' if circ.escanos_2026 == 1 else 'diputados' %}
 {% set page_desc = circ.nombre ~ ": " ~ circ.escanos_2026 ~ " " ~ dip_txt ~ ", " ~ fmt_miles(circ.electores_2026) ~ " electores y resultado oficial de 2019 y 2023. Ficha, escaño marginal y calculadora D'Hondt." %}
 {% set canonical = site_url ~ "/circunscripcion/" ~ circ.slug ~ ".html" %}
+{% set page_image = "/og/provincia-" ~ circ.slug ~ ".png" %}
 {% set jsonld = circ.jsonld %}
 <!DOCTYPE html>
 <html lang="es-ES">

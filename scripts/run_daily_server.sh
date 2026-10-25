@@ -41,6 +41,7 @@ PYTHONPATH="$REPO_DIR" python3 -m gen.build --out "$STAGE"
 if [ ! -f "$STAGE/data/blackout.json" ]; then
   /usr/bin/python3 gen/gen_card_robustez.py --data "$STAGE/data/latest.json" --out "$STAGE/og-robustez.png" || true
   /usr/bin/python3 gen/gen_card_hemiciclo.py --data "$STAGE/data/latest.json" --out "$STAGE/og-hemiciclo.png" || true
+  /usr/bin/python3 gen/gen_card_provincia.py --out "$STAGE/og" || true
 fi
 /usr/bin/python3 gen/gen_card_glosario.py --out "$STAGE/og-glosario.png" || true
 
