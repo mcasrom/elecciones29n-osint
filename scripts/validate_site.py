@@ -25,7 +25,7 @@ REQUIRED = [
     "participacion.html", "data/participacion.json", "data/participacion.csv",
     "territorio.html", "data/escanos-2026.json", "data/escanos-2026.csv",
     "circunscripciones.html", "data/congreso-oficial.json", "circunscripcion/madrid.html",
-    "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "competitivas.html", "mayorias.html", "postelectoral.html", "en.html", "embed/medias.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html",
+    "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "competitivas.html", "mayorias.html", "postelectoral.html", "en.html", "embed/medias.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html", "en/post-election.html", "embed/robustez.html", "embed/hemiciclo.html",
     "manifest.webmanifest", "sw.js", "icons/icon-192.png", "icons/icon-512.png",
     "factores.html", "comportamiento.html", "version.json", "favicon.ico",
     "data/participacion-provincial.json", "data/resultados-2023.csv", "data/status.json", "data/changelog.json", "data/v1/latest.json", "data/v1/robustez.json", "data/v1/status.json",
@@ -54,7 +54,7 @@ def validate_blackout(d: str) -> int:
         elif os.path.getsize(path) == 0:
             errors.append(f"{f} vacío")
 
-    for rel in ("data/latest.json", "data/robustez.json", "data/status.json", "data/changelog.json", "data/v1/latest.json", "data/v1/robustez.json", "data/v1/status.json", "og-robustez.png", "og.png", "og-hemiciclo.png", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "embed/medias.html", "mayorias.html", "postelectoral.html"):
+    for rel in ("data/latest.json", "data/robustez.json", "data/status.json", "data/changelog.json", "data/v1/latest.json", "data/v1/robustez.json", "data/v1/status.json", "og-robustez.png", "og.png", "og-hemiciclo.png", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html", "en/post-election.html", "embed/medias.html", "embed/robustez.html", "embed/hemiciclo.html", "mayorias.html", "postelectoral.html"):
         if os.path.exists(os.path.join(d, rel)):
             errors.append(f"blackout: {rel} sigue publicado")
 

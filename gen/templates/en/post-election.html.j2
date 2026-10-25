@@ -1,0 +1,83 @@
+{% set page_title = "Post-election calibration · Spain 29N" %}
+{% set page_desc = "Pre-election average versus the official count: party error, MAE, bias and seats. Activated after the 29N count." %}
+{% set canonical = site_url ~ "/en/post-election.html" %}
+{% set page_lang = "en" %}
+{% set page_alt_es = site_url ~ "/postelectoral.html" %}
+{% set page_alt_en = canonical %}
+{% set jsonld = webpages['en/post-election.html'] %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_en_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:32px;letter-spacing:-0.03em">Post-election calibration</h1>
+  <p class="muted">How the pre-election average compared with the official count. This is a retrospective error check, not a victory claim.</p>
+
+  {% if calibration.status == 'pending' %}
+  <div class="alert warn"><strong>Waiting for the 29N count.</strong> This page activates when official results and a frozen pre-election snapshot exist. No numbers are invented.</div>
+  <div class="card">
+    <div class="cardhead"><h2>What will be published</h2></div>
+    <ul class="muted">
+      <li>Pre-election average vs official vote share by party, in percentage points.</li>
+      <li>MAE and mean bias: did the average over- or underestimate?</li>
+      <li>Simulated seats vs official seats, with the gap by party.</li>
+      <li>Snapshot date and number of polls; official source and update time.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="cardhead"><h2>Method</h2></div>
+    <ul class="muted">
+      <li>The pre-election snapshot is saved automatically in builds from 1 to 23 November; the last build before the blackout is used.</li>
+      <li>Official results are imported with <code>scripts/import_resultados.py</code>; no source, no publication.</li>
+      <li>Vote error uses votes for parties, not seats; the seat table is separate.</li>
+    </ul>
+  </div>
+
+  {% else %}
+  <div class="hero-kpis">
+    <div class="hk"><b>{{ "%.2f"|format(calibration.mae) if calibration.mae is not none else "—" }} pp</b><span>mean absolute error</span></div>
+    <div class="hk"><b>{% if calibration.bias is not none %}{{ "%+.2f"|format(calibration.bias) }}{% else %}—{% endif %} pp</b><span>bias (average − official)</span></div>
+    <div class="hk"><b>{{ calibration.n }}</b><span>parties compared</span></div>
+    <div class="hk"><b>{{ calibration.snapshot_updated[:10] if calibration.snapshot_updated else "—" }}</b><span>snapshot · {{ calibration.snapshot_n_polls or "—" }} polls</span></div>
+  </div>
+
+  {% if calibration.rows %}
+  <div class="card">
+    <div class="cardhead"><h2>Pre-election average vs official</h2><span class="hint">votes for parties · percentage points</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Party</th><th>Average</th><th>Official</th><th>Error</th></tr></thead>
+      <tbody>{% for r in calibration.rows %}<tr><td><strong>{{ r.party }}</strong></td><td class="num">{{ fmt_pct(r.poll) }}%</td><td class="num">{{ fmt_pct(r.official) }}%</td><td class="num">{{ "%+.2f"|format(r.error) }} pp</td></tr>{% endfor %}</tbody>
+    </table></div>
+    <p class="muted small">Error = average − official. Positive means overestimate; negative means underestimate.</p>
+  </div>
+  {% endif %}
+
+  {% if calibration.seat_rows %}
+  <div class="card">
+    <div class="cardhead"><h2>Simulated vs official seats</h2><span class="hint">national D'Hondt simulation</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Party</th><th>Simulation</th><th>Official</th><th>Error</th></tr></thead>
+      <tbody>{% for r in calibration.seat_rows %}<tr><td><strong>{{ r.party }}</strong></td><td class="num">{{ r.sim }}</td><td class="num">{{ r.official }}</td><td class="num">{{ "%+d"|format(r.error) }}</td></tr>{% endfor %}</tbody>
+    </table></div>
+    <p class="muted small">The simulation does not include the provincial allocation or regional parties; seat error is not comparable to vote error.</p>
+  </div>
+  {% endif %}
+
+  <div class="card">
+    <div class="cardhead"><h2>Source and method</h2></div>
+    <p class="muted small">Official result: {% if calibration.official_url %}<a href="{{ calibration.official_url }}" target="_blank" rel="noopener">source</a>{% else %}—{% endif %} · updated: {{ calibration.official_updated or "—" }}. Snapshot: {{ calibration.snapshot_updated or "—" }} ({{ calibration.snapshot_n_polls or "—" }} polls).</p>
+  </div>
+  {% endif %}
+
+  <div class="cta">
+    <a class="btn" href="/postelectoral.html">Full page (ES)</a>
+    <a class="btn ghost" href="/en/method.html">Method</a>
+    <a class="btn ghost" href="/en/limits.html">Limits</a>
+  </div>
+</main>
+{% include "_en_footer.html.j2" %}
+</body>
+</html>

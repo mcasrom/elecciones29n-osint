@@ -30,6 +30,10 @@ dato, no en una nota al pie.
 - `/` — Agregado, evolución, Congreso (D'Hondt etiquetado como simulación) y Senado.
 - `/hemiciclo.html` — **350 escaños por fecha de sondeo**: D'Hondt nacional sobre la media, selector de fecha, bloques y serie completa. Simulación mecánica, no proyección; sin territoriales. Enlace visible en la portada (pestaña **Hemiciclo** y botón bajo los indicadores) y en la navegación del resto de páginas.
 - `/en.html` — **resumen mínimo en inglés**: media, rango, límites, método, datos y enlaces. `hreflang` es/en; el resto del sitio sigue en español.
+- `/competitivas.html` — **52 provincias por margen oficial 2023** entre los dos primeros, con escaños, diferencia y participación. Contexto factual, no proyección.
+- `/mayorias.html` — **calculadora de mayorías** sobre el hemiciclo simulado: suma de escaños, umbral 176 y presets. No predice pactos ni investidura.
+- `/postelectoral.html` — **calibración post-electoral**: pendiente hasta el escrutinio; comparará media pre-electoral, resultado oficial, MAE, sesgo y escaños.
+- `/embed/medias.html` — **tabla incrustable** para medios, con atribución; ejemplo iframe en `/fuentes.html` y `/en/data.html`.
 - `/electorado.html` — Censo 29N: total, CER/CERA, edad y sexo, provincias y nuevos electores.
 - `/participacion.html` — Participación nacional 1979–2023 y **provincial 1977–2023** (selector + comparación con la media nacional).
 - `/territorio.html` — 350 escaños, 52 circunscripciones, electores por escaño y **votos↔escaños 2023 con índice de Gallagher**.
@@ -49,6 +53,7 @@ dato, no en una nota al pie.
 - `scripts/reproduce.sh`: reconstruye con el CSV y los datos actuales y devuelve los hashes. El cálculo es **determinista** (D’Hondt y ponderación); no usa semilla. Para reproducir un build histórico hay que congelar antes el CSV y los JSON de entrada.
 - En **blackout** (24–28 nov), los JSON y OG retirados responden **410**; el service worker no cachea `/data/` ni `.json`.
 - `scripts/archive_check.py`: comprueba si hay instantáneas en Archive.org (0 sin capturas, 1 con capturas, 2 consulta incompleta).
+- **Sección EN**: `/en.html`, `/en/method.html`, `/en/hemicycle.html`, `/en/robustness.html`, `/en/limits.html`, `/en/data.html`; nav propia y `hreflang` recíproco.
 
 ## Aviso por correo
 

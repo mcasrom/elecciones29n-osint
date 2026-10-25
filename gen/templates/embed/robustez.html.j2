@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Robustez 29N · panel para incrustar</title>
+<link rel="stylesheet" href="/css/main.css?v={{ build_ts }}">
+<style>
+body.embed{background:var(--panel);padding:0}.embed-wrap{max-width:760px;margin:0 auto;padding:14px 16px}
+.embed-head{display:flex;justify-content:space-between;gap:10px;align-items:baseline;margin-bottom:10px}
+.embed-head strong{font-size:16px}.embed-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}
+.embed-kpis div{border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+.embed-kpis b{display:block;font-size:22px;line-height:1.1}.embed-kpis span{font-size:11px;color:var(--muted)}
+.embed-foot{margin-top:10px;font-size:12px;color:var(--muted)}.embed-foot a{color:var(--accent2)}
+</style>
+</head>
+<body class="embed">
+<main class="embed-wrap">
+  <div class="embed-head"><strong>Robustez 29N</strong><span class="muted small">{{ updated_at }}</span></div>
+  <div class="embed-kpis">
+    <div><b>{{ health.n_polls or n_polls }}</b><span>sondeos</span></div>
+    <div><b>{{ health.n_pollsters or "—" }}</b><span>casas</span></div>
+    <div><b>{{ health.days_since_last if health.days_since_last is not none else "—" }}</b><span>días desde el último</span></div>
+    <div><b>{{ health.sample_pct or 0 }}%</b><span>con muestra</span></div>
+    <div><b>{{ "%.1f"|format(health.dispersion_iqr) if health.dispersion_iqr is not none else "—" }}</b><span>IQR (pp)</span></div>
+  </div>
+  {% if weights and weights.top_source %}
+  <p class="muted small" style="margin:10px 0 0">Fuente principal: <strong>{{ weights.top_source }}</strong> ({{ "%.1f"|format(weights.top_source_share_pct) }}%) · casa principal: <strong>{{ weights.top_house }}</strong> ({{ "%.1f"|format(weights.top_share_pct) }}%) · {{ "%.2f"|format(weights.effective_sources) }} fuentes / {{ "%.2f"|format(weights.effective_houses) }} casas efectivas.</p>
+  {% endif %}
+  <p class="embed-foot"><a href="{{ site_url }}/robustez.html?utm_source=embed&amp;utm_medium=iframe" target="_blank" rel="noopener">Observatorio 29N</a> · indicadores descriptivos, no una nota de calidad.</p>
+</main>
+</body>
+</html>

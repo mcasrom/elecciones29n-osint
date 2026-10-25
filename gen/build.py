@@ -74,6 +74,9 @@ PAGES = [
     ("en/robustness.html", "en/robustness.html", "2026-10-25", "weekly", "0.6"),
     ("en/limits.html", "en/limits.html", "2026-10-25", "monthly", "0.5"),
     ("en/data.html", "en/data.html", "2026-10-25", "weekly", "0.6"),
+    ("en/competitive.html", "en/competitive.html", "2026-10-25", "weekly", "0.6"),
+    ("en/majorities.html", "en/majorities.html", "2026-10-25", "weekly", "0.6"),
+    ("en/post-election.html", "en/post-election.html", "2026-10-25", "weekly", "0.6"),
     ("competitivas.html", "competitivas.html", "2026-10-25", "weekly", "0.7"),
     ("mayorias.html", "mayorias.html", "2026-10-25", "weekly", "0.7"),
     ("postelectoral.html", "postelectoral.html", "2026-10-25", "weekly", "0.7"),
@@ -656,7 +659,7 @@ def write_blackout_site(
         with open(os.path.join(OUT, filename), "w", encoding="utf-8") as f:
             f.write(html)
 
-    for rel in ("data/latest.json", "data/robustez.json", "data/status.json", "data/changelog.json", "data/v1/latest.json", "data/v1/robustez.json", "data/v1/status.json", "og-robustez.png", "og.png", "og-hemiciclo.png", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "embed/medias.html", "mayorias.html", "postelectoral.html"):
+    for rel in ("data/latest.json", "data/robustez.json", "data/status.json", "data/changelog.json", "data/v1/latest.json", "data/v1/robustez.json", "data/v1/status.json", "og-robustez.png", "og.png", "og-hemiciclo.png", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html", "en/post-election.html", "embed/medias.html", "embed/robustez.html", "embed/hemiciclo.html", "mayorias.html", "postelectoral.html"):
         _remove_if_exists(rel)
 
     marker = {
@@ -728,14 +731,34 @@ def write_llms() -> None:
   escaño marginal y calculadora D'Hondt.
 - Hemiciclo simulado por fecha de sondeo (D'Hondt nacional, 350 escaños),
   con método y límites: no es una proyección ni la composición real.
+- Provincias competitivas por margen oficial 2023 (contexto, no proyección).
+- Calculadora de mayorías sobre el hemiciclo (aritmética, no pactos).
+- Calibración post-electoral (se activa tras el escrutinio).
+- Sección EN (Summary, Method, Hemicycle, Robustness, Limits, Data).
 - Metodología, fuentes y límites explicados.
 
 ## Datos
 - {SITE_URL}/data/latest.json
 - {SITE_URL}/data/robustez.json
+- {SITE_URL}/data/status.json
+- {SITE_URL}/data/changelog.json
+- {SITE_URL}/data/v1/latest.json
+- {SITE_URL}/data/v1/robustez.json
+- {SITE_URL}/data/v1/status.json
+- {SITE_URL}/data/v1/schema.json
 - {SITE_URL}/data/congreso-oficial.json
 - {SITE_URL}/circunscripciones.html
 - {SITE_URL}/hemiciclo.html
+- {SITE_URL}/competitivas.html
+- {SITE_URL}/mayorias.html
+- {SITE_URL}/postelectoral.html
+- {SITE_URL}/embed/medias.html
+- {SITE_URL}/en.html
+- {SITE_URL}/en/method.html
+- {SITE_URL}/en/hemicycle.html
+- {SITE_URL}/en/robustness.html
+- {SITE_URL}/en/limits.html
+- {SITE_URL}/en/data.html
 - {SITE_URL}/novedades.html
 - {SITE_URL}/cambios.xml
 - {SITE_URL}/privacidad.html
@@ -744,7 +767,8 @@ def write_llms() -> None:
 ## Límites
 - Solo sondeos publicados (no hay microdatos ni cocina de encuestas).
 - Prohibido publicar sondeos del 24 al 28 de noviembre (JEC/LOREG); el
-  agregado y sus JSON se retiran en esas fechas y se restablecen el 29.
+  agregado y sus JSON se retiran en esas fechas, los endpoints retirados
+  responden 410 y se restablecen el 29.
 - Una media no sustituye a la incertidumbre: revisar siempre el rango.
 
 ## Código
@@ -2053,6 +2077,9 @@ def main(out: str = "web") -> None:
             "en/robustness.html": build_webpage_jsonld("Robustness", "/en/robustness.html", "Sample, dispersion, source and house weights."),
             "en/limits.html": build_webpage_jsonld("Limits and glossary", "/en/limits.html", "What the observatory does not say."),
             "en/data.html": build_webpage_jsonld("Data", "/en/data.html", "Open JSON, versioned data and reproducibility."),
+            "en/competitive.html": build_webpage_jsonld("Competitive provinces", "/en/competitive.html", "2023 official margin between the top two parties. Factual context, not a projection."),
+            "en/majorities.html": build_webpage_jsonld("Majority calculator", "/en/majorities.html", "Arithmetic sum of simulated seats with a 176 threshold. Not a pact or investiture forecast."),
+            "en/post-election.html": build_webpage_jsonld("Post-election calibration", "/en/post-election.html", "Pre-election average versus official results, errors and seats."),
             "competitivas.html": build_webpage_jsonld("Provincias competitivas", "/competitivas.html", "Provincias ordenadas por el margen oficial de 2023 entre los dos primeros. Contexto factual, no proyección."),
             "mayorias.html": build_webpage_jsonld("Calculadora de mayorías", "/mayorias.html", "Suma aritmética de escaños simulados con umbral 176. No predice pactos ni investidura."),
             "postelectoral.html": build_webpage_jsonld("Calibración post-electoral", "/postelectoral.html", "Comparación entre la última media pre-electoral y el escrutinio oficial."),
@@ -2086,16 +2113,17 @@ def main(out: str = "web") -> None:
     }
 
     for tname in ["index.html", "hemiciclo.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "participacion.html", "territorio.html",
-             "circunscripciones.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html", "competitivas.html", "mayorias.html", "postelectoral.html", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html"]:
+             "circunscripciones.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html", "competitivas.html", "mayorias.html", "postelectoral.html", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html", "en/post-election.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(current=tname, **context)
         with open(os.path.join(OUT, tname), "w", encoding="utf-8") as f:
             f.write(html)
 
-    tpl_embed = env.get_template("embed/medias.html.j2")
-    html = tpl_embed.render(current="embed/medias.html", **context)
-    with open(os.path.join(OUT, "embed", "medias.html"), "w", encoding="utf-8") as f:
-        f.write(html)
+    for embed_name in ("medias", "robustez", "hemiciclo"):
+        tpl_embed = env.get_template(f"embed/{embed_name}.html.j2")
+        html = tpl_embed.render(current=f"embed/{embed_name}.html", **context)
+        with open(os.path.join(OUT, "embed", f"{embed_name}.html"), "w", encoding="utf-8") as f:
+            f.write(html)
 
     tpl_circ = env.get_template("circunscripcion.html.j2")
     for p in circ_pages:

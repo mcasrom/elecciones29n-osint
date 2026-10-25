@@ -1,0 +1,57 @@
+{% set page_title = "Competitive provinces · 2023 official result · Spain 29N" %}
+{% set page_desc = "Provinces ranked by the official 2023 margin between the top two parties. Factual context, not a 29N projection." %}
+{% set canonical = site_url ~ "/en/competitive.html" %}
+{% set page_lang = "en" %}
+{% set page_alt_es = site_url ~ "/competitivas.html" %}
+{% set page_alt_en = canonical %}
+{% set jsonld = webpages['en/competitive.html'] %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_en_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:32px;letter-spacing:-0.03em">Competitive provinces</h1>
+  <p class="muted">Official <strong>2023</strong> general election result, ranked by the margin between the top two parties. Factual context: <strong>not a 29N projection</strong>.</p>
+
+  <div class="hero-kpis">
+    <div class="hk"><b>{{ competitive_summary.n }}</b><span>provinces</span></div>
+    <div class="hk"><b>{{ competitive_summary.lt5 }}</b><span>margin &lt; 5 pp</span></div>
+    <div class="hk"><b>{{ competitive_summary.lt10 }}</b><span>margin &lt; 10 pp</span></div>
+    <div class="hk"><b>2023</b><span>last official result</span></div>
+  </div>
+
+  <div class="alert warn"><strong>Not a forecast.</strong> A small 2023 margin does not mean the province will flip in 2026. No seats are projected from polls here.</div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Margin between the top two</h2><span class="hint">valid votes · ascending</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Province</th><th>Seats</th><th>First</th><th>Second</th><th>Margin</th><th>Seat gap</th><th>Turnout</th></tr></thead>
+      <tbody>
+      {% for r in competitive_provinces %}
+      <tr>
+        <td><a href="/circunscripcion/{{ r.slug }}.html">{{ r.nombre }}</a></td>
+        <td class="num">{{ r.escanos }}</td>
+        <td>{{ r.winner }} <span class="muted small">({{ r.winner_seats }})</span></td>
+        <td>{{ r.second }} <span class="muted small">({{ r.second_seats }})</span></td>
+        <td class="num">{{ "%.2f"|format(r.margin) }} pp {% if r.margin < 5 %}<span class="chip2">≤5</span>{% endif %}</td>
+        <td class="num">{{ r.seat_gap }}</td>
+        <td class="num">{% if r.turnout is not none %}{{ fmt_pct(r.turnout) }}%{% else %}—{% endif %}</td>
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table></div>
+    <p class="muted small">Margin = difference between first and second divided by valid votes. Seats are the official 2023 result. Source: Spanish Ministry of the Interior.</p>
+  </div>
+
+  <div class="cta">
+    <a class="btn" href="/competitivas.html">Full page (ES)</a>
+    <a class="btn ghost" href="/en/hemicycle.html">Hemicycle</a>
+    <a class="btn ghost" href="/en/limits.html">Limits</a>
+  </div>
+</main>
+{% include "_en_footer.html.j2" %}
+</body>
+</html>
