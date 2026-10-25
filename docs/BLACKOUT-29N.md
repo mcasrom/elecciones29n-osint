@@ -9,6 +9,13 @@
 - [ ] Comprobar que `agg/blackout.py` cubre 24–28 y que el build de staging retira datos.
 - [ ] Backup del vhost nginx y del `web/` actual.
 
+## Estado de la preparación (25-oct)
+
+- **Pausa social automática**: `social-poster/social_queue.py` no publica del 24 al 28 (probado con `E29N_BLACKOUT_TEST=1`; hay 6 elementos aprobados que quedarán bloqueados).
+- **Recordatorios Archive.org**: 23, 24 y 28 nov a las 08:05 Europe/Madrid en `scripts/recordatorios.json`.
+- **Prueba con navegador ya usado**: perfil cálido → `/data/latest.json` 200; con marcador de blackout → **410**; sin marcador → **200**. Marcador y página de prueba eliminados.
+- **Purga**: sigue siendo manual. El servidor solo tiene credenciales de Certbot, no la clave global de Cloudflare; `run_daily_server.sh` avisa si falta el wrapper.
+
 ## T0 (24 nov, 00:00 Europe/Madrid)
 
 - [ ] `run_daily_server.sh` en modo blackout: páginas de aviso, sin JSON, sin `og.png`/`og-hemiciclo.png`/`og-robustez.png`.
