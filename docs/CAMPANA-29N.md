@@ -46,3 +46,15 @@ Cron (servidor, TZ Europe/Madrid):
 - No es un pronóstico: el texto repite “simulación, no pronóstico”.
 - No sustituye la distribución editorial: hilo de provincias, embeds, outreach y GSC.
 - Si no hay cambio real, no hay post. La frecuencia no se fuerza.
+
+
+## Email segmentado por provincia (manual)
+
+`scripts/newsletter_provincia.py` usa `page` de la suscripción para añadir un bloque provincial. No hay campo nuevo ni cron.
+
+```bash
+python3 scripts/newsletter_provincia.py --dry
+python3 scripts/newsletter_provincia.py --test tu@email --province madrid
+```
+
+`--send` solo con OK expreso. Respeta blackout y doble opt-in.
