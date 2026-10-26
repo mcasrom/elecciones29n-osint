@@ -1,15 +1,15 @@
 {
   "version": "0.11.1",
-  "build": "202610261440",
+  "build": "202610261514",
   "date": "2026-10-26",
-  "commit": "439d007",
-  "generated_at": "2026-10-26T14:40:59.085550+01:00",
+  "commit": "58d7d9f",
+  "generated_at": "2026-10-26T15:14:27.850785+01:00",
   "n_polls": 9,
   "n_pollsters": 7,
   "window_days": 14,
   "files": {
-    "data/latest.json": "076c9d37eae2e191d8902fcbb57c399a7760b0309da251d7342ce549422b74d1",
-    "data/robustez.json": "241fbb3e75eb53709ee82348b77ee3b0118c780b5cae26ee48360729a789b1a2",
+    "data/latest.json": "5742be2642aa96a62c76fb2636f30da3db79093d4d348d68b149449f520fc9e3",
+    "data/robustez.json": "2133a182f1ed72d3a947aa1e6140d14b16349d532cb3420206f81204edf7c879",
     "data/polls_history.csv": null
   },
   "sources": [
