@@ -1,5 +1,5 @@
 {% set page_title = "Fuentes y datos abiertos · observatorio electoral 29N" %}
-{% set page_desc = "Fuentes de cada dato (Onda Cero, Electomanía, CIS, INE, JEC, BOE), formatos, enlaces oficiales y conjuntos de datos descargables con su esquema." %}
+{% set page_desc = "Fuentes de cada dato (Onda Cero, Electomanía, CIS, Sigma Dos, SocioMétrica, NC Report, Ateneo del Dato, INE, JEC, BOE), formatos, enlaces oficiales y conjuntos de datos descargables con su esquema." %}
 {% set canonical = site_url ~ "/fuentes.html" %}
 {% set jsonld = webpages['fuentes.html'] %}
 {% set page_alt_en = site_url ~ "/en/data.html" %}
@@ -20,8 +20,12 @@
       <table>
         <thead><tr><th>Módulo</th><th>Fuente</th><th>Formato</th><th>Enlace</th></tr></thead>
         <tbody>
-          <tr><td>Sondeos (compilación principal)</td><td>Onda Cero · encuestas publicadas</td><td>HTML/JSON incrustado</td><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">ondacero.es/…/encuestas</a></td></tr>
-          <tr><td>Sondeos (paneles propios)</td><td>Electomanía · ElectoPanel</td><td>WordPress REST API</td><td><a href="https://electomania.es/" rel="noopener" target="_blank">electomania.es</a> · <strong>autorización escrita 23-oct-2026</strong></td></tr>
+          <tr><td>Sondeos (automática)</td><td>Onda Cero · encuestas publicadas</td><td>HTML/JSON incrustado</td><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">ondacero.es/…/encuestas</a></td></tr>
+          <tr><td>Sondeos (automática)</td><td>Electomanía · ElectoPanel</td><td>WordPress REST API</td><td><a href="https://electomania.es/" rel="noopener" target="_blank">electomania.es</a> · <strong>autorización escrita 23-oct-2026</strong></td></tr>
+          <tr><td>Sondeos (manual + watcher)</td><td>El Mundo · Sigma Dos</td><td>HTML / tabla</td><td><a href="https://www.elmundo.es/espana/encuestas/" rel="noopener" target="_blank">elmundo.es/encuestas</a></td></tr>
+          <tr><td>Sondeos (manual + watcher)</td><td>El Español · SocioMétrica</td><td>HTML / tracking</td><td><a href="https://www.elespanol.com/" rel="noopener" target="_blank">elespanol.com</a></td></tr>
+          <tr><td>Sondeos (manual + watcher)</td><td>La Razón · NC Report</td><td>HTML / tabla</td><td><a href="https://www.larazon.es/" rel="noopener" target="_blank">larazon.es</a></td></tr>
+          <tr><td>Sondeos (manual + watcher)</td><td>elDiario.es · Ateneo del Dato</td><td>HTML / tabla</td><td><a href="https://www.eldiario.es/" rel="noopener" target="_blank">eldiario.es</a></td></tr>
           <tr><td>CIS</td><td>Centro de Investigaciones Sociológicas</td><td>PDF (manual)</td><td><a href="https://www.cis.es/" rel="noopener" target="_blank">cis.es</a></td></tr>
           <tr><td>Contraste</td><td>Política Sin Ruido</td><td>HTML (referencia)</td><td><a href="https://politicasinruido.com/encuestas" rel="noopener" target="_blank">politicasinruido.com</a></td></tr>
           <tr><td>Censo</td><td>INE · Oficina del Censo Electoral</td><td>XLSX (tablas 2/3/6/9/12)</td><td><a href="https://www.ine.es/dyngs/CEL/es/index.htm?cid=1703" rel="noopener" target="_blank">ine.es · CEL</a></td></tr>
@@ -74,7 +78,7 @@
       <li>Se descartan paneles autonómicos, adelantos incompletos y textos que no suman un rango plausible.</li>
       <li><strong>Onda Cero</strong>: se usan los <strong>sondeos individuales</strong> de su compilación (14 casas), no su promedio. La fecha es de <strong>publicación</strong>, no de campo. «Otros» es un residual y no se usa en los gráficos de partidos. No se reproducen sus tablas, gráficos ni bases de datos; su reutilización requiere autorización.</li>
       <li><strong>CIS</strong>: barómetro añadido a mano desde su PDF, con muestra y fecha. <strong>Política Sin Ruido</strong> se usa como contraste metodológico (una encuesta por casa), no como fuente de la media.</li>
-      <li>Si la ingesta o la validación fallan, no se publica: se conserva la última versión buena.</li>
+      <li><strong>Actualización</strong>: Electomanía y Onda Cero a las 08:00 y refresco 14:00/20:00; los medios con tabla en HTML/imagen pasan por cola de revisión y no se publican parciales. Si la ingesta o la validación fallan, no se publica: se conserva la última versión buena.</li>
       <li><strong>INE</strong>: reutilización con cita de la fuente (CC BY 4.0 en los datos derivados).</li>
       <li><strong>JEC / BOE</strong>: reutilización citando la fuente.</li>
       <li><strong>Electomanía</strong>: <strong>autorización escrita del 23-oct-2026</strong> para usar los datos en abierto del ElectoPanel (voto y escaños), histórico incluido, sin coste, con <strong>«Fuente: Electomanía»</strong> y enlace a cada pieza. Se usan los escaños publicados y no se recalculan; no se reproducen tablas, gráficos, artículos completos ni microdatos.</li>

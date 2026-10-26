@@ -9,11 +9,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fuentes y datos abiertos · observatorio electoral 29N</title>
-<meta name="description" content="Fuentes de cada dato (Onda Cero, Electomanía, CIS, INE, JEC, BOE), formatos, enlaces oficiales y conjuntos de datos descargables con su esquema.">
+<meta name="description" content="Fuentes de cada dato (Onda Cero, Electomanía, CIS, Sigma Dos, SocioMétrica, NC Report, Ateneo del Dato, INE, JEC, BOE), formatos, enlaces oficiales y conjuntos de datos descargables con su esquema.">
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/fuentes.html">
 <link rel="alternate" hreflang="es" href="https://elecciones29n.pruebapublica.com/fuentes.html"><link rel="alternate" hreflang="en" href="https://elecciones29n.pruebapublica.com/en/data.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202610261437">
+<link rel="stylesheet" href="/css/main.css?v=202610261440">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <meta property="og:site_name" content="elecciones29n-osint">
 <meta property="og:locale" content="es_ES">
 <meta property="og:title" content="Fuentes y datos abiertos · observatorio electoral 29N">
-<meta property="og:description" content="Fuentes de cada dato (Onda Cero, Electomanía, CIS, INE, JEC, BOE), formatos, enlaces oficiales y conjuntos de datos descargables con su esquema.">
+<meta property="og:description" content="Fuentes de cada dato (Onda Cero, Electomanía, CIS, Sigma Dos, SocioMétrica, NC Report, Ateneo del Dato, INE, JEC, BOE), formatos, enlaces oficiales y conjuntos de datos descargables con su esquema.">
 <meta property="og:url" content="https://elecciones29n.pruebapublica.com/fuentes.html">
 
 <meta property="og:image" content="https://elecciones29n.pruebapublica.com/og.png">
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Fuentes y datos abiertos · observatorio electoral 29N">
-<meta name="twitter:description" content="Fuentes de cada dato (Onda Cero, Electomanía, CIS, INE, JEC, BOE), formatos, enlaces oficiales y conjuntos de datos descargables con su esquema.">
+<meta name="twitter:description" content="Fuentes de cada dato (Onda Cero, Electomanía, CIS, Sigma Dos, SocioMétrica, NC Report, Ateneo del Dato, INE, JEC, BOE), formatos, enlaces oficiales y conjuntos de datos descargables con su esquema.">
 <meta name="twitter:image" content="https://elecciones29n.pruebapublica.com/og.png">
 <meta name="twitter:image:alt" content="Fuentes y datos abiertos · observatorio electoral 29N">
 <link rel="alternate" type="application/json" href="/data/latest.json" title="Datos agregados (JSON)">
@@ -127,8 +127,12 @@ document.addEventListener('DOMContentLoaded', function(){
       <table>
         <thead><tr><th>Módulo</th><th>Fuente</th><th>Formato</th><th>Enlace</th></tr></thead>
         <tbody>
-          <tr><td>Sondeos (compilación principal)</td><td>Onda Cero · encuestas publicadas</td><td>HTML/JSON incrustado</td><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">ondacero.es/…/encuestas</a></td></tr>
-          <tr><td>Sondeos (paneles propios)</td><td>Electomanía · ElectoPanel</td><td>WordPress REST API</td><td><a href="https://electomania.es/" rel="noopener" target="_blank">electomania.es</a> · <strong>autorización escrita 23-oct-2026</strong></td></tr>
+          <tr><td>Sondeos (automática)</td><td>Onda Cero · encuestas publicadas</td><td>HTML/JSON incrustado</td><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">ondacero.es/…/encuestas</a></td></tr>
+          <tr><td>Sondeos (automática)</td><td>Electomanía · ElectoPanel</td><td>WordPress REST API</td><td><a href="https://electomania.es/" rel="noopener" target="_blank">electomania.es</a> · <strong>autorización escrita 23-oct-2026</strong></td></tr>
+          <tr><td>Sondeos (manual + watcher)</td><td>El Mundo · Sigma Dos</td><td>HTML / tabla</td><td><a href="https://www.elmundo.es/espana/encuestas/" rel="noopener" target="_blank">elmundo.es/encuestas</a></td></tr>
+          <tr><td>Sondeos (manual + watcher)</td><td>El Español · SocioMétrica</td><td>HTML / tracking</td><td><a href="https://www.elespanol.com/" rel="noopener" target="_blank">elespanol.com</a></td></tr>
+          <tr><td>Sondeos (manual + watcher)</td><td>La Razón · NC Report</td><td>HTML / tabla</td><td><a href="https://www.larazon.es/" rel="noopener" target="_blank">larazon.es</a></td></tr>
+          <tr><td>Sondeos (manual + watcher)</td><td>elDiario.es · Ateneo del Dato</td><td>HTML / tabla</td><td><a href="https://www.eldiario.es/" rel="noopener" target="_blank">eldiario.es</a></td></tr>
           <tr><td>CIS</td><td>Centro de Investigaciones Sociológicas</td><td>PDF (manual)</td><td><a href="https://www.cis.es/" rel="noopener" target="_blank">cis.es</a></td></tr>
           <tr><td>Contraste</td><td>Política Sin Ruido</td><td>HTML (referencia)</td><td><a href="https://politicasinruido.com/encuestas" rel="noopener" target="_blank">politicasinruido.com</a></td></tr>
           <tr><td>Censo</td><td>INE · Oficina del Censo Electoral</td><td>XLSX (tablas 2/3/6/9/12)</td><td><a href="https://www.ine.es/dyngs/CEL/es/index.htm?cid=1703" rel="noopener" target="_blank">ine.es · CEL</a></td></tr>
@@ -195,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function(){
       <li>Se descartan paneles autonómicos, adelantos incompletos y textos que no suman un rango plausible.</li>
       <li><strong>Onda Cero</strong>: se usan los <strong>sondeos individuales</strong> de su compilación (14 casas), no su promedio. La fecha es de <strong>publicación</strong>, no de campo. «Otros» es un residual y no se usa en los gráficos de partidos. No se reproducen sus tablas, gráficos ni bases de datos; su reutilización requiere autorización.</li>
       <li><strong>CIS</strong>: barómetro añadido a mano desde su PDF, con muestra y fecha. <strong>Política Sin Ruido</strong> se usa como contraste metodológico (una encuesta por casa), no como fuente de la media.</li>
-      <li>Si la ingesta o la validación fallan, no se publica: se conserva la última versión buena.</li>
+      <li><strong>Actualización</strong>: Electomanía y Onda Cero a las 08:00 y refresco 14:00/20:00; los medios con tabla en HTML/imagen pasan por cola de revisión y no se publican parciales. Si la ingesta o la validación fallan, no se publica: se conserva la última versión buena.</li>
       <li><strong>INE</strong>: reutilización con cita de la fuente (CC BY 4.0 en los datos derivados).</li>
       <li><strong>JEC / BOE</strong>: reutilización citando la fuente.</li>
       <li><strong>Electomanía</strong>: <strong>autorización escrita del 23-oct-2026</strong> para usar los datos en abierto del ElectoPanel (voto y escaños), histórico incluido, sin coste, con <strong>«Fuente: Electomanía»</strong> y enlace a cada pieza. Se usan los escaños publicados y no se recalculan; no se reproducen tablas, gráficos, artículos completos ni microdatos.</li>
@@ -289,11 +293,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202610261437" hidden>
+<div class="swupdate" id="swupdate" data-build="202610261440" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610261437');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610261440');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -322,7 +326,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202610261437', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202610261440', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

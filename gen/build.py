@@ -1715,7 +1715,7 @@ def build_jsonld(parties: list, updated_at: str) -> str:
                 "name": "¿De dónde salen los datos?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "De sondeos publicados por Onda Cero (compilación), Electomanía (paneles propios) y el CIS, con enlace a la fuente y fecha. Se descartan sondeos autonómicos, adelantos sin serie completa y piezas sin ficha verificable.",
+                    "text": "De sondeos publicados por Onda Cero y Electomanía (automáticas), y por El Mundo/Sigma Dos, El Español/SocioMétrica, La Razón/NC Report, elDiario/Ateneo del Dato y CIS (manuales verificadas), con enlace a la fuente y fecha. Se descartan sondeos autonómicos, adelantos sin serie completa y piezas sin ficha verificable.",
                 },
             },
         ],
