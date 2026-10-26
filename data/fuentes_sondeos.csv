@@ -1,12 +1,12 @@
 encuestadora,medio,url,frecuencia,estado,notas
-Electomania,Electomania,https://electomania.es/,diario/semanal,automatico,ElectoPanel; API WordPress; autorizado 23-oct-2026: solo datos abiertos, Fuente: Electomania + enlace a cada pieza, escaños publicados sin recalcular
-CIS,CIS,https://www.cis.es/,mensual,manual,Barometros; PDF; sep-2026 n=4042 y oct-2026 n=5025
+Electomania,Electomania,https://electomania.es/,diario/semanal,automatico,ElectoPanel; API WordPress; autorizado 23-oct-2026: solo datos abiertos
+CIS,CIS,https://www.cis.es/,mensual,manual,"manual; barómetro; estimación de voto, no voto directo"
 40dB,El Pais / 40dB,https://40db.es/,semanal,manual,
 GAD3,ABC / La Vanguardia,https://www.gad3.com/,semanal,manual,
-Sigma Dos,El Mundo,https://www.sigmados.com/,semanal,manual,
-SocioMetria,El Espanol,https://www.sociometrica.es/,semanal,manual,
+Sigma Dos,El Mundo,https://www.sigmados.com/,semanal,manual,manual; watcher RSS; tabla completa en El Mundo; campo 8-22 oct
+SocioMetria,El Espanol,https://www.sociometrica.es/,semanal,manual,manual; watcher RSS; tracking acumulado CAWI; tabla en El Español
 Simple Logica,elDiario.es,https://www.simplelogica.com/,periodica,manual,
-NC Report,La Razon,https://www.ncreport.es/,periodica,manual,
+NC Report,La Razon,https://www.ncreport.es/,periodica,manual,manual; watcher RSS; tabla completa en La Razón; campo 22-24 oct
 DYM,El Confidencial / otros,https://www.dyminstitute.com/,ocasional,pendiente,
 Ipsos,Ipsos,https://www.ipsos.com/es-es,ocasional,pendiente,
 YouGov,YouGov,https://yougov.es/,ocasional,pendiente,
@@ -18,7 +18,7 @@ Onda Cero (compilacion),Onda Cero,https://www.ondacero.es/elecciones/generales/e
 Target Point,El Debate,https://www.targetpoint.es/,periodica,manual,
 Invymark,La Sexta,https://www.invymark.es/,periodica,manual,
 GESOP,El Periodico / Prensa Iberica,https://www.gesop.net/,periodica,manual,
-Ateneo del Dato,El Diario,https://ateneodeldato.es/,periodica,manual,
+Ateneo del Dato,El Diario,https://ateneodeldato.es/,periodica,manual,manual; watcher RSS; publicado 25-oct y actualizado 26-oct; Otros residual
 IMOP Insights,El Confidencial,https://www.imop.es/,periodica,manual,
 Opina 360,Antena 3,https://www.opina360.es/,ocasional,manual,
 Politica Sin Ruido,contraste,https://politicasinruido.com/encuestas,diario,contraste,4 casas; una por casa; metadatos campo/muestra; no se usa en la media

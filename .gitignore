@@ -19,3 +19,5 @@ data/subs.db
 data/subs.db-*
 data/pre_election_snapshot.json
 data/campaign_digest_state.json
+
+data/candidatos_sondeos.csv

@@ -1,0 +1,140 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Post-election calibration · Spain 29N</title>
+<meta name="description" content="Pre-election average versus the official count: party error, MAE, bias and seats. Activated after the 29N count.">
+<link rel="canonical" href="https://elecciones29n.pruebapublica.com/en/post-election.html">
+<link rel="alternate" hreflang="es" href="https://elecciones29n.pruebapublica.com/postelectoral.html"><link rel="alternate" hreflang="en" href="https://elecciones29n.pruebapublica.com/en/post-election.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="stylesheet" href="/css/main.css?v=202610261437">
+<script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  function sync(){
+    var light = document.documentElement.dataset.theme === 'light';
+    document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+      var i=b.querySelector('.ticon'), l=b.querySelector('.tlabel');
+      if(i) i.textContent = light ? '☾' : '☀';
+      if(l) l.textContent = light ? 'Oscuro' : 'Claro';
+      b.setAttribute('title', light ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro');
+    });
+  }
+  sync();
+  document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var root = document.documentElement;
+      var next = root.dataset.theme === 'light' ? 'dark' : 'light';
+      root.dataset.theme = next;
+      try { localStorage.setItem('e29n-theme', next); } catch(e) {}
+      sync();
+    });
+  });
+});
+</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta name="theme-color" content="#0b0c1c">
+<meta name="generator" content="elecciones29n-osint v0.11.1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="elecciones29n-osint">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Post-election calibration · Spain 29N">
+<meta property="og:description" content="Pre-election average versus the official count: party error, MAE, bias and seats. Activated after the 29N count.">
+<meta property="og:url" content="https://elecciones29n.pruebapublica.com/en/post-election.html">
+
+<meta property="og:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<meta property="og:image:alt" content="Post-election calibration · Spain 29N">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Post-election calibration · Spain 29N">
+<meta name="twitter:description" content="Pre-election average versus the official count: party error, MAE, bias and seats. Activated after the 29N count.">
+<meta name="twitter:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<meta name="twitter:image:alt" content="Post-election calibration · Spain 29N">
+<link rel="alternate" type="application/json" href="/data/latest.json" title="Datos agregados (JSON)">
+<link rel="alternate" type="application/rss+xml" href="/cambios.xml" title="Cambios · nuevos sondeos">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Post-election calibration", "url": "https://elecciones29n.pruebapublica.com/en/post-election.html", "description": "Pre-election average versus official results, errors and seats.", "inLanguage": "es-ES"}</script>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">
+        <span class="mark"></span>
+        <span class="brandname"><a href="/en.html">elecciones29n-osint</a></span>
+        <span class="tag">Spain · 29N 2026</span>
+      </div>
+      <div class="status">
+        <a class="navpill" href="/">Español</a>
+        <a class="navpill" href="/en/data.html">Data</a>
+      </div>
+    </div>
+    <nav class="mainnav" aria-label="English">
+      <div class="navrow navrow-primary">
+        <a class="navpill " href="/en.html">Summary</a>
+        <a class="navpill " href="/en/method.html">Method</a>
+        <a class="navpill " href="/en/hemicycle.html">Hemicycle</a>
+        <a class="navpill " href="/en/robustness.html">Robustness</a>
+        <a class="navpill " href="/en/competitive.html">Competitive</a>
+        <a class="navpill " href="/en/majorities.html">Majorities</a>
+        <a class="navpill " href="/en/limits.html">Limits</a>
+        <a class="navpill " href="/en/data.html">Data</a>
+        <a class="navpill active" href="/en/post-election.html">Post-election</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:32px;letter-spacing:-0.03em">Post-election calibration</h1>
+  <p class="muted">How the pre-election average compared with the official count. This is a retrospective error check, not a victory claim.</p>
+
+  
+  <div class="alert warn"><strong>Waiting for the 29N count.</strong> This page activates when official results and a frozen pre-election snapshot exist. No numbers are invented.</div>
+  <div class="card">
+    <div class="cardhead"><h2>What will be published</h2></div>
+    <ul class="muted">
+      <li>Pre-election average vs official vote share by party, in percentage points.</li>
+      <li>MAE and mean bias: did the average over- or underestimate?</li>
+      <li>Simulated seats vs official seats, with the gap by party.</li>
+      <li>Snapshot date and number of polls; official source and update time.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="cardhead"><h2>Method</h2></div>
+    <ul class="muted">
+      <li>The pre-election snapshot is saved automatically in builds from 1 to 23 November; the last build before the blackout is used.</li>
+      <li>Official results are imported with <code>scripts/import_resultados.py</code>; no source, no publication.</li>
+      <li>Vote error uses votes for parties, not seats; the seat table is separate.</li>
+    </ul>
+  </div>
+
+  
+
+  <div class="cta">
+    <a class="btn" href="/postelectoral.html">Full page (ES)</a>
+    <a class="btn ghost" href="/en/method.html">Method</a>
+    <a class="btn ghost" href="/en/limits.html">Limits</a>
+  </div>
+</main>
+<footer class="footer">
+  <div class="container">
+    <p>elecciones29n-osint · aggregated average of published polls for Spain's 29 November 2026 general election. Not a forecast.</p>
+    <p><a href="/en.html">Summary</a> · <a href="/en/method.html">Method</a> · <a href="/en/hemicycle.html">Hemicycle</a> · <a href="/en/robustness.html">Robustness</a> · <a href="/en/competitive.html">Competitive</a> · <a href="/en/majorities.html">Majorities</a> · <a href="/en/limits.html">Limits</a> · <a href="/en/data.html">Data</a> · <a href="/en/post-election.html">Post-election</a> · <a href="/embed/medias.html">Embed</a></p>
+    <p><a href="/">Español</a> · <a href="https://github.com/mcasrom/elecciones29n-osint" target="_blank" rel="noopener noreferrer">GitHub · AGPL-3.0</a> · <a href="mailto:info.elecciones29n@pruebapublica.com">info.elecciones29n@pruebapublica.com</a> · v0.11.1 · 2026-10-26</p>
+  </div>
+</footer>
+</body>
+</html>

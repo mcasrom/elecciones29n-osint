@@ -3,6 +3,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="es-ES">
 <head>
@@ -11,8 +12,9 @@
 <title>Robustez del dato · observatorio electoral 29N</title>
 <meta name="description" content="Cinco indicadores que describen la base de la media: sondeos, casas, días desde el último, muestra declarada y dispersión (IQR). Sin nota agregada y sin pronóstico.">
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/robustez.html">
+<link rel="alternate" hreflang="es" href="https://elecciones29n.pruebapublica.com/robustez.html"><link rel="alternate" hreflang="en" href="https://elecciones29n.pruebapublica.com/en/robustness.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202610232031">
+<link rel="stylesheet" href="/css/main.css?v=202610261437">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -42,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <meta name="theme-color" content="#0b0c1c">
-<meta name="generator" content="elecciones29n-osint v0.11.0">
+<meta name="generator" content="elecciones29n-osint v0.11.1">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta property="og:type" content="website">
@@ -87,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function(){
         <a class="navpill " href="/electorado.html">Electorado</a>
         <a class="navpill " href="/participacion.html">Participación</a>
         <a class="navpill " href="/territorio.html">Territorio</a>
+        <a class="navpill " href="/competitivas.html">Competitivas</a>
         <a class="navpill " href="/circunscripciones.html">Circunscripciones</a>
         <a class="navpill " href="/noche-electoral.html">Noche electoral</a>
       </div>
@@ -103,6 +106,12 @@ document.addEventListener('DOMContentLoaded', function(){
         <a class="" href="/apoyo.html">Apoyo</a>
         <a class="" href="/sobre-mi.html">Sobre mí</a>
         <a class="" href="/about.html">Acerca del proyecto</a>
+        <a class="" href="/mayorias.html">Mayorías</a>
+        <a class="" href="/postelectoral.html">Post-electoral</a>
+        <a class="" href="/prensa.html">Prensa</a>
+        <a class="" href="/aviso.html">Avisos</a>
+        <a class="" href="/incrustar.html">Incrustar</a>
+        <a class="" href="/en.html">English</a>
         <a class="" href="/privacidad.html">Privacidad</a>
         <a class="navdata" href="/data/latest.json">Datos abiertos ↗</a>
       </div>
@@ -121,9 +130,9 @@ document.addEventListener('DOMContentLoaded', function(){
       <div class="healthitems">
         <span><b>9</b>sondeos</span>
         <span><b>7</b>casas</span>
-        <span><b>4</b>días desde el último</span>
-        <span><b>33%</b>con muestra declarada</span>
-        <span><b>2.0</b>pp de dispersión (IQR)</span>
+        <span><b>0</b>días desde el último</span>
+        <span><b>78%</b>con muestra declarada</span>
+        <span><b>2.3</b>pp de dispersión (IQR)</span>
       </div>
     </div>
     
@@ -136,19 +145,19 @@ document.addEventListener('DOMContentLoaded', function(){
       <thead><tr><th>Partido</th><th>Media</th><th>Rango</th><th>Casas (45 d)</th><th>Casas (14 d)</th><th>IQR</th></tr></thead>
       <tbody>
       
-        <tr><td><strong>PP</strong></td><td class="num">29,74%</td><td class="num">22,20–32,60%</td><td class="num">14</td><td class="num">7</td><td class="num">2.2</td></tr>
+        <tr><td><strong>PP</strong></td><td class="num">30,43%</td><td class="num">22,20–32,90%</td><td class="num">14</td><td class="num">7</td><td class="num">2.7</td></tr>
       
-        <tr><td><strong>PSOE</strong></td><td class="num">27,75%</td><td class="num">25,30–34,00%</td><td class="num">14</td><td class="num">7</td><td class="num">2.2</td></tr>
+        <tr><td><strong>PSOE</strong></td><td class="num">27,30%</td><td class="num">25,30–34,00%</td><td class="num">14</td><td class="num">7</td><td class="num">2.0</td></tr>
       
-        <tr><td><strong>VOX</strong></td><td class="num">18,60%</td><td class="num">17,10–19,50%</td><td class="num">14</td><td class="num">7</td><td class="num">0.7</td></tr>
+        <tr><td><strong>VOX</strong></td><td class="num">19,10%</td><td class="num">17,10–20,00%</td><td class="num">14</td><td class="num">7</td><td class="num">1.0</td></tr>
       
-        <tr><td><strong>Otros</strong></td><td class="num">11,92%</td><td class="num">9,10–14,30%</td><td class="num">13</td><td class="num">6</td><td class="num">2.5</td></tr>
+        <tr><td><strong>Otros</strong></td><td class="num">9,63%</td><td class="num">7,00–12,80%</td><td class="num">13</td><td class="num">6</td><td class="num">3.8</td></tr>
       
-        <tr><td><strong>SUMAR</strong></td><td class="num">6,25%</td><td class="num">4,90–8,10%</td><td class="num">14</td><td class="num">7</td><td class="num">2.2</td></tr>
+        <tr><td><strong>SUMAR</strong></td><td class="num">6,34%</td><td class="num">4,60–8,90%</td><td class="num">14</td><td class="num">7</td><td class="num">2.1</td></tr>
       
-        <tr><td><strong>PODEMOS</strong></td><td class="num">2,81%</td><td class="num">2,10–3,40%</td><td class="num">14</td><td class="num">7</td><td class="num">1.0</td></tr>
+        <tr><td><strong>PODEMOS</strong></td><td class="num">2,33%</td><td class="num">1,70–3,10%</td><td class="num">14</td><td class="num">7</td><td class="num">0.9</td></tr>
       
-        <tr><td><strong>SAF</strong></td><td class="num">1,76%</td><td class="num">1,30–2,10%</td><td class="num">10</td><td class="num">5</td><td class="num">0.3</td></tr>
+        <tr><td><strong>SAF</strong></td><td class="num">1,63%</td><td class="num">1,20–1,80%</td><td class="num">10</td><td class="num">3</td><td class="num">0.6</td></tr>
       
       </tbody>
     </table></div>
@@ -158,18 +167,24 @@ document.addEventListener('DOMContentLoaded', function(){
   <div class="card" id="peso">
     <div class="cardhead"><h2>Peso de cada casa y sondeo</h2><span class="hint">cuota sobre el total de la ventana · se recalcula cada día</span></div>
     
-    <p class="muted small" style="margin-top:0">Hoy el <strong>47.8 %</strong> del peso viene de <strong>Onda Cero</strong> (compilación de varias casas). La casa con más peso es <strong>ElectoPanel</strong> (33.4 %). En total, 9 sondeos.</p>
+    <p class="muted small" style="margin-top:0">Hoy el <strong>52.3 %</strong> del peso viene de la <strong>fuente</strong> <strong>Otras fuentes</strong>; la <strong>casa</strong> con más peso es <strong>ElectoPanel</strong> (26.3 %). En total, 9 sondeos.</p>
+    <p class="muted small">Fuente y casa son ejes distintos: una fuente puede agrupar varias casas y una casa puede aparecer en una sola fuente. <strong>No se suman.</strong> Concentración efectiva: <strong>2.73</strong> fuentes y <strong>5.74</strong> casas.</p>
+    
+    
+    <p class="muted small" style="color:#b45309"><strong>Aviso de concentración de fuente:</strong> una sola fuente supera la mitad del peso. No es lo mismo que una sola casa: la compilación puede repartir ese peso entre varias encuestadoras, pero la dependencia de esa fuente sigue siendo alta.</p>
     
     
     <div class="tablewrap"><table>
       <thead><tr><th>Fuente</th><th>Cuota</th><th>Sondeos</th><th>Casas</th></tr></thead>
       <tbody>
       
-        <tr><td><strong>Onda Cero</strong></td><td class="num"><span style="display:inline-block;width:70px;height:6px;margin-right:8px;border-radius:3px;background:var(--panel2);vertical-align:middle"><i style="display:block;width:47.8%;height:6px;border-radius:3px;background:var(--accent2)"></i></span>47.8 %</td><td class="num">6</td><td class="num">5</td></tr>
+        <tr><td><strong>Otras fuentes</strong></td><td class="num"><span style="display:inline-block;width:70px;height:6px;margin-right:8px;border-radius:3px;background:var(--panel2);vertical-align:middle"><i style="display:block;width:52.3%;height:6px;border-radius:3px;background:var(--accent2)"></i></span>52.3 %</td><td class="num">4</td><td class="num">3</td></tr>
       
-        <tr><td><strong>Electomanía</strong></td><td class="num"><span style="display:inline-block;width:70px;height:6px;margin-right:8px;border-radius:3px;background:var(--panel2);vertical-align:middle"><i style="display:block;width:33.4%;height:6px;border-radius:3px;background:var(--accent2)"></i></span>33.4 %</td><td class="num">2</td><td class="num">1</td></tr>
+        <tr><td><strong>Electomanía</strong></td><td class="num"><span style="display:inline-block;width:70px;height:6px;margin-right:8px;border-radius:3px;background:var(--panel2);vertical-align:middle"><i style="display:block;width:26.3%;height:6px;border-radius:3px;background:var(--accent2)"></i></span>26.3 %</td><td class="num">2</td><td class="num">1</td></tr>
       
-        <tr><td><strong>CIS</strong></td><td class="num"><span style="display:inline-block;width:70px;height:6px;margin-right:8px;border-radius:3px;background:var(--panel2);vertical-align:middle"><i style="display:block;width:18.8%;height:6px;border-radius:3px;background:var(--accent2)"></i></span>18.8 %</td><td class="num">1</td><td class="num">1</td></tr>
+        <tr><td><strong>Onda Cero</strong></td><td class="num"><span style="display:inline-block;width:70px;height:6px;margin-right:8px;border-radius:3px;background:var(--panel2);vertical-align:middle"><i style="display:block;width:12.7%;height:6px;border-radius:3px;background:var(--accent2)"></i></span>12.7 %</td><td class="num">2</td><td class="num">2</td></tr>
+      
+        <tr><td><strong>CIS</strong></td><td class="num"><span style="display:inline-block;width:70px;height:6px;margin-right:8px;border-radius:3px;background:var(--panel2);vertical-align:middle"><i style="display:block;width:8.7%;height:6px;border-radius:3px;background:var(--accent2)"></i></span>8.7 %</td><td class="num">1</td><td class="num">1</td></tr>
       
       </tbody>
     </table></div>
@@ -179,19 +194,19 @@ document.addEventListener('DOMContentLoaded', function(){
       <thead><tr><th>Casa</th><th>Cuota</th><th>Sondeos</th><th>Último</th><th>Muestra</th></tr></thead>
       <tbody>
       
-        <tr><td><strong>ElectoPanel</strong></td><td class="num"><span style="display:inline-block;width:70px;height:6px;margin-right:8px;border-radius:3px;background:var(--panel2);vertical-align:middle"><i style="display:block;width:33.4%;height:6px;border-radius:3px;background:var(--accent2)"></i></span>33.4 %</td><td class="num">2</td><td class="num">2026-10-18</td><td class="num">4125</td></tr>
+        <tr><td><strong>ElectoPanel</strong></td><td class="num"><span style="display:inline-block;width:70px;height:6px;margin-right:8px;border-radius:3px;background:var(--panel2);vertical-align:middle"><i style="display:block;width:26.3%;height:6px;border-radius:3px;background:var(--accent2)"></i></span>26.3 %</td><td class="num">2</td><td class="num">2026-10-25</td><td class="num">4309</td></tr>
       
-        <tr><td><strong>Sigma Dos</strong></td><td class="num"><span style="display:inline-block;width:70px;height:6px;margin-right:8px;border-radius:3px;background:var(--panel2);vertical-align:middle"><i style="display:block;width:19.1%;height:6px;border-radius:3px;background:var(--accent2)"></i></span>19.1 %</td><td class="num">2</td><td class="num">2026-10-19</td><td class="num">—</td></tr>
+        <tr><td><strong>Sigma Dos</strong></td><td class="num"><span style="display:inline-block;width:70px;height:6px;margin-right:8px;border-radius:3px;background:var(--panel2);vertical-align:middle"><i style="display:block;width:21.2%;height:6px;border-radius:3px;background:var(--accent2)"></i></span>21.2 %</td><td class="num">2</td><td class="num">2026-10-26</td><td class="num">3122</td></tr>
       
-        <tr><td><strong>CIS</strong></td><td class="num"><span style="display:inline-block;width:70px;height:6px;margin-right:8px;border-radius:3px;background:var(--panel2);vertical-align:middle"><i style="display:block;width:18.8%;height:6px;border-radius:3px;background:var(--accent2)"></i></span>18.8 %</td><td class="num">1</td><td class="num">2026-10-14</td><td class="num">5025</td></tr>
+        <tr><td><strong>Sociométrica</strong></td><td class="num"><span style="display:inline-block;width:70px;height:6px;margin-right:8px;border-radius:3px;background:var(--panel2);vertical-align:middle"><i style="display:block;width:16.0%;height:6px;border-radius:3px;background:var(--accent2)"></i></span>16.0 %</td><td class="num">1</td><td class="num">2026-10-26</td><td class="num">3223</td></tr>
       
-        <tr><td><strong>Sociométrica</strong></td><td class="num"><span style="display:inline-block;width:70px;height:6px;margin-right:8px;border-radius:3px;background:var(--panel2);vertical-align:middle"><i style="display:block;width:7.3%;height:6px;border-radius:3px;background:var(--accent2)"></i></span>7.3 %</td><td class="num">1</td><td class="num">2026-10-12</td><td class="num">—</td></tr>
+        <tr><td><strong>Ateneo del Dato</strong></td><td class="num"><span style="display:inline-block;width:70px;height:6px;margin-right:8px;border-radius:3px;background:var(--panel2);vertical-align:middle"><i style="display:block;width:11.7%;height:6px;border-radius:3px;background:var(--accent2)"></i></span>11.7 %</td><td class="num">1</td><td class="num">2026-10-25</td><td class="num">2000</td></tr>
       
-        <tr><td><strong>GESOP</strong></td><td class="num"><span style="display:inline-block;width:70px;height:6px;margin-right:8px;border-radius:3px;background:var(--panel2);vertical-align:middle"><i style="display:block;width:7.3%;height:6px;border-radius:3px;background:var(--accent2)"></i></span>7.3 %</td><td class="num">1</td><td class="num">2026-10-12</td><td class="num">—</td></tr>
+        <tr><td><strong>NC Report</strong></td><td class="num"><span style="display:inline-block;width:70px;height:6px;margin-right:8px;border-radius:3px;background:var(--panel2);vertical-align:middle"><i style="display:block;width:8.9%;height:6px;border-radius:3px;background:var(--accent2)"></i></span>8.9 %</td><td class="num">1</td><td class="num">2026-10-26</td><td class="num">1000</td></tr>
       
-        <tr><td><strong>GAD3</strong></td><td class="num"><span style="display:inline-block;width:70px;height:6px;margin-right:8px;border-radius:3px;background:var(--panel2);vertical-align:middle"><i style="display:block;width:7.3%;height:6px;border-radius:3px;background:var(--accent2)"></i></span>7.3 %</td><td class="num">1</td><td class="num">2026-10-12</td><td class="num">—</td></tr>
+        <tr><td><strong>CIS</strong></td><td class="num"><span style="display:inline-block;width:70px;height:6px;margin-right:8px;border-radius:3px;background:var(--panel2);vertical-align:middle"><i style="display:block;width:8.7%;height:6px;border-radius:3px;background:var(--accent2)"></i></span>8.7 %</td><td class="num">1</td><td class="num">2026-10-14</td><td class="num">5025</td></tr>
       
-        <tr><td><strong>Target Point</strong></td><td class="num"><span style="display:inline-block;width:70px;height:6px;margin-right:8px;border-radius:3px;background:var(--panel2);vertical-align:middle"><i style="display:block;width:6.8%;height:6px;border-radius:3px;background:var(--accent2)"></i></span>6.8 %</td><td class="num">1</td><td class="num">2026-10-11</td><td class="num">—</td></tr>
+        <tr><td><strong>IMOP Insights</strong></td><td class="num"><span style="display:inline-block;width:70px;height:6px;margin-right:8px;border-radius:3px;background:var(--panel2);vertical-align:middle"><i style="display:block;width:7.2%;height:6px;border-radius:3px;background:var(--accent2)"></i></span>7.2 %</td><td class="num">1</td><td class="num">2026-10-23</td><td class="num">—</td></tr>
       
       </tbody>
     </table></div>
@@ -199,23 +214,23 @@ document.addEventListener('DOMContentLoaded', function(){
       <thead><tr><th>Sondeo</th><th>Casa</th><th>n</th><th>Cuota</th></tr></thead>
       <tbody>
       
-        <tr><td class="num">2026-10-18</td><td>ElectoPanel</td><td class="num">3141</td><td class="num">19.6 %</td></tr>
+        <tr><td class="num">2026-10-25</td><td>ElectoPanel</td><td class="num">4309</td><td class="num">17.2 %</td></tr>
       
-        <tr><td class="num">2026-10-14</td><td>CIS</td><td class="num">5025</td><td class="num">18.8 %</td></tr>
+        <tr><td class="num">2026-10-26</td><td>Sociométrica</td><td class="num">3223</td><td class="num">16.0 %</td></tr>
       
-        <tr><td class="num">2026-10-11</td><td>ElectoPanel</td><td class="num">4125</td><td class="num">13.8 %</td></tr>
+        <tr><td class="num">2026-10-26</td><td>Sigma Dos</td><td class="num">3122</td><td class="num">15.7 %</td></tr>
       
-        <tr><td class="num">2026-10-19</td><td>Sigma Dos</td><td class="num">—</td><td class="num">11.8 %</td></tr>
+        <tr><td class="num">2026-10-25</td><td>Ateneo del Dato</td><td class="num">2000</td><td class="num">11.7 %</td></tr>
       
-        <tr><td class="num">2026-10-12</td><td>Sociométrica</td><td class="num">—</td><td class="num">7.3 %</td></tr>
+        <tr><td class="num">2026-10-18</td><td>ElectoPanel</td><td class="num">3141</td><td class="num">9.1 %</td></tr>
       
-        <tr><td class="num">2026-10-12</td><td>Sigma Dos</td><td class="num">—</td><td class="num">7.3 %</td></tr>
+        <tr><td class="num">2026-10-26</td><td>NC Report</td><td class="num">1000</td><td class="num">8.9 %</td></tr>
       
-        <tr><td class="num">2026-10-12</td><td>GESOP</td><td class="num">—</td><td class="num">7.3 %</td></tr>
+        <tr><td class="num">2026-10-14</td><td>CIS</td><td class="num">5025</td><td class="num">8.7 %</td></tr>
       
-        <tr><td class="num">2026-10-12</td><td>GAD3</td><td class="num">—</td><td class="num">7.3 %</td></tr>
+        <tr><td class="num">2026-10-23</td><td>IMOP Insights</td><td class="num">—</td><td class="num">7.2 %</td></tr>
       
-        <tr><td class="num">2026-10-11</td><td>Target Point</td><td class="num">—</td><td class="num">6.8 %</td></tr>
+        <tr><td class="num">2026-10-19</td><td>Sigma Dos</td><td class="num">—</td><td class="num">5.5 %</td></tr>
       
       </tbody>
     </table></div>
@@ -230,26 +245,128 @@ document.addEventListener('DOMContentLoaded', function(){
       <thead><tr><th>Partido</th><th>Media</th><th>Sin CIS</th><th>Δ</th></tr></thead>
       <tbody>
       
-        <tr><td><strong>PP</strong></td><td class="num">29,74%</td><td class="num">31,49%</td><td class="num">+1.8 pp</td></tr>
+        <tr><td><strong>PP</strong></td><td class="num">30,43%</td><td class="num">31,21%</td><td class="num">+0.8 pp</td></tr>
       
-        <tr><td><strong>PSOE</strong></td><td class="num">27,75%</td><td class="num">26,31%</td><td class="num">-1.4 pp</td></tr>
+        <tr><td><strong>PSOE</strong></td><td class="num">27,30%</td><td class="num">26,66%</td><td class="num">-0.6 pp</td></tr>
       
-        <tr><td><strong>VOX</strong></td><td class="num">18,60%</td><td class="num">18,95%</td><td class="num">+0.3 pp</td></tr>
+        <tr><td><strong>VOX</strong></td><td class="num">19,10%</td><td class="num">19,29%</td><td class="num">+0.2 pp</td></tr>
       
-        <tr><td><strong>Otros</strong></td><td class="num">11,92%</td><td class="num">13,02%</td><td class="num">+1.1 pp</td></tr>
+        <tr><td><strong>Otros</strong></td><td class="num">9,63%</td><td class="num">9,70%</td><td class="num">+0.1 pp</td></tr>
       
-        <tr><td><strong>SUMAR</strong></td><td class="num">6,25%</td><td class="num">6,28%</td><td class="num">+0.0 pp</td></tr>
+        <tr><td><strong>SUMAR</strong></td><td class="num">6,34%</td><td class="num">6,37%</td><td class="num">+0.0 pp</td></tr>
       
-        <tr><td><strong>PODEMOS</strong></td><td class="num">2,81%</td><td class="num">2,75%</td><td class="num">-0.1 pp</td></tr>
+        <tr><td><strong>ERC</strong></td><td class="num">2,38%</td><td class="num">2,30%</td><td class="num">-0.1 pp</td></tr>
       
-        <tr><td><strong>ERC</strong></td><td class="num">2,40%</td><td class="num">2,06%</td><td class="num">-0.3 pp</td></tr>
+        <tr><td><strong>PODEMOS</strong></td><td class="num">2,33%</td><td class="num">2,26%</td><td class="num">-0.1 pp</td></tr>
       
-        <tr><td><strong>SAF</strong></td><td class="num">1,76%</td><td class="num">1,74%</td><td class="num">-0.0 pp</td></tr>
+        <tr><td><strong>SAF</strong></td><td class="num">1,63%</td><td class="num">1,59%</td><td class="num">-0.0 pp</td></tr>
       
       </tbody>
     </table></div>
     <p class="muted small">9 sondeos · sin CIS 8. Es una prueba de sensibilidad, no una media alternativa “buena” ni un pronóstico.</p>
   </div>
+
+  
+  <div class="card" id="sensibilidad">
+    <div class="cardhead"><h2>Quita una fuente o casa</h2><span class="hint">media recalculada sin ese bloque · Δ frente a la media</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Exclusión</th><th>PP</th><th>PSOE</th><th>VOX</th><th>SUMAR</th><th>Sondeos</th></tr></thead>
+      <tbody>
+      
+        <tr><td><strong>Otras fuentes</strong><br><span class="muted small">Fuente</span></td>
+        
+          
+          <td class="num">31,56%<br><span class="muted small">+1.1 pp</span></td>
+        
+          
+          <td class="num">26,66%<br><span class="muted small">-0.6 pp</span></td>
+        
+          
+          <td class="num">19,33%<br><span class="muted small">+0.2 pp</span></td>
+        
+          
+          <td class="num">6,27%<br><span class="muted small">-0.1 pp</span></td>
+        
+        <td class="num">4</td></tr>
+      
+        <tr><td><strong>ElectoPanel</strong><br><span class="muted small">Casa</span></td>
+        
+          
+          <td class="num">31,21%<br><span class="muted small">+0.8 pp</span></td>
+        
+          
+          <td class="num">26,84%<br><span class="muted small">-0.5 pp</span></td>
+        
+          
+          <td class="num">18,97%<br><span class="muted small">-0.1 pp</span></td>
+        
+          
+          <td class="num">5,49%<br><span class="muted small">-0.8 pp</span></td>
+        
+        <td class="num">2</td></tr>
+      
+        <tr><td><strong>CIS</strong><br><span class="muted small">Fuente</span></td>
+        
+          
+          <td class="num">22,20%<br><span class="muted small">-8.2 pp</span></td>
+        
+          
+          <td class="num">34,00%<br><span class="muted small">+6.7 pp</span></td>
+        
+          
+          <td class="num">17,10%<br><span class="muted small">-2.0 pp</span></td>
+        
+          
+          <td class="num">6,10%<br><span class="muted small">-0.2 pp</span></td>
+        
+        <td class="num">1</td></tr>
+      
+      </tbody>
+    </table></div>
+    <p class="muted small">Sensibilidad descriptiva: no es una media alternativa ni una prueba de sesgo. Si el Δ es grande, la media depende de ese bloque.</p>
+  </div>
+  
+
+  
+  <div class="card" id="metodo-casas">
+    <div class="cardhead"><h2>Método y cobertura por casa</h2><span class="hint">lo que publica cada casa · no se inventa lo que falta</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Casa</th><th>Última</th><th>Muestra</th><th>Método</th><th>Fuente</th></tr></thead>
+      <tbody>
+      
+        <tr><td><strong>DYM</strong></td><td class="num">2026-10-09</td><td class="num">no consta</td><td>no consta</td><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">enlace</a></td></tr>
+      
+        <tr><td><strong>Celeste Tel</strong></td><td class="num">2026-09-24</td><td class="num">no consta</td><td>no consta</td><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">enlace</a></td></tr>
+      
+        <tr><td><strong>NC Report</strong></td><td class="num">2026-10-26</td><td class="num">1.000</td><td>no consta</td><td><a href="https://www.larazon.es/espana/18-votantes-socialistas-apoyan-hoy-vox_202610266adea62a3eef771e1ac8d43d.html" rel="noopener" target="_blank">enlace</a></td></tr>
+      
+        <tr><td><strong>Invymark</strong></td><td class="num">2026-10-09</td><td class="num">no consta</td><td>no consta</td><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">enlace</a></td></tr>
+      
+        <tr><td><strong>Sociométrica</strong></td><td class="num">2026-10-26</td><td class="num">3.223</td><td>no consta</td><td><a href="https://www.elespanol.com/espana/politica/20261026/millon-votantes-psoe-sumar-decidido-pasarse-pp-vox-solo-haran-inversa/1003744434359_0.html" rel="noopener" target="_blank">enlace</a></td></tr>
+      
+        <tr><td><strong>Target Point</strong></td><td class="num">2026-10-11</td><td class="num">no consta</td><td>no consta</td><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">enlace</a></td></tr>
+      
+        <tr><td><strong>40dB</strong></td><td class="num">2026-10-09</td><td class="num">no consta</td><td>no consta</td><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">enlace</a></td></tr>
+      
+        <tr><td><strong>GAD3</strong></td><td class="num">2026-10-12</td><td class="num">no consta</td><td>no consta</td><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">enlace</a></td></tr>
+      
+        <tr><td><strong>Ateneo del Dato</strong></td><td class="num">2026-10-25</td><td class="num">2.000</td><td>no consta</td><td><a href="https://www.eldiario.es/politica/bloque-izquierdas-recorta-distancias-pp-vox-mantienen-mayoria-absoluta_1_13611052.html" rel="noopener" target="_blank">enlace</a></td></tr>
+      
+        <tr><td><strong>ElectoPanel</strong></td><td class="num">2026-10-25</td><td class="num">4.309</td><td>no consta</td><td><a href="https://electomania.es/electopanel-25-octubre-el-pp-baja-de-nuevo-frente-amplio-crece/" rel="noopener" target="_blank">enlace</a></td></tr>
+      
+        <tr><td><strong>Sigma Dos</strong></td><td class="num">2026-10-26</td><td class="num">3.122</td><td>no consta</td><td><a href="https://www.elmundo.es/espana/encuestas/2026/10/26/6addf8c4fdddfff23d8b4581.html" rel="noopener" target="_blank">enlace</a></td></tr>
+      
+        <tr><td><strong>GESOP</strong></td><td class="num">2026-10-12</td><td class="num">no consta</td><td>no consta</td><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">enlace</a></td></tr>
+      
+        <tr><td><strong>IMOP Insights</strong></td><td class="num">2026-10-23</td><td class="num">no consta</td><td>no consta</td><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">enlace</a></td></tr>
+      
+        <tr><td><strong>CIS</strong></td><td class="num">2026-10-14</td><td class="num">5.025</td><td>estimación de voto</td><td><a href="https://www.cis.es/documents/d/guest/3582_estimacion-pdf" rel="noopener" target="_blank">enlace</a></td></tr>
+      
+      </tbody>
+    </table></div>
+    <p class="muted small">No se publican cuotas ni cobertura por edad o territorio; por eso no se afirma sesgo online/mayor/rural. Si una casa no declara método, figura «no consta».</p>
+  </div>
+  
 
   
   <div class="card">
@@ -258,33 +375,33 @@ document.addEventListener('DOMContentLoaded', function(){
       <thead><tr><th>Casa</th><th>Fecha</th><th>PP</th><th>PP vs media</th><th>PSOE</th><th>PSOE vs media</th><th>Método</th></tr></thead>
       <tbody>
       
-        <tr><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">NC Report</a></td><td class="num">2026-10-08</td><td class="num">34,10%</td><td class="num">+4.4 pp</td><td class="num">25,00%</td><td class="num">-2.8 pp</td><td>—</td></tr>
+        <tr><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">DYM</a></td><td class="num">2026-10-09</td><td class="num">34,00%</td><td class="num">+3.6 pp</td><td class="num">28,20%</td><td class="num">+0.9 pp</td><td>—</td></tr>
       
-        <tr><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">DYM</a></td><td class="num">2026-10-09</td><td class="num">34,00%</td><td class="num">+4.3 pp</td><td class="num">28,20%</td><td class="num">+0.4 pp</td><td>—</td></tr>
+        <tr><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">Celeste Tel</a></td><td class="num">2026-09-24</td><td class="num">33,90%</td><td class="num">+3.5 pp</td><td class="num">25,40%</td><td class="num">-1.9 pp</td><td>—</td></tr>
       
-        <tr><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">Celeste Tel</a></td><td class="num">2026-09-24</td><td class="num">33,90%</td><td class="num">+4.2 pp</td><td class="num">25,40%</td><td class="num">-2.4 pp</td><td>—</td></tr>
+        <tr><td><a href="https://www.larazon.es/espana/18-votantes-socialistas-apoyan-hoy-vox_202610266adea62a3eef771e1ac8d43d.html" rel="noopener" target="_blank">NC Report</a></td><td class="num">2026-10-26</td><td class="num">32,90%</td><td class="num">+2.5 pp</td><td class="num">25,80%</td><td class="num">-1.5 pp</td><td>—</td></tr>
       
-        <tr><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">Ateneo del Dato</a></td><td class="num">2026-10-03</td><td class="num">33,20%</td><td class="num">+3.5 pp</td><td class="num">27,50%</td><td class="num">-0.2 pp</td><td>—</td></tr>
+        <tr><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">Invymark</a></td><td class="num">2026-10-09</td><td class="num">32,80%</td><td class="num">+2.4 pp</td><td class="num">28,00%</td><td class="num">+0.7 pp</td><td>—</td></tr>
       
-        <tr><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">Invymark</a></td><td class="num">2026-10-09</td><td class="num">32,80%</td><td class="num">+3.1 pp</td><td class="num">28,00%</td><td class="num">+0.2 pp</td><td>—</td></tr>
+        <tr><td><a href="https://www.elespanol.com/espana/politica/20261026/millon-votantes-psoe-sumar-decidido-pasarse-pp-vox-solo-haran-inversa/1003744434359_0.html" rel="noopener" target="_blank">Sociométrica</a></td><td class="num">2026-10-26</td><td class="num">32,10%</td><td class="num">+1.7 pp</td><td class="num">27,00%</td><td class="num">-0.3 pp</td><td>—</td></tr>
       
-        <tr><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">Sociométrica</a></td><td class="num">2026-10-12</td><td class="num">32,60%</td><td class="num">+2.9 pp</td><td class="num">26,20%</td><td class="num">-1.6 pp</td><td>—</td></tr>
+        <tr><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">Target Point</a></td><td class="num">2026-10-11</td><td class="num">32,00%</td><td class="num">+1.6 pp</td><td class="num">25,90%</td><td class="num">-1.4 pp</td><td>—</td></tr>
       
-        <tr><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">Target Point</a></td><td class="num">2026-10-11</td><td class="num">32,00%</td><td class="num">+2.3 pp</td><td class="num">25,90%</td><td class="num">-1.9 pp</td><td>—</td></tr>
+        <tr><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">40dB</a></td><td class="num">2026-10-09</td><td class="num">31,90%</td><td class="num">+1.5 pp</td><td class="num">28,10%</td><td class="num">+0.8 pp</td><td>—</td></tr>
       
-        <tr><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">40dB</a></td><td class="num">2026-10-09</td><td class="num">31,90%</td><td class="num">+2.2 pp</td><td class="num">28,10%</td><td class="num">+0.4 pp</td><td>—</td></tr>
+        <tr><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">GAD3</a></td><td class="num">2026-10-12</td><td class="num">31,40%</td><td class="num">+1.0 pp</td><td class="num">26,40%</td><td class="num">-0.9 pp</td><td>—</td></tr>
       
-        <tr><td><a href="https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/" rel="noopener" target="_blank">ElectoPanel</a></td><td class="num">2026-10-18</td><td class="num">31,80%</td><td class="num">+2.1 pp</td><td class="num">27,10%</td><td class="num">-0.6 pp</td><td>—</td></tr>
+        <tr><td><a href="https://www.eldiario.es/politica/bloque-izquierdas-recorta-distancias-pp-vox-mantienen-mayoria-absoluta_1_13611052.html" rel="noopener" target="_blank">Ateneo del Dato</a></td><td class="num">2026-10-25</td><td class="num">31,10%</td><td class="num">+0.7 pp</td><td class="num">27,60%</td><td class="num">+0.3 pp</td><td>—</td></tr>
       
-        <tr><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">Sigma Dos</a></td><td class="num">2026-10-19</td><td class="num">31,50%</td><td class="num">+1.8 pp</td><td class="num">25,30%</td><td class="num">-2.4 pp</td><td>—</td></tr>
+        <tr><td><a href="https://electomania.es/electopanel-25-octubre-el-pp-baja-de-nuevo-frente-amplio-crece/" rel="noopener" target="_blank">ElectoPanel</a></td><td class="num">2026-10-25</td><td class="num">30,90%</td><td class="num">+0.5 pp</td><td class="num">26,70%</td><td class="num">-0.6 pp</td><td>—</td></tr>
       
-        <tr><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">GAD3</a></td><td class="num">2026-10-12</td><td class="num">31,40%</td><td class="num">+1.7 pp</td><td class="num">26,40%</td><td class="num">-1.4 pp</td><td>—</td></tr>
+        <tr><td><a href="https://www.elmundo.es/espana/encuestas/2026/10/26/6addf8c4fdddfff23d8b4581.html" rel="noopener" target="_blank">Sigma Dos</a></td><td class="num">2026-10-26</td><td class="num">30,60%</td><td class="num">+0.2 pp</td><td class="num">26,10%</td><td class="num">-1.2 pp</td><td>—</td></tr>
       
-        <tr><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">IMOP Insights</a></td><td class="num">2026-10-09</td><td class="num">30,40%</td><td class="num">+0.7 pp</td><td class="num">26,50%</td><td class="num">-1.2 pp</td><td>—</td></tr>
+        <tr><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">GESOP</a></td><td class="num">2026-10-12</td><td class="num">28,70%</td><td class="num">-1.7 pp</td><td class="num">26,10%</td><td class="num">-1.2 pp</td><td>—</td></tr>
       
-        <tr><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">GESOP</a></td><td class="num">2026-10-12</td><td class="num">28,70%</td><td class="num">-1.0 pp</td><td class="num">26,10%</td><td class="num">-1.6 pp</td><td>—</td></tr>
+        <tr><td><a href="https://www.ondacero.es/elecciones/generales/encuestas/" rel="noopener" target="_blank">IMOP Insights</a></td><td class="num">2026-10-23</td><td class="num">28,50%</td><td class="num">-1.9 pp</td><td class="num">27,10%</td><td class="num">-0.2 pp</td><td>—</td></tr>
       
-        <tr><td><a href="https://www.cis.es/documents/d/guest/3582_estimacion-pdf" rel="noopener" target="_blank">CIS</a></td><td class="num">2026-10-14</td><td class="num">22,20%</td><td class="num">-7.5 pp</td><td class="num">34,00%</td><td class="num">+6.2 pp</td><td><span class="chip2">estimación de voto</span></td></tr>
+        <tr><td><a href="https://www.cis.es/documents/d/guest/3582_estimacion-pdf" rel="noopener" target="_blank">CIS</a></td><td class="num">2026-10-14</td><td class="num">22,20%</td><td class="num">-8.2 pp</td><td class="num">34,00%</td><td class="num">+6.7 pp</td><td><span class="chip2">estimación de voto</span></td></tr>
       
       </tbody>
     </table></div>
@@ -333,7 +450,7 @@ document.addEventListener('DOMContentLoaded', function(){
     <input id="sub-email" name="email" type="email" inputmode="email" autocomplete="email" required placeholder="tu@correo.com">
     <button type="submit">Recibir aviso</button>
     <p class="submsg" role="status" aria-live="polite"></p>
-    <p class="sublegal">Doble confirmación · <a href="/privacidad.html">Privacidad</a> · <a href="/cambios.xml">RSS de cambios</a></p>
+    <p class="sublegal">Doble confirmación · <a href="/aviso.html">Qué recibes</a> · <a href="/privacidad.html">Privacidad</a> · <a href="/cambios.xml">RSS de cambios</a></p>
     <input class="hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
   </form>
   <noscript><p class="sublegal">Para suscribirte necesitas JavaScript. También puedes seguir los cambios por <a href="/cambios.xml">RSS</a>.</p></noscript>
@@ -374,16 +491,22 @@ document.addEventListener('DOMContentLoaded', function(){
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(payload)
     }).then(function(res){
-      if (res.ok) {
-        say('Revisa tu correo: te he enviado un enlace para confirmar.', false);
-        form.reset();
-      } else if (res.status === 400) {
-        say('El correo no parece válido.', true);
-      } else if (res.status === 429) {
-        say('Demasiados intentos. Prueba de nuevo en unos minutos.', true);
-      } else {
-        say('No he podido enviar el correo. Inténtalo más tarde o usa el RSS.', true);
-      }
+      return res.json().catch(function(){ return {}; }).then(function(data){
+        if (res.ok) {
+          if (data && data.already) {
+            say('Ya estabas suscrito. No hace falta confirmar ni volver a pedir el aviso.', false);
+          } else {
+            say('Revisa tu correo: te he enviado un enlace para confirmar.', false);
+            form.reset();
+          }
+        } else if (res.status === 400) {
+          say('El correo no parece válido.', true);
+        } else if (res.status === 429) {
+          say('Demasiados intentos. Espera unos minutos o comprueba si ya estabas suscrito.', true);
+        } else {
+          say('No he podido enviar el correo. Inténtalo más tarde o usa el RSS.', true);
+        }
+      });
     }).catch(function(){
       say('No he podido conectar. Inténtalo más tarde o usa el RSS.', true);
     }).then(function(){
@@ -393,12 +516,16 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 })();
 </script>
+  <div class="card">
+    <div class="cardhead"><h2>Incrustar este panel</h2><span class="hint">iframe · atribución incluida</span></div>
+    <pre style="overflow:auto;padding:12px;background:var(--panel2);border-radius:8px"><code>&lt;iframe src="https://elecciones29n.pruebapublica.com/embed/robustez.html" width="100%" height="300" style="border:0" title="Robustez 29N"&gt;&lt;/iframe&gt;</code></pre>
+  </div>
 </main>
 <footer class="footer">
   <div class="container">
     <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
     <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
-    <p>Datos abiertos · <a href="/novedades.html">Novedades</a> · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="/privacidad.html">Privacidad</a> · Hecho por Miguel Castillo · software v0.11.0 · 2026-10-23.</p>
+    <p>Datos abiertos · <a href="/novedades.html">Novedades</a> · <a href="/cambios.xml">RSS de cambios</a> · <a href="/embed/medias.html">Embed</a> · <a href="/incrustar.html">Guía de uso</a> · <a href="/aviso.html">Avisos</a> · <a href="/prensa.html">Prensa</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="/privacidad.html">Privacidad</a> · <a href="/mayorias.html">Mayorías</a> · <a href="/postelectoral.html">Post-electoral</a> · <a href="/competitivas.html">Competitivas</a> · <a href="/en.html">English</a> · Hecho por Miguel Castillo · software v0.11.1 · 2026-10-26.</p>
     <p class="eco">Ecosistema:
       <a href="https://www.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Prueba Pública</a> ·
       <a href="https://analisis.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Blog de análisis</a> ·
@@ -469,11 +596,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202610232031" hidden>
+<div class="swupdate" id="swupdate" data-build="202610261437" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610232031');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610261437');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -502,7 +629,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202610232031', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202610261437', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

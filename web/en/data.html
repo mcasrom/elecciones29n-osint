@@ -1,0 +1,158 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data and reproducibility · Spain 29N observatory</title>
+<meta name="description" content="Open JSON, versioned data, SHA-256 hashes, schema and a reproduction script for the 29N average.">
+<link rel="canonical" href="https://elecciones29n.pruebapublica.com/en/data.html">
+<link rel="alternate" hreflang="es" href="https://elecciones29n.pruebapublica.com/fuentes.html"><link rel="alternate" hreflang="en" href="https://elecciones29n.pruebapublica.com/en/data.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="stylesheet" href="/css/main.css?v=202610261437">
+<script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  function sync(){
+    var light = document.documentElement.dataset.theme === 'light';
+    document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+      var i=b.querySelector('.ticon'), l=b.querySelector('.tlabel');
+      if(i) i.textContent = light ? '☾' : '☀';
+      if(l) l.textContent = light ? 'Oscuro' : 'Claro';
+      b.setAttribute('title', light ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro');
+    });
+  }
+  sync();
+  document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var root = document.documentElement;
+      var next = root.dataset.theme === 'light' ? 'dark' : 'light';
+      root.dataset.theme = next;
+      try { localStorage.setItem('e29n-theme', next); } catch(e) {}
+      sync();
+    });
+  });
+});
+</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta name="theme-color" content="#0b0c1c">
+<meta name="generator" content="elecciones29n-osint v0.11.1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="elecciones29n-osint">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Data and reproducibility · Spain 29N observatory">
+<meta property="og:description" content="Open JSON, versioned data, SHA-256 hashes, schema and a reproduction script for the 29N average.">
+<meta property="og:url" content="https://elecciones29n.pruebapublica.com/en/data.html">
+
+<meta property="og:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<meta property="og:image:alt" content="Data and reproducibility · Spain 29N observatory">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Data and reproducibility · Spain 29N observatory">
+<meta name="twitter:description" content="Open JSON, versioned data, SHA-256 hashes, schema and a reproduction script for the 29N average.">
+<meta name="twitter:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<meta name="twitter:image:alt" content="Data and reproducibility · Spain 29N observatory">
+<link rel="alternate" type="application/json" href="/data/latest.json" title="Datos agregados (JSON)">
+<link rel="alternate" type="application/rss+xml" href="/cambios.xml" title="Cambios · nuevos sondeos">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Data", "url": "https://elecciones29n.pruebapublica.com/en/data.html", "description": "Open JSON, versioned data and reproducibility.", "inLanguage": "es-ES"}</script>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">
+        <span class="mark"></span>
+        <span class="brandname"><a href="/en.html">elecciones29n-osint</a></span>
+        <span class="tag">Spain · 29N 2026</span>
+      </div>
+      <div class="status">
+        <a class="navpill" href="/">Español</a>
+        <a class="navpill" href="/en/data.html">Data</a>
+      </div>
+    </div>
+    <nav class="mainnav" aria-label="English">
+      <div class="navrow navrow-primary">
+        <a class="navpill " href="/en.html">Summary</a>
+        <a class="navpill " href="/en/method.html">Method</a>
+        <a class="navpill " href="/en/hemicycle.html">Hemicycle</a>
+        <a class="navpill " href="/en/robustness.html">Robustness</a>
+        <a class="navpill " href="/en/competitive.html">Competitive</a>
+        <a class="navpill " href="/en/majorities.html">Majorities</a>
+        <a class="navpill " href="/en/limits.html">Limits</a>
+        <a class="navpill active" href="/en/data.html">Data</a>
+        <a class="navpill " href="/en/post-election.html">Post-election</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:32px;letter-spacing:-0.03em">Data and reproducibility</h1>
+  <p class="muted">The site is static and has no private API. These are the public data files and the reproducibility trail.</p>
+
+  <div class="card">
+    <div class="cardhead"><h2>Current files</h2></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>File</th><th>What it contains</th></tr></thead>
+      <tbody>
+        <tr><td><a href="/data/latest.json"><code>/data/latest.json</code></a></td><td>Current average, range, series, hemicycle, weights.</td></tr>
+        <tr><td><a href="/data/robustez.json"><code>/data/robustez.json</code></a></td><td>Robustness indicators, house contrast, weights.</td></tr>
+        <tr><td><a href="/data/status.json"><code>/data/status.json</code></a></td><td>Build, commit, counts, sources and SHA-256 hashes.</td></tr>
+        <tr><td><a href="/data/changelog.json"><code>/data/changelog.json</code></a></td><td>Build/data history with hashes.</td></tr>
+        <tr><td><a href="/data/v1/latest.json"><code>/data/v1/latest.json</code></a></td><td>Versioned copy of the current aggregate.</td></tr>
+        <tr><td><a href="/data/v1/robustez.json"><code>/data/v1/robustez.json</code></a></td><td>Versioned copy of robustness.</td></tr>
+        <tr><td><a href="/data/v1/status.json"><code>/data/v1/status.json</code></a></td><td>Versioned status/hashes copy.</td></tr>
+        <tr><td><a href="/data/v1/schema.json"><code>/data/v1/schema.json</code></a></td><td>JSON Schema for <code>latest.json</code>.</td></tr>
+        <tr><td><a href="/version.json"><code>/version.json</code></a></td><td>Site version, build, date and commit.</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Reproduce it</h2></div>
+    <p class="muted">The calculation is deterministic: D’Hondt and the weighting use no random seed. To reproduce a build you need the code, the frozen input CSV and the same parameters.</p>
+    <pre style="overflow:auto;padding:12px;background:var(--panel2);border-radius:8px"><code>git clone https://github.com/mcasrom/elecciones29n-osint
+cd elecciones29n-osint
+bash scripts/reproduce.sh /tmp/e29n-repro</code></pre>
+    <p class="muted small">The script rebuilds from the current <code>data/polls_history.csv</code> and prints SHA-256 hashes. For a historical build, freeze that CSV and the input JSON first.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Licence and use</h2></div>
+    <ul class="muted">
+      <li><strong>Code:</strong> AGPL-3.0. <a href="https://github.com/mcasrom/elecciones29n-osint" target="_blank" rel="noopener noreferrer">Repository</a>.</li>
+      <li><strong>Data:</strong> reuse with attribution to the observatory and the original polling houses. Do not present the average as a forecast.</li>
+      <li><strong>No API key:</strong> the JSON files are public and static. There is no private endpoint or tracking.</li>
+      <li><strong>Blackout:</strong> during 24–28 November 2026, data and OG files are withdrawn and return 410.</li>
+    </ul>
+    <p class="muted small">Contact: <a href="mailto:info.elecciones29n@pruebapublica.com">info.elecciones29n@pruebapublica.com</a>.</p>
+  </div>
+  <div class="card">
+    <div class="cardhead"><h2>Embed the table</h2><span class="hint">iframe · attribution included</span></div>
+    <p class="muted small">Media and blogs may embed this table. Keep the attribution and the link to the observatory.</p>
+    <pre style="overflow:auto;padding:12px;background:var(--panel2);border-radius:8px"><code>&lt;iframe src="https://elecciones29n.pruebapublica.com/embed/medias.html" width="100%" height="430" style="border:0" title="29N average"&gt;&lt;/iframe&gt;</code></pre>
+    <p class="muted small"><a href="/embed/medias.html" target="_blank" rel="noopener">Open the table alone</a>.</p>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>elecciones29n-osint · aggregated average of published polls for Spain's 29 November 2026 general election. Not a forecast.</p>
+    <p><a href="/en.html">Summary</a> · <a href="/en/method.html">Method</a> · <a href="/en/hemicycle.html">Hemicycle</a> · <a href="/en/robustness.html">Robustness</a> · <a href="/en/competitive.html">Competitive</a> · <a href="/en/majorities.html">Majorities</a> · <a href="/en/limits.html">Limits</a> · <a href="/en/data.html">Data</a> · <a href="/en/post-election.html">Post-election</a> · <a href="/embed/medias.html">Embed</a></p>
+    <p><a href="/">Español</a> · <a href="https://github.com/mcasrom/elecciones29n-osint" target="_blank" rel="noopener noreferrer">GitHub · AGPL-3.0</a> · <a href="mailto:info.elecciones29n@pruebapublica.com">info.elecciones29n@pruebapublica.com</a> · v0.11.1 · 2026-10-26</p>
+  </div>
+</footer>
+</body>
+</html>

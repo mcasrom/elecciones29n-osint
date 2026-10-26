@@ -1,0 +1,15 @@
+[Unit]
+Description=Elecciones 29N - refresco de sondeos (14:00 y 20:00)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/Desktop/elecciones29n-osint
+ExecStart=%h/Desktop/elecciones29n-osint/scripts/refresh_polls.sh
+Environment=TZ=Europe/Madrid
+StandardOutput=append:%h/.local/state/elecciones29n/refresh.log
+StandardError=append:%h/.local/state/elecciones29n/refresh.log
+
+[Install]
+WantedBy=default.target

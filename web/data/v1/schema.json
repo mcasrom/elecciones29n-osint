@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Elecciones 29N · latest.json",
+  "type": "object",
+  "required": [
+    "updated_at",
+    "n_polls",
+    "parties",
+    "weights",
+    "hemicycle"
+  ],
+  "properties": {
+    "updated_at": {
+      "type": "string"
+    },
+    "n_polls": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "parties": {
+      "type": "array"
+    },
+    "weights": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "hemicycle": {
+      "type": "array"
+    }
+  }
+}

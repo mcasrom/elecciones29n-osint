@@ -1,0 +1,304 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Incrustar los datos del 29N · guía de uso</title>
+<meta name="description" content="Cómo incrustar la media, la robustez o el hemiciclo del observatorio 29N: código, atribución, altura, frescura y límites.">
+<link rel="canonical" href="https://elecciones29n.pruebapublica.com/incrustar.html">
+
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="stylesheet" href="/css/main.css?v=202610261437">
+<script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  function sync(){
+    var light = document.documentElement.dataset.theme === 'light';
+    document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+      var i=b.querySelector('.ticon'), l=b.querySelector('.tlabel');
+      if(i) i.textContent = light ? '☾' : '☀';
+      if(l) l.textContent = light ? 'Oscuro' : 'Claro';
+      b.setAttribute('title', light ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro');
+    });
+  }
+  sync();
+  document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var root = document.documentElement;
+      var next = root.dataset.theme === 'light' ? 'dark' : 'light';
+      root.dataset.theme = next;
+      try { localStorage.setItem('e29n-theme', next); } catch(e) {}
+      sync();
+    });
+  });
+});
+</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta name="theme-color" content="#0b0c1c">
+<meta name="generator" content="elecciones29n-osint v0.11.1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="elecciones29n-osint">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Incrustar los datos del 29N · guía de uso">
+<meta property="og:description" content="Cómo incrustar la media, la robustez o el hemiciclo del observatorio 29N: código, atribución, altura, frescura y límites.">
+<meta property="og:url" content="https://elecciones29n.pruebapublica.com/incrustar.html">
+
+<meta property="og:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<meta property="og:image:alt" content="Incrustar los datos del 29N · guía de uso">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Incrustar los datos del 29N · guía de uso">
+<meta name="twitter:description" content="Cómo incrustar la media, la robustez o el hemiciclo del observatorio 29N: código, atribución, altura, frescura y límites.">
+<meta name="twitter:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<meta name="twitter:image:alt" content="Incrustar los datos del 29N · guía de uso">
+<link rel="alternate" type="application/json" href="/data/latest.json" title="Datos agregados (JSON)">
+<link rel="alternate" type="application/rss+xml" href="/cambios.xml" title="Cambios · nuevos sondeos">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Incrustar los datos del 29N", "url": "https://elecciones29n.pruebapublica.com/incrustar.html", "description": "Guía de uso de los embeds de media, robustez y hemiciclo, con atribución y límites.", "inLanguage": "es-ES"}</script>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">
+        <span class="mark"></span>
+        <span class="brandname"><a href="/">elecciones29n-osint</a></span>
+        <span class="tag">Media agregada de sondeos · 29N 2026</span>
+      </div>
+      <div class="status">
+        <button class="helpopen" id="helpbtn" aria-expanded="false" aria-controls="helppanel">? Ayuda</button>
+        <button class="themebtn" data-theme-toggle aria-label="Cambiar entre tema claro y oscuro" title="Cambiar tema"><span class="ticon">☀</span><span class="tlabel">Claro</span></button>
+      </div>
+    </div>
+
+    <nav class="mainnav" aria-label="Principal">
+      <div class="navrow navrow-primary">
+        <a class="navpill " href="/">Inicio</a>
+        <a class="navpill " href="/hemiciclo.html">Hemiciclo</a>
+        <a class="navpill " href="/electorado.html">Electorado</a>
+        <a class="navpill " href="/participacion.html">Participación</a>
+        <a class="navpill " href="/territorio.html">Territorio</a>
+        <a class="navpill " href="/competitivas.html">Competitivas</a>
+        <a class="navpill " href="/circunscripciones.html">Circunscripciones</a>
+        <a class="navpill " href="/noche-electoral.html">Noche electoral</a>
+      </div>
+      <div class="navrow navrow-secondary">
+        <a class="" href="/metodologia.html">Metodología</a>
+        <a class="" href="/glosario.html">Glosario</a>
+        <a class="" href="/robustez.html">Robustez</a>
+        <a class="" href="/como-leer.html">Cómo leer</a>
+        <a class="" href="/fuentes.html">Fuentes y datos</a>
+        <a class="" href="/novedades.html">Novedades</a>
+        <a class="" href="/factores.html">Factores</a>
+        <a class="" href="/comportamiento.html">Comportamiento</a>
+        <a class="" href="/caveat.html">Qué no dice</a>
+        <a class="" href="/apoyo.html">Apoyo</a>
+        <a class="" href="/sobre-mi.html">Sobre mí</a>
+        <a class="" href="/about.html">Acerca del proyecto</a>
+        <a class="" href="/mayorias.html">Mayorías</a>
+        <a class="" href="/postelectoral.html">Post-electoral</a>
+        <a class="" href="/prensa.html">Prensa</a>
+        <a class="" href="/aviso.html">Avisos</a>
+        <a class="active" href="/incrustar.html">Incrustar</a>
+        <a class="" href="/en.html">English</a>
+        <a class="" href="/privacidad.html">Privacidad</a>
+        <a class="navdata" href="/data/latest.json">Datos abiertos ↗</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Incrustar los datos del 29N</h1>
+  <p class="muted" style="margin:0 0 12px">Tres paneles públicos para medios, blogs y analistas. Son <strong>datos descriptivos</strong>, no una proyección. La atribución y el enlace al observatorio son parte del uso.</p>
+
+  <div class="alert warn"><strong>No es tiempo real.</strong> Los embeds se actualizan con el build diario del observatorio. Si no hay sondeo nuevo, la tabla puede ser la misma que ayer; no la presentes como “última hora”.</div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Qué puedes incrustar</h2><span class="hint">todos son responsive y no requieren JS externo</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Panel</th><th>URL</th><th>Altura recomendada</th><th>Qué muestra</th></tr></thead>
+      <tbody>
+        <tr><td><a href="/embed/medias.html" target="_blank" rel="noopener">Media</a></td><td><code>/embed/medias.html</code></td><td>430 px</td><td>Media, rango y número de sondeos por partido.</td></tr>
+        <tr><td><a href="/embed/robustez.html" target="_blank" rel="noopener">Robustez</a></td><td><code>/embed/robustez.html</code></td><td>300 px</td><td>Sondeos, casas, muestra, IQR y concentración de fuente/casa.</td></tr>
+        <tr><td><a href="/embed/hemiciclo.html" target="_blank" rel="noopener">Hemiciclo</a></td><td><code>/embed/hemiciclo.html</code></td><td>430 px</td><td>Escaños y bloques de la simulación nacional.</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Cómo se construye</h2><span class="hint">copia, ajusta la altura y conserva la atribución</span></div>
+    <p class="muted small">El iframe carga una página aislada, sin navegación, con un enlace de vuelta al observatorio. No modifiques el contenido ni lo presentes como un pronóstico.</p>
+    <pre style="overflow:auto;padding:12px;background:var(--panel2);border-radius:8px"><code>&lt;iframe
+  src="https://elecciones29n.pruebapublica.com/embed/medias.html"
+  width="100%"
+  height="430"
+  style="border:0"
+  title="Media 29N · observatorio electoral"
+  loading="lazy"&gt;
+&lt;/iframe&gt;</code></pre>
+    <p class="muted small">Para robustez, cambia la ruta y la altura: <code>/embed/robustez.html</code> (300) · <code>/embed/hemiciclo.html</code> (430).</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Condiciones de uso</h2></div>
+    <ul class="muted">
+      <li><strong>Atribución visible</strong>: mantén el enlace “Observatorio 29N” que incluye el propio panel.</li>
+      <li><strong>No alterar los datos</strong> ni recortar la tabla para cambiar la lectura.</li>
+      <li><strong>No presentarlo como pronóstico</strong> ni como estimación propia de intención de voto.</li>
+      <li><strong>No usarlo para atribuir</strong> una campaña o coordinación: el observatorio mide datos publicados.</li>
+      <li><strong>Enlace a método</strong>: si citas una cifra, enlaza también <a href="/metodologia.html">metodología</a> y <a href="/caveat.html">límites</a>.</li>
+      <li>Datos reutilizables citando la fuente; código AGPL-3.0.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Frescura y blackout</h2></div>
+    <ul class="muted">
+      <li>El build diario actualiza los paneles; no hay ingesta en tiempo real.</li>
+      <li>El último sondeo se indica en la portada, separado de la hora de generación.</li>
+      <li>Del <strong>24 al 28 de noviembre</strong> no se publican sondeos: los embeds y JSON retirados responden <strong>410</strong>.</li>
+      <li>Si necesitas datos para un análisis propio, usa <a href="/data/latest.json">latest.json</a>, <a href="/data/status.json">status.json</a> y el <a href="/data/v1/schema.json">esquema</a>.</li>
+    </ul>
+  </div>
+
+  <div class="cta">
+    <a class="btn" href="/embed/medias.html" target="_blank" rel="noopener">Ver embed de media</a>
+    <a class="btn ghost" href="/fuentes.html">Fuentes y datos</a>
+    <a class="btn ghost" href="/metodologia.html">Método</a>
+    <a class="btn ghost" href="/en/data.html">Data (EN)</a>
+  </div>
+</main>
+<footer class="footer">
+  <div class="container">
+    <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
+    <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
+    <p>Datos abiertos · <a href="/novedades.html">Novedades</a> · <a href="/cambios.xml">RSS de cambios</a> · <a href="/embed/medias.html">Embed</a> · <a href="/incrustar.html">Guía de uso</a> · <a href="/aviso.html">Avisos</a> · <a href="/prensa.html">Prensa</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="/privacidad.html">Privacidad</a> · <a href="/mayorias.html">Mayorías</a> · <a href="/postelectoral.html">Post-electoral</a> · <a href="/competitivas.html">Competitivas</a> · <a href="/en.html">English</a> · Hecho por Miguel Castillo · software v0.11.1 · 2026-10-26.</p>
+    <p class="eco">Ecosistema:
+      <a href="https://www.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Prueba Pública</a> ·
+      <a href="https://analisis.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Blog de análisis</a> ·
+      <a href="https://fimi.viajeinteligencia.com/?utm_source=elecciones29n&utm_medium=footer">Observatorio de amplificación</a> ·
+      <a href="https://vivienda.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Vivienda</a>
+    </p>
+    <div class="footer-actions">
+      <a class="support repo" href="https://github.com/mcasrom/elecciones29n-osint" target="_blank" rel="noopener noreferrer">GitHub · AGPL-3.0</a>
+      <a class="support kofi" href="https://ko-fi.com/m_castillo" target="_blank" rel="noopener noreferrer">☕ Apoyar en Ko-fi</a>
+    </div>
+  </div>
+</footer>
+
+<div class="helpbackdrop" id="helpbackdrop" hidden></div>
+<aside class="helppanel" id="helppanel" role="dialog" aria-modal="true" aria-labelledby="helptitle" hidden>
+  <div class="helphead">
+    <h2 id="helptitle">Cómo leer el observatorio</h2>
+    <button class="helpclose" id="helpclose" aria-label="Cerrar ayuda">×</button>
+  </div>
+  <ol class="helpsteps">
+    <li><strong>Sondeos ≠ pronóstico.</strong> Es la media de los sondeos publicados, con rango mínimo–máximo. El rango no es un intervalo de confianza.</li>
+    <li><strong>Tres capas distintas.</strong> Quién puede votar (censo), quién vota (participación) y cómo se traduce (territorio).</li>
+    <li><strong>Datos oficiales.</strong> Censo (INE), participación (JEC) y escaños (BOE) no son estimaciones. Los sondeos sí.</li>
+    <li><strong>Lo que no dice.</strong> No predice el resultado ni atribuye preferencias por edad, sexo o territorio.</li>
+  </ol>
+  <div class="cta">
+    <a class="btn" href="/metodologia.html">Ver metodología</a>
+    <a class="btn ghost" href="/caveat.html">Qué no dice este sitio</a>
+  </div>
+</aside>
+<script>
+(function(){
+  var btn = document.getElementById('helpbtn');
+  var panel = document.getElementById('helppanel');
+  var bd = document.getElementById('helpbackdrop');
+  var close = document.getElementById('helpclose');
+  if (!btn || !panel) return;
+  var open = false;
+  function setOpen(v){
+    open = v;
+    panel.hidden = !v;
+    bd.hidden = !v;
+    btn.setAttribute('aria-expanded', v ? 'true' : 'false');
+    document.body.style.overflow = v ? 'hidden' : '';
+    if (v) close.focus();
+  }
+  btn.addEventListener('click', function(){ setOpen(true); });
+  close.addEventListener('click', function(){ setOpen(false); });
+  bd.addEventListener('click', function(){ setOpen(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && open) setOpen(false); });
+  var intro = document.getElementById('helpintro');
+  var INTRO_KEY = 'e29n_help_intro';
+  if (intro) {
+    try {
+      if (!localStorage.getItem(INTRO_KEY)) intro.hidden = false;
+    } catch(e) {}
+    var io = document.getElementById('helpintro-open');
+    var ic = document.getElementById('helpintro-off');
+    if (io) io.addEventListener('click', function(){
+      intro.hidden = true; setOpen(true);
+      try { localStorage.setItem(INTRO_KEY, 'off'); } catch(e) {}
+    });
+    if (ic) ic.addEventListener('click', function(){
+      intro.hidden = true;
+      try { localStorage.setItem(INTRO_KEY, 'off'); } catch(e) {}
+    });
+  }
+})();
+</script>
+
+<div class="swupdate" id="swupdate" data-build="202610261437" hidden>
+  <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
+  <button id="swupdate-btn" type="button">Recargar</button>
+  <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610261437');}catch(e){}">×</button>
+</div>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function(){
+    var box = document.getElementById('swupdate');
+    var btn = document.getElementById('swupdate-btn');
+    var close = document.getElementById('swupdate-close');
+    var reg = null;
+    var userClicked = false;
+    var DISMISS = 'e29n_sw_dismiss';
+    function isDismissed(){
+      try { return !!(reg && reg.waiting && localStorage.getItem(DISMISS) === reg.waiting.scriptURL); }
+      catch(e) { return false; }
+    }
+    function isHiddenHere(){
+      try { return sessionStorage.getItem('e29n_sw_hidden') === (box && box.dataset.build); }
+      catch(e) { return false; }
+    }
+    function show(){ if (box && !isDismissed() && !isHiddenHere()) box.hidden = false; }
+    if (close) close.addEventListener('click', function(){
+      box.hidden = true;
+      try { if (reg && reg.waiting) localStorage.setItem(DISMISS, reg.waiting.scriptURL); } catch(e) {}
+    });
+    if (btn) btn.addEventListener('click', function(){
+      box.hidden = true;
+      userClicked = true;
+      if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
+    });
+    navigator.serviceWorker.register('/sw.js?v=202610261437', {updateViaCache: 'none'}).then(function(r){
+      reg = r;
+      if (r.waiting && navigator.serviceWorker.controller) show();
+      r.addEventListener('updatefound', function(){
+        var nw = r.installing;
+        if (!nw) return;
+        nw.addEventListener('statechange', function(){
+          if (nw.state === 'installed' && navigator.serviceWorker.controller) show();
+        });
+      });
+    }).catch(function(){});
+    navigator.serviceWorker.addEventListener('controllerchange', function(){ if (userClicked) window.location.reload(); });
+  });
+}
+</script>
+</body>
+</html>

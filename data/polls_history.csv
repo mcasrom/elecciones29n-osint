@@ -1,73 +1,483 @@
 party,date,value,source_url,sample,pollster,kind
-BILDU,2026-10-11,1.4,https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/,4125,ElectoPanel,tracking
-ERC,2026-10-11,2.0,https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/,4125,ElectoPanel,tracking
-JUNTS,2026-10-11,1.1,https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/,4125,ElectoPanel,tracking
-PNV,2026-10-11,1.1,https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/,4125,ElectoPanel,tracking
-PODEMOS,2026-10-11,3.4,https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/,4125,ElectoPanel,tracking
-PP,2026-10-11,31.5,https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/,4125,ElectoPanel,tracking
-PSOE,2026-10-11,26.9,https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/,4125,ElectoPanel,tracking
-SAF,2026-10-11,1.7,https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/,4125,ElectoPanel,tracking
-SUMAR,2026-10-11,4.9,https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/,4125,ElectoPanel,tracking
-VOX,2026-10-11,19.1,https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/,4125,ElectoPanel,tracking
-BILDU,2026-10-04,1.4,https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/,8171,ElectoPanel,tracking
-ERC,2026-10-04,2.0,https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/,8171,ElectoPanel,tracking
-JUNTS,2026-10-04,1.1,https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/,8171,ElectoPanel,tracking
-PNV,2026-10-04,1.1,https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/,8171,ElectoPanel,tracking
-PODEMOS,2026-10-04,3.4,https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/,8171,ElectoPanel,tracking
-PP,2026-10-04,31.3,https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/,8171,ElectoPanel,tracking
-PSOE,2026-10-04,26.9,https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/,8171,ElectoPanel,tracking
-SAF,2026-10-04,1.7,https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/,8171,ElectoPanel,tracking
-SUMAR,2026-10-04,5.2,https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/,8171,ElectoPanel,tracking
-VOX,2026-10-04,19.4,https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/,8171,ElectoPanel,tracking
-BILDU,2026-09-30,1.4,https://electomania.es/electopromedio-cierre-de-septiembre-sumar-cae-a-7-escanos-y-queda-tras-erc/,,ElectoPromedio,average
-ERC,2026-09-30,2.0,https://electomania.es/electopromedio-cierre-de-septiembre-sumar-cae-a-7-escanos-y-queda-tras-erc/,,ElectoPromedio,average
-JUNTS,2026-09-30,1.2,https://electomania.es/electopromedio-cierre-de-septiembre-sumar-cae-a-7-escanos-y-queda-tras-erc/,,ElectoPromedio,average
-PNV,2026-09-30,1.1,https://electomania.es/electopromedio-cierre-de-septiembre-sumar-cae-a-7-escanos-y-queda-tras-erc/,,ElectoPromedio,average
-PODEMOS,2026-09-30,3.6,https://electomania.es/electopromedio-cierre-de-septiembre-sumar-cae-a-7-escanos-y-queda-tras-erc/,,ElectoPromedio,average
-PP,2026-09-30,33.6,https://electomania.es/electopromedio-cierre-de-septiembre-sumar-cae-a-7-escanos-y-queda-tras-erc/,,ElectoPromedio,average
-PSOE,2026-09-30,25.7,https://electomania.es/electopromedio-cierre-de-septiembre-sumar-cae-a-7-escanos-y-queda-tras-erc/,,ElectoPromedio,average
-SUMAR,2026-09-30,5.3,https://electomania.es/electopromedio-cierre-de-septiembre-sumar-cae-a-7-escanos-y-queda-tras-erc/,,ElectoPromedio,average
-VOX,2026-09-30,18.0,https://electomania.es/electopromedio-cierre-de-septiembre-sumar-cae-a-7-escanos-y-queda-tras-erc/,,ElectoPromedio,average
-BILDU,2026-09-27,1.4,https://electomania.es/electopanel-27-sep-adelanto-la-crisis-de-la-vivienda-sacude-la-izquierda/,1104,ElectoPanel,tracking
-ERC,2026-09-27,2.0,https://electomania.es/electopanel-27-sep-adelanto-la-crisis-de-la-vivienda-sacude-la-izquierda/,1104,ElectoPanel,tracking
-JUNTS,2026-09-27,1.2,https://electomania.es/electopanel-27-sep-adelanto-la-crisis-de-la-vivienda-sacude-la-izquierda/,1104,ElectoPanel,tracking
-PNV,2026-09-27,1.1,https://electomania.es/electopanel-27-sep-adelanto-la-crisis-de-la-vivienda-sacude-la-izquierda/,1104,ElectoPanel,tracking
-PODEMOS,2026-09-27,3.8,https://electomania.es/electopanel-27-sep-adelanto-la-crisis-de-la-vivienda-sacude-la-izquierda/,1104,ElectoPanel,tracking
-PP,2026-09-27,32.3,https://electomania.es/electopanel-27-sep-adelanto-la-crisis-de-la-vivienda-sacude-la-izquierda/,1104,ElectoPanel,tracking
-PSOE,2026-09-27,25.3,https://electomania.es/electopanel-27-sep-adelanto-la-crisis-de-la-vivienda-sacude-la-izquierda/,1104,ElectoPanel,tracking
-SAF,2026-09-27,2.0,https://electomania.es/electopanel-27-sep-adelanto-la-crisis-de-la-vivienda-sacude-la-izquierda/,1104,ElectoPanel,tracking
-SUMAR,2026-09-27,5.5,https://electomania.es/electopanel-27-sep-adelanto-la-crisis-de-la-vivienda-sacude-la-izquierda/,1104,ElectoPanel,tracking
-VOX,2026-09-27,18.8,https://electomania.es/electopanel-27-sep-adelanto-la-crisis-de-la-vivienda-sacude-la-izquierda/,1104,ElectoPanel,tracking
-BILDU,2026-09-20,1.4,https://electomania.es/electopanel-20-sep-adelanto-movimientos-en-el-gobierno-y-sus-socios/,1399,ElectoPanel,tracking
-ERC,2026-09-20,1.9,https://electomania.es/electopanel-20-sep-adelanto-movimientos-en-el-gobierno-y-sus-socios/,1399,ElectoPanel,tracking
-JUNTS,2026-09-20,1.2,https://electomania.es/electopanel-20-sep-adelanto-movimientos-en-el-gobierno-y-sus-socios/,1399,ElectoPanel,tracking
-PNV,2026-09-20,1.1,https://electomania.es/electopanel-20-sep-adelanto-movimientos-en-el-gobierno-y-sus-socios/,1399,ElectoPanel,tracking
-PODEMOS,2026-09-20,3.3,https://electomania.es/electopanel-20-sep-adelanto-movimientos-en-el-gobierno-y-sus-socios/,1399,ElectoPanel,tracking
-PP,2026-09-20,32.1,https://electomania.es/electopanel-20-sep-adelanto-movimientos-en-el-gobierno-y-sus-socios/,1399,ElectoPanel,tracking
-PSOE,2026-09-20,25.6,https://electomania.es/electopanel-20-sep-adelanto-movimientos-en-el-gobierno-y-sus-socios/,1399,ElectoPanel,tracking
-SAF,2026-09-20,2.0,https://electomania.es/electopanel-20-sep-adelanto-movimientos-en-el-gobierno-y-sus-socios/,1399,ElectoPanel,tracking
-SUMAR,2026-09-20,5.8,https://electomania.es/electopanel-20-sep-adelanto-movimientos-en-el-gobierno-y-sus-socios/,1399,ElectoPanel,tracking
-VOX,2026-09-20,19.1,https://electomania.es/electopanel-20-sep-adelanto-movimientos-en-el-gobierno-y-sus-socios/,1399,ElectoPanel,tracking
-BILDU,2026-09-13,1.4,https://electomania.es/electopanel-13-sep-adelanto-pp-y-vox-alcanzarian-los-200-diputados/,1190,ElectoPanel,tracking
-ERC,2026-09-13,1.9,https://electomania.es/electopanel-13-sep-adelanto-pp-y-vox-alcanzarian-los-200-diputados/,1190,ElectoPanel,tracking
-JUNTS,2026-09-13,1.1,https://electomania.es/electopanel-13-sep-adelanto-pp-y-vox-alcanzarian-los-200-diputados/,1190,ElectoPanel,tracking
-PNV,2026-09-13,1.1,https://electomania.es/electopanel-13-sep-adelanto-pp-y-vox-alcanzarian-los-200-diputados/,1190,ElectoPanel,tracking
-PODEMOS,2026-09-13,3.4,https://electomania.es/electopanel-13-sep-adelanto-pp-y-vox-alcanzarian-los-200-diputados/,1190,ElectoPanel,tracking
-PP,2026-09-13,32.2,https://electomania.es/electopanel-13-sep-adelanto-pp-y-vox-alcanzarian-los-200-diputados/,1190,ElectoPanel,tracking
-PSOE,2026-09-13,25.4,https://electomania.es/electopanel-13-sep-adelanto-pp-y-vox-alcanzarian-los-200-diputados/,1190,ElectoPanel,tracking
-SAF,2026-09-13,2.0,https://electomania.es/electopanel-13-sep-adelanto-pp-y-vox-alcanzarian-los-200-diputados/,1190,ElectoPanel,tracking
-SUMAR,2026-09-13,5.8,https://electomania.es/electopanel-13-sep-adelanto-pp-y-vox-alcanzarian-los-200-diputados/,1190,ElectoPanel,tracking
-VOX,2026-09-13,19.2,https://electomania.es/electopanel-13-sep-adelanto-pp-y-vox-alcanzarian-los-200-diputados/,1190,ElectoPanel,tracking
-BILDU,2026-09-06,1.4,https://electomania.es/electopanel-6-sep-adelanto-los-bloques-se-reconfiguran/,1284,ElectoPanel,tracking
-ERC,2026-09-06,1.9,https://electomania.es/electopanel-6-sep-adelanto-los-bloques-se-reconfiguran/,1284,ElectoPanel,tracking
-JUNTS,2026-09-06,1.1,https://electomania.es/electopanel-6-sep-adelanto-los-bloques-se-reconfiguran/,1284,ElectoPanel,tracking
-PNV,2026-09-06,1.1,https://electomania.es/electopanel-6-sep-adelanto-los-bloques-se-reconfiguran/,1284,ElectoPanel,tracking
-PODEMOS,2026-09-06,3.6,https://electomania.es/electopanel-6-sep-adelanto-los-bloques-se-reconfiguran/,1284,ElectoPanel,tracking
-PP,2026-09-06,32.0,https://electomania.es/electopanel-6-sep-adelanto-los-bloques-se-reconfiguran/,1284,ElectoPanel,tracking
-PSOE,2026-09-06,25.6,https://electomania.es/electopanel-6-sep-adelanto-los-bloques-se-reconfiguran/,1284,ElectoPanel,tracking
-SAF,2026-09-06,1.8,https://electomania.es/electopanel-6-sep-adelanto-los-bloques-se-reconfiguran/,1284,ElectoPanel,tracking
-SUMAR,2026-09-06,5.6,https://electomania.es/electopanel-6-sep-adelanto-los-bloques-se-reconfiguran/,1284,ElectoPanel,tracking
-VOX,2026-09-06,19.2,https://electomania.es/electopanel-6-sep-adelanto-los-bloques-se-reconfiguran/,1284,ElectoPanel,tracking
+Otros,2025-09-01,10.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PODEMOS,2025-09-01,4.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PP,2025-09-01,34.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PSOE,2025-09-01,27.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+SAF,2025-09-01,1.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+SUMAR,2025-09-01,7.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+VOX,2025-09-01,15.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+Otros,2025-09-01,10.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PODEMOS,2025-09-01,4.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PP,2025-09-01,34.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PSOE,2025-09-01,26.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SAF,2025-09-01,1.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SUMAR,2025-09-01,6.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+VOX,2025-09-01,16.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+Otros,2025-09-08,12.6,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PODEMOS,2025-09-08,3.4,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PP,2025-09-08,30.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PSOE,2025-09-08,27.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SAF,2025-09-08,1.6,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SUMAR,2025-09-08,6.6,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+VOX,2025-09-08,17.4,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+Otros,2025-09-08,13.5,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PODEMOS,2025-09-08,5.2,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PP,2025-09-08,35.2,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PSOE,2025-09-08,25.8,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+SUMAR,2025-09-08,4.9,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+VOX,2025-09-08,15.4,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+Otros,2025-09-14,10.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PODEMOS,2025-09-14,4.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PP,2025-09-14,31.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PSOE,2025-09-14,27.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+SAF,2025-09-14,1.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+SUMAR,2025-09-14,7.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+VOX,2025-09-14,17.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+Otros,2025-09-15,10.6,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+PODEMOS,2025-09-15,4.0,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+PP,2025-09-15,32.0,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+PSOE,2025-09-15,26.9,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+SAF,2025-09-15,2.0,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+SUMAR,2025-09-15,6.6,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+VOX,2025-09-15,17.9,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+Otros,2025-09-18,12.3,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+PODEMOS,2025-09-18,3.9,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+PP,2025-09-18,35.2,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+PSOE,2025-09-18,26.9,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+SAF,2025-09-18,0.4,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+SUMAR,2025-09-18,5.6,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+VOX,2025-09-18,15.7,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+Otros,2025-09-20,11.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
+PODEMOS,2025-09-20,4.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
+PP,2025-09-20,34.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
+PSOE,2025-09-20,26.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
+SAF,2025-09-20,1.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
+SUMAR,2025-09-20,5.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
+VOX,2025-09-20,15.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
+Otros,2025-09-21,9.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+PODEMOS,2025-09-21,4.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+PP,2025-09-21,36.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+PSOE,2025-09-21,28.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+SAF,2025-09-21,1.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+SUMAR,2025-09-21,4.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+VOX,2025-09-21,16.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+Otros,2025-10-01,11.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Opina 360,tracking
+PODEMOS,2025-10-01,3.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Opina 360,tracking
+PP,2025-10-01,27.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Opina 360,tracking
+PSOE,2025-10-01,30.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Opina 360,tracking
+SAF,2025-10-01,1.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Opina 360,tracking
+SUMAR,2025-10-01,5.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Opina 360,tracking
+VOX,2025-10-01,20.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Opina 360,tracking
+Otros,2025-10-06,12.6,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PODEMOS,2025-10-06,2.8,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PP,2025-10-06,30.5,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PSOE,2025-10-06,29.4,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SAF,2025-10-06,1.3,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SUMAR,2025-10-06,6.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+VOX,2025-10-06,16.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+Otros,2025-10-06,13.5,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PODEMOS,2025-10-06,4.6,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PP,2025-10-06,34.4,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PSOE,2025-10-06,26.6,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+SUMAR,2025-10-06,4.8,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+VOX,2025-10-06,16.1,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+Otros,2025-10-06,10.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PODEMOS,2025-10-06,4.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PP,2025-10-06,33.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PSOE,2025-10-06,27.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+SAF,2025-10-06,1.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+SUMAR,2025-10-06,7.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+VOX,2025-10-06,15.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+Otros,2025-10-12,11.5,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+PODEMOS,2025-10-12,3.7,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+PP,2025-10-12,29.0,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+PSOE,2025-10-12,27.8,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+SAF,2025-10-12,1.6,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+SUMAR,2025-10-12,8.0,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+VOX,2025-10-12,18.4,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+Otros,2025-10-12,10.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PODEMOS,2025-10-12,3.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PP,2025-10-12,34.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PSOE,2025-10-12,26.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SAF,2025-10-12,1.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SUMAR,2025-10-12,6.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+VOX,2025-10-12,16.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+Otros,2025-11-03,12.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PODEMOS,2025-11-03,3.0,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PP,2025-11-03,30.5,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PSOE,2025-11-03,28.3,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SAF,2025-11-03,1.6,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SUMAR,2025-11-03,6.8,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+VOX,2025-11-03,17.1,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+Otros,2025-11-08,10.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PODEMOS,2025-11-08,4.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PP,2025-11-08,33.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PSOE,2025-11-08,27.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+SAF,2025-11-08,0.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+SUMAR,2025-11-08,7.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+VOX,2025-11-08,16.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+Otros,2025-11-10,10.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PODEMOS,2025-11-10,3.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PP,2025-11-10,33.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PSOE,2025-11-10,27.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SAF,2025-11-10,1.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SUMAR,2025-11-10,6.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+VOX,2025-11-10,16.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+Otros,2025-11-17,10.7,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PODEMOS,2025-11-17,4.1,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PP,2025-11-17,33.8,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PSOE,2025-11-17,27.2,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+SAF,2025-11-17,1.9,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+SUMAR,2025-11-17,5.6,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+VOX,2025-11-17,16.7,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+Otros,2025-11-19,12.8,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+PODEMOS,2025-11-19,4.0,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+PP,2025-11-19,33.4,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+PSOE,2025-11-19,27.3,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+SUMAR,2025-11-19,6.3,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+VOX,2025-11-19,16.2,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+Otros,2025-11-24,12.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PODEMOS,2025-11-24,3.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PP,2025-11-24,29.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PSOE,2025-11-24,28.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+SAF,2025-11-24,2.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+SUMAR,2025-11-24,6.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+VOX,2025-11-24,19.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+Otros,2025-12-08,12.1,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PODEMOS,2025-12-08,3.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PP,2025-12-08,31.0,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PSOE,2025-12-08,27.8,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SAF,2025-12-08,2.3,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SUMAR,2025-12-08,5.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+VOX,2025-12-08,17.4,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+Otros,2025-12-08,10.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+PODEMOS,2025-12-08,3.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+PP,2025-12-08,33.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+PSOE,2025-12-08,27.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+SAF,2025-12-08,1.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+SUMAR,2025-12-08,5.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+VOX,2025-12-08,18.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+Otros,2025-12-08,10.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PODEMOS,2025-12-08,2.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PP,2025-12-08,33.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PSOE,2025-12-08,26.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SAF,2025-12-08,2.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SUMAR,2025-12-08,7.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+VOX,2025-12-08,17.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+Otros,2025-12-09,9.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PODEMOS,2025-12-09,4.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PP,2025-12-09,33.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PSOE,2025-12-09,27.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+SAF,2025-12-09,1.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+SUMAR,2025-12-09,7.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+VOX,2025-12-09,16.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+Otros,2025-12-22,10.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+PODEMOS,2025-12-22,3.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+PP,2025-12-22,33.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+PSOE,2025-12-22,27.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+SAF,2025-12-22,1.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+SUMAR,2025-12-22,5.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+VOX,2025-12-22,18.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+Otros,2026-01-07,9.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PODEMOS,2026-01-07,4.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PP,2026-01-07,32.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PSOE,2026-01-07,26.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+SAF,2026-01-07,1.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+SUMAR,2026-01-07,8.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+VOX,2026-01-07,17.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+Otros,2026-01-12,12.0,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PODEMOS,2026-01-12,3.5,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PP,2026-01-12,31.5,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PSOE,2026-01-12,27.1,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SAF,2026-01-12,2.1,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SUMAR,2026-01-12,5.9,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+VOX,2026-01-12,17.9,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+Otros,2026-01-12,12.1,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PODEMOS,2026-01-12,4.4,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PP,2026-01-12,33.5,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PSOE,2026-01-12,26.3,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+SUMAR,2026-01-12,6.1,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+VOX,2026-01-12,17.6,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+Otros,2026-01-12,11.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PODEMOS,2026-01-12,3.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PP,2026-01-12,32.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PSOE,2026-01-12,25.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SAF,2026-01-12,2.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SUMAR,2026-01-12,6.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+VOX,2026-01-12,17.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+Otros,2026-01-18,11.4,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+PODEMOS,2026-01-18,4.3,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+PP,2026-01-18,30.0,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+PSOE,2026-01-18,26.5,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+SAF,2026-01-18,1.7,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+SUMAR,2026-01-18,8.3,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+VOX,2026-01-18,17.8,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+Otros,2026-01-18,11.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PODEMOS,2026-01-18,3.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PP,2026-01-18,30.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PSOE,2026-01-18,26.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+SAF,2026-01-18,1.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+SUMAR,2026-01-18,8.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+VOX,2026-01-18,19.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+Otros,2026-01-27,11.9,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+PODEMOS,2026-01-27,5.1,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+PP,2026-01-27,34.4,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+PSOE,2026-01-27,27.0,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+SUMAR,2026-01-27,5.0,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+VOX,2026-01-27,16.6,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+Otros,2026-01-31,10.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PODEMOS,2026-01-31,4.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PP,2026-01-31,32.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PSOE,2026-01-31,26.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+SUMAR,2026-01-31,8.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+VOX,2026-01-31,17.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+Otros,2026-02-10,11.4,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PODEMOS,2026-02-10,3.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PP,2026-02-10,31.2,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PSOE,2026-02-10,27.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SAF,2026-02-10,1.6,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SUMAR,2026-02-10,6.4,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+VOX,2026-02-10,18.0,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+Otros,2026-02-16,12.6,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PODEMOS,2026-02-16,4.3,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PP,2026-02-16,33.1,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PSOE,2026-02-16,25.9,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+SUMAR,2026-02-16,6.0,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+VOX,2026-02-16,18.1,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+Otros,2026-02-16,10.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PODEMOS,2026-02-16,4.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PP,2026-02-16,32.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PSOE,2026-02-16,25.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SAF,2026-02-16,2.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SUMAR,2026-02-16,7.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+VOX,2026-02-16,18.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+Otros,2026-02-22,10.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PODEMOS,2026-02-22,3.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PP,2026-02-22,30.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PSOE,2026-02-22,25.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+SAF,2026-02-22,2.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+SUMAR,2026-02-22,6.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+VOX,2026-02-22,20.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+Otros,2026-02-24,12.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Ateneo del Dato,tracking
+PODEMOS,2026-02-24,3.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Ateneo del Dato,tracking
+PP,2026-02-24,29.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Ateneo del Dato,tracking
+PSOE,2026-02-24,27.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Ateneo del Dato,tracking
+SUMAR,2026-02-24,7.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Ateneo del Dato,tracking
+VOX,2026-02-24,20.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Ateneo del Dato,tracking
+Otros,2026-03-02,10.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PODEMOS,2026-03-02,4.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PP,2026-03-02,31.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PSOE,2026-03-02,26.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+SUMAR,2026-03-02,8.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+VOX,2026-03-02,18.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+Otros,2026-03-04,11.8,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PODEMOS,2026-03-04,3.3,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PP,2026-03-04,30.2,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PSOE,2026-03-04,27.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SAF,2026-03-04,2.3,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SUMAR,2026-03-04,5.9,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+VOX,2026-03-04,18.8,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+Otros,2026-03-23,10.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PODEMOS,2026-03-23,3.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PP,2026-03-23,31.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PSOE,2026-03-23,26.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SAF,2026-03-23,2.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SUMAR,2026-03-23,6.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+VOX,2026-03-23,18.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+Otros,2026-03-25,12.2,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+PODEMOS,2026-03-25,3.8,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+PP,2026-03-25,34.6,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+PSOE,2026-03-25,27.9,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+SAF,2026-03-25,0.8,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+SUMAR,2026-03-25,4.9,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+VOX,2026-03-25,15.8,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+Otros,2026-03-29,10.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PODEMOS,2026-03-29,3.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PP,2026-03-29,31.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PSOE,2026-03-29,27.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+SAF,2026-03-29,2.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+SUMAR,2026-03-29,6.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+VOX,2026-03-29,18.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+Otros,2026-04-06,11.5,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PODEMOS,2026-04-06,2.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PP,2026-04-06,31.1,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PSOE,2026-04-06,28.6,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SAF,2026-04-06,1.6,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SUMAR,2026-04-06,5.8,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+VOX,2026-04-06,18.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+Otros,2026-04-06,11.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PODEMOS,2026-04-06,3.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PP,2026-04-06,32.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PSOE,2026-04-06,27.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+SUMAR,2026-04-06,7.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+VOX,2026-04-06,17.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+Otros,2026-04-12,12.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
+PODEMOS,2026-04-12,1.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
+PP,2026-04-12,30.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
+PSOE,2026-04-12,28.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
+SAF,2026-04-12,2.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
+SUMAR,2026-04-12,5.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
+VOX,2026-04-12,18.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
+Otros,2026-04-13,12.4,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PODEMOS,2026-04-13,3.8,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PP,2026-04-13,32.8,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PSOE,2026-04-13,26.9,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+SUMAR,2026-04-13,5.8,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+VOX,2026-04-13,18.3,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+Otros,2026-04-20,11.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PODEMOS,2026-04-20,3.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PP,2026-04-20,31.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PSOE,2026-04-20,27.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SAF,2026-04-20,2.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SUMAR,2026-04-20,6.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+VOX,2026-04-20,16.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+Otros,2026-05-04,11.9,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PODEMOS,2026-05-04,2.5,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PP,2026-05-04,31.3,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PSOE,2026-05-04,28.4,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SAF,2026-05-04,2.3,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SUMAR,2026-05-04,5.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+VOX,2026-05-04,17.9,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+Otros,2026-05-04,11.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PODEMOS,2026-05-04,3.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PP,2026-05-04,32.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PSOE,2026-05-04,28.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+SUMAR,2026-05-04,6.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+VOX,2026-05-04,17.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+Otros,2026-05-28,12.3,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+PODEMOS,2026-05-28,3.5,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+PP,2026-05-28,34.8,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+PSOE,2026-05-28,27.7,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+SUMAR,2026-05-28,5.7,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+VOX,2026-05-28,16.0,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+Otros,2026-05-31,10.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+PODEMOS,2026-05-31,3.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+PP,2026-05-31,33.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+PSOE,2026-05-31,27.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+SAF,2026-05-31,1.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+SUMAR,2026-05-31,5.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+VOX,2026-05-31,17.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+Otros,2026-06-01,12.6,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+PODEMOS,2026-06-01,3.1,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+PP,2026-06-01,33.1,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+PSOE,2026-06-01,26.8,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+SAF,2026-06-01,1.4,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+SUMAR,2026-06-01,5.9,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+VOX,2026-06-01,17.1,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+Otros,2026-06-01,12.4,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PODEMOS,2026-06-01,3.6,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PP,2026-06-01,34.7,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PSOE,2026-06-01,25.1,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+SUMAR,2026-06-01,6.3,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+VOX,2026-06-01,17.9,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+Otros,2026-06-01,12.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PODEMOS,2026-06-01,2.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PP,2026-06-01,33.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PSOE,2026-06-01,25.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SAF,2026-06-01,2.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SUMAR,2026-06-01,5.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+VOX,2026-06-01,17.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+Otros,2026-06-01,14.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PODEMOS,2026-06-01,3.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PP,2026-06-01,31.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PSOE,2026-06-01,25.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+SAF,2026-06-01,2.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+SUMAR,2026-06-01,5.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+VOX,2026-06-01,18.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+Otros,2026-06-08,11.9,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PODEMOS,2026-06-08,2.3,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PP,2026-06-08,32.4,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PSOE,2026-06-08,27.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SAF,2026-06-08,2.1,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SUMAR,2026-06-08,6.2,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+VOX,2026-06-08,17.4,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+Otros,2026-06-14,13.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PODEMOS,2026-06-14,3.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PP,2026-06-14,32.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PSOE,2026-06-14,26.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+SUMAR,2026-06-14,7.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+VOX,2026-06-14,17.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+Otros,2026-06-22,11.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PODEMOS,2026-06-22,3.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PP,2026-06-22,32.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PSOE,2026-06-22,25.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+SAF,2026-06-22,2.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+SUMAR,2026-06-22,7.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+VOX,2026-06-22,18.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+Otros,2026-06-27,10.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+PODEMOS,2026-06-27,3.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+PP,2026-06-27,33.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+PSOE,2026-06-27,27.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+SAF,2026-06-27,1.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+SUMAR,2026-06-27,5.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+VOX,2026-06-27,17.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+Otros,2026-07-05,11.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
+PODEMOS,2026-07-05,1.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
+PP,2026-07-05,31.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
+PSOE,2026-07-05,27.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
+SAF,2026-07-05,1.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
+SUMAR,2026-07-05,7.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
+VOX,2026-07-05,18.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
+Otros,2026-07-06,11.8,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PODEMOS,2026-07-06,3.1,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PP,2026-07-06,32.0,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PSOE,2026-07-06,28.0,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SAF,2026-07-06,2.1,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SUMAR,2026-07-06,5.8,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+VOX,2026-07-06,17.2,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+Otros,2026-07-06,13.0,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PODEMOS,2026-07-06,3.6,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PP,2026-07-06,34.5,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PSOE,2026-07-06,25.0,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+SUMAR,2026-07-06,6.1,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+VOX,2026-07-06,17.8,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+Otros,2026-07-06,12.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PODEMOS,2026-07-06,2.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PP,2026-07-06,33.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PSOE,2026-07-06,25.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SAF,2026-07-06,2.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SUMAR,2026-07-06,6.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+VOX,2026-07-06,16.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+Otros,2026-07-14,12.6,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+PODEMOS,2026-07-14,4.0,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+PP,2026-07-14,29.4,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+PSOE,2026-07-14,26.5,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+SAF,2026-07-14,2.0,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+SUMAR,2026-07-14,7.7,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+VOX,2026-07-14,17.8,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+Otros,2026-07-19,13.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PODEMOS,2026-07-19,2.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PP,2026-07-19,32.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PSOE,2026-07-19,26.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+SAF,2026-07-19,2.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+SUMAR,2026-07-19,6.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+VOX,2026-07-19,17.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+Otros,2026-07-23,12.7,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+PODEMOS,2026-07-23,4.1,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+PP,2026-07-23,34.9,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+PSOE,2026-07-23,27.0,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+SAF,2026-07-23,1.0,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+SUMAR,2026-07-23,3.8,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+VOX,2026-07-23,16.5,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+Otros,2026-07-27,13.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PODEMOS,2026-07-27,3.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PP,2026-07-27,32.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PSOE,2026-07-27,26.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+SUMAR,2026-07-27,7.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+VOX,2026-07-27,17.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+Otros,2026-08-10,13.2,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PODEMOS,2026-08-10,3.5,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PP,2026-08-10,34.2,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PSOE,2026-08-10,25.2,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+SUMAR,2026-08-10,5.9,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+VOX,2026-08-10,18.0,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+Otros,2026-08-10,12.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PODEMOS,2026-08-10,2.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PP,2026-08-10,33.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PSOE,2026-08-10,26.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SAF,2026-08-10,2.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SUMAR,2026-08-10,5.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+VOX,2026-08-10,17.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
 BILDU,2026-08-30,1.4,https://electomania.es/electopanel-30-agosto-el-psoe-comienza-el-curso-politico-con-un-nuevo-descenso/,1197,ElectoPanel,tracking
 ERC,2026-08-30,1.9,https://electomania.es/electopanel-30-agosto-el-psoe-comienza-el-curso-politico-con-un-nuevo-descenso/,1197,ElectoPanel,tracking
 JUNTS,2026-08-30,1.1,https://electomania.es/electopanel-30-agosto-el-psoe-comienza-el-curso-politico-con-un-nuevo-descenso/,1197,ElectoPanel,tracking
@@ -78,661 +488,261 @@ PSOE,2026-08-30,25.7,https://electomania.es/electopanel-30-agosto-el-psoe-comien
 SAF,2026-08-30,2.0,https://electomania.es/electopanel-30-agosto-el-psoe-comienza-el-curso-politico-con-un-nuevo-descenso/,1197,ElectoPanel,tracking
 SUMAR,2026-08-30,5.3,https://electomania.es/electopanel-30-agosto-el-psoe-comienza-el-curso-politico-con-un-nuevo-descenso/,1197,ElectoPanel,tracking
 VOX,2026-08-30,19.0,https://electomania.es/electopanel-30-agosto-el-psoe-comienza-el-curso-politico-con-un-nuevo-descenso/,1197,ElectoPanel,tracking
-PP,2026-10-12,32.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PSOE,2026-10-12,26.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-VOX,2026-10-12,18.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SUMAR,2026-10-12,4.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PODEMOS,2026-10-12,2.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SAF,2026-10-12,2.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-Otros,2026-10-12,12.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PP,2026-10-12,31.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PSOE,2026-10-12,25.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-VOX,2026-10-12,19.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-SUMAR,2026-10-12,7.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PODEMOS,2026-10-12,3.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-Otros,2026-10-12,13.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PP,2026-10-12,28.7,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-PSOE,2026-10-12,26.1,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-VOX,2026-10-12,18.9,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-SUMAR,2026-10-12,8.0,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-PODEMOS,2026-10-12,2.6,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-SAF,2026-10-12,2.0,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-Otros,2026-10-12,13.7,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-PP,2026-10-12,31.4,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-PSOE,2026-10-12,26.4,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-VOX,2026-10-12,18.2,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-SUMAR,2026-10-12,7.4,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-PODEMOS,2026-10-12,2.3,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-Otros,2026-10-12,14.3,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-PP,2026-10-11,32.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PSOE,2026-10-11,25.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-VOX,2026-10-11,18.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-SUMAR,2026-10-11,6.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PODEMOS,2026-10-11,3.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-SAF,2026-10-11,1.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-Otros,2026-10-11,11.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PP,2026-10-09,32.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-PSOE,2026-10-09,28.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-VOX,2026-10-09,18.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-SUMAR,2026-10-09,6.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-PODEMOS,2026-10-09,3.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-SAF,2026-10-09,1.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-Otros,2026-10-09,9.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-PP,2026-10-09,30.4,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
-PSOE,2026-10-09,26.5,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
-VOX,2026-10-09,19.0,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
-SUMAR,2026-10-09,7.6,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
-PODEMOS,2026-10-09,2.3,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
-SAF,2026-10-09,1.9,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
-Otros,2026-10-09,12.3,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
-PP,2026-10-09,34.0,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-PSOE,2026-10-09,28.2,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-VOX,2026-10-09,18.2,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-SUMAR,2026-10-09,5.3,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-PODEMOS,2026-10-09,2.6,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-SAF,2026-10-09,0.5,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-Otros,2026-10-09,12.9,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-PP,2026-10-09,31.9,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PSOE,2026-10-09,28.1,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-VOX,2026-10-09,18.9,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SUMAR,2026-10-09,5.3,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PODEMOS,2026-10-09,2.3,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SAF,2026-10-09,1.8,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-Otros,2026-10-09,11.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PP,2026-10-08,34.1,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PSOE,2026-10-08,25.0,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-VOX,2026-10-08,18.2,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-SUMAR,2026-10-08,5.3,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PODEMOS,2026-10-08,3.9,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-Otros,2026-10-08,13.5,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PP,2026-10-05,33.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PSOE,2026-10-05,26.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-VOX,2026-10-05,18.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SUMAR,2026-10-05,5.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PODEMOS,2026-10-05,3.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SAF,2026-10-05,2.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-Otros,2026-10-05,11.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PP,2026-10-05,32.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PSOE,2026-10-05,25.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-VOX,2026-10-05,18.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-SUMAR,2026-10-05,6.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PODEMOS,2026-10-05,3.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-Otros,2026-10-05,13.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PP,2026-10-05,31.6,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PSOE,2026-10-05,27.4,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-VOX,2026-10-05,18.4,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SUMAR,2026-10-05,5.6,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PODEMOS,2026-10-05,2.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SAF,2026-10-05,2.0,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-Otros,2026-10-05,12.3,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PP,2026-10-03,33.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Ateneo del Dato,tracking
-PSOE,2026-10-03,27.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Ateneo del Dato,tracking
-VOX,2026-10-03,19.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Ateneo del Dato,tracking
-SUMAR,2026-10-03,7.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Ateneo del Dato,tracking
-PODEMOS,2026-10-03,3.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Ateneo del Dato,tracking
-Otros,2026-10-03,9.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Ateneo del Dato,tracking
-PP,2026-09-27,33.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PSOE,2026-09-27,25.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-VOX,2026-09-27,18.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SUMAR,2026-09-27,5.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PODEMOS,2026-09-27,3.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SAF,2026-09-27,2.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-Otros,2026-09-27,11.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PP,2026-09-24,34.7,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-PSOE,2026-09-24,26.3,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-VOX,2026-09-24,17.3,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-SUMAR,2026-09-24,4.5,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-PODEMOS,2026-09-24,3.7,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-SAF,2026-09-24,1.0,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-Otros,2026-09-24,12.5,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-PP,2026-09-24,33.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
-PSOE,2026-09-24,25.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
-VOX,2026-09-24,17.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
-SUMAR,2026-09-24,5.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
-PODEMOS,2026-09-24,3.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
-SAF,2026-09-24,1.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
-Otros,2026-09-24,12.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
-PP,2026-09-13,31.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PSOE,2026-09-13,25.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-VOX,2026-09-13,18.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-SUMAR,2026-09-13,6.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PODEMOS,2026-09-13,2.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-SAF,2026-09-13,2.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-Otros,2026-09-13,11.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PP,2026-09-13,33.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-PSOE,2026-09-13,26.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-VOX,2026-09-13,18.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-SUMAR,2026-09-13,6.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-PODEMOS,2026-09-13,3.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-SAF,2026-09-13,1.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-Otros,2026-09-13,9.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-PP,2026-09-07,34.4,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PSOE,2026-09-07,24.9,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-VOX,2026-09-07,18.3,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-SUMAR,2026-09-07,5.7,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PODEMOS,2026-09-07,3.4,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-Otros,2026-09-07,13.3,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PP,2026-09-07,31.1,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-PSOE,2026-09-07,26.1,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-VOX,2026-09-07,19.2,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-SUMAR,2026-09-07,7.0,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-PODEMOS,2026-09-07,3.1,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-SAF,2026-09-07,1.5,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-Otros,2026-09-07,12.0,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-PP,2026-09-07,32.4,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PSOE,2026-09-07,27.6,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-VOX,2026-09-07,17.8,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SUMAR,2026-09-07,5.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PODEMOS,2026-09-07,2.8,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SAF,2026-09-07,2.2,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-Otros,2026-09-07,11.5,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+Otros,2026-08-31,14.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PODEMOS,2026-08-31,2.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
 PP,2026-08-31,33.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
 PSOE,2026-08-31,25.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-VOX,2026-08-31,17.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
 SUMAR,2026-08-31,6.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PODEMOS,2026-08-31,2.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-Otros,2026-08-31,14.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PP,2026-08-10,33.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PSOE,2026-08-10,26.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-VOX,2026-08-10,17.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SUMAR,2026-08-10,5.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PODEMOS,2026-08-10,2.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SAF,2026-08-10,2.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-Otros,2026-08-10,12.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PP,2026-08-10,34.2,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PSOE,2026-08-10,25.2,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-VOX,2026-08-10,18.0,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-SUMAR,2026-08-10,5.9,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PODEMOS,2026-08-10,3.5,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-Otros,2026-08-10,13.2,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PP,2026-07-27,32.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PSOE,2026-07-27,26.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-VOX,2026-07-27,17.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-SUMAR,2026-07-27,7.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PODEMOS,2026-07-27,3.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-Otros,2026-07-27,13.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PP,2026-07-23,34.9,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-PSOE,2026-07-23,27.0,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-VOX,2026-07-23,16.5,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-SUMAR,2026-07-23,3.8,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-PODEMOS,2026-07-23,4.1,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-SAF,2026-07-23,1.0,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-Otros,2026-07-23,12.7,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-PP,2026-07-19,32.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PSOE,2026-07-19,26.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-VOX,2026-07-19,17.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-SUMAR,2026-07-19,6.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PODEMOS,2026-07-19,2.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-SAF,2026-07-19,2.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-Otros,2026-07-19,13.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PP,2026-07-14,29.4,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-PSOE,2026-07-14,26.5,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-VOX,2026-07-14,17.8,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-SUMAR,2026-07-14,7.7,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-PODEMOS,2026-07-14,4.0,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-SAF,2026-07-14,2.0,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-Otros,2026-07-14,12.6,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-PP,2026-07-06,33.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PSOE,2026-07-06,25.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-VOX,2026-07-06,16.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SUMAR,2026-07-06,6.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PODEMOS,2026-07-06,2.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SAF,2026-07-06,2.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-Otros,2026-07-06,12.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PP,2026-07-06,34.5,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PSOE,2026-07-06,25.0,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-VOX,2026-07-06,17.8,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-SUMAR,2026-07-06,6.1,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PODEMOS,2026-07-06,3.6,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-Otros,2026-07-06,13.0,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PP,2026-07-06,32.0,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PSOE,2026-07-06,28.0,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-VOX,2026-07-06,17.2,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SUMAR,2026-07-06,5.8,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PODEMOS,2026-07-06,3.1,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SAF,2026-07-06,2.1,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-Otros,2026-07-06,11.8,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PP,2026-07-05,31.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
-PSOE,2026-07-05,27.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
-VOX,2026-07-05,18.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
-SUMAR,2026-07-05,7.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
-PODEMOS,2026-07-05,1.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
-SAF,2026-07-05,1.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
-Otros,2026-07-05,11.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
-PP,2026-06-27,33.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-PSOE,2026-06-27,27.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-VOX,2026-06-27,17.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-SUMAR,2026-06-27,5.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-PODEMOS,2026-06-27,3.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-SAF,2026-06-27,1.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-Otros,2026-06-27,10.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-PP,2026-06-22,32.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PSOE,2026-06-22,25.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-VOX,2026-06-22,18.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-SUMAR,2026-06-22,7.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PODEMOS,2026-06-22,3.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-SAF,2026-06-22,2.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-Otros,2026-06-22,11.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PP,2026-06-14,32.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PSOE,2026-06-14,26.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-VOX,2026-06-14,17.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-SUMAR,2026-06-14,7.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PODEMOS,2026-06-14,3.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-Otros,2026-06-14,13.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PP,2026-06-08,32.4,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PSOE,2026-06-08,27.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-VOX,2026-06-08,17.4,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SUMAR,2026-06-08,6.2,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PODEMOS,2026-06-08,2.3,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SAF,2026-06-08,2.1,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-Otros,2026-06-08,11.9,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PP,2026-06-01,31.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PSOE,2026-06-01,25.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-VOX,2026-06-01,18.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-SUMAR,2026-06-01,5.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PODEMOS,2026-06-01,3.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-SAF,2026-06-01,2.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-Otros,2026-06-01,14.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PP,2026-06-01,33.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PSOE,2026-06-01,25.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-VOX,2026-06-01,17.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SUMAR,2026-06-01,5.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PODEMOS,2026-06-01,2.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SAF,2026-06-01,2.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-Otros,2026-06-01,12.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PP,2026-06-01,34.7,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PSOE,2026-06-01,25.1,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-VOX,2026-06-01,17.9,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-SUMAR,2026-06-01,6.3,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PODEMOS,2026-06-01,3.6,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-Otros,2026-06-01,12.4,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PP,2026-06-01,33.1,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-PSOE,2026-06-01,26.8,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-VOX,2026-06-01,17.1,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-SUMAR,2026-06-01,5.9,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-PODEMOS,2026-06-01,3.1,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-SAF,2026-06-01,1.4,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-Otros,2026-06-01,12.6,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-PP,2026-05-31,33.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-PSOE,2026-05-31,27.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-VOX,2026-05-31,17.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-SUMAR,2026-05-31,5.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-PODEMOS,2026-05-31,3.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-SAF,2026-05-31,1.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-Otros,2026-05-31,10.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-PP,2026-05-28,34.8,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-PSOE,2026-05-28,27.7,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-VOX,2026-05-28,16.0,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-SUMAR,2026-05-28,5.7,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-PODEMOS,2026-05-28,3.5,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-Otros,2026-05-28,12.3,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-PP,2026-05-04,32.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PSOE,2026-05-04,28.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-VOX,2026-05-04,17.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-SUMAR,2026-05-04,6.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PODEMOS,2026-05-04,3.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-Otros,2026-05-04,11.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PP,2026-05-04,31.3,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PSOE,2026-05-04,28.4,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-VOX,2026-05-04,17.9,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SUMAR,2026-05-04,5.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PODEMOS,2026-05-04,2.5,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SAF,2026-05-04,2.3,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-Otros,2026-05-04,11.9,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PP,2026-04-20,31.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PSOE,2026-04-20,27.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-VOX,2026-04-20,16.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SUMAR,2026-04-20,6.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PODEMOS,2026-04-20,3.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SAF,2026-04-20,2.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-Otros,2026-04-20,11.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PP,2026-04-13,32.8,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PSOE,2026-04-13,26.9,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-VOX,2026-04-13,18.3,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-SUMAR,2026-04-13,5.8,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PODEMOS,2026-04-13,3.8,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-Otros,2026-04-13,12.4,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PP,2026-04-12,30.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
-PSOE,2026-04-12,28.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
-VOX,2026-04-12,18.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
-SUMAR,2026-04-12,5.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
-PODEMOS,2026-04-12,1.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
-SAF,2026-04-12,2.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
-Otros,2026-04-12,12.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Ipsos,tracking
-PP,2026-04-06,32.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PSOE,2026-04-06,27.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-VOX,2026-04-06,17.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-SUMAR,2026-04-06,7.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PODEMOS,2026-04-06,3.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-Otros,2026-04-06,11.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PP,2026-04-06,31.1,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PSOE,2026-04-06,28.6,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-VOX,2026-04-06,18.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SUMAR,2026-04-06,5.8,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PODEMOS,2026-04-06,2.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SAF,2026-04-06,1.6,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-Otros,2026-04-06,11.5,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PP,2026-03-29,31.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PSOE,2026-03-29,27.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-VOX,2026-03-29,18.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-SUMAR,2026-03-29,6.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PODEMOS,2026-03-29,3.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-SAF,2026-03-29,2.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-Otros,2026-03-29,10.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PP,2026-03-25,34.6,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-PSOE,2026-03-25,27.9,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-VOX,2026-03-25,15.8,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-SUMAR,2026-03-25,4.9,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-PODEMOS,2026-03-25,3.8,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-SAF,2026-03-25,0.8,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-Otros,2026-03-25,12.2,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-PP,2026-03-23,31.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PSOE,2026-03-23,26.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-VOX,2026-03-23,18.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SUMAR,2026-03-23,6.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PODEMOS,2026-03-23,3.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SAF,2026-03-23,2.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-Otros,2026-03-23,10.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PP,2026-03-04,30.2,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PSOE,2026-03-04,27.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-VOX,2026-03-04,18.8,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SUMAR,2026-03-04,5.9,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PODEMOS,2026-03-04,3.3,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SAF,2026-03-04,2.3,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-Otros,2026-03-04,11.8,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PP,2026-03-02,31.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PSOE,2026-03-02,26.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-VOX,2026-03-02,18.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-SUMAR,2026-03-02,8.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PODEMOS,2026-03-02,4.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-Otros,2026-03-02,10.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PP,2026-02-24,29.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Ateneo del Dato,tracking
-PSOE,2026-02-24,27.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Ateneo del Dato,tracking
-VOX,2026-02-24,20.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Ateneo del Dato,tracking
-SUMAR,2026-02-24,7.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Ateneo del Dato,tracking
-PODEMOS,2026-02-24,3.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Ateneo del Dato,tracking
-Otros,2026-02-24,12.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Ateneo del Dato,tracking
-PP,2026-02-22,30.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PSOE,2026-02-22,25.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-VOX,2026-02-22,20.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-SUMAR,2026-02-22,6.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PODEMOS,2026-02-22,3.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-SAF,2026-02-22,2.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-Otros,2026-02-22,10.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PP,2026-02-16,32.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PSOE,2026-02-16,25.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-VOX,2026-02-16,18.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SUMAR,2026-02-16,7.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PODEMOS,2026-02-16,4.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SAF,2026-02-16,2.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-Otros,2026-02-16,10.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PP,2026-02-16,33.1,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PSOE,2026-02-16,25.9,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-VOX,2026-02-16,18.1,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-SUMAR,2026-02-16,6.0,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PODEMOS,2026-02-16,4.3,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-Otros,2026-02-16,12.6,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PP,2026-02-10,31.2,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PSOE,2026-02-10,27.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-VOX,2026-02-10,18.0,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SUMAR,2026-02-10,6.4,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PODEMOS,2026-02-10,3.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SAF,2026-02-10,1.6,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-Otros,2026-02-10,11.4,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PP,2026-01-31,32.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PSOE,2026-01-31,26.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-VOX,2026-01-31,17.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-SUMAR,2026-01-31,8.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PODEMOS,2026-01-31,4.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-Otros,2026-01-31,10.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PP,2026-01-27,34.4,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-PSOE,2026-01-27,27.0,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-VOX,2026-01-27,16.6,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-SUMAR,2026-01-27,5.0,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-PODEMOS,2026-01-27,5.1,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-Otros,2026-01-27,11.9,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-PP,2026-01-18,30.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PSOE,2026-01-18,26.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-VOX,2026-01-18,19.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-SUMAR,2026-01-18,8.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PODEMOS,2026-01-18,3.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-SAF,2026-01-18,1.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-Otros,2026-01-18,11.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PP,2026-01-18,30.0,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-PSOE,2026-01-18,26.5,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-VOX,2026-01-18,17.8,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-SUMAR,2026-01-18,8.3,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-PODEMOS,2026-01-18,4.3,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-SAF,2026-01-18,1.7,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-Otros,2026-01-18,11.4,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-PP,2026-01-12,32.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PSOE,2026-01-12,25.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-VOX,2026-01-12,17.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SUMAR,2026-01-12,6.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PODEMOS,2026-01-12,3.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SAF,2026-01-12,2.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-Otros,2026-01-12,11.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PP,2026-01-12,33.5,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PSOE,2026-01-12,26.3,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-VOX,2026-01-12,17.6,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-SUMAR,2026-01-12,6.1,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PODEMOS,2026-01-12,4.4,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-Otros,2026-01-12,12.1,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PP,2026-01-12,31.5,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PSOE,2026-01-12,27.1,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-VOX,2026-01-12,17.9,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SUMAR,2026-01-12,5.9,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PODEMOS,2026-01-12,3.5,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SAF,2026-01-12,2.1,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-Otros,2026-01-12,12.0,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PP,2026-01-07,32.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PSOE,2026-01-07,26.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-VOX,2026-01-07,17.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-SUMAR,2026-01-07,8.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PODEMOS,2026-01-07,4.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-SAF,2026-01-07,1.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-Otros,2026-01-07,9.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PP,2025-12-22,33.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-PSOE,2025-12-22,27.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-VOX,2025-12-22,18.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-SUMAR,2025-12-22,5.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-PODEMOS,2025-12-22,3.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-SAF,2025-12-22,1.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-Otros,2025-12-22,10.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-PP,2025-12-09,33.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PSOE,2025-12-09,27.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-VOX,2025-12-09,16.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-SUMAR,2025-12-09,7.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PODEMOS,2025-12-09,4.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-SAF,2025-12-09,1.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-Otros,2025-12-09,9.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PP,2025-12-08,33.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PSOE,2025-12-08,26.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-VOX,2025-12-08,17.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SUMAR,2025-12-08,7.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PODEMOS,2025-12-08,2.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SAF,2025-12-08,2.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-Otros,2025-12-08,10.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PP,2025-12-08,33.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-PSOE,2025-12-08,27.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-VOX,2025-12-08,18.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-SUMAR,2025-12-08,5.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-PODEMOS,2025-12-08,3.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-SAF,2025-12-08,1.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-Otros,2025-12-08,10.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-PP,2025-12-08,31.0,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PSOE,2025-12-08,27.8,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-VOX,2025-12-08,17.4,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SUMAR,2025-12-08,5.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PODEMOS,2025-12-08,3.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SAF,2025-12-08,2.3,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-Otros,2025-12-08,12.1,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PP,2025-11-24,29.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PSOE,2025-11-24,28.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-VOX,2025-11-24,19.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-SUMAR,2025-11-24,6.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PODEMOS,2025-11-24,3.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-SAF,2025-11-24,2.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-Otros,2025-11-24,12.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PP,2025-11-19,33.4,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-PSOE,2025-11-19,27.3,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-VOX,2025-11-19,16.2,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-SUMAR,2025-11-19,6.3,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-PODEMOS,2025-11-19,4.0,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-Otros,2025-11-19,12.8,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-PP,2025-11-17,33.8,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PSOE,2025-11-17,27.2,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-VOX,2025-11-17,16.7,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-SUMAR,2025-11-17,5.6,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PODEMOS,2025-11-17,4.1,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-SAF,2025-11-17,1.9,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-Otros,2025-11-17,10.7,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PP,2025-11-10,33.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PSOE,2025-11-10,27.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-VOX,2025-11-10,16.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SUMAR,2025-11-10,6.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PODEMOS,2025-11-10,3.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SAF,2025-11-10,1.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-Otros,2025-11-10,10.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PP,2025-11-08,33.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PSOE,2025-11-08,27.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-VOX,2025-11-08,16.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-SUMAR,2025-11-08,7.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PODEMOS,2025-11-08,4.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-SAF,2025-11-08,0.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-Otros,2025-11-08,10.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PP,2025-11-03,30.5,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PSOE,2025-11-03,28.3,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-VOX,2025-11-03,17.1,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SUMAR,2025-11-03,6.8,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PODEMOS,2025-11-03,3.0,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SAF,2025-11-03,1.6,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-Otros,2025-11-03,12.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PP,2025-10-12,34.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PSOE,2025-10-12,26.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-VOX,2025-10-12,16.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SUMAR,2025-10-12,6.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PODEMOS,2025-10-12,3.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SAF,2025-10-12,1.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-Otros,2025-10-12,10.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PP,2025-10-12,29.0,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-PSOE,2025-10-12,27.8,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-VOX,2025-10-12,18.4,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-SUMAR,2025-10-12,8.0,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-PODEMOS,2025-10-12,3.7,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-SAF,2025-10-12,1.6,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-Otros,2025-10-12,11.5,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
-PP,2025-10-06,33.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PSOE,2025-10-06,27.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-VOX,2025-10-06,15.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-SUMAR,2025-10-06,7.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PODEMOS,2025-10-06,4.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-SAF,2025-10-06,1.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-Otros,2025-10-06,10.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PP,2025-10-06,34.4,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PSOE,2025-10-06,26.6,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-VOX,2025-10-06,16.1,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-SUMAR,2025-10-06,4.8,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PODEMOS,2025-10-06,4.6,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-Otros,2025-10-06,13.5,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PP,2025-10-06,30.5,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PSOE,2025-10-06,29.4,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-VOX,2025-10-06,16.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SUMAR,2025-10-06,6.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PODEMOS,2025-10-06,2.8,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SAF,2025-10-06,1.3,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-Otros,2025-10-06,12.6,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PP,2025-10-01,27.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Opina 360,tracking
-PSOE,2025-10-01,30.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Opina 360,tracking
-VOX,2025-10-01,20.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Opina 360,tracking
-SUMAR,2025-10-01,5.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Opina 360,tracking
-PODEMOS,2025-10-01,3.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Opina 360,tracking
-SAF,2025-10-01,1.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Opina 360,tracking
-Otros,2025-10-01,11.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Opina 360,tracking
-PP,2025-09-21,36.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-PSOE,2025-09-21,28.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-VOX,2025-09-21,16.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-SUMAR,2025-09-21,4.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-PODEMOS,2025-09-21,4.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-SAF,2025-09-21,1.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-Otros,2025-09-21,9.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
-PP,2025-09-20,34.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
-PSOE,2025-09-20,26.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
-VOX,2025-09-20,15.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
-SUMAR,2025-09-20,5.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
-PODEMOS,2025-09-20,4.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
-SAF,2025-09-20,1.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
-Otros,2025-09-20,11.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
-PP,2025-09-18,35.2,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-PSOE,2025-09-18,26.9,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-VOX,2025-09-18,15.7,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-SUMAR,2025-09-18,5.6,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-PODEMOS,2025-09-18,3.9,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-SAF,2025-09-18,0.4,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-Otros,2025-09-18,12.3,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
-PP,2025-09-15,32.0,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-PSOE,2025-09-15,26.9,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-VOX,2025-09-15,17.9,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-SUMAR,2025-09-15,6.6,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-PODEMOS,2025-09-15,4.0,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-SAF,2025-09-15,2.0,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-Otros,2025-09-15,10.6,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
-PP,2025-09-14,31.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PSOE,2025-09-14,27.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-VOX,2025-09-14,17.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-SUMAR,2025-09-14,7.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PODEMOS,2025-09-14,4.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-SAF,2025-09-14,1.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-Otros,2025-09-14,10.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
-PP,2025-09-08,35.2,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PSOE,2025-09-08,25.8,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-VOX,2025-09-08,15.4,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-SUMAR,2025-09-08,4.9,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PODEMOS,2025-09-08,5.2,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-Otros,2025-09-08,13.5,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
-PP,2025-09-08,30.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PSOE,2025-09-08,27.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-VOX,2025-09-08,17.4,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SUMAR,2025-09-08,6.6,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PODEMOS,2025-09-08,3.4,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-SAF,2025-09-08,1.6,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-Otros,2025-09-08,12.6,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
-PP,2025-09-01,34.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PSOE,2025-09-01,26.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-VOX,2025-09-01,16.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SUMAR,2025-09-01,6.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PODEMOS,2025-09-01,4.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-SAF,2025-09-01,1.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-Otros,2025-09-01,10.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
-PP,2025-09-01,34.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PSOE,2025-09-01,27.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-VOX,2025-09-01,15.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-SUMAR,2025-09-01,7.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PODEMOS,2025-09-01,4.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-SAF,2025-09-01,1.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-Otros,2025-09-01,10.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PP,2026-09-23,25.5,https://www.cis.es/documents/20117/14250083/3577_Estimacion.pdf,4042,CIS,tracking
-PSOE,2026-09-23,31.0,https://www.cis.es/documents/20117/14250083/3577_Estimacion.pdf,4042,CIS,tracking
-VOX,2026-09-23,16.6,https://www.cis.es/documents/20117/14250083/3577_Estimacion.pdf,4042,CIS,tracking
-SUMAR,2026-09-23,5.7,https://www.cis.es/documents/20117/14250083/3577_Estimacion.pdf,4042,CIS,tracking
-Podemos,2026-09-23,3.7,https://www.cis.es/documents/20117/14250083/3577_Estimacion.pdf,4042,CIS,tracking
+VOX,2026-08-31,17.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+BILDU,2026-09-06,1.4,https://electomania.es/electopanel-6-sep-adelanto-los-bloques-se-reconfiguran/,1284,ElectoPanel,tracking
+ERC,2026-09-06,1.9,https://electomania.es/electopanel-6-sep-adelanto-los-bloques-se-reconfiguran/,1284,ElectoPanel,tracking
+JUNTS,2026-09-06,1.1,https://electomania.es/electopanel-6-sep-adelanto-los-bloques-se-reconfiguran/,1284,ElectoPanel,tracking
+PNV,2026-09-06,1.1,https://electomania.es/electopanel-6-sep-adelanto-los-bloques-se-reconfiguran/,1284,ElectoPanel,tracking
+PODEMOS,2026-09-06,3.6,https://electomania.es/electopanel-6-sep-adelanto-los-bloques-se-reconfiguran/,1284,ElectoPanel,tracking
+PP,2026-09-06,32.0,https://electomania.es/electopanel-6-sep-adelanto-los-bloques-se-reconfiguran/,1284,ElectoPanel,tracking
+PSOE,2026-09-06,25.6,https://electomania.es/electopanel-6-sep-adelanto-los-bloques-se-reconfiguran/,1284,ElectoPanel,tracking
+SAF,2026-09-06,1.8,https://electomania.es/electopanel-6-sep-adelanto-los-bloques-se-reconfiguran/,1284,ElectoPanel,tracking
+SUMAR,2026-09-06,5.6,https://electomania.es/electopanel-6-sep-adelanto-los-bloques-se-reconfiguran/,1284,ElectoPanel,tracking
+VOX,2026-09-06,19.2,https://electomania.es/electopanel-6-sep-adelanto-los-bloques-se-reconfiguran/,1284,ElectoPanel,tracking
+Otros,2026-09-07,11.5,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PODEMOS,2026-09-07,2.8,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PP,2026-09-07,32.4,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PSOE,2026-09-07,27.6,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SAF,2026-09-07,2.2,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SUMAR,2026-09-07,5.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+VOX,2026-09-07,17.8,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+Otros,2026-09-07,12.0,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+PODEMOS,2026-09-07,3.1,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+PP,2026-09-07,31.1,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+PSOE,2026-09-07,26.1,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+SAF,2026-09-07,1.5,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+SUMAR,2026-09-07,7.0,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+VOX,2026-09-07,19.2,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+Otros,2026-09-07,13.3,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PODEMOS,2026-09-07,3.4,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PP,2026-09-07,34.4,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PSOE,2026-09-07,24.9,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+SUMAR,2026-09-07,5.7,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+VOX,2026-09-07,18.3,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+BILDU,2026-09-13,1.4,https://electomania.es/electopanel-13-sep-adelanto-pp-y-vox-alcanzarian-los-200-diputados/,1190,ElectoPanel,tracking
+ERC,2026-09-13,1.9,https://electomania.es/electopanel-13-sep-adelanto-pp-y-vox-alcanzarian-los-200-diputados/,1190,ElectoPanel,tracking
+JUNTS,2026-09-13,1.1,https://electomania.es/electopanel-13-sep-adelanto-pp-y-vox-alcanzarian-los-200-diputados/,1190,ElectoPanel,tracking
+PNV,2026-09-13,1.1,https://electomania.es/electopanel-13-sep-adelanto-pp-y-vox-alcanzarian-los-200-diputados/,1190,ElectoPanel,tracking
+PODEMOS,2026-09-13,3.4,https://electomania.es/electopanel-13-sep-adelanto-pp-y-vox-alcanzarian-los-200-diputados/,1190,ElectoPanel,tracking
+PP,2026-09-13,32.2,https://electomania.es/electopanel-13-sep-adelanto-pp-y-vox-alcanzarian-los-200-diputados/,1190,ElectoPanel,tracking
+PSOE,2026-09-13,25.4,https://electomania.es/electopanel-13-sep-adelanto-pp-y-vox-alcanzarian-los-200-diputados/,1190,ElectoPanel,tracking
+SAF,2026-09-13,2.0,https://electomania.es/electopanel-13-sep-adelanto-pp-y-vox-alcanzarian-los-200-diputados/,1190,ElectoPanel,tracking
+SUMAR,2026-09-13,5.8,https://electomania.es/electopanel-13-sep-adelanto-pp-y-vox-alcanzarian-los-200-diputados/,1190,ElectoPanel,tracking
+VOX,2026-09-13,19.2,https://electomania.es/electopanel-13-sep-adelanto-pp-y-vox-alcanzarian-los-200-diputados/,1190,ElectoPanel,tracking
+Otros,2026-09-13,9.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+PODEMOS,2026-09-13,3.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+PP,2026-09-13,33.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+PSOE,2026-09-13,26.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+SAF,2026-09-13,1.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+SUMAR,2026-09-13,6.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+VOX,2026-09-13,18.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+Otros,2026-09-13,11.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PODEMOS,2026-09-13,2.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PP,2026-09-13,31.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PSOE,2026-09-13,25.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+SAF,2026-09-13,2.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+SUMAR,2026-09-13,6.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+VOX,2026-09-13,18.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+BILDU,2026-09-20,1.4,https://electomania.es/electopanel-20-sep-adelanto-movimientos-en-el-gobierno-y-sus-socios/,1399,ElectoPanel,tracking
+ERC,2026-09-20,1.9,https://electomania.es/electopanel-20-sep-adelanto-movimientos-en-el-gobierno-y-sus-socios/,1399,ElectoPanel,tracking
+JUNTS,2026-09-20,1.2,https://electomania.es/electopanel-20-sep-adelanto-movimientos-en-el-gobierno-y-sus-socios/,1399,ElectoPanel,tracking
+PNV,2026-09-20,1.1,https://electomania.es/electopanel-20-sep-adelanto-movimientos-en-el-gobierno-y-sus-socios/,1399,ElectoPanel,tracking
+PODEMOS,2026-09-20,3.3,https://electomania.es/electopanel-20-sep-adelanto-movimientos-en-el-gobierno-y-sus-socios/,1399,ElectoPanel,tracking
+PP,2026-09-20,32.1,https://electomania.es/electopanel-20-sep-adelanto-movimientos-en-el-gobierno-y-sus-socios/,1399,ElectoPanel,tracking
+PSOE,2026-09-20,25.6,https://electomania.es/electopanel-20-sep-adelanto-movimientos-en-el-gobierno-y-sus-socios/,1399,ElectoPanel,tracking
+SAF,2026-09-20,2.0,https://electomania.es/electopanel-20-sep-adelanto-movimientos-en-el-gobierno-y-sus-socios/,1399,ElectoPanel,tracking
+SUMAR,2026-09-20,5.8,https://electomania.es/electopanel-20-sep-adelanto-movimientos-en-el-gobierno-y-sus-socios/,1399,ElectoPanel,tracking
+VOX,2026-09-20,19.1,https://electomania.es/electopanel-20-sep-adelanto-movimientos-en-el-gobierno-y-sus-socios/,1399,ElectoPanel,tracking
+Bildu,2026-09-23,1.3,https://www.cis.es/documents/20117/14250083/3577_Estimacion.pdf,4042,CIS,tracking
 ERC,2026-09-23,2.5,https://www.cis.es/documents/20117/14250083/3577_Estimacion.pdf,4042,CIS,tracking
 Junts,2026-09-23,0.7,https://www.cis.es/documents/20117/14250083/3577_Estimacion.pdf,4042,CIS,tracking
-Bildu,2026-09-23,1.3,https://www.cis.es/documents/20117/14250083/3577_Estimacion.pdf,4042,CIS,tracking
-PNV,2026-09-23,0.7,https://www.cis.es/documents/20117/14250083/3577_Estimacion.pdf,4042,CIS,tracking
-SAF,2026-09-23,1.8,https://www.cis.es/documents/20117/14250083/3577_Estimacion.pdf,4042,CIS,tracking
 Otros,2026-09-23,9.6,https://www.cis.es/documents/20117/14250083/3577_Estimacion.pdf,4042,CIS,tracking
-PP,2026-10-14,22.2,https://www.cis.es/documents/d/guest/3582_estimacion-pdf,5025,CIS,tracking
-PSOE,2026-10-14,34.0,https://www.cis.es/documents/d/guest/3582_estimacion-pdf,5025,CIS,tracking
-VOX,2026-10-14,17.1,https://www.cis.es/documents/d/guest/3582_estimacion-pdf,5025,CIS,tracking
-SUMAR,2026-10-14,6.1,https://www.cis.es/documents/d/guest/3582_estimacion-pdf,5025,CIS,tracking
-Podemos,2026-10-14,3.1,https://www.cis.es/documents/d/guest/3582_estimacion-pdf,5025,CIS,tracking
+PNV,2026-09-23,0.7,https://www.cis.es/documents/20117/14250083/3577_Estimacion.pdf,4042,CIS,tracking
+PP,2026-09-23,25.5,https://www.cis.es/documents/20117/14250083/3577_Estimacion.pdf,4042,CIS,tracking
+PSOE,2026-09-23,31.0,https://www.cis.es/documents/20117/14250083/3577_Estimacion.pdf,4042,CIS,tracking
+Podemos,2026-09-23,3.7,https://www.cis.es/documents/20117/14250083/3577_Estimacion.pdf,4042,CIS,tracking
+SAF,2026-09-23,1.8,https://www.cis.es/documents/20117/14250083/3577_Estimacion.pdf,4042,CIS,tracking
+SUMAR,2026-09-23,5.7,https://www.cis.es/documents/20117/14250083/3577_Estimacion.pdf,4042,CIS,tracking
+VOX,2026-09-23,16.6,https://www.cis.es/documents/20117/14250083/3577_Estimacion.pdf,4042,CIS,tracking
+Otros,2026-09-24,12.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
+PODEMOS,2026-09-24,3.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
+PP,2026-09-24,33.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
+PSOE,2026-09-24,25.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
+SAF,2026-09-24,1.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
+SUMAR,2026-09-24,5.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
+VOX,2026-09-24,17.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Celeste Tel,tracking
+Otros,2026-09-24,12.5,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+PODEMOS,2026-09-24,3.7,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+PP,2026-09-24,34.7,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+PSOE,2026-09-24,26.3,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+SAF,2026-09-24,1.0,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+SUMAR,2026-09-24,4.5,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+VOX,2026-09-24,17.3,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+BILDU,2026-09-27,1.4,https://electomania.es/electopanel-27-sep-adelanto-la-crisis-de-la-vivienda-sacude-la-izquierda/,1104,ElectoPanel,tracking
+ERC,2026-09-27,2.0,https://electomania.es/electopanel-27-sep-adelanto-la-crisis-de-la-vivienda-sacude-la-izquierda/,1104,ElectoPanel,tracking
+JUNTS,2026-09-27,1.2,https://electomania.es/electopanel-27-sep-adelanto-la-crisis-de-la-vivienda-sacude-la-izquierda/,1104,ElectoPanel,tracking
+PNV,2026-09-27,1.1,https://electomania.es/electopanel-27-sep-adelanto-la-crisis-de-la-vivienda-sacude-la-izquierda/,1104,ElectoPanel,tracking
+PODEMOS,2026-09-27,3.8,https://electomania.es/electopanel-27-sep-adelanto-la-crisis-de-la-vivienda-sacude-la-izquierda/,1104,ElectoPanel,tracking
+PP,2026-09-27,32.3,https://electomania.es/electopanel-27-sep-adelanto-la-crisis-de-la-vivienda-sacude-la-izquierda/,1104,ElectoPanel,tracking
+PSOE,2026-09-27,25.3,https://electomania.es/electopanel-27-sep-adelanto-la-crisis-de-la-vivienda-sacude-la-izquierda/,1104,ElectoPanel,tracking
+SAF,2026-09-27,2.0,https://electomania.es/electopanel-27-sep-adelanto-la-crisis-de-la-vivienda-sacude-la-izquierda/,1104,ElectoPanel,tracking
+SUMAR,2026-09-27,5.5,https://electomania.es/electopanel-27-sep-adelanto-la-crisis-de-la-vivienda-sacude-la-izquierda/,1104,ElectoPanel,tracking
+VOX,2026-09-27,18.8,https://electomania.es/electopanel-27-sep-adelanto-la-crisis-de-la-vivienda-sacude-la-izquierda/,1104,ElectoPanel,tracking
+Otros,2026-09-27,11.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PODEMOS,2026-09-27,3.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PP,2026-09-27,33.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PSOE,2026-09-27,25.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SAF,2026-09-27,2.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SUMAR,2026-09-27,5.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+VOX,2026-09-27,18.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+BILDU,2026-09-30,1.4,https://electomania.es/electopromedio-cierre-de-septiembre-sumar-cae-a-7-escanos-y-queda-tras-erc/,,ElectoPromedio,average
+ERC,2026-09-30,2.0,https://electomania.es/electopromedio-cierre-de-septiembre-sumar-cae-a-7-escanos-y-queda-tras-erc/,,ElectoPromedio,average
+JUNTS,2026-09-30,1.2,https://electomania.es/electopromedio-cierre-de-septiembre-sumar-cae-a-7-escanos-y-queda-tras-erc/,,ElectoPromedio,average
+PNV,2026-09-30,1.1,https://electomania.es/electopromedio-cierre-de-septiembre-sumar-cae-a-7-escanos-y-queda-tras-erc/,,ElectoPromedio,average
+PODEMOS,2026-09-30,3.6,https://electomania.es/electopromedio-cierre-de-septiembre-sumar-cae-a-7-escanos-y-queda-tras-erc/,,ElectoPromedio,average
+PP,2026-09-30,33.6,https://electomania.es/electopromedio-cierre-de-septiembre-sumar-cae-a-7-escanos-y-queda-tras-erc/,,ElectoPromedio,average
+PSOE,2026-09-30,25.7,https://electomania.es/electopromedio-cierre-de-septiembre-sumar-cae-a-7-escanos-y-queda-tras-erc/,,ElectoPromedio,average
+SUMAR,2026-09-30,5.3,https://electomania.es/electopromedio-cierre-de-septiembre-sumar-cae-a-7-escanos-y-queda-tras-erc/,,ElectoPromedio,average
+VOX,2026-09-30,18.0,https://electomania.es/electopromedio-cierre-de-septiembre-sumar-cae-a-7-escanos-y-queda-tras-erc/,,ElectoPromedio,average
+Otros,2026-10-03,9.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Ateneo del Dato,tracking
+PODEMOS,2026-10-03,3.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Ateneo del Dato,tracking
+PP,2026-10-03,33.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Ateneo del Dato,tracking
+PSOE,2026-10-03,27.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Ateneo del Dato,tracking
+SUMAR,2026-10-03,7.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Ateneo del Dato,tracking
+VOX,2026-10-03,19.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Ateneo del Dato,tracking
+BILDU,2026-10-04,1.4,https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/,8171,ElectoPanel,tracking
+ERC,2026-10-04,2.0,https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/,8171,ElectoPanel,tracking
+JUNTS,2026-10-04,1.1,https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/,8171,ElectoPanel,tracking
+PNV,2026-10-04,1.1,https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/,8171,ElectoPanel,tracking
+PODEMOS,2026-10-04,3.4,https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/,8171,ElectoPanel,tracking
+PP,2026-10-04,31.3,https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/,8171,ElectoPanel,tracking
+PSOE,2026-10-04,26.9,https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/,8171,ElectoPanel,tracking
+SAF,2026-10-04,1.7,https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/,8171,ElectoPanel,tracking
+SUMAR,2026-10-04,5.2,https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/,8171,ElectoPanel,tracking
+VOX,2026-10-04,19.4,https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/,8171,ElectoPanel,tracking
+Otros,2026-10-05,12.3,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PODEMOS,2026-10-05,2.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PP,2026-10-05,31.6,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PSOE,2026-10-05,27.4,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SAF,2026-10-05,2.0,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SUMAR,2026-10-05,5.6,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+VOX,2026-10-05,18.4,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+Otros,2026-10-05,13.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PODEMOS,2026-10-05,3.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PP,2026-10-05,32.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PSOE,2026-10-05,25.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+SUMAR,2026-10-05,6.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+VOX,2026-10-05,18.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+Otros,2026-10-05,11.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PODEMOS,2026-10-05,3.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PP,2026-10-05,33.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PSOE,2026-10-05,26.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SAF,2026-10-05,2.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SUMAR,2026-10-05,5.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+VOX,2026-10-05,18.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+Otros,2026-10-08,13.5,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PODEMOS,2026-10-08,3.9,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PP,2026-10-08,34.1,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+PSOE,2026-10-08,25.0,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+SUMAR,2026-10-08,5.3,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+VOX,2026-10-08,18.2,https://www.ondacero.es/elecciones/generales/encuestas/,,NC Report,tracking
+Otros,2026-10-09,11.7,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PODEMOS,2026-10-09,2.3,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PP,2026-10-09,31.9,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+PSOE,2026-10-09,28.1,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SAF,2026-10-09,1.8,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+SUMAR,2026-10-09,5.3,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+VOX,2026-10-09,18.9,https://www.ondacero.es/elecciones/generales/encuestas/,,40dB,tracking
+Otros,2026-10-09,12.9,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+PODEMOS,2026-10-09,2.6,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+PP,2026-10-09,34.0,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+PSOE,2026-10-09,28.2,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+SAF,2026-10-09,0.5,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+SUMAR,2026-10-09,5.3,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+VOX,2026-10-09,18.2,https://www.ondacero.es/elecciones/generales/encuestas/,,DYM,tracking
+Otros,2026-10-09,12.3,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
+PODEMOS,2026-10-09,2.3,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
+PP,2026-10-09,30.4,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
+PSOE,2026-10-09,26.5,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
+SAF,2026-10-09,1.9,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
+SUMAR,2026-10-09,7.6,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
+VOX,2026-10-09,19.0,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
+Otros,2026-10-09,9.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+PODEMOS,2026-10-09,3.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+PP,2026-10-09,32.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+PSOE,2026-10-09,28.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+SAF,2026-10-09,1.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+SUMAR,2026-10-09,6.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+VOX,2026-10-09,18.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Invymark,tracking
+BILDU,2026-10-11,1.4,https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/,4125,ElectoPanel,tracking
+ERC,2026-10-11,2.0,https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/,4125,ElectoPanel,tracking
+JUNTS,2026-10-11,1.1,https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/,4125,ElectoPanel,tracking
+PNV,2026-10-11,1.1,https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/,4125,ElectoPanel,tracking
+PODEMOS,2026-10-11,3.4,https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/,4125,ElectoPanel,tracking
+PP,2026-10-11,31.5,https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/,4125,ElectoPanel,tracking
+PSOE,2026-10-11,26.9,https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/,4125,ElectoPanel,tracking
+SAF,2026-10-11,1.7,https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/,4125,ElectoPanel,tracking
+SUMAR,2026-10-11,4.9,https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/,4125,ElectoPanel,tracking
+VOX,2026-10-11,19.1,https://electomania.es/electopanel-11-oct-sumar-se-descalabra-a-la-espera-del-frente-amplio/,4125,ElectoPanel,tracking
+Otros,2026-10-11,11.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PODEMOS,2026-10-11,3.4,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PP,2026-10-11,32.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+PSOE,2026-10-11,25.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+SAF,2026-10-11,1.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+SUMAR,2026-10-11,6.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+VOX,2026-10-11,18.7,https://www.ondacero.es/elecciones/generales/encuestas/,,Target Point,tracking
+Otros,2026-10-12,14.3,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+PODEMOS,2026-10-12,2.3,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+PP,2026-10-12,31.4,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+PSOE,2026-10-12,26.4,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+SUMAR,2026-10-12,7.4,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+VOX,2026-10-12,18.2,https://www.ondacero.es/elecciones/generales/encuestas/,,GAD3,tracking
+Otros,2026-10-12,13.7,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+PODEMOS,2026-10-12,2.6,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+PP,2026-10-12,28.7,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+PSOE,2026-10-12,26.1,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+SAF,2026-10-12,2.0,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+SUMAR,2026-10-12,8.0,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+VOX,2026-10-12,18.9,https://www.ondacero.es/elecciones/generales/encuestas/,,GESOP,tracking
+Otros,2026-10-12,13.0,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PODEMOS,2026-10-12,3.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PP,2026-10-12,31.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PSOE,2026-10-12,25.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+SUMAR,2026-10-12,7.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+VOX,2026-10-12,19.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+Otros,2026-10-12,12.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PODEMOS,2026-10-12,2.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PP,2026-10-12,32.6,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+PSOE,2026-10-12,26.2,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SAF,2026-10-12,2.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+SUMAR,2026-10-12,4.9,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+VOX,2026-10-12,18.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sociométrica,tracking
+Bildu,2026-10-14,1.6,https://www.cis.es/documents/d/guest/3582_estimacion-pdf,5025,CIS,tracking
 ERC,2026-10-14,3.0,https://www.cis.es/documents/d/guest/3582_estimacion-pdf,5025,CIS,tracking
 Junts,2026-10-14,1.1,https://www.cis.es/documents/d/guest/3582_estimacion-pdf,5025,CIS,tracking
-Bildu,2026-10-14,1.6,https://www.cis.es/documents/d/guest/3582_estimacion-pdf,5025,CIS,tracking
-PNV,2026-10-14,0.6,https://www.cis.es/documents/d/guest/3582_estimacion-pdf,5025,CIS,tracking
-SAF,2026-10-14,1.8,https://www.cis.es/documents/d/guest/3582_estimacion-pdf,5025,CIS,tracking
 Otros,2026-10-14,9.1,https://www.cis.es/documents/d/guest/3582_estimacion-pdf,5025,CIS,tracking
+PNV,2026-10-14,0.6,https://www.cis.es/documents/d/guest/3582_estimacion-pdf,5025,CIS,tracking
+PP,2026-10-14,22.2,https://www.cis.es/documents/d/guest/3582_estimacion-pdf,5025,CIS,tracking
+PSOE,2026-10-14,34.0,https://www.cis.es/documents/d/guest/3582_estimacion-pdf,5025,CIS,tracking
+Podemos,2026-10-14,3.1,https://www.cis.es/documents/d/guest/3582_estimacion-pdf,5025,CIS,tracking
+SAF,2026-10-14,1.8,https://www.cis.es/documents/d/guest/3582_estimacion-pdf,5025,CIS,tracking
+SUMAR,2026-10-14,6.1,https://www.cis.es/documents/d/guest/3582_estimacion-pdf,5025,CIS,tracking
+VOX,2026-10-14,17.1,https://www.cis.es/documents/d/guest/3582_estimacion-pdf,5025,CIS,tracking
+BILDU,2026-10-18,1.4,https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/,3141,ElectoPanel,tracking
+ERC,2026-10-18,2.1,https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/,3141,ElectoPanel,tracking
+JUNTS,2026-10-18,1.2,https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/,3141,ElectoPanel,tracking
+PNV,2026-10-18,1.0,https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/,3141,ElectoPanel,tracking
+PODEMOS,2026-10-18,2.1,https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/,3141,ElectoPanel,tracking
+PP,2026-10-18,31.8,https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/,3141,ElectoPanel,tracking
+PSOE,2026-10-18,27.1,https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/,3141,ElectoPanel,tracking
+SAF,2026-10-18,1.7,https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/,3141,ElectoPanel,tracking
+SUMAR,2026-10-18,4.9,https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/,3141,ElectoPanel,tracking
+VOX,2026-10-18,18.9,https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/,3141,ElectoPanel,tracking
 BILDU,2026-10-19,1.3,https://electomania.es/29n-electopromedio-la-mayoria-de-pp-y-vox-se-estrecha-a-198-escanos/,,ElectoPromedio,average
 ERC,2026-10-19,2.3,https://electomania.es/29n-electopromedio-la-mayoria-de-pp-y-vox-se-estrecha-a-198-escanos/,,ElectoPromedio,average
 JUNTS,2026-10-19,1.2,https://electomania.es/29n-electopromedio-la-mayoria-de-pp-y-vox-se-estrecha-a-198-escanos/,,ElectoPromedio,average
@@ -741,26 +751,62 @@ PODEMOS,2026-10-19,2.4,https://electomania.es/29n-electopromedio-la-mayoria-de-p
 PP,2026-10-19,31.7,https://electomania.es/29n-electopromedio-la-mayoria-de-pp-y-vox-se-estrecha-a-198-escanos/,,ElectoPromedio,average
 PSOE,2026-10-19,26.3,https://electomania.es/29n-electopromedio-la-mayoria-de-pp-y-vox-se-estrecha-a-198-escanos/,,ElectoPromedio,average
 VOX,2026-10-19,19.2,https://electomania.es/29n-electopromedio-la-mayoria-de-pp-y-vox-se-estrecha-a-198-escanos/,,ElectoPromedio,average
-BILDU,2026-10-18,1.4,https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/,3141,ElectoPanel,tracking
-ERC,2026-10-18,2.1,https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/,3141,ElectoPanel,tracking
-JUNTS,2026-10-18,1.2,https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/,3141,ElectoPanel,tracking
-PNV,2026-10-18,1.0,https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/,3141,ElectoPanel,tracking
-PODEMOS,2026-10-18,2.1,https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/,3141,ElectoPanel,tracking
-PP,2026-10-18,31.8,https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/,3141,ElectoPanel,tracking
-PSOE,2026-10-18,27.1,https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/,3141,ElectoPanel,tracking
-SUMAR,2026-10-18,4.9,https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/,3141,ElectoPanel,tracking
-SAF,2026-10-18,1.7,https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/,3141,ElectoPanel,tracking
-VOX,2026-10-18,18.9,https://electomania.es/electopanel-18-oct-erc-y-frente-amplio-ceden-ante-el-psoe-podemos-en-el-limite-de-ser-extraparlamentario/,3141,ElectoPanel,tracking
+Otros,2026-10-19,12.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+PODEMOS,2026-10-19,2.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
 PP,2026-10-19,31.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
 PSOE,2026-10-19,25.3,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-VOX,2026-10-19,19.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-PODEMOS,2026-10-19,2.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
-Otros,2026-10-19,12.8,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
 SUMAR,2026-10-19,8.1,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+VOX,2026-10-19,19.5,https://www.ondacero.es/elecciones/generales/encuestas/,,Sigma Dos,tracking
+Otros,2026-10-23,12.4,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
+PODEMOS,2026-10-23,1.9,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
 PP,2026-10-23,28.5,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
 PSOE,2026-10-23,27.1,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
-VOX,2026-10-23,20.0,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
-SUMAR,2026-10-23,8.9,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
-PODEMOS,2026-10-23,1.9,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
 SAF,2026-10-23,1.2,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
-Otros,2026-10-23,12.4,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
+SUMAR,2026-10-23,8.9,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
+VOX,2026-10-23,20.0,https://www.ondacero.es/elecciones/generales/encuestas/,,IMOP Insights,tracking
+Otros,2026-10-25,12.0,https://www.eldiario.es/politica/bloque-izquierdas-recorta-distancias-pp-vox-mantienen-mayoria-absoluta_1_13611052.html,2000,Ateneo del Dato,tracking
+PP,2026-10-25,31.1,https://www.eldiario.es/politica/bloque-izquierdas-recorta-distancias-pp-vox-mantienen-mayoria-absoluta_1_13611052.html,2000,Ateneo del Dato,tracking
+PSOE,2026-10-25,27.6,https://www.eldiario.es/politica/bloque-izquierdas-recorta-distancias-pp-vox-mantienen-mayoria-absoluta_1_13611052.html,2000,Ateneo del Dato,tracking
+Podemos,2026-10-25,2.7,https://www.eldiario.es/politica/bloque-izquierdas-recorta-distancias-pp-vox-mantienen-mayoria-absoluta_1_13611052.html,2000,Ateneo del Dato,tracking
+SUMAR,2026-10-25,6.8,https://www.eldiario.es/politica/bloque-izquierdas-recorta-distancias-pp-vox-mantienen-mayoria-absoluta_1_13611052.html,2000,Ateneo del Dato,tracking
+VOX,2026-10-25,19.8,https://www.eldiario.es/politica/bloque-izquierdas-recorta-distancias-pp-vox-mantienen-mayoria-absoluta_1_13611052.html,2000,Ateneo del Dato,tracking
+BILDU,2026-10-25,1.4,https://electomania.es/electopanel-25-octubre-el-pp-baja-de-nuevo-frente-amplio-crece/,4309,ElectoPanel,tracking
+ERC,2026-10-25,2.2,https://electomania.es/electopanel-25-octubre-el-pp-baja-de-nuevo-frente-amplio-crece/,4309,ElectoPanel,tracking
+JUNTS,2026-10-25,1.3,https://electomania.es/electopanel-25-octubre-el-pp-baja-de-nuevo-frente-amplio-crece/,4309,ElectoPanel,tracking
+PNV,2026-10-25,1.0,https://electomania.es/electopanel-25-octubre-el-pp-baja-de-nuevo-frente-amplio-crece/,4309,ElectoPanel,tracking
+PODEMOS,2026-10-25,1.7,https://electomania.es/electopanel-25-octubre-el-pp-baja-de-nuevo-frente-amplio-crece/,4309,ElectoPanel,tracking
+PP,2026-10-25,30.9,https://electomania.es/electopanel-25-octubre-el-pp-baja-de-nuevo-frente-amplio-crece/,4309,ElectoPanel,tracking
+PSOE,2026-10-25,26.7,https://electomania.es/electopanel-25-octubre-el-pp-baja-de-nuevo-frente-amplio-crece/,4309,ElectoPanel,tracking
+SAF,2026-10-25,1.7,https://electomania.es/electopanel-25-octubre-el-pp-baja-de-nuevo-frente-amplio-crece/,4309,ElectoPanel,tracking
+SUMAR,2026-10-25,5.8,https://electomania.es/electopanel-25-octubre-el-pp-baja-de-nuevo-frente-amplio-crece/,4309,ElectoPanel,tracking
+VOX,2026-10-25,19.0,https://electomania.es/electopanel-25-octubre-el-pp-baja-de-nuevo-frente-amplio-crece/,4309,ElectoPanel,tracking
+Bildu,2026-10-26,1.4,https://www.larazon.es/espana/18-votantes-socialistas-apoyan-hoy-vox_202610266adea62a3eef771e1ac8d43d.html,1000,NC Report,tracking
+ERC,2026-10-26,2.0,https://www.larazon.es/espana/18-votantes-socialistas-apoyan-hoy-vox_202610266adea62a3eef771e1ac8d43d.html,1000,NC Report,tracking
+Junts,2026-10-26,1.8,https://www.larazon.es/espana/18-votantes-socialistas-apoyan-hoy-vox_202610266adea62a3eef771e1ac8d43d.html,1000,NC Report,tracking
+Otros,2026-10-26,7.0,https://www.larazon.es/espana/18-votantes-socialistas-apoyan-hoy-vox_202610266adea62a3eef771e1ac8d43d.html,1000,NC Report,tracking
+PNV,2026-10-26,0.9,https://www.larazon.es/espana/18-votantes-socialistas-apoyan-hoy-vox_202610266adea62a3eef771e1ac8d43d.html,1000,NC Report,tracking
+PP,2026-10-26,32.9,https://www.larazon.es/espana/18-votantes-socialistas-apoyan-hoy-vox_202610266adea62a3eef771e1ac8d43d.html,1000,NC Report,tracking
+PSOE,2026-10-26,25.8,https://www.larazon.es/espana/18-votantes-socialistas-apoyan-hoy-vox_202610266adea62a3eef771e1ac8d43d.html,1000,NC Report,tracking
+Podemos,2026-10-26,2.6,https://www.larazon.es/espana/18-votantes-socialistas-apoyan-hoy-vox_202610266adea62a3eef771e1ac8d43d.html,1000,NC Report,tracking
+SUMAR,2026-10-26,6.6,https://www.larazon.es/espana/18-votantes-socialistas-apoyan-hoy-vox_202610266adea62a3eef771e1ac8d43d.html,1000,NC Report,tracking
+VOX,2026-10-26,19.0,https://www.larazon.es/espana/18-votantes-socialistas-apoyan-hoy-vox_202610266adea62a3eef771e1ac8d43d.html,1000,NC Report,tracking
+Bildu,2026-10-26,1.2,https://www.elmundo.es/espana/encuestas/2026/10/26/6addf8c4fdddfff23d8b4581.html,3122,Sigma Dos,tracking
+ERC,2026-10-26,2.5,https://www.elmundo.es/espana/encuestas/2026/10/26/6addf8c4fdddfff23d8b4581.html,3122,Sigma Dos,tracking
+Junts,2026-10-26,1.2,https://www.elmundo.es/espana/encuestas/2026/10/26/6addf8c4fdddfff23d8b4581.html,3122,Sigma Dos,tracking
+Otros,2026-10-26,7.4,https://www.elmundo.es/espana/encuestas/2026/10/26/6addf8c4fdddfff23d8b4581.html,3122,Sigma Dos,tracking
+PNV,2026-10-26,0.9,https://www.elmundo.es/espana/encuestas/2026/10/26/6addf8c4fdddfff23d8b4581.html,3122,Sigma Dos,tracking
+PP,2026-10-26,30.6,https://www.elmundo.es/espana/encuestas/2026/10/26/6addf8c4fdddfff23d8b4581.html,3122,Sigma Dos,tracking
+PSOE,2026-10-26,26.1,https://www.elmundo.es/espana/encuestas/2026/10/26/6addf8c4fdddfff23d8b4581.html,3122,Sigma Dos,tracking
+Podemos,2026-10-26,2.8,https://www.elmundo.es/espana/encuestas/2026/10/26/6addf8c4fdddfff23d8b4581.html,3122,Sigma Dos,tracking
+SUMAR,2026-10-26,7.4,https://www.elmundo.es/espana/encuestas/2026/10/26/6addf8c4fdddfff23d8b4581.html,3122,Sigma Dos,tracking
+VOX,2026-10-26,19.9,https://www.elmundo.es/espana/encuestas/2026/10/26/6addf8c4fdddfff23d8b4581.html,3122,Sigma Dos,tracking
+Bildu,2026-10-26,1.3,https://www.elespanol.com/espana/politica/20261026/millon-votantes-psoe-sumar-decidido-pasarse-pp-vox-solo-haran-inversa/1003744434359_0.html,3223,Sociométrica,tracking
+ERC,2026-10-26,2.5,https://www.elespanol.com/espana/politica/20261026/millon-votantes-psoe-sumar-decidido-pasarse-pp-vox-solo-haran-inversa/1003744434359_0.html,3223,Sociométrica,tracking
+Junts,2026-10-26,1.7,https://www.elespanol.com/espana/politica/20261026/millon-votantes-psoe-sumar-decidido-pasarse-pp-vox-solo-haran-inversa/1003744434359_0.html,3223,Sociométrica,tracking
+Otros,2026-10-26,9.5,https://www.elespanol.com/espana/politica/20261026/millon-votantes-psoe-sumar-decidido-pasarse-pp-vox-solo-haran-inversa/1003744434359_0.html,3223,Sociométrica,tracking
+PNV,2026-10-26,0.8,https://www.elespanol.com/espana/politica/20261026/millon-votantes-psoe-sumar-decidido-pasarse-pp-vox-solo-haran-inversa/1003744434359_0.html,3223,Sociométrica,tracking
+PP,2026-10-26,32.1,https://www.elespanol.com/espana/politica/20261026/millon-votantes-psoe-sumar-decidido-pasarse-pp-vox-solo-haran-inversa/1003744434359_0.html,3223,Sociométrica,tracking
+PSOE,2026-10-26,27.0,https://www.elespanol.com/espana/politica/20261026/millon-votantes-psoe-sumar-decidido-pasarse-pp-vox-solo-haran-inversa/1003744434359_0.html,3223,Sociométrica,tracking
+Podemos,2026-10-26,1.9,https://www.elespanol.com/espana/politica/20261026/millon-votantes-psoe-sumar-decidido-pasarse-pp-vox-solo-haran-inversa/1003744434359_0.html,3223,Sociométrica,tracking
+SUMAR,2026-10-26,4.6,https://www.elespanol.com/espana/politica/20261026/millon-votantes-psoe-sumar-decidido-pasarse-pp-vox-solo-haran-inversa/1003744434359_0.html,3223,Sociométrica,tracking
+VOX,2026-10-26,18.6,https://www.elespanol.com/espana/politica/20261026/millon-votantes-psoe-sumar-decidido-pasarse-pp-vox-solo-haran-inversa/1003744434359_0.html,3223,Sociométrica,tracking

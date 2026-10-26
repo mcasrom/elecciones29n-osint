@@ -9,21 +9,6 @@ HIST = "data/polls_history.csv"
 PARTIES = ["PP", "PSOE", "VOX", "SUMAR", "Podemos", "ERC", "Junts", "Bildu", "PNV", "Cs", "SAF", "Otros"]
 
 
-def poll_sum(dstr: str) -> float:
-    if not os.path.exists(HIST):
-        return 0.0
-    total = 0.0
-    with open(HIST, encoding="utf-8", newline="") as f:
-        for row in csv.DictReader(f):
-            if row.get("date") != dstr:
-                continue
-            if (row.get("kind") or "tracking") == "average":
-                continue
-            try:
-                total += float(row.get("value") or 0)
-            except ValueError:
-                continue
-    return round(total, 2)
 
 
 def parse_values(raw: str) -> dict[str, float]:
@@ -85,10 +70,10 @@ def main() -> int:
         for party, val in values.items():
             w.writerow([party, args.date, val, args.source_url, args.sample or "", args.pollster, args.kind])
 
-    total = poll_sum(args.date)
+    total = round(sum(values.values()), 2)
     print(f"OK añadido: {len(values)} partidos · {args.date} · {args.pollster}/{args.kind}")
     if args.kind != "average":
-        print(f"   suma de la fecha {args.date}: {total}%", end="")
+        print(f"   suma del sondeo: {total}%", end="")
         if not (90 <= total <= 110):
             print("  ⚠ fuera de 90–110 %: revisa que no falten partidos")
         else:

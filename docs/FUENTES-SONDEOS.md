@@ -16,8 +16,8 @@ El registro no se publica en la web: es una herramienta de trabajo.
 
 ## Estados
 
-- `automatico`: ya lo ingiere el pipeline (Electomania).
-- `manual`: se busca y se introduce a mano.
+- `automatico`: ya lo ingiere el pipeline (Electomanía y Onda Cero).
+- `manual`: se busca, se verifica la tabla completa y se introduce a mano.
 - `pendiente`: fuente identificada, aún sin explorar/validar.
 - `descartado`: no se usa (sin serie actual, muro de pago, formato no fiable).
 
@@ -30,6 +30,14 @@ El registro no se publica en la web: es una herramienta de trabajo.
   parciales → si faltan partidos, no se introduce (la suma avisará).
 - **Buscadores**: `site:elpais.com 40dB encuesta`, `site:elmundo.es Sigma Dos`,
   `site:abc.es GAD3`. Últimos 7 días.
+
+## Automático y cola de prensa
+
+- **Electomanía** y **Onda Cero** son las fuentes estructuradas: `ingest.electomania` y `ingest.ondacero`.
+- `scripts/refresh_polls.sh` corre a las **14:00 y 20:00**, y solo publica si cambió `polls_history.csv`.
+- `scripts/watch_sondeos.py` detecta titulares de El Mundo, El Español, La Razón y elDiario y los deja en `data/candidatos_sondeos.csv` con estado `pendiente_revision`.
+- La cola **no publica**: hay que abrir la pieza, comprobar fecha de publicación/campo, muestra y tabla completa, y usar `data/entrada_sondeos.csv` o `scripts/add_poll.py`.
+- Si solo hay PP/PSOE/Vox, **no se inventa el resto**: se deja pendiente o se agrega el residual en `Otros` y se documenta.
 
 ## Qué registrar y qué no
 

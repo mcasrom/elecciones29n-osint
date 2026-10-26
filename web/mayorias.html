@@ -1,0 +1,363 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de mayorías · hemiciclo simulado 29N</title>
+<meta name="description" content="Suma aritmética de los escaños del hemiciclo simulado, con umbral de 176. No es una proyección ni predice pactos o investidura.">
+<link rel="canonical" href="https://elecciones29n.pruebapublica.com/mayorias.html">
+<link rel="alternate" hreflang="es" href="https://elecciones29n.pruebapublica.com/mayorias.html"><link rel="alternate" hreflang="en" href="https://elecciones29n.pruebapublica.com/en/majorities.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="stylesheet" href="/css/main.css?v=202610261437">
+<script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  function sync(){
+    var light = document.documentElement.dataset.theme === 'light';
+    document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+      var i=b.querySelector('.ticon'), l=b.querySelector('.tlabel');
+      if(i) i.textContent = light ? '☾' : '☀';
+      if(l) l.textContent = light ? 'Oscuro' : 'Claro';
+      b.setAttribute('title', light ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro');
+    });
+  }
+  sync();
+  document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var root = document.documentElement;
+      var next = root.dataset.theme === 'light' ? 'dark' : 'light';
+      root.dataset.theme = next;
+      try { localStorage.setItem('e29n-theme', next); } catch(e) {}
+      sync();
+    });
+  });
+});
+</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta name="theme-color" content="#0b0c1c">
+<meta name="generator" content="elecciones29n-osint v0.11.1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="elecciones29n-osint">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Calculadora de mayorías · hemiciclo simulado 29N">
+<meta property="og:description" content="Suma aritmética de los escaños del hemiciclo simulado, con umbral de 176. No es una proyección ni predice pactos o investidura.">
+<meta property="og:url" content="https://elecciones29n.pruebapublica.com/mayorias.html">
+
+<meta property="og:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<meta property="og:image:alt" content="Calculadora de mayorías · hemiciclo simulado 29N">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculadora de mayorías · hemiciclo simulado 29N">
+<meta name="twitter:description" content="Suma aritmética de los escaños del hemiciclo simulado, con umbral de 176. No es una proyección ni predice pactos o investidura.">
+<meta name="twitter:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<meta name="twitter:image:alt" content="Calculadora de mayorías · hemiciclo simulado 29N">
+<link rel="alternate" type="application/json" href="/data/latest.json" title="Datos agregados (JSON)">
+<link rel="alternate" type="application/rss+xml" href="/cambios.xml" title="Cambios · nuevos sondeos">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Calculadora de mayorías", "url": "https://elecciones29n.pruebapublica.com/mayorias.html", "description": "Suma aritmética de escaños simulados con umbral 176. No predice pactos ni investidura.", "inLanguage": "es-ES"}</script>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">
+        <span class="mark"></span>
+        <span class="brandname"><a href="/">elecciones29n-osint</a></span>
+        <span class="tag">Media agregada de sondeos · 29N 2026</span>
+      </div>
+      <div class="status">
+        <button class="helpopen" id="helpbtn" aria-expanded="false" aria-controls="helppanel">? Ayuda</button>
+        <button class="themebtn" data-theme-toggle aria-label="Cambiar entre tema claro y oscuro" title="Cambiar tema"><span class="ticon">☀</span><span class="tlabel">Claro</span></button>
+      </div>
+    </div>
+
+    <nav class="mainnav" aria-label="Principal">
+      <div class="navrow navrow-primary">
+        <a class="navpill " href="/">Inicio</a>
+        <a class="navpill " href="/hemiciclo.html">Hemiciclo</a>
+        <a class="navpill " href="/electorado.html">Electorado</a>
+        <a class="navpill " href="/participacion.html">Participación</a>
+        <a class="navpill " href="/territorio.html">Territorio</a>
+        <a class="navpill " href="/competitivas.html">Competitivas</a>
+        <a class="navpill " href="/circunscripciones.html">Circunscripciones</a>
+        <a class="navpill " href="/noche-electoral.html">Noche electoral</a>
+      </div>
+      <div class="navrow navrow-secondary">
+        <a class="" href="/metodologia.html">Metodología</a>
+        <a class="" href="/glosario.html">Glosario</a>
+        <a class="" href="/robustez.html">Robustez</a>
+        <a class="" href="/como-leer.html">Cómo leer</a>
+        <a class="" href="/fuentes.html">Fuentes y datos</a>
+        <a class="" href="/novedades.html">Novedades</a>
+        <a class="" href="/factores.html">Factores</a>
+        <a class="" href="/comportamiento.html">Comportamiento</a>
+        <a class="" href="/caveat.html">Qué no dice</a>
+        <a class="" href="/apoyo.html">Apoyo</a>
+        <a class="" href="/sobre-mi.html">Sobre mí</a>
+        <a class="" href="/about.html">Acerca del proyecto</a>
+        <a class="active" href="/mayorias.html">Mayorías</a>
+        <a class="" href="/postelectoral.html">Post-electoral</a>
+        <a class="" href="/prensa.html">Prensa</a>
+        <a class="" href="/aviso.html">Avisos</a>
+        <a class="" href="/incrustar.html">Incrustar</a>
+        <a class="" href="/en.html">English</a>
+        <a class="" href="/privacidad.html">Privacidad</a>
+        <a class="navdata" href="/data/latest.json">Datos abiertos ↗</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Calculadora de mayorías</h1>
+  <p class="muted" style="margin:0 0 12px">Suma los escaños de la simulación nacional del 29N. Es <strong>aritmética de bloques</strong>: no es una proyección, no predice pactos y no decide una investidura.</p>
+
+  
+  
+  
+  <div class="alert warn"><strong>No es un gobierno.</strong> Una suma de 176 o más solo indica mayoría aritmética en esta simulación. Los pactos, la abstención y la investidura dependen de negociaciones que no se modelan aquí.</div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Suma de escaños</h2><span class="hint">26 oct 2026 · hoy · 9 sondeos · 350 escaños</span></div>
+    <div style="display:flex;gap:22px;flex-wrap:wrap;align-items:flex-start">
+      <div style="flex:1 1 320px;min-width:0">
+        <p class="muted small" style="margin:0 0 8px">Selecciona partidos:</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:6px 12px">
+          
+          <label style="display:flex;align-items:center;gap:8px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;cursor:pointer">
+            <input type="checkbox" class="calc-seat" data-party="PP" data-seats="129" style="accent-color:var(--accent)">
+            <span class="dot" style="background:#3b82f6"></span>
+            <strong>PP</strong>
+            <span class="muted small" style="margin-left:auto">129</span>
+          </label>
+          
+          <label style="display:flex;align-items:center;gap:8px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;cursor:pointer">
+            <input type="checkbox" class="calc-seat" data-party="PSOE" data-seats="115" style="accent-color:var(--accent)">
+            <span class="dot" style="background:#ef4444"></span>
+            <strong>PSOE</strong>
+            <span class="muted small" style="margin-left:auto">115</span>
+          </label>
+          
+          <label style="display:flex;align-items:center;gap:8px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;cursor:pointer">
+            <input type="checkbox" class="calc-seat" data-party="VOX" data-seats="80" style="accent-color:var(--accent)">
+            <span class="dot" style="background:#22c55e"></span>
+            <strong>VOX</strong>
+            <span class="muted small" style="margin-left:auto">80</span>
+          </label>
+          
+          <label style="display:flex;align-items:center;gap:8px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;cursor:pointer">
+            <input type="checkbox" class="calc-seat" data-party="SUMAR" data-seats="26" style="accent-color:var(--accent)">
+            <span class="dot" style="background:#d946ef"></span>
+            <strong>SUMAR</strong>
+            <span class="muted small" style="margin-left:auto">26</span>
+          </label>
+          
+        </div>
+      </div>
+      <div style="flex:0 1 250px;min-width:210px;border-left:1px solid var(--line);padding-left:20px">
+        <p class="muted small" style="margin:0">Total seleccionado</p>
+        <p style="margin:2px 0 0"><b id="calc-total" style="font-size:44px;line-height:1;letter-spacing:-.03em">0</b><span class="muted"> / 350</span></p>
+        <p id="calc-status" class="muted small" aria-live="polite" style="min-height:44px;margin:8px 0">Selecciona una combinación.</p>
+        <div class="cta" style="margin-top:8px">
+          <button class="btn ghost smallbtn" type="button" data-preset="right">PP + VOX</button>
+          <button class="btn ghost smallbtn" type="button" data-preset="left">PSOE + Sumar</button>
+          <button class="btn ghost smallbtn" type="button" data-preset="all">Todos</button>
+          <button class="btn ghost smallbtn" type="button" data-preset="none">Ninguno</button>
+        </div>
+        <p class="muted small" style="margin:10px 0 0">Mayoría absoluta: <strong>176</strong>.</p>
+      </div>
+    </div>
+    <noscript><p class="muted small">Sin JavaScript puedes consultar los escaños en la tabla de abajo.</p></noscript>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Escaños de la simulación</h2><span class="hint">misma foto que el hemiciclo</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Partido</th><th>Escaños</th></tr></thead>
+      <tbody><tr><td><strong>PP</strong></td><td class="num">129</td></tr><tr><td><strong>PSOE</strong></td><td class="num">115</td></tr><tr><td><strong>VOX</strong></td><td class="num">80</td></tr><tr><td><strong>SUMAR</strong></td><td class="num">26</td></tr></tbody>
+    </table></div>
+    <p class="muted small">D'Hondt nacional, 350 escaños, umbral 3%, solo partidos estatales. No incluye ERC, Junts, EH Bildu ni PNV; no es la composición real del Congreso.</p>
+  </div>
+
+  <div class="cta">
+    <a class="btn" href="/hemiciclo.html">Ver el hemiciclo por fecha</a>
+    <a class="btn ghost" href="/metodologia.html#hemiciclo">Método de la simulación</a>
+    <a class="btn ghost" href="/caveat.html">Qué no dice</a>
+  </div>
+
+  <script>
+  (function(){
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('.calc-seat'));
+    var totalEl = document.getElementById('calc-total');
+    var statusEl = document.getElementById('calc-status');
+    var THRESHOLD = 176;
+    function update(){
+      var total = 0;
+      boxes.forEach(function(b){ if (b.checked) total += parseInt(b.dataset.seats, 10) || 0; });
+      totalEl.textContent = total;
+      var diff = total - THRESHOLD;
+      if (total >= THRESHOLD) {
+        statusEl.textContent = 'Mayoría aritmética: ' + diff + ' por encima de 176.';
+        statusEl.style.color = 'var(--accent2)';
+      } else {
+        statusEl.textContent = 'Sin mayoría aritmética: faltan ' + (THRESHOLD - total) + ' para 176.';
+        statusEl.style.color = 'var(--muted)';
+      }
+    }
+    boxes.forEach(function(b){ b.addEventListener('change', update); });
+    function applyPreset(preset){
+      var map = { right: ['PP','VOX'], left: ['PSOE','SUMAR','PODEMOS'] };
+      boxes.forEach(function(b){
+        if (preset === 'all') b.checked = true;
+        else if (preset === 'none') b.checked = false;
+        else b.checked = (map[preset] || []).indexOf(b.dataset.party) >= 0;
+      });
+      update();
+    }
+    document.querySelectorAll('[data-preset]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        applyPreset(btn.dataset.preset);
+        try { history.replaceState(null, '', '#' + btn.dataset.preset); } catch(e) {}
+      });
+    });
+    var initial = (location.hash || '').replace('#', '');
+    if (['right','left','all','none'].indexOf(initial) >= 0) applyPreset(initial);
+    else update();
+  })();
+  </script>
+  
+</main>
+<footer class="footer">
+  <div class="container">
+    <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
+    <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
+    <p>Datos abiertos · <a href="/novedades.html">Novedades</a> · <a href="/cambios.xml">RSS de cambios</a> · <a href="/embed/medias.html">Embed</a> · <a href="/incrustar.html">Guía de uso</a> · <a href="/aviso.html">Avisos</a> · <a href="/prensa.html">Prensa</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="/privacidad.html">Privacidad</a> · <a href="/mayorias.html">Mayorías</a> · <a href="/postelectoral.html">Post-electoral</a> · <a href="/competitivas.html">Competitivas</a> · <a href="/en.html">English</a> · Hecho por Miguel Castillo · software v0.11.1 · 2026-10-26.</p>
+    <p class="eco">Ecosistema:
+      <a href="https://www.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Prueba Pública</a> ·
+      <a href="https://analisis.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Blog de análisis</a> ·
+      <a href="https://fimi.viajeinteligencia.com/?utm_source=elecciones29n&utm_medium=footer">Observatorio de amplificación</a> ·
+      <a href="https://vivienda.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Vivienda</a>
+    </p>
+    <div class="footer-actions">
+      <a class="support repo" href="https://github.com/mcasrom/elecciones29n-osint" target="_blank" rel="noopener noreferrer">GitHub · AGPL-3.0</a>
+      <a class="support kofi" href="https://ko-fi.com/m_castillo" target="_blank" rel="noopener noreferrer">☕ Apoyar en Ko-fi</a>
+    </div>
+  </div>
+</footer>
+
+<div class="helpbackdrop" id="helpbackdrop" hidden></div>
+<aside class="helppanel" id="helppanel" role="dialog" aria-modal="true" aria-labelledby="helptitle" hidden>
+  <div class="helphead">
+    <h2 id="helptitle">Cómo leer el observatorio</h2>
+    <button class="helpclose" id="helpclose" aria-label="Cerrar ayuda">×</button>
+  </div>
+  <ol class="helpsteps">
+    <li><strong>Sondeos ≠ pronóstico.</strong> Es la media de los sondeos publicados, con rango mínimo–máximo. El rango no es un intervalo de confianza.</li>
+    <li><strong>Tres capas distintas.</strong> Quién puede votar (censo), quién vota (participación) y cómo se traduce (territorio).</li>
+    <li><strong>Datos oficiales.</strong> Censo (INE), participación (JEC) y escaños (BOE) no son estimaciones. Los sondeos sí.</li>
+    <li><strong>Lo que no dice.</strong> No predice el resultado ni atribuye preferencias por edad, sexo o territorio.</li>
+  </ol>
+  <div class="cta">
+    <a class="btn" href="/metodologia.html">Ver metodología</a>
+    <a class="btn ghost" href="/caveat.html">Qué no dice este sitio</a>
+  </div>
+</aside>
+<script>
+(function(){
+  var btn = document.getElementById('helpbtn');
+  var panel = document.getElementById('helppanel');
+  var bd = document.getElementById('helpbackdrop');
+  var close = document.getElementById('helpclose');
+  if (!btn || !panel) return;
+  var open = false;
+  function setOpen(v){
+    open = v;
+    panel.hidden = !v;
+    bd.hidden = !v;
+    btn.setAttribute('aria-expanded', v ? 'true' : 'false');
+    document.body.style.overflow = v ? 'hidden' : '';
+    if (v) close.focus();
+  }
+  btn.addEventListener('click', function(){ setOpen(true); });
+  close.addEventListener('click', function(){ setOpen(false); });
+  bd.addEventListener('click', function(){ setOpen(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && open) setOpen(false); });
+  var intro = document.getElementById('helpintro');
+  var INTRO_KEY = 'e29n_help_intro';
+  if (intro) {
+    try {
+      if (!localStorage.getItem(INTRO_KEY)) intro.hidden = false;
+    } catch(e) {}
+    var io = document.getElementById('helpintro-open');
+    var ic = document.getElementById('helpintro-off');
+    if (io) io.addEventListener('click', function(){
+      intro.hidden = true; setOpen(true);
+      try { localStorage.setItem(INTRO_KEY, 'off'); } catch(e) {}
+    });
+    if (ic) ic.addEventListener('click', function(){
+      intro.hidden = true;
+      try { localStorage.setItem(INTRO_KEY, 'off'); } catch(e) {}
+    });
+  }
+})();
+</script>
+
+<div class="swupdate" id="swupdate" data-build="202610261437" hidden>
+  <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
+  <button id="swupdate-btn" type="button">Recargar</button>
+  <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610261437');}catch(e){}">×</button>
+</div>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function(){
+    var box = document.getElementById('swupdate');
+    var btn = document.getElementById('swupdate-btn');
+    var close = document.getElementById('swupdate-close');
+    var reg = null;
+    var userClicked = false;
+    var DISMISS = 'e29n_sw_dismiss';
+    function isDismissed(){
+      try { return !!(reg && reg.waiting && localStorage.getItem(DISMISS) === reg.waiting.scriptURL); }
+      catch(e) { return false; }
+    }
+    function isHiddenHere(){
+      try { return sessionStorage.getItem('e29n_sw_hidden') === (box && box.dataset.build); }
+      catch(e) { return false; }
+    }
+    function show(){ if (box && !isDismissed() && !isHiddenHere()) box.hidden = false; }
+    if (close) close.addEventListener('click', function(){
+      box.hidden = true;
+      try { if (reg && reg.waiting) localStorage.setItem(DISMISS, reg.waiting.scriptURL); } catch(e) {}
+    });
+    if (btn) btn.addEventListener('click', function(){
+      box.hidden = true;
+      userClicked = true;
+      if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
+    });
+    navigator.serviceWorker.register('/sw.js?v=202610261437', {updateViaCache: 'none'}).then(function(r){
+      reg = r;
+      if (r.waiting && navigator.serviceWorker.controller) show();
+      r.addEventListener('updatefound', function(){
+        var nw = r.installing;
+        if (!nw) return;
+        nw.addEventListener('statechange', function(){
+          if (nw.state === 'installed' && navigator.serviceWorker.controller) show();
+        });
+      });
+    }).catch(function(){});
+    navigator.serviceWorker.addEventListener('controllerchange', function(){ if (userClicked) window.location.reload(); });
+  });
+}
+</script>
+</body>
+</html>

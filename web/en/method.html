@@ -1,0 +1,165 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method · Spain 29N observatory</title>
+<meta name="description" content="How the 29N average is built: 14-day window, recency and sample weights, range vs IQR, house contrast, source concentration and limits.">
+<link rel="canonical" href="https://elecciones29n.pruebapublica.com/en/method.html">
+<link rel="alternate" hreflang="es" href="https://elecciones29n.pruebapublica.com/metodologia.html"><link rel="alternate" hreflang="en" href="https://elecciones29n.pruebapublica.com/en/method.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="stylesheet" href="/css/main.css?v=202610261437">
+<script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  function sync(){
+    var light = document.documentElement.dataset.theme === 'light';
+    document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+      var i=b.querySelector('.ticon'), l=b.querySelector('.tlabel');
+      if(i) i.textContent = light ? '☾' : '☀';
+      if(l) l.textContent = light ? 'Oscuro' : 'Claro';
+      b.setAttribute('title', light ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro');
+    });
+  }
+  sync();
+  document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var root = document.documentElement;
+      var next = root.dataset.theme === 'light' ? 'dark' : 'light';
+      root.dataset.theme = next;
+      try { localStorage.setItem('e29n-theme', next); } catch(e) {}
+      sync();
+    });
+  });
+});
+</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta name="theme-color" content="#0b0c1c">
+<meta name="generator" content="elecciones29n-osint v0.11.1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="elecciones29n-osint">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Method · Spain 29N observatory">
+<meta property="og:description" content="How the 29N average is built: 14-day window, recency and sample weights, range vs IQR, house contrast, source concentration and limits.">
+<meta property="og:url" content="https://elecciones29n.pruebapublica.com/en/method.html">
+
+<meta property="og:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<meta property="og:image:alt" content="Method · Spain 29N observatory">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Method · Spain 29N observatory">
+<meta name="twitter:description" content="How the 29N average is built: 14-day window, recency and sample weights, range vs IQR, house contrast, source concentration and limits.">
+<meta name="twitter:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<meta name="twitter:image:alt" content="Method · Spain 29N observatory">
+<link rel="alternate" type="application/json" href="/data/latest.json" title="Datos agregados (JSON)">
+<link rel="alternate" type="application/rss+xml" href="/cambios.xml" title="Cambios · nuevos sondeos">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Method", "url": "https://elecciones29n.pruebapublica.com/en/method.html", "description": "How the average, weights and limits are built.", "inLanguage": "es-ES"}</script>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">
+        <span class="mark"></span>
+        <span class="brandname"><a href="/en.html">elecciones29n-osint</a></span>
+        <span class="tag">Spain · 29N 2026</span>
+      </div>
+      <div class="status">
+        <a class="navpill" href="/">Español</a>
+        <a class="navpill" href="/en/data.html">Data</a>
+      </div>
+    </div>
+    <nav class="mainnav" aria-label="English">
+      <div class="navrow navrow-primary">
+        <a class="navpill " href="/en.html">Summary</a>
+        <a class="navpill active" href="/en/method.html">Method</a>
+        <a class="navpill " href="/en/hemicycle.html">Hemicycle</a>
+        <a class="navpill " href="/en/robustness.html">Robustness</a>
+        <a class="navpill " href="/en/competitive.html">Competitive</a>
+        <a class="navpill " href="/en/majorities.html">Majorities</a>
+        <a class="navpill " href="/en/limits.html">Limits</a>
+        <a class="navpill " href="/en/data.html">Data</a>
+        <a class="navpill " href="/en/post-election.html">Post-election</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:32px;letter-spacing:-0.03em">Method</h1>
+  <p class="muted">A short English version of the Spanish methodology. The full method and source catalogue are at <a href="/metodologia.html">/metodologia.html</a>.</p>
+
+  <div class="card">
+    <div class="cardhead"><h2>What the average is</h2></div>
+    <ul class="muted">
+      <li><strong>Published polls only.</strong> The observatory does not estimate voting intention from scratch. It aggregates polls that polling houses have already published.</li>
+      <li><strong>14-day window.</strong> The window counts calendar days including today. If fewer than four polls are available, it extends to the four most recent (maximum 90 days) and is marked as extended.</li>
+      <li><strong>One poll per date and house.</strong> A house publishing more parties does not get more weight.</li>
+      <li><strong>Weighting.</strong> Each poll weighs by recency (half-life 10 days) and, when the source declares it, by <strong>√(n/1000)</strong> from its sample size. Polls without a declared sample weigh by recency only.</li>
+      <li><strong>Excluded.</strong> Partial or regional polls, averages of averages, and incomplete ranges.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Range, median and house contrast</h2></div>
+    <ul class="muted">
+      <li><strong>Range</strong> is the minimum and maximum observed among the polls included. It is <strong>not a confidence interval</strong>.</li>
+      <li><strong>Median</strong> is published next to the average. A large gap between them signals outliers.</li>
+      <li><strong>IQR</strong> is the interquartile range: a more robust measure of dispersion than min–max.</li>
+      <li><strong>House contrast</strong> uses the latest poll from each house in 45 days with equal weight per house. It is a robustness check, not the main average.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Source versus house</h2></div>
+    <p class="muted">A <strong>source</strong> is where the poll was captured; a <strong>house</strong> is the pollster that produced it. One source can compile several houses. They are different axes and <strong>must not be added together</strong>.</p>
+    
+    <p class="muted small">Today: the top source is <strong>Otras fuentes</strong> (52.3% of weight); the top house is <strong>ElectoPanel</strong> (26.3%). Effective concentration: <strong>2.73</strong> sources and <strong>5.74</strong> houses.</p>
+    
+    <p class="muted small">A source above 50% is flagged even when no single house is above 50%. The site also publishes a leave-one-out sensitivity table: the average without the top source, the top house and CIS.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Seat simulation</h2></div>
+    <p class="muted">The <a href="/en/hemicycle.html">hemicycle</a> applies <strong>national D'Hondt</strong> with a 3% threshold to the average of each poll date, using 350 seats and only statewide parties. It is a mechanical simulation: it is <strong>not a projection</strong>, not the real Congress and does not include ERC, Junts, EH Bildu or PNV.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Uncertainty and coverage</h2></div>
+    <ul class="muted">
+      <li><strong>Sample declared:</strong> 78% of the polls in the current window declare a sample size.</li>
+      <li><strong>No demographic correction:</strong> the observatory does not model age, sex, income or territory. Sources may use quotas, but those quotas are not published in a comparable way.</li>
+      <li><strong>Method “no consta”:</strong> when a house does not publish its fieldwork method, the site says so instead of inferring it.</li>
+      <li><strong>No attribution:</strong> this is not a poll-of-polls about who is “winning”; it is a descriptive average with explicit limits.</li>
+    </ul>
+  </div>
+
+  <div class="cta">
+    <a class="btn" href="/en/data.html">Data and hashes</a>
+    <a class="btn ghost" href="/en/robustness.html">Robustness</a>
+    <a class="btn ghost" href="/metodologia.html">Full method (ES)</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>elecciones29n-osint · aggregated average of published polls for Spain's 29 November 2026 general election. Not a forecast.</p>
+    <p><a href="/en.html">Summary</a> · <a href="/en/method.html">Method</a> · <a href="/en/hemicycle.html">Hemicycle</a> · <a href="/en/robustness.html">Robustness</a> · <a href="/en/competitive.html">Competitive</a> · <a href="/en/majorities.html">Majorities</a> · <a href="/en/limits.html">Limits</a> · <a href="/en/data.html">Data</a> · <a href="/en/post-election.html">Post-election</a> · <a href="/embed/medias.html">Embed</a></p>
+    <p><a href="/">Español</a> · <a href="https://github.com/mcasrom/elecciones29n-osint" target="_blank" rel="noopener noreferrer">GitHub · AGPL-3.0</a> · <a href="mailto:info.elecciones29n@pruebapublica.com">info.elecciones29n@pruebapublica.com</a> · v0.11.1 · 2026-10-26</p>
+  </div>
+</footer>
+</body>
+</html>

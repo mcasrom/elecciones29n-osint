@@ -12,14 +12,43 @@
   escaño marginal y calculadora D'Hondt.
 - Hemiciclo simulado por fecha de sondeo (D'Hondt nacional, 350 escaños),
   con método y límites: no es una proyección ni la composición real.
+- Provincias competitivas por margen oficial 2023 (contexto, no proyección).
+- OG 1200×630 por provincia para compartir cada ficha local.
+- Calculadora de mayorías sobre el hemiciclo (aritmética, no pactos).
+- Calibración post-electoral (se activa tras el escrutinio).
+- Sección EN (Summary, Method, Hemicycle, Robustness, Limits, Data).
 - Metodología, fuentes y límites explicados.
 
 ## Datos
 - https://elecciones29n.pruebapublica.com/data/latest.json
 - https://elecciones29n.pruebapublica.com/data/robustez.json
+- https://elecciones29n.pruebapublica.com/data/status.json
+- https://elecciones29n.pruebapublica.com/data/changelog.json
+- https://elecciones29n.pruebapublica.com/data/v1/latest.json
+- https://elecciones29n.pruebapublica.com/data/v1/robustez.json
+- https://elecciones29n.pruebapublica.com/data/v1/status.json
+- https://elecciones29n.pruebapublica.com/data/v1/schema.json
 - https://elecciones29n.pruebapublica.com/data/congreso-oficial.json
 - https://elecciones29n.pruebapublica.com/circunscripciones.html
 - https://elecciones29n.pruebapublica.com/hemiciclo.html
+- https://elecciones29n.pruebapublica.com/competitivas.html
+- https://elecciones29n.pruebapublica.com/mayorias.html
+- https://elecciones29n.pruebapublica.com/postelectoral.html
+- https://elecciones29n.pruebapublica.com/embed/medias.html
+- https://elecciones29n.pruebapublica.com/en.html
+- https://elecciones29n.pruebapublica.com/en/method.html
+- https://elecciones29n.pruebapublica.com/en/hemicycle.html
+- https://elecciones29n.pruebapublica.com/en/robustness.html
+- https://elecciones29n.pruebapublica.com/en/limits.html
+- https://elecciones29n.pruebapublica.com/en/data.html
+- https://elecciones29n.pruebapublica.com/en/competitive.html
+- https://elecciones29n.pruebapublica.com/en/majorities.html
+- https://elecciones29n.pruebapublica.com/en/post-election.html
+- https://elecciones29n.pruebapublica.com/embed/robustez.html
+- https://elecciones29n.pruebapublica.com/embed/hemiciclo.html
+- https://elecciones29n.pruebapublica.com/incrustar.html
+- https://elecciones29n.pruebapublica.com/aviso.html
+- https://elecciones29n.pruebapublica.com/prensa.html
 - https://elecciones29n.pruebapublica.com/novedades.html
 - https://elecciones29n.pruebapublica.com/cambios.xml
 - https://elecciones29n.pruebapublica.com/privacidad.html
@@ -28,7 +57,8 @@
 ## Límites
 - Solo sondeos publicados (no hay microdatos ni cocina de encuestas).
 - Prohibido publicar sondeos del 24 al 28 de noviembre (JEC/LOREG); el
-  agregado y sus JSON se retiran en esas fechas y se restablecen el 29.
+  agregado y sus JSON se retiran en esas fechas, los endpoints retirados
+  responden 410 y se restablecen el 29.
 - Una media no sustituye a la incertidumbre: revisar siempre el rango.
 
 ## Código

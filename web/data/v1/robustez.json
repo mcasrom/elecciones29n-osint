@@ -1,0 +1,655 @@
+{
+  "generado": "2026-10-26 14:37 CET",
+  "n_polls": 9,
+  "n_polls_sin_cis": 8,
+  "health": {
+    "status": "ok",
+    "n_polls": 9,
+    "n_polls_sin_cis": 8,
+    "n_pollsters": 7,
+    "pollsters": [
+      "Ateneo del Dato",
+      "CIS",
+      "ElectoPanel",
+      "IMOP Insights",
+      "NC Report",
+      "Sigma Dos",
+      "Sociométrica"
+    ],
+    "days_since_last": 0,
+    "sample_pct": 78,
+    "sample_polls": 7,
+    "dispersion_iqr": 2.3,
+    "reasons": []
+  },
+  "parties": [
+    {
+      "party": "PP",
+      "mean": 30.43,
+      "median": 31.1,
+      "min": 22.2,
+      "max": 32.9,
+      "n": 9,
+      "mean_sin_cis": 31.21,
+      "median_sin_cis": 31.3,
+      "min_sin_cis": 28.5,
+      "max_sin_cis": 32.9,
+      "n_sin_cis": 8,
+      "n_houses": 14,
+      "iqr": 2.7
+    },
+    {
+      "party": "PSOE",
+      "mean": 27.3,
+      "median": 27.0,
+      "min": 25.3,
+      "max": 34.0,
+      "n": 9,
+      "mean_sin_cis": 26.66,
+      "median_sin_cis": 26.85,
+      "min_sin_cis": 25.3,
+      "max_sin_cis": 27.6,
+      "n_sin_cis": 8,
+      "n_houses": 14,
+      "iqr": 1.97
+    },
+    {
+      "party": "VOX",
+      "mean": 19.1,
+      "median": 19.0,
+      "min": 17.1,
+      "max": 20.0,
+      "n": 9,
+      "mean_sin_cis": 19.29,
+      "median_sin_cis": 19.25,
+      "min_sin_cis": 18.6,
+      "max_sin_cis": 20.0,
+      "n_sin_cis": 8,
+      "n_houses": 14,
+      "iqr": 1.0
+    },
+    {
+      "party": "Otros",
+      "mean": 9.63,
+      "median": 9.5,
+      "min": 7.0,
+      "max": 12.8,
+      "n": 7,
+      "mean_sin_cis": 9.7,
+      "median_sin_cis": 10.75,
+      "min_sin_cis": 7.0,
+      "max_sin_cis": 12.8,
+      "n_sin_cis": 6,
+      "n_houses": 13,
+      "iqr": 3.75
+    },
+    {
+      "party": "SUMAR",
+      "mean": 6.34,
+      "median": 6.6,
+      "min": 4.6,
+      "max": 8.9,
+      "n": 9,
+      "mean_sin_cis": 6.37,
+      "median_sin_cis": 6.7,
+      "min_sin_cis": 4.6,
+      "max_sin_cis": 8.9,
+      "n_sin_cis": 8,
+      "n_houses": 14,
+      "iqr": 2.1
+    },
+    {
+      "party": "ERC",
+      "mean": 2.38,
+      "median": 2.35,
+      "min": 2.0,
+      "max": 3.0,
+      "n": 6,
+      "mean_sin_cis": 2.3,
+      "median_sin_cis": 2.2,
+      "min_sin_cis": 2.0,
+      "max_sin_cis": 2.5,
+      "n_sin_cis": 5,
+      "n_houses": 5,
+      "iqr": 0.65
+    },
+    {
+      "party": "PODEMOS",
+      "mean": 2.33,
+      "median": 2.6,
+      "min": 1.7,
+      "max": 3.1,
+      "n": 9,
+      "mean_sin_cis": 2.26,
+      "median_sin_cis": 2.35,
+      "min_sin_cis": 1.7,
+      "max_sin_cis": 2.8,
+      "n_sin_cis": 8,
+      "n_houses": 14,
+      "iqr": 0.93
+    },
+    {
+      "party": "SAF",
+      "mean": 1.63,
+      "median": 1.7,
+      "min": 1.2,
+      "max": 1.8,
+      "n": 4,
+      "mean_sin_cis": 1.59,
+      "median_sin_cis": 1.7,
+      "min_sin_cis": 1.2,
+      "max_sin_cis": 1.7,
+      "n_sin_cis": 3,
+      "n_houses": 9,
+      "iqr": 0.55
+    },
+    {
+      "party": "JUNTS",
+      "mean": 1.39,
+      "median": 1.25,
+      "min": 1.1,
+      "max": 1.8,
+      "n": 6,
+      "mean_sin_cis": 1.43,
+      "median_sin_cis": 1.3,
+      "min_sin_cis": 1.2,
+      "max_sin_cis": 1.8,
+      "n_sin_cis": 5,
+      "n_houses": 5,
+      "iqr": 0.6
+    },
+    {
+      "party": "BILDU",
+      "mean": 1.36,
+      "median": 1.4,
+      "min": 1.2,
+      "max": 1.6,
+      "n": 6,
+      "mean_sin_cis": 1.33,
+      "median_sin_cis": 1.4,
+      "min_sin_cis": 1.2,
+      "max_sin_cis": 1.4,
+      "n_sin_cis": 5,
+      "n_houses": 5,
+      "iqr": 0.25
+    },
+    {
+      "party": "PNV",
+      "mean": 0.88,
+      "median": 0.9,
+      "min": 0.6,
+      "max": 1.0,
+      "n": 6,
+      "mean_sin_cis": 0.92,
+      "median_sin_cis": 0.9,
+      "min_sin_cis": 0.8,
+      "max_sin_cis": 1.0,
+      "n_sin_cis": 5,
+      "n_houses": 5,
+      "iqr": 0.25
+    }
+  ],
+  "weights": {
+    "window_days": 14,
+    "extended": false,
+    "total_polls": 9,
+    "total_weight": 11.24,
+    "top_source": "Otras fuentes",
+    "top_source_share_pct": 52.3,
+    "sources": [
+      {
+        "source": "Otras fuentes",
+        "weight": 5.8817,
+        "n_polls": 4,
+        "n_houses": 3,
+        "share_pct": 52.3
+      },
+      {
+        "source": "Electomanía",
+        "weight": 2.9547,
+        "n_polls": 2,
+        "n_houses": 1,
+        "share_pct": 26.3
+      },
+      {
+        "source": "Onda Cero",
+        "weight": 1.4279,
+        "n_polls": 2,
+        "n_houses": 2,
+        "share_pct": 12.7
+      },
+      {
+        "source": "CIS",
+        "weight": 0.9757,
+        "n_polls": 1,
+        "n_houses": 1,
+        "share_pct": 8.7
+      }
+    ],
+    "effective_sources": 2.73,
+    "top_house": "ElectoPanel",
+    "top_share_pct": 26.3,
+    "houses": [
+      {
+        "pollster": "ElectoPanel",
+        "source": "Electomanía",
+        "weight": 2.9547,
+        "n_polls": 2,
+        "last_date": "2026-10-25",
+        "sample": 4309,
+        "n_parties": 10,
+        "share_pct": 26.3
+      },
+      {
+        "pollster": "Sigma Dos",
+        "source": "Onda Cero",
+        "weight": 2.3825,
+        "n_polls": 2,
+        "last_date": "2026-10-26",
+        "sample": 3122,
+        "n_parties": 10,
+        "share_pct": 21.2
+      },
+      {
+        "pollster": "Sociométrica",
+        "source": "Otras fuentes",
+        "weight": 1.7953,
+        "n_polls": 1,
+        "last_date": "2026-10-26",
+        "sample": 3223,
+        "n_parties": 10,
+        "share_pct": 16.0
+      },
+      {
+        "pollster": "Ateneo del Dato",
+        "source": "Otras fuentes",
+        "weight": 1.3195,
+        "n_polls": 1,
+        "last_date": "2026-10-25",
+        "sample": 2000,
+        "n_parties": 6,
+        "share_pct": 11.7
+      },
+      {
+        "pollster": "NC Report",
+        "source": "Otras fuentes",
+        "weight": 1.0,
+        "n_polls": 1,
+        "last_date": "2026-10-26",
+        "sample": 1000,
+        "n_parties": 10,
+        "share_pct": 8.9
+      },
+      {
+        "pollster": "CIS",
+        "source": "CIS",
+        "weight": 0.9757,
+        "n_polls": 1,
+        "last_date": "2026-10-14",
+        "sample": 5025,
+        "n_parties": 11,
+        "share_pct": 8.7
+      },
+      {
+        "pollster": "IMOP Insights",
+        "source": "Onda Cero",
+        "weight": 0.8123,
+        "n_polls": 1,
+        "last_date": "2026-10-23",
+        "sample": null,
+        "n_parties": 7,
+        "share_pct": 7.2
+      }
+    ],
+    "effective_houses": 5.74,
+    "polls": [
+      {
+        "pollster": "ElectoPanel",
+        "source": "Electomanía",
+        "date": "2026-10-25",
+        "sample": 4309,
+        "kind": "tracking",
+        "weight": 1.9368,
+        "n_parties": 10,
+        "share_pct": 17.2
+      },
+      {
+        "pollster": "Sociométrica",
+        "source": "Otras fuentes",
+        "date": "2026-10-26",
+        "sample": 3223,
+        "kind": "tracking",
+        "weight": 1.7953,
+        "n_parties": 10,
+        "share_pct": 16.0
+      },
+      {
+        "pollster": "Sigma Dos",
+        "source": "Otras fuentes",
+        "date": "2026-10-26",
+        "sample": 3122,
+        "kind": "tracking",
+        "weight": 1.7669,
+        "n_parties": 10,
+        "share_pct": 15.7
+      },
+      {
+        "pollster": "Ateneo del Dato",
+        "source": "Otras fuentes",
+        "date": "2026-10-25",
+        "sample": 2000,
+        "kind": "tracking",
+        "weight": 1.3195,
+        "n_parties": 6,
+        "share_pct": 11.7
+      },
+      {
+        "pollster": "ElectoPanel",
+        "source": "Electomanía",
+        "date": "2026-10-18",
+        "sample": 3141,
+        "kind": "tracking",
+        "weight": 1.0179,
+        "n_parties": 10,
+        "share_pct": 9.1
+      },
+      {
+        "pollster": "NC Report",
+        "source": "Otras fuentes",
+        "date": "2026-10-26",
+        "sample": 1000,
+        "kind": "tracking",
+        "weight": 1.0,
+        "n_parties": 10,
+        "share_pct": 8.9
+      },
+      {
+        "pollster": "CIS",
+        "source": "CIS",
+        "date": "2026-10-14",
+        "sample": 5025,
+        "kind": "tracking",
+        "weight": 0.9757,
+        "n_parties": 11,
+        "share_pct": 8.7
+      },
+      {
+        "pollster": "IMOP Insights",
+        "source": "Onda Cero",
+        "date": "2026-10-23",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.8123,
+        "n_parties": 7,
+        "share_pct": 7.2
+      },
+      {
+        "pollster": "Sigma Dos",
+        "source": "Onda Cero",
+        "date": "2026-10-19",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.6156,
+        "n_parties": 6,
+        "share_pct": 5.5
+      }
+    ]
+  },
+  "house_latest": [
+    {
+      "pollster": "Sociométrica",
+      "date": "2026-10-26",
+      "pp": 32.1,
+      "psoe": 27.0,
+      "sample": 3223,
+      "nota": null,
+      "url": "https://www.elespanol.com/espana/politica/20261026/millon-votantes-psoe-sumar-decidido-pasarse-pp-vox-solo-haran-inversa/1003744434359_0.html"
+    },
+    {
+      "pollster": "Sigma Dos",
+      "date": "2026-10-26",
+      "pp": 30.6,
+      "psoe": 26.1,
+      "sample": 3122,
+      "nota": null,
+      "url": "https://www.elmundo.es/espana/encuestas/2026/10/26/6addf8c4fdddfff23d8b4581.html"
+    },
+    {
+      "pollster": "NC Report",
+      "date": "2026-10-26",
+      "pp": 32.9,
+      "psoe": 25.8,
+      "sample": 1000,
+      "nota": null,
+      "url": "https://www.larazon.es/espana/18-votantes-socialistas-apoyan-hoy-vox_202610266adea62a3eef771e1ac8d43d.html"
+    },
+    {
+      "pollster": "ElectoPanel",
+      "date": "2026-10-25",
+      "pp": 30.9,
+      "psoe": 26.7,
+      "sample": 4309,
+      "nota": null,
+      "url": "https://electomania.es/electopanel-25-octubre-el-pp-baja-de-nuevo-frente-amplio-crece/"
+    },
+    {
+      "pollster": "Ateneo del Dato",
+      "date": "2026-10-25",
+      "pp": 31.1,
+      "psoe": 27.6,
+      "sample": 2000,
+      "nota": null,
+      "url": "https://www.eldiario.es/politica/bloque-izquierdas-recorta-distancias-pp-vox-mantienen-mayoria-absoluta_1_13611052.html"
+    },
+    {
+      "pollster": "IMOP Insights",
+      "date": "2026-10-23",
+      "pp": 28.5,
+      "psoe": 27.1,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "CIS",
+      "date": "2026-10-14",
+      "pp": 22.2,
+      "psoe": 34.0,
+      "sample": 5025,
+      "nota": "estimación de voto",
+      "url": "https://www.cis.es/documents/d/guest/3582_estimacion-pdf"
+    },
+    {
+      "pollster": "GESOP",
+      "date": "2026-10-12",
+      "pp": 28.7,
+      "psoe": 26.1,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "GAD3",
+      "date": "2026-10-12",
+      "pp": 31.4,
+      "psoe": 26.4,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "Target Point",
+      "date": "2026-10-11",
+      "pp": 32.0,
+      "psoe": 25.9,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "Invymark",
+      "date": "2026-10-09",
+      "pp": 32.8,
+      "psoe": 28.0,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "DYM",
+      "date": "2026-10-09",
+      "pp": 34.0,
+      "psoe": 28.2,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "40dB",
+      "date": "2026-10-09",
+      "pp": 31.9,
+      "psoe": 28.1,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "Celeste Tel",
+      "date": "2026-09-24",
+      "pp": 33.9,
+      "psoe": 25.4,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    }
+  ],
+  "house_latest_sorted": [
+    {
+      "pollster": "DYM",
+      "date": "2026-10-09",
+      "pp": 34.0,
+      "psoe": 28.2,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "Celeste Tel",
+      "date": "2026-09-24",
+      "pp": 33.9,
+      "psoe": 25.4,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "NC Report",
+      "date": "2026-10-26",
+      "pp": 32.9,
+      "psoe": 25.8,
+      "sample": 1000,
+      "nota": null,
+      "url": "https://www.larazon.es/espana/18-votantes-socialistas-apoyan-hoy-vox_202610266adea62a3eef771e1ac8d43d.html"
+    },
+    {
+      "pollster": "Invymark",
+      "date": "2026-10-09",
+      "pp": 32.8,
+      "psoe": 28.0,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "Sociométrica",
+      "date": "2026-10-26",
+      "pp": 32.1,
+      "psoe": 27.0,
+      "sample": 3223,
+      "nota": null,
+      "url": "https://www.elespanol.com/espana/politica/20261026/millon-votantes-psoe-sumar-decidido-pasarse-pp-vox-solo-haran-inversa/1003744434359_0.html"
+    },
+    {
+      "pollster": "Target Point",
+      "date": "2026-10-11",
+      "pp": 32.0,
+      "psoe": 25.9,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "40dB",
+      "date": "2026-10-09",
+      "pp": 31.9,
+      "psoe": 28.1,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "GAD3",
+      "date": "2026-10-12",
+      "pp": 31.4,
+      "psoe": 26.4,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "Ateneo del Dato",
+      "date": "2026-10-25",
+      "pp": 31.1,
+      "psoe": 27.6,
+      "sample": 2000,
+      "nota": null,
+      "url": "https://www.eldiario.es/politica/bloque-izquierdas-recorta-distancias-pp-vox-mantienen-mayoria-absoluta_1_13611052.html"
+    },
+    {
+      "pollster": "ElectoPanel",
+      "date": "2026-10-25",
+      "pp": 30.9,
+      "psoe": 26.7,
+      "sample": 4309,
+      "nota": null,
+      "url": "https://electomania.es/electopanel-25-octubre-el-pp-baja-de-nuevo-frente-amplio-crece/"
+    },
+    {
+      "pollster": "Sigma Dos",
+      "date": "2026-10-26",
+      "pp": 30.6,
+      "psoe": 26.1,
+      "sample": 3122,
+      "nota": null,
+      "url": "https://www.elmundo.es/espana/encuestas/2026/10/26/6addf8c4fdddfff23d8b4581.html"
+    },
+    {
+      "pollster": "GESOP",
+      "date": "2026-10-12",
+      "pp": 28.7,
+      "psoe": 26.1,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "IMOP Insights",
+      "date": "2026-10-23",
+      "pp": 28.5,
+      "psoe": 27.1,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "CIS",
+      "date": "2026-10-14",
+      "pp": 22.2,
+      "psoe": 34.0,
+      "sample": 5025,
+      "nota": "estimación de voto",
+      "url": "https://www.cis.es/documents/d/guest/3582_estimacion-pdf"
+    }
+  ],
+  "nota": "Sensibilidad y dispersion del dato; no es una puntuacion ni un pronostico."
+}

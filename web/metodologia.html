@@ -2,6 +2,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="es-ES">
 <head>
@@ -10,8 +11,9 @@
 <title>Metodología · observatorio electoral 29N 2026</title>
 <meta name="description" content="Cómo se calcula cada dato: agregado de sondeos, censo, participación y escaños. Reglas comunes de fuente, validación y límites.">
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/metodologia.html">
+<link rel="alternate" hreflang="es" href="https://elecciones29n.pruebapublica.com/metodologia.html"><link rel="alternate" hreflang="en" href="https://elecciones29n.pruebapublica.com/en/method.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202610232031">
+<link rel="stylesheet" href="/css/main.css?v=202610261437">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -41,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <meta name="theme-color" content="#0b0c1c">
-<meta name="generator" content="elecciones29n-osint v0.11.0">
+<meta name="generator" content="elecciones29n-osint v0.11.1">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta property="og:type" content="website">
@@ -86,6 +88,7 @@ document.addEventListener('DOMContentLoaded', function(){
         <a class="navpill " href="/electorado.html">Electorado</a>
         <a class="navpill " href="/participacion.html">Participación</a>
         <a class="navpill " href="/territorio.html">Territorio</a>
+        <a class="navpill " href="/competitivas.html">Competitivas</a>
         <a class="navpill " href="/circunscripciones.html">Circunscripciones</a>
         <a class="navpill " href="/noche-electoral.html">Noche electoral</a>
       </div>
@@ -102,6 +105,12 @@ document.addEventListener('DOMContentLoaded', function(){
         <a class="" href="/apoyo.html">Apoyo</a>
         <a class="" href="/sobre-mi.html">Sobre mí</a>
         <a class="" href="/about.html">Acerca del proyecto</a>
+        <a class="" href="/mayorias.html">Mayorías</a>
+        <a class="" href="/postelectoral.html">Post-electoral</a>
+        <a class="" href="/prensa.html">Prensa</a>
+        <a class="" href="/aviso.html">Avisos</a>
+        <a class="" href="/incrustar.html">Incrustar</a>
+        <a class="" href="/en.html">English</a>
         <a class="" href="/privacidad.html">Privacidad</a>
         <a class="navdata" href="/data/latest.json">Datos abiertos ↗</a>
       </div>
@@ -116,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function(){
     <h3>1 · Sondeos</h3>
     <p class="muted">Es una <strong>media de los sondeos publicados</strong>, no una estimación propia de intención de voto. Se combinan los paneles de Electomania con la compilación de <strong>Onda Cero</strong> (14 casas): se usan los sondeos individuales, no su promedio, y la fecha es de <strong>publicación</strong>. La ventana es de 14 días naturales contando hoy (no depende de la hora del build); si no reúne cuatro sondeos, se amplía a los cuatro más recientes (máx. 90 días) y se indica «ventana ampliada».</p>
     <ul class="muted">
-      <li><strong>Ponderación</strong>: recencia (vida media 10 d); √n cuando la fuente declara muestra. Onda Cero no publica muestra; esos sondeos pesan solo por recencia. El reparto del peso por casa y por sondeo se publica cada día en <a href="/robustez.html#peso">Robustez del dato</a>.</li>
+      <li><strong>Ponderación</strong>: recencia (vida media 10 d); √n cuando la fuente declara muestra. Onda Cero no publica muestra; esos sondeos pesan solo por recencia. El reparto del peso por fuente, casa y sondeo se publica cada día en <a href="/robustez.html#peso">Robustez del dato</a>. La cuota por <strong>fuente</strong> y la cuota por <strong>casa</strong> son ejes distintos y no se suman.</li>
       <li><strong>Mediana</strong>: se publica junto a la media. Si difieren, hay valores extremos.</li>
       <li><strong>Solo paneles completos</strong>: se excluyen adelantos parciales, autonómicos y regionales. `ElectoPromedio` (media de medias) se marca como promedio y se excluye de la media principal.</li>
       <li><strong>La suma de entrevistados no es una muestra única</strong>: son muestras distintas, en fechas y metodologías distintas.</li>
@@ -235,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function(){
   <div class="container">
     <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
     <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
-    <p>Datos abiertos · <a href="/novedades.html">Novedades</a> · <a href="/cambios.xml">RSS de cambios</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="/privacidad.html">Privacidad</a> · Hecho por Miguel Castillo · software v0.11.0 · 2026-10-23.</p>
+    <p>Datos abiertos · <a href="/novedades.html">Novedades</a> · <a href="/cambios.xml">RSS de cambios</a> · <a href="/embed/medias.html">Embed</a> · <a href="/incrustar.html">Guía de uso</a> · <a href="/aviso.html">Avisos</a> · <a href="/prensa.html">Prensa</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="/privacidad.html">Privacidad</a> · <a href="/mayorias.html">Mayorías</a> · <a href="/postelectoral.html">Post-electoral</a> · <a href="/competitivas.html">Competitivas</a> · <a href="/en.html">English</a> · Hecho por Miguel Castillo · software v0.11.1 · 2026-10-26.</p>
     <p class="eco">Ecosistema:
       <a href="https://www.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Prueba Pública</a> ·
       <a href="https://analisis.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Blog de análisis</a> ·
@@ -306,11 +315,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202610232031" hidden>
+<div class="swupdate" id="swupdate" data-build="202610261437" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610232031');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610261437');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -339,7 +348,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202610232031', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202610261437', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

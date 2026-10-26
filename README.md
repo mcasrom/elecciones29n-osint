@@ -5,7 +5,7 @@
 [![En vivo](https://img.shields.io/badge/en%20vivo-elecciones29n.pruebapublica.com-ff5a1f)](https://elecciones29n.pruebapublica.com/)
 [![Licencia](https://img.shields.io/badge/licencia-AGPL--3.0-3ddc97)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.12-8ec5ff)](https://www.python.org/)
-[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.10.6-ff5a1f)](CHANGELOG.md)
+[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.11.1-ff5a1f)](CHANGELOG.md)
 
 ---
 
@@ -100,8 +100,8 @@ agregado.
 | **Datos frágiles** | 4 sondeos pero una sola casa, o último >10 días | se publica con aviso |
 | **Datos insuficientes** | <4 sondeos o último >21 días | se publica con aviso visible |
 
-> Al 23-oct: **9 sondeos y 7 encuestadoras en la ventana de 14 d** (14 en 45 d), último hace 4 días → **datos suficientes**.
-> Se combinan Electomania, la compilación de Onda Cero y el CIS (septiembre y octubre). Ver
+> Al 26-oct: **9 sondeos y 7 encuestadoras en la ventana de 14 d**, último **hoy** → **datos suficientes**. Media: PP **30,4** · PSOE **27,3** · Vox **19,1**.
+> Se combinan Electomanía, Onda Cero, CIS, ElectoPanel, Sigma Dos, SocioMétrica, NC Report y Ateneo del Dato. Ver
 > [`docs/RUTINA-SEMANAL.md`](docs/RUTINA-SEMANAL.md).
 
 ```bash
@@ -116,13 +116,32 @@ agregado.
 - **Etiquetas y auditoría**: «Datos suficientes/frágiles/insuficientes», muestra «3/9 con muestra (12.291 encuestados)» y casas a 45/14 d. `audit_datos.py` exige 90–110 en sondeos tracking y comprueba la suma.
 - Verificación: **103 tests**, **233 comprobaciones, 0 fallos críticos**; `n_polls=9` (11–19 oct). Versión **0.10.6**.
 
+## Actualización automática de sondeos
+
+Hay dos capas:
+
+| Capa | Qué hace | Cuándo |
+|---|---|---|
+| **Fuentes estructuradas** | `ingest.electomania` + `ingest.ondacero` actualizan `polls_history.csv` | 08:00 y refresco 14:00/20:00 |
+| **Prensa** | `scripts/watch_sondeos.py` detecta titulares con encuesta/sondeo y los deja en `data/candidatos_sondeos.csv` | 14:00/20:00, sin publicar |
+
+`scripts/refresh_polls.sh` **solo reconstruye y publica si cambió el histórico**. Si no hay sondeo nuevo, no toca la web. Instalación del refresco:
+
+```bash
+cp systemd/elecciones29n-refresh.* ~/.config/systemd/user/
+systemctl --user daemon-reload
+systemctl --user enable --now elecciones29n-refresh.timer
+```
+
+Los medios que publican la tabla solo en HTML/imagen (**El Mundo/Sigma Dos, El Español/SocioMétrica, La Razón/NC Report, elDiario/Ateneo**) no se cargan solos: el watcher los pone en cola y la tabla completa se verifica antes de importar. Es deliberado: evitar porcentajes parciales que rompan la suma 90–110 %.
+
 ## Fuentes
 
 | Dato | Fuente | Formato |
 |---|---|---|
-| Sondeos | [Electomania · ElectoPanel](https://electomania.es/) | WordPress REST API · autorización escrita 23-oct-2026, enlace por pieza y escaños publicados sin recalcular |
-| Sondeos (secundaria) | [Onda Cero · Encuestas 29N](https://www.ondacero.es/elecciones/generales/encuestas/) | HTML/JSON |
-| Sondeos (manual) | [CIS · barómetros](https://www.cis.es/) | PDF |
+| Sondeos (automática) | [Electomania · ElectoPanel](https://electomania.es/) | WordPress REST API · autorización escrita 23-oct-2026, enlace por pieza y escaños publicados sin recalcular |
+| Sondeos (automática) | [Onda Cero · Encuestas 29N](https://www.ondacero.es/elecciones/generales/encuestas/) | HTML/JSON |
+| Sondeos (manual + watcher) | [CIS](https://www.cis.es/), [El Mundo/Sigma Dos](https://www.elmundo.es/espana/encuestas/), [El Español/SocioMétrica](https://www.elespanol.com/), [La Razón/NC Report](https://www.larazon.es/), [elDiario/Ateneo del Dato](https://www.eldiario.es/) | PDF/HTML · tabla completa verificada antes de importar |
 | Contraste | [Política Sin Ruido](https://politicasinruido.com/encuestas) | HTML |
 | Censo | [INE · CEL](https://www.ine.es/dyngs/CEL/es/index.htm?cid=1703) | XLSX (tablas 2/3/6/9/12) |
 | Participación | [JEC](https://www.juntaelectoralcentral.es/) | tablas por elección |
@@ -192,9 +211,11 @@ systemctl --user list-timers | grep elecciones
 sudo loginctl enable-linger $USER
 ```
 
-El servicio escribe en `~/.local/state/elecciones29n/run.log`. El cron de las
-08:00 termina publicando; si el portátil está apagado, la web muestra un aviso
-pulsante cuando los datos superan las 26 h o pasa de las 09:00 sin actualizar.
+El servicio escribe en `~/.local/state/elecciones29n/run.log`. La ejecución
+principal es la **local** (08:00 y refrescos 14:00/20:00); el servidor conserva
+un **06:15 UTC** de respaldo. Si el portátil está apagado, la web muestra un
+aviso pulsante cuando los datos superan las 26 h o pasa de las 09:00 sin
+actualizar.
 
 ## Alta manual de sondeos
 

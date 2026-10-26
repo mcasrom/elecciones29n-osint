@@ -1,0 +1,10 @@
+[Unit]
+Description=Elecciones 29N - refresco de sondeos 14:00 y 20:00
+
+[Timer]
+OnCalendar=*-*-* 14,20:00:00
+Persistent=true
+AccuracySec=1m
+
+[Install]
+WantedBy=default.target
