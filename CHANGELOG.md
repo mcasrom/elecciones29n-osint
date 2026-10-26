@@ -6,7 +6,7 @@
 - **Fusión de históricos**: se recupera el ElectoPanel del 25-oct que estaba solo en el servidor. La media pasa a **9 sondeos / 7 casas**, con PP 30,4 · PSOE 27,3 · Vox 19,1.
 - **Actualización automática**: `scripts/refresh_polls.sh` (14:00/20:00) solo reconstruye si cambia el histórico; `scripts/watch_sondeos.py` deja los titulares de prensa en una cola de revisión, sin publicar tablas parciales.
 - **Fix**: `add_poll.py` comprueba la suma del sondeo, no la suma de todas las casas del mismo día.
-- **Timer**: `systemd/elecciones29n-refresh.{service,timer}`.
+- **Timer**: `systemd/elecciones29n-refresh.{service,timer}` en local y cron `14:15/20:15` en el servidor; ambos solo publican si cambió el histórico.
 - **Datos**: Ateneo se carga con los partidos publicados y el residual en `Otros`; los medios que solo dan PP/PSOE/Vox no se usan para inventar el resto.
 
 ## 0.11.0 — 2026-10-23
