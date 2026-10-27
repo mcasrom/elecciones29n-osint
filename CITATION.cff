@@ -4,7 +4,11 @@ message: "Si citas este repositorio, usa esta referencia"
 authors:
   - family-names: Castillo
     given-names: Miguel
-version: 0.1.0
-date-released: 2026-10-17
+version: 0.11.1
+date-released: 2026-10-27
 url: https://github.com/mcasrom/elecciones29n-osint
+doi: 10.5281/zenodo.23695703
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23695703
 license: AGPL-3.0

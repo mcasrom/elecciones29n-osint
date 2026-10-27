@@ -337,6 +337,8 @@ Código **AGPL-3.0** ([`LICENSE`](LICENSE)). Datos agregados reutilizables citan
 el proyecto.
 
 > Miguel Castillo. *Observatorio electoral 29N*. https://elecciones29n.pruebapublica.com
+>
+> Datos abiertos: [10.5281/zenodo.23695703](https://doi.org/10.5281/zenodo.23695703)
 
 Contacto: **info.elecciones29n@pruebapublica.com**
 
