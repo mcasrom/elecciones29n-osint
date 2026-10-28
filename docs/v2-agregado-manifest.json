@@ -1,0 +1,103 @@
+{
+  "dataset": "Observatorio 29N — datos agregados",
+  "dataset_version": "2.0-agregado",
+  "app_version": "0.11.1",
+  "snapshot": "2026-10-28T09:18:07+01:00",
+  "status": "published",
+  "zenodo_base_doi": "10.5281/zenodo.23734740",
+  "publication_gate": "cierre de campaña o después del 29-N; requiere OK explícito",
+  "aggregate": {
+    "n_polls": 8,
+    "n_houses": 6,
+    "window_days": 14,
+    "window_span": "2026-10-18 – 2026-10-26",
+    "last_poll_date": "2026-10-26",
+    "sample_pct": 75,
+    "dispersion_iqr": 2.3,
+    "houses": [
+      "Ateneo del Dato",
+      "ElectoPanel",
+      "IMOP Insights",
+      "NC Report",
+      "Sigma Dos",
+      "Sociométrica"
+    ]
+  },
+  "files": [
+    {
+      "path": "web/data/latest.json",
+      "bytes": 73453,
+      "sha256": "a6cc267a3032cf8e5bde261c68f3a7dfe16722915fbc45b1d96e7724b577a8b9"
+    },
+    {
+      "path": "web/data/robustez.json",
+      "bytes": 14927,
+      "sha256": "5e1cf470b0b7ccf884fb9d04fbc0f38d1f0aa9528b08c6493f0fe5f65fb51fa0"
+    },
+    {
+      "path": "web/data/v1/latest.json",
+      "bytes": 73453,
+      "sha256": "a6cc267a3032cf8e5bde261c68f3a7dfe16722915fbc45b1d96e7724b577a8b9"
+    },
+    {
+      "path": "web/data/v1/robustez.json",
+      "bytes": 14927,
+      "sha256": "5e1cf470b0b7ccf884fb9d04fbc0f38d1f0aa9528b08c6493f0fe5f65fb51fa0"
+    },
+    {
+      "path": "web/data/v1/schema.json",
+      "bytes": 542,
+      "sha256": "370ae8da0bb825a0a4e4a733801884cbeb1878d6135b329d916d238d90cdcfd1"
+    },
+    {
+      "path": "data/fuentes_sondeos.csv",
+      "bytes": 2187,
+      "sha256": "b1f065a69b95710dc87b46c07bf37ea4f0cc6f3f9e9aa5278a6d3d4891cb8a31"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 12879,
+      "sha256": "545fdd67bac35dcee1f0709a48e25b50c52436a027faf959858928fff1719d5d"
+    },
+    {
+      "path": "CITATION.cff",
+      "bytes": 367,
+      "sha256": "0d737c87159a921c5fbf3d0a2481e72300cdc53fc14301f14814feb63c2981ec"
+    },
+    {
+      "path": "README.md",
+      "bytes": 21819,
+      "sha256": "74f28e1d42b8e806c998dfc39b2a3d716c1518b2acd6217d9f0d941135090f49"
+    },
+    {
+      "path": "docs/LEGAL-29N.md",
+      "bytes": 11018,
+      "sha256": "cb7cf015aecf262a50061d0d99511c3423203d09eeb63e2305e11939c36405f7"
+    }
+  ],
+  "excluded": [
+    "data/polls_history.csv",
+    "data/entrada_sondeos.csv",
+    "data/raw/**",
+    "data/subs.db",
+    "logs/**",
+    "web_prev/**",
+    "export/**",
+    "*.bak",
+    "*.enc",
+    ".env"
+  ],
+  "rights": {
+    "own_aggregates": "CC BY 4.0",
+    "official_sources": "licencia de cada fuente",
+    "microdata": "bloqueados hasta autorización multicasa"
+  },
+  "notes": [
+    "No es un pronóstico ni una encuesta propia.",
+    "El rango es dispersión observada, no intervalo de confianza.",
+    "No incluye filas individuales de sondeos de terceros."
+  ],
+  "zenodo_concept_doi": "10.5281/zenodo.23695702",
+  "published_at": "2026-10-28",
+  "record_url": "https://zenodo.org/records/23734740"
+}

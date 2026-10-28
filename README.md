@@ -333,7 +333,7 @@ el proyecto.
 
 > Miguel Castillo. *Observatorio electoral 29N*. https://elecciones29n.pruebapublica.com
 >
-> Datos abiertos: [10.5281/zenodo.23695703](https://doi.org/10.5281/zenodo.23695703)
+> Datos abiertos: [10.5281/zenodo.23734740](https://doi.org/10.5281/zenodo.23734740) (v2.0-agregado; concepto: [10.5281/zenodo.23695702](https://doi.org/10.5281/zenodo.23695702))
 
 Contacto: **info.elecciones29n@pruebapublica.com**
 
