@@ -38,6 +38,11 @@ SIGNAL = re.compile(r"\b(encuesta|sondeo|barómetro)\b", re.I)
 ELECTION = re.compile(r"\b(29N|29-N|elecciones generales|PP|PSOE|Vox)\b", re.I)
 
 
+def norm_title(title: str) -> str:
+    """Clave estable para no repetir la misma pieza con otra URL (p. ej. Google News)."""
+    return re.sub(r"\s+", " ", re.sub(r"[^\wáéíóúüñ]+", " ", (title or "").lower())).strip()
+
+
 def fetch(url: str) -> str:
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     with urllib.request.urlopen(req, timeout=30) as r:
@@ -81,17 +86,20 @@ def main() -> int:
             print(f"[watch] {medio}: {e}")
     # dedup por URL estable
     seen = set()
+    seen_titles = set()
     if OUT.exists():
         with OUT.open(encoding="utf-8", newline="") as f:
             for r in csv.DictReader(f):
-                key = hashlib.sha256((r.get("url") or "").encode()).hexdigest()
-                seen.add(key)
+                seen.add(hashlib.sha256((r.get("url") or "").encode()).hexdigest())
+                seen_titles.add(norm_title(r.get("titulo") or ""))
     new = []
     for r in rows:
         key = hashlib.sha256(r["url"].encode()).hexdigest()
-        if key in seen:
+        tkey = norm_title(r["titulo"])
+        if key in seen or tkey in seen_titles:
             continue
         seen.add(key)
+        seen_titles.add(tkey)
         new.append(r)
     if new:
         OUT.parent.mkdir(parents=True, exist_ok=True)

@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-10-28
+
+- **Alertas 29N**: el aviso distingue “nuevo sondeo”, “recalculo por ventana”
+  (cuando `n_polls` baja) y “recalculo de la media” sin sondeo nuevo. Evita
+  presentar una salida de la ventana de 14 días como una encuesta nueva.
+- **Purga Cloudflare**: restaurado `/home/deploy/scripts/cf_purge.sh` y probado
+  `purge True []` para `pruebapublica`. La clave queda en un fichero `600`
+  fuera del repo; `run_daily_server.sh` ya puede purgar tras el deploy.
+- **Un solo publicador**: desactivados los timers locales `elecciones29n.timer`
+  y `elecciones29n-refresh.timer`; el servidor (06:15 y 14:15/20:15) es el
+  único que publica. Evita builds competidores y `status.json` divergentes.
+- **Dedup del watcher**: `watch_sondeos.py` deduplica por URL y título
+  normalizado. El candidato de La Razón/NC Report del 26-oct era la misma pieza
+  ya importada; queda marcado como duplicado.
+
 ## 0.11.1 — 2026-10-26
 
 - **Sondeos del 26-oct cargados**: Sigma Dos/El Mundo (PP 30,6 · PSOE 26,1 · Vox 19,9; n=3.122), SocioMétrica/El Español (32,1 · 27,0 · 18,6; tracking 3.223), NC Report/La Razón (32,9 · 25,8 · 19,0; n=1.000) y Ateneo del Dato/elDiario (31,1 · 27,6 · 19,8; n=2.000; publicado 25-oct).

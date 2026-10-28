@@ -122,16 +122,16 @@ Hay dos capas:
 
 | Capa | Qué hace | Cuándo |
 |---|---|---|
-| **Fuentes estructuradas** | `ingest.electomania` + `ingest.ondacero` actualizan `polls_history.csv` | 08:00 y refresco 14:00/20:00 |
+| **Fuentes estructuradas** | `ingest.electomania` + `ingest.ondacero` actualizan `polls_history.csv` | 06:15 y refresco 14:15/20:15 (servidor) |
 | **Prensa** | `scripts/watch_sondeos.py` detecta titulares con encuesta/sondeo y los deja en `data/candidatos_sondeos.csv` | 14:00/20:00, sin publicar |
 
-`scripts/refresh_polls.sh` **solo reconstruye y publica si cambió el histórico**. Si no hay sondeo nuevo, no toca la web. Instalación del refresco:
+`scripts/refresh_polls.sh` **solo reconstruye y publica si cambió el histórico**. Si no hay sondeo nuevo, no toca la web.
 
-```bash
-cp systemd/elecciones29n-refresh.* ~/.config/systemd/user/
-systemctl --user daemon-reload
-systemctl --user enable --now elecciones29n-refresh.timer
-```
+> **Un solo publicador (28-oct-2026).** El servidor es el único que publica:
+> cron `06:15` + refrescos `14:15/20:15`. Los timers locales
+> `elecciones29n.timer` y `elecciones29n-refresh.timer` están **desactivados**
+> para evitar builds competidores. El portátil queda para editar y probar; si
+> ejecutas `run_daily.sh` a mano, asumes que publica.
 
 Los medios que publican la tabla solo en HTML/imagen (**El Mundo/Sigma Dos, El Español/SocioMétrica, La Razón/NC Report, elDiario/Ateneo**) no se cargan solos: el watcher los pone en cola y la tabla completa se verifica antes de importar. Es deliberado: evitar porcentajes parciales que rompan la suma 90–110 %.
 
@@ -169,10 +169,11 @@ ingest/escanos.py      ┘                                      │
                                      canary en vivo + IndexNow + purge CF
 ```
 
-- **Local-first**: ingesta, agregado y build corren en Python; la publicación es
-  estática (nginx). El **cron del servidor** (`06:15 UTC`) ejecuta
+- **Servidor canónico**: ingesta, agregado y build corren en Python; la
+  publicación es estática (nginx). El **cron del servidor** (`06:15 UTC`) ejecuta
   `scripts/run_daily_server.sh` (ingesta → build en `web_tmp/` → validación →
-  swap atómico → rsync → canario → IndexNow → purge). No hay backend.
+  swap atómico → rsync → canario → IndexNow → purge). Los timers locales están
+  desactivados. No hay backend.
 - **Fail-safe**: si la ingesta o la validación fallan, **no se publica nada** y
   se conserva la última versión buena (`web_prev/` para revertir).
 - **Robustez del dato**: panel con cinco indicadores (sondeos, casas, días desde el
@@ -198,24 +199,18 @@ bash scripts/run_daily.sh   # ingesta + agregado + build + deploy
 python3 scripts/needs.py panel --open   # pendientes y avisos
 ```
 
-### Cron diario (systemd --user)
+### Publicación
+
+La ejecución canónica es la del **servidor**:
 
 ```bash
-mkdir -p ~/.config/systemd/user ~/.local/state/elecciones29n
-cp systemd/elecciones29n.service systemd/elecciones29n.timer ~/.config/systemd/user/
-systemctl --user daemon-reload
-systemctl --user enable --now elecciones29n.timer
-systemctl --user list-timers | grep elecciones
-
-# opcional: que corra sin sesión iniciada
-sudo loginctl enable-linger $USER
+bash scripts/run_daily_server.sh
 ```
 
-El servicio escribe en `~/.local/state/elecciones29n/run.log`. La ejecución
-principal es la **local** (08:00 y refrescos 14:00/20:00); el servidor conserva
-un **06:15 UTC** de respaldo. Si el portátil está apagado, la web muestra un
-aviso pulsante cuando los datos superan las 26 h o pasa de las 09:00 sin
-actualizar.
+Los timers locales (`elecciones29n.timer` y `elecciones29n-refresh.timer`)
+están **desactivados** desde el 28-oct-2026. No volver a activarlos sin cambiar
+la política de publicación: el 28-oct el build local de 08:49 y el del servidor
+de 07:15 competían y desincronizaban `status.json`, alertas y caché.
 
 ## Alta manual de sondeos
 
