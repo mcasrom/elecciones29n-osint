@@ -214,6 +214,8 @@ svg.chart{width:100%;height:auto;display:block}
 .calev b{display:block;font-size:13px}
 .calev span{display:block;font-size:11.5px;color:var(--muted)}
 .calev.done:before{background:var(--accent2)}
+.calev.context{border-style:dashed;background:transparent}
+.calev.context:before{background:var(--faint)}
 .calev.active{border-color:var(--accent)}
 .calev.active:before{background:var(--accent)}
 .calev.active b{color:var(--accent)}
@@ -1969,6 +1971,8 @@ def main(out: str = "web") -> None:
         phase, next_ms = "postelectoral", "—"
     calendar = [
         {"date": "6 oct", "label": "Convocatoria (BOE)", "state": "done"},
+        {"date": "28 oct", "label": "Accidente AVE en Urda (Toledo): 68 fallecidos · contexto, no entra en la media", "state": "context",
+         "source": "https://news.google.com/search?q=accidente+AVE+Toledo+68+fallecidos&hl=es&gl=ES&ceid=ES:es"},
         {"date": "13–27 nov", "label": "Campaña electoral",
          "state": "done" if now >= blackout_dt else "active"},
         {"date": "24–28 nov", "label": "Prohibición de sondeos",

@@ -120,10 +120,11 @@
       <div class="cardhead"><h2>Calendario electoral</h2><span class="hint">próximo hito: {{ next_milestone }}</span></div>
       <div class="cal">
         {% for e in calendar %}
-        <div class="calev {{ e.state }}"><b>{{ e.date }}</b><span>{{ e.label }}</span></div>
+        <div class="calev {{ e.state }}"><b>{{ e.date }}</b><span>{{ e.label }}{% if e.source %} · <a href="{{ e.source }}" target="_blank" rel="noopener noreferrer">fuente</a>{% endif %}</span></div>
         {% endfor %}
       </div>
       <p class="muted small" style="margin-top:10px">Del 24 al 28 de noviembre no se publican ni difunden sondeos (JEC/LOREG). La agregación y sus JSON se retiran hasta el 29.</p>
+      <p class="muted small" style="margin-top:4px"><b>28-O:</b> el accidente AVE de Urda es un <b>marcador de contexto</b>; no es un hito electoral, no entra en la media y no se usa para atribuir un cambio de tendencia.</p>
     </div>
 
     {% if chart_svg %}

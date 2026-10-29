@@ -11,7 +11,7 @@
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/">
 <link rel="alternate" hreflang="es" href=""><link rel="alternate" hreflang="en" href="https://elecciones29n.pruebapublica.com/en.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202610261514">
+<link rel="stylesheet" href="/css/main.css?v=202610291201">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function(){
   </div>
 
   
-        <span class="dot" title="Hora de generación del sitio, no del último sondeo"></span> Actualizado 2026-10-26 15:14 CET · último sondeo hoy
+        <span class="dot" title="Hora de generación del sitio, no del último sondeo"></span> Actualizado 2026-10-26 15:14 CET · último sondeo 26/10 · sin sondeo nuevo hoy
         
         
         <a class="novedad" href="#tab-agregado" title="Ultima ingesta de sondeos">
@@ -268,6 +268,8 @@ document.addEventListener('DOMContentLoaded', function(){
         
         <div class="calev done"><b>6 oct</b><span>Convocatoria (BOE)</span></div>
         
+        <div class="calev context"><b>28 oct</b><span>Accidente AVE en Urda (Toledo): 68 fallecidos · contexto, no entra en la media · <a href="https://news.google.com/search?q=accidente+AVE+Toledo+68+fallecidos&hl=es&gl=ES&ceid=ES:es" target="_blank" rel="noopener noreferrer">fuente</a></span></div>
+        
         <div class="calev active"><b>13–27 nov</b><span>Campaña electoral</span></div>
         
         <div class="calev "><b>24–28 nov</b><span>Prohibición de sondeos</span></div>
@@ -276,6 +278,7 @@ document.addEventListener('DOMContentLoaded', function(){
         
       </div>
       <p class="muted small" style="margin-top:10px">Del 24 al 28 de noviembre no se publican ni difunden sondeos (JEC/LOREG). La agregación y sus JSON se retiran hasta el 29.</p>
+      <p class="muted small" style="margin-top:4px"><b>28-O:</b> el accidente AVE de Urda es un <b>marcador de contexto</b>; no es un hito electoral, no entra en la media y no se usa para atribuir un cambio de tendencia.</p>
     </div>
 
     
@@ -602,7 +605,7 @@ document.addEventListener('DOMContentLoaded', function(){
   <div class="container">
     <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
     <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
-    <p>Datos abiertos · <a href="/novedades.html">Novedades</a> · <a href="/cambios.xml">RSS de cambios</a> · <a href="/embed/medias.html">Embed</a> · <a href="/incrustar.html">Guía de uso</a> · <a href="/aviso.html">Avisos</a> · <a href="/prensa.html">Prensa</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="/privacidad.html">Privacidad</a> · <a href="/mayorias.html">Mayorías</a> · <a href="/postelectoral.html">Post-electoral</a> · <a href="/competitivas.html">Competitivas</a> · <a href="/en.html">English</a> · Hecho por Miguel Castillo · software v0.11.1 · 2026-10-26.</p>
+    <p>Datos abiertos · <a href="/novedades.html">Novedades</a> · <a href="/cambios.xml">RSS de cambios</a> · <a href="/embed/medias.html">Embed</a> · <a href="/incrustar.html">Guía de uso</a> · <a href="/aviso.html">Avisos</a> · <a href="/prensa.html">Prensa</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="/privacidad.html">Privacidad</a> · <a href="/mayorias.html">Mayorías</a> · <a href="/postelectoral.html">Post-electoral</a> · <a href="/competitivas.html">Competitivas</a> · <a href="/en.html">English</a> · Hecho por Miguel Castillo · software v0.11.1 · 2026-10-29.</p>
     <p class="eco">Ecosistema:
       <a href="https://www.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Prueba Pública</a> ·
       <a href="https://analisis.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Blog de análisis</a> ·
@@ -673,11 +676,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202610261514" hidden>
+<div class="swupdate" id="swupdate" data-build="202610291201" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610261514');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610291201');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -706,7 +709,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202610261514', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202610291201', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){
