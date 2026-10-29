@@ -1,0 +1,7 @@
+nombre,url,tipo,uso,entra_media,estado,notas
+PruebaPublica 29N,https://elecciones29n.pruebapublica.com/,producto,referencia,no,activo,"Producto propio; no es fuente primaria ni directorio neutral"
+RTVE / DatosRTVE,https://www.rtve.es/noticias/,medio/agregado,descubrimiento,no,activo,"Promedio de encuestas; no entra como sondeo"
+Europa Press,https://www.europapress.es/,agencia,descubrimiento,no,activo,"Medio/agencia; confirmar tabla en fuente original"
+Antena 3 Noticias,https://www.antena3.com/noticias/,medio,descubrimiento,no,activo,"Resumen periodístico; no entra como sondeo"
+comparaVoto,,directorio,descubrimiento,no,por verificar,"Nombre aportado; URL y metodología sin verificar"
+Mapa Electoral,,directorio,descubrimiento,no,por verificar,"Nombre aportado; URL y metodología sin verificar"
