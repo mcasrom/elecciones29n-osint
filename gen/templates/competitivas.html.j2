@@ -1,5 +1,6 @@
-{% set page_title = "Provincias competitivas · resultado oficial 2023 · 29N" %}
-{% set page_desc = "Provincias ordenadas por el margen oficial de 2023 entre los dos primeros partidos. Contexto factual, no una proyección del 29N." %}
+{% set page_title = "Provincias ajustadas en 2023 · mapa del margen oficial | 29N" %}
+{% set page_image = "/og-competitivas.png" %}
+{% set page_desc = "Mapa de las 52 provincias por el margen oficial entre los dos primeros en 2023. Contexto factual, no una proyección del 29N. Consulta escaños, participación y ficha provincial." %}
 {% set canonical = site_url ~ "/competitivas.html" %}
 {% set page_alt_en = site_url ~ "/en/competitive.html" %}
 {% set jsonld = webpages['competitivas.html'] %}
@@ -12,7 +13,7 @@
 <link rel="stylesheet" href="/vendor/leaflet/leaflet.css">
 {% include "_nav.html.j2" %}
 <main class="container">
-  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Provincias competitivas</h1>
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Provincias competitivas en 2023</h1>
   <p class="muted" style="margin:0 0 12px">Resultado oficial de las generales de <strong>2023</strong>, ordenado por el margen entre los dos primeros partidos. Es contexto factual: <strong>no es una proyección del 29N</strong>.</p>
 
   <div class="hero-kpis">
@@ -35,6 +36,10 @@
       <span class="lg">Sin datos / sin coincidencia</span>
     </div>
     <p class="muted small">Color = margen entre los dos primeros en 2023. Un color intenso indica un resultado ajustado, no una probabilidad de vuelco. Geometría provincial: Click That Hood; datos: Ministerio del Interior.</p>
+    <div class="cta">
+      <a class="btn" href="/circunscripciones.html">Explorar las 52 circunscripciones →</a>
+      <a class="btn ghost" href="/territorio.html">Territorio y escaños</a>
+    </div>
   </div>
 
   <div class="card">
