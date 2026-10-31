@@ -3,17 +3,18 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="es-ES">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Provincias competitivas · resultado oficial 2023 · 29N</title>
-<meta name="description" content="Provincias ordenadas por el margen oficial de 2023 entre los dos primeros partidos. Contexto factual, no una proyección del 29N.">
+<title>Provincias ajustadas en 2023 · mapa del margen oficial | 29N</title>
+<meta name="description" content="Mapa de las 52 provincias por el margen oficial entre los dos primeros en 2023. Contexto factual, no una proyección del 29N. Consulta escaños, participación y ficha provincial.">
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/competitivas.html">
 <link rel="alternate" hreflang="es" href="https://elecciones29n.pruebapublica.com/competitivas.html"><link rel="alternate" hreflang="en" href="https://elecciones29n.pruebapublica.com/en/competitive.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202610311035">
+<link rel="stylesheet" href="/css/main.css?v=202610311826">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -49,24 +50,25 @@ document.addEventListener('DOMContentLoaded', function(){
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="elecciones29n-osint">
 <meta property="og:locale" content="es_ES">
-<meta property="og:title" content="Provincias competitivas · resultado oficial 2023 · 29N">
-<meta property="og:description" content="Provincias ordenadas por el margen oficial de 2023 entre los dos primeros partidos. Contexto factual, no una proyección del 29N.">
+<meta property="og:title" content="Provincias ajustadas en 2023 · mapa del margen oficial | 29N">
+<meta property="og:description" content="Mapa de las 52 provincias por el margen oficial entre los dos primeros en 2023. Contexto factual, no una proyección del 29N. Consulta escaños, participación y ficha provincial.">
 <meta property="og:url" content="https://elecciones29n.pruebapublica.com/competitivas.html">
 
-<meta property="og:image" content="https://elecciones29n.pruebapublica.com/og.png">
-<meta property="og:image:alt" content="Provincias competitivas · resultado oficial 2023 · 29N">
+<meta property="og:image" content="https://elecciones29n.pruebapublica.com/og-competitivas.png">
+<meta property="og:image:alt" content="Provincias ajustadas en 2023 · mapa del margen oficial | 29N">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Provincias competitivas · resultado oficial 2023 · 29N">
-<meta name="twitter:description" content="Provincias ordenadas por el margen oficial de 2023 entre los dos primeros partidos. Contexto factual, no una proyección del 29N.">
-<meta name="twitter:image" content="https://elecciones29n.pruebapublica.com/og.png">
-<meta name="twitter:image:alt" content="Provincias competitivas · resultado oficial 2023 · 29N">
+<meta name="twitter:title" content="Provincias ajustadas en 2023 · mapa del margen oficial | 29N">
+<meta name="twitter:description" content="Mapa de las 52 provincias por el margen oficial entre los dos primeros en 2023. Contexto factual, no una proyección del 29N. Consulta escaños, participación y ficha provincial.">
+<meta name="twitter:image" content="https://elecciones29n.pruebapublica.com/og-competitivas.png">
+<meta name="twitter:image:alt" content="Provincias ajustadas en 2023 · mapa del margen oficial | 29N">
 <link rel="alternate" type="application/json" href="/data/latest.json" title="Datos agregados (JSON)">
 <link rel="alternate" type="application/rss+xml" href="/cambios.xml" title="Cambios · nuevos sondeos">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Provincias competitivas", "url": "https://elecciones29n.pruebapublica.com/competitivas.html", "description": "Provincias ordenadas por el margen oficial de 2023 entre los dos primeros. Contexto factual, no proyección.", "inLanguage": "es-ES"}</script>
 </head>
 <body>
+<link rel="stylesheet" href="/vendor/leaflet/leaflet.css">
 <header>
   <div class="container">
     <div class="topbar">
@@ -118,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function(){
   </div>
 </header>
 <main class="container">
-  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Provincias competitivas</h1>
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Provincias competitivas en 2023</h1>
   <p class="muted" style="margin:0 0 12px">Resultado oficial de las generales de <strong>2023</strong>, ordenado por el margen entre los dos primeros partidos. Es contexto factual: <strong>no es una proyección del 29N</strong>.</p>
 
   <div class="hero-kpis">
@@ -129,6 +131,23 @@ document.addEventListener('DOMContentLoaded', function(){
   </div>
 
   <div class="alert warn"><strong>Ojo:</strong> un margen pequeño en 2023 no significa que la provincia vaya a cambiar el 29N. No se proyectan escaños desde encuestas; esta tabla solo describe el punto de partida oficial.</div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Mapa de provincias clave</h2><span class="hint">margen oficial 2023 · contexto, no proyección</span></div>
+    <div id="prov-map" role="img" aria-label="Mapa de provincias coloreadas por el margen oficial de 2023" style="height:430px;border:1px solid var(--line);border-radius:10px"></div>
+    <div class="legend">
+      <span class="lg"><i style="background:#b91c1c"></i>&lt;2 pp</span>
+      <span class="lg"><i style="background:#ea580c"></i>2–5 pp</span>
+      <span class="lg"><i style="background:#f59e0b"></i>5–10 pp</span>
+      <span class="lg"><i style="background:#64748b"></i>≥10 pp</span>
+      <span class="lg">Sin datos / sin coincidencia</span>
+    </div>
+    <p class="muted small">Color = margen entre los dos primeros en 2023. Un color intenso indica un resultado ajustado, no una probabilidad de vuelco. Geometría provincial: Click That Hood; datos: Ministerio del Interior.</p>
+    <div class="cta">
+      <a class="btn" href="/circunscripciones.html">Explorar las 52 circunscripciones →</a>
+      <a class="btn ghost" href="/territorio.html">Territorio y escaños</a>
+    </div>
+  </div>
 
   <div class="card">
     <div class="cardhead"><h2>Margen entre los dos primeros</h2><span class="hint">votos válidos · orden ascendente</span></div>
@@ -676,6 +695,34 @@ document.addEventListener('DOMContentLoaded', function(){
     </div>
   </div>
 </main>
+<script src="/vendor/leaflet/leaflet.js"></script>
+<script>
+(function(){
+  const rows = [{"escanos": 5, "margin": 0.48, "nombre": "Huelva", "seat_gap": 0, "second": "PSOE", "second_seats": 2, "second_votes": 92326, "slug": "huelva", "turnout": 64.81, "winner": "PP", "winner_seats": 2, "winner_votes": 93565}, {"escanos": 4, "margin": 0.87, "nombre": "C\u00e1ceres", "seat_gap": 0, "second": "PP", "second_seats": 2, "second_votes": 89633, "slug": "caceres", "turnout": 70.62, "winner": "PSOE", "winner_seats": 2, "winner_votes": 91692}, {"escanos": 5, "margin": 1.03, "nombre": "Ja\u00e9n", "seat_gap": 0, "second": "PSOE", "second_seats": 2, "second_votes": 133819, "slug": "jaen", "turnout": 72.08, "winner": "PP", "winner_seats": 2, "winner_votes": 137617}, {"escanos": 8, "margin": 1.11, "nombre": "Bizkaia", "seat_gap": 0, "second": "PSOE", "second_seats": 2, "second_votes": 157448, "slug": "bizkaia", "turnout": 65.21, "winner": "PNV", "winner_seats": 2, "winner_votes": 164188}, {"escanos": 7, "margin": 1.3, "nombre": "Asturias", "seat_gap": 1, "second": "PSOE", "second_seats": 2, "second_votes": 205049, "slug": "asturias", "turnout": 62.9, "winner": "PP", "winner_seats": 3, "winner_votes": 212816}, {"escanos": 5, "margin": 1.38, "nombre": "Badajoz", "seat_gap": 0, "second": "PP", "second_seats": 2, "second_votes": 148068, "slug": "badajoz", "turnout": 72.31, "winner": "PSOE", "winner_seats": 2, "winner_votes": 153473}, {"escanos": 16, "margin": 1.54, "nombre": "Valencia / Val\u00e8ncia", "seat_gap": 1, "second": "PSOE", "second_seats": 5, "second_votes": 461353, "slug": "valencia", "turnout": 72.58, "winner": "PP", "winner_seats": 6, "winner_votes": 483469}, {"escanos": 9, "margin": 1.65, "nombre": "C\u00e1diz", "seat_gap": 1, "second": "PSOE", "second_seats": 3, "second_votes": 211200, "slug": "cadiz", "turnout": 63.34, "winner": "PP", "winner_seats": 4, "winner_votes": 221703}, {"escanos": 7, "margin": 1.86, "nombre": "Santa Cruz de Tenerife", "seat_gap": 0, "second": "PSOE", "second_seats": 3, "second_votes": 165590, "slug": "santa-cruz-de-tenerife", "turnout": 56.83, "winner": "PP", "winner_seats": 3, "winner_votes": 174770}, {"escanos": 3, "margin": 2.4, "nombre": "Cuenca", "seat_gap": 1, "second": "PSOE", "second_seats": 1, "second_votes": 42528, "slug": "cuenca", "turnout": 75.5, "winner": "PP", "winner_seats": 2, "winner_votes": 45255}, {"escanos": 5, "margin": 2.52, "nombre": "Castell\u00f3n / Castell\u00f3", "seat_gap": 0, "second": "PSOE", "second_seats": 2, "second_votes": 100530, "slug": "castellon", "turnout": 72.32, "winner": "PP", "winner_seats": 2, "winner_votes": 108302}, {"escanos": 12, "margin": 3.22, "nombre": "Sevilla", "seat_gap": 1, "second": "PP", "second_seats": 4, "second_votes": 353663, "slug": "sevilla", "turnout": 68.74, "winner": "PSOE", "winner_seats": 5, "winner_votes": 387760}, {"escanos": 4, "margin": 3.28, "nombre": "Le\u00f3n", "seat_gap": 0, "second": "PSOE", "second_seats": 2, "second_votes": 92578, "slug": "leon", "turnout": 65.67, "winner": "PP", "winner_seats": 2, "winner_votes": 101605}, {"escanos": 3, "margin": 3.35, "nombre": "Guadalajara", "seat_gap": 0, "second": "PSOE", "second_seats": 1, "second_votes": 46479, "slug": "guadalajara", "turnout": 72.47, "winner": "PP", "winner_seats": 1, "winner_votes": 51195}, {"escanos": 7, "margin": 4.0, "nombre": "Granada", "seat_gap": 1, "second": "PSOE", "second_seats": 2, "second_votes": 165862, "slug": "granada", "turnout": 66.56, "winner": "PP", "winner_seats": 3, "winner_votes": 185996}, {"escanos": 3, "margin": 4.57, "nombre": "Huesca", "seat_gap": 1, "second": "PSOE", "second_seats": 1, "second_votes": 40307, "slug": "huesca", "turnout": 69.87, "winner": "PP", "winner_seats": 2, "winner_votes": 45783}, {"escanos": 12, "margin": 4.73, "nombre": "Alicante / Alacant", "seat_gap": 1, "second": "PSOE", "second_seats": 4, "second_votes": 287737, "slug": "alicante", "turnout": 69.57, "winner": "PP", "winner_seats": 5, "winner_votes": 330293}, {"escanos": 1, "margin": 4.76, "nombre": "Ceuta", "seat_gap": 1, "second": "PSOE", "second_seats": 0, "second_votes": 11332, "slug": "ceuta", "turnout": 53.19, "winner": "PP", "winner_seats": 1, "winner_votes": 12918}, {"escanos": 5, "margin": 5.16, "nombre": "Ciudad Real", "seat_gap": 0, "second": "PSOE", "second_seats": 2, "second_votes": 100102, "slug": "ciudad-real", "turnout": 73.28, "winner": "PP", "winner_seats": 2, "winner_votes": 114709}, {"escanos": 7, "margin": 5.19, "nombre": "Zaragoza", "seat_gap": 1, "second": "PSOE", "second_seats": 2, "second_votes": 159858, "slug": "zaragoza", "turnout": 70.73, "winner": "PP", "winner_seats": 3, "winner_votes": 186776}, {"escanos": 6, "margin": 5.28, "nombre": "Toledo", "seat_gap": 1, "second": "PSOE", "second_seats": 2, "second_votes": 126072, "slug": "toledo", "turnout": 72.43, "winner": "PP", "winner_seats": 3, "winner_votes": 146533}, {"escanos": 4, "margin": 5.41, "nombre": "Albacete", "seat_gap": 0, "second": "PSOE", "second_seats": 2, "second_votes": 76322, "slug": "albacete", "turnout": 72.7, "winner": "PP", "winner_seats": 2, "winner_votes": 88299}, {"escanos": 8, "margin": 5.47, "nombre": "Balears, Illes", "seat_gap": 0, "second": "PSOE", "second_seats": 3, "second_votes": 151786, "slug": "baleares", "turnout": 61.32, "winner": "PP", "winner_seats": 3, "winner_votes": 179303}, {"escanos": 3, "margin": 5.74, "nombre": "Teruel", "seat_gap": 1, "second": "PSOE", "second_seats": 1, "second_votes": 22226, "slug": "teruel", "turnout": 71.99, "winner": "PP", "winner_seats": 2, "winner_votes": 26586}, {"escanos": 6, "margin": 5.77, "nombre": "C\u00f3rdoba", "seat_gap": 0, "second": "PSOE", "second_seats": 2, "second_votes": 144080, "slug": "cordoba", "turnout": 70.6, "winner": "PP", "winner_seats": 2, "winner_votes": 169976}, {"escanos": 4, "margin": 6.2, "nombre": "Burgos", "seat_gap": 0, "second": "PSOE", "second_seats": 2, "second_votes": 69775, "slug": "burgos", "turnout": 69.12, "winner": "PP", "winner_seats": 2, "winner_votes": 82329}, {"escanos": 3, "margin": 7.32, "nombre": "Palencia", "seat_gap": 1, "second": "PSOE", "second_seats": 1, "second_votes": 33613, "slug": "palencia", "turnout": 71.26, "winner": "PP", "winner_seats": 2, "winner_votes": 40709}, {"escanos": 8, "margin": 7.33, "nombre": "Palmas, Las", "seat_gap": 0, "second": "PP", "second_seats": 3, "second_votes": 136857, "slug": "las-palmas", "turnout": 59.51, "winner": "PSOE", "winner_seats": 3, "winner_votes": 175671}, {"escanos": 2, "margin": 7.74, "nombre": "Soria", "seat_gap": 0, "second": "PSOE", "second_seats": 1, "second_votes": 14966, "slug": "soria", "turnout": 67.52, "winner": "PP", "winner_seats": 1, "winner_votes": 18895}, {"escanos": 6, "margin": 7.86, "nombre": "Gipuzkoa", "seat_gap": 0, "second": "PSOE", "second_seats": 2, "second_votes": 87709, "slug": "gipuzkoa", "turnout": 64.68, "winner": "EH Bildu", "winner_seats": 2, "winner_votes": 117321}, {"escanos": 11, "margin": 7.97, "nombre": "M\u00e1laga", "seat_gap": 2, "second": "PSOE", "second_seats": 3, "second_votes": 239172, "slug": "malaga", "turnout": 64.41, "winner": "PP", "winner_seats": 5, "winner_votes": 302000}, {"escanos": 5, "margin": 8.09, "nombre": "Valladolid", "seat_gap": 0, "second": "PSOE", "second_seats": 2, "second_votes": 103596, "slug": "valladolid", "turnout": 74.02, "winner": "PP", "winner_seats": 2, "winner_votes": 129170}, {"escanos": 4, "margin": 8.15, "nombre": "Araba/\u00c1lava", "seat_gap": 0, "second": "EH Bildu", "second_seats": 1, "second_votes": 32987, "slug": "alava", "turnout": 65.54, "winner": "PSOE", "winner_seats": 1, "winner_votes": 46775}, {"escanos": 7, "margin": 8.36, "nombre": "Pontevedra", "seat_gap": 0, "second": "PSOE", "second_seats": 3, "second_votes": 179737, "slug": "pontevedra", "turnout": 63.68, "winner": "PP", "winner_seats": 3, "winner_votes": 227658}, {"escanos": 5, "margin": 8.78, "nombre": "Cantabria", "seat_gap": 0, "second": "PSOE", "second_seats": 2, "second_votes": 116596, "slug": "cantabria", "turnout": 69.94, "winner": "PP", "winner_seats": 2, "winner_votes": 147326}, {"escanos": 6, "margin": 9.35, "nombre": "Girona", "seat_gap": 0, "second": "JUNTS", "second_seats": 2, "second_votes": 63251, "slug": "girona", "turnout": 59.88, "winner": "PSOE", "winner_seats": 2, "winner_votes": 93448}, {"escanos": 4, "margin": 9.96, "nombre": "Rioja, La", "seat_gap": 0, "second": "PSOE", "second_seats": 2, "second_votes": 62322, "slug": "la-rioja", "turnout": 70.19, "winner": "PP", "winner_seats": 2, "winner_votes": 79715}, {"escanos": 5, "margin": 10.12, "nombre": "Navarra", "seat_gap": 1, "second": "EH Bildu", "second_seats": 1, "second_votes": 58954, "slug": "navarra", "turnout": 66.37, "winner": "PSOE", "winner_seats": 2, "winner_votes": 93553}, {"escanos": 4, "margin": 10.88, "nombre": "Lleida", "seat_gap": 1, "second": "ERC", "second_seats": 1, "second_votes": 34331, "slug": "lleida", "turnout": 58.93, "winner": "PSOE", "winner_seats": 2, "winner_votes": 54414}, {"escanos": 6, "margin": 11.9, "nombre": "Almer\u00eda", "seat_gap": 1, "second": "PSOE", "second_seats": 2, "second_votes": 93282, "slug": "almeria", "turnout": 62.86, "winner": "PP", "winner_seats": 3, "winner_votes": 131524}, {"escanos": 3, "margin": 12.18, "nombre": "Zamora", "seat_gap": 1, "second": "PSOE", "second_seats": 1, "second_votes": 33601, "slug": "zamora", "turnout": 64.22, "winner": "PP", "winner_seats": 2, "winner_votes": 46196}, {"escanos": 37, "margin": 12.71, "nombre": "Madrid", "seat_gap": 6, "second": "PSOE", "second_seats": 10, "second_votes": 1004599, "slug": "madrid", "turnout": 69.66, "winner": "PP", "winner_seats": 16, "winner_votes": 1463183}, {"escanos": 3, "margin": 14.42, "nombre": "Segovia", "seat_gap": 1, "second": "PSOE", "second_seats": 1, "second_votes": 27113, "slug": "segovia", "turnout": 75.3, "winner": "PP", "winner_seats": 2, "winner_votes": 39894}, {"escanos": 8, "margin": 14.96, "nombre": "Coru\u00f1a, A", "seat_gap": 2, "second": "PSOE", "second_seats": 2, "second_votes": 190897, "slug": "a-coruna", "turnout": 62.93, "winner": "PP", "winner_seats": 4, "winner_votes": 292272}, {"escanos": 3, "margin": 15.87, "nombre": "\u00c1vila", "seat_gap": 1, "second": "PSOE", "second_seats": 1, "second_votes": 26828, "slug": "avila", "turnout": 72.53, "winner": "PP", "winner_seats": 2, "winner_votes": 42369}, {"escanos": 10, "margin": 15.88, "nombre": "Murcia", "seat_gap": 1, "second": "PSOE", "second_seats": 3, "second_votes": 189210, "slug": "murcia", "turnout": 68.68, "winner": "PP", "winner_seats": 4, "winner_votes": 307972}, {"escanos": 4, "margin": 16.37, "nombre": "Salamanca", "seat_gap": 2, "second": "PSOE", "second_seats": 1, "second_votes": 60718, "slug": "salamanca", "turnout": 67.03, "winner": "PP", "winner_seats": 3, "winner_votes": 93318}, {"escanos": 6, "margin": 17.84, "nombre": "Tarragona", "seat_gap": 1, "second": "ERC", "second_seats": 1, "second_votes": 55461, "slug": "tarragona", "turnout": 62.42, "winner": "PSOE", "winner_seats": 2, "winner_votes": 121126}, {"escanos": 4, "margin": 19.94, "nombre": "Ourense", "seat_gap": 2, "second": "PSOE", "second_seats": 1, "second_votes": 56035, "slug": "ourense", "turnout": 52.86, "winner": "PP", "winner_seats": 3, "winner_votes": 93182}, {"escanos": 4, "margin": 19.95, "nombre": "Lugo", "seat_gap": 2, "second": "PSOE", "second_seats": 1, "second_votes": 60163, "slug": "lugo", "turnout": 59.42, "winner": "PP", "winner_seats": 3, "winner_votes": 99769}, {"escanos": 32, "margin": 20.48, "nombre": "Barcelona", "seat_gap": 8, "second": "SUMAR", "second_seats": 5, "second_votes": 405993, "slug": "barcelona", "turnout": 63.36, "winner": "PSOE", "winner_seats": 13, "winner_votes": 952347}, {"escanos": 1, "margin": 23.78, "nombre": "Melilla", "seat_gap": 1, "second": "PSOE", "second_seats": 0, "second_votes": 6943, "slug": "melilla", "turnout": 45.24, "winner": "PP", "winner_seats": 1, "winner_votes": 13446}];
+  const norm = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+  const byName = new Map(rows.map(r => [norm(r.nombre), r]));
+  const map = L.map('prov-map', { scrollWheelZoom:false }).setView([40.2,-3.5], 5);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '© OpenStreetMap' }).addTo(map);
+  const color = m => m < 2 ? '#b91c1c' : m < 5 ? '#ea580c' : m < 10 ? '#f59e0b' : '#64748b';
+  fetch('/data/provincias.geojson').then(r => { if (!r.ok) throw new Error('HTTP '+r.status); return r.json(); }).then(geo => {
+    const layer = L.geoJSON(geo, {
+      style: f => {
+        const r = byName.get(norm(f.properties.name));
+        return { color:'#334155', weight:0.8, fillColor:r ? color(r.margin) : '#64748b', fillOpacity:r ? 0.72 : 0.18 };
+      },
+      onEachFeature: (f, l) => {
+        const r = byName.get(norm(f.properties.name));
+        if (!r) { l.bindTooltip(f.properties.name + ' · sin datos', {sticky:true}); return; }
+        const link = r.slug ? '<br><a href="/circunscripcion/'+r.slug+'.html">Ficha provincial →</a>' : '';
+        l.bindTooltip('<b>'+r.nombre+'</b><br>'+r.winner+' vs '+r.second+' · '+r.margin.toFixed(2)+' pp<br>'+r.escanos+' escaños · 2023'+link, {sticky:true});
+      }
+    }).addTo(map);
+    if (layer.getBounds().isValid()) map.fitBounds(layer.getBounds(), {padding:[12,12]});
+  }).catch(() => {
+    document.getElementById('prov-map').innerHTML = '<p style="padding:16px">No se pudo cargar la geometría provincial. La tabla inferior sigue disponible.</p>';
+  });
+})();
+</script>
 <footer class="footer">
   <div class="container">
     <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
@@ -751,11 +798,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202610311035" hidden>
+<div class="swupdate" id="swupdate" data-build="202610311826" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610311035');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202610311826');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -784,7 +831,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202610311035', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202610311826', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){
