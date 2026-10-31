@@ -9,6 +9,7 @@
 {% include "_head.html.j2" %}
 </head>
 <body>
+<link rel="stylesheet" href="/vendor/leaflet/leaflet.css">
 {% include "_nav.html.j2" %}
 <main class="container">
   <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Provincias competitivas</h1>
@@ -22,6 +23,19 @@
   </div>
 
   <div class="alert warn"><strong>Ojo:</strong> un margen pequeño en 2023 no significa que la provincia vaya a cambiar el 29N. No se proyectan escaños desde encuestas; esta tabla solo describe el punto de partida oficial.</div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Mapa de provincias clave</h2><span class="hint">margen oficial 2023 · contexto, no proyección</span></div>
+    <div id="prov-map" role="img" aria-label="Mapa de provincias coloreadas por el margen oficial de 2023" style="height:430px;border:1px solid var(--line);border-radius:10px"></div>
+    <div class="legend">
+      <span class="lg"><i style="background:#b91c1c"></i>&lt;2 pp</span>
+      <span class="lg"><i style="background:#ea580c"></i>2–5 pp</span>
+      <span class="lg"><i style="background:#f59e0b"></i>5–10 pp</span>
+      <span class="lg"><i style="background:#64748b"></i>≥10 pp</span>
+      <span class="lg">Sin datos / sin coincidencia</span>
+    </div>
+    <p class="muted small">Color = margen entre los dos primeros en 2023. Un color intenso indica un resultado ajustado, no una probabilidad de vuelco. Geometría provincial: Click That Hood; datos: Ministerio del Interior.</p>
+  </div>
 
   <div class="card">
     <div class="cardhead"><h2>Margen entre los dos primeros</h2><span class="hint">votos válidos · orden ascendente</span></div>
@@ -59,6 +73,34 @@
     </div>
   </div>
 </main>
+<script src="/vendor/leaflet/leaflet.js"></script>
+<script>
+(function(){
+  const rows = {{ competitive_provinces|tojson }};
+  const norm = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+  const byName = new Map(rows.map(r => [norm(r.nombre), r]));
+  const map = L.map('prov-map', { scrollWheelZoom:false }).setView([40.2,-3.5], 5);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '© OpenStreetMap' }).addTo(map);
+  const color = m => m < 2 ? '#b91c1c' : m < 5 ? '#ea580c' : m < 10 ? '#f59e0b' : '#64748b';
+  fetch('/data/provincias.geojson').then(r => { if (!r.ok) throw new Error('HTTP '+r.status); return r.json(); }).then(geo => {
+    const layer = L.geoJSON(geo, {
+      style: f => {
+        const r = byName.get(norm(f.properties.name));
+        return { color:'#334155', weight:0.8, fillColor:r ? color(r.margin) : '#64748b', fillOpacity:r ? 0.72 : 0.18 };
+      },
+      onEachFeature: (f, l) => {
+        const r = byName.get(norm(f.properties.name));
+        if (!r) { l.bindTooltip(f.properties.name + ' · sin datos', {sticky:true}); return; }
+        const link = r.slug ? '<br><a href="/circunscripcion/'+r.slug+'.html">Ficha provincial →</a>' : '';
+        l.bindTooltip('<b>'+r.nombre+'</b><br>'+r.winner+' vs '+r.second+' · '+r.margin.toFixed(2)+' pp<br>'+r.escanos+' escaños · 2023'+link, {sticky:true});
+      }
+    }).addTo(map);
+    if (layer.getBounds().isValid()) map.fitBounds(layer.getBounds(), {padding:[12,12]});
+  }).catch(() => {
+    document.getElementById('prov-map').innerHTML = '<p style="padding:16px">No se pudo cargar la geometría provincial. La tabla inferior sigue disponible.</p>';
+  });
+})();
+</script>
 {% include "_footer.html.j2" %}
 </body>
 </html>
