@@ -54,6 +54,14 @@ fi
 [ -d web ] && mv web web_prev
 mv "$STAGE" web
 
+if ! /usr/bin/python3 scripts/audit_datos.py > "$HOME/.local/state/elecciones29n/audit.log" 2>&1; then
+  echo "[run_daily_server] AUDITORÍA FALLIDA — se restaura la versión anterior"
+  cat "$HOME/.local/state/elecciones29n/audit.log"
+  mv web "web_bad_$(date +%Y%m%d%H%M%S)"
+  [ -d web_prev ] && mv web_prev web
+  exit 1
+fi
+
 rsync -a --delete web/ /var/www/elecciones29n/
 for _f in index.html glosario.html robustez.html como-leer.html circunscripciones.html circunscripcion/madrid.html hemiciclo.html privacidad.html; do
   [ -f "/var/www/elecciones29n/$_f" ] || { echo "[run_daily_server] falta $_f en /var/www"; exit 1; }
