@@ -53,6 +53,9 @@ dato, no en una nota al pie.
 - `data/changelog.json`: historial de builds/datos (máximo 100 entradas).
 - `/data/v1/latest.json`, `/data/v1/robustez.json`, `/data/v1/status.json` y `/data/v1/schema.json`: contrato versionado y esquema.
 - `scripts/reproduce.sh`: reconstruye con el CSV y los datos actuales y devuelve los hashes. El cálculo es **determinista** (D’Hondt y ponderación); no usa semilla. Para reproducir un build histórico hay que congelar antes el CSV y los JSON de entrada.
+- `scripts/reproduce_check.sh`: reconstruye y compara `latest.json` y `robustez.json` **ignorando sellos de tiempo**; falla si cambia una cifra.
+- `scripts/run_daily_server.sh` ejecuta `audit_datos.py` **después del build y antes de publicar**; si falla, restaura `web_prev` y no toca `/var/www`.
+- La **concentración efectiva** ya se publica en `latest.json`/`robustez.json` como `weights.effective_sources` y `weights.effective_houses`.
 - En **blackout** (24–28 nov), los JSON y OG retirados responden **410**; el service worker no cachea `/data/` ni `.json`.
 - `scripts/archive_check.py`: comprueba si hay instantáneas en Archive.org (0 sin capturas, 1 con capturas, 2 consulta incompleta).
 - **Sección EN**: `/en.html`, `/en/method.html`, `/en/hemicycle.html`, `/en/robustness.html`, `/en/competitive.html`, `/en/majorities.html`, `/en/limits.html`, `/en/data.html`, `/en/post-election.html`; nav propia y `hreflang` recíproco.
@@ -271,6 +274,7 @@ Además de la media por sondeo (ponderada por recencia y muestra cuando existe),
 - **`scripts/audit_datos.py`**: **233 comprobaciones offline, 0 fallos críticos** (más 12 online con `--online`). Recalcula medias/MA, sumas, censo, participación, escaños, M4/M5, etiquetas de UI y contrasta Onda Cero/CIS/Electomania.
 - `check.sh` la ejecuta en modo offline; informe: [`docs/AUDITORIA-DATOS.md`](docs/AUDITORIA-DATOS.md).
 - Límites: no verifica el trabajo de campo de las encuestas ni el indexado de buscadores.
+- **Publicación:** la auditoría es ahora una puerta previa a `/var/www`; un fallo crítico bloquea el deploy y conserva la última versión buena.
 
 ## Métricas y auditoría
 
