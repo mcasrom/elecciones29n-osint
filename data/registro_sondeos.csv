@@ -1,1 +1,2 @@
 pollster,date,media,url_original,url_medio,field_start,field_end,sample,method,margin,kind,verification,seats,notes
+Sigma Dos,2026-11-01,El Mundo,https://www.elmundo.es/espana/encuestas/2026/11/01/6ae77446e4d4d8f3698b458a.html,https://www.elmundo.es/espana/encuestas/2026/11/01/6ae77446e4d4d8f3698b458a.html,2026-10-29,2026-10-30,2505,CATI + CAWI · Panel Sigma Dos by Trust Survey,"±2,1% · 95,5%",tracking,fuera,,"Ficha técnica verificada, tabla incompleta (faltan ERC, Junts, Bildu, PNV, SAF y Otros). Excluido del agregado; no se busca documento adicional."
