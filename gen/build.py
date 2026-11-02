@@ -1941,6 +1941,18 @@ def main(out: str = "web") -> None:
             censo = json.load(f)
 
     oficial = circunscripciones.load()
+    _of23 = oficial.get("elecciones", {}).get("2023-07-23", {})
+    _prov23 = _of23.get("provincias", [])
+    _cera_elect = sum(p.get("cera_electores", 0) for p in _prov23)
+    _cera_vot = sum(p.get("cera_votantes", 0) for p in _prov23)
+    _vot_total = sum(p.get("votantes", 0) for p in _prov23)
+    cera_2023 = {
+        "electores": _cera_elect,
+        "votantes": _cera_vot,
+        "votantes_totales": _vot_total,
+        "participacion": round(100 * _cera_vot / _cera_elect, 2) if _cera_elect else None,
+        "peso_votantes": round(100 * _cera_vot / _vot_total, 2) if _vot_total else None,
+    }
     circ_pages = circunscripciones.build_pages(oficial, escanos, censo)
     competitive_provinces, competitive_summary = build_competitive_provinces(congreso, oficial, circ_pages)
     for p in circ_pages:
@@ -2106,6 +2118,7 @@ def main(out: str = "web") -> None:
         },
         "meteo_rows": build_meteo_rows(meteo),
         "congreso_2023": congreso.get("elecciones", {}).get("2023-07-23", {}),
+        "cera_2023": cera_2023,
         "resultados_2023_rows": build_resultados_2023(
             congreso.get("elecciones", {}).get("2023-07-23", {}).get("nacional", {})
         ),

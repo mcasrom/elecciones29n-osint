@@ -14,6 +14,7 @@
   <p class="muted" style="margin:0 0 14px">Quién puede votar, según el censo oficial. Datos del INE · Oficina del Censo Electoral.</p>
 
   {% if censo %}
+  <p class="muted small"><strong>Referencia 2023:</strong> la participación CERA fue del {{ fmt_pct(cera_2023.participacion) }}% ({{ fmt_miles(cera_2023.votantes) }} de {{ fmt_miles(cera_2023.electores) }}), no la nacional del 66,59 %. No es una previsión para el 29N.</p>
   <div class="kpis">
     <div class="kpi"><span class="kpi-name">Censo total</span><b>{{ fmt_miles(censo.total) }}</b><span class="kpi-range">CER + CERA</span></div>
     <div class="kpi"><span class="kpi-name">Residentes en España</span><b>{{ fmt_miles(censo.cer) }}</b><span class="kpi-range">CER</span></div>
