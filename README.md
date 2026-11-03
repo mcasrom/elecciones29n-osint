@@ -27,7 +27,7 @@ dato, no en una nota al pie.
 
 ## P0 3-nov-2026
 
-- **AVE:** retirado el hito sin fuente primaria. La cifra correcta es **69 fallecidos**, no 68; no se publica hasta tener enlace oficial.
+- **AVE:** reincorporado como contexto con fuente oficial del **112 de Castilla-La Mancha** (2-nov-2026): **69 fallecidos**, no 68. No entra en la media ni se usa para atribuir tendencia.
 - **Blackout 24–28 nov:** `scripts/blackout_switch.sh` corta a las **00:00**, retira agregados, JSON, encuestas de líderes/comportamiento y **todas las OG**; cron propio y simulación de staging probada.
 - **D'Hondt nacional:** fuera de la portada. Un distrito único de 350 escaños asignaba todo a cuatro partidos y producía «otros: 0»; `/hemiciclo.html` queda como material de método con aviso.
 - **Pesos:** topes de **25 % por casa** y **40 % por fuente**. Hoy muerde el de fuente: Onda Cero baja de 47,7 % a 40,0 %. Se mantiene una entrada por casa y oleada.

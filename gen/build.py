@@ -2063,6 +2063,8 @@ def main(out: str = "web") -> None:
         phase, next_ms = "postelectoral", "—"
     calendar = [
         {"date": "6 oct", "label": "Convocatoria (BOE)", "state": "done"},
+        {"date": "28 oct", "label": "Accidente ferroviario en Urda (Toledo): 69 fallecidos · contexto, no entra en la media", "state": "context",
+         "source": "https://112.castillalamancha.es/112/comunicacion/el-gobierno-regional-informa-que-el-numero-de-personas-ingresadas-en-castilla-la"},
         {"date": "13–27 nov", "label": "Campaña electoral",
          "state": "done" if now >= blackout_dt else "active"},
         {"date": "24–28 nov", "label": "Prohibición de sondeos",

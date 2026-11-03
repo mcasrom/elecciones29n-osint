@@ -8,10 +8,10 @@ el generador y los tests. No se aplican cambios de scoring ni de datos.
 
 ### 1. AVE sin fuente
 
-Se retiró de la portada el hito «Accidente AVE en Urda: 69 fallecidos». No
-había fuente primaria enlazada y la cifra no era verificable. La regla queda:
-un hito de contexto solo se publica con fuente primaria y nunca se usa para
-atribuir un cambio de la media.
+Se retiró el hito sin fuente primaria. La fuente oficial del **112 de
+Castilla-La Mancha** (nota de 2-nov-2026) confirma **69 fallecidos**, no 68.
+Se reincorpora como contexto, con enlace primario y sin atribuirle cambios en
+la media.
 
 ### 2. Blackout
 
@@ -94,7 +94,7 @@ material mecánico con aviso, no como titular.
 14. **D’Hondt +16 escaños a VOX:** la dirección estructural es correcta, pero
     los 136/65/104 de Sigma Dos son un modelo provincial externo que no se
     puede reproducir con este repo. No usar esas cifras como nuestras.
-15. **AVE:** no había enlace; ahora se retira la cifra. Las encuestas de la
+15. **AVE:** fuente primaria 112, **69 fallecidos**; se mantiene como contexto. Las encuestas de la
     media incluyen fechas anteriores y posteriores al 28-O; no se atribuye
     causalidad.
 
