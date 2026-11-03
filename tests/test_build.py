@@ -29,7 +29,7 @@ class BuildTest(unittest.TestCase):
         }
         svg = build_chart(series, parties)
         self.assertIn("<svg", svg)
-        self.assertEqual(svg.count("<circle"), 4)
+        self.assertEqual(svg.count("<circle"), 2)
 
     def test_dhondt_sums_350(self):
         parties = [

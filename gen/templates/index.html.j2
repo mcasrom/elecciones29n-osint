@@ -115,6 +115,17 @@
       {% endfor %}
     </div>
 
+    {% if chart_svg %}
+    <div class="card">
+      <div class="cardhead"><h2>Evolución de los sondeos</h2><span class="hint">últimos 90 días · 4 partidos · media móvil 14 d</span></div>
+      <div class="chartwrap">{{ chart_svg|safe }}</div>
+      <div class="legend">
+        {% for l in chart_legend %}<span class="lg"><i style="background:{{ l.color }}"></i>{{ l.party }}</span>{% endfor %}
+      </div>
+      <p class="muted small" style="margin-top:6px">Eje vertical: media de voto (%). Cada línea es la media móvil de 14 días (ventana simétrica; truncada en el borde derecho) de PP, PSOE, VOX y Sumar. La nube de puntos por sondeo está en <a href="#tab-evolucion">Evolución</a>: pasa el cursor para ver casa y fecha.</p>
+    </div>
+    {% endif %}
+
   {% include "_captura.html.j2" %}
 
     <div class="card">
@@ -242,16 +253,6 @@
       <p class="muted">Aún no hay suficientes sondeos para mostrar una serie.</p>
       {% endif %}
     </div>
-    {% if chart_svg %}
-    <div class="card">
-      <div class="cardhead"><h2>Vista conjunta</h2><span class="hint">últimos 90 días</span></div>
-      <div class="chartwrap">{{ chart_svg|safe }}</div>
-      <div class="legend">
-        {% for l in chart_legend %}<span class="lg"><i style="background:{{ l.color }}"></i>{{ l.party }}</span>{% endfor %}
-      </div>
-      <p class="muted small" style="margin-top:6px">Eje vertical: media de voto (%). La <strong>línea gruesa</strong> es la media móvil de 14 días (ventana simétrica; truncada en el borde derecho); los <strong>puntos</strong> son sondeos individuales (pasa el cursor para ver casa/fecha). Un punto aislado, como el CIS, no marca la tendencia: la media agregada es la de la tabla.</p>
-    </div>
-    {% endif %}
   </section>
 
   <!-- TAB: CONGRESO -->

@@ -1812,7 +1812,7 @@ def _band(coords_lo, coords_hi) -> str:
 def chart_legend(parties: list) -> list:
     return [
         {"party": p["party"], "color": CHART_COLORS[i % len(CHART_COLORS)]}
-        for i, p in enumerate(parties[:6])
+        for i, p in enumerate(parties[:4])
     ]
 
 
@@ -1826,20 +1826,25 @@ def _empty_chart() -> str:
 
 
 def build_chart(series: dict, parties: list) -> str:
+    """Gráfico de portada: 4 líneas de media móvil, sin nube de puntos.
+
+    El detalle con puntos por sondeo vive en la pestaña Evolución. Aquí se
+    busca lectura rápida: cuatro series, etiqueta al final y escala limpia.
+    """
     if not series or not parties:
         return _empty_chart()
 
-    order = [p["party"] for p in parties][:6]
-    colors = CHART_COLORS
+    order = [p["party"] for p in parties][:4]
     dates = sorted({d["date"] for vals in series.values() for d in vals})
     if not dates:
         return _empty_chart()
 
     W, H = 760, 320
-    pad_l, pad_r, pad_t, pad_b = 52, 18, 20, 40
+    pad_l, pad_r, pad_t, pad_b = 52, 112, 24, 40
     iw, ih = W - pad_l - pad_r, H - pad_t - pad_b
-
     vals_all = [d["value"] for p in order for d in series.get(p, [])]
+    if not vals_all:
+        return _empty_chart()
     vmin = max(0, min(vals_all) - 2)
     vmax = max(vals_all) + 2
 
@@ -1851,47 +1856,41 @@ def build_chart(series: dict, parties: list) -> str:
     def y(v: float) -> float:
         return pad_t + ih * (1 - (v - vmin) / (vmax - vmin))
 
-    parts = [f'<svg class="chart" viewBox="0 0 {W} {H}" role="img" aria-label="Evolución de la media por partido">']
+    parts = [f'<svg class="chart" viewBox="0 0 {W} {H}" role="img" aria-label="Evolución de la media móvil por partido">']
     for g in range(5):
         val = vmin + (vmax - vmin) * g / 4
         yy = y(val)
         parts.append(f'<line x1="{pad_l}" y1="{yy:.1f}" x2="{W-pad_r}" y2="{yy:.1f}" stroke="var(--line)" stroke-width="1"/>')
         parts.append(f'<text x="6" y="{yy+4:.1f}" fill="var(--muted)" font-size="11">{val:.0f}%</text>')
-    step = max(1, len(dates) // 8)
+    step = max(1, len(dates) // 7)
     for i, d in enumerate(dates):
         if i % step and i != len(dates) - 1:
             continue
         lbl = d[8:10] + "/" + d[5:7]
         parts.append(f'<text x="{x(i):.1f}" y="{H-10}" fill="var(--muted)" font-size="10" text-anchor="middle">{lbl}</text>')
+
+    ends = []
     for idx, party in enumerate(order):
         pts = series.get(party, [])
         if not pts:
             continue
-        coords = []
-        for p in pts:
-            i = dates.index(p["date"])
-            coords.append((x(i), y(p["value"])))
-        dpath = "M " + " L ".join(f"{cx:.1f},{cy:.1f}" for cx, cy in coords)
-        color = colors[idx % len(colors)]
-        if idx < 3 and len(pts) >= 3:
-            vals = [p["value"] for p in pts]
-            lo = [(x(i), y(min(vals[max(0, i - 1):i + 2]))) for i in range(len(pts))]
-            hi = [(x(i), y(max(vals[max(0, i - 1):i + 2]))) for i in range(len(pts))]
-            parts.append(f'<path d="{_band(lo, hi)}" fill="{color}" opacity="0.10" stroke="none"/>')
-        # media móvil de 14 días (misma definición que metrics.moving_average)
+        color = CHART_COLORS[idx % len(CHART_COLORS)]
         ma = moving_average(pts)
         if len(ma) >= 2:
             ma_path = "M " + " L ".join(
                 f"{x(dates.index(m['date'])):.1f},{y(m['value']):.1f}" for m in ma
             )
-            parts.append(f'<path d="{ma_path}" fill="none" stroke="{color}" stroke-width="2.8" opacity="0.95"/>')
-        for p, (cx, cy) in zip(pts, coords):
-            title = f"{party} · {p.get('pollster','?')} · {p['date']} · {p['value']}%"
-            parts.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="2.6" fill="{color}"><title>{title}</title></circle>')
-    parts.append(f'<text x="12" y="{pad_t+4}" fill="currentColor" opacity="0.55" font-size="10">% voto</text>')
+            parts.append(f'<path d="{ma_path}" fill="none" stroke="{color}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>')
+        last = ma[-1] if ma else pts[-1]
+        lx, ly = x(dates.index(last["date"])), y(last["value"])
+        parts.append(f'<circle cx="{lx:.1f}" cy="{ly:.1f}" r="4" fill="{color}"/>')
+        ends.append((ly, party, last["value"], color))
+
+    for ly, party, value, color in sorted(ends):
+        parts.append(f'<text x="{W-pad_r+8}" y="{ly+4:.1f}" fill="{color}" font-size="12.5" font-weight="700">{party} {value:.1f}%</text>')
+    parts.append(f'<text x="12" y="{pad_t+4}" fill="currentColor" opacity="0.55" font-size="10">% voto · media móvil 14 d</text>')
     parts.append("</svg>")
     return "".join(parts)
-
 
 def build_prov_selector(escanos: dict, congreso: dict) -> list:
     import unicodedata
