@@ -1875,15 +1875,18 @@ def build_chart(series: dict, parties: list) -> str:
         if not pts:
             continue
         color = CHART_COLORS[idx % len(CHART_COLORS)]
+        coords = [(x(dates.index(item["date"])), y(item["value"])) for item in pts]
         ma = moving_average(pts)
         if len(ma) >= 2:
             ma_path = "M " + " L ".join(
                 f"{x(dates.index(m['date'])):.1f},{y(m['value']):.1f}" for m in ma
             )
             parts.append(f'<path d="{ma_path}" fill="none" stroke="{color}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>')
+        for item, (cx, cy) in zip(pts, coords):
+            title = f"{party} · {item.get('pollster','?')} · {item['date']} · {item['value']}%"
+            parts.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="2.5" fill="{color}" opacity="0.8"><title>{title}</title></circle>')
         last = ma[-1] if ma else pts[-1]
         lx, ly = x(dates.index(last["date"])), y(last["value"])
-        parts.append(f'<circle cx="{lx:.1f}" cy="{ly:.1f}" r="4" fill="{color}"/>')
         ends.append((ly, party, last["value"], color))
 
     for ly, party, value, color in sorted(ends):
