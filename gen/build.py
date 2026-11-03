@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import glob
 import hashlib
 import json
 import math
@@ -36,13 +37,11 @@ BLACKOUT_SITEMAP = [
     ("caveat.html", 0.5),
     ("glosario.html", 0.6),
     ("electorado.html", 0.7),
-    ("lideres.html", 0.6),
     ("participacion.html", 0.7),
     ("territorio.html", 0.7),
     ("circunscripciones.html", 0.6),
     ("noche-electoral.html", 0.7),
     ("factores.html", 0.6),
-    ("comportamiento.html", 0.6),
     ("como-leer.html", 0.8),
     ("apoyo.html", 0.5),
     ("sobre-mi.html", 0.5),
@@ -669,8 +668,12 @@ def write_blackout_site(
         with open(os.path.join(OUT, filename), "w", encoding="utf-8") as f:
             f.write(html)
 
-    for rel in ("data/latest.json", "data/robustez.json", "data/status.json", "data/changelog.json", "data/v1/latest.json", "data/v1/robustez.json", "data/v1/status.json", "og-robustez.png", "og.png", "og-hemiciclo.png", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html", "en/post-election.html", "embed/medias.html", "embed/robustez.html", "embed/hemiciclo.html", "mayorias.html", "postelectoral.html"):
+    for rel in ("data/latest.json", "data/robustez.json", "data/status.json", "data/changelog.json", "data/v1/latest.json", "data/v1/robustez.json", "data/v1/status.json", "data/cis_lideres_2026.json", "data/cis-m4-2026.json", "data/cis-m4-2023.csv", "og-robustez.png", "og.png", "og-hemiciclo.png", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html", "en/post-election.html", "embed/medias.html", "embed/robustez.html", "embed/hemiciclo.html", "mayorias.html", "postelectoral.html", "lideres.html", "comportamiento.html"):
         _remove_if_exists(rel)
+    for path in glob.glob(os.path.join(OUT, "og*.png")):
+        _remove_if_exists(os.path.relpath(path, OUT))
+    for path in glob.glob(os.path.join(OUT, "og", "*.png")):
+        _remove_if_exists(os.path.relpath(path, OUT))
 
     marker = {
         "active": True,
@@ -2060,8 +2063,6 @@ def main(out: str = "web") -> None:
         phase, next_ms = "postelectoral", "—"
     calendar = [
         {"date": "6 oct", "label": "Convocatoria (BOE)", "state": "done"},
-        {"date": "28 oct", "label": "Accidente AVE en Urda (Toledo): 68 fallecidos · contexto, no entra en la media", "state": "context",
-         },
         {"date": "13–27 nov", "label": "Campaña electoral",
          "state": "done" if now >= blackout_dt else "active"},
         {"date": "24–28 nov", "label": "Prohibición de sondeos",

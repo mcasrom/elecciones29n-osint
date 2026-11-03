@@ -5,7 +5,7 @@
 [![En vivo](https://img.shields.io/badge/en%20vivo-elecciones29n.pruebapublica.com-ff5a1f)](https://elecciones29n.pruebapublica.com/)
 [![Licencia](https://img.shields.io/badge/licencia-AGPL--3.0-3ddc97)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.12-8ec5ff)](https://www.python.org/)
-[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.11.1-ff5a1f)](CHANGELOG.md)
+[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.11.2-ff5a1f)](CHANGELOG.md)
 
 ---
 
@@ -25,10 +25,20 @@ proyección de escaños. El rango no es un intervalo de confianza: es la
 dispersión observada entre los sondeos incluidos. La incertidumbre va en el
 dato, no en una nota al pie.
 
+## P0 3-nov-2026
+
+- **AVE:** retirado el hito sin fuente primaria. La cifra correcta es **69 fallecidos**, no 68; no se publica hasta tener enlace oficial.
+- **Blackout 24–28 nov:** `scripts/blackout_switch.sh` corta a las **00:00**, retira agregados, JSON, encuestas de líderes/comportamiento y **todas las OG**; cron propio y simulación de staging probada.
+- **D'Hondt nacional:** fuera de la portada. Un distrito único de 350 escaños asignaba todo a cuatro partidos y producía «otros: 0»; `/hemiciclo.html` queda como material de método con aviso.
+- **Pesos:** topes de **25 % por casa** y **40 % por fuente**. Hoy muerde el de fuente: Onda Cero baja de 47,7 % a 40,0 %. Se mantiene una entrada por casa y oleada.
+- **Contador de días:** diferencia de fechas naturales: 26 al 29N y 21 al blackout a 3-nov.
+- **Gráfico duplicado:** retirado de «Agregado»; queda uno en «Evolución».
+- Auditoría completa y P1 pendiente: [`docs/AUDITORIA-20261103.md`](docs/AUDITORIA-20261103.md).
+
 ## Módulos publicados
 
-- `/` — Agregado, evolución, Congreso (D'Hondt etiquetado como simulación) y Senado.
-- `/hemiciclo.html` — **350 escaños por fecha de sondeo**: D'Hondt nacional sobre la media, selector de fecha, bloques y serie completa. Simulación mecánica, no proyección; sin territoriales. Enlace visible en la portada (pestaña **Hemiciclo** y botón bajo los indicadores) y en la navegación del resto de páginas.
+- `/` — Agregado, evolución, Congreso (sin simulación de escaños en portada) y Senado.
+- `/hemiciclo.html` — **material de método**: D'Hondt nacional por fecha, con aviso de que no es un reparto real (asigna «otros: 0» y deja fuera a los territoriales). No se usa como titular ni se publica en la portada; la pestaña se etiqueta **Hemiciclo (límites)**.
 - `/en.html` — **resumen mínimo en inglés**: media, rango, límites, método, datos y enlaces. `hreflang` es/en; el resto del sitio sigue en español.
 - `/competitivas.html` — **52 provincias por margen oficial 2023** entre los dos primeros, con escaños, diferencia y participación. Contexto factual, no proyección.
 - `/mayorias.html` — **calculadora de mayorías** sobre el hemiciclo simulado: suma de escaños, umbral 176 y presets. No predice pactos ni investidura.
@@ -103,15 +113,15 @@ agregado.
 | **Datos frágiles** | 4 sondeos pero una sola casa, o último >10 días | se publica con aviso |
 | **Datos insuficientes** | <4 sondeos o último >21 días | se publica con aviso visible |
 
-> Al 26-oct: **9 sondeos y 7 encuestadoras en la ventana de 14 d**, último **hoy** → **datos suficientes**. Media: PP **30,4** · PSOE **27,3** · Vox **19,1**.
-> Se combinan Electomanía, Onda Cero, CIS, ElectoPanel, Sigma Dos, SocioMétrica, NC Report y Ateneo del Dato. Ver
+> Al 3-nov: **12 sondeos y 8 encuestadoras en la ventana de 14 d**, último **2-nov** → **datos suficientes**. Media: PP **31,4** · PSOE **26,2** · Vox **19,3** · Sumar **6,6**.
+> Se combinan Electomanía, Onda Cero, ElectoPanel, Sigma Dos, SocioMétrica, NC Report, Target Point, Sondaxe, Ateneo del Dato e IMOP. Ver
 > [`docs/RUTINA-SEMANAL.md`](docs/RUTINA-SEMANAL.md).
 
 ```bash
 .venv/bin/python scripts/health_report.py
 ```
 
-## Revisión P0 (23-oct-2026)
+## Revisión P0 histórica (23-oct-2026)
 
 - **Ventana por fecha natural**, no por hora: 14 días contando hoy (45/90 en sus ventanas). Un sondeo del día 14 ya no entra a las 23:00 y desaparece a las 08:00.
 - **Frente Amplio → SUMAR**: el ElectoPanel del 18-oct publica «Frente Amplio … 4,9 %»; se mapea a SUMAR y se backfilla la fila (suma del sondeo 87,3 → 92,2).
@@ -249,7 +259,7 @@ data/           histórico de sondeos y datasets normalizados (fuente de verdad)
 web/            salida estática publicada
 scripts/        run_daily, check, validate_site, canary, IndexNow, add_poll, health_report
 docs/           método, fuentes, rutina semanal, legal y sprint del observatorio
-tests/          94 pruebas (datos, build, validador, fichas provinciales)
+tests/          120 pruebas (datos, build, validador, blackout, fichas provinciales)
 systemd/        servicio y timer
 ```
 
@@ -293,7 +303,7 @@ Además de la media por sondeo (ponderada por recencia y muestra cuando existe),
 
 ## Calidad
 
-- **94 tests** (`unittest`) y hook **pre-push**.
+- **120 tests** (`unittest`) y hook **pre-push**.
 - `scripts/check.sh`: compila, tests, valida el sitio local y ejecuta la auditoría de datos.
 - **Validador** de publicación: gráfico con puntos, pestañas, JSON, sitemap, OG,
   RSS, censo, participación y escaños.
@@ -303,7 +313,7 @@ Además de la media por sondeo (ponderada por recencia y muestra cuando existe),
 
 ## SEO y datos abiertos
 
-- `sitemap.xml` (69 URLs, incluidas las 52 fichas provinciales), `robots.txt`, `llms.txt` y RSS `cambios.xml`.
+- `sitemap.xml` (88 URLs, incluidas las 52 fichas provinciales), `robots.txt`, `llms.txt` y RSS `cambios.xml`.
 - OG 1200×630, `twitter:card`, canonical y JSON-LD (`WebSite`, `Dataset`,
   `FAQPage`, `Person`).
 - **IndexNow** en cada build; cache-busting `?v=` en CSS/JS.
@@ -317,7 +327,7 @@ Además de la media por sondeo (ponderada por recencia y muestra cuando existe),
 - El censo describe quién puede votar, no a quién vota.
 - La simulación de Congreso es mecánica (distrito único), no una proyección.
 - El Senado no se simula: depende de listas provinciales y designación autonómica.
-- La calculadora provincial es un escenario mecánico con votos introducidos a mano. El hemiciclo nacional sí simula escaños desde la media, pero se etiqueta como mecánica de bloques: no es una proyección ni el Congreso real. El Senado no se simula.
+- La calculadora provincial es un escenario mecánico con votos introducidos a mano. El hemiciclo nacional se conserva como material de método, pero no se publica como titular ni como reparto real: un distrito único produce «otros: 0». El Senado no se simula.
 - No se atribuyen preferencias por edad, sexo, renta o territorio.
 - No se mezclan señales sociales con sondeos, censo o participación.
 

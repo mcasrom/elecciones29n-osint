@@ -41,7 +41,7 @@ def validate_blackout(d: str) -> int:
         "index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html",
         "glosario.html", "electorado.html", "participacion.html", "territorio.html",
         "circunscripciones.html", "noche-electoral.html", "factores.html",
-        "comportamiento.html", "como-leer.html", "hemiciclo.html", "apoyo.html", "sobre-mi.html", "privacidad.html",
+        "como-leer.html", "hemiciclo.html", "apoyo.html", "sobre-mi.html", "privacidad.html",
         "robots.txt", "sitemap.xml", "llms.txt", "favicon.svg",
         "cambios.xml", "css/main.css", "sw.js", "manifest.webmanifest", "version.json",
         "data/blackout.json", "data/censo-2026.json", "data/participacion.json",
@@ -54,9 +54,12 @@ def validate_blackout(d: str) -> int:
         elif os.path.getsize(path) == 0:
             errors.append(f"{f} vacío")
 
-    for rel in ("data/latest.json", "data/robustez.json", "data/status.json", "data/changelog.json", "data/v1/latest.json", "data/v1/robustez.json", "data/v1/status.json", "og-robustez.png", "og.png", "og-hemiciclo.png", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html", "en/post-election.html", "embed/medias.html", "embed/robustez.html", "embed/hemiciclo.html", "mayorias.html", "postelectoral.html"):
+    for rel in ("data/latest.json", "data/robustez.json", "data/status.json", "data/changelog.json", "data/v1/latest.json", "data/v1/robustez.json", "data/v1/status.json", "og-robustez.png", "og.png", "og-hemiciclo.png", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html", "en/post-election.html", "embed/medias.html", "embed/robustez.html", "embed/hemiciclo.html", "mayorias.html", "postelectoral.html", "lideres.html", "comportamiento.html", "data/cis_lideres_2026.json", "data/cis-m4-2026.json", "data/cis-m4-2023.csv"):
         if os.path.exists(os.path.join(d, rel)):
             errors.append(f"blackout: {rel} sigue publicado")
+
+    for path in __import__("glob").glob(os.path.join(d, "og*.png")) + __import__("glob").glob(os.path.join(d, "og", "*.png")):
+        errors.append(f"blackout: {os.path.relpath(path, d)} sigue publicado")
 
     idx = os.path.join(d, "index.html")
     if os.path.exists(idx):

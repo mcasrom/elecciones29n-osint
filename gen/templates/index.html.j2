@@ -57,7 +57,7 @@
         <div class="hk"><b>176</b><span>mayoría absoluta</span></div>
       </div>
 
-      <div class="cta"><a class="btn" href="/hemiciclo.html">Ver el hemiciclo por sondeo →</a><span class="muted small">350 escaños, fecha a fecha, con método y límites.</span></div>
+      <div class="cta"><a class="btn" href="/metodologia.html#hemiciclo">Por qué no publico escaños nacionales →</a><span class="muted small">Un D'Hondt nacional daría un artefacto, no un reparto.</span></div>
 
       <p class="stamp">
         {% if last_poll_date %}Último sondeo: <strong>{{ last_poll_date }}</strong> · {% endif %}
@@ -68,7 +68,7 @@
 
     <nav class="tabs" role="tablist" aria-label="Secciones">
       <button class="tab active" data-tab="agregado" role="tab" aria-selected="true">Agregado</button>
-      <a class="tab" href="/hemiciclo.html">Hemiciclo</a>
+      <a class="tab" href="/hemiciclo.html">Hemiciclo (límites)</a>
       <button class="tab" data-tab="evolucion" role="tab" aria-selected="false">Evolución</button>
       <button class="tab" data-tab="congreso" role="tab" aria-selected="false">Congreso</button>
       <button class="tab" data-tab="senado" role="tab" aria-selected="false">Senado</button>
@@ -125,20 +125,8 @@
         {% endfor %}
       </div>
       <p class="muted small" style="margin-top:10px">Del 24 al 28 de noviembre no se publican ni difunden sondeos (JEC/LOREG). La agregación y sus JSON se retiran hasta el 29.</p>
-      <p class="muted small" style="margin-top:4px"><b>28-O:</b> el accidente AVE de Urda es un <b>marcador de contexto</b>; no es un hito electoral, no entra en la media y no se usa para atribuir un cambio de tendencia.</p>
+      <p class="muted small" style="margin-top:4px">Los hitos de contexto solo se publican con fuente primaria verificable. No se usan para atribuir cambios en la media.</p>
     </div>
-
-    {% if chart_svg %}
-    <div class="card">
-      <div class="cardhead"><h2>Evolución de los sondeos</h2><span class="hint">últimos 90 días · cada punto = un sondeo</span></div>
-      <div class="chartwrap">{{ chart_svg|safe }}</div>
-      <div class="legend">
-        {% for l in chart_legend %}<span class="lg"><i style="background:{{ l.color }}"></i>{{ l.party }}</span>{% endfor %}
-      </div>
-      <p class="muted small" style="margin-top:6px">Eje vertical: media de voto (%). La <strong>línea gruesa</strong> es la media móvil de 14 días (centrada); los <strong>puntos</strong> son sondeos individuales (pasa el cursor para ver casa/fecha). Un punto aislado, como el CIS, no marca la tendencia: la media agregada es la de la tabla.</p>
-
-    </div>
-    {% endif %}
 
     <div class="card">
       <div class="cardhead"><h2>Media por partido</h2><span class="hint">{% if window_span %}{{ window_span }}{% endif %}{% if window_extended %} · ventana ampliada{% endif %}</span></div>
@@ -271,22 +259,13 @@
     <div class="alert warn"><strong>Simulación mecánica, no proyección.</strong> Aplico D'Hondt a la media nacional con un distrito único de 350 escaños y umbral del 3%, solo entre partidos estatales. La ley real reparte por provincias y los partidos territoriales (ERC, Junts, EH Bildu, PNV) no se simulan aquí: su ausencia infla el reparto de PP y PSOE. Sirve para ver el tamaño de los bloques, no para anticipar escaños ni mayorías.</div>
 
     <div class="card">
-      <div class="cardhead"><h2>Simulación de bloques (D'Hondt nacional)</h2><span class="hint">350 escaños · umbral 3% · sin territoriales</span></div>
-      {% if sim_congress %}
-      <div class="seats">
-        {% for name, seats in sim_congress.items() %}
-        <div class="seatrow"><span class="sname">{{ name }}</span><span class="sbar"><i style="width:{{ (seats / 350 * 100)|round(1) }}%"></i></span><span class="snum">{{ seats }}</span></div>
-        {% endfor %}
-      </div>
-      <p class="muted small">Total del reparto hipotético: {{ sim_congress.values()|sum }} escaños entre partidos estatales. Mayoría absoluta: 176. No es la composición real del Congreso.</p>
-      <div class="cta"><a class="btn" href="/hemiciclo.html">Ver el hemiciclo por sondeo →</a><span class="muted small">350 escaños, fecha a fecha, con método y límites.</span></div>
-      {% else %}
-      <p class="muted">Sin datos suficientes para simular.</p>
-      {% endif %}
+      <div class="cardhead"><h2>Sin simulación de escaños en la portada</h2><span class="hint">decisión de método</span></div>
+      <p class="muted">No publico un reparto de 350 escaños calculado con un D'Hondt nacional: asigna todos los escaños a cuatro partidos, deja a los territoriales fuera y produce un «otros: 0» que no existe en el Congreso. La cifra sería un artefacto, no una estimación.</p>
+      <p class="muted small">La página <a href="/hemiciclo.html">Hemiciclo</a> conserva la serie mecánica con sus límites, pero no se usa como titular. Para escaños reales harían falta datos provinciales de encuesta y la asignación por circunscripción.</p>
     </div>
 
     <div class="card">
-      <div class="cardhead"><h2>Congreso de referencia</h2><span class="hint">composición vigente (23J-2023)</span></div>
+      <div class="cardhead"><h2>Congreso de referencia</h2><span class="hint">resultado oficial 23J-2023</span></div>
       <div class="tablewrap"><table>
         <thead><tr><th>Partido</th><th>Escaños</th></tr></thead>
         <tbody>
@@ -295,7 +274,7 @@
         {% endfor %}
         </tbody>
       </table></div>
-      <p class="muted small">Es la composición actual como referencia. No es una proyección del 29N.</p>
+      <p class="muted small">Es el resultado oficial de 2023, no la composición actual ni una proyección del 29N. El Sumar de 2023 incluía a Podemos; ahora van separados, así que no son comparables uno a uno.</p>
     </div>
 
     <div class="card">

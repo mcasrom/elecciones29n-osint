@@ -37,13 +37,13 @@ fi
 
 PYTHONPATH="$REPO_DIR" python3 -m agg.aggregate --out "$STAGE/data"
 PYTHONPATH="$REPO_DIR" python3 -m gen.build --out "$STAGE"
-/usr/bin/python3 -c "import PIL" 2>/dev/null && /usr/bin/python3 gen/gen_og.py --out "$STAGE/og.png" || true
 if [ ! -f "$STAGE/data/blackout.json" ]; then
+  /usr/bin/python3 -c "import PIL" 2>/dev/null && /usr/bin/python3 gen/gen_og.py --out "$STAGE/og.png" || true
   /usr/bin/python3 gen/gen_card_robustez.py --data "$STAGE/data/latest.json" --out "$STAGE/og-robustez.png" || true
   /usr/bin/python3 gen/gen_card_hemiciclo.py --data "$STAGE/data/latest.json" --out "$STAGE/og-hemiciclo.png" || true
   /usr/bin/python3 gen/gen_card_provincia.py --out "$STAGE/og" || true
+  /usr/bin/python3 gen/gen_card_glosario.py --out "$STAGE/og-glosario.png" || true
 fi
-/usr/bin/python3 gen/gen_card_glosario.py --out "$STAGE/og-glosario.png" || true
 
 if ! /usr/bin/python3 scripts/validate_site.py "$STAGE" > "$HOME/.local/state/elecciones29n/validate.log" 2>&1; then
   echo "[run_daily_server] VALIDACIÓN FALLIDA — no se publica"
@@ -63,7 +63,11 @@ if ! /usr/bin/python3 scripts/audit_datos.py > "$HOME/.local/state/elecciones29n
 fi
 
 rsync -a --delete web/ /var/www/elecciones29n/
-for _f in index.html glosario.html robustez.html como-leer.html circunscripciones.html circunscripcion/madrid.html hemiciclo.html privacidad.html; do
+REQUIRED=(index.html glosario.html como-leer.html circunscripciones.html circunscripcion/madrid.html hemiciclo.html privacidad.html)
+if [ ! -f "/var/www/elecciones29n/data/blackout.json" ]; then
+  REQUIRED+=(robustez.html)
+fi
+for _f in "${REQUIRED[@]}"; do
   [ -f "/var/www/elecciones29n/$_f" ] || { echo "[run_daily_server] falta $_f en /var/www"; exit 1; }
 done
 

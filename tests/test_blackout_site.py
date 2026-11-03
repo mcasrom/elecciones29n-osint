@@ -36,8 +36,10 @@ class BlackoutSiteTest(unittest.TestCase):
         )
         self.assertFalse(os.path.exists(os.path.join(self.site, "data/latest.json")))
         self.assertFalse(os.path.exists(os.path.join(self.site, "data/robustez.json")))
-        for rel in ("og.png", "og-hemiciclo.png", "og-robustez.png"):
+        for rel in ("og.png", "og-hemiciclo.png", "og-robustez.png", "og-sondeo-sigma-20261102.png", "lideres.html"):
             self.assertFalse(os.path.exists(os.path.join(self.site, rel)), rel)
+        self.assertFalse(os.path.exists(os.path.join(self.site, "data/cis_lideres_2026.json")))
+        self.assertFalse(os.path.exists(os.path.join(self.site, "data/cis-m4-2026.json")))
         sw = open(os.path.join(self.site, "sw.js"), encoding="utf-8").read()
         self.assertIn("url.pathname.startsWith('/data/')", sw)
         self.assertNotIn("'/og.png'", sw)

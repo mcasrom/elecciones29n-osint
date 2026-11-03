@@ -177,9 +177,10 @@ class AggregateTest(unittest.TestCase):
         self.assertAlmostEqual(sum(h["share_pct"] for h in w["houses"]), 100.0, places=0)
         self.assertAlmostEqual(sum(x["share_pct"] for x in w["polls"]), 100.0, places=0)
         house = next(h for h in w["houses"] if h["pollster"] == "A")
-        self.assertGreater(house["share_pct"], 50)
+        self.assertGreater(house["share_pct"], 50.0)
         self.assertEqual(house["n_polls"], 1)
         self.assertIsNone(w["houses"][-1]["sample"])
+        self.assertEqual(w["caps"], {"house_pct": 25.0, "source_pct": 40.0})
 
     def test_poll_weights_source_grouping(self):
         today = datetime.now(TZ).strftime("%Y-%m-%d")
@@ -193,6 +194,29 @@ class AggregateTest(unittest.TestCase):
         self.assertEqual(set(srcs), {"Onda Cero", "Electomanía", "CIS"})
         self.assertEqual(srcs["CIS"]["n_houses"], 1)
         self.assertAlmostEqual(sum(s["share_pct"] for s in w["sources"]), 100.0, places=0)
+
+    def test_days_are_natural_dates_not_hour_truncation(self):
+        res = self.run_with(
+            [("X", "2026-11-03", 10.0, "u", 1000, "A", "tracking")],
+            now=datetime(2026, 11, 3, 15, 0, tzinfo=TZ),
+        )
+        self.assertEqual(res["days_to_election"], 26)
+        self.assertEqual(res["days_to_blackout"], 21)
+
+    def test_poll_weights_cap_source(self):
+        today = datetime.now(TZ).strftime("%Y-%m-%d")
+        res = self.run_with([
+            ("X", today, 10.0, "https://www.ondacero.es/a", None, "A", "tracking"),
+            ("X", today, 11.0, "https://www.ondacero.es/b", None, "B", "tracking"),
+            ("X", today, 12.0, "https://www.ondacero.es/c", None, "C", "tracking"),
+            ("X", today, 20.0, "https://electomania.es/x", 1000, "D", "tracking"),
+            ("X", today, 30.0, "https://www.cis.es/x", 4000, "E", "tracking"),
+        ])
+        w = res["weights"]
+        srcs = {s["source"]: s for s in w["sources"]}
+        self.assertLessEqual(srcs["Onda Cero"]["share_pct"], 40.0)
+        self.assertAlmostEqual(sum(s["share_pct"] for s in w["sources"]), 100.0, places=0)
+        self.assertLessEqual(max(s["share_pct"] for s in w["sources"]), 40.0)
 
     def test_poll_weights_equal_without_sample(self):
         today = datetime.now(TZ).strftime("%Y-%m-%d")

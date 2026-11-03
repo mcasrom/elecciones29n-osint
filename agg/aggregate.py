@@ -5,7 +5,7 @@ import json
 import math
 import os
 import statistics
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 from typing import Any, Dict, List
 
 import pytz
@@ -18,6 +18,8 @@ LONG_DAYS = 90
 HALF_LIFE_DAYS = 10.0
 LOW_N = 4
 HOUSE_WINDOW_DAYS = 45
+MAX_HOUSE_SHARE = 0.25
+MAX_SOURCE_SHARE = 0.40
 CANON = {"Podemos": "PODEMOS", "Bildu": "BILDU", "Junts": "JUNTS", "Cs": "Cs", "C's": "Cs", "Ciudadanos": "Cs"}
 HOUSE_NOTA = {"CIS": "estimación de voto"}
 # Partidos que solo se presentan en algunas circunscripciones. Se publican,
@@ -121,6 +123,48 @@ def _poll_source(p: Dict[str, Any]) -> str:
     return "Otras fuentes"
 
 
+def _cap_group_weights(polls: Dict[tuple, Dict[str, Any]], key, cap: float) -> None:
+    """Limita el peso agregado de una casa o fuente, repartiendo el resto.
+
+    Si no hay grupos suficientes para que el tope sea posible, usa 1/n. No
+    renormaliza después del tope: eso lo anularía.
+    """
+    groups: Dict[str, list] = {}
+    for k, row in polls.items():
+        groups.setdefault(key(row), []).append(k)
+    if len(groups) <= 2:
+        return
+    cap = max(cap, 1.0 / len(groups))
+    total = sum(row["weight"] for row in polls.values())
+    if total <= 0:
+        return
+    fixed: set[str] = set()
+    for _ in range(20):
+        fixed_sum = sum(polls[k]["weight"] for k in polls if key(polls[k]) in fixed)
+        active = [k for k in polls if key(polls[k]) not in fixed]
+        active_sum = sum(polls[k]["weight"] for k in active)
+        if active and active_sum > 0:
+            factor = (total - fixed_sum) / active_sum
+            for k in active:
+                polls[k]["weight"] *= factor
+        over = []
+        sums = {}
+        for g, keys in groups.items():
+            if g in fixed:
+                continue
+            s = sum(polls[k]["weight"] for k in keys)
+            sums[g] = s
+            if s > cap * total + 1e-9:
+                over.append(g)
+        if not over:
+            break
+        for g in over:
+            scale = (cap * total) / sums[g]
+            for k in groups[g]:
+                polls[k]["weight"] *= scale
+            fixed.add(g)
+
+
 def _poll_weights(recent: List[Dict[str, Any]], now: datetime, extended: bool) -> Dict[str, Any]:
     """Reparto del peso que usa la media: por fuente, casa y sondeo.
 
@@ -143,6 +187,11 @@ def _poll_weights(recent: List[Dict[str, Any]], now: datetime, extended: bool) -
                 "n_parties": 0,
             }
         row["n_parties"] += 1
+
+    _cap_group_weights(polls, lambda r: r["pollster"], MAX_HOUSE_SHARE)
+    _cap_group_weights(polls, lambda r: r["source"], MAX_SOURCE_SHARE)
+    _cap_group_weights(polls, lambda r: r["pollster"], MAX_HOUSE_SHARE)
+    _cap_group_weights(polls, lambda r: r["source"], MAX_SOURCE_SHARE)
 
     total = sum(r["weight"] for r in polls.values()) or 1.0
     for r in polls.values():
@@ -217,6 +266,8 @@ def _poll_weights(recent: List[Dict[str, Any]], now: datetime, extended: bool) -
         "houses": houses,
         "effective_houses": effective_number(houses),
         "polls": polls_sorted,
+        "caps": {"house_pct": round(100 * MAX_HOUSE_SHARE, 1),
+                 "source_pct": round(100 * MAX_SOURCE_SHARE, 1)},
     }
 
 
@@ -596,9 +647,6 @@ def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[st
     weights = _poll_weights(recent, now, extended)
     sensitivity = _sensitivity(recent, parties, weights, now)
 
-    election = now.replace(year=2026, month=11, day=29, hour=0, minute=0, second=0, microsecond=0)
-    blackout_start = now.replace(year=2026, month=11, day=24, hour=0, minute=0, second=0, microsecond=0)
-
     return {
         "updated_at": now.strftime("%Y-%m-%d %H:%M %Z"),
         "updated_at_iso": now.isoformat(),
@@ -625,15 +673,16 @@ def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[st
         "sensitivity": sensitivity,
         "house_mean": house_mean,
         "house_latest": house_latest,
-        "days_to_election": max(0, (election - now).days),
-        "days_to_blackout": max(0, (blackout_start - now).days),
+        "days_to_election": max(0, (date(2026, 11, 29) - now.date()).days),
+        "days_to_blackout": max(0, (date(2026, 11, 24) - now.date()).days),
         "gap_pp_psoe": round(means.get("PP", 0) - means.get("PSOE", 0), 2),
         "bloc_right": round(sum(means.get(k, 0) for k in ("PP", "VOX")), 2),
         "bloc_left": round(sum(means.get(k, 0) for k in ("PSOE", "SUMAR", "PODEMOS")), 2),
         "weight_basis": (
-            "recencia (vida media 10 d); √n cuando la fuente declara muestra"
+            "recencia (vida media 10 d); √n cuando la fuente declara muestra; "
+            "topes 25 % por casa y 40 % por fuente"
             if weighted
-            else "recencia (vida media 10 d)"
+            else "recencia (vida media 10 d); topes 25 % por casa y 40 % por fuente"
         ),
         "excluded_averages": sorted(
             {p.get("pollster") for p in polls_all if p.get("kind") == "average"}
