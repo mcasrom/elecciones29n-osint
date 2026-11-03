@@ -1,0 +1,101 @@
+{
+ "meta": {
+  "source": "CIS · Estudio 3582, barómetro de octubre de 2026",
+  "source_url": "https://www.cis.es/es/w/avance-de-resultados-del-estudio-3582-barómetro-de-octubre-2026-",
+  "question": "¿Qué valoración le merece cada uno/a? Puntúelos/as de 1 a 10.",
+  "scale": "1-10",
+  "date": "2026-10",
+  "house": "CIS",
+  "note": "Una sola casa y una sola ola. 1=muy mal, 10=muy bien. No es intención de voto ni aprobación comparable entre casas."
+ },
+ "leaders": [
+  {
+   "name": "Pedro Sánchez",
+   "party": "PSOE",
+   "mean": 4.42,
+   "median": 4,
+   "sd": 3.23,
+   "n_known": 5017,
+   "n_valid": 4975,
+   "distribution_pct": {
+    "1": 36.39,
+    "2": 4.32,
+    "3": 5.14,
+    "4": 5.2,
+    "5": 8.94,
+    "6": 7.12,
+    "7": 9.12,
+    "8": 10.54,
+    "9": 2.83,
+    "10": 9.55
+   },
+   "coverage_pct": 99.16
+  },
+  {
+   "name": "Yolanda Díaz",
+   "party": "SUMAR",
+   "mean": 4.22,
+   "median": 4,
+   "sd": 2.9,
+   "n_known": 4878,
+   "n_valid": 4817,
+   "distribution_pct": {
+    "1": 31.83,
+    "2": 6.55,
+    "3": 6.15,
+    "4": 7.72,
+    "5": 11.0,
+    "6": 9.69,
+    "7": 9.25,
+    "8": 8.03,
+    "9": 4.54,
+    "10": 3.99
+   },
+   "coverage_pct": 98.76
+  },
+  {
+   "name": "Alberto Núñez Feijóo",
+   "party": "PP",
+   "mean": 3.43,
+   "median": 3,
+   "sd": 2.41,
+   "n_known": 4896,
+   "n_valid": 4845,
+   "distribution_pct": {
+    "1": 31.89,
+    "2": 11.56,
+    "3": 13.2,
+    "4": 11.25,
+    "5": 12.75,
+    "6": 5.61,
+    "7": 4.66,
+    "8": 4.82,
+    "9": 0.96,
+    "10": 2.27
+   },
+   "coverage_pct": 98.97
+  },
+  {
+   "name": "Santiago Abascal",
+   "party": "VOX",
+   "mean": 2.89,
+   "median": 1,
+   "sd": 2.72,
+   "n_known": 4897,
+   "n_valid": 4848,
+   "distribution_pct": {
+    "1": 56.47,
+    "2": 5.82,
+    "3": 5.34,
+    "4": 6.03,
+    "5": 7.64,
+    "6": 3.82,
+    "7": 3.96,
+    "8": 3.91,
+    "9": 2.06,
+    "10": 3.94
+   },
+   "coverage_pct": 99.0
+  }
+ ]
+}
