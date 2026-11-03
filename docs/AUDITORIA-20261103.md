@@ -67,9 +67,9 @@ material mecánico con aviso, no como titular.
 
 1. **Contador de días:** corregido a diferencia de fechas naturales
    (nov: 26 al 29N y 21 al blackout a 3-nov).
-2. **«Sin CIS»:** sigue siendo idéntico a la media porque el CIS del 14/10
-   queda fuera de los 14 días. Recalcular sobre 45 días y rotular como prueba
-   de sensibilidad.
+2. **«Sin CIS»:** corregido. La columna usa ahora **45 días** (incluye el CIS
+   del 14/10 en la ventana de contraste, excluido del cálculo), se rotula
+   **«Sin CIS (45 d)»** y no altera la media principal.
 3. **Media móvil centrada:** en el borde derecho es una media truncada.
    Sustituir por suavizado unilateral/Kalman/LOESS con banda, o rotular el
    borde.

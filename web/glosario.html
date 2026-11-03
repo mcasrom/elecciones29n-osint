@@ -13,7 +13,7 @@
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/glosario.html">
 
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202611031855">
+<link rel="stylesheet" href="/css/main.css?v=202611031917">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -153,11 +153,11 @@ document.addEventListener('DOMContentLoaded', function(){
     <p id="media-ponderada"><strong>Media ponderada</strong> — Media en la que cada sondeo pesa por recencia y, cuando se publica, por muestra. No es una media simple: un sondeo reciente o con más <code>n</code> puede pesar más.</p>
     <p id="media-por-casa"><strong>Media por casa (contraste)</strong> — Última encuesta de cada casa en 45 días, con peso igual por casa. Sirve para ver si la media principal está dominada por una encuestadora; no es la media principal.</p>
     <p id="ventana"><strong>Ventana</strong> — Periodo de sondeos que entra en la media: 14 días naturales contando hoy. Si no reúne cuatro sondeos, se amplía a los cuatro más recientes (máx. 90 días) y se indica «ventana ampliada».</p>
-    <p id="media-sin-cis"><strong>Media sin CIS</strong> — Prueba de sensibilidad: media calculada quitando el barómetro del CIS. No es una media alternativa «buena»; sirve para ver cuánto mueve un solo sondeo.</p>
+    <p id="media-sin-cis"><strong>Media sin CIS</strong> — Prueba de sensibilidad: media calculada quitando el barómetro del CIS; en la tabla se usa una ventana de 45 días para que el CIS entre en el contraste. No es una media alternativa «buena»; sirve para ver cuánto mueve un solo sondeo.</p>
     <p id="robustez"><strong>Robustez</strong> — Cobertura, diversidad de casas, antigüedad, muestra declarada y dispersión. Describe el dato; no puntúa encuestadoras ni estima acierto.</p>
     <p id="peso"><strong>Peso</strong> — Cuánto cuenta cada sondeo, fuente o casa en la media. La cuota por fuente y la cuota por casa son ejes distintos y no se suman.</p>
     <p id="mediana"><strong>Mediana</strong> — Valor central. Resiste mejor los extremos; si se separa mucho de la media, hay outliers.</p>
-    <p id="media-movil"><strong>Media móvil</strong> — Media calculada en una ventana (aquí, 14 días centrada). Suaviza el ruido; no anticipa el resultado.</p>
+    <p id="media-movil"><strong>Media móvil</strong> — Media calculada en una ventana (aquí, 14 días con ventana simétrica; en el borde derecho es truncada). Suaviza el ruido; no anticipa el resultado.</p>
     <p id="rango"><strong>Rango</strong> — Mínimo y máximo observados. No es una horquilla de probabilidad ni un intervalo de confianza: un solo sondeo puede fijar ambos extremos.</p>
     <p id="iqr"><strong>IQR</strong> — Rango intercuartílico: diferencia entre el percentil 75 y el 25. Describe la dispersión típica sin dejarse arrastrar por los extremos.</p>
     <p id="dispersion"><strong>Dispersión</strong> — Cuánto difieren los sondeos o las casas entre sí. Más dispersión = menos estabilidad de la media.</p>
@@ -289,11 +289,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202611031855" hidden>
+<div class="swupdate" id="swupdate" data-build="202611031917" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611031855');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611031917');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -322,7 +322,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202611031855', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202611031917', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

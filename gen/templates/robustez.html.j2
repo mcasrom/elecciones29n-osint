@@ -93,16 +93,16 @@
   {% endif %}
 
   <div class="card">
-    <div class="cardhead"><h2>Sensibilidad: CIS</h2><span class="hint">misma media sin el barómetro</span></div>
+    <div class="cardhead"><h2>Sensibilidad: CIS</h2><span class="hint">ventana 45 d · no altera la media principal</span></div>
     <div class="tablewrap"><table>
-      <thead><tr><th>Partido</th><th>Media</th><th>Sin CIS</th><th>Δ</th></tr></thead>
+      <thead><tr><th>Partido</th><th>Media 14 d</th><th>Sin CIS (45 d)</th></tr></thead>
       <tbody>
       {% for p in parties[:8] %}
-        <tr><td><strong>{{ p.party }}</strong></td><td class="num">{{ fmt_pct(p.mean) }}%</td><td class="num">{% if p.mean_sin_cis is not none %}{{ fmt_pct(p.mean_sin_cis) }}%{% else %}—{% endif %}</td><td class="num">{% if p.mean_sin_cis is not none %}{{ "%+.1f"|format(p.mean_sin_cis - p.mean) }} pp{% else %}—{% endif %}</td></tr>
+        <tr><td><strong>{{ p.party }}</strong></td><td class="num">{{ fmt_pct(p.mean) }}%</td><td class="num">{% if p.mean_sin_cis_45d is not none %}{{ fmt_pct(p.mean_sin_cis_45d) }}%{% else %}—{% endif %}</td></tr>
       {% endfor %}
       </tbody>
     </table></div>
-    <p class="muted small">{{ n_polls }} sondeos · sin CIS {{ n_polls_sin_cis }}. Es una prueba de sensibilidad, no una media alternativa “buena” ni un pronóstico.</p>
+    <p class="muted small">{{ n_polls }} sondeos · sin CIS (45 d): {{ n_polls_sin_cis_45d }}. Es una prueba de sensibilidad, no una media alternativa “buena” ni un pronóstico.</p>
   </div>
 
   {% if sensitivity %}

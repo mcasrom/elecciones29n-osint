@@ -1411,7 +1411,7 @@ def write_robustez_data(latest: dict) -> None:
     os.makedirs(os.path.join(OUT, "data"), exist_ok=True)
     keys = ("party", "mean", "median", "min", "max", "n", "mean_sin_cis",
             "median_sin_cis", "min_sin_cis", "max_sin_cis", "n_sin_cis",
-            "n_houses", "iqr")
+            "mean_sin_cis_45d", "n_sin_cis_45d", "n_houses", "iqr")
     payload = {
         "generado": latest.get("updated_at"),
         "n_polls": latest.get("n_polls"),
@@ -2082,8 +2082,8 @@ def main(out: str = "web") -> None:
     psoe_row = next((p for p in parties if p.get("party") == "PSOE"), None)
     gap_sin_cis = None
     if pp_row and psoe_row:
-        pp_sin = pp_row.get("mean_sin_cis")
-        psoe_sin = psoe_row.get("mean_sin_cis")
+        pp_sin = pp_row.get("mean_sin_cis_45d")
+        psoe_sin = psoe_row.get("mean_sin_cis_45d")
         if pp_sin is not None and psoe_sin is not None:
             gap_sin_cis = round(pp_sin - psoe_sin, 2)
 
@@ -2111,6 +2111,7 @@ def main(out: str = "web") -> None:
         "poll_dates": latest.get("poll_dates", []),
         "n_polls": latest.get("n_polls", 0),
         "n_polls_sin_cis": latest.get("n_polls_sin_cis", 0),
+        "n_polls_sin_cis_45d": latest.get("n_polls_sin_cis_45d", 0),
         "pp_mean": next((p["mean"] for p in parties if p["party"] == "PP"), None),
         "psoe_mean": next((p["mean"] for p in parties if p["party"] == "PSOE"), None),
         "sources": latest.get("sources", []),

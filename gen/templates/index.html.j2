@@ -53,7 +53,7 @@
       <div class="hero-kpis">
         <div class="hk"><b>{{ days_to_election }}</b><span>días para el 29N</span></div>
         <div class="hk"><b>{{ n_polls }}</b><span>sondeos en la media</span></div>
-        <div class="hk accent"><b>{% if gap_pp_psoe is not none %}+{{ "%.1f"|format(gap_pp_psoe) }}{% else %}—{% endif %}</b><span>puntos PP–PSOE{% if gap_pp_psoe_sin_cis is not none %}<br>sin CIS: +{{ "%.1f"|format(gap_pp_psoe_sin_cis) }}{% endif %}</span></div>
+        <div class="hk accent"><b>{% if gap_pp_psoe is not none %}+{{ "%.1f"|format(gap_pp_psoe) }}{% else %}—{% endif %}</b><span>puntos PP–PSOE{% if gap_pp_psoe_sin_cis is not none %}<br>sin CIS 45 d: +{{ "%.1f"|format(gap_pp_psoe_sin_cis) }}{% endif %}</span></div>
         <div class="hk"><b>176</b><span>mayoría absoluta</span></div>
       </div>
 
@@ -131,15 +131,15 @@
     <div class="card">
       <div class="cardhead"><h2>Media por partido</h2><span class="hint">{% if window_span %}{{ window_span }}{% endif %}{% if window_extended %} · ventana ampliada{% endif %}</span></div>
       <div class="tablewrap"><table>
-        <thead><tr><th>Partido</th><th>Media</th><th>Sin CIS</th><th>Mediana</th><th>Mín</th><th>Máx</th><th>n (14 d)</th><th>Casas (45 d)</th><th>Casas (14 d)</th><th>IQR</th></tr></thead>
+        <thead><tr><th>Partido</th><th>Media</th><th>Sin CIS (45 d)</th><th>Mediana</th><th>Mín</th><th>Máx</th><th>n (14 d)</th><th>Casas (45 d)</th><th>Casas (14 d)</th><th>IQR</th></tr></thead>
         <tbody>
         {% for p in parties_table %}
-          <tr><td><strong>{{ p.party }}</strong>{% if p.n < 4 or (p.n_houses_recent and p.n_houses_recent < 3) %}<span title="n&lt;4 o menos de 3 casas en 14 d: media frágil" style="color:#f2c94c">*</span>{% endif %}</td><td class="num">{{ "%.2f"|format(p.mean) }}%</td><td class="num">{% if p.mean_sin_cis is not none %}{{ "%.2f"|format(p.mean_sin_cis) }}%{% else %}—{% endif %}</td><td class="num">{{ "%.2f"|format(p.median) }}%</td><td class="num">{{ "%.2f"|format(p.min) }}%</td><td class="num">{{ "%.2f"|format(p.max) }}%</td><td class="num">{{ p.n }}</td><td class="num">{% if p.n_houses_window %}{{ p.n_houses_window }}{% else %}—{% endif %}</td><td class="num">{% if p.n_houses_recent %}{{ p.n_houses_recent }}{% else %}—{% endif %}</td><td class="num">{% if p.iqr is not none %}{{ "%.1f"|format(p.iqr) }}{% else %}—{% endif %}</td></tr>
+          <tr><td><strong>{{ p.party }}</strong>{% if p.n < 4 or (p.n_houses_recent and p.n_houses_recent < 3) %}<span title="n&lt;4 o menos de 3 casas en 14 d: media frágil" style="color:#f2c94c">*</span>{% endif %}</td><td class="num">{{ "%.2f"|format(p.mean) }}%</td><td class="num">{% if p.mean_sin_cis_45d is not none %}{{ "%.2f"|format(p.mean_sin_cis_45d) }}%{% else %}—{% endif %}</td><td class="num">{{ "%.2f"|format(p.median) }}%</td><td class="num">{{ "%.2f"|format(p.min) }}%</td><td class="num">{{ "%.2f"|format(p.max) }}%</td><td class="num">{{ p.n }}</td><td class="num">{% if p.n_houses_window %}{{ p.n_houses_window }}{% else %}—{% endif %}</td><td class="num">{% if p.n_houses_recent %}{{ p.n_houses_recent }}{% else %}—{% endif %}</td><td class="num">{% if p.iqr is not none %}{{ "%.1f"|format(p.iqr) }}{% else %}—{% endif %}</td></tr>
         {% endfor %}
         </tbody>
       </table></div>
-      <p class="muted small"><strong>Titular canónico:</strong> la <strong>media ponderada</strong>. La <strong>mediana</strong> y la columna <strong>sin CIS</strong> son pruebas de sensibilidad, no cifras alternativas para un titular. <a href="/prensa.html">Kit de prensa</a>.</p>
-      <p class="muted small"><strong>Mín–máx</strong> son los sondeos observados, no un intervalo de confianza: un solo sondeo puede fijar ambos extremos. La dispersión típica es el <strong>IQR</strong>. El <strong>CIS</strong> publica estimación de voto, no intención directa, y su efecto de casa es mayor. <strong>Sin CIS</strong> es una prueba de sensibilidad (misma media sin ese barómetro), no la media principal. <span style="color:#b45309">*</span> n&lt;4 o menos de 3 casas: media frágil.</p>
+      <p class="muted small"><strong>Titular canónico:</strong> la <strong>media ponderada</strong>. La <strong>mediana</strong> y la columna <strong>sin CIS (45 d)</strong> son pruebas de sensibilidad, no cifras alternativas para un titular. <a href="/prensa.html">Kit de prensa</a>.</p>
+      <p class="muted small"><strong>Mín–máx</strong> son los sondeos observados, no un intervalo de confianza: un solo sondeo puede fijar ambos extremos. La dispersión típica es el <strong>IQR</strong>. El <strong>CIS</strong> publica estimación de voto, no intención directa, y su efecto de casa es mayor. <strong>Sin CIS (45 d)</strong> es una prueba de sensibilidad: misma ponderación, ventana de 45 días y sin el barómetro del CIS. No es la media principal. Incluye el CIS del 14/10 en la ventana de contraste, pero no en el cálculo de la columna. <span style="color:#b45309">*</span> n&lt;4 o menos de 3 casas: media frágil.</p>
       <p class="muted small">«Otros» es el residual de las casas que lo publican; en Onda Cero incluye ERC, Junts, Bildu y PNV. Por eso los partidos territoriales van en la tabla de abajo y <strong>no se suman</strong> a la principal. Suma de los partidos listados: <strong>{{ "%.1f"|format(table_sum) }} %</strong>; no es 100 % ni una cuota de voto total (faltan minoritarios). Actualizado: {{ updated_at }}. Ponderación: {{ weight_basis }}.{% if weights and weights.top_source %} Hoy el {{ "%.1f"|format(weights.top_source_share_pct) }} % del peso viene de la <strong>fuente</strong> <strong>{{ weights.top_source }}</strong>{% if weights.top_source == "Onda Cero" %} (compilación; no publica <code>n</code>){% endif %}; la <strong>casa</strong> con más peso es <strong>{{ weights.top_house }}</strong> ({{ "%.1f"|format(weights.top_share_pct) }} %). Fuente y casa no se suman; <a href="/robustez.html#peso">ver el reparto</a>.{% endif %} <a href="/data/latest.json">Descargar JSON</a> · <a href="/metodologia.html">Cómo se calcula</a> · <a href="/como-leer.html">Cómo leer</a> · <a href="/glosario.html">Glosario</a></p>
       {% if parties_territorial %}
       <h3 style="margin:16px 0 6px;font-size:15px">Partidos territoriales</h3>
@@ -159,7 +159,7 @@
       <div class="cardhead"><h2>Preguntas frecuentes</h2></div>
       <details><summary><strong>¿Es un pronóstico?</strong></summary><p class="muted small">No. Es la media de sondeos publicados con su rango. No anticipa el resultado del 29N.</p></details>
       <details><summary><strong>¿Puedo publicar esto durante el blackout?</strong></summary><p class="muted small">No. Del 24 al 28 de noviembre de 2026 no se publican, difunden ni reproducen sondeos. La agregación y sus JSON se retiran.</p></details>
-      <details><summary><strong>¿De dónde salen los datos?</strong></summary><p class="muted small">De sondeos publicados por Onda Cero (compilación), Electomanía (paneles propios) y el CIS, con enlace a la fuente y fecha. Se descartan autonómicos, adelantos incompletos y piezas sin ficha verificable.</p></details>
+      <details><summary><strong>¿De dónde salen los datos?</strong></summary><p class="muted small">De sondeos publicados por Onda Cero (compilación; si no hay pieza original se marca «vía Onda Cero»), Electomanía (paneles propios), el CIS y los medios con encuesta propia: elDiario/Ateneo, El Español/Sociométrica, El Mundo/Sigma Dos y La Razón/NC Report. Cada fila lleva enlace y fecha. Se descartan autonómicos, adelantos incompletos y piezas sin ficha verificable.</p></details>
       <details><summary><strong>¿Por qué mostrar el rango y no solo la media?</strong></summary><p class="muted small">Porque la dispersión entre encuestadoras es parte del dato. Una cifra única oculta la incertidumbre.</p></details>
     </div>
 
@@ -237,7 +237,7 @@
       <div class="cardhead"><h2>Variación de los sondeos en el tiempo</h2><span class="hint">{% if series_span %}{{ series_span }}{% endif %}</span></div>
       {% if sparks_svg %}
       {{ sparks_svg|safe }}
-      <p class="muted small" style="margin-top:12px">Cifra grande = última media móvil de 14 días (centrada); delta = cambio de esa media móvil entre el inicio y el final del periodo. La línea es la media móvil y los puntos son sondeos individuales: un punto aislado (p. ej. CIS) no marca la tendencia. Solo se muestran los seis partidos con más media actual.</p>
+      <p class="muted small" style="margin-top:12px">Cifra grande = última media móvil de 14 días (ventana simétrica; en el último punto es truncada porque no hay datos futuros). delta = cambio de esa media móvil entre el inicio y el final del periodo. La línea es la media móvil y los puntos son sondeos individuales: un punto aislado (p. ej. CIS) no marca la tendencia. Solo se muestran los seis partidos con más media actual.</p>
       {% else %}
       <p class="muted">Aún no hay suficientes sondeos para mostrar una serie.</p>
       {% endif %}
@@ -249,7 +249,7 @@
       <div class="legend">
         {% for l in chart_legend %}<span class="lg"><i style="background:{{ l.color }}"></i>{{ l.party }}</span>{% endfor %}
       </div>
-      <p class="muted small" style="margin-top:6px">Eje vertical: media de voto (%). La <strong>línea gruesa</strong> es la media móvil de 14 días (centrada); los <strong>puntos</strong> son sondeos individuales (pasa el cursor para ver casa/fecha). Un punto aislado, como el CIS, no marca la tendencia: la media agregada es la de la tabla.</p>
+      <p class="muted small" style="margin-top:6px">Eje vertical: media de voto (%). La <strong>línea gruesa</strong> es la media móvil de 14 días (ventana simétrica; truncada en el borde derecho); los <strong>puntos</strong> son sondeos individuales (pasa el cursor para ver casa/fecha). Un punto aislado, como el CIS, no marca la tendencia: la media agregada es la de la tabla.</p>
     </div>
     {% endif %}
   </section>
@@ -278,12 +278,13 @@
     </div>
 
     <div class="card">
-      <div class="cardhead"><h2>Aritmética de bloques (no coalición)</h2></div>
+      <div class="cardhead"><h2>Bloques sin territoriales (no coalición)</h2></div>
       <div class="blocks">
         <div class="block"><span>PP + VOX</span><b>{% if bloc_right is not none %}{{ "%.1f"|format(bloc_right) }}%{% else %}—{% endif %}</b></div>
         <div class="block"><span>PSOE + SUMAR + Podemos</span><b>{% if bloc_left is not none %}{{ "%.1f"|format(bloc_left) }}%{% else %}—{% endif %}</b></div>
+        <div class="block"><span>No asignado (territoriales y otros)</span><b>{% if bloc_right is not none and bloc_left is not none %}{{ "%.1f"|format(100 - bloc_right - bloc_left) }}%{% else %}—{% endif %}</b></div>
       </div>
-      <p class="muted small">Suma de medias de voto, no de escaños. No es una coalición, una investidura ni una proyección: solo una resta aritmética entre bloques.</p>
+      <p class="muted small">Suma de medias de voto, no de escaños. No es una coalición, una investidura ni una proyección: solo una resta aritmética. ERC, Junts, Bildu, PNV, BNG, CC y el resto no se asignan a ninguno de los dos bloques.</p>
     </div>
   </section>
 

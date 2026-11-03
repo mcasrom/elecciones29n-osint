@@ -32,6 +32,7 @@ dato, no en una nota al pie.
 - **D'Hondt nacional:** fuera de la portada. Un distrito único de 350 escaños asignaba todo a cuatro partidos y producía «otros: 0»; `/hemiciclo.html` queda como material de método con aviso.
 - **Pesos:** topes de **25 % por casa** y **40 % por fuente**. Hoy muerde el de fuente: Onda Cero baja de 47,7 % a 40,0 %. Se mantiene una entrada por casa y oleada.
 - **Contador de días:** diferencia de fechas naturales: 26 al 29N y 21 al blackout a 3-nov.
+- **Sin CIS:** columna de sensibilidad a **45 días** (incluye el CIS del 14/10 en la ventana de contraste, sin usarlo en el cálculo). La media principal no cambia.
 - **Gráfico duplicado:** retirado de «Agregado»; queda uno en «Evolución».
 - Auditoría completa y P1 pendiente: [`docs/AUDITORIA-20261103.md`](docs/AUDITORIA-20261103.md).
 

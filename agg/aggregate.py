@@ -517,6 +517,14 @@ def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[st
                 "max_sin_cis": round(max(vals_s), 2),
                 "n_sin_cis": len(vals_s),
             }
+        rows_sin45 = [r for r in tracking if r["party"] == party and r["date"].date() >= house_cutoff and (r.get("pollster") or "") != "CIS"]
+        if rows_sin45:
+            vals_s45 = [r["value"] for r in rows_sin45]
+            ws_s45 = [_weight(r, now) for r in rows_sin45]
+            wsum_s45 = sum(ws_s45)
+            mean_s45 = sum(v * w for v, w in zip(vals_s45, ws_s45)) / wsum_s45 if wsum_s45 else sum(vals_s45) / len(vals_s45)
+            sin["mean_sin_cis_45d"] = round(mean_s45, 2)
+            sin["n_sin_cis_45d"] = len({(r["date"].strftime("%Y-%m-%d"), r.get("pollster")) for r in rows_sin45})
         parties.append(
             {
                 "party": party,
@@ -545,6 +553,7 @@ def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[st
     poll_dates = sorted({p["date"].strftime("%Y-%m-%d") for p in recent})
     n_polls = len({(p["date"].strftime("%Y-%m-%d"), p.get("pollster")) for p in recent})
     n_polls_sin_cis = len({(p["date"].strftime("%Y-%m-%d"), p.get("pollster")) for p in recent if (p.get("pollster") or "") != "CIS"})
+    n_polls_sin_cis_45d = len({(p["date"].strftime("%Y-%m-%d"), p.get("pollster")) for p in tracking if p["date"].date() >= house_cutoff and (p.get("pollster") or "") != "CIS"})
     sources = sorted({p["source_url"] for p in recent if p.get("source_url")})
     means = {p["party"]: p["mean"] for p in parties}
     pollsters = sorted({p.get("pollster") for p in recent if p.get("pollster")})
@@ -660,6 +669,7 @@ def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[st
         "poll_dates": poll_dates,
         "n_polls": n_polls,
         "n_polls_sin_cis": n_polls_sin_cis,
+        "n_polls_sin_cis_45d": n_polls_sin_cis_45d,
         "low_n": n_polls < LOW_N,
         "window_extended": extended,
         "window_span": (

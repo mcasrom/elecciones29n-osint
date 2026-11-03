@@ -13,7 +13,7 @@
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/fuentes.html">
 <link rel="alternate" hreflang="es" href="https://elecciones29n.pruebapublica.com/fuentes.html"><link rel="alternate" hreflang="en" href="https://elecciones29n.pruebapublica.com/en/data.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202611031855">
+<link rel="stylesheet" href="/css/main.css?v=202611031917">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -206,9 +206,9 @@ document.addEventListener('DOMContentLoaded', function(){
     <div class="cardhead"><h2>Higiene y licencias</h2></div>
     <ul class="muted small">
       <li>Se descartan paneles autonómicos, adelantos incompletos y textos que no suman un rango plausible.</li>
-      <li><strong>Onda Cero</strong>: se usan los <strong>sondeos individuales</strong> de su compilación (14 casas), no su promedio. La fecha es de <strong>publicación</strong>, no de campo. «Otros» es un residual y no se usa en los gráficos de partidos. No se reproducen sus tablas, gráficos ni bases de datos; su reutilización requiere autorización.</li>
+      <li><strong>Onda Cero</strong>: se usan los <strong>sondeos individuales</strong> de su compilación (14 casas), no su promedio. La fecha es de <strong>publicación</strong>, no de campo. «Otros» es un residual y no se usa en los gráficos de partidos. No se reproducen sus tablas, gráficos ni bases de datos; se usan los valores individuales con atribución y enlace. La autorización de reutilización está solicitada y no se ha concedido.</li>
       <li><strong>CIS</strong>: barómetro añadido a mano desde su PDF, con muestra y fecha. <strong>Política Sin Ruido</strong> se usa como contraste metodológico (una encuesta por casa), no como fuente de la media.</li>
-      <li><strong>Actualización</strong>: Electomanía y Onda Cero a las 08:00 y refresco 14:00/20:00; los medios con tabla en HTML/imagen pasan por cola de revisión y no se publican parciales. Si la ingesta o la validación fallan, no se publica: se conserva la última versión buena.</li>
+      <li><strong>Actualización</strong>: Electomanía y Onda Cero a las 06:15 y refresco 14:15/20:15; los medios con tabla en HTML/imagen pasan por cola de revisión y no se publican parciales. Si la ingesta o la validación fallan, no se publica: se conserva la última versión buena.</li>
       <li><strong>INE</strong>: reutilización con cita de la fuente (CC BY 4.0 en los datos derivados).</li>
       <li><strong>JEC / BOE</strong>: reutilización citando la fuente.</li>
       <li><strong>Electomanía</strong>: <strong>autorización escrita del 23-oct-2026</strong> para usar los datos en abierto del ElectoPanel (voto y escaños), histórico incluido, sin coste, con <strong>«Fuente: Electomanía»</strong> y enlace a cada pieza. Se usan los escaños publicados y no se recalculan; no se reproducen tablas, gráficos, artículos completos ni microdatos.</li>
@@ -302,11 +302,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202611031855" hidden>
+<div class="swupdate" id="swupdate" data-build="202611031917" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611031855');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611031917');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -335,7 +335,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202611031855', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202611031917', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

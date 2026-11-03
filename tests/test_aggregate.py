@@ -195,6 +195,17 @@ class AggregateTest(unittest.TestCase):
         self.assertEqual(srcs["CIS"]["n_houses"], 1)
         self.assertAlmostEqual(sum(s["share_pct"] for s in w["sources"]), 100.0, places=0)
 
+    def test_sin_cis_45d_uses_old_cis_window_without_touching_main(self):
+        res = self.run_with([
+            ("PP", "2026-11-02", 30.0, "u", 1000, "A", "tracking"),
+            ("PP", "2026-10-20", 20.0, "u", 1000, "B", "tracking"),
+            ("PP", "2026-10-14", 40.0, "https://www.cis.es/x", 1000, "CIS", "tracking"),
+        ], now=datetime(2026, 11, 3, 15, 0, tzinfo=TZ))
+        p = next(x for x in res["parties"] if x["party"] == "PP")
+        self.assertLess(p["mean_sin_cis_45d"], p["mean"])
+        self.assertEqual(p["n_sin_cis_45d"], 2)
+        self.assertEqual(res["n_polls_sin_cis_45d"], 2)
+
     def test_days_are_natural_dates_not_hour_truncation(self):
         res = self.run_with(
             [("X", "2026-11-03", 10.0, "u", 1000, "A", "tracking")],

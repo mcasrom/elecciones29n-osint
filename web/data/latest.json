@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-03 18:55 CET",
-  "updated_at_iso": "2026-11-03T18:55:51.908523+01:00",
+  "updated_at": "2026-11-03 19:17 CET",
+  "updated_at_iso": "2026-11-03T19:17:06.285860+01:00",
   "in_blackout": false,
   "window_days": 14,
   "parties": [
@@ -31,6 +31,8 @@
       "min_sin_cis": 28.5,
       "max_sin_cis": 33.0,
       "n_sin_cis": 12,
+      "mean_sin_cis_45d": 31.56,
+      "n_sin_cis_45d": 35,
       "n_houses": 15,
       "iqr": 3.6
     },
@@ -61,6 +63,8 @@
       "min_sin_cis": 24.6,
       "max_sin_cis": 27.6,
       "n_sin_cis": 12,
+      "mean_sin_cis_45d": 26.32,
+      "n_sin_cis_45d": 35,
       "n_houses": 15,
       "iqr": 2.4
     },
@@ -91,6 +95,8 @@
       "min_sin_cis": 18.6,
       "max_sin_cis": 20.0,
       "n_sin_cis": 12,
+      "mean_sin_cis_45d": 19.17,
+      "n_sin_cis_45d": 35,
       "n_houses": 15,
       "iqr": 1.1
     },
@@ -120,6 +126,8 @@
       "min_sin_cis": 7.0,
       "max_sin_cis": 14.9,
       "n_sin_cis": 10,
+      "mean_sin_cis_45d": 11.51,
+      "n_sin_cis_45d": 28,
       "n_houses": 14,
       "iqr": 1.97
     },
@@ -150,6 +158,8 @@
       "min_sin_cis": 4.6,
       "max_sin_cis": 8.9,
       "n_sin_cis": 12,
+      "mean_sin_cis_45d": 6.45,
+      "n_sin_cis_45d": 35,
       "n_houses": 15,
       "iqr": 1.3
     },
@@ -176,6 +186,8 @@
       "min_sin_cis": 2.0,
       "max_sin_cis": 2.5,
       "n_sin_cis": 5,
+      "mean_sin_cis_45d": 2.24,
+      "n_sin_cis_45d": 10,
       "n_houses": 2,
       "iqr": 1.2
     },
@@ -206,6 +218,8 @@
       "min_sin_cis": 1.7,
       "max_sin_cis": 2.8,
       "n_sin_cis": 12,
+      "mean_sin_cis_45d": 2.35,
+      "n_sin_cis_45d": 35,
       "n_houses": 15,
       "iqr": 0.8
     },
@@ -233,6 +247,8 @@
       "min_sin_cis": 1.2,
       "max_sin_cis": 2.6,
       "n_sin_cis": 7,
+      "mean_sin_cis_45d": 1.95,
+      "n_sin_cis_45d": 24,
       "n_houses": 11,
       "iqr": 0.8
     },
@@ -259,6 +275,8 @@
       "min_sin_cis": 1.2,
       "max_sin_cis": 1.8,
       "n_sin_cis": 5,
+      "mean_sin_cis_45d": 1.34,
+      "n_sin_cis_45d": 10,
       "n_houses": 2,
       "iqr": 0.15
     },
@@ -285,6 +303,8 @@
       "min_sin_cis": 1.2,
       "max_sin_cis": 1.4,
       "n_sin_cis": 5,
+      "mean_sin_cis_45d": 1.35,
+      "n_sin_cis_45d": 10,
       "n_houses": 2,
       "iqr": 0.3
     },
@@ -311,6 +331,8 @@
       "min_sin_cis": 0.8,
       "max_sin_cis": 1.0,
       "n_sin_cis": 5,
+      "mean_sin_cis_45d": 0.94,
+      "n_sin_cis_45d": 10,
       "n_houses": 2,
       "iqr": 0.45
     }
@@ -3480,6 +3502,7 @@
   ],
   "n_polls": 12,
   "n_polls_sin_cis": 12,
+  "n_polls_sin_cis_45d": 35,
   "low_n": false,
   "window_extended": false,
   "window_span": "2026-10-23 – 2026-11-02",

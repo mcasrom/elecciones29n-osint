@@ -16,11 +16,11 @@
   <p class="muted" style="margin:0 0 12px">Para medios y analistas. Una cifra canónica, su rango y el método. El observatorio mide sondeos publicados; <strong>no es un pronóstico</strong>.</p>
 
   <div class="card">
-    <div class="cardhead"><h2>Titular canónico</h2><span class="hint">usa esta cifra, no la mediana ni la columna sin CIS</span></div>
+    <div class="cardhead"><h2>Titular canónico</h2><span class="hint">usa esta cifra, no la mediana ni la columna sin CIS (45 d)</span></div>
     {% if pp and psoe %}
     <p style="font-size:20px;line-height:1.45;margin:0 0 10px"><strong>La media ponderada del 29N sitúa al PP en {{ fmt_pct(pp.mean) }}% (rango {{ fmt_pct(pp.min) }}–{{ fmt_pct(pp.max) }}) y al PSOE en {{ fmt_pct(psoe.mean) }}% (rango {{ fmt_pct(psoe.min) }}–{{ fmt_pct(psoe.max) }}), con {{ n_polls }} sondeos.</strong></p>
     {% endif %}
-    <p class="muted small">La <strong>media ponderada</strong> es el titular. La <strong>mediana</strong> y la <strong>media sin CIS</strong> son pruebas de sensibilidad: sirven para explicar la robustez, no para sustituir la cifra principal.</p>
+    <p class="muted small">La <strong>media ponderada</strong> es el titular. La <strong>mediana</strong> y la <strong>media sin CIS (45 d)</strong> son pruebas de sensibilidad: sirven para explicar la robustez, no para sustituir la cifra principal.</p>
     <p class="muted small">Actualizado: {{ updated_at }} · último sondeo: {{ last_poll_date or "—" }} · ventana: {{ window_span or "—" }}.</p>
   </div>
 
@@ -65,7 +65,7 @@
     <div class="cardhead"><h2>Antes de publicar</h2></div>
     <ul class="muted">
       <li>Comprueba que la cifra lleva su <strong>rango</strong> y la fecha del último sondeo.</li>
-      <li>No presentes la mediana o la columna sin CIS como “la media”.</li>
+      <li>No presentes la mediana o la columna sin CIS (45 d) como “la media”.</li>
       <li>Durante el <strong>24–28 de noviembre</strong> no se publican ni difunden sondeos; los datos retirados responden 410.</li>
       <li>Si citas una provincia, enlaza su ficha y no la presentes como proyección.</li>
     </ul>
