@@ -138,7 +138,7 @@ def render(latest: dict, sub: dict, why: str) -> tuple[str, str, str]:
     return subject, html, text
 
 
-def send(to: str, subject: str, html: str, text: str) -> bool:
+def send(to: str, subject: str, html: str, text: str, sub_id: str | None = None) -> bool:
     e = env()
     key = e.get("RESEND_API_KEY", "")
     if not key:
@@ -147,8 +147,14 @@ def send(to: str, subject: str, html: str, text: str) -> bool:
     sender = e.get("RESEND_FROM", FROM_DEFAULT)
     if "<" not in sender:
         sender = f"Observatorio 29N <{sender}>"
-    payload = json.dumps({"from": sender, "to": [to], "reply_to": REPLY,
-                          "subject": subject, "html": html, "text": text}).encode()
+    data = {"from": sender, "to": [to], "reply_to": REPLY,
+            "subject": subject, "html": html, "text": text}
+    if sub_id:
+        data["headers"] = {
+            "List-Unsubscribe": f"<{BASE}/api/unsubscribe?id={sub_id}>",
+            "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+        }
+    payload = json.dumps(data).encode()
     req = urllib.request.Request(
         "https://api.resend.com/emails", data=payload,
         headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json",
@@ -156,6 +162,13 @@ def send(to: str, subject: str, html: str, text: str) -> bool:
         method="POST")
     try:
         with urllib.request.urlopen(req, timeout=20) as r:
+            body = r.read(500).decode("utf-8", "replace")
+            try:
+                rid = json.loads(body).get("id", "")
+            except Exception:
+                rid = ""
+            if rid:
+                print(f"resend id: {rid}")
             return 200 <= r.status < 300
     except urllib.error.HTTPError as ex:
         print(f"Resend HTTP {ex.code}: {ex.read(300).decode('utf-8','replace')}", file=sys.stderr)
@@ -237,7 +250,7 @@ def main() -> int:
         if not a.force and row["last_sent_fingerprint"] == fp:
             continue
         subject, html, text = render(latest, dict(row), why)
-        if send(row["email"], subject, html, text):
+        if send(row["email"], subject, html, text, row["id"]):
             con.execute("UPDATE subscribers SET last_sent_at=?, last_sent_fingerprint=? WHERE id=?",
                         (datetime.now(timezone.utc).isoformat(timespec="seconds"), fp, row["id"]))
             con.commit()
