@@ -4,6 +4,7 @@
 Formato:
   tipo,clave,valor,fuente_url
   participacion,,66.50,https://…
+  validos,,24300000,https://…
   diputados,PP,137,https://…
   votos,PP,8160837,https://…
 
@@ -33,6 +34,7 @@ def main() -> int:
         return 0
 
     part = None
+    validos = None
     seats: dict[str, int] = {}
     votes: dict[str, int] = {}
     fuente = ""
@@ -52,6 +54,11 @@ def main() -> int:
                 if not (0 <= v <= 100):
                     raise ValueError("participación fuera de 0–100")
                 part = v
+            elif tipo == "validos":
+                v = int(val)
+                if v <= 0:
+                    raise ValueError("votos válidos debe ser > 0")
+                validos = v
             elif tipo == "diputados":
                 if clave not in PARTIES:
                     raise ValueError(f"partido desconocido: {clave}")
@@ -79,6 +86,9 @@ def main() -> int:
     if part is None and not seats and not votes:
         print("sin datos válidos")
         return 1
+    if votes and not validos:
+        print("ERROR: faltan votos válidos (tipo validos) para calcular porcentajes")
+        return 1
     if not fuente:
         print("AVISO: sin fuente_url; no se publicará como oficial")
         return 1
@@ -90,6 +100,7 @@ def main() -> int:
             "actualizado": datetime.now(timezone.utc).isoformat(),
         },
         "participacion": part,
+        "votos_validos": validos,
         "diputados": dict(sorted(seats.items(), key=lambda kv: -kv[1])),
         "votos": dict(sorted(votes.items(), key=lambda kv: -kv[1])),
     }

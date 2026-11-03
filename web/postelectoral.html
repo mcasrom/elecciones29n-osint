@@ -13,7 +13,7 @@
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/postelectoral.html">
 <link rel="alternate" hreflang="es" href="https://elecciones29n.pruebapublica.com/postelectoral.html"><link rel="alternate" hreflang="en" href="https://elecciones29n.pruebapublica.com/en/post-election.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202611031932">
+<link rel="stylesheet" href="/css/main.css?v=202611031942">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function(){
     <ul class="muted">
       <li><strong>Media pre-electoral vs resultado oficial</strong> por partido, con error en puntos porcentuales.</li>
       <li><strong>MAE y sesgo medio</strong>: error absoluto medio y signo del error (si la media sobrestimó o subestimó).</li>
-      <li><strong>Escaños simulados vs escaños oficiales</strong>, con la distancia en cada partido.</li>
+      <li><strong>Error por casa</strong>: última pieza de cada casa frente al oficial, solo PP y PSOE cuando están publicados.</li>
       <li><strong>Foto congelada</strong>: fecha y número de sondeos de la última media antes del blackout.</li>
       <li><strong>Fuente</strong> oficial y fecha de actualización del escrutinio.</li>
     </ul>
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function(){
     <ul class="muted">
       <li>La foto pre-electoral se guarda automáticamente en los builds del 1 al 23 de noviembre; el último build antes del blackout es el que cuenta.</li>
       <li>Los resultados se importan desde el escenario oficial con <code>scripts/import_resultados.py</code>; sin fuente, no se publica.</li>
-      <li>El error se calcula sobre votos a partidos, no sobre escaños, salvo la tabla específica de escaños.</li>
+      <li>El error se calcula sobre votos a partidos y votos válidos oficiales. No se comparan escaños simulados: la simulación nacional no es un reparto real.</li>
       <li>No se comparan casas individuales con el resultado si no publicaron una pieza pre-electoral verificable.</li>
     </ul>
   </div>
@@ -229,11 +229,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202611031932" hidden>
+<div class="swupdate" id="swupdate" data-build="202611031942" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611031932');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611031942');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -262,7 +262,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202611031932', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202611031942', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

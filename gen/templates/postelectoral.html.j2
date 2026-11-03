@@ -22,7 +22,7 @@
     <ul class="muted">
       <li><strong>Media pre-electoral vs resultado oficial</strong> por partido, con error en puntos porcentuales.</li>
       <li><strong>MAE y sesgo medio</strong>: error absoluto medio y signo del error (si la media sobrestimó o subestimó).</li>
-      <li><strong>Escaños simulados vs escaños oficiales</strong>, con la distancia en cada partido.</li>
+      <li><strong>Error por casa</strong>: última pieza de cada casa frente al oficial, solo PP y PSOE cuando están publicados.</li>
       <li><strong>Foto congelada</strong>: fecha y número de sondeos de la última media antes del blackout.</li>
       <li><strong>Fuente</strong> oficial y fecha de actualización del escrutinio.</li>
     </ul>
@@ -33,7 +33,7 @@
     <ul class="muted">
       <li>La foto pre-electoral se guarda automáticamente en los builds del 1 al 23 de noviembre; el último build antes del blackout es el que cuenta.</li>
       <li>Los resultados se importan desde el escenario oficial con <code>scripts/import_resultados.py</code>; sin fuente, no se publica.</li>
-      <li>El error se calcula sobre votos a partidos, no sobre escaños, salvo la tabla específica de escaños.</li>
+      <li>El error se calcula sobre votos a partidos y votos válidos oficiales. No se comparan escaños simulados: la simulación nacional no es un reparto real.</li>
       <li>No se comparan casas individuales con el resultado si no publicaron una pieza pre-electoral verificable.</li>
     </ul>
   </div>
@@ -57,21 +57,22 @@
   </div>
   {% endif %}
 
-  {% if calibration.seat_rows %}
+
+  {% if calibration.house_rows %}
   <div class="card">
-    <div class="cardhead"><h2>Escaños simulados vs oficiales</h2><span class="hint">simulación nacional D'Hondt</span></div>
+    <div class="cardhead"><h2>Error por casa</h2><span class="hint">última pieza · PP y PSOE · puntos</span></div>
     <div class="tablewrap"><table>
-      <thead><tr><th>Partido</th><th>Simulación</th><th>Oficial</th><th>Error</th></tr></thead>
-      <tbody>{% for r in calibration.seat_rows %}<tr><td><strong>{{ r.party }}</strong></td><td class="num">{{ r.sim }}</td><td class="num">{{ r.official }}</td><td class="num">{{ "%+d"|format(r.error) }}</td></tr>{% endfor %}</tbody>
+      <thead><tr><th>Casa</th><th>Fecha</th><th>Partido</th><th>Media</th><th>Oficial</th><th>Error</th></tr></thead>
+      <tbody>{% for r in calibration.house_rows %}<tr><td><strong>{{ r.pollster }}</strong></td><td>{{ r.date }}</td><td>{{ r.party }}</td><td class="num">{{ fmt_pct(r.poll) }}%</td><td class="num">{{ fmt_pct(r.official) }}%</td><td class="num">{{ "%+.2f"|format(r.error) }} pp</td></tr>{% endfor %}</tbody>
     </table></div>
-    <p class="muted small">La simulación no incorpora la asignación provincial ni los partidos territoriales; el error de escaños no es comparable al de votos.</p>
+    <p class="muted small">No se comparan casas sin ficha pre-electoral verificable. MAE por casa: {{ "%.2f"|format(calibration.house_mae) if calibration.house_mae is not none else "—" }} pp.</p>
   </div>
   {% endif %}
 
   <div class="card">
     <div class="cardhead"><h2>Fuente y método</h2></div>
     <p class="muted small">Resultado oficial: {% if calibration.official_url %}<a href="{{ calibration.official_url }}" target="_blank" rel="noopener">fuente</a>{% else %}—{% endif %} · actualizado: {{ calibration.official_updated or "—" }}. Foto pre-electoral: {{ calibration.snapshot_updated or "—" }} ({{ calibration.snapshot_n_polls or "—" }} sondeos).</p>
-    <p class="muted small">La media es la publicada antes del blackout, no una reconstrucción posterior. No se ajusta a posteriori para “acertar”.</p>
+    <p class="muted small">La media es la publicada antes del blackout, no una reconstrucción posterior. No se ajusta a posteriori para “acertar”. Denominador: {{ calibration.denominator_source }} ({{ calibration.votos_validos }} votos).</p>
   </div>
   {% endif %}
 

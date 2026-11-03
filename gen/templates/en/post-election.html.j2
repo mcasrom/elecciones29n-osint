@@ -23,7 +23,7 @@
     <ul class="muted">
       <li>Pre-election average vs official vote share by party, in percentage points.</li>
       <li>MAE and mean bias: did the average over- or underestimate?</li>
-      <li>Simulated seats vs official seats, with the gap by party.</li>
+      <li>Error by polling house: last verifiable poll vs official, PP and PSOE only.</li>
       <li>Snapshot date and number of polls; official source and update time.</li>
     </ul>
   </div>
@@ -32,7 +32,7 @@
     <ul class="muted">
       <li>The pre-election snapshot is saved automatically in builds from 1 to 23 November; the last build before the blackout is used.</li>
       <li>Official results are imported with <code>scripts/import_resultados.py</code>; no source, no publication.</li>
-      <li>Vote error uses votes for parties, not seats; the seat table is separate.</li>
+      <li>Vote error uses party votes and official valid votes. Simulated seats are not compared: the national simulation is not a real allocation.</li>
     </ul>
   </div>
 
@@ -55,14 +55,15 @@
   </div>
   {% endif %}
 
-  {% if calibration.seat_rows %}
+
+  {% if calibration.house_rows %}
   <div class="card">
-    <div class="cardhead"><h2>Simulated vs official seats</h2><span class="hint">national D'Hondt simulation</span></div>
+    <div class="cardhead"><h2>Error by polling house</h2><span class="hint">last poll · PP and PSOE · points</span></div>
     <div class="tablewrap"><table>
-      <thead><tr><th>Party</th><th>Simulation</th><th>Official</th><th>Error</th></tr></thead>
-      <tbody>{% for r in calibration.seat_rows %}<tr><td><strong>{{ r.party }}</strong></td><td class="num">{{ r.sim }}</td><td class="num">{{ r.official }}</td><td class="num">{{ "%+d"|format(r.error) }}</td></tr>{% endfor %}</tbody>
+      <thead><tr><th>House</th><th>Date</th><th>Party</th><th>Average</th><th>Official</th><th>Error</th></tr></thead>
+      <tbody>{% for r in calibration.house_rows %}<tr><td><strong>{{ r.pollster }}</strong></td><td>{{ r.date }}</td><td>{{ r.party }}</td><td class="num">{{ fmt_pct(r.poll) }}%</td><td class="num">{{ fmt_pct(r.official) }}%</td><td class="num">{{ "%+.2f"|format(r.error) }} pp</td></tr>{% endfor %}</tbody>
     </table></div>
-    <p class="muted small">The simulation does not include the provincial allocation or regional parties; seat error is not comparable to vote error.</p>
+    <p class="muted small">Houses without a verifiable pre-election record are not compared. House MAE: {{ "%.2f"|format(calibration.house_mae) if calibration.house_mae is not none else "—" }} pp.</p>
   </div>
   {% endif %}
 

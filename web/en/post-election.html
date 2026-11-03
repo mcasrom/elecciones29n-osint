@@ -15,7 +15,7 @@
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/en/post-election.html">
 <link rel="alternate" hreflang="es" href="https://elecciones29n.pruebapublica.com/postelectoral.html"><link rel="alternate" hreflang="en" href="https://elecciones29n.pruebapublica.com/en/post-election.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202611031932">
+<link rel="stylesheet" href="/css/main.css?v=202611031942">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function(){
     <ul class="muted">
       <li>Pre-election average vs official vote share by party, in percentage points.</li>
       <li>MAE and mean bias: did the average over- or underestimate?</li>
-      <li>Simulated seats vs official seats, with the gap by party.</li>
+      <li>Error by polling house: last verifiable poll vs official, PP and PSOE only.</li>
       <li>Snapshot date and number of polls; official source and update time.</li>
     </ul>
   </div>
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function(){
     <ul class="muted">
       <li>The pre-election snapshot is saved automatically in builds from 1 to 23 November; the last build before the blackout is used.</li>
       <li>Official results are imported with <code>scripts/import_resultados.py</code>; no source, no publication.</li>
-      <li>Vote error uses votes for parties, not seats; the seat table is separate.</li>
+      <li>Vote error uses party votes and official valid votes. Simulated seats are not compared: the national simulation is not a real allocation.</li>
     </ul>
   </div>
 

@@ -31,16 +31,23 @@ el portátil ni el servidor. La JEC sí, pero no publica resultados en vivo prop
 ```
 tipo,clave,valor,fuente_url
 participacion,,66.50,https://…
+validos,,24300000,https://…
 diputados,PP,137,https://…
 votos,PP,8160837,https://…
 ```
 
-- `tipo`: `participacion`, `diputados` o `votos`.
-- Validación: participación 0–100; escaños 0–350 y suma ≤350; partido conocido;
-  **fuente obligatoria**.
+- `tipo`: `participacion`, `validos`, `diputados` o `votos`.
+- Validación: participación 0–100; escaños 0–350 y suma ≤350; votos válidos > 0;
+  partido conocido; **fuente obligatoria**.
+- Si hay `votos`, `validos` es obligatorio: los porcentajes oficiales se calculan
+  sobre votos válidos, no sobre la suma de los partidos importados.
 - Salida: `data/resultados_29n.json` → bloque de resultados en
   `/noche-electoral.html` (participación, escaños y fuente).
 - Si no hay fuente, **no se publica**.
+
+La **calibración post-electoral** compara voto y última pieza por casa. No
+compara escaños simulados con escaños oficiales: la simulación nacional no es
+un reparto real.
 
 ## Qué se publica y cuándo
 

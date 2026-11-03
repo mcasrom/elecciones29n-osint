@@ -1081,19 +1081,28 @@ def build_house_compare(house: dict, parties: list) -> list:
 
 
 def build_calibration(resultados: dict, snapshot: dict) -> dict:
-    """Comparación pre-electoral vs escrutinio oficial, si ambos existen."""
+    """Comparación pre-electoral vs escrutinio oficial, si ambos existen.
+
+    Solo comparación de voto: la simulación nacional de escaños no se usa para
+    calibrar. El denominador es el de votos válidos oficiales; si falta, se
+    avisa y se usa la suma de los partidos importados.
+    """
     if not resultados or not snapshot:
         return {"status": "pending"}
     votes = resultados.get("votos") or {}
-    total_votes = sum(votes.values()) or 0
+    validos = int(resultados.get("votos_validos") or 0)
+    denominator_source = "votos válidos oficiales"
+    if not validos:
+        validos = sum(int(v) for v in votes.values())
+        denominator_source = "suma de votos importados"
     snap = {p.get("party"): p for p in snapshot.get("parties", [])}
     rows = []
-    if total_votes:
+    if validos:
         for party in ("PP", "PSOE", "VOX", "SUMAR", "PODEMOS"):
             if party not in votes or party not in snap:
                 continue
             poll = float(snap[party].get("mean") or 0)
-            official = 100.0 * votes[party] / total_votes
+            official = 100.0 * int(votes[party]) / validos
             rows.append({
                 "party": party,
                 "poll": round(poll, 2),
@@ -1103,28 +1112,37 @@ def build_calibration(resultados: dict, snapshot: dict) -> dict:
     mae = round(sum(abs(r["error"]) for r in rows) / len(rows), 2) if rows else None
     bias = round(sum(r["error"] for r in rows) / len(rows), 2) if rows else None
 
-    seats = []
-    hem = snapshot.get("hemicycle_last") or {}
-    sim = {r.get("party"): int(r.get("seats") or 0) for r in hem.get("seats", [])}
-    dip = resultados.get("diputados") or {}
-    for party in ("PP", "PSOE", "VOX", "SUMAR", "PODEMOS"):
-        if party in sim and party in dip:
-            seats.append({
-                "party": party,
-                "sim": sim[party],
-                "official": int(dip[party]),
-                "error": sim[party] - int(dip[party]),
-            })
-    seat_mae = round(sum(abs(r["error"]) for r in seats) / len(seats), 2) if seats else None
+    house_rows = []
+    if validos:
+        for h in snapshot.get("house_latest", []):
+            pollster = h.get("pollster") or "?"
+            date = h.get("date") or ""
+            for party, key in (("PP", "pp"), ("PSOE", "psoe")):
+                if party not in votes or h.get(key) is None:
+                    continue
+                poll = float(h[key])
+                official = 100.0 * int(votes[party]) / validos
+                house_rows.append({
+                    "pollster": pollster,
+                    "date": date,
+                    "party": party,
+                    "poll": round(poll, 2),
+                    "official": round(official, 2),
+                    "error": round(poll - official, 2),
+                })
+    house_mae = round(sum(abs(r["error"]) for r in house_rows) / len(house_rows), 2) if house_rows else None
 
     return {
-        "status": "ready" if (rows or seats) else "pending",
+        "status": "ready" if (rows or house_rows) else "pending",
         "rows": rows,
         "mae": mae,
         "bias": bias,
-        "seat_rows": seats,
-        "seat_mae": seat_mae,
+        "house_rows": house_rows,
+        "house_mae": house_mae,
         "n": len(rows),
+        "house_n": len(house_rows),
+        "votos_validos": validos,
+        "denominator_source": denominator_source,
         "snapshot_updated": snapshot.get("updated_at"),
         "snapshot_n_polls": snapshot.get("n_polls"),
         "official_url": (resultados.get("meta") or {}).get("url"),
@@ -2280,6 +2298,7 @@ def main(out: str = "web") -> None:
             "updated_at": latest.get("updated_at"),
             "n_polls": latest.get("n_polls"),
             "parties": [{k: p.get(k) for k in ("party", "mean", "min", "max", "n")} for p in latest.get("parties", [])],
+            "house_latest": latest.get("house_latest", []),
             "hemicycle_last": (latest.get("hemicycle") or [{}])[-1],
         }
         with open("data/pre_election_snapshot.json", "w", encoding="utf-8") as f:
