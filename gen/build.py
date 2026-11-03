@@ -6,6 +6,7 @@ import math
 import os
 import shutil
 from datetime import datetime
+from pathlib import Path
 
 import pytz
 from jinja2 import Environment, FileSystemLoader, select_autoescape
@@ -16,6 +17,7 @@ from metrics import moving_average, series_span, spark_summary
 
 
 TZ = pytz.timezone("Europe/Madrid")
+ROOT = Path(__file__).resolve().parent.parent
 OUT = "web"
 SITE_URL = "https://elecciones29n.pruebapublica.com"
 SITE_NAME = "elecciones29n-osint"
@@ -1444,6 +1446,35 @@ def write_repro_data(version: str, build_ts: str, build_date: str, build_commit:
         "data/robustez.json": sha("data/robustez.json"),
         "data/polls_history.csv": sha("data/polls_history.csv"),
     }
+    pre_src = ROOT / "data" / "pre_registro.json"
+    pre_dst = Path(data_dir) / "pre-registro.json"
+    pre_hash = None
+    if pre_src.exists():
+        shutil.copyfile(pre_src, pre_dst)
+        pre_hash = sha("data/pre-registro.json")
+    snap_path = os.path.join(data_dir, "snapshots.json")
+    snapshots = []
+    if os.path.isfile(snap_path):
+        try:
+            with open(snap_path, encoding="utf-8") as f:
+                snapshots = json.load(f)
+        except Exception:
+            snapshots = []
+    prev_hash = snapshots[-1].get("hash") if snapshots else None
+    base = {
+        "date": build_date,
+        "build": build_ts,
+        "latest_sha256": files["data/latest.json"],
+        "robustez_sha256": files["data/robustez.json"],
+        "polls_sha256": files["data/polls_history.csv"],
+        "prev_hash": prev_hash,
+    }
+    snap_hash = hashlib.sha256(json.dumps(base, sort_keys=True, ensure_ascii=False).encode("utf-8")).hexdigest()
+    snapshots.append({**base, "hash": snap_hash})
+    snapshots = snapshots[-365:]
+    with open(snap_path, "w", encoding="utf-8") as f:
+        json.dump(snapshots, f, ensure_ascii=False, indent=2)
+    snapshot = {"date": build_date, "hash": snap_hash, "prev_hash": prev_hash}
     status = {
         "version": version,
         "build": build_ts,
@@ -1458,7 +1489,9 @@ def write_repro_data(version: str, build_ts: str, build_date: str, build_commit:
             {"source": s.get("source"), "share_pct": s.get("share_pct"), "n_polls": s.get("n_polls")}
             for s in (latest.get("weights") or {}).get("sources", [])
         ],
-        "nota": "Hashes SHA-256 de los ficheros publicados; no incluye datos personales.",
+        "snapshot": snapshot,
+        "pre_registro": {"sha256": pre_hash, "cutoff": "2026-11-13T23:59:59+01:00"},
+        "nota": "Hashes SHA-256 de los ficheros publicados y cadena diaria en data/snapshots.json; no incluye datos personales.",
     }
     with open(os.path.join(data_dir, "status.json"), "w", encoding="utf-8") as f:
         json.dump(status, f, ensure_ascii=False, indent=2)
@@ -1498,6 +1531,7 @@ def write_repro_data(version: str, build_ts: str, build_date: str, build_commit:
         "commit": build_commit,
         "n_polls": latest.get("n_polls"),
         "files": files,
+        "snapshot_hash": snapshot["hash"],
     }
     last = entries[-1] if entries else {}
     if (last.get("commit") != build_commit
@@ -1506,6 +1540,42 @@ def write_repro_data(version: str, build_ts: str, build_date: str, build_commit:
     entries = entries[-100:]
     with open(cl_path, "w", encoding="utf-8") as f:
         json.dump(entries, f, ensure_ascii=False, indent=2)
+
+def append_snapshot_rss() -> None:
+    """Añade el último snapshot encadenado al RSS de cambios."""
+    from email.utils import format_datetime
+    from xml.sax.saxutils import escape
+    snap_path = os.path.join(OUT, "data", "snapshots.json")
+    rss_path = os.path.join(OUT, "cambios.xml")
+    if not (os.path.isfile(snap_path) and os.path.isfile(rss_path)):
+        return
+    try:
+        with open(snap_path, encoding="utf-8") as f:
+            snaps = json.load(f)
+        if not snaps:
+            return
+        snap = snaps[-1]
+        digest = snap.get("hash", "")
+        guid = "snapshot-" + str(snap.get("date")) + "-" + digest[:12]
+        with open(rss_path, encoding="utf-8") as f:
+            xml = f.read()
+        if guid in xml:
+            return
+        item = (
+            "  <item>"
+            f"<title>{escape('Snapshot diario · ' + str(snap.get('date')) + ' · ' + digest[:12])}</title>"
+            f"<link>{SITE_URL}/data/snapshots.json</link>"
+            f'<guid isPermaLink="false">{escape(guid)}</guid>'
+            f"<pubDate>{format_datetime(datetime.now(TZ))}</pubDate>"
+            f"<description>{escape('SHA-256 ' + digest + ' · prev ' + str(snap.get('prev_hash')))}</description>"
+            "</item>"
+        )
+        xml = xml.replace("</channel>", item + "\n</channel>")
+        with open(rss_path, "w", encoding="utf-8") as f:
+            f.write(xml)
+    except Exception:
+        return
+
 
 def write_escanos_data(data: dict) -> None:
     import csv as _csv
@@ -2191,6 +2261,7 @@ def main(out: str = "web") -> None:
     write_m4_data(m4)
     write_meteo_data(meteo)
     write_repro_data(version, build_ts, build_date, build_commit, latest)
+    append_snapshot_rss()
 
     if not os.path.exists(os.path.join(OUT, "data/latest.json")):
         safe_context = {k: v for k, v in context.items() if not callable(v)}

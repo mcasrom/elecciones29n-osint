@@ -1,38 +1,42 @@
 {
   "version": "0.11.1",
-  "build": "202610261514",
-  "date": "2026-10-26",
-  "commit": "58d7d9f",
-  "generated_at": "2026-10-26T15:14:27.850785+01:00",
-  "n_polls": 9,
-  "n_pollsters": 7,
+  "build": "202611031542",
+  "date": "2026-11-03",
+  "commit": "49072b2",
+  "generated_at": "2026-11-03T15:15:18.667552+01:00",
+  "n_polls": 12,
+  "n_pollsters": 8,
   "window_days": 14,
   "files": {
-    "data/latest.json": "5742be2642aa96a62c76fb2636f30da3db79093d4d348d68b149449f520fc9e3",
-    "data/robustez.json": "2133a182f1ed72d3a947aa1e6140d14b16349d532cb3420206f81204edf7c879",
+    "data/latest.json": "b0bc22411f69b551817ee4ebf1ebfb6012390df246701b017b2db092968b5b7b",
+    "data/robustez.json": "c48800c6720840c3a510fc1727518583476c68fe944fcab11861a9977159d9b4",
     "data/polls_history.csv": null
   },
   "sources": [
     {
+      "source": "Onda Cero",
+      "share_pct": 47.7,
+      "n_polls": 6
+    },
+    {
       "source": "Otras fuentes",
-      "share_pct": 52.3,
+      "share_pct": 31.8,
       "n_polls": 4
     },
     {
       "source": "Electomanía",
-      "share_pct": 26.3,
+      "share_pct": 20.6,
       "n_polls": 2
-    },
-    {
-      "source": "Onda Cero",
-      "share_pct": 12.7,
-      "n_polls": 2
-    },
-    {
-      "source": "CIS",
-      "share_pct": 8.7,
-      "n_polls": 1
     }
   ],
-  "nota": "Hashes SHA-256 de los ficheros publicados; no incluye datos personales."
+  "snapshot": {
+    "date": "2026-11-03",
+    "hash": "a8cff63e00de795419329e97ce97bf4de494d9fc3894d798fbe450de004c34bf",
+    "prev_hash": null
+  },
+  "pre_registro": {
+    "sha256": "bc4ca92087eeacbe17a85a24d9a0212f125c27d6a4bb35cd785f2ea0dfc25ac0",
+    "cutoff": "2026-11-13T23:59:59+01:00"
+  },
+  "nota": "Hashes SHA-256 de los ficheros publicados y cadena diaria en data/snapshots.json; no incluye datos personales."
 }

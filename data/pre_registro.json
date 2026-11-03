@@ -1,0 +1,24 @@
+{
+ "version": "1.0",
+ "registered_at": "2026-11-03",
+ "cutoff": "2026-11-13T23:59:59+01:00",
+ "status": "pre_campaign",
+ "purpose": "Fijar antes de la campaña cómo se evaluará la media, para no cambiar la métrica después del resultado.",
+ "metrics": {
+  "mae_parties": "Error absoluto medio entre la media final y el porcentaje oficial de PP, PSOE, VOX, SUMAR, ERC, Junts y PNV; solo partidos presentes en la media.",
+  "gap_pp_psoe": "Error absoluto de la diferencia PP-PSOE en puntos porcentuales.",
+  "blocs": "Error absoluto de PP+VOX y PSOE+SUMAR+Podemos en puntos porcentuales. No es una proyección de escaños."
+ },
+ "window": "Últimos 14 días naturales antes del 29N, con la misma definición que la media publicada.",
+ "rules": [
+  "No se cambiará la métrica después del 13 de noviembre de 2026.",
+  "No se añadirán partidos ni se quitarán para mejorar el resultado.",
+  "La comparación usará el escrutinio oficial, no estimaciones de prensa.",
+  "La media no es un pronóstico y esta métrica no convierte el agregado en una predicción."
+ ],
+ "limits": [
+  "Una media de sondeos no predice el resultado.",
+  "El error se publica aunque sea alto.",
+  "No se evalúan escaños: la media no es una proyección provincial."
+ ]
+}
