@@ -325,6 +325,17 @@
     </div>
   </section>
 
+  {% if lideres %}
+  <div class="card">
+    <div class="cardhead"><h2><a href="/lideres.html">Valoración de líderes</a></h2><span class="hint">CIS · octubre 2026 · una ola</span></div>
+    <p class="muted" style="margin:0 0 6px">
+      {% for x in lideres.leaders %}{{ x.name }}: <strong>{{ "%.2f"|format(x.mean)|replace(".", ",") }}</strong>{% if not loop.last %} · {% endif %}{% endfor %}
+    </p>
+    <p class="muted small" style="margin:0 0 8px">Escala 1–10. Una sola casa y una sola ola. No es intención de voto ni un ranking de popularidad.</p>
+    <div class="cta"><a class="btn" href="/lideres.html">Ver valoraciones y distribución</a></div>
+  </div>
+  {% endif %}
+
   <div class="card">
     <div class="cardhead"><h2>El electorado del 29N</h2><span class="hint">censo oficial · INE</span></div>
     {% if censo %}
