@@ -1,0 +1,66 @@
+{% set page_title = "Valoración de líderes · CIS octubre 2026" %}
+{% set page_desc = "Valoración 1–10 de Pedro Sánchez, Yolanda Díaz, Alberto Núñez Feijóo y Santiago Abascal según el CIS de octubre de 2026. Una sola casa y una sola ola." %}
+{% set canonical = site_url ~ "/lideres.html" %}
+{% set jsonld = webpages['lideres.html'] %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Valoración de líderes</h1>
+  <p class="muted" style="margin:0 0 14px">CIS · barómetro de octubre de 2026 · escala 1–10. Una sola casa y una sola ola. No es intención de voto.</p>
+
+  {% if lideres %}
+  <div class="card">
+    <div class="cardhead"><h2>CIS · octubre 2026</h2><span class="hint">n≈5.000 · cuatro líderes</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Líder</th><th>Partido</th><th>Media</th><th>Mediana</th><th>n válido</th></tr></thead>
+      <tbody>
+      {% for x in lideres.leaders %}
+        <tr><td><strong>{{ x.name }}</strong></td><td>{{ x.party }}</td><td class="num">{{ "%.2f"|format(x.mean)|replace(".", ",") }}</td><td class="num">{{ x.median }}</td><td class="num">{{ fmt_miles(x.n_valid) }}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table></div>
+    <p class="muted small">Orden por media observada, no un ranking de popularidad. 1 = muy mal; 10 = muy bien. La media no es aprobación ni probabilidad de voto.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Distribución de la valoración</h2><span class="hint">porcentaje de respuestas 1–10</span></div>
+    {% for x in lideres.leaders %}
+    <div style="margin:18px 0 22px">
+      <div class="cardhead" style="margin:0 0 8px"><h3 style="margin:0">{{ x.name }}</h3><span class="hint">{{ x.party }} · media {{ "%.2f"|format(x.mean)|replace(".", ",") }} · n {{ fmt_miles(x.n_valid) }}</span></div>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Nota</th><th>%</th><th></th></tr></thead>
+        <tbody>
+        {% for nota in ['1','2','3','4','5','6','7','8','9','10'] %}
+          {% set v = x.distribution_pct[nota] %}
+          <tr><td class="num">{{ nota }}</td><td class="num">{{ fmt_pct(v) }}%</td><td style="width:55%"><span class="prog"><i style="width:{{ v }}%"></i></span></td></tr>
+        {% endfor %}
+        </tbody>
+      </table></div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Qué dice y qué no dice</h2></div>
+    <ul class="muted small">
+      <li><strong>Qué mide:</strong> valoración subjetiva de cada líder en una escala 1–10.</li>
+      <li><strong>Qué no mide:</strong> intención de voto, probabilidad de victoria, aprobación de gobierno ni popularidad comparable entre encuestadoras.</li>
+      <li><strong>Una casa:</strong> CIS. No se promedia con 40dB, GAD3, Sigma Dos ni otras casas.</li>
+      <li><strong>Una ola:</strong> octubre de 2026. No hay tendencia hasta tener otra ola comparable.</li>
+      <li><strong>Cuatro líderes:</strong> los incluidos en la pregunta 20a del CIS; no es una lista completa de candidaturas.</li>
+    </ul>
+    <p class="muted small">Fuente: <a href="{{ lideres.meta.source_url }}" rel="noopener" target="_blank">{{ lideres.meta.source }}</a>. Pregunta: «{{ lideres.meta.question }}».</p>
+  </div>
+  {% else %}
+  <div class="alert warn">Datos de valoración de líderes no disponibles.</div>
+  {% endif %}
+  {% include "_captura.html.j2" %}
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>
