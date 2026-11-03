@@ -22,3 +22,5 @@ data/campaign_digest_state.json
 
 data/candidatos_sondeos.csv
 export/
+data/lideres_40db_state.json
+data/candidatos_lideres.csv
