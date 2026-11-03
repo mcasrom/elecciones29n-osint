@@ -17,12 +17,12 @@
   <p class="muted">Add seats from the national simulation. It is <strong>block arithmetic</strong>: not a projection, not a pact forecast and not an investiture model.</p>
 
   {% if hemicycle %}
-  {% set h = hemicycle[-1] %}
+  {% set h = mayorias_sim %}
   {% set colors = {'PP':'#3b82f6','PSOE':'#ef4444','VOX':'#22c55e','SUMAR':'#d946ef','PODEMOS':'#7c3aed','Otros':'#94a3b8'} %}
   <div class="alert warn"><strong>Not a government.</strong> 176 or more only means an arithmetic majority in this simulation. Pacts, abstentions and investiture are outside the model.</div>
 
   <div class="card">
-    <div class="cardhead"><h2>Seat sum</h2><span class="hint">{{ h.label }} · {{ h.n_polls }} polls · 350 seats</span></div>
+    <div class="cardhead"><h2>Seat sum</h2><span class="hint">{{ h.label }} · {{ h.n_polls }} polls · 322 modeled + {{ h.reserved }} reserved</span></div>
     <div style="display:flex;gap:22px;flex-wrap:wrap;align-items:flex-start">
       <div style="flex:1 1 320px;min-width:0">
         <p class="muted small" style="margin:0 0 8px">Select parties:</p>
@@ -39,7 +39,7 @@
       </div>
       <div style="flex:0 1 250px;min-width:210px;border-left:1px solid var(--line);padding-left:20px">
         <p class="muted small" style="margin:0">Selected total</p>
-        <p style="margin:2px 0 0"><b id="calc-total" style="font-size:44px;line-height:1;letter-spacing:-.03em">0</b><span class="muted"> / 350</span></p>
+        <p style="margin:2px 0 0"><b id="calc-total" style="font-size:44px;line-height:1;letter-spacing:-.03em">0</b><span class="muted"> / 322 modeled</span></p>
         <p id="calc-status" class="muted small" aria-live="polite" style="min-height:44px;margin:8px 0">Select a combination.</p>
         <div class="cta" style="margin-top:8px">
           <button class="btn ghost smallbtn" type="button" data-preset="right">PP + VOX</button>
@@ -56,9 +56,9 @@
     <div class="cardhead"><h2>Seats in the simulation</h2><span class="hint">same snapshot as the hemicycle</span></div>
     <div class="tablewrap"><table>
       <thead><tr><th>Party</th><th>Seats</th></tr></thead>
-      <tbody>{% for r in h.seats %}<tr><td><strong>{{ r.party }}</strong></td><td class="num">{{ r.seats }}</td></tr>{% endfor %}</tbody>
+      <tbody>{% for r in h.seats %}<tr><td><strong>{{ r.party }}</strong></td><td class="num">{{ r.seats }}</td></tr>{% endfor %}<tr><td><strong>Not modeled</strong><br><span class="muted small">ERC, Junts, EH Bildu, PNV…</span></td><td class="num">{{ h.reserved }}</td></tr></tbody>
     </table></div>
-    <p class="muted small">National D'Hondt, 350 seats, 3% threshold, statewide parties only. It does not include ERC, Junts, EH Bildu or PNV.</p>
+    <p class="muted small">National D'Hondt over **322 seats**; **28 reserved** for regional parties in this simulation. It is not the real Congress or a projection: ERC, Junts, EH Bildu, PNV and others are not modeled.</p>
   </div>
 
   <script>

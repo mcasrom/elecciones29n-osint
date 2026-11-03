@@ -1991,7 +1991,7 @@ def main(out: str = "web") -> None:
     calendar = [
         {"date": "6 oct", "label": "Convocatoria (BOE)", "state": "done"},
         {"date": "28 oct", "label": "Accidente AVE en Urda (Toledo): 68 fallecidos · contexto, no entra en la media", "state": "context",
-         "source": "https://news.google.com/search?q=accidente+AVE+Toledo+68+fallecidos&hl=es&gl=ES&ceid=ES:es"},
+         },
         {"date": "13–27 nov", "label": "Campaña electoral",
          "state": "done" if now >= blackout_dt else "active"},
         {"date": "24–28 nov", "label": "Prohibición de sondeos",
@@ -2148,6 +2148,12 @@ def main(out: str = "web") -> None:
         "bloc_right": latest.get("bloc_right"),
         "bloc_left": latest.get("bloc_left"),
         "sim_congress": simulate_congress(parties_main),
+        "mayorias_sim": {
+            "label": "Última foto",
+            "n_polls": latest.get("n_polls", 0),
+            "reserved": 28,
+            "seats": [{"party": k, "seats": v} for k, v in simulate_congress(parties_main, total=322).items()],
+        },
         "ref_congreso": REF_CONGRESO,
         "jsonld": build_jsonld(parties, latest.get("updated_at", today)),
         "indexnow_key": INDEXNOW_KEY,

@@ -15,12 +15,12 @@
   <p class="muted" style="margin:0 0 12px">Suma los escaños de la simulación nacional del 29N. Es <strong>aritmética de bloques</strong>: no es una proyección, no predice pactos y no decide una investidura.</p>
 
   {% if hemicycle %}
-  {% set h = hemicycle[-1] %}
+  {% set h = mayorias_sim %}
   {% set colors = {'PP':'#3b82f6','PSOE':'#ef4444','VOX':'#22c55e','SUMAR':'#d946ef','PODEMOS':'#7c3aed','Otros':'#94a3b8'} %}
   <div class="alert warn"><strong>No es un gobierno.</strong> Una suma de 176 o más solo indica mayoría aritmética en esta simulación. Los pactos, la abstención y la investidura dependen de negociaciones que no se modelan aquí.</div>
 
   <div class="card">
-    <div class="cardhead"><h2>Suma de escaños</h2><span class="hint">{{ h.label }} · {{ h.n_polls }} sondeos · 350 escaños</span></div>
+    <div class="cardhead"><h2>Suma de escaños</h2><span class="hint">{{ h.label }} · {{ h.n_polls }} sondeos · 322 modelados + {{ h.reserved }} reservados</span></div>
     <div style="display:flex;gap:22px;flex-wrap:wrap;align-items:flex-start">
       <div style="flex:1 1 320px;min-width:0">
         <p class="muted small" style="margin:0 0 8px">Selecciona partidos:</p>
@@ -37,7 +37,7 @@
       </div>
       <div style="flex:0 1 250px;min-width:210px;border-left:1px solid var(--line);padding-left:20px">
         <p class="muted small" style="margin:0">Total seleccionado</p>
-        <p style="margin:2px 0 0"><b id="calc-total" style="font-size:44px;line-height:1;letter-spacing:-.03em">0</b><span class="muted"> / 350</span></p>
+        <p style="margin:2px 0 0"><b id="calc-total" style="font-size:44px;line-height:1;letter-spacing:-.03em">0</b><span class="muted"> / 322 modelados</span></p>
         <p id="calc-status" class="muted small" aria-live="polite" style="min-height:44px;margin:8px 0">Selecciona una combinación.</p>
         <div class="cta" style="margin-top:8px">
           <button class="btn ghost smallbtn" type="button" data-preset="right">PP + VOX</button>
@@ -55,9 +55,9 @@
     <div class="cardhead"><h2>Escaños de la simulación</h2><span class="hint">misma foto que el hemiciclo</span></div>
     <div class="tablewrap"><table>
       <thead><tr><th>Partido</th><th>Escaños</th></tr></thead>
-      <tbody>{% for r in h.seats %}<tr><td><strong>{{ r.party }}</strong></td><td class="num">{{ r.seats }}</td></tr>{% endfor %}</tbody>
+      <tbody>{% for r in h.seats %}<tr><td><strong>{{ r.party }}</strong></td><td class="num">{{ r.seats }}</td></tr>{% endfor %}<tr><td><strong>No modelados</strong><br><span class="muted small">ERC, Junts, EH Bildu, PNV…</span></td><td class="num">{{ h.reserved }}</td></tr></tbody>
     </table></div>
-    <p class="muted small">D'Hondt nacional, 350 escaños, umbral 3%, solo partidos estatales. No incluye ERC, Junts, EH Bildu ni PNV; no es la composición real del Congreso.</p>
+    <p class="muted small">D'Hondt nacional sobre **322 escaños**; **28 reservados** para partidos territoriales en esta simulación. No es la composición real del Congreso ni una proyección: faltan ERC, Junts, EH Bildu, PNV y otros.</p>
   </div>
 
   <div class="cta">
