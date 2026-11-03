@@ -23,6 +23,30 @@ Pruebas:
 /usr/bin/python3 /home/deploy/scripts/alertas_29n.py --test  # solo si se pide
 ```
 
+## 1 bis. Aviso por correo a suscriptores (`alertas_email.py`)
+
+El aviso por correo **solo se envía a suscriptores confirmados** y solo cuando
+cambia algo relevante:
+
+- nuevo sondeo (`n_polls` o `last_poll_date`);
+- cambio de media ≥0,1 pp en PP, PSOE, VOX o Sumar;
+- cambio de bloques o mayoría del hemiciclo.
+
+No envía correos diarios ni “recordatorios”. Si no hay cambio, silencio.
+Durante el blackout 24–28 nov no envía nada.
+
+- Estado global: `data/alertas_email_state.json`.
+- Estado por suscriptor: `subscribers.last_sent_fingerprint`; si un envío falla,
+  se reintenta sin duplicar a los que ya lo recibieron.
+- Baja: enlace `/api/unsubscribe?id=<id>` en cada correo.
+- Cron: **06:25, 14:25 y 20:25** (después del build y de los refrescos).
+- Prueba: `python3 scripts/alertas_email.py --dry-run`.
+- Prueba a una sola dirección: `--to correo` (no toca la lista).
+- Sembrar sin enviar: `--seed`.
+
+Primer envío real: **3/3 confirmados** el 3-nov-2026, aviso del sondeo de
+Sigma Dos (02/11). No se envió al pendiente.
+
 ## 2. Purga de Cloudflare
 
 `run_daily_server.sh` intenta purgar la zona `pruebapublica` después del deploy.
