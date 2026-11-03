@@ -106,3 +106,7 @@ material mecánico con aviso, no como titular.
 - Un tope de peso se declara y se prueba; no se renormaliza después.
 - Una media con ventana de 14 días no sirve para probar el efecto de un CIS
   que queda fuera de esa ventana.
+
+16. **Navegación de post-electoral:** subir `/postelectoral.html` a la barra
+    principal al acercarse el 29N (24–29 nov). Ahora solo está en el pie de
+    página y no se debe promocionar antes de tener resultados.
