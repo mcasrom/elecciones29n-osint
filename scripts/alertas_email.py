@@ -105,7 +105,8 @@ def render(latest: dict, sub: dict, why: str) -> tuple[str, str, str]:
     if nov.get("pollster"):
         d = str(nov.get("date") or "")
         poll_note = f"{nov['pollster']}" + (f" ({d[8:10]}/{d[5:7]})" if len(d) >= 10 else "")
-    subject = f"29N · nuevo sondeo · {poll_note}" if poll_note else f"29N · {why}"
+    # Asunto neutro: el primer envío con "nuevo sondeo" no llegó a la bandeja.
+    subject = f"29N: actualización de la media · {poll_note}" if poll_note else "29N: actualización de la media"
     rows = "".join(
         f"<tr><td style='padding:5px 8px'><strong>{escape(p)}</strong></td>"
         f"<td style='padding:5px 8px;text-align:right'>{fmt(parts[p].get('mean'))}%</td>"
@@ -183,6 +184,7 @@ def main() -> int:
     ap.add_argument("--seed", action="store_true")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--to", metavar="EMAIL")
+    ap.add_argument("--subject", default="")
     ap.add_argument("--limit", type=int, default=0)
     a = ap.parse_args()
 
@@ -213,6 +215,8 @@ def main() -> int:
 
     if a.to:
         subject, html, text = render(latest, {"id": "test"}, why)
+        if a.subject:
+            subject = a.subject
         print(f"prueba a {a.to}: {subject}")
         if a.dry_run:
             return 0
@@ -250,6 +254,8 @@ def main() -> int:
         if not a.force and row["last_sent_fingerprint"] == fp:
             continue
         subject, html, text = render(latest, dict(row), why)
+        if a.subject:
+            subject = a.subject
         if send(row["email"], subject, html, text, row["id"]):
             con.execute("UPDATE subscribers SET last_sent_at=?, last_sent_fingerprint=? WHERE id=?",
                         (datetime.now(timezone.utc).isoformat(timespec="seconds"), fp, row["id"]))

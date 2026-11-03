@@ -29,6 +29,7 @@ class AlertasEmailTest(unittest.TestCase):
         prev = dict(cur, n_polls=7, last_poll_date="2026-11-01")
         self.assertEqual(ae.reason(prev, cur), "nuevo sondeo")
         subject, html, text = ae.render(self.latest(), {"id": "test"}, "nuevo sondeo")
+        self.assertIn("actualización de la media", subject)
         self.assertIn("Sigma Dos (02/11)", subject)
         self.assertIn("/api/unsubscribe?id=test", html)
         self.assertIn("No es un pronóstico", text)
