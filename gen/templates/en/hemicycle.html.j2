@@ -1,5 +1,5 @@
-{% set page_title = "Hemicycle · Spain 29N observatory" %}
-{% set page_desc = "Mechanical 350-seat national D'Hondt simulation from the poll average, with current seats and blocks. Not a projection or the real Congress." %}
+{% set page_title = "National seat simulation (single district) · Spain 29N" %}
+{% set page_desc = "Mechanical 350-seat single-district D'Hondt simulation from the poll average. Not a projection or the real Congress; territorial parties are excluded." %}
 {% set canonical = site_url ~ "/en/hemicycle.html" %}
 {% set page_lang = "en" %}
 {% set page_alt_es = site_url ~ "/hemiciclo.html" %}
@@ -15,12 +15,12 @@
 {% include "_en_nav.html.j2" %}
 
 <main class="container">
-  <h1 style="margin:18px 0 4px;font-size:32px;letter-spacing:-0.03em">Hemicycle</h1>
+  <h1 style="margin:18px 0 4px;font-size:32px;letter-spacing:-0.03em">National seat simulation (single district)</h1>
   <p class="muted">A mechanical simulation: <strong>350 seats</strong>, national D'Hondt, 3% threshold, statewide parties only. It is <strong>not a projection</strong> and not the real Congress.</p>
 
   {% if hemicycle %}
   {% set h = hemicycle[-1] %}
-  <div class="alert warn"><strong>Not a projection.</strong> Spanish law allocates seats by province. A single national district changes the result and favours parties with dispersed support. ERC, Junts, EH Bildu and PNV are not simulated, so their absence inflates PP and PSOE.</div>
+  <div class="alert warn"><strong>Not the real Congress.</strong> Spain allocates seats by province and applies D'Hondt in each constituency. This page uses a single national district, excludes ERC, Junts, EH Bildu and PNV, and is not a projection.</div>
 
   <div class="card">
     <div class="cardhead"><h2>{{ h.label }}</h2><span class="hint">{{ h.n_polls }} polls · window {{ h.window_label }}</span></div>

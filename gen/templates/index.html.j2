@@ -62,13 +62,13 @@
       <p class="stamp">
         {% if last_poll_date %}Último sondeo: <strong>{{ last_poll_date }}</strong> · {% endif %}
         Próximo blackout en <strong>{{ days_to_blackout }} días</strong> (24–28 nov) ·
-        <a href="/data/latest.json">datos abiertos</a> · <a href="/robustez.html">robustez del dato</a> · <a href="/hemiciclo.html">hemiciclo por sondeo</a> · <a href="/caveat.html">qué no dice</a>
+        <a href="/data/latest.json">datos abiertos</a> · <a href="/robustez.html">robustez del dato</a> · <a href="/hemiciclo.html">simulación nacional</a> · <a href="/caveat.html">qué no dice</a>
       </p>
     </div>
 
     <nav class="tabs" role="tablist" aria-label="Secciones">
       <button class="tab active" data-tab="agregado" role="tab" aria-selected="true">Agregado</button>
-      <a class="tab" href="/hemiciclo.html">Hemiciclo (límites)</a>
+      <a class="tab" href="/hemiciclo.html">Simulación nacional</a>
       <button class="tab" data-tab="evolucion" role="tab" aria-selected="false">Evolución</button>
       <button class="tab" data-tab="congreso" role="tab" aria-selected="false">Congreso</button>
       <button class="tab" data-tab="senado" role="tab" aria-selected="false">Senado</button>
@@ -262,7 +262,7 @@
     <div class="card">
       <div class="cardhead"><h2>Sin simulación de escaños en la portada</h2><span class="hint">decisión de método</span></div>
       <p class="muted">No publico un reparto de 350 escaños calculado con un D'Hondt nacional: asigna todos los escaños a cuatro partidos, deja a los territoriales fuera y produce un «otros: 0» que no existe en el Congreso. La cifra sería un artefacto, no una estimación.</p>
-      <p class="muted small">La página <a href="/hemiciclo.html">Hemiciclo</a> conserva la serie mecánica con sus límites, pero no se usa como titular. Para escaños reales harían falta datos provinciales de encuesta y la asignación por circunscripción.</p>
+      <p class="muted small">La página <a href="/hemiciclo.html">Simulación nacional</a> conserva la serie mecánica con sus límites, pero no se usa como titular. Para escaños reales harían falta datos provinciales de encuesta y la asignación por circunscripción.</p>
     </div>
 
     <div class="card">

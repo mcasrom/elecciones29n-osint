@@ -13,7 +13,7 @@
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/metodologia.html">
 <link rel="alternate" hreflang="es" href="https://elecciones29n.pruebapublica.com/metodologia.html"><link rel="alternate" hreflang="en" href="https://elecciones29n.pruebapublica.com/en/method.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202611031942">
+<link rel="stylesheet" href="/css/main.css?v=202611032044">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function(){
     <nav class="mainnav" aria-label="Principal">
       <div class="navrow navrow-primary">
         <a class="navpill " href="/">Inicio</a>
-        <a class="navpill " href="/hemiciclo.html">Hemiciclo</a>
+        <a class="navpill " href="/hemiciclo.html">Simulación</a>
         <a class="navpill " href="/electorado.html">Electorado</a>
         <a class="navpill " href="/lideres.html">Líderes</a>
         <a class="navpill " href="/participacion.html">Participación</a>
@@ -172,8 +172,8 @@ document.addEventListener('DOMContentLoaded', function(){
   </div>
 
   <div class="card" id="hemiciclo">
-    <h3>Hemiciclo simulado: una mecánica, no una proyección</h3>
-    <p class="muted">La página <a href="/hemiciclo.html">Hemiciclo simulado</a> aplica <strong>D'Hondt nacional</strong> a la media de cada fecha con sondeo: 350 escaños, distrito único y umbral del 3%. Solo entran partidos estatales. Se conserva como material de método, no como titular: asigna un «otros: 0» que no existe en el Congreso. La fecha «hoy» usa la ventana vigente aunque no haya sondeo nuevo; no se interpolan días.</p>
+    <h3>Simulación nacional de escaños: una mecánica, no una proyección</h3>
+    <p class="muted">La página <a href="/hemiciclo.html">Simulación nacional de escaños</a> aplica <strong>D'Hondt nacional</strong> a la media de cada fecha con sondeo: 350 escaños, distrito único y umbral del 3%. Solo entran partidos estatales. Se conserva como material de método, no como titular: asigna un «otros: 0» que no existe en el Congreso. La fecha «hoy» usa la ventana vigente aunque no haya sondeo nuevo; no se interpolan días.</p>
     <ul class="muted">
       <li><strong>No es el Congreso real</strong>: la ley reparte por provincias (52 circunscripciones). Un distrito único cambia el resultado y favorece a los partidos con voto disperso.</li>
       <li><strong>No incluye territoriales</strong>: ERC, Junts, EH Bildu y PNV quedan fuera; su ausencia infla a PP y PSOE.</li>
@@ -327,11 +327,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202611031942" hidden>
+<div class="swupdate" id="swupdate" data-build="202611032044" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611031942');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611032044');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -360,7 +360,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202611031942', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202611032044', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

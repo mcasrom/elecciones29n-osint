@@ -186,7 +186,7 @@ def main() -> int:
     hemi_path = os.path.join(d, "hemiciclo.html")
     if os.path.exists(hemi_path):
         hh = open(hemi_path, encoding="utf-8", errors="ignore").read()
-        if "Hemiciclo simulado" not in hh:
+        if "Simulación nacional de escaños" not in hh:
             errors.append("hemiciclo.html sin título")
         if hh.count('class="hemi-seat"') < 350:
             errors.append(f"hemiciclo.html con {hh.count('class="hemi-seat"')} escaños (esperados >=350)")

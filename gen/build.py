@@ -742,7 +742,7 @@ def write_llms() -> None:
 - Serie temporal por partido (JSON) y datos descargables.
 - Fichas de las 52 circunscripciones con resultados oficiales 2019/2023,
   escaño marginal y calculadora D'Hondt.
-- Hemiciclo simulado por fecha de sondeo (D'Hondt nacional, 350 escaños),
+- Simulación nacional de escaños por fecha de sondeo (D'Hondt de distrito único, 350 escaños),
   con método y límites: no es una proyección ni la composición real.
 - Provincias competitivas por margen oficial 2023 (contexto, no proyección).
 - OG 1200×630 por provincia para compartir cada ficha local.
@@ -939,7 +939,7 @@ def build_hemicycle_svg(seats: list[dict]) -> str:
     left = sum(counts.get(p, 0) for p in ("PSOE", "SUMAR", "PODEMOS"))
     parts = [
         '<svg class="hemi" viewBox="0 0 360 205" role="img" '
-        f'aria-label="Hemiciclo simulado: {right} escaños PP y VOX, {left} PSOE, Sumar y Podemos, '
+        f'aria-label="Simulación nacional de escaños: {right} escaños PP y VOX, {left} PSOE, Sumar y Podemos, '
         f'{350 - right - left} otros">'
     ]
     for row, block in zip(rows, alloc):
@@ -2198,7 +2198,7 @@ def main(out: str = "web") -> None:
             "caveat.html": build_webpage_jsonld("Qué no dice este sitio", "/caveat.html", "Límites y no-objetivos del observatorio."),
             "glosario.html": build_webpage_jsonld("Glosario", "/glosario.html", "Diccionario breve de términos electorales y de sondeos."),
             "robustez.html": build_webpage_jsonld("Robustez del dato", "/robustez.html", "Cinco indicadores de la base de la media: sondeos, casas, antigüedad, muestra e IQR."),
-            "hemiciclo.html": build_webpage_jsonld("Hemiciclo simulado", "/hemiciclo.html", "Simulación mecánica de bloques con D'Hondt nacional por fecha de sondeo. No es una proyección ni la composición real del Congreso."),
+            "hemiciclo.html": build_webpage_jsonld("Simulación nacional de escaños (distrito único)", "/hemiciclo.html", "Simulación mecánica con D'Hondt de distrito único por fecha de sondeo. No es una proyección ni la composición real del Congreso; excluye territoriales."),
             "como-leer.html": build_webpage_jsonld("Cómo leer la media", "/como-leer.html", "Guía breve para leer una media de sondeos sin sobreinterpretar."),
             "apoyo.html": build_webpage_jsonld("Apoyar el proyecto", "/apoyo.html", "Ko-fi, compartir y colaboración."),
             "privacidad.html": build_webpage_jsonld("Privacidad", "/privacidad.html", "Datos del aviso por correo, finalidad, conservación y derechos. Sin cookies ni perfilado."),

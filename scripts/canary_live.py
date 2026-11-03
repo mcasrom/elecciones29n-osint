@@ -92,7 +92,7 @@ def main() -> int:
             ("/noche-electoral.html", "Noche electoral"),
             ("/comportamiento.html", "Recuerdo de voto 2023"),
             ("/factores.html", "Factores y participación"),
-            ("/hemiciclo.html", "Hemiciclo simulado"),
+            ("/hemiciclo.html", "Simulación nacional de escaños"),
         ):
             c, h = get(base + path + "?canary=1")
             if c != 200:
@@ -150,7 +150,7 @@ def main() -> int:
 
     for _path, _needle in (("/glosario.html", "Glosario"),
                            ("/robustez.html", "Robustez del dato"),
-                           ("/hemiciclo.html", "Hemiciclo simulado"),
+                           ("/hemiciclo.html", "Simulación nacional de escaños"),
                            ("/como-leer.html", "Cómo leer la media"),
                            ("/novedades.html", "Novedades")):
         _c, _h = get(base + _path + "?canary=1")

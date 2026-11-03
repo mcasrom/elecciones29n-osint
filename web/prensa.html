@@ -14,7 +14,7 @@
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/prensa.html">
 
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202611031942">
+<link rel="stylesheet" href="/css/main.css?v=202611032044">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function(){
     <nav class="mainnav" aria-label="Principal">
       <div class="navrow navrow-primary">
         <a class="navpill " href="/">Inicio</a>
-        <a class="navpill " href="/hemiciclo.html">Hemiciclo</a>
+        <a class="navpill " href="/hemiciclo.html">Simulación</a>
         <a class="navpill " href="/electorado.html">Electorado</a>
         <a class="navpill " href="/lideres.html">Líderes</a>
         <a class="navpill " href="/participacion.html">Participación</a>
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function(){
     <p style="font-size:20px;line-height:1.45;margin:0 0 10px"><strong>La media ponderada del 29N sitúa al PP en 31,38% (rango 28,50–33,00) y al PSOE en 26,24% (rango 24,60–27,60), con 12 sondeos.</strong></p>
     
     <p class="muted small">La <strong>media ponderada</strong> es el titular. La <strong>mediana</strong> y la <strong>media sin CIS (45 d)</strong> son pruebas de sensibilidad: sirven para explicar la robustez, no para sustituir la cifra principal.</p>
-    <p class="muted small">Actualizado: 2026-11-03 19:42 CET · último sondeo: 2026-11-02 · ventana: 2026-10-23 – 2026-11-02.</p>
+    <p class="muted small">Actualizado: 2026-11-03 20:44 CET · último sondeo: 2026-11-02 · ventana: 2026-10-23 – 2026-11-02.</p>
   </div>
 
   <div class="card">
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function(){
     <ul class="muted">
       <li><strong>Es</strong> una media ponderada de sondeos publicados en los últimos 14 días, con rango, mediana y contraste por casa.</li>
       <li><strong>No es</strong> un pronóstico ni una estimación propia de intención de voto.</li>
-      <li><strong>No es</strong> una proyección de escaños: el hemiciclo es una simulación nacional de bloques, no el Congreso real.</li>
+      <li><strong>No es</strong> una proyección de escaños: la simulación nacional de escaños no es el Congreso real.</li>
       <li><strong>No atribuye</strong> campañas ni coordinación: mide datos publicados.</li>
     </ul>
   </div>
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function(){
     <div class="cta">
       <a class="btn" href="/data/latest.json">latest.json</a>
       <a class="btn ghost" href="/metodologia.html">Metodología</a>
-      <a class="btn ghost" href="/hemiciclo.html">Hemiciclo</a>
+      <a class="btn ghost" href="/hemiciclo.html">Simulación nacional</a>
       <a class="btn ghost" href="/incrustar.html">Guía de embeds</a>
       <a class="btn ghost" href="/fuentes.html">Fuentes</a>
     </div>
@@ -254,11 +254,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202611031942" hidden>
+<div class="swupdate" id="swupdate" data-build="202611032044" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611031942');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611032044');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -287,7 +287,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202611031942', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202611032044', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

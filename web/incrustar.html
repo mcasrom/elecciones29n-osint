@@ -12,7 +12,7 @@
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/incrustar.html">
 
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202611031942">
+<link rel="stylesheet" href="/css/main.css?v=202611032044">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function(){
     <nav class="mainnav" aria-label="Principal">
       <div class="navrow navrow-primary">
         <a class="navpill " href="/">Inicio</a>
-        <a class="navpill " href="/hemiciclo.html">Hemiciclo</a>
+        <a class="navpill " href="/hemiciclo.html">Simulación</a>
         <a class="navpill " href="/electorado.html">Electorado</a>
         <a class="navpill " href="/lideres.html">Líderes</a>
         <a class="navpill " href="/participacion.html">Participación</a>
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function(){
       <tbody>
         <tr><td><a href="/embed/medias.html" target="_blank" rel="noopener">Media</a></td><td><code>/embed/medias.html</code></td><td>430 px</td><td>Media, rango y número de sondeos por partido.</td></tr>
         <tr><td><a href="/embed/robustez.html" target="_blank" rel="noopener">Robustez</a></td><td><code>/embed/robustez.html</code></td><td>300 px</td><td>Sondeos, casas, muestra, IQR y concentración de fuente/casa.</td></tr>
-        <tr><td><a href="/embed/hemiciclo.html" target="_blank" rel="noopener">Hemiciclo</a></td><td><code>/embed/hemiciclo.html</code></td><td>430 px</td><td>Escaños y bloques de la simulación nacional.</td></tr>
+        <tr><td><a href="/embed/hemiciclo.html" target="_blank" rel="noopener">Simulación nacional</a></td><td><code>/embed/hemiciclo.html</code></td><td>430 px</td><td>Escaños y bloques de la simulación nacional de distrito único.</td></tr>
       </tbody>
     </table></div>
   </div>
@@ -253,11 +253,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202611031942" hidden>
+<div class="swupdate" id="swupdate" data-build="202611032044" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611031942');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611032044');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -286,7 +286,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202611031942', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202611032044', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

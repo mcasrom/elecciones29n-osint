@@ -149,7 +149,7 @@ def main():
 
     d.rectangle([0, 0, 10, H], fill=ACCENT)
     d.text((52, 36), "elecciones29n-osint", font=font(28, True), fill=FG)
-    d.text((52, 74), "Hemiciclo simulado · Elecciones Generales 29N 2026", font=font(22), fill=MUTED)
+    d.text((52, 74), "Simulación nacional · Elecciones Generales 29N 2026", font=font(22), fill=MUTED)
 
     d.text((52, 122), "350 escaños, fecha a fecha", font=font(54, True, serif=True), fill=FG)
     d.rectangle([54, 196, 190, 201], fill=ACCENT)

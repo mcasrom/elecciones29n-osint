@@ -10,7 +10,7 @@
 - Serie temporal por partido (JSON) y datos descargables.
 - Fichas de las 52 circunscripciones con resultados oficiales 2019/2023,
   escaño marginal y calculadora D'Hondt.
-- Hemiciclo simulado por fecha de sondeo (D'Hondt nacional, 350 escaños),
+- Simulación nacional de escaños por fecha de sondeo (D'Hondt de distrito único, 350 escaños),
   con método y límites: no es una proyección ni la composición real.
 - Provincias competitivas por margen oficial 2023 (contexto, no proyección).
 - OG 1200×630 por provincia para compartir cada ficha local.
