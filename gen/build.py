@@ -1498,7 +1498,25 @@ def write_municipios_data(circ_pages: list, censo: dict) -> None:
                     continue
         with open(os.path.join(data_dir, "municipios-vivienda.json"), "w", encoding="utf-8") as f:
             json.dump(vivienda, f, ensure_ascii=False, separators=(",", ":"))
-    print(f"municipios ok · {len(municipios)} · provincias {len(prov_by_code)} · vivienda {len(vivienda)}")
+    poblacion = {}
+    pop_src = "data/municipios_poblacion.csv"
+    if os.path.exists(pop_src):
+        with open(pop_src, encoding="utf-8", newline="") as f:
+            for row in csv.DictReader(f):
+                code = (row.get("codigo") or "").strip()
+                if len(code) != 5:
+                    continue
+                try:
+                    poblacion[code] = {
+                        "pob_2016": int(row["pob_2016"]) if row.get("pob_2016") else None,
+                        "pob_2025": int(row["pob_2025"]),
+                        "var_2016_2025": float(row["var_2016_2025"]) if row.get("var_2016_2025") else None,
+                    }
+                except (KeyError, TypeError, ValueError):
+                    continue
+        with open(os.path.join(data_dir, "municipios-poblacion.json"), "w", encoding="utf-8") as f:
+            json.dump(poblacion, f, ensure_ascii=False, separators=(",", ":"))
+    print(f"municipios ok · {len(municipios)} · provincias {len(prov_by_code)} · vivienda {len(vivienda)} · población {len(poblacion)}")
 
 
 def write_resultados_data(data: dict) -> None:

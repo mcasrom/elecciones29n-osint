@@ -29,11 +29,11 @@
 - Mostrar `sin dato` en el resto; **no estimar**.
 - Enlazar a `vivienda.pruebapublica.com` y declarar la cobertura.
 
-## Fase 2C — Población
+## Fase 2C — Población (hecha 4-nov-2026)
 
-- Incorporar población municipal del INE.
-- Mostrar evolución solo si hay serie verificable y fuente por año.
-- No usar población para inferir voto ni escaños.
+- INE, padrón municipal **2025**; variación **2016–2025**.
+- Cobertura útil: **7.983 municipios**; el resto muestra «sin dato».
+- No se usa para inferir voto ni escaños.
 
 ## Límites duros
 

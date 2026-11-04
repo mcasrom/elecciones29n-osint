@@ -45,6 +45,12 @@
     <p class="muted small" id="vivienda-note" style="margin-bottom:0">Dato municipal de referencia. No es el precio de un piso concreto ni una estimación del 29N.</p>
   </div>
 
+  <div id="poblacion-card" class="card" hidden>
+    <div class="cardhead"><h2>Población municipal</h2><span class="hint">INE · padrón 2025</span></div>
+    <div id="poblacion-data"></div>
+    <p class="muted small" id="poblacion-note" style="margin-bottom:0">Variación 2016–2025. No se usa para inferir voto ni escaños.</p>
+  </div>
+
   <div class="card">
     <div class="cardhead"><h2>Qué puedes consultar</h2></div>
     <ul class="muted small">
@@ -65,6 +71,7 @@
   let municipios = [];
   let provincias = {};
   let vivienda = {};
+  let poblacion = {};
   const norm = (s) => (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   const fmt = (n) => n == null ? '—' : Number(n).toLocaleString('es-ES');
 
@@ -99,6 +106,22 @@
       }
       vc.hidden = false;
     }
+    const pc = document.getElementById('poblacion-card');
+    const pd = document.getElementById('poblacion-data');
+    if (pc && pd) {
+      const p = poblacion[code];
+      if (p) {
+        const v = p.var_2016_2025;
+        const sign = v != null && v > 0 ? '+' : '';
+        pd.innerHTML = '<p style="font-size:28px;margin:0 0 4px"><strong>' + Number(p.pob_2025).toLocaleString('es-ES') + '</strong> <span class="muted small">habitantes · 2025</span></p>' +
+          '<p class="muted small" style="margin:0">2016: ' + Number(p.pob_2016).toLocaleString('es-ES') + ' · variación: ' + (v == null ? 'sin dato' : sign + Number(v).toFixed(1).replace('.', ',') + ' %') + '</p>';
+        document.getElementById('poblacion-note').textContent = 'Fuente: INE, padrón municipal 2025. Variación 2016–2025. No se usa para inferir voto ni escaños.';
+      } else {
+        pd.innerHTML = '<p class="muted" style="margin:0">Sin dato municipal de población para este municipio.</p>';
+        document.getElementById('poblacion-note').textContent = 'No se estima ni se rellena con datos provinciales.';
+      }
+      pc.hidden = false;
+    }
     history.replaceState(null, '', location.pathname + '?m=' + encodeURIComponent(code));
   }
 
@@ -128,9 +151,10 @@
   Promise.all([
     fetch('/data/municipios.json').then(r => r.json()),
     fetch('/data/provincias-2023.json').then(r => r.json()),
-    fetch('/data/municipios-vivienda.json').then(r => r.json()).catch(() => ({}))
-  ]).then(([m, p, v]) => {
-    municipios = m; provincias = p; vivienda = v;
+    fetch('/data/municipios-vivienda.json').then(r => r.json()).catch(() => ({})),
+    fetch('/data/municipios-poblacion.json').then(r => r.json()).catch(() => ({}))
+  ]).then(([m, p, v, pob]) => {
+    municipios = m; provincias = p; vivienda = v; poblacion = pob;
     const initial = new URLSearchParams(location.search).get('m');
     if (initial) { const found = municipios.find(x => x.code === initial); if (found) render(initial); }
   }).catch(() => { results.textContent = 'No se pudo cargar el buscador. Usa la página de Territorio.'; });
