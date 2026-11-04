@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import glob
+import csv
 import hashlib
 import json
 import math
@@ -40,6 +41,7 @@ BLACKOUT_SITEMAP = [
     ("participacion.html", 0.7),
     ("territorio.html", 0.7),
     ("circunscripciones.html", 0.6),
+    ("mi-circunscripcion.html", 0.7),
     ("noche-electoral.html", 0.7),
     ("factores.html", 0.6),
     ("como-leer.html", 0.8),
@@ -61,6 +63,7 @@ PAGES = [
     ("participacion.html", "participacion.html", "2026-10-18", "monthly", "0.7"),
     ("territorio.html", "territorio.html", "2026-10-18", "monthly", "0.7"),
     ("circunscripciones.html", "circunscripciones.html", "2026-10-22", "monthly", "0.6"),
+    ("mi-circunscripcion.html", "mi-circunscripcion.html", "2026-11-04", "monthly", "0.7"),
     ("noche-electoral.html", "noche-electoral.html", "2026-10-18", "weekly", "0.7"),
     ("factores.html", "factores.html", "2026-10-18", "monthly", "0.6"),
     ("comportamiento.html", "comportamiento.html", "2026-10-18", "monthly", "0.6"),
@@ -1417,6 +1420,57 @@ def write_congreso_web(prov_part: dict, congreso: dict) -> None:
             json.dump({"nacional": n, "filas": rows}, f, ensure_ascii=False, indent=2)
 
 
+def _norm_name(value: str) -> str:
+    import unicodedata
+    text = unicodedata.normalize("NFKD", value or "").encode("ascii", "ignore").decode().lower()
+    return " ".join(text.replace("/", " ").replace("-", " ").split())
+
+
+def write_municipios_data(circ_pages: list, censo: dict) -> None:
+    """Genera el buscador municipio→provincia sin crear 8.000 páginas."""
+    src = "data/municipios_ine.csv"
+    if not os.path.exists(src):
+        return
+    by_name = {_norm_name(p.get("nombre")): p for p in circ_pages}
+    prov_by_code = {}
+    for p in censo.get("provincias", []):
+        page = by_name.get(_norm_name(p.get("nombre")))
+        if not page:
+            continue
+        res = (page.get("resultados") or [{}])[0]
+        top = []
+        for c in (res.get("candidaturas") or [])[:6]:
+            top.append({
+                "party": c.get("acronimo") or c.get("etiqueta") or "?",
+                "pct": round(float(c.get("pct") or 0), 2),
+                "seats": int(c.get("escanos") or 0),
+            })
+        prov_by_code[str(p.get("codigo"))] = {
+            "code": str(p.get("codigo")),
+            "name": page.get("nombre"),
+            "slug": page.get("slug"),
+            "seats": int(page.get("escanos_2026") or 0),
+            "electores": int(page.get("electores_2026") or 0),
+            "participacion_2023": page.get("participacion_2023"),
+            "top_2023": top,
+        }
+    municipios = []
+    with open(src, encoding="utf-8", newline="") as f:
+        for row in csv.DictReader(f):
+            code = (row.get("codigo") or "").strip()
+            name = (row.get("nombre") or "").strip()
+            if len(code) < 2 or not name or code[:2] not in prov_by_code:
+                continue
+            municipios.append({"code": code, "name": name, "province": code[:2]})
+    data_dir = os.path.join(OUT, "data")
+    os.makedirs(data_dir, exist_ok=True)
+    with open(os.path.join(data_dir, "provincias-2023.json"), "w", encoding="utf-8") as f:
+        json.dump({k: prov_by_code[k] for k in sorted(prov_by_code)}, f, ensure_ascii=False, separators=(",", ":"))
+    with open(os.path.join(data_dir, "municipios.json"), "w", encoding="utf-8") as f:
+        json.dump(municipios, f, ensure_ascii=False, separators=(",", ":"))
+    print(f"municipios ok · {len(municipios)} · provincias {len(prov_by_code)}")
+
+
 def write_resultados_data(data: dict) -> None:
     if not data:
         return
@@ -2255,7 +2309,7 @@ def main(out: str = "web") -> None:
     }
 
     for tname in ["index.html", "hemiciclo.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "lideres.html", "participacion.html", "territorio.html",
-             "circunscripciones.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html", "competitivas.html", "mayorias.html", "postelectoral.html", "incrustar.html", "aviso.html", "prensa.html", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html", "en/post-election.html"]:
+             "circunscripciones.html", "mi-circunscripcion.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html", "competitivas.html", "mayorias.html", "postelectoral.html", "incrustar.html", "aviso.html", "prensa.html", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html", "en/post-election.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(current=tname, **context)
         with open(os.path.join(OUT, tname), "w", encoding="utf-8") as f:
@@ -2278,6 +2332,7 @@ def main(out: str = "web") -> None:
     write_participacion_data(participacion)
     write_escanos_data(escanos)
     write_congreso_oficial_data(oficial)
+    write_municipios_data(circ_pages, censo)
     write_robustez_data(latest)
     write_resultados_data(resultados)
     write_congreso_web(prov_part, congreso)

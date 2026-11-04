@@ -87,6 +87,7 @@ def main() -> int:
         for path, needle in (
             ("/electorado.html", "38.728.356"),
             ("/participacion.html", "66,59"),
+            ("/mi-circunscripcion.html", "Mi circunscripción"),
             ("/territorio.html", "Teruel"),
             ("/circunscripciones.html", "Las 52 circunscripciones"),
             ("/noche-electoral.html", "Noche electoral"),

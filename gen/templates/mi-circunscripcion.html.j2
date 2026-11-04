@@ -1,0 +1,127 @@
+{% set page_title = "Mi circunscripción · escaños, censo y resultado 2023 · 29N" %}
+{% set page_desc = "Busca tu municipio, consulta la provincia, los escaños que reparte, el censo y el resultado oficial de 2023. Sin media provincial inventada y sin pronóstico." %}
+{% set canonical = site_url ~ "/mi-circunscripcion.html" %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Mi circunscripción</h1>
+  <p class="muted" style="margin:0 0 14px">Busca tu municipio y consulta la provincia, los escaños que reparte, el censo y el resultado oficial de 2023. No hay media provincial de encuestas: la media nacional está en <a href="/">la portada</a>.</p>
+
+  <div class="card">
+    <div class="cardhead"><h2>¿Dónde votas?</h2><span class="hint">municipio · provincia · 29N</span></div>
+    <label for="muni-search" class="muted small">Escribe tu municipio</label>
+    <input id="muni-search" type="search" autocomplete="off" placeholder="Ej.: Madrid, Murcia, Getafe…" style="width:100%;max-width:540px;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--panel2);color:var(--fg);font:inherit;margin-top:6px">
+    <div id="muni-results" class="muted small" style="margin-top:10px" aria-live="polite"></div>
+  </div>
+
+  <div id="muni-card" class="card" hidden>
+    <div class="cardhead"><h2 id="prov-name">—</h2><span class="hint" id="prov-code"></span></div>
+    <div class="kpis" style="margin-bottom:14px">
+      <div class="kpi"><span class="kpi-name">Escaños</span><b id="prov-seats">—</b><span class="kpi-range">en el Congreso</span></div>
+      <div class="kpi"><span class="kpi-name">Electores</span><b id="prov-electores">—</b><span class="kpi-range">censo 2026</span></div>
+      <div class="kpi"><span class="kpi-name">Participación</span><b id="prov-part">—</b><span class="kpi-range">2023</span></div>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Partido</th><th>% 2023</th><th>Escaños 2023</th></tr></thead>
+        <tbody id="prov-top"></tbody>
+      </table>
+    </div>
+    <p class="muted small" style="margin-top:10px">Resultado oficial de 2023, no una estimación del 29N. La media de encuestas es nacional; no se reparte por provincias.</p>
+    <div class="cta">
+      <a id="ficha-link" class="btn" href="#">Ver ficha provincial →</a>
+      <a id="calc-link" class="btn ghost" href="#">Abrir calculadora D'Hondt</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Qué puedes consultar</h2></div>
+    <ul class="muted small">
+      <li><strong>Escaños de tu provincia</strong>: asignación legal para el 29N.</li>
+      <li><strong>Censo y participación</strong>: electores y dato oficial de 2023.</li>
+      <li><strong>Resultado anterior</strong>: los partidos y escaños de 2023.</li>
+      <li><strong>Calculadora</strong>: escenario con los votos que introduzcas tú; no es un pronóstico.</li>
+    </ul>
+    <p class="muted small">Fuentes: INE (censo y municipios), Ministerio del Interior (resultado 2023) y BOE (asignación de escaños). Si falta un municipio, se puede buscar por su provincia en <a href="/territorio.html">Territorio</a>.</p>
+  </div>
+</main>
+{% include "_footer.html.j2" %}
+<script>
+(function(){
+  const input = document.getElementById('muni-search');
+  const results = document.getElementById('muni-results');
+  const card = document.getElementById('muni-card');
+  let municipios = [];
+  let provincias = {};
+  const norm = (s) => (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const fmt = (n) => n == null ? '—' : Number(n).toLocaleString('es-ES');
+
+  function render(code){
+    const m = municipios.find(x => x.code === code);
+    if (!m) return;
+    const p = provincias[m.province];
+    if (!p) return;
+    document.getElementById('prov-name').textContent = p.name;
+    document.getElementById('prov-code').textContent = 'Provincia ' + p.code + ' · ' + m.name;
+    document.getElementById('prov-seats').textContent = p.seats;
+    document.getElementById('prov-electores').textContent = fmt(p.electores);
+    document.getElementById('prov-part').textContent = p.participacion_2023 == null ? '—' : Number(p.participacion_2023).toFixed(2).replace('.', ',') + ' %';
+    document.getElementById('prov-top').innerHTML = (p.top_2023 || []).map(r =>
+      '<tr><td><strong>' + r.party + '</strong></td><td class="num">' + Number(r.pct).toFixed(2).replace('.', ',') + ' %</td><td class="num">' + r.seats + '</td></tr>'
+    ).join('');
+    const ficha = '/circunscripcion/' + p.slug + '.html';
+    document.getElementById('ficha-link').href = ficha;
+    document.getElementById('calc-link').href = ficha + '#calculadora';
+    card.hidden = false;
+    history.replaceState(null, '', location.pathname + '?m=' + encodeURIComponent(code));
+  }
+
+  function search(){
+    const q = norm(input.value.trim());
+    results.innerHTML = '';
+    if (q.length < 2) { results.textContent = 'Escribe al menos dos letras.'; return; }
+    const found = municipios.filter(m => norm(m.name).includes(q)).slice(0, 12);
+    if (!found.length) { results.textContent = 'No encuentro ese municipio. Prueba con otra forma del nombre.'; return; }
+    const label = document.createElement('div');
+    label.textContent = found.length + ' coincidencia' + (found.length === 1 ? '' : 's') + ':';
+    results.appendChild(label);
+    const wrap = document.createElement('div');
+    wrap.className = 'share';
+    wrap.style.marginTop = '6px';
+    found.forEach(m => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'btn ghost';
+      b.textContent = m.name + ' · ' + (provincias[m.province] ? provincias[m.province].name : m.province);
+      b.addEventListener('click', () => render(m.code));
+      wrap.appendChild(b);
+    });
+    results.appendChild(wrap);
+  }
+
+  Promise.all([
+    fetch('/data/municipios.json').then(r => r.json()),
+    fetch('/data/provincias-2023.json').then(r => r.json())
+  ]).then(([m, p]) => {
+    municipios = m; provincias = p;
+    const initial = new URLSearchParams(location.search).get('m');
+    if (initial) { const found = municipios.find(x => x.code === initial); if (found) render(initial); }
+  }).catch(() => { results.textContent = 'No se pudo cargar el buscador. Usa la página de Territorio.'; });
+
+  input.addEventListener('input', search);
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const first = results.querySelector('button');
+      if (first) first.click();
+    }
+  });
+})();
+</script>
+</body>
+</html>

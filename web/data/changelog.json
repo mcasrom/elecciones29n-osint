@@ -622,5 +622,17 @@
       "data/polls_history.csv": null
     },
     "snapshot_hash": "686a7e14bc98ba18a0dcd45c7f8eaefdba45cfce186b1047f82025ad94f78a94"
+  },
+  {
+    "build": "202611040958",
+    "date": "2026-11-04",
+    "commit": "8d963ce",
+    "n_polls": 12,
+    "files": {
+      "data/latest.json": "a6422a5bdfefcec727a9869c2421167df78ba5eaa4d7264614e47d15575350ea",
+      "data/robustez.json": "145885068c8ef981b04e2527b477397df747ee5852868b20955461d0d292b7d2",
+      "data/polls_history.csv": null
+    },
+    "snapshot_hash": "ff9269e605a4cb71ac984e0d42c00829f31f79cb7810720e152da7ebbe7c3af1"
   }
 ]

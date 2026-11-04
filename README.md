@@ -50,6 +50,8 @@ dato, no en una nota al pie.
 - `/electorado.html` — Censo 29N: total, CER/CERA, edad y sexo, provincias y nuevos electores.
 - `/participacion.html` — Participación nacional 1979–2023 y **provincial 1977–2023** (selector + comparación con la media nacional).
 - `/territorio.html` — 350 escaños, 52 circunscripciones, electores por escaño y **votos↔escaños 2023 con índice de Gallagher**.
+- `/mi-circunscripcion.html` — **buscador municipio → provincia**: escaños, censo, participación y resultado de 2023. No hay media provincial inventada; enlaza a la ficha y a la calculadora D'Hondt.
+
 - `/circunscripciones.html` — **52 fichas provinciales** con histórico oficial 2019/2023, escaño marginal y calculadora D'Hondt; **OG 1200×630 propio por provincia**; acceso desde la **nav principal y la portada**. Detalle técnico en [`README-circunscripciones.md`](README-circunscripciones.md).
 - `/factores.html` — Factores y participación: día/festivo, meteorología (M5) y **resultados v1**.
 - `/comportamiento.html` — **M4 v1**: voto declarado en 2023 por edad, sexo e ideología (CIS 3582, n=5.025), con n por celda y celdas n<30 suprimidas.

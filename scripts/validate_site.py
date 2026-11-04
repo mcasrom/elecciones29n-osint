@@ -23,7 +23,7 @@ REQUIRED = [
     "cambios.xml", "data/latest.json", "data/robustez.json", "css/main.css", "glosario.html", "robustez.html", "hemiciclo.html", "como-leer.html", "novedades.html",
     "electorado.html", "data/censo-2026.json", "data/censo-provincias.csv",
     "participacion.html", "data/participacion.json", "data/participacion.csv",
-    "territorio.html", "data/escanos-2026.json", "data/escanos-2026.csv",
+    "territorio.html", "mi-circunscripcion.html", "data/escanos-2026.json", "data/escanos-2026.csv",
     "circunscripciones.html", "data/congreso-oficial.json", "circunscripcion/madrid.html",
     "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "competitivas.html", "mayorias.html", "postelectoral.html", "incrustar.html", "aviso.html", "prensa.html", "en.html", "embed/medias.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html", "en/post-election.html", "embed/robustez.html", "embed/hemiciclo.html",
     "manifest.webmanifest", "sw.js", "icons/icon-192.png", "icons/icon-512.png",

@@ -1,0 +1,358 @@
+
+
+
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mi circunscripción · escaños, censo y resultado 2023 · 29N</title>
+<meta name="description" content="Busca tu municipio, consulta la provincia, los escaños que reparte, el censo y el resultado oficial de 2023. Sin media provincial inventada y sin pronóstico.">
+<link rel="canonical" href="https://elecciones29n.pruebapublica.com/mi-circunscripcion.html">
+
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="stylesheet" href="/css/main.css?v=202611040958">
+<script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  function sync(){
+    var light = document.documentElement.dataset.theme === 'light';
+    document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+      var i=b.querySelector('.ticon'), l=b.querySelector('.tlabel');
+      if(i) i.textContent = light ? '☾' : '☀';
+      if(l) l.textContent = light ? 'Oscuro' : 'Claro';
+      b.setAttribute('title', light ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro');
+    });
+  }
+  sync();
+  document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var root = document.documentElement;
+      var next = root.dataset.theme === 'light' ? 'dark' : 'light';
+      root.dataset.theme = next;
+      try { localStorage.setItem('e29n-theme', next); } catch(e) {}
+      sync();
+    });
+  });
+});
+</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta name="theme-color" content="#0b0c1c">
+<meta name="generator" content="elecciones29n-osint v0.11.2">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="elecciones29n-osint">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Mi circunscripción · escaños, censo y resultado 2023 · 29N">
+<meta property="og:description" content="Busca tu municipio, consulta la provincia, los escaños que reparte, el censo y el resultado oficial de 2023. Sin media provincial inventada y sin pronóstico.">
+<meta property="og:url" content="https://elecciones29n.pruebapublica.com/mi-circunscripcion.html">
+
+<meta property="og:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<meta property="og:image:alt" content="Mi circunscripción · escaños, censo y resultado 2023 · 29N">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mi circunscripción · escaños, censo y resultado 2023 · 29N">
+<meta name="twitter:description" content="Busca tu municipio, consulta la provincia, los escaños que reparte, el censo y el resultado oficial de 2023. Sin media provincial inventada y sin pronóstico.">
+<meta name="twitter:image" content="https://elecciones29n.pruebapublica.com/og.png">
+<meta name="twitter:image:alt" content="Mi circunscripción · escaños, censo y resultado 2023 · 29N">
+<link rel="alternate" type="application/json" href="/data/latest.json" title="Datos agregados (JSON)">
+<link rel="alternate" type="application/rss+xml" href="/cambios.xml" title="Cambios · nuevos sondeos">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebSite", "name": "elecciones29n-osint", "url": "https://elecciones29n.pruebapublica.com/", "inLanguage": "es-ES", "description": "Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo y datos abiertos."}, {"@context": "https://schema.org", "@type": "Dataset", "name": "Media agregada de sondeos · Elecciones Generales 29N 2026", "description": "Media agregada de los sondeos publicados para las elecciones generales del 29 de noviembre de 2026, con rango mínimo–máximo y datos abiertos.", "url": "https://elecciones29n.pruebapublica.com/", "creator": {"@type": "Person", "name": "Miguel Castillo", "url": "https://elecciones29n.pruebapublica.com"}, "license": "https://www.gnu.org/licenses/agpl-3.0.html", "isAccessibleForFree": true, "dateModified": "2026-11-04 09:58 CET", "temporalCoverage": "2026-09/2026-11", "spatialCoverage": "ES", "distribution": [{"@type": "DataDownload", "contentUrl": "https://elecciones29n.pruebapublica.com/data/latest.json", "encodingFormat": "application/json"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué es la media agregada de sondeos?", "acceptedAnswer": {"@type": "Answer", "text": "Es la media de los sondeos publicados en los últimos 14 días con su rango mínimo–máximo. No es un pronóstico ni una estimación de intención de voto."}}, {"@type": "Question", "name": "¿Puedo publicar sondeos el 24–28 de noviembre de 2026?", "acceptedAnswer": {"@type": "Answer", "text": "No. La normativa electoral prohíbe publicar, difundir o reproducir sondeos del 24 al 28 de noviembre de 2026, ambos inclusive."}}, {"@type": "Question", "name": "¿De dónde salen los datos?", "acceptedAnswer": {"@type": "Answer", "text": "De sondeos publicados por Onda Cero y Electomanía (automáticas), y por El Mundo/Sigma Dos, El Español/SocioMétrica, La Razón/NC Report, elDiario/Ateneo del Dato y CIS (manuales verificadas), con enlace a la fuente y fecha. Se descartan sondeos autonómicos, adelantos sin serie completa y piezas sin ficha verificable."}}]}]</script>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">
+        <span class="mark"></span>
+        <span class="brandname"><a href="/">elecciones29n-osint</a></span>
+        <span class="tag">Media agregada de sondeos · 29N 2026</span>
+      </div>
+      <div class="status">
+        <button class="helpopen" id="helpbtn" aria-expanded="false" aria-controls="helppanel">? Ayuda</button>
+        <button class="themebtn" data-theme-toggle aria-label="Cambiar entre tema claro y oscuro" title="Cambiar tema"><span class="ticon">☀</span><span class="tlabel">Claro</span></button>
+      </div>
+    </div>
+
+    <nav class="mainnav" aria-label="Principal">
+      <div class="navrow navrow-primary">
+        <a class="navpill " href="/">Inicio</a>
+        <a class="navpill " href="/hemiciclo.html">Simulación</a>
+        <a class="navpill " href="/electorado.html">Electorado</a>
+        <a class="navpill " href="/lideres.html">Líderes</a>
+        <a class="navpill " href="/participacion.html">Participación</a>
+        <a class="navpill active" href="/mi-circunscripcion.html">Mi circunscripción</a>
+        <a class="navpill " href="/territorio.html">Territorio</a>
+        <a class="navpill " href="/competitivas.html">Competitivas</a>
+        <a class="navpill " href="/circunscripciones.html">Circunscripciones</a>
+        <a class="navpill " href="/noche-electoral.html">Noche electoral</a>
+      </div>
+      <div class="navrow navrow-secondary">
+        <a class="" href="/metodologia.html">Metodología</a>
+        <a class="" href="/glosario.html">Glosario</a>
+        <a class="" href="/robustez.html">Robustez</a>
+        <a class="" href="/como-leer.html">Cómo leer</a>
+        <a class="" href="/fuentes.html">Fuentes y datos</a>
+        <a class="" href="/novedades.html">Novedades</a>
+        <a class="" href="/factores.html">Factores</a>
+        <a class="" href="/comportamiento.html">Comportamiento</a>
+        <a class="" href="/caveat.html">Qué no dice</a>
+        <a class="" href="/apoyo.html">Apoyo</a>
+        <a class="" href="/sobre-mi.html">Sobre mí</a>
+        <a class="" href="/about.html">Acerca del proyecto</a>
+        <a class="" href="/mayorias.html">Mayorías</a>
+        <a class="" href="/postelectoral.html">Post-electoral</a>
+        <a class="" href="/prensa.html">Prensa</a>
+        <a class="" href="/aviso.html">Avisos</a>
+        <a class="" href="/incrustar.html">Incrustar</a>
+        <a class="" href="/en.html">English</a>
+        <a class="" href="/privacidad.html">Privacidad</a>
+        <a class="navdata" href="/data/latest.json">Datos abiertos ↗</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Mi circunscripción</h1>
+  <p class="muted" style="margin:0 0 14px">Busca tu municipio y consulta la provincia, los escaños que reparte, el censo y el resultado oficial de 2023. No hay media provincial de encuestas: la media nacional está en <a href="/">la portada</a>.</p>
+
+  <div class="card">
+    <div class="cardhead"><h2>¿Dónde votas?</h2><span class="hint">municipio · provincia · 29N</span></div>
+    <label for="muni-search" class="muted small">Escribe tu municipio</label>
+    <input id="muni-search" type="search" autocomplete="off" placeholder="Ej.: Madrid, Murcia, Getafe…" style="width:100%;max-width:540px;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--panel2);color:var(--fg);font:inherit;margin-top:6px">
+    <div id="muni-results" class="muted small" style="margin-top:10px" aria-live="polite"></div>
+  </div>
+
+  <div id="muni-card" class="card" hidden>
+    <div class="cardhead"><h2 id="prov-name">—</h2><span class="hint" id="prov-code"></span></div>
+    <div class="kpis" style="margin-bottom:14px">
+      <div class="kpi"><span class="kpi-name">Escaños</span><b id="prov-seats">—</b><span class="kpi-range">en el Congreso</span></div>
+      <div class="kpi"><span class="kpi-name">Electores</span><b id="prov-electores">—</b><span class="kpi-range">censo 2026</span></div>
+      <div class="kpi"><span class="kpi-name">Participación</span><b id="prov-part">—</b><span class="kpi-range">2023</span></div>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Partido</th><th>% 2023</th><th>Escaños 2023</th></tr></thead>
+        <tbody id="prov-top"></tbody>
+      </table>
+    </div>
+    <p class="muted small" style="margin-top:10px">Resultado oficial de 2023, no una estimación del 29N. La media de encuestas es nacional; no se reparte por provincias.</p>
+    <div class="cta">
+      <a id="ficha-link" class="btn" href="#">Ver ficha provincial →</a>
+      <a id="calc-link" class="btn ghost" href="#">Abrir calculadora D'Hondt</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Qué puedes consultar</h2></div>
+    <ul class="muted small">
+      <li><strong>Escaños de tu provincia</strong>: asignación legal para el 29N.</li>
+      <li><strong>Censo y participación</strong>: electores y dato oficial de 2023.</li>
+      <li><strong>Resultado anterior</strong>: los partidos y escaños de 2023.</li>
+      <li><strong>Calculadora</strong>: escenario con los votos que introduzcas tú; no es un pronóstico.</li>
+    </ul>
+    <p class="muted small">Fuentes: INE (censo y municipios), Ministerio del Interior (resultado 2023) y BOE (asignación de escaños). Si falta un municipio, se puede buscar por su provincia en <a href="/territorio.html">Territorio</a>.</p>
+  </div>
+</main>
+<footer class="footer">
+  <div class="container">
+    <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
+    <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
+    <p>Datos abiertos · <a href="/novedades.html">Novedades</a> · <a href="/cambios.xml">RSS de cambios</a> · <a href="/embed/medias.html">Embed</a> · <a href="/incrustar.html">Guía de uso</a> · <a href="/aviso.html">Avisos</a> · <a href="/prensa.html">Prensa</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="/privacidad.html">Privacidad</a> · <a href="/mayorias.html">Mayorías</a> · <a href="/postelectoral.html">Post-electoral</a> · <a href="/competitivas.html">Competitivas</a> · <a href="/en.html">English</a> · Hecho por Miguel Castillo · software v0.11.2 · 2026-11-04.</p>
+    <p class="eco">Ecosistema:
+      <a href="https://www.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Prueba Pública</a> ·
+      <a href="https://analisis.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Blog de análisis</a> ·
+      <a href="https://fimi.viajeinteligencia.com/?utm_source=elecciones29n&utm_medium=footer">Observatorio de amplificación</a> ·
+      <a href="https://vivienda.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Vivienda</a>
+    </p>
+    <div class="footer-actions">
+      <a class="support repo" href="https://github.com/mcasrom/elecciones29n-osint" target="_blank" rel="noopener noreferrer">GitHub · AGPL-3.0</a>
+      <a class="support kofi" href="https://ko-fi.com/m_castillo" target="_blank" rel="noopener noreferrer">☕ Apoyar en Ko-fi</a>
+    </div>
+  </div>
+</footer>
+
+<div class="helpbackdrop" id="helpbackdrop" hidden></div>
+<aside class="helppanel" id="helppanel" role="dialog" aria-modal="true" aria-labelledby="helptitle" hidden>
+  <div class="helphead">
+    <h2 id="helptitle">Cómo leer el observatorio</h2>
+    <button class="helpclose" id="helpclose" aria-label="Cerrar ayuda">×</button>
+  </div>
+  <ol class="helpsteps">
+    <li><strong>Sondeos ≠ pronóstico.</strong> Es la media de los sondeos publicados, con rango mínimo–máximo. El rango no es un intervalo de confianza.</li>
+    <li><strong>Tres capas distintas.</strong> Quién puede votar (censo), quién vota (participación) y cómo se traduce (territorio).</li>
+    <li><strong>Datos oficiales.</strong> Censo (INE), participación (JEC) y escaños (BOE) no son estimaciones. Los sondeos sí.</li>
+    <li><strong>Lo que no dice.</strong> No predice el resultado ni atribuye preferencias por edad, sexo o territorio.</li>
+  </ol>
+  <div class="cta">
+    <a class="btn" href="/metodologia.html">Ver metodología</a>
+    <a class="btn ghost" href="/caveat.html">Qué no dice este sitio</a>
+  </div>
+</aside>
+<script>
+(function(){
+  var btn = document.getElementById('helpbtn');
+  var panel = document.getElementById('helppanel');
+  var bd = document.getElementById('helpbackdrop');
+  var close = document.getElementById('helpclose');
+  if (!btn || !panel) return;
+  var open = false;
+  function setOpen(v){
+    open = v;
+    panel.hidden = !v;
+    bd.hidden = !v;
+    btn.setAttribute('aria-expanded', v ? 'true' : 'false');
+    document.body.style.overflow = v ? 'hidden' : '';
+    if (v) close.focus();
+  }
+  btn.addEventListener('click', function(){ setOpen(true); });
+  close.addEventListener('click', function(){ setOpen(false); });
+  bd.addEventListener('click', function(){ setOpen(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && open) setOpen(false); });
+  var intro = document.getElementById('helpintro');
+  var INTRO_KEY = 'e29n_help_intro';
+  if (intro) {
+    try {
+      if (!localStorage.getItem(INTRO_KEY)) intro.hidden = false;
+    } catch(e) {}
+    var io = document.getElementById('helpintro-open');
+    var ic = document.getElementById('helpintro-off');
+    if (io) io.addEventListener('click', function(){
+      intro.hidden = true; setOpen(true);
+      try { localStorage.setItem(INTRO_KEY, 'off'); } catch(e) {}
+    });
+    if (ic) ic.addEventListener('click', function(){
+      intro.hidden = true;
+      try { localStorage.setItem(INTRO_KEY, 'off'); } catch(e) {}
+    });
+  }
+})();
+</script>
+
+<div class="swupdate" id="swupdate" data-build="202611040958" hidden>
+  <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
+  <button id="swupdate-btn" type="button">Recargar</button>
+  <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611040958');}catch(e){}">×</button>
+</div>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function(){
+    var box = document.getElementById('swupdate');
+    var btn = document.getElementById('swupdate-btn');
+    var close = document.getElementById('swupdate-close');
+    var reg = null;
+    var userClicked = false;
+    var DISMISS = 'e29n_sw_dismiss';
+    function isDismissed(){
+      try { return !!(reg && reg.waiting && localStorage.getItem(DISMISS) === reg.waiting.scriptURL); }
+      catch(e) { return false; }
+    }
+    function isHiddenHere(){
+      try { return sessionStorage.getItem('e29n_sw_hidden') === (box && box.dataset.build); }
+      catch(e) { return false; }
+    }
+    function show(){ if (box && !isDismissed() && !isHiddenHere()) box.hidden = false; }
+    if (close) close.addEventListener('click', function(){
+      box.hidden = true;
+      try { if (reg && reg.waiting) localStorage.setItem(DISMISS, reg.waiting.scriptURL); } catch(e) {}
+    });
+    if (btn) btn.addEventListener('click', function(){
+      box.hidden = true;
+      userClicked = true;
+      if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
+    });
+    navigator.serviceWorker.register('/sw.js?v=202611040958', {updateViaCache: 'none'}).then(function(r){
+      reg = r;
+      if (r.waiting && navigator.serviceWorker.controller) show();
+      r.addEventListener('updatefound', function(){
+        var nw = r.installing;
+        if (!nw) return;
+        nw.addEventListener('statechange', function(){
+          if (nw.state === 'installed' && navigator.serviceWorker.controller) show();
+        });
+      });
+    }).catch(function(){});
+    navigator.serviceWorker.addEventListener('controllerchange', function(){ if (userClicked) window.location.reload(); });
+  });
+}
+</script>
+<script>
+(function(){
+  const input = document.getElementById('muni-search');
+  const results = document.getElementById('muni-results');
+  const card = document.getElementById('muni-card');
+  let municipios = [];
+  let provincias = {};
+  const norm = (s) => (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const fmt = (n) => n == null ? '—' : Number(n).toLocaleString('es-ES');
+
+  function render(code){
+    const m = municipios.find(x => x.code === code);
+    if (!m) return;
+    const p = provincias[m.province];
+    if (!p) return;
+    document.getElementById('prov-name').textContent = p.name;
+    document.getElementById('prov-code').textContent = 'Provincia ' + p.code + ' · ' + m.name;
+    document.getElementById('prov-seats').textContent = p.seats;
+    document.getElementById('prov-electores').textContent = fmt(p.electores);
+    document.getElementById('prov-part').textContent = p.participacion_2023 == null ? '—' : Number(p.participacion_2023).toFixed(2).replace('.', ',') + ' %';
+    document.getElementById('prov-top').innerHTML = (p.top_2023 || []).map(r =>
+      '<tr><td><strong>' + r.party + '</strong></td><td class="num">' + Number(r.pct).toFixed(2).replace('.', ',') + ' %</td><td class="num">' + r.seats + '</td></tr>'
+    ).join('');
+    const ficha = '/circunscripcion/' + p.slug + '.html';
+    document.getElementById('ficha-link').href = ficha;
+    document.getElementById('calc-link').href = ficha + '#calculadora';
+    card.hidden = false;
+    history.replaceState(null, '', location.pathname + '?m=' + encodeURIComponent(code));
+  }
+
+  function search(){
+    const q = norm(input.value.trim());
+    results.innerHTML = '';
+    if (q.length < 2) { results.textContent = 'Escribe al menos dos letras.'; return; }
+    const found = municipios.filter(m => norm(m.name).includes(q)).slice(0, 12);
+    if (!found.length) { results.textContent = 'No encuentro ese municipio. Prueba con otra forma del nombre.'; return; }
+    const label = document.createElement('div');
+    label.textContent = found.length + ' coincidencia' + (found.length === 1 ? '' : 's') + ':';
+    results.appendChild(label);
+    const wrap = document.createElement('div');
+    wrap.className = 'share';
+    wrap.style.marginTop = '6px';
+    found.forEach(m => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'btn ghost';
+      b.textContent = m.name + ' · ' + (provincias[m.province] ? provincias[m.province].name : m.province);
+      b.addEventListener('click', () => render(m.code));
+      wrap.appendChild(b);
+    });
+    results.appendChild(wrap);
+  }
+
+  Promise.all([
+    fetch('/data/municipios.json').then(r => r.json()),
+    fetch('/data/provincias-2023.json').then(r => r.json())
+  ]).then(([m, p]) => {
+    municipios = m; provincias = p;
+    const initial = new URLSearchParams(location.search).get('m');
+    if (initial) { const found = municipios.find(x => x.code === initial); if (found) render(initial); }
+  }).catch(() => { results.textContent = 'No se pudo cargar el buscador. Usa la página de Territorio.'; });
+
+  input.addEventListener('input', search);
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const first = results.querySelector('button');
+      if (first) first.click();
+    }
+  });
+})();
+</script>
+</body>
+</html>
