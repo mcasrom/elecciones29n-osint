@@ -14,7 +14,7 @@
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/prensa.html">
 
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202611040958">
+<link rel="stylesheet" href="/css/main.css?v=202611041006">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function(){
     <p style="font-size:20px;line-height:1.45;margin:0 0 10px"><strong>La media ponderada del 29N sitúa al PP en 31,38% (rango 28,50–33,00) y al PSOE en 26,24% (rango 24,60–27,60), con 12 sondeos.</strong></p>
     
     <p class="muted small">La <strong>media ponderada</strong> es el titular. La <strong>mediana</strong> y la <strong>media sin CIS (45 d)</strong> son pruebas de sensibilidad: sirven para explicar la robustez, no para sustituir la cifra principal.</p>
-    <p class="muted small">Actualizado: 2026-11-04 09:58 CET · último sondeo: 2026-11-02 · ventana: 2026-10-23 – 2026-11-02.</p>
+    <p class="muted small">Actualizado: 2026-11-04 10:06 CET · último sondeo: 2026-11-02 · ventana: 2026-10-23 – 2026-11-02.</p>
   </div>
 
   <div class="card">
@@ -255,11 +255,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202611040958" hidden>
+<div class="swupdate" id="swupdate" data-build="202611041006" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611040958');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611041006');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -288,7 +288,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202611040958', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202611041006', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

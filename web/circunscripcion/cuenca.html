@@ -14,7 +14,7 @@
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/circunscripcion/cuenca.html">
 
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202611040958">
+<link rel="stylesheet" href="/css/main.css?v=202611041006">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -284,6 +284,11 @@ document.addEventListener('DOMContentLoaded', function(){
       <label class="calclabel">Escaños <input id="calcSeats" type="number" min="1" max="350" value="3"></label>
       <label class="calclabel">Blancos <input id="calcBlank" type="number" min="0" value="969"></label>
     </div>
+    <div class="scenario" id="scenarioBox">
+      <div class="scenario-head"><strong>Escenario con sliders</strong><span>mueve los votos de los cinco principales; el reparto se recalcula</span></div>
+      <div id="scenarioGrid" class="scenario-grid"></div>
+      <div class="scenario-foot"><span id="scenarioBase">Base 2023. No es un pronóstico.</span><button class="btn ghost" type="button" id="scenarioReset">Restablecer 2023</button></div>
+    </div>
     <div class="calcadd">
       <input id="calcNewLabel" type="text" placeholder="Nueva candidatura" aria-label="Nombre de la nueva candidatura">
       <button class="btn ghost" type="button" id="calcAdd">Añadir</button>
@@ -342,6 +347,8 @@ document.addEventListener('DOMContentLoaded', function(){
     var valid = document.getElementById('calcValid');
     var summary = document.getElementById('calcSummary');
     var resultBody = document.querySelector('#calcResultTable tbody');
+    var scenarioGrid = document.getElementById('scenarioGrid');
+    var scenarioBase = document.getElementById('scenarioBase');
     function fmt(n){ return String(Math.round(Number(n||0))).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
     function pct(n){ return (Number(n||0)).toFixed(2).replace('.', ',') + ' %'; }
     function addRow(label, votes){
@@ -363,6 +370,30 @@ document.addEventListener('DOMContentLoaded', function(){
       tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3); tr.appendChild(td4);
       rows.appendChild(tr);
     }
+    function buildScenario(){
+      if (!scenarioGrid) return;
+      scenarioGrid.innerHTML = '';
+      var list = items().slice().sort(function(a,b){ return b.votes - a.votes; }).slice(0,5);
+      var base = list.reduce(function(a,x){ return a + x.votes; }, 0) + (parseInt(blank.value, 10) || 0);
+      scenarioBase.textContent = 'Base 2023 · ' + fmt(base) + ' votos válidos. No es un pronóstico.';
+      list.forEach(function(item){
+        var row = document.createElement('div'); row.className = 'scenario-row';
+        var lab = document.createElement('label'); lab.textContent = item.label;
+        var range = document.createElement('input');
+        range.type = 'range'; range.min = '0'; range.step = '100';
+        range.max = String(Math.max(100, Math.ceil(item.votes * 1.8)));
+        range.value = String(item.votes);
+        range.setAttribute('aria-label', 'Votos de ' + item.label + ' en el escenario');
+        var out = document.createElement('output'); out.textContent = fmt(item.votes);
+        range.addEventListener('input', function(){
+          item.node.querySelector('input').value = range.value;
+          out.textContent = fmt(range.value);
+          run();
+        });
+        row.appendChild(lab); row.appendChild(range); row.appendChild(out);
+        scenarioGrid.appendChild(row);
+      });
+    }
     function loadYear(y){
       rows.innerHTML = '';
       var d = DATA.years[y];
@@ -370,6 +401,7 @@ document.addEventListener('DOMContentLoaded', function(){
       blank.value = d.blancos;
       seats.value = DATA.escanos;
       run();
+      buildScenario();
     }
     function items(){
       return Array.prototype.map.call(rows.querySelectorAll('tr'), function(tr){
@@ -456,6 +488,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }
     document.querySelectorAll('[data-load]').forEach(function(b){ b.addEventListener('click', function(){ loadYear(b.getAttribute('data-load')); }); });
     document.getElementById('calcClear').addEventListener('click', function(){ rows.querySelectorAll('input').forEach(function(i){ i.value = 0; }); run(); });
+    document.getElementById('scenarioReset').addEventListener('click', function(){ loadYear('2023-07-23'); });
     document.getElementById('calcAdd').addEventListener('click', function(){
       var lab = document.getElementById('calcNewLabel').value.trim();
       if (!lab) return;
@@ -623,11 +656,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202611040958" hidden>
+<div class="swupdate" id="swupdate" data-build="202611041006" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611040958');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611041006');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -656,7 +689,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202611040958', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202611041006', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

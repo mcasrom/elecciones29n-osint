@@ -107,6 +107,11 @@
       <label class="calclabel">Escaños <input id="calcSeats" type="number" min="1" max="350" value="{{ circ.escanos_2026 }}"></label>
       <label class="calclabel">Blancos <input id="calcBlank" type="number" min="0" value="{{ circ.calc.years['2023-07-23'].blancos }}"></label>
     </div>
+    <div class="scenario" id="scenarioBox">
+      <div class="scenario-head"><strong>Escenario con sliders</strong><span>mueve los votos de los cinco principales; el reparto se recalcula</span></div>
+      <div id="scenarioGrid" class="scenario-grid"></div>
+      <div class="scenario-foot"><span id="scenarioBase">Base 2023. No es un pronóstico.</span><button class="btn ghost" type="button" id="scenarioReset">Restablecer 2023</button></div>
+    </div>
     <div class="calcadd">
       <input id="calcNewLabel" type="text" placeholder="Nueva candidatura" aria-label="Nombre de la nueva candidatura">
       <button class="btn ghost" type="button" id="calcAdd">Añadir</button>
@@ -165,6 +170,8 @@
     var valid = document.getElementById('calcValid');
     var summary = document.getElementById('calcSummary');
     var resultBody = document.querySelector('#calcResultTable tbody');
+    var scenarioGrid = document.getElementById('scenarioGrid');
+    var scenarioBase = document.getElementById('scenarioBase');
     function fmt(n){ return String(Math.round(Number(n||0))).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
     function pct(n){ return (Number(n||0)).toFixed(2).replace('.', ',') + ' %'; }
     function addRow(label, votes){
@@ -186,6 +193,30 @@
       tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3); tr.appendChild(td4);
       rows.appendChild(tr);
     }
+    function buildScenario(){
+      if (!scenarioGrid) return;
+      scenarioGrid.innerHTML = '';
+      var list = items().slice().sort(function(a,b){ return b.votes - a.votes; }).slice(0,5);
+      var base = list.reduce(function(a,x){ return a + x.votes; }, 0) + (parseInt(blank.value, 10) || 0);
+      scenarioBase.textContent = 'Base 2023 · ' + fmt(base) + ' votos válidos. No es un pronóstico.';
+      list.forEach(function(item){
+        var row = document.createElement('div'); row.className = 'scenario-row';
+        var lab = document.createElement('label'); lab.textContent = item.label;
+        var range = document.createElement('input');
+        range.type = 'range'; range.min = '0'; range.step = '100';
+        range.max = String(Math.max(100, Math.ceil(item.votes * 1.8)));
+        range.value = String(item.votes);
+        range.setAttribute('aria-label', 'Votos de ' + item.label + ' en el escenario');
+        var out = document.createElement('output'); out.textContent = fmt(item.votes);
+        range.addEventListener('input', function(){
+          item.node.querySelector('input').value = range.value;
+          out.textContent = fmt(range.value);
+          run();
+        });
+        row.appendChild(lab); row.appendChild(range); row.appendChild(out);
+        scenarioGrid.appendChild(row);
+      });
+    }
     function loadYear(y){
       rows.innerHTML = '';
       var d = DATA.years[y];
@@ -193,6 +224,7 @@
       blank.value = d.blancos;
       seats.value = DATA.escanos;
       run();
+      buildScenario();
     }
     function items(){
       return Array.prototype.map.call(rows.querySelectorAll('tr'), function(tr){
@@ -279,6 +311,7 @@
     }
     document.querySelectorAll('[data-load]').forEach(function(b){ b.addEventListener('click', function(){ loadYear(b.getAttribute('data-load')); }); });
     document.getElementById('calcClear').addEventListener('click', function(){ rows.querySelectorAll('input').forEach(function(i){ i.value = 0; }); run(); });
+    document.getElementById('scenarioReset').addEventListener('click', function(){ loadYear('2023-07-23'); });
     document.getElementById('calcAdd').addEventListener('click', function(){
       var lab = document.getElementById('calcNewLabel').value.trim();
       if (!lab) return;

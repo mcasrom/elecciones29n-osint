@@ -295,6 +295,17 @@ summary::-webkit-details-marker{display:none}
 .calcdelete{appearance:none;border:0;background:transparent;color:var(--faint);font:inherit;font-size:12px;cursor:pointer;text-decoration:underline}
 .calcdelete:hover{color:var(--accent)}
 .calcsummary{margin-top:10px;padding:10px 12px;border:1px solid var(--line);border-left:3px solid var(--accent2);border-radius:9px;background:var(--panel2);font-size:13.5px;color:var(--muted)}
+.scenario{margin:12px 0;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--panel2)}
+.scenario-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-bottom:10px}
+.scenario-head strong{color:var(--fg)}
+.scenario-grid{display:grid;gap:8px}
+.scenario-row{display:grid;grid-template-columns:minmax(150px,1.4fr) minmax(120px,2fr) 78px;gap:10px;align-items:center;font-size:13px}
+.scenario-row label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted)}
+.scenario-row input[type=range]{width:100%;accent-color:var(--accent)}
+.scenario-row output{text-align:right;font-variant-numeric:tabular-nums;color:var(--fg)}
+.scenario-foot{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px;font-size:12.5px;color:var(--faint)}
+@media(max-width:600px){.scenario-row{grid-template-columns:1fr 70px}.scenario-row label{grid-column:1/-1;white-space:normal}.scenario-row input[type=range]{grid-column:1}.scenario-row output{grid-column:2}}
+
 .pager{display:flex;justify-content:space-between;gap:12px;margin:16px 0;font-size:14px}
 .pager a{color:var(--muted);text-decoration:none;border:1px solid var(--line);border-radius:9px;padding:8px 12px}
 .pager a:hover{color:var(--fg);border-color:var(--muted)}
