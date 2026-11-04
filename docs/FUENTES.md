@@ -17,6 +17,15 @@
   Robots permite la ruta; se cita la compilación y la encuestadora/medio.
   «Otros» es un residual: se guarda para la suma, pero no se usa en gráficos.
 
+## Ateneo del Dato (manual + watcher)
+
+- **Ateneo del Dato · El Diario** — `https://ateneodeldato.com/`.
+  Autorización escrita del **4-nov-2026** para usar todos los datos publicados
+  en abierto, con atribución y enlace. Sigue siendo una fuente de **revisión
+  manual**: el watcher detecta piezas y las deja en cola; no se publican tablas
+  parciales. El correo de autorización se conserva en archivo privado y no se
+  publica.
+
 ## CIS (manual)
 
 - **CIS · barómetros** — `https://www.cis.es/`. Se añade a mano el último

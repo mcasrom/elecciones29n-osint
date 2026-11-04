@@ -13,7 +13,7 @@
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/fuentes.html">
 <link rel="alternate" hreflang="es" href="https://elecciones29n.pruebapublica.com/fuentes.html"><link rel="alternate" hreflang="en" href="https://elecciones29n.pruebapublica.com/en/data.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202611041356">
+<link rel="stylesheet" href="/css/main.css?v=202611042126">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function(){
           <tr><td>Sondeos (manual + watcher)</td><td>El Mundo · Sigma Dos</td><td>HTML / tabla</td><td><a href="https://www.elmundo.es/espana/encuestas/" rel="noopener" target="_blank">elmundo.es/encuestas</a></td></tr>
           <tr><td>Sondeos (manual + watcher)</td><td>El Español · SocioMétrica</td><td>HTML / tracking</td><td><a href="https://www.elespanol.com/" rel="noopener" target="_blank">elespanol.com</a></td></tr>
           <tr><td>Sondeos (manual + watcher)</td><td>La Razón · NC Report</td><td>HTML / tabla</td><td><a href="https://www.larazon.es/" rel="noopener" target="_blank">larazon.es</a></td></tr>
-          <tr><td>Sondeos (manual + watcher)</td><td>elDiario.es · Ateneo del Dato</td><td>HTML / tabla</td><td><a href="https://www.eldiario.es/" rel="noopener" target="_blank">eldiario.es</a></td></tr>
+          <tr><td>Sondeos (manual + watcher)</td><td>elDiario.es · Ateneo del Dato</td><td>HTML / tabla</td><td><a href="https://ateneodeldato.com/" rel="noopener" target="_blank">ateneodeldato.com</a> · <a href="https://www.eldiario.es/" rel="noopener" target="_blank">eldiario.es</a> · <strong>autorización escrita 4-nov-2026</strong></td></tr>
           <tr><td>CIS</td><td>Centro de Investigaciones Sociológicas</td><td>PDF (manual)</td><td><a href="https://www.cis.es/" rel="noopener" target="_blank">cis.es</a></td></tr>
           <tr><td>Contraste</td><td>Política Sin Ruido</td><td>HTML (referencia)</td><td><a href="https://politicasinruido.com/encuestas" rel="noopener" target="_blank">politicasinruido.com</a></td></tr>
           <tr><td>Censo</td><td>INE · Oficina del Censo Electoral</td><td>XLSX (tablas 2/3/6/9/12)</td><td><a href="https://www.ine.es/dyngs/CEL/es/index.htm?cid=1703" rel="noopener" target="_blank">ine.es · CEL</a></td></tr>
@@ -213,6 +213,7 @@ document.addEventListener('DOMContentLoaded', function(){
       <li><strong>INE</strong>: reutilización con cita de la fuente (CC BY 4.0 en los datos derivados).</li>
       <li><strong>JEC / BOE</strong>: reutilización citando la fuente.</li>
       <li><strong>Electomanía</strong>: <strong>autorización escrita del 23-oct-2026</strong> para usar los datos en abierto del ElectoPanel (voto y escaños), histórico incluido, sin coste, con <strong>«Fuente: Electomanía»</strong> y enlace a cada pieza. Se usan los escaños publicados y no se recalculan; no se reproducen tablas, gráficos, artículos completos ni microdatos.</li>
+      <li><strong>Ateneo del Dato</strong>: <strong>autorización escrita del 4-nov-2026</strong> para usar todos los datos publicados en abierto, con atribución y enlace a la pieza. Sigue siendo una fuente de <strong>revisión manual</strong>: la autorización no convierte el watcher en una ingesta automática ni permite publicar tablas parciales. El correo de autorización se conserva en archivo privado y no se publica.</li>
       <li><strong>Ministerio del Interior</strong>: resultados provinciales del XLSX oficial, CC BY 4.0, con atribución y fecha de actualización.</li>
       <li><strong>Este sitio</strong>: código AGPL-3.0; datos agregados reutilizables citando el proyecto. DOI del dataset: <a href="https://doi.org/10.5281/zenodo.23734740">10.5281/zenodo.23734740</a>.</li>
     </ul>
@@ -303,11 +304,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202611041356" hidden>
+<div class="swupdate" id="swupdate" data-build="202611042126" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611041356');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611042126');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -336,7 +337,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202611041356', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202611042126', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

@@ -39,6 +39,18 @@ El registro no se publica en la web: es una herramienta de trabajo.
 - La cola **no publica**: hay que abrir la pieza, comprobar fecha de publicación/campo, muestra y tabla completa, y usar `data/entrada_sondeos.csv` o `scripts/add_poll.py`.
 - Si solo hay PP/PSOE/Vox, **no se inventa el resto**: se deja pendiente o se agrega el residual en `Otros` y se documenta.
 
+## Autorizaciones
+
+- **Electomanía**: autorización escrita del **23-oct-2026** para usar los
+  datos en abierto del ElectoPanel (voto y escaños), histórico incluido, con
+  atribución y enlace a cada pieza. No se reproducen tablas, gráficos ni
+  microdatos.
+- **Ateneo del Dato**: autorización escrita del **4-nov-2026** para usar
+  todos los datos publicados en abierto, con atribución y enlace. La fuente
+  sigue en **revisión manual**: la autorización no la convierte en ingesta
+  automática ni permite publicar tablas parciales. El correo se conserva en
+  archivo privado y no se publica.
+
 ## Qué registrar y qué no
 
 - **Sí**: encuestadora, medio, URL base, frecuencia y estado.
