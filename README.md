@@ -51,6 +51,7 @@ dato, no en una nota al pie.
 - `/participacion.html` — Participación nacional 1979–2023 y **provincial 1977–2023** (selector + comparación con la media nacional).
 - `/territorio.html` — 350 escaños, 52 circunscripciones, electores por escaño y **votos↔escaños 2023 con índice de Gallagher**.
 - `/mi-circunscripcion.html` — **buscador municipio → provincia**: escaños, censo, participación y resultado de 2023. No hay media provincial inventada; enlaza a la ficha y a la calculadora D'Hondt.
+  - **Fase 2 pendiente:** sliders D'Hondt, vivienda (431 municipios con dato) y población municipal. Ver `docs/SPRINT-MI-CIRCUNSCRIPCION.md`.
 
 - `/circunscripciones.html` — **52 fichas provinciales** con histórico oficial 2019/2023, escaño marginal y calculadora D'Hondt; **OG 1200×630 propio por provincia**; acceso desde la **nav principal y la portada**. Detalle técnico en [`README-circunscripciones.md`](README-circunscripciones.md).
 - `/factores.html` — Factores y participación: día/festivo, meteorología (M5) y **resultados v1**.
