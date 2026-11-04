@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-03 20:44 CET",
-  "updated_at_iso": "2026-11-03T20:44:20.197866+01:00",
+  "updated_at": "2026-11-04 09:09 CET",
+  "updated_at_iso": "2026-11-04T09:09:17.379664+01:00",
   "in_blackout": false,
   "window_days": 14,
   "parties": [
@@ -32,7 +32,7 @@
       "max_sin_cis": 33.0,
       "n_sin_cis": 12,
       "mean_sin_cis_45d": 31.56,
-      "n_sin_cis_45d": 35,
+      "n_sin_cis_45d": 34,
       "n_houses": 15,
       "iqr": 3.6
     },
@@ -64,7 +64,7 @@
       "max_sin_cis": 27.6,
       "n_sin_cis": 12,
       "mean_sin_cis_45d": 26.32,
-      "n_sin_cis_45d": 35,
+      "n_sin_cis_45d": 34,
       "n_houses": 15,
       "iqr": 2.4
     },
@@ -96,7 +96,7 @@
       "max_sin_cis": 20.0,
       "n_sin_cis": 12,
       "mean_sin_cis_45d": 19.17,
-      "n_sin_cis_45d": 35,
+      "n_sin_cis_45d": 34,
       "n_houses": 15,
       "iqr": 1.1
     },
@@ -158,8 +158,8 @@
       "min_sin_cis": 4.6,
       "max_sin_cis": 8.9,
       "n_sin_cis": 12,
-      "mean_sin_cis_45d": 6.45,
-      "n_sin_cis_45d": 35,
+      "mean_sin_cis_45d": 6.46,
+      "n_sin_cis_45d": 34,
       "n_houses": 15,
       "iqr": 1.3
     },
@@ -187,7 +187,7 @@
       "max_sin_cis": 2.5,
       "n_sin_cis": 5,
       "mean_sin_cis_45d": 2.24,
-      "n_sin_cis_45d": 10,
+      "n_sin_cis_45d": 9,
       "n_houses": 2,
       "iqr": 1.2
     },
@@ -218,8 +218,8 @@
       "min_sin_cis": 1.7,
       "max_sin_cis": 2.8,
       "n_sin_cis": 12,
-      "mean_sin_cis_45d": 2.35,
-      "n_sin_cis_45d": 35,
+      "mean_sin_cis_45d": 2.34,
+      "n_sin_cis_45d": 34,
       "n_houses": 15,
       "iqr": 0.8
     },
@@ -248,7 +248,7 @@
       "max_sin_cis": 2.6,
       "n_sin_cis": 7,
       "mean_sin_cis_45d": 1.95,
-      "n_sin_cis_45d": 24,
+      "n_sin_cis_45d": 23,
       "n_houses": 11,
       "iqr": 0.8
     },
@@ -276,7 +276,7 @@
       "max_sin_cis": 1.8,
       "n_sin_cis": 5,
       "mean_sin_cis_45d": 1.34,
-      "n_sin_cis_45d": 10,
+      "n_sin_cis_45d": 9,
       "n_houses": 2,
       "iqr": 0.15
     },
@@ -304,7 +304,7 @@
       "max_sin_cis": 1.4,
       "n_sin_cis": 5,
       "mean_sin_cis_45d": 1.35,
-      "n_sin_cis_45d": 10,
+      "n_sin_cis_45d": 9,
       "n_houses": 2,
       "iqr": 0.3
     },
@@ -332,7 +332,7 @@
       "max_sin_cis": 1.0,
       "n_sin_cis": 5,
       "mean_sin_cis_45d": 0.94,
-      "n_sin_cis_45d": 10,
+      "n_sin_cis_45d": 9,
       "n_houses": 2,
       "iqr": 0.45
     }
@@ -3461,9 +3461,9 @@
       "majority": "right"
     },
     {
-      "date": "2026-11-03",
+      "date": "2026-11-04",
       "is_current": true,
-      "window_start": "2026-10-21",
+      "window_start": "2026-10-22",
       "n_polls": 12,
       "n_houses": 8,
       "low_n": false,
@@ -3502,7 +3502,7 @@
   ],
   "n_polls": 12,
   "n_polls_sin_cis": 12,
-  "n_polls_sin_cis_45d": 35,
+  "n_polls_sin_cis_45d": 34,
   "low_n": false,
   "window_extended": false,
   "window_span": "2026-10-23 – 2026-11-02",
@@ -3531,51 +3531,38 @@
       "Sondaxe",
       "Target Point"
     ],
-    "days_since_last": 1,
+    "days_since_last": 2,
     "sample_pct": 50,
     "sample_polls": 6,
     "dispersion_iqr": 2.07,
     "reasons": []
   },
-  "novedades": [
-    {
-      "pollster": "Sigma Dos",
-      "date": "2026-11-02"
-    },
-    {
-      "pollster": "NC Report",
-      "date": "2026-11-02"
-    },
-    {
-      "pollster": "Sociométrica",
-      "date": "2026-11-02"
-    }
-  ],
+  "novedades": [],
   "weights": {
     "window_days": 14,
     "extended": false,
     "total_polls": 12,
-    "total_weight": 10.6355,
+    "total_weight": 9.9233,
     "top_source": "Onda Cero",
     "top_source_share_pct": 40.0,
     "sources": [
       {
         "source": "Onda Cero",
-        "weight": 4.2541,
+        "weight": 3.9694,
         "n_polls": 6,
         "n_houses": 3,
         "share_pct": 40.0
       },
       {
         "source": "Otras fuentes",
-        "weight": 3.8727,
+        "weight": 3.6133,
         "n_polls": 4,
         "n_houses": 4,
         "share_pct": 36.4
       },
       {
         "source": "Electomanía",
-        "weight": 2.5086,
+        "weight": 2.3406,
         "n_polls": 2,
         "n_houses": 1,
         "share_pct": 23.6
@@ -3588,7 +3575,7 @@
       {
         "pollster": "ElectoPanel",
         "source": "Electomanía",
-        "weight": 2.5086,
+        "weight": 2.3406,
         "n_polls": 2,
         "last_date": "2026-11-01",
         "sample": 4309,
@@ -3598,7 +3585,7 @@
       {
         "pollster": "Sociométrica",
         "source": "Otras fuentes",
-        "weight": 1.9651,
+        "weight": 1.8335,
         "n_polls": 2,
         "last_date": "2026-11-02",
         "sample": 3223,
@@ -3608,7 +3595,7 @@
       {
         "pollster": "Sigma Dos",
         "source": "Otras fuentes",
-        "weight": 1.9464,
+        "weight": 1.8161,
         "n_polls": 2,
         "last_date": "2026-11-02",
         "sample": 3122,
@@ -3618,7 +3605,7 @@
       {
         "pollster": "NC Report",
         "source": "Otras fuentes",
-        "weight": 1.4414,
+        "weight": 1.3449,
         "n_polls": 2,
         "last_date": "2026-11-02",
         "sample": 1000,
@@ -3628,7 +3615,7 @@
       {
         "pollster": "Ateneo del Dato",
         "source": "Otras fuentes",
-        "weight": 0.8688,
+        "weight": 0.8106,
         "n_polls": 1,
         "last_date": "2026-10-25",
         "sample": 2000,
@@ -3638,7 +3625,7 @@
       {
         "pollster": "Target Point",
         "source": "Onda Cero",
-        "weight": 0.783,
+        "weight": 0.7306,
         "n_polls": 1,
         "last_date": "2026-11-02",
         "sample": null,
@@ -3648,7 +3635,7 @@
       {
         "pollster": "Sondaxe",
         "source": "Onda Cero",
-        "weight": 0.7306,
+        "weight": 0.6817,
         "n_polls": 1,
         "last_date": "2026-11-01",
         "sample": null,
@@ -3658,7 +3645,7 @@
       {
         "pollster": "IMOP Insights",
         "source": "Onda Cero",
-        "weight": 0.3915,
+        "weight": 0.3653,
         "n_polls": 1,
         "last_date": "2026-10-23",
         "sample": null,
@@ -3674,7 +3661,7 @@
         "date": "2026-10-25",
         "sample": 4309,
         "kind": "tracking",
-        "weight": 1.2753,
+        "weight": 1.1899,
         "n_parties": 10,
         "share_pct": 12.0
       },
@@ -3684,7 +3671,7 @@
         "date": "2026-11-01",
         "sample": 1527,
         "kind": "tracking",
-        "weight": 1.2333,
+        "weight": 1.1507,
         "n_parties": 10,
         "share_pct": 11.6
       },
@@ -3694,7 +3681,7 @@
         "date": "2026-10-26",
         "sample": 3223,
         "kind": "tracking",
-        "weight": 1.1821,
+        "weight": 1.1029,
         "n_parties": 11,
         "share_pct": 11.1
       },
@@ -3704,7 +3691,7 @@
         "date": "2026-10-26",
         "sample": 3122,
         "kind": "tracking",
-        "weight": 1.1634,
+        "weight": 1.0855,
         "n_parties": 10,
         "share_pct": 10.9
       },
@@ -3714,7 +3701,7 @@
         "date": "2026-10-25",
         "sample": 2000,
         "kind": "tracking",
-        "weight": 0.8688,
+        "weight": 0.8106,
         "n_parties": 6,
         "share_pct": 8.2
       },
@@ -3724,7 +3711,7 @@
         "date": "2026-11-02",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.783,
+        "weight": 0.7306,
         "n_parties": 7,
         "share_pct": 7.4
       },
@@ -3734,7 +3721,7 @@
         "date": "2026-11-02",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.783,
+        "weight": 0.7306,
         "n_parties": 7,
         "share_pct": 7.4
       },
@@ -3744,7 +3731,7 @@
         "date": "2026-11-02",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.783,
+        "weight": 0.7306,
         "n_parties": 6,
         "share_pct": 7.4
       },
@@ -3754,7 +3741,7 @@
         "date": "2026-11-02",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.783,
+        "weight": 0.7306,
         "n_parties": 6,
         "share_pct": 7.4
       },
@@ -3764,7 +3751,7 @@
         "date": "2026-11-01",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.7306,
+        "weight": 0.6817,
         "n_parties": 7,
         "share_pct": 6.9
       },
@@ -3774,7 +3761,7 @@
         "date": "2026-10-26",
         "sample": 1000,
         "kind": "tracking",
-        "weight": 0.6584,
+        "weight": 0.6143,
         "n_parties": 10,
         "share_pct": 6.2
       },
@@ -3784,7 +3771,7 @@
         "date": "2026-10-23",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.3915,
+        "weight": 0.3653,
         "n_parties": 7,
         "share_pct": 3.7
       }
@@ -4120,8 +4107,8 @@
       "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     }
   ],
-  "days_to_election": 26,
-  "days_to_blackout": 21,
+  "days_to_election": 25,
+  "days_to_blackout": 20,
   "gap_pp_psoe": 5.14,
   "bloc_right": 50.7,
   "bloc_left": 34.95,

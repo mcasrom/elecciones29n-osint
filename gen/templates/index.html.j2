@@ -9,7 +9,7 @@
 <body data-updated-iso="{{ updated_iso }}" data-blackout="{{ '1' if in_blackout else '0' }}">
 
 <div id="stale-banner" class="stale" hidden>
-  <strong>⚠ Datos sin actualizar</strong> · la última ejecución fue hace <span id="stale-age">—</span> h. El cron diario del servidor (06:15 UTC) no se ha ejecutado. Se muestra el último agregado válido.
+  <strong>⚠ Esta copia no está actualizada</strong> · datos de hace <span id="stale-age">—</span> h. Recarga la página; el servidor puede tener un build más reciente.
 </div>
 
 <header class="masthead">
@@ -374,9 +374,9 @@
     var iso = body.dataset.updatedIso;
     if (iso) {
       var age = (Date.now() - new Date(iso).getTime()) / 36e5;
-      var upd = new Date(iso), now = new Date();
-      var missedToday = now.getHours() >= 9 && upd.toDateString() !== now.toDateString();
-      if (age > 26 || missedToday) {
+      // Solo avisar si la copia tiene más de 26 h: no convertir una pestaña
+      // antigua en un falso "el cron no se ha ejecutado".
+      if (age > 26) {
         banner.hidden = false;
         var el = document.getElementById('stale-age');
         if (el) el.textContent = Math.floor(age);

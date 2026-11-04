@@ -142,5 +142,32 @@
     "polls_sha256": null,
     "prev_hash": "36fb8f5524322f4ddc0b8938d42101371c74697ec4b14a7350f1cd9c6bc3429a",
     "hash": "26acd666ef4c98bb207bed09f072c329bf4550a0db06918b65e374f84c972e0c"
+  },
+  {
+    "date": "2026-11-04",
+    "build": "202611040715",
+    "latest_sha256": "a53e158231a63fc6ba1949c5fe719054529a569d35233a701651186de97c58b5",
+    "robustez_sha256": "b1170cf3fd0293ce274aec04421a70b05fcedd319e12cef9925fd6f4804eed08",
+    "polls_sha256": null,
+    "prev_hash": "26acd666ef4c98bb207bed09f072c329bf4550a0db06918b65e374f84c972e0c",
+    "hash": "2a9d0d4e1ad55534524c5d45d146975972a65c33eed1276ed7ebe5385686f45b"
+  },
+  {
+    "date": "2026-11-04",
+    "build": "202611040908",
+    "latest_sha256": "98c437681a87da84f1f38263967dd2639a14a7a189a5d20c497cc2484403610c",
+    "robustez_sha256": "3a745a261b11c5fc78fb2529fb02eb1ded2c2e8e618a00cae523afe9aa759210",
+    "polls_sha256": null,
+    "prev_hash": "2a9d0d4e1ad55534524c5d45d146975972a65c33eed1276ed7ebe5385686f45b",
+    "hash": "e2be53fdc06ad639e6eff560a889e8b1a64fab21b292d925516c9d3aa0cb9ad8"
+  },
+  {
+    "date": "2026-11-04",
+    "build": "202611040909",
+    "latest_sha256": "7516611b91080b96ec05adc5375d90ae1b0971155e1645eeeabd86c05304380c",
+    "robustez_sha256": "edb804554dcf638c6ff6bb212ed9d081c61e1c55b0dc600e219d18f2ff08f303",
+    "polls_sha256": null,
+    "prev_hash": "e2be53fdc06ad639e6eff560a889e8b1a64fab21b292d925516c9d3aa0cb9ad8",
+    "hash": "686a7e14bc98ba18a0dcd45c7f8eaefdba45cfce186b1047f82025ad94f78a94"
   }
 ]
