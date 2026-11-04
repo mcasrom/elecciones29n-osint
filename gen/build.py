@@ -1479,7 +1479,26 @@ def write_municipios_data(circ_pages: list, censo: dict) -> None:
         json.dump({k: prov_by_code[k] for k in sorted(prov_by_code)}, f, ensure_ascii=False, separators=(",", ":"))
     with open(os.path.join(data_dir, "municipios.json"), "w", encoding="utf-8") as f:
         json.dump(municipios, f, ensure_ascii=False, separators=(",", ":"))
-    print(f"municipios ok · {len(municipios)} · provincias {len(prov_by_code)}")
+    vivienda = {}
+    viv_src = "data/municipios_vivienda.csv"
+    if os.path.exists(viv_src):
+        with open(viv_src, encoding="utf-8", newline="") as f:
+            for row in csv.DictReader(f):
+                code = (row.get("codigo") or "").strip()
+                if len(code) != 5:
+                    continue
+                try:
+                    vivienda[code] = {
+                        "eur_m2": round(float(row["eur_m2"]), 2),
+                        "p25": round(float(row["p25"]), 2),
+                        "p75": round(float(row["p75"]), 2),
+                        "anio": int(row["anio"]),
+                    }
+                except (KeyError, TypeError, ValueError):
+                    continue
+        with open(os.path.join(data_dir, "municipios-vivienda.json"), "w", encoding="utf-8") as f:
+            json.dump(vivienda, f, ensure_ascii=False, separators=(",", ":"))
+    print(f"municipios ok · {len(municipios)} · provincias {len(prov_by_code)} · vivienda {len(vivienda)}")
 
 
 def write_resultados_data(data: dict) -> None:

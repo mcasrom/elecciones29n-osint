@@ -39,6 +39,12 @@
     </div>
   </div>
 
+  <div id="vivienda-card" class="card" hidden>
+    <div class="cardhead"><h2>Alquiler de referencia</h2><span class="hint">SERPAVI/MIVAU · contratos, no oferta</span></div>
+    <div id="vivienda-data"></div>
+    <p class="muted small" id="vivienda-note" style="margin-bottom:0">Dato municipal de referencia. No es el precio de un piso concreto ni una estimación del 29N.</p>
+  </div>
+
   <div class="card">
     <div class="cardhead"><h2>Qué puedes consultar</h2></div>
     <ul class="muted small">
@@ -58,6 +64,7 @@
   const card = document.getElementById('muni-card');
   let municipios = [];
   let provincias = {};
+  let vivienda = {};
   const norm = (s) => (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   const fmt = (n) => n == null ? '—' : Number(n).toLocaleString('es-ES');
 
@@ -78,6 +85,20 @@
     document.getElementById('ficha-link').href = ficha;
     document.getElementById('calc-link').href = ficha + '#calculadora';
     card.hidden = false;
+    const vc = document.getElementById('vivienda-card');
+    const vd = document.getElementById('vivienda-data');
+    if (vc && vd) {
+      const v = vivienda[code];
+      if (v) {
+        vd.innerHTML = '<p style="font-size:28px;margin:0 0 4px"><strong>' + Number(v.eur_m2).toFixed(2).replace('.', ',') + ' €/m²</strong> <span class="muted small">· ' + v.anio + '</span></p>' +
+          '<p class="muted small" style="margin:0">Rango intercuartílico: ' + Number(v.p25).toFixed(2).replace('.', ',') + '–' + Number(v.p75).toFixed(2).replace('.', ',') + ' €/m² · mediana de contratos de alquiler.</p>';
+        document.getElementById('vivienda-note').innerHTML = 'Fuente: <a href="https://vivienda.pruebapublica.com/" target="_blank" rel="noopener">SERPAVI/MIVAU</a>. Cobertura municipal: 430 municipios. No es el precio de un piso concreto ni una estimación del 29N.';
+      } else {
+        vd.innerHTML = '<p class="muted" style="margin:0">Sin dato municipal de alquiler de referencia para este municipio.</p>';
+        document.getElementById('vivienda-note').textContent = 'SERPAVI/MIVAU solo cubre 430 municipios. No se estima ni se rellena con datos provinciales.';
+      }
+      vc.hidden = false;
+    }
     history.replaceState(null, '', location.pathname + '?m=' + encodeURIComponent(code));
   }
 
@@ -106,9 +127,10 @@
 
   Promise.all([
     fetch('/data/municipios.json').then(r => r.json()),
-    fetch('/data/provincias-2023.json').then(r => r.json())
-  ]).then(([m, p]) => {
-    municipios = m; provincias = p;
+    fetch('/data/provincias-2023.json').then(r => r.json()),
+    fetch('/data/municipios-vivienda.json').then(r => r.json()).catch(() => ({}))
+  ]).then(([m, p, v]) => {
+    municipios = m; provincias = p; vivienda = v;
     const initial = new URLSearchParams(location.search).get('m');
     if (initial) { const found = municipios.find(x => x.code === initial); if (found) render(initial); }
   }).catch(() => { results.textContent = 'No se pudo cargar el buscador. Usa la página de Territorio.'; });

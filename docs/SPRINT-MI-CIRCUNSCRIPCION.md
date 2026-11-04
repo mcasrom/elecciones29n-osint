@@ -22,10 +22,10 @@
 - Etiqueta fija: **escenario del usuario, no pronóstico**.
 - Tests: suma normalizada, umbral del 3 %, escaños ≤ circunscripción.
 
-## Fase 2B — Vivienda
+## Fase 2B — Vivienda (hecha 4-nov-2026)
 
 - Fuente: SERPAVI/MIVAU (mediana de contratos, anual).
-- Cobertura actual: **431 municipios**.
+- Cobertura efectiva: **430 municipios con código INE válido** (431 filas, una sin código).
 - Mostrar `sin dato` en el resto; **no estimar**.
 - Enlazar a `vivienda.pruebapublica.com` y declarar la cobertura.
 
