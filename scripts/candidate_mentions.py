@@ -61,9 +61,14 @@ META = {
     "Alvise Pérez": ("SALF", "Madrid"),
 }
 WINDOWS = (1, 7)
+ELECT = ("29n","29-n","elecciones","eleccion","electoral","campaña","campana","candidat","mitin","voto","votos","sondeo","encuesta","debate","escaño","escano","investidura","urnas","mesa electoral","colegio electoral","papeleta")
 
 def norm(s: str) -> str:
     return "".join(c for c in unicodedata.normalize("NFD", (s or "").lower()) if unicodedata.category(c) != "Mn")
+
+def electoral_context(text: str) -> bool:
+    t = norm(text)
+    return any(x in t for x in ELECT)
 
 def hit(text: str, aliases: list[str]) -> bool:
     t = norm(text)
@@ -77,26 +82,31 @@ def collect() -> dict:
     for days in WINDOWS:
         cut = (now - timedelta(days=days)).strftime("%Y-%m-%dT%H:%M:%S")
         rows = con.execute("SELECT title, summary, published FROM articles WHERE lang='es' AND country='espana' AND published>=?", (cut,)).fetchall()
-        counts = {k: 0 for k in ALIASES}; day_sets = {k: set() for k in ALIASES}
+        counts = {k: 0 for k in ALIASES}; electoral = {k: 0 for k in ALIASES}; day_sets = {k: set() for k in ALIASES}; electoral_days = {k: set() for k in ALIASES}
+        n_electoral = 0
         for r in rows:
             text = (r["title"] or "") + " " + (r["summary"] or "")
             day = (r["published"] or "")[:10]
+            is_electoral = electoral_context(text)
+            if is_electoral: n_electoral += 1
             for k, aliases in ALIASES.items():
                 if hit(text, aliases):
                     counts[k] += 1; day_sets[k].add(day)
+                    if is_electoral: electoral[k] += 1; electoral_days[k].add(day)
         n = len(rows)
         src_rows = con.execute("SELECT source, COUNT(*) AS n FROM articles WHERE lang='es' AND country='espana' AND published>=? GROUP BY source ORDER BY n DESC", (cut,)).fetchall()
         sources = [{"name": r["source"], "articles": r["n"]} for r in src_rows]
         leaders = []
         for k in ALIASES:
             party, province = META[k]
-            leaders.append({"id": IDS[k], "name": k, "party": party, "province": province, "articles": counts[k], "share_pct": round(100 * counts[k] / n, 1) if n else 0, "days": len(day_sets[k])})
-        leaders.sort(key=lambda x: (-x["articles"], x["name"]))
-        out["windows"][str(days)] = {"n_articles": n, "sources": sources, "leaders": leaders}
+            leaders.append({"id": IDS[k], "name": k, "party": party, "province": province, "articles": counts[k], "share_pct": round(100 * counts[k] / n, 1) if n else 0, "days": len(day_sets[k]), "electoral": electoral[k], "electoral_share_pct": round(100 * electoral[k] / n_electoral, 1) if n_electoral else 0, "electoral_days": len(electoral_days[k])})
+        leaders.sort(key=lambda x: (-x["electoral"], -x["articles"], x["name"]))
+        out["windows"][str(days)] = {"n_articles": n, "n_electoral": n_electoral, "sources": sources, "leaders": leaders}
     con.close()
     top_ids = [x["id"] for x in out["windows"]["7"]["leaders"][:10]]
     out["top_ids"] = top_ids
     out["top_note"] = "Se muestran los 10 con más menciones a 7 días; el JSON conserva los 13."
+    out["top_note"] = "Top 10 por menciones en contexto electoral a 7 días; el JSON conserva los 13 y ambos totales."
     return out
 
 def font(size: int, bold: bool = False):
@@ -107,20 +117,20 @@ def chart(window: dict, days: int, path: Path, top_ids: list[str]) -> None:
     bg, ink, muted, orange = "#ffffff", "#172033", "#64748b", "#ff5a1f"
     im = Image.new("RGB", (W, H), bg); d = ImageDraw.Draw(im)
     d.rectangle([0, 0, W, 10], fill=orange)
-    d.text((54, 38), "Cabezas de lista · %s · top 10" % ("24 horas" if days == 1 else "7 días"), font=font(31, True), fill=ink)
-    d.text((54, 82), "Artículos cuyo titular o sumario menciona al candidato · n=%d" % window["n_articles"], font=font(17), fill=muted)
+    d.text((54, 38), "Cabezas de lista · contexto electoral · top 10 · %s" % ("24 h" if days == 1 else "7 días"), font=font(28, True), fill=ink)
+    d.text((54, 82), "Solo artículos con contexto electoral · n=%d de %d" % (window["n_electoral"], window["n_articles"]), font=font(17), fill=muted)
     by = {x["id"]: x for x in window["leaders"]}
     leaders = [by[i] for i in top_ids if i in by]
-    maxv = max((x["articles"] for x in leaders), default=1) or 1
+    maxv = max((x["electoral"] for x in leaders), default=1) or 1
     y = 130
     for x in leaders:
-        name, val = x["name"], x["articles"]
+        name, val = x["name"], x["electoral"]
         d.text((54, y), name, font=font(19, True), fill=ink)
         d.text((54, y + 22), "%s · %s" % (x["party"], x["province"]), font=font(13), fill=muted)
         bw = int(470 * val / maxv) if maxv else 0
         d.rounded_rectangle([330, y + 2, 850, y + 30], radius=6, fill="#f1f5f9")
         if bw: d.rounded_rectangle([330, y + 2, 330 + bw, y + 30], radius=6, fill=orange)
-        d.text((985, y + 4), "%d · %.1f%%" % (val, x["share_pct"]), font=font(16, True), fill=ink, anchor="ra")
+        d.text((985, y + 4), "%d · %.1f%%" % (val, x["electoral_share_pct"]), font=font(16, True), fill=ink, anchor="ra")
         y += 52
     d.text((54, H - 28), "Fuente: titulares de prensa · cabezas de lista BOE/JEC · no es intención de voto", font=font(13), fill=muted)
     im.save(path, optimize=True)
