@@ -11,7 +11,7 @@
 {% include "_nav.html.j2" %}
 <main class="container">
   <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Candidatos y cabezas de lista</h1>
-  <p class="muted" style="margin:0 0 12px">Cabezas de lista proclamados en el <strong>BOE oficial</strong> (BOE-A-2026-23103, 3-nov-2026) y sus menciones en titulares de <strong>4 fuentes de prensa</strong>. La ventana principal es <strong>7 días</strong>; la de 24 h se muestra como contexto. No es intención de voto ni valoración.</p>
+  <p class="muted" style="margin:0 0 12px">Cabezas de lista proclamados en el <strong>BOE oficial</strong> (BOE-A-2026-23103, 3-nov-2026) y sus menciones en titulares de <strong>8 fuentes de prensa</strong>. La ventana principal es <strong>7 días</strong>; la de 24 h se muestra como contexto. No es intención de voto ni valoración.</p>
   <div class="alert warn"><strong>Cabezas de lista, no necesariamente líderes del partido.</strong> Se usa el nº 1 proclamado por provincia. No se incluye Sumar como marca propia: aparece integrada en Frente Amplio/Comuns. Yolanda Díaz no figura como candidata en el BOE. Colau y Delgado son cabezas de listas distintas de la misma órbita; no se suman. <strong>Emilio Delgado figura en el BOE como nº1 de Frente Amplio por Madrid</strong>; si otra fuente dice lo contrario, prevalece el BOE. Una mención en prensa no implica apoyo.</div>
   <p class="muted small">Fuente de nombres: <a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-23103" rel="noopener" target="_blank">BOE-A-2026-23103</a> · <a href="https://www.boe.es/boe/dias/2026/11/03/pdfs/BOE-A-2026-23103.pdf" rel="noopener" target="_blank">PDF oficial</a>. Fuente de menciones: titulares y sumarios de prensa española.</p>
   <div class="grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
@@ -51,7 +51,7 @@
       var src=document.getElementById('candidatos-sources');
       if(src){src.innerHTML='';(seven.sources||[]).forEach(function(x){var li=document.createElement('li');li.textContent=x.name+' · '+x.articles+' artículos';src.appendChild(li);});}
       var meta=document.getElementById('candidatos-meta');
-      if(meta) meta.textContent='Top 10 de 13 por menciones a 7 días · '+(one.n_articles||0)+' artículos en 24 h · '+(seven.n_articles||0)+' en 7 días · cabezas de lista BOE/JEC · 4 fuentes.';
+      if(meta) meta.textContent='Top 10 de 13 por menciones a 7 días · '+(one.n_articles||0)+' artículos en 24 h · '+(seven.n_articles||0)+' en 7 días · cabezas de lista BOE/JEC · 8 fuentes.';
     }).catch(function(){});
   })();
   </script>

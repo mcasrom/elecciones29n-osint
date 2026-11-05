@@ -13,7 +13,7 @@
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/fuentes.html">
 <link rel="alternate" hreflang="es" href="https://elecciones29n.pruebapublica.com/fuentes.html"><link rel="alternate" hreflang="en" href="https://elecciones29n.pruebapublica.com/en/data.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202611051851">
+<link rel="stylesheet" href="/css/main.css?v=202611051949">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function(){
         <a class="navpill " href="/electorado.html">Electorado</a>
         <a class="navpill " href="/lideres.html">Líderes</a>
         <a class="navpill " href="/candidatos.html">Candidatos</a>
+        <a class="navpill " href="/dirigentes.html">Dirigentes</a>
         <a class="navpill " href="/participacion.html">Participación</a>
         <a class="navpill " href="/mi-circunscripcion.html">Mi circunscripción</a>
         <a class="navpill " href="/territorio.html">Territorio</a>
@@ -138,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function(){
           <tr><td>Sondeos (manual + watcher)</td><td>La Razón · NC Report</td><td>HTML / tabla</td><td><a href="https://www.larazon.es/" rel="noopener" target="_blank">larazon.es</a></td></tr>
           <tr><td>Sondeos (manual + watcher)</td><td>elDiario.es · Ateneo del Dato</td><td>HTML / tabla</td><td><a href="https://ateneodeldato.com/" rel="noopener" target="_blank">ateneodeldato.com</a> · <a href="https://www.eldiario.es/" rel="noopener" target="_blank">eldiario.es</a> · <strong>autorización escrita 4-nov-2026</strong></td></tr>
           <tr><td>Candidaturas 29N</td><td>JEC / BOE · candidaturas proclamadas</td><td>PDF oficial</td><td><a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-23103" rel="noopener" target="_blank">BOE-A-2026-23103</a></td></tr>
-          <tr><td>Menciones de candidatos</td><td>Intelligence Hub · titulares y sumarios</td><td>SQLite / RSS</td><td>4 fuentes: El Mundo, El País, La Vanguardia, El Diario Cantabria</td></tr>
+          <tr><td>Menciones de candidatos</td><td>Intelligence Hub · titulares y sumarios</td><td>SQLite / RSS</td><td>8 fuentes: El Mundo, El País, La Vanguardia, El Diario Cantabria, Europa Press, ABC, elDiario.es y 20minutos</td></tr>
           <tr><td>CIS</td><td>Centro de Investigaciones Sociológicas</td><td>PDF (manual)</td><td><a href="https://www.cis.es/" rel="noopener" target="_blank">cis.es</a></td></tr>
           <tr><td>Contraste</td><td>Política Sin Ruido</td><td>HTML (referencia)</td><td><a href="https://politicasinruido.com/encuestas" rel="noopener" target="_blank">politicasinruido.com</a></td></tr>
           <tr><td>Censo</td><td>INE · Oficina del Censo Electoral</td><td>XLSX (tablas 2/3/6/9/12)</td><td><a href="https://www.ine.es/dyngs/CEL/es/index.htm?cid=1703" rel="noopener" target="_blank">ine.es · CEL</a></td></tr>
@@ -213,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function(){
       <li>Se descartan paneles autonómicos, adelantos incompletos y textos que no suman un rango plausible.</li>
       <li><strong>Onda Cero</strong>: se usan los <strong>sondeos individuales</strong> de su compilación (14 casas), no su promedio. La fecha es de <strong>publicación</strong>, no de campo. «Otros» es un residual y no se usa en los gráficos de partidos. No se reproducen sus tablas, gráficos ni bases de datos; se usan los valores individuales con atribución y enlace. La autorización de reutilización está solicitada y no se ha concedido.</li>
       <li><strong>CIS</strong>: barómetro añadido a mano desde su PDF, con muestra y fecha. <strong>Política Sin Ruido</strong> se usa como contraste metodológico (una encuesta por casa), no como fuente de la media.</li>
-      <li><strong>Menciones de candidatos</strong>: corpus de <strong>4 fuentes</strong> (El Mundo, El País, La Vanguardia y El Diario Cantabria). No es una muestra de toda la prensa; una mención no es apoyo ni intención de voto.</li>
+      <li><strong>Menciones de candidatos</strong>: corpus de <strong>8 fuentes</strong> (El Mundo, El País, La Vanguardia, El Diario Cantabria, Europa Press, ABC, elDiario.es y 20minutos). No es una muestra de toda la prensa; una mención no es apoyo ni intención de voto.</li>
       <li><strong>Actualización</strong>: Electomanía y Onda Cero a las 06:15 y refresco 14:15/20:15; los medios con tabla en HTML/imagen pasan por cola de revisión y no se publican parciales. Si la ingesta o la validación fallan, no se publica: se conserva la última versión buena.</li>
       <li><strong>INE</strong>: reutilización con cita de la fuente (CC BY 4.0 en los datos derivados).</li>
       <li><strong>JEC / BOE</strong>: reutilización citando la fuente.</li>
@@ -309,11 +310,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202611051851" hidden>
+<div class="swupdate" id="swupdate" data-build="202611051949" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611051851');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611051949');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -342,7 +343,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202611051851', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202611051949', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

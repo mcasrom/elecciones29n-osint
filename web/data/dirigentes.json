@@ -1,28 +1,44 @@
 {
-  "generated_at": "2026-11-05T18:07:53+00:00",
+  "generated_at": "2026-11-05T18:49:19+00:00",
   "source": "intelligence-hub/news.db",
   "candidates_source": "BOE-A-2026-23103 · JEC · candidaturas proclamadas 3-nov-2026",
   "candidates_url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-23103",
   "note": "Registro operativo. Solo se marca 'verificado' lo que consta en el BOE (candidatura). Los cargos orgánicos no contrastados quedan como pendientes y no se publican como hechos.",
   "windows": {
     "1": {
-      "n_articles": 132,
+      "n_articles": 217,
       "sources": [
         {
           "name": "El Mundo",
-          "articles": 49
+          "articles": 57
         },
         {
           "name": "El País",
-          "articles": 39
+          "articles": 43
         },
         {
           "name": "La Vanguardia",
-          "articles": 30
+          "articles": 35
+        },
+        {
+          "name": "20minutos",
+          "articles": 20
+        },
+        {
+          "name": "ABC",
+          "articles": 20
         },
         {
           "name": "El Diario Cantabria",
-          "articles": 14
+          "articles": 17
+        },
+        {
+          "name": "elDiario.es",
+          "articles": 17
+        },
+        {
+          "name": "Europa Press",
+          "articles": 8
         }
       ],
       "people": [
@@ -39,26 +55,9 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cargo orgánico: secretario general, pendiente de fuente en este registro.",
-          "articles": 14,
-          "share_pct": 10.6,
+          "articles": 32,
+          "share_pct": 14.7,
           "days": 2
-        },
-        {
-          "id": "comuns-ada-colau",
-          "full_name": "Ada Colau Ballano",
-          "aliases": [
-            "Ada Colau",
-            "Colau"
-          ],
-          "org": "Comuns-Front Ampli",
-          "role": "Cabeza de lista por Barcelona",
-          "role_type": "candidate",
-          "candidate": true,
-          "status": "verified",
-          "notes": "Coalición de la órbita de Frente Amplio. No se le atribuye la presidencia formal de la coalición.",
-          "articles": 2,
-          "share_pct": 1.5,
-          "days": 1
         },
         {
           "id": "pp-alberto-nunez-feijoo",
@@ -73,8 +72,8 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cargo orgánico: presidente nacional, pendiente de fuente en este registro.",
-          "articles": 2,
-          "share_pct": 1.5,
+          "articles": 6,
+          "share_pct": 2.8,
           "days": 1
         },
         {
@@ -90,8 +89,25 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cargo orgánico: presidente nacional, pendiente de fuente en este registro.",
+          "articles": 3,
+          "share_pct": 1.4,
+          "days": 2
+        },
+        {
+          "id": "comuns-ada-colau",
+          "full_name": "Ada Colau Ballano",
+          "aliases": [
+            "Ada Colau",
+            "Colau"
+          ],
+          "org": "Frente Amplio / Comuns",
+          "role": "Cabeza de lista por Barcelona",
+          "role_type": "candidate",
+          "candidate": true,
+          "status": "verified",
+          "notes": "Denominación oficial BOE: Comuns-Front Ampli. Cabeza de lista por Barcelona.",
           "articles": 2,
-          "share_pct": 1.5,
+          "share_pct": 0.9,
           "days": 1
         },
         {
@@ -107,8 +123,8 @@
           "candidate": true,
           "status": "verified",
           "notes": "Oriol Junqueras es otra persona y otro cargo; no se agrupan.",
-          "articles": 1,
-          "share_pct": 0.8,
+          "articles": 2,
+          "share_pct": 0.9,
           "days": 1
         },
         {
@@ -123,8 +139,8 @@
           "candidate": true,
           "status": "verified",
           "notes": "No es la secretaria general; no se duplica con Ione Belarra.",
-          "articles": 1,
-          "share_pct": 0.8,
+          "articles": 2,
+          "share_pct": 0.9,
           "days": 1
         },
         {
@@ -277,23 +293,6 @@
           "days": 0
         },
         {
-          "id": "upn-javier-esparza",
-          "full_name": "José Javier Esparza Abaurrea",
-          "aliases": [
-            "Javier Esparza",
-            "José Javier Esparza"
-          ],
-          "org": "UPN",
-          "role": "Cabeza de lista por Navarra",
-          "role_type": "candidate",
-          "candidate": true,
-          "status": "verified",
-          "notes": "Cargo orgánico pendiente de fuente en este registro.",
-          "articles": 0,
-          "share_pct": 0.0,
-          "days": 0
-        },
-        {
           "id": "soriaya-juan-palomar",
           "full_name": "Juan Antonio Palomar",
           "aliases": [
@@ -306,6 +305,22 @@
           "candidate": false,
           "status": "pending",
           "notes": "Cabeza de lista pendiente de confirmar.",
+          "articles": 0,
+          "share_pct": 0.0,
+          "days": 0
+        },
+        {
+          "id": "upn-leticia-san-martin",
+          "full_name": "Leticia San Martín Rodríguez",
+          "aliases": [
+            "Leticia San Martín"
+          ],
+          "org": "UPN-PP",
+          "role": "Cabeza de lista por Navarra",
+          "role_type": "candidate",
+          "candidate": true,
+          "status": "verified",
+          "notes": "Corrección BOE: Esparza va al Senado; Leticia San Martín encabeza el Congreso por Navarra.",
           "articles": 0,
           "share_pct": 0.0,
           "days": 0
@@ -362,6 +377,23 @@
           "days": 0
         },
         {
+          "id": "bng-nestor-rego",
+          "full_name": "Néstor Rego Candamil",
+          "aliases": [
+            "Néstor Rego",
+            "Rego"
+          ],
+          "org": "BNG",
+          "role": "Cabeza de lista por A Coruña",
+          "role_type": "candidate",
+          "candidate": true,
+          "status": "verified",
+          "notes": "Corrección BOE: era la ficha de Olalla Rodil; el nº1 por A Coruña es Néstor Rego.",
+          "articles": 0,
+          "share_pct": 0.0,
+          "days": 0
+        },
+        {
           "id": "ehbildu-oihana-etxebarrieta",
           "full_name": "Oihana Etxebarrieta Legrand",
           "aliases": [
@@ -374,23 +406,6 @@
           "candidate": true,
           "status": "verified",
           "notes": "Arnaldo Otegi es otra persona y otro cargo; no se agrupan.",
-          "articles": 0,
-          "share_pct": 0.0,
-          "days": 0
-        },
-        {
-          "id": "bng-olalla-rodil",
-          "full_name": "Olalla Rodil Fernández",
-          "aliases": [
-            "Olalla Rodil",
-            "Rodil"
-          ],
-          "org": "BNG",
-          "role": "Cabeza de lista por A Coruña",
-          "role_type": "candidate",
-          "candidate": true,
-          "status": "verified",
-          "notes": "Ana Pontón es otra persona y otro cargo; no se agrupan.",
           "articles": 0,
           "share_pct": 0.0,
           "days": 0
@@ -466,23 +481,39 @@
       ]
     },
     "7": {
-      "n_articles": 1025,
+      "n_articles": 1110,
       "sources": [
         {
           "name": "El Mundo",
-          "articles": 324
+          "articles": 331
         },
         {
           "name": "El País",
-          "articles": 309
+          "articles": 314
         },
         {
           "name": "La Vanguardia",
-          "articles": 262
+          "articles": 266
         },
         {
           "name": "El Diario Cantabria",
-          "articles": 130
+          "articles": 132
+        },
+        {
+          "name": "20minutos",
+          "articles": 20
+        },
+        {
+          "name": "ABC",
+          "articles": 20
+        },
+        {
+          "name": "elDiario.es",
+          "articles": 19
+        },
+        {
+          "name": "Europa Press",
+          "articles": 8
         }
       ],
       "people": [
@@ -499,8 +530,8 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cargo orgánico: secretario general, pendiente de fuente en este registro.",
-          "articles": 71,
-          "share_pct": 6.9,
+          "articles": 89,
+          "share_pct": 8.0,
           "days": 8
         },
         {
@@ -516,8 +547,8 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cargo orgánico: presidente nacional, pendiente de fuente en este registro.",
-          "articles": 34,
-          "share_pct": 3.3,
+          "articles": 38,
+          "share_pct": 3.4,
           "days": 7
         },
         {
@@ -533,9 +564,9 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cargo orgánico: presidente nacional, pendiente de fuente en este registro.",
-          "articles": 12,
+          "articles": 13,
           "share_pct": 1.2,
-          "days": 5
+          "days": 6
         },
         {
           "id": "comuns-ada-colau",
@@ -544,15 +575,32 @@
             "Ada Colau",
             "Colau"
           ],
-          "org": "Comuns-Front Ampli",
+          "org": "Frente Amplio / Comuns",
           "role": "Cabeza de lista por Barcelona",
           "role_type": "candidate",
           "candidate": true,
           "status": "verified",
-          "notes": "Coalición de la órbita de Frente Amplio. No se le atribuye la presidencia formal de la coalición.",
+          "notes": "Denominación oficial BOE: Comuns-Front Ampli. Cabeza de lista por Barcelona.",
           "articles": 5,
           "share_pct": 0.5,
           "days": 4
+        },
+        {
+          "id": "erc-gabriel-rufian",
+          "full_name": "Gabriel Rufián Romero",
+          "aliases": [
+            "Gabriel Rufián",
+            "Rufián"
+          ],
+          "org": "ERC",
+          "role": "Cabeza de lista por Barcelona",
+          "role_type": "candidate",
+          "candidate": true,
+          "status": "verified",
+          "notes": "Oriol Junqueras es otra persona y otro cargo; no se agrupan.",
+          "articles": 3,
+          "share_pct": 0.3,
+          "days": 2
         },
         {
           "id": "junts-carles-puigdemont",
@@ -572,21 +620,20 @@
           "days": 1
         },
         {
-          "id": "erc-gabriel-rufian",
-          "full_name": "Gabriel Rufián Romero",
+          "id": "podemos-irene-montero",
+          "full_name": "Irene Montero Gil",
           "aliases": [
-            "Gabriel Rufián",
-            "Rufián"
+            "Irene Montero"
           ],
-          "org": "ERC",
-          "role": "Cabeza de lista por Barcelona",
+          "org": "Podemos",
+          "role": "Cabeza de lista por Madrid",
           "role_type": "candidate",
           "candidate": true,
           "status": "verified",
-          "notes": "Oriol Junqueras es otra persona y otro cargo; no se agrupan.",
+          "notes": "No es la secretaria general; no se duplica con Ione Belarra.",
           "articles": 2,
           "share_pct": 0.2,
-          "days": 2
+          "days": 1
         },
         {
           "id": "frente-amplio-emilio-delgado",
@@ -600,22 +647,6 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cabeza distinta de Colau; no se suman.",
-          "articles": 1,
-          "share_pct": 0.1,
-          "days": 1
-        },
-        {
-          "id": "podemos-irene-montero",
-          "full_name": "Irene Montero Gil",
-          "aliases": [
-            "Irene Montero"
-          ],
-          "org": "Podemos",
-          "role": "Cabeza de lista por Madrid",
-          "role_type": "candidate",
-          "candidate": true,
-          "status": "verified",
-          "notes": "No es la secretaria general; no se duplica con Ione Belarra.",
           "articles": 1,
           "share_pct": 0.1,
           "days": 1
@@ -754,23 +785,6 @@
           "days": 0
         },
         {
-          "id": "upn-javier-esparza",
-          "full_name": "José Javier Esparza Abaurrea",
-          "aliases": [
-            "Javier Esparza",
-            "José Javier Esparza"
-          ],
-          "org": "UPN",
-          "role": "Cabeza de lista por Navarra",
-          "role_type": "candidate",
-          "candidate": true,
-          "status": "verified",
-          "notes": "Cargo orgánico pendiente de fuente en este registro.",
-          "articles": 0,
-          "share_pct": 0.0,
-          "days": 0
-        },
-        {
           "id": "soriaya-juan-palomar",
           "full_name": "Juan Antonio Palomar",
           "aliases": [
@@ -783,6 +797,22 @@
           "candidate": false,
           "status": "pending",
           "notes": "Cabeza de lista pendiente de confirmar.",
+          "articles": 0,
+          "share_pct": 0.0,
+          "days": 0
+        },
+        {
+          "id": "upn-leticia-san-martin",
+          "full_name": "Leticia San Martín Rodríguez",
+          "aliases": [
+            "Leticia San Martín"
+          ],
+          "org": "UPN-PP",
+          "role": "Cabeza de lista por Navarra",
+          "role_type": "candidate",
+          "candidate": true,
+          "status": "verified",
+          "notes": "Corrección BOE: Esparza va al Senado; Leticia San Martín encabeza el Congreso por Navarra.",
           "articles": 0,
           "share_pct": 0.0,
           "days": 0
@@ -822,6 +852,23 @@
           "days": 0
         },
         {
+          "id": "bng-nestor-rego",
+          "full_name": "Néstor Rego Candamil",
+          "aliases": [
+            "Néstor Rego",
+            "Rego"
+          ],
+          "org": "BNG",
+          "role": "Cabeza de lista por A Coruña",
+          "role_type": "candidate",
+          "candidate": true,
+          "status": "verified",
+          "notes": "Corrección BOE: era la ficha de Olalla Rodil; el nº1 por A Coruña es Néstor Rego.",
+          "articles": 0,
+          "share_pct": 0.0,
+          "days": 0
+        },
+        {
           "id": "ehbildu-oihana-etxebarrieta",
           "full_name": "Oihana Etxebarrieta Legrand",
           "aliases": [
@@ -834,23 +881,6 @@
           "candidate": true,
           "status": "verified",
           "notes": "Arnaldo Otegi es otra persona y otro cargo; no se agrupan.",
-          "articles": 0,
-          "share_pct": 0.0,
-          "days": 0
-        },
-        {
-          "id": "bng-olalla-rodil",
-          "full_name": "Olalla Rodil Fernández",
-          "aliases": [
-            "Olalla Rodil",
-            "Rodil"
-          ],
-          "org": "BNG",
-          "role": "Cabeza de lista por A Coruña",
-          "role_type": "candidate",
-          "candidate": true,
-          "status": "verified",
-          "notes": "Ana Pontón es otra persona y otro cargo; no se agrupan.",
           "articles": 0,
           "share_pct": 0.0,
           "days": 0

@@ -12,7 +12,7 @@
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/candidatos.html">
 
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202611051924">
+<link rel="stylesheet" href="/css/main.css?v=202611051949">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </header>
 <main class="container">
   <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Candidatos y cabezas de lista</h1>
-  <p class="muted" style="margin:0 0 12px">Cabezas de lista proclamados en el <strong>BOE oficial</strong> (BOE-A-2026-23103, 3-nov-2026) y sus menciones en titulares de <strong>4 fuentes de prensa</strong>. La ventana principal es <strong>7 días</strong>; la de 24 h se muestra como contexto. No es intención de voto ni valoración.</p>
+  <p class="muted" style="margin:0 0 12px">Cabezas de lista proclamados en el <strong>BOE oficial</strong> (BOE-A-2026-23103, 3-nov-2026) y sus menciones en titulares de <strong>8 fuentes de prensa</strong>. La ventana principal es <strong>7 días</strong>; la de 24 h se muestra como contexto. No es intención de voto ni valoración.</p>
   <div class="alert warn"><strong>Cabezas de lista, no necesariamente líderes del partido.</strong> Se usa el nº 1 proclamado por provincia. No se incluye Sumar como marca propia: aparece integrada en Frente Amplio/Comuns. Yolanda Díaz no figura como candidata en el BOE. Colau y Delgado son cabezas de listas distintas de la misma órbita; no se suman. <strong>Emilio Delgado figura en el BOE como nº1 de Frente Amplio por Madrid</strong>; si otra fuente dice lo contrario, prevalece el BOE. Una mención en prensa no implica apoyo.</div>
   <p class="muted small">Fuente de nombres: <a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-23103" rel="noopener" target="_blank">BOE-A-2026-23103</a> · <a href="https://www.boe.es/boe/dias/2026/11/03/pdfs/BOE-A-2026-23103.pdf" rel="noopener" target="_blank">PDF oficial</a>. Fuente de menciones: titulares y sumarios de prensa española.</p>
   <div class="grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function(){
       var src=document.getElementById('candidatos-sources');
       if(src){src.innerHTML='';(seven.sources||[]).forEach(function(x){var li=document.createElement('li');li.textContent=x.name+' · '+x.articles+' artículos';src.appendChild(li);});}
       var meta=document.getElementById('candidatos-meta');
-      if(meta) meta.textContent='Top 10 de 13 por menciones a 7 días · '+(one.n_articles||0)+' artículos en 24 h · '+(seven.n_articles||0)+' en 7 días · cabezas de lista BOE/JEC · 4 fuentes.';
+      if(meta) meta.textContent='Top 10 de 13 por menciones a 7 días · '+(one.n_articles||0)+' artículos en 24 h · '+(seven.n_articles||0)+' en 7 días · cabezas de lista BOE/JEC · 8 fuentes.';
     }).catch(function(){});
   })();
   </script>
@@ -243,11 +243,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202611051924" hidden>
+<div class="swupdate" id="swupdate" data-build="202611051949" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611051924');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611051949');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -276,7 +276,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202611051924', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202611051949', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){
