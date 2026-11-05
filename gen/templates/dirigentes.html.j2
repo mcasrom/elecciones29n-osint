@@ -1,0 +1,50 @@
+{% set page_title = "Dirigentes y candidatos · 29N" %}
+{% set page_desc = "Registro operativo de dirigentes y cabezas de lista del 29N, con estado verificado/pendiente y menciones en prensa a 24 horas y 7 días." %}
+{% set canonical = site_url ~ "/dirigentes.html" %}
+{% set jsonld = webpages['dirigentes.html'] %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Dirigentes y candidatos</h1>
+  <p class="muted" style="margin:0 0 12px">Registro operativo con <strong>ID único por persona</strong>, organización, condición y estado. Solo se marca como verificado lo que consta en el BOE como candidatura. Los cargos orgánicos no contrastados quedan como <strong>pendientes</strong> y no se presentan como hechos.</p>
+  <div class="alert warn"><strong>No es una lista de cargos verificados.</strong> La candidatura se verifica en el <a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-23103" rel="noopener" target="_blank">BOE-A-2026-23103</a>. Los cargos de partido pendientes se muestran como tales. No se agrupan personas distintas: Rufián ≠ Junqueras, Nogueras ≠ Puigdemont, Etxebarrieta ≠ Otegi, Rodil ≠ Pontón, Sagastizabal ≠ Aitor Esteban.</div>
+  <div class="card"><div class="cardhead"><h2>Registro</h2><span class="hint">estado · menciones 24 h / 7 d</span></div><div class="tablewrap"><table><thead><tr><th>Persona</th><th>Organización</th><th>Condición</th><th>Estado</th><th>24 h</th><th>7 días</th></tr></thead><tbody id="dirigentes-body"><tr><td colspan="6" class="muted">Cargando…</td></tr></tbody></table></div><p class="muted small" id="dirigentes-meta">Fuente de candidaturas: BOE/JEC. Menciones: titulares de prensa.</p></div>
+  <div class="card"><div class="cardhead"><h2>Fuentes del corpus</h2><span class="hint">7 días</span></div><ul id="dirigentes-sources" class="muted small"><li>Cargando…</li></ul><p class="muted small">El corpus son 4 fuentes de prensa; la selección condiciona las menciones. No es intención de voto ni valoración.</p></div>
+  <div class="card"><div class="cardhead"><h2>Criterio</h2></div><ul class="muted small"><li><strong>Verificado:</strong> candidatura proclamada en el BOE.</li><li><strong>Pendiente:</strong> cargo orgánico o referente sin fuente primaria en este registro; no se publica como presidente/secretario general.</li><li>Una persona puede ser candidata y dirigente, pero se cuenta una sola vez.</li><li>Los candidatos ya publicados en <a href="/candidatos.html">Candidatos</a> se enlazan por el mismo ID.</li></ul></div>
+  <div class="cta"><a class="btn" href="/candidatos.html">Candidatos y cabezas de lista</a> <a class="btn ghost" href="/data/dirigentes.json">JSON</a> <a class="btn ghost" href="/fuentes.html">Fuentes</a></div>
+  <script>
+  (function(){
+    fetch('/data/dirigentes.json').then(function(r){return r.json();}).then(function(d){
+      var body=document.getElementById('dirigentes-body'); if(!body) return;
+      var one=d.windows['1'], seven=d.windows['7']; var by={}; (seven.people||[]).forEach(function(x){by[x.id]=x;});
+      body.innerHTML='';
+      (one.people||[]).forEach(function(x){
+        var s=by[x.id]||{articles:'—',share_pct:'—',days:'—'};
+        var tr=document.createElement('tr');
+        tr.innerHTML='<td><strong></strong><br><span class="muted small"></span></td><td></td><td></td><td></td><td class="num"></td><td class="num"></td>';
+        tr.children[0].querySelector('strong').textContent=x.full_name;
+        tr.children[0].querySelector('span').textContent=x.id;
+        tr.children[1].textContent=x.org;
+        tr.children[2].textContent=x.role;
+        var ok=x.status==='verified';
+        tr.children[3].innerHTML=ok?'<span style="color:#047857;font-weight:700">verificado BOE</span>':'<span style="color:#9a3412">pendiente</span>';
+        tr.children[4].textContent=x.articles+' ('+x.share_pct+' %)';
+        tr.children[5].textContent=s.articles+' ('+s.share_pct+' %)';
+        body.appendChild(tr);
+      });
+      var meta=document.getElementById('dirigentes-meta');
+      if(meta) meta.textContent='Fuente de candidaturas: BOE-A-2026-23103. Menciones: '+(one.n_articles||0)+' artículos en 24 h · '+(seven.n_articles||0)+' en 7 días · 4 fuentes.';
+      var src=document.getElementById('dirigentes-sources');
+      if(src){src.innerHTML='';(seven.sources||[]).forEach(function(s){var li=document.createElement('li');li.textContent=s.name+' · '+s.articles+' artículos';src.appendChild(li);});}
+    }).catch(function(){});
+  })();
+  </script>
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>

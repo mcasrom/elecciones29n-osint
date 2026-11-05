@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T17:51:02+00:00",
+  "generated_at": "2026-11-05T18:08:20+00:00",
   "source": "intelligence-hub/news.db",
   "source_label": "Titulares y sumarios de prensa española",
   "candidates_source": "BOE-A-2026-23103 · JEC · candidaturas proclamadas 3-nov-2026",
@@ -8,7 +8,7 @@
   "note": "Cabezas de lista proclamados en el BOE; no son necesariamente los líderes del partido. No se incluye Sumar como marca propia: aparece integrada en Frente Amplio/Comuns. Yolanda Díaz no figura como candidata.",
   "windows": {
     "1": {
-      "n_articles": 137,
+      "n_articles": 132,
       "sources": [
         {
           "name": "El Mundo",
@@ -16,27 +16,29 @@
         },
         {
           "name": "El País",
-          "articles": 42
+          "articles": 39
         },
         {
           "name": "La Vanguardia",
-          "articles": 31
+          "articles": 30
         },
         {
           "name": "El Diario Cantabria",
-          "articles": 15
+          "articles": 14
         }
       ],
       "leaders": [
         {
+          "id": "psoe-pedro-sanchez",
           "name": "Pedro Sánchez",
           "party": "PSOE",
           "province": "Madrid",
           "articles": 14,
-          "share_pct": 10.2,
+          "share_pct": 10.6,
           "days": 2
         },
         {
+          "id": "vox-santiago-abascal",
           "name": "Abascal",
           "party": "VOX",
           "province": "Madrid",
@@ -45,6 +47,7 @@
           "days": 1
         },
         {
+          "id": "comuns-ada-colau",
           "name": "Ada Colau",
           "party": "Comuns-Front Ampli",
           "province": "Barcelona",
@@ -53,6 +56,7 @@
           "days": 1
         },
         {
+          "id": "pp-alberto-nunez-feijoo",
           "name": "Feijóo",
           "party": "PP",
           "province": "Madrid",
@@ -61,22 +65,25 @@
           "days": 1
         },
         {
+          "id": "erc-gabriel-rufian",
           "name": "Gabriel Rufián",
           "party": "ERC",
           "province": "Barcelona",
           "articles": 1,
-          "share_pct": 0.7,
+          "share_pct": 0.8,
           "days": 1
         },
         {
+          "id": "podemos-irene-montero",
           "name": "Irene Montero",
           "party": "Podemos",
           "province": "Madrid",
           "articles": 1,
-          "share_pct": 0.7,
+          "share_pct": 0.8,
           "days": 1
         },
         {
+          "id": "salf-alvise-perez",
           "name": "Alvise Pérez",
           "party": "SALF",
           "province": "Madrid",
@@ -85,6 +92,7 @@
           "days": 0
         },
         {
+          "id": "frente-amplio-emilio-delgado",
           "name": "Emilio Delgado",
           "party": "Frente Amplio",
           "province": "Madrid",
@@ -93,6 +101,7 @@
           "days": 0
         },
         {
+          "id": "pnv-idoia-sagastizabal",
           "name": "Idoia Sagastizabal",
           "party": "PNV",
           "province": "Bizkaia",
@@ -101,6 +110,7 @@
           "days": 0
         },
         {
+          "id": "upn-javier-esparza",
           "name": "Javier Esparza",
           "party": "UPN",
           "province": "Navarra",
@@ -109,6 +119,7 @@
           "days": 0
         },
         {
+          "id": "junts-miriam-nogueras",
           "name": "Míriam Nogueras",
           "party": "Junts",
           "province": "Barcelona",
@@ -117,6 +128,7 @@
           "days": 0
         },
         {
+          "id": "ehbildu-oihana-etxebarrieta",
           "name": "Oihana Etxebarrieta",
           "party": "EH Bildu",
           "province": "Gipuzkoa",
@@ -125,6 +137,7 @@
           "days": 0
         },
         {
+          "id": "bng-olalla-rodil",
           "name": "Olalla Rodil",
           "party": "BNG",
           "province": "A Coruña",
@@ -135,11 +148,11 @@
       ]
     },
     "7": {
-      "n_articles": 1027,
+      "n_articles": 1025,
       "sources": [
         {
           "name": "El Mundo",
-          "articles": 326
+          "articles": 324
         },
         {
           "name": "El País",
@@ -156,6 +169,7 @@
       ],
       "leaders": [
         {
+          "id": "psoe-pedro-sanchez",
           "name": "Pedro Sánchez",
           "party": "PSOE",
           "province": "Madrid",
@@ -164,6 +178,7 @@
           "days": 8
         },
         {
+          "id": "pp-alberto-nunez-feijoo",
           "name": "Feijóo",
           "party": "PP",
           "province": "Madrid",
@@ -172,6 +187,7 @@
           "days": 7
         },
         {
+          "id": "vox-santiago-abascal",
           "name": "Abascal",
           "party": "VOX",
           "province": "Madrid",
@@ -180,6 +196,7 @@
           "days": 5
         },
         {
+          "id": "comuns-ada-colau",
           "name": "Ada Colau",
           "party": "Comuns-Front Ampli",
           "province": "Barcelona",
@@ -188,6 +205,7 @@
           "days": 4
         },
         {
+          "id": "erc-gabriel-rufian",
           "name": "Gabriel Rufián",
           "party": "ERC",
           "province": "Barcelona",
@@ -196,6 +214,7 @@
           "days": 2
         },
         {
+          "id": "frente-amplio-emilio-delgado",
           "name": "Emilio Delgado",
           "party": "Frente Amplio",
           "province": "Madrid",
@@ -204,6 +223,7 @@
           "days": 1
         },
         {
+          "id": "podemos-irene-montero",
           "name": "Irene Montero",
           "party": "Podemos",
           "province": "Madrid",
@@ -212,6 +232,7 @@
           "days": 1
         },
         {
+          "id": "junts-miriam-nogueras",
           "name": "Míriam Nogueras",
           "party": "Junts",
           "province": "Barcelona",
@@ -220,6 +241,7 @@
           "days": 1
         },
         {
+          "id": "salf-alvise-perez",
           "name": "Alvise Pérez",
           "party": "SALF",
           "province": "Madrid",
@@ -228,6 +250,7 @@
           "days": 0
         },
         {
+          "id": "pnv-idoia-sagastizabal",
           "name": "Idoia Sagastizabal",
           "party": "PNV",
           "province": "Bizkaia",
@@ -236,6 +259,7 @@
           "days": 0
         },
         {
+          "id": "upn-javier-esparza",
           "name": "Javier Esparza",
           "party": "UPN",
           "province": "Navarra",
@@ -244,6 +268,7 @@
           "days": 0
         },
         {
+          "id": "ehbildu-oihana-etxebarrieta",
           "name": "Oihana Etxebarrieta",
           "party": "EH Bildu",
           "province": "Gipuzkoa",
@@ -252,6 +277,7 @@
           "days": 0
         },
         {
+          "id": "bng-olalla-rodil",
           "name": "Olalla Rodil",
           "party": "BNG",
           "province": "A Coruña",

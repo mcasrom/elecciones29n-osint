@@ -30,6 +30,21 @@ ALIASES = {
     "Irene Montero": ["irene montero"],
     "Alvise Pérez": ["alvise perez", "alvise"],
 }
+IDS = {
+    "Pedro Sánchez": "psoe-pedro-sanchez",
+    "Feijóo": "pp-alberto-nunez-feijoo",
+    "Abascal": "vox-santiago-abascal",
+    "Gabriel Rufián": "erc-gabriel-rufian",
+    "Míriam Nogueras": "junts-miriam-nogueras",
+    "Oihana Etxebarrieta": "ehbildu-oihana-etxebarrieta",
+    "Idoia Sagastizabal": "pnv-idoia-sagastizabal",
+    "Olalla Rodil": "bng-olalla-rodil",
+    "Javier Esparza": "upn-javier-esparza",
+    "Ada Colau": "comuns-ada-colau",
+    "Emilio Delgado": "frente-amplio-emilio-delgado",
+    "Irene Montero": "podemos-irene-montero",
+    "Alvise Pérez": "salf-alvise-perez",
+}
 META = {
     "Pedro Sánchez": ("PSOE", "Madrid"),
     "Feijóo": ("PP", "Madrid"),
@@ -75,7 +90,7 @@ def collect() -> dict:
         leaders = []
         for k in ALIASES:
             party, province = META[k]
-            leaders.append({"name": k, "party": party, "province": province, "articles": counts[k], "share_pct": round(100 * counts[k] / n, 1) if n else 0, "days": len(day_sets[k])})
+            leaders.append({"id": IDS[k], "name": k, "party": party, "province": province, "articles": counts[k], "share_pct": round(100 * counts[k] / n, 1) if n else 0, "days": len(day_sets[k])})
         leaders.sort(key=lambda x: (-x["articles"], x["name"]))
         out["windows"][str(days)] = {"n_articles": n, "sources": sources, "leaders": leaders}
     con.close(); return out
