@@ -13,7 +13,8 @@ from PIL import Image, ImageDraw, ImageFont
 
 DB = "/home/deploy/intelligence-hub/data/news.db"
 OUT_DEFAULT = "/var/www/elecciones29n"
-PDF = "https://www.juntaelectoralcentral.es/cs/jec/documentos/eg2026_candidaturas_proclamadas.pdf"
+PDF = "https://www.boe.es/boe/dias/2026/11/03/pdfs/BOE-A-2026-23103.pdf"
+BOE_HTML = "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-23103"
 ALIASES = {
     "Pedro Sánchez": ["pedro sanchez", "sanchez"],
     "Feijóo": ["feijoo", "alberto nunez feijoo"],
@@ -24,6 +25,10 @@ ALIASES = {
     "Idoia Sagastizabal": ["idoia sagastizabal", "sagastizabal"],
     "Olalla Rodil": ["olalla rodil", "rodil"],
     "Javier Esparza": ["jose javier esparza", "javier esparza"],
+    "Ada Colau": ["ada colau", "colau"],
+    "Emilio Delgado": ["emilio delgado"],
+    "Irene Montero": ["irene montero"],
+    "Alvise Pérez": ["alvise perez", "alvise"],
 }
 META = {
     "Pedro Sánchez": ("PSOE", "Madrid"),
@@ -35,6 +40,10 @@ META = {
     "Idoia Sagastizabal": ("PNV", "Bizkaia"),
     "Olalla Rodil": ("BNG", "A Coruña"),
     "Javier Esparza": ("UPN", "Navarra"),
+    "Ada Colau": ("Comuns-Front Ampli", "Barcelona"),
+    "Emilio Delgado": ("Frente Amplio", "Madrid"),
+    "Irene Montero": ("Podemos", "Madrid"),
+    "Alvise Pérez": ("SALF", "Madrid"),
 }
 WINDOWS = (1, 7)
 
@@ -49,7 +58,7 @@ def collect() -> dict:
     now = datetime.now(timezone.utc)
     con = sqlite3.connect("file:%s?mode=ro" % DB, uri=True)
     con.row_factory = sqlite3.Row
-    out = {"generated_at": now.isoformat(timespec="seconds"), "source": "intelligence-hub/news.db", "source_label": "Titulares y sumarios de prensa española", "candidates_source": "BOE-A-2026-23103 · JEC · candidaturas proclamadas 3-nov-2026", "candidates_pdf": PDF, "note": "Cabezas de lista proclamados en el PDF oficial; no son necesariamente los líderes del partido. No se incluye Sumar: no aparece como candidatura propia en Madrid y Yolanda Díaz no figura como candidata.", "windows": {}}
+    out = {"generated_at": now.isoformat(timespec="seconds"), "source": "intelligence-hub/news.db", "source_label": "Titulares y sumarios de prensa española", "candidates_source": "BOE-A-2026-23103 · JEC · candidaturas proclamadas 3-nov-2026", "candidates_pdf": PDF, "candidates_html": BOE_HTML, "note": "Cabezas de lista proclamados en el BOE; no son necesariamente los líderes del partido. No se incluye Sumar como marca propia: aparece integrada en Frente Amplio/Comuns. Yolanda Díaz no figura como candidata.", "windows": {}}
     for days in WINDOWS:
         cut = (now - timedelta(days=days)).strftime("%Y-%m-%dT%H:%M:%S")
         rows = con.execute("SELECT title, summary, published FROM articles WHERE lang='es' AND country='espana' AND published>=?", (cut,)).fetchall()
@@ -75,7 +84,7 @@ def font(size: int, bold: bool = False):
     return ImageFont.truetype("/usr/share/fonts/truetype/liberation/LiberationSans-%s.ttf" % ("Bold" if bold else "Regular"), size)
 
 def chart(window: dict, days: int, path: Path) -> None:
-    W, H = 1000, 640
+    W, H = 1000, max(640, 130 + 52 * len(window["leaders"]) + 40)
     bg, ink, muted, orange = "#ffffff", "#172033", "#64748b", "#ff5a1f"
     im = Image.new("RGB", (W, H), bg); d = ImageDraw.Draw(im)
     d.rectangle([0, 0, W, 10], fill=orange)

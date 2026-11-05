@@ -1,29 +1,30 @@
 {
-  "generated_at": "2026-11-05T16:00:22+00:00",
+  "generated_at": "2026-11-05T17:51:02+00:00",
   "source": "intelligence-hub/news.db",
   "source_label": "Titulares y sumarios de prensa española",
   "candidates_source": "BOE-A-2026-23103 · JEC · candidaturas proclamadas 3-nov-2026",
-  "candidates_pdf": "https://www.juntaelectoralcentral.es/cs/jec/documentos/eg2026_candidaturas_proclamadas.pdf",
-  "note": "Cabezas de lista proclamados en el PDF oficial; no son necesariamente los líderes del partido. No se incluye Sumar: no aparece como candidatura propia en Madrid y Yolanda Díaz no figura como candidata.",
+  "candidates_pdf": "https://www.boe.es/boe/dias/2026/11/03/pdfs/BOE-A-2026-23103.pdf",
+  "candidates_html": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-23103",
+  "note": "Cabezas de lista proclamados en el BOE; no son necesariamente los líderes del partido. No se incluye Sumar como marca propia: aparece integrada en Frente Amplio/Comuns. Yolanda Díaz no figura como candidata.",
   "windows": {
     "1": {
-      "n_articles": 155,
+      "n_articles": 137,
       "sources": [
         {
           "name": "El Mundo",
-          "articles": 57
+          "articles": 49
         },
         {
           "name": "El País",
-          "articles": 43
+          "articles": 42
         },
         {
           "name": "La Vanguardia",
-          "articles": 36
+          "articles": 31
         },
         {
           "name": "El Diario Cantabria",
-          "articles": 19
+          "articles": 15
         }
       ],
       "leaders": [
@@ -32,15 +33,23 @@
           "party": "PSOE",
           "province": "Madrid",
           "articles": 14,
-          "share_pct": 9.0,
+          "share_pct": 10.2,
           "days": 2
         },
         {
           "name": "Abascal",
           "party": "VOX",
           "province": "Madrid",
-          "articles": 3,
-          "share_pct": 1.9,
+          "articles": 2,
+          "share_pct": 1.5,
+          "days": 1
+        },
+        {
+          "name": "Ada Colau",
+          "party": "Comuns-Front Ampli",
+          "province": "Barcelona",
+          "articles": 2,
+          "share_pct": 1.5,
           "days": 1
         },
         {
@@ -48,7 +57,7 @@
           "party": "PP",
           "province": "Madrid",
           "articles": 2,
-          "share_pct": 1.3,
+          "share_pct": 1.5,
           "days": 1
         },
         {
@@ -56,8 +65,32 @@
           "party": "ERC",
           "province": "Barcelona",
           "articles": 1,
-          "share_pct": 0.6,
+          "share_pct": 0.7,
           "days": 1
+        },
+        {
+          "name": "Irene Montero",
+          "party": "Podemos",
+          "province": "Madrid",
+          "articles": 1,
+          "share_pct": 0.7,
+          "days": 1
+        },
+        {
+          "name": "Alvise Pérez",
+          "party": "SALF",
+          "province": "Madrid",
+          "articles": 0,
+          "share_pct": 0.0,
+          "days": 0
+        },
+        {
+          "name": "Emilio Delgado",
+          "party": "Frente Amplio",
+          "province": "Madrid",
+          "articles": 0,
+          "share_pct": 0.0,
+          "days": 0
         },
         {
           "name": "Idoia Sagastizabal",
@@ -102,23 +135,23 @@
       ]
     },
     "7": {
-      "n_articles": 1042,
+      "n_articles": 1027,
       "sources": [
         {
           "name": "El Mundo",
-          "articles": 332
+          "articles": 326
         },
         {
           "name": "El País",
-          "articles": 314
+          "articles": 309
         },
         {
           "name": "La Vanguardia",
-          "articles": 264
+          "articles": 262
         },
         {
           "name": "El Diario Cantabria",
-          "articles": 132
+          "articles": 130
         }
       ],
       "leaders": [
@@ -127,7 +160,7 @@
           "party": "PSOE",
           "province": "Madrid",
           "articles": 71,
-          "share_pct": 6.8,
+          "share_pct": 6.9,
           "days": 8
         },
         {
@@ -147,6 +180,14 @@
           "days": 5
         },
         {
+          "name": "Ada Colau",
+          "party": "Comuns-Front Ampli",
+          "province": "Barcelona",
+          "articles": 5,
+          "share_pct": 0.5,
+          "days": 4
+        },
+        {
           "name": "Gabriel Rufián",
           "party": "ERC",
           "province": "Barcelona",
@@ -155,12 +196,36 @@
           "days": 2
         },
         {
+          "name": "Emilio Delgado",
+          "party": "Frente Amplio",
+          "province": "Madrid",
+          "articles": 1,
+          "share_pct": 0.1,
+          "days": 1
+        },
+        {
+          "name": "Irene Montero",
+          "party": "Podemos",
+          "province": "Madrid",
+          "articles": 1,
+          "share_pct": 0.1,
+          "days": 1
+        },
+        {
           "name": "Míriam Nogueras",
           "party": "Junts",
           "province": "Barcelona",
           "articles": 1,
           "share_pct": 0.1,
           "days": 1
+        },
+        {
+          "name": "Alvise Pérez",
+          "party": "SALF",
+          "province": "Madrid",
+          "articles": 0,
+          "share_pct": 0.0,
+          "days": 0
         },
         {
           "name": "Idoia Sagastizabal",
