@@ -12,7 +12,7 @@
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/escenarios.html">
 
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202611052048">
+<link rel="stylesheet" href="/css/main.css?v=202611052052">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -74,21 +74,27 @@ document.addEventListener('DOMContentLoaded', function(){
 .esc-chart{display:grid;gap:10px;margin:10px 0 2px}
 .esc-row{display:grid;grid-template-columns:82px 1fr;gap:10px;align-items:center}
 .esc-label{font-weight:700;font-size:13px;color:#374151;text-align:right}
-.esc-track{position:relative;height:30px;background:#f3f1ea;border-radius:8px;overflow:hidden}
-.esc-track.tall{height:40px}
-.esc-fill{position:absolute;left:0;top:0;bottom:0;border-radius:8px;background:#2563eb}
-.esc-fill.base{background:#c7c2b6}
-.esc-values{display:flex;justify-content:space-between;font-size:11px;color:#6b7280;margin-top:2px}
-.esc-band{position:absolute;top:9px;height:12px;border-radius:6px;background:#bfdbfe}
-.esc-dot{position:absolute;top:5px;width:20px;height:20px;border-radius:50%;background:#1d4ed8;border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.2);transform:translateX(-50%)}
-.esc-line{position:absolute;top:0;bottom:0;width:2px;background:#dc2626;opacity:.75}
-.esc-line span{position:absolute;top:-16px;left:-8px;font-size:10px;color:#b91c1c;white-space:nowrap;background:#fff;padding:0 3px}
+.esc-track{position:relative;height:30px;background:#d9d4c8;border:1px solid #b8b2a4;border-radius:8px;overflow:hidden}
+.esc-track.tall{height:42px}
+.esc-fill{position:absolute;left:0;border-radius:7px;background:#1d4ed8}
+.esc-fill.base{top:6px;height:13px;bottom:auto;background:#374151}
+.esc-fill.main{top:24px;height:13px;bottom:auto;background:#1d4ed8}
+.esc-fill.block{top:0;height:30px;bottom:0;background:#93b4f5;border-radius:8px 0 0 8px}
+.esc-values{display:flex;justify-content:space-between;gap:4px;font-size:12px;color:#1f2937;font-weight:700;margin-top:3px}
+.esc-band{position:absolute;top:9px;height:12px;min-width:4px;border-radius:6px;background:#1e40af;opacity:.9}
+.esc-band::before,.esc-band::after{content:"";position:absolute;top:-3px;bottom:-3px;width:2px;background:#1e3a8a}
+.esc-band::before{left:0}.esc-band::after{right:0}
+.esc-dot{position:absolute;top:9px;width:12px;height:12px;border-radius:50%;background:#111827;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.45);transform:translateX(-50%);z-index:4}
+.esc-block .esc-band{top:7px;height:16px}
+.esc-block .esc-dot{top:9px;width:10px;height:10px;border-width:2px}
+.esc-line{position:absolute;top:0;bottom:0;width:2px;background:#b91c1c;opacity:.9;z-index:3}
+.esc-line span{position:absolute;top:-16px;left:-10px;font-size:12px;font-weight:700;color:#991b1b;white-space:nowrap;background:#fff;padding:0 4px;border-radius:3px}
 .esc-block .esc-track{overflow:visible;margin-top:18px}
 .esc-blocks{display:grid;gap:12px;margin-top:10px}
 .esc-block{border:1px solid #e5e1d8;border-radius:10px;padding:10px 12px;background:#fff}
 .esc-block header{display:flex;justify-content:space-between;gap:10px;align-items:baseline;margin-bottom:8px}
-.esc-block strong{font-size:14px}
-.esc-block small{color:#6b7280}
+.esc-block strong{font-size:15px;color:#111827}
+.esc-block small{color:#374151;font-weight:600;font-size:12px}
 .esc-timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0 16px}
 .esc-step{border-left:3px solid #2563eb;padding:6px 0 6px 10px}
 .esc-step span{display:block;font-size:11px;color:#6b7280;text-transform:uppercase;letter-spacing:.06em}
@@ -152,6 +158,7 @@ document.addEventListener('DOMContentLoaded', function(){
         <a class="" href="/sobre-mi.html">Sobre mí</a>
         <a class="" href="/about.html">Acerca del proyecto</a>
         <a class="" href="/mayorias.html">Mayorías</a>
+        <a class="active" href="/escenarios.html">Escenarios</a>
         <a class="" href="/postelectoral.html">Post-electoral</a>
         <a class="" href="/prensa.html">Prensa</a>
         <a class="" href="/aviso.html">Avisos</a>
@@ -194,61 +201,61 @@ document.addEventListener('DOMContentLoaded', function(){
   </section>
 
   <div class="esc-grid">
-    <section class="card"><div class="cardhead"><h2>2023 vs 2026</h2><span class="hint">escaños · mediana 2026</span></div>
+    <section class="card"><div class="cardhead"><h2>2023 vs 2026</h2><span class="hint"><span style="color:#374151">■</span> 2023 · <span style="color:#1d4ed8">■</span> 2026 p50</span></div>
       <div class="esc-chart">
         
         <div class="esc-row"><div class="esc-label">PP</div><div>
-          <div class="esc-track tall"><div class="esc-fill base" style="top:5px;height:12px;width:91.33%"></div><div class="esc-fill" style="top:23px;height:12px;width:90.67%"></div></div>
+          <div class="esc-track tall"><div class="esc-fill base" style="width:91.33%"></div><div class="esc-fill main" style="width:90.67%"></div></div>
           <div class="esc-values"><span>2023 · 137</span><span>2026 · 136</span></div>
         </div></div>
         
         <div class="esc-row"><div class="esc-label">PSOE</div><div>
-          <div class="esc-track tall"><div class="esc-fill base" style="top:5px;height:12px;width:80.67%"></div><div class="esc-fill" style="top:23px;height:12px;width:73.33%"></div></div>
+          <div class="esc-track tall"><div class="esc-fill base" style="width:80.67%"></div><div class="esc-fill main" style="width:73.33%"></div></div>
           <div class="esc-values"><span>2023 · 121</span><span>2026 · 110</span></div>
         </div></div>
         
         <div class="esc-row"><div class="esc-label">VOX</div><div>
-          <div class="esc-track tall"><div class="esc-fill base" style="top:5px;height:12px;width:22.0%"></div><div class="esc-fill" style="top:23px;height:12px;width:44.0%"></div></div>
+          <div class="esc-track tall"><div class="esc-fill base" style="width:22.0%"></div><div class="esc-fill main" style="width:44.0%"></div></div>
           <div class="esc-values"><span>2023 · 33</span><span>2026 · 66</span></div>
         </div></div>
         
         <div class="esc-row"><div class="esc-label">Sumar</div><div>
-          <div class="esc-track tall"><div class="esc-fill base" style="top:5px;height:12px;width:20.67%"></div><div class="esc-fill" style="top:23px;height:12px;width:5.33%"></div></div>
+          <div class="esc-track tall"><div class="esc-fill base" style="width:20.67%"></div><div class="esc-fill main" style="width:5.33%"></div></div>
           <div class="esc-values"><span>2023 · 31</span><span>2026 · 8</span></div>
         </div></div>
         
         <div class="esc-row"><div class="esc-label">ERC</div><div>
-          <div class="esc-track tall"><div class="esc-fill base" style="top:5px;height:12px;width:4.67%"></div><div class="esc-fill" style="top:23px;height:12px;width:5.33%"></div></div>
+          <div class="esc-track tall"><div class="esc-fill base" style="width:4.67%"></div><div class="esc-fill main" style="width:5.33%"></div></div>
           <div class="esc-values"><span>2023 · 7</span><span>2026 · 8</span></div>
         </div></div>
         
         <div class="esc-row"><div class="esc-label">EH Bildu</div><div>
-          <div class="esc-track tall"><div class="esc-fill base" style="top:5px;height:12px;width:4.0%"></div><div class="esc-fill" style="top:23px;height:12px;width:4.67%"></div></div>
+          <div class="esc-track tall"><div class="esc-fill base" style="width:4.0%"></div><div class="esc-fill main" style="width:4.67%"></div></div>
           <div class="esc-values"><span>2023 · 6</span><span>2026 · 7</span></div>
         </div></div>
         
         <div class="esc-row"><div class="esc-label">PNV</div><div>
-          <div class="esc-track tall"><div class="esc-fill base" style="top:5px;height:12px;width:3.33%"></div><div class="esc-fill" style="top:23px;height:12px;width:4.0%"></div></div>
+          <div class="esc-track tall"><div class="esc-fill base" style="width:3.33%"></div><div class="esc-fill main" style="width:4.0%"></div></div>
           <div class="esc-values"><span>2023 · 5</span><span>2026 · 6</span></div>
         </div></div>
         
         <div class="esc-row"><div class="esc-label">Junts</div><div>
-          <div class="esc-track tall"><div class="esc-fill base" style="top:5px;height:12px;width:4.67%"></div><div class="esc-fill" style="top:23px;height:12px;width:3.33%"></div></div>
+          <div class="esc-track tall"><div class="esc-fill base" style="width:4.67%"></div><div class="esc-fill main" style="width:3.33%"></div></div>
           <div class="esc-values"><span>2023 · 7</span><span>2026 · 5</span></div>
         </div></div>
         
         <div class="esc-row"><div class="esc-label">BNG</div><div>
-          <div class="esc-track tall"><div class="esc-fill base" style="top:5px;height:12px;width:0.67%"></div><div class="esc-fill" style="top:23px;height:12px;width:1.33%"></div></div>
+          <div class="esc-track tall"><div class="esc-fill base" style="width:0.67%"></div><div class="esc-fill main" style="width:1.33%"></div></div>
           <div class="esc-values"><span>2023 · 1</span><span>2026 · 2</span></div>
         </div></div>
         
         <div class="esc-row"><div class="esc-label">UPN</div><div>
-          <div class="esc-track tall"><div class="esc-fill base" style="top:5px;height:12px;width:0.67%"></div><div class="esc-fill" style="top:23px;height:12px;width:0.67%"></div></div>
+          <div class="esc-track tall"><div class="esc-fill base" style="width:0.67%"></div><div class="esc-fill main" style="width:0.67%"></div></div>
           <div class="esc-values"><span>2023 · 1</span><span>2026 · 1</span></div>
         </div></div>
         
         <div class="esc-row"><div class="esc-label">CCa</div><div>
-          <div class="esc-track tall"><div class="esc-fill base" style="top:5px;height:12px;width:0.67%"></div><div class="esc-fill" style="top:23px;height:12px;width:0.67%"></div></div>
+          <div class="esc-track tall"><div class="esc-fill base" style="width:0.67%"></div><div class="esc-fill main" style="width:0.67%"></div></div>
           <div class="esc-values"><span>2023 · 1</span><span>2026 · 1</span></div>
         </div></div>
         
@@ -322,16 +329,16 @@ document.addEventListener('DOMContentLoaded', function(){
   <section class="card"><div class="cardhead"><h2>Bloques y umbral de 176</h2><span class="hint">sumas aritméticas, no pactos</span></div>
     <div class="esc-blocks">
       
-      <div class="esc-block"><header><strong>PP + VOX</strong><small>p50 202 · p10–p90 198–205</small></header>
-        <div class="esc-track" style="height:28px"><div class="esc-band" style="left:90.0%;width:3.18%;top:8px"></div><div class="esc-line" style="left:80.0%"><span>176</span></div></div>
+      <div class="esc-block"><header><strong>PP + VOX</strong><small>p50 <span style="font-size:17px;color:#111827">202</span> · p10–p90 198–205</small></header>
+        <div class="esc-track" style="height:30px"><div class="esc-fill block" style="width:91.82%"></div><div class="esc-band" style="left:90.0%;width:3.18%;top:9px"></div><div class="esc-dot" style="top:4px;left:91.82%"></div><div class="esc-line" style="left:80.0%"><span>176</span></div></div>
       </div>
       
-      <div class="esc-block"><header><strong>PSOE + Sumar</strong><small>p50 118 · p10–p90 115–122</small></header>
-        <div class="esc-track" style="height:28px"><div class="esc-band" style="left:52.27%;width:3.18%;top:8px"></div><div class="esc-line" style="left:80.0%"><span>176</span></div></div>
+      <div class="esc-block"><header><strong>PSOE + Sumar</strong><small>p50 <span style="font-size:17px;color:#111827">118</span> · p10–p90 115–122</small></header>
+        <div class="esc-track" style="height:30px"><div class="esc-fill block" style="width:53.64%"></div><div class="esc-band" style="left:52.27%;width:3.18%;top:9px"></div><div class="esc-dot" style="top:4px;left:53.64%"></div><div class="esc-line" style="left:80.0%"><span>176</span></div></div>
       </div>
       
-      <div class="esc-block"><header><strong>PSOE + Sumar + territoriales</strong><small>p50 147 · p10–p90 144–151</small></header>
-        <div class="esc-track" style="height:28px"><div class="esc-band" style="left:65.45%;width:3.18%;top:8px"></div><div class="esc-line" style="left:80.0%"><span>176</span></div></div>
+      <div class="esc-block"><header><strong>PSOE + Sumar + territoriales</strong><small>p50 <span style="font-size:17px;color:#111827">147</span> · p10–p90 144–151</small></header>
+        <div class="esc-track" style="height:30px"><div class="esc-fill block" style="width:66.82%"></div><div class="esc-band" style="left:65.45%;width:3.18%;top:9px"></div><div class="esc-dot" style="top:4px;left:66.82%"></div><div class="esc-line" style="left:80.0%"><span>176</span></div></div>
       </div>
       
     </div>
@@ -440,11 +447,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202611052048" hidden>
+<div class="swupdate" id="swupdate" data-build="202611052052" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611052048');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611052052');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -473,7 +480,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202611052048', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202611052052', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

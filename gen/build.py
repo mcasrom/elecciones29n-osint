@@ -1231,7 +1231,7 @@ def build_escenarios_charts(e):
     max_blocks = 220
     blocks = []
     for name, b in e.get("blocks", {}).items():
-        blocks.append({"label": block_labels.get(name, name.replace("+", " + ")), "p10": b["p10"], "p50": b["p50"], "p90": b["p90"], "left": round(b["p10"] / max_blocks * 100, 2), "width": round((b["p90"] - b["p10"]) / max_blocks * 100, 2), "threshold": round(176 / max_blocks * 100, 2)})
+        blocks.append({"label": block_labels.get(name, name.replace("+", " + ")), "p10": b["p10"], "p50": b["p50"], "p90": b["p90"], "left": round(b["p10"] / max_blocks * 100, 2), "width": round((b["p90"] - b["p10"]) / max_blocks * 100, 2), "dot": round(b["p50"] / max_blocks * 100, 2), "p50_pct": round(b["p50"] / max_blocks * 100, 2), "threshold": round(176 / max_blocks * 100, 2)})
     return {"seats": seats, "ranges": ranges, "blocks": blocks}
 
 def build_gobernabilidad(congreso: dict) -> dict:
