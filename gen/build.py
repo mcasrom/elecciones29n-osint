@@ -84,6 +84,7 @@ PAGES = [
     ("en/majorities.html", "en/majorities.html", "2026-10-25", "weekly", "0.6"),
     ("en/post-election.html", "en/post-election.html", "2026-10-25", "weekly", "0.6"),
     ("competitivas.html", "competitivas.html", "2026-10-25", "weekly", "0.7"),
+    ("gobernabilidad.html", "gobernabilidad.html", "2026-11-05", "monthly", "0.7"),
     ("mayorias.html", "mayorias.html", "2026-10-25", "weekly", "0.7"),
     ("postelectoral.html", "postelectoral.html", "2026-10-25", "weekly", "0.7"),
     ("incrustar.html", "incrustar.html", "2026-10-25", "monthly", "0.4"),
@@ -761,6 +762,7 @@ def write_llms() -> None:
 - Provincias competitivas por margen oficial 2023 (contexto, no proyección).
 - OG 1200×630 por provincia para compartir cada ficha local.
 - Calculadora de mayorías sobre el hemiciclo (aritmética, no pactos).
+- Gobernabilidad 2023: 176 escaños, partidos territoriales y escenarios de suma, sin probabilidades.
 - Calibración post-electoral (se activa tras el escrutinio).
 - Sección EN (Summary, Method, Hemicycle, Robustness, Limits, Data).
 - Metodología, fuentes y límites explicados.
@@ -778,6 +780,8 @@ def write_llms() -> None:
 - {SITE_URL}/circunscripciones.html
 - {SITE_URL}/hemiciclo.html
 - {SITE_URL}/competitivas.html
+- {SITE_URL}/gobernabilidad.html
+- {SITE_URL}/data/gobernabilidad.json
 - {SITE_URL}/mayorias.html
 - {SITE_URL}/postelectoral.html
 - {SITE_URL}/embed/medias.html
@@ -1205,6 +1209,61 @@ def build_competitive_provinces(congreso: dict, oficial: dict, circ_pages: list)
         "lt10": sum(1 for r in rows if r["margin"] < 10),
     }
     return rows, summary
+
+def build_gobernabilidad(congreso: dict) -> dict:
+    """Aritmética de investidura sobre el Congreso oficial de 2023.
+
+    No es una proyección ni una probabilidad: solo suma escaños reales y
+    muestra cuántos faltan para 176. Los pactos no se modelan.
+    """
+    punto = (congreso.get("elecciones") or {}).get("2023-07-23") or {}
+    escanos = (punto.get("nacional") or {}).get("escanos") or punto.get("escanos") or {}
+    labels = {
+        "PP": "PP", "PSOE": "PSOE", "VOX": "VOX", "SUMAR": "Sumar",
+        "ERC": "ERC", "JUNTS": "Junts", "EH Bildu": "EH Bildu",
+        "PNV": "PNV", "CCa": "CCa", "BNG": "BNG", "UPN": "UPN",
+    }
+    order = ["PP", "PSOE", "VOX", "SUMAR", "ERC", "JUNTS", "EH Bildu", "PNV", "CCa", "BNG", "UPN"]
+    territorial = {"ERC", "JUNTS", "EH Bildu", "PNV", "CCa", "BNG", "UPN"}
+    parties = [
+        {"key": k, "party": labels.get(k, k), "seats": int(escanos.get(k, 0)),
+         "territorial": k in territorial}
+        for k in order if k in escanos
+    ]
+    by = {p["key"]: p["seats"] for p in parties}
+    scenarios = []
+    for label, keys in [
+        ("PP + VOX", ["PP", "VOX"]),
+        ("PSOE + Sumar", ["PSOE", "SUMAR"]),
+        ("PSOE + Sumar + ERC + Junts", ["PSOE", "SUMAR", "ERC", "JUNTS"]),
+        ("PSOE + Sumar + ERC + Junts + PNV", ["PSOE", "SUMAR", "ERC", "JUNTS", "PNV"]),
+        ("PSOE + Sumar + ERC + Junts + PNV + EH Bildu", ["PSOE", "SUMAR", "ERC", "JUNTS", "PNV", "EH Bildu"]),
+        ("PP + VOX + PNV", ["PP", "VOX", "PNV"]),
+        ("PP + VOX + Junts", ["PP", "VOX", "JUNTS"]),
+    ]:
+        seats = sum(by.get(k, 0) for k in keys)
+        scenarios.append({"label": label, "parties": keys, "seats": seats,
+                          "needed": max(0, 176 - seats), "above": max(0, seats - 176)})
+    return {
+        "baseline": "2023-07-23",
+        "source": (congreso.get("meta") or {}).get("fuente", "Ministerio del Interior"),
+        "source_url": (congreso.get("meta") or {}).get("fuente_url", ""),
+        "license": (congreso.get("meta") or {}).get("licencia", ""),
+        "threshold": 176,
+        "total": sum(by.values()),
+        "parties": parties,
+        "territorial_seats": sum(p["seats"] for p in parties if p["territorial"]),
+        "scenarios": scenarios,
+    }
+
+
+def write_gobernabilidad_data(data: dict) -> None:
+    if not data:
+        return
+    os.makedirs(os.path.join(OUT, "data"), exist_ok=True)
+    with open(os.path.join(OUT, "data", "gobernabilidad.json"), "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
 
 def build_resultados_2023(n: dict) -> list:
     votes = n.get("votos", {})
@@ -2315,6 +2374,7 @@ def main(out: str = "web") -> None:
             "en/majorities.html": build_webpage_jsonld("Majority calculator", "/en/majorities.html", "Arithmetic sum of simulated seats with a 176 threshold. Not a pact or investiture forecast."),
             "en/post-election.html": build_webpage_jsonld("Post-election calibration", "/en/post-election.html", "Pre-election average versus official results, errors and seats."),
             "competitivas.html": build_webpage_jsonld("Provincias competitivas", "/competitivas.html", "Provincias ordenadas por el margen oficial de 2023 entre los dos primeros. Contexto factual, no proyección."),
+            "gobernabilidad.html": build_webpage_jsonld("Gobernabilidad y árbitros territoriales", "/gobernabilidad.html", "Aritmética de investidura sobre el Congreso oficial de 2023: 176 escaños, partidos territoriales y escenarios. No es una proyección."),
             "mayorias.html": build_webpage_jsonld("Calculadora de mayorías", "/mayorias.html", "Suma aritmética de escaños simulados con umbral 176. No predice pactos ni investidura."),
             "postelectoral.html": build_webpage_jsonld("Calibración post-electoral", "/postelectoral.html", "Comparación entre la última media pre-electoral y el escrutinio oficial."),
             "incrustar.html": build_webpage_jsonld("Incrustar los datos del 29N", "/incrustar.html", "Guía de uso de los embeds de media, robustez y hemiciclo, con atribución y límites."),
@@ -2344,6 +2404,7 @@ def main(out: str = "web") -> None:
         "bloc_right": latest.get("bloc_right"),
         "bloc_left": latest.get("bloc_left"),
         "sim_congress": simulate_congress(parties_main),
+        "gobernabilidad": build_gobernabilidad(congreso),
         "mayorias_sim": {
             "label": "Última foto",
             "n_polls": latest.get("n_polls", 0),
@@ -2357,7 +2418,7 @@ def main(out: str = "web") -> None:
     }
 
     for tname in ["index.html", "hemiciclo.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "lideres.html", "participacion.html", "territorio.html",
-             "circunscripciones.html", "mi-circunscripcion.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html", "competitivas.html", "mayorias.html", "postelectoral.html", "incrustar.html", "aviso.html", "prensa.html", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html", "en/post-election.html"]:
+             "circunscripciones.html", "mi-circunscripcion.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html", "competitivas.html", "gobernabilidad.html", "mayorias.html", "postelectoral.html", "incrustar.html", "aviso.html", "prensa.html", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html", "en/post-election.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(current=tname, **context)
         with open(os.path.join(OUT, tname), "w", encoding="utf-8") as f:
@@ -2379,6 +2440,7 @@ def main(out: str = "web") -> None:
     write_censo_data(censo)
     write_participacion_data(participacion)
     write_escanos_data(escanos)
+    write_gobernabilidad_data(context.get("gobernabilidad"))
     write_congreso_oficial_data(oficial)
     write_municipios_data(circ_pages, censo)
     write_robustez_data(latest)

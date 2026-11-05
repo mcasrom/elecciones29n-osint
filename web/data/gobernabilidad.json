@@ -1,0 +1,160 @@
+{
+  "baseline": "2023-07-23",
+  "source": "Ministerio del Interior",
+  "source_url": "https://descargas.interior.gob.es/datasets/resultados_electorales/Elecciones-Congreso.xlsx",
+  "license": "CC BY 4.0",
+  "threshold": 176,
+  "total": 350,
+  "parties": [
+    {
+      "key": "PP",
+      "party": "PP",
+      "seats": 137,
+      "territorial": false
+    },
+    {
+      "key": "PSOE",
+      "party": "PSOE",
+      "seats": 121,
+      "territorial": false
+    },
+    {
+      "key": "VOX",
+      "party": "VOX",
+      "seats": 33,
+      "territorial": false
+    },
+    {
+      "key": "SUMAR",
+      "party": "Sumar",
+      "seats": 31,
+      "territorial": false
+    },
+    {
+      "key": "ERC",
+      "party": "ERC",
+      "seats": 7,
+      "territorial": true
+    },
+    {
+      "key": "JUNTS",
+      "party": "Junts",
+      "seats": 7,
+      "territorial": true
+    },
+    {
+      "key": "EH Bildu",
+      "party": "EH Bildu",
+      "seats": 6,
+      "territorial": true
+    },
+    {
+      "key": "PNV",
+      "party": "PNV",
+      "seats": 5,
+      "territorial": true
+    },
+    {
+      "key": "CCa",
+      "party": "CCa",
+      "seats": 1,
+      "territorial": true
+    },
+    {
+      "key": "BNG",
+      "party": "BNG",
+      "seats": 1,
+      "territorial": true
+    },
+    {
+      "key": "UPN",
+      "party": "UPN",
+      "seats": 1,
+      "territorial": true
+    }
+  ],
+  "territorial_seats": 28,
+  "scenarios": [
+    {
+      "label": "PP + VOX",
+      "parties": [
+        "PP",
+        "VOX"
+      ],
+      "seats": 170,
+      "needed": 6,
+      "above": 0
+    },
+    {
+      "label": "PSOE + Sumar",
+      "parties": [
+        "PSOE",
+        "SUMAR"
+      ],
+      "seats": 152,
+      "needed": 24,
+      "above": 0
+    },
+    {
+      "label": "PSOE + Sumar + ERC + Junts",
+      "parties": [
+        "PSOE",
+        "SUMAR",
+        "ERC",
+        "JUNTS"
+      ],
+      "seats": 166,
+      "needed": 10,
+      "above": 0
+    },
+    {
+      "label": "PSOE + Sumar + ERC + Junts + PNV",
+      "parties": [
+        "PSOE",
+        "SUMAR",
+        "ERC",
+        "JUNTS",
+        "PNV"
+      ],
+      "seats": 171,
+      "needed": 5,
+      "above": 0
+    },
+    {
+      "label": "PSOE + Sumar + ERC + Junts + PNV + EH Bildu",
+      "parties": [
+        "PSOE",
+        "SUMAR",
+        "ERC",
+        "JUNTS",
+        "PNV",
+        "EH Bildu"
+      ],
+      "seats": 177,
+      "needed": 0,
+      "above": 1
+    },
+    {
+      "label": "PP + VOX + PNV",
+      "parties": [
+        "PP",
+        "VOX",
+        "PNV"
+      ],
+      "seats": 175,
+      "needed": 1,
+      "above": 0
+    },
+    {
+      "label": "PP + VOX + Junts",
+      "parties": [
+        "PP",
+        "VOX",
+        "JUNTS"
+      ],
+      "seats": 177,
+      "needed": 0,
+      "above": 1
+    }
+  ]
+}

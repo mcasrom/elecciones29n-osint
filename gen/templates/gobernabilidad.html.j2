@@ -1,0 +1,155 @@
+{% set page_title = "Gobernabilidad y árbitros territoriales · 29N" %}
+{% set page_desc = "Aritmética de investidura sobre el Congreso oficial de 2023: 176 escaños, partidos territoriales y escenarios de suma. No es una proyección ni una probabilidad." %}
+{% set canonical = site_url ~ "/gobernabilidad.html" %}
+{% set jsonld = webpages['gobernabilidad.html'] %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Gobernabilidad y árbitros territoriales</h1>
+  <p class="muted" style="margin:0 0 12px">Una lectura aritmética del Congreso que salió de las urnas en <strong>2023</strong>. Sirve para entender el umbral de 176 y el peso de los partidos territoriales. <strong>No es el Congreso de 2026, no es una proyección y no predice pactos.</strong></p>
+
+  <div class="alert warn"><strong>2023 no es 2026.</strong> Esta página no traslada escaños a partir de los sondeos actuales. Muestra el punto de partida oficial y las sumas que permiten o bloquean una mayoría. Cualquier lectura sobre el 29N exige datos provinciales que aquí no se inventan.</div>
+
+  {% if gobernabilidad %}
+  {% set g = gobernabilidad %}
+  <div class="card">
+    <div class="cardhead"><h2>Punto de partida</h2><span class="hint">{{ g.baseline }} · {{ g.source }}</span></div>
+    <div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:10px 0 14px">
+      <div class="kpi"><span>Congreso</span><b>{{ g.total }}</b><span>escaños</span></div>
+      <div class="kpi"><span>Mayoría absoluta</span><b>{{ g.threshold }}</b><span>escaños</span></div>
+      <div class="kpi"><span>Partidos territoriales</span><b>{{ g.territorial_seats }}</b><span>escaños</span></div>
+      <div class="kpi"><span>Partidos estatales</span><b>{{ g.total - g.territorial_seats }}</b><span>escaños</span></div>
+    </div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Partido</th><th>Escaños 2023</th><th>Tipo</th></tr></thead>
+      <tbody>
+        {% for p in g.parties %}<tr><td><strong>{{ p.party }}</strong></td><td class="num">{{ p.seats }}</td><td>{{ 'territorial' if p.territorial else 'estatal' }}</td></tr>{% endfor %}
+        <tr><td><strong>Total</strong></td><td class="num"><strong>{{ g.total }}</strong></td><td></td></tr>
+      </tbody>
+    </table></div>
+    <p class="muted small">Fuente: <a href="{{ g.source_url }}" rel="noopener" target="_blank">{{ g.source }}</a> · {{ g.license }} · corte {{ g.baseline }}. Los escaños son los oficiales; no se recalcula el reparto.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Escenarios aritméticos</h2><span class="hint">sumas, no pactos</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Combinación</th><th>Escaños</th><th>Resultado aritmético</th></tr></thead>
+      <tbody>
+        {% for s in g.scenarios %}<tr><td>{{ s.label }}</td><td class="num">{{ s.seats }}</td><td>{% if s.seats >= g.threshold %}<strong>{{ s.above }} por encima de 176</strong>{% else %}faltan <strong>{{ s.needed }}</strong> para 176{% endif %}</td></tr>{% endfor %}
+      </tbody>
+    </table></div>
+    <p class="muted small">Una suma de 176 o más solo indica mayoría aritmética en el Congreso de 2023. No implica acuerdo, apoyo, abstención ni investidura. Las combinaciones se muestran para entender el umbral, no para anticipar pactos.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Los árbitros territoriales</h2><span class="hint">escaños, no intenciones</span></div>
+    <p class="muted small">ERC, Junts, EH Bildu, PNV, CCa, BNG y UPN suman <strong>{{ g.territorial_seats }}</strong> escaños. Su posición no se deduce de una media nacional: se negocia, se declara o se vota. Aquí solo se cuenta su peso.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Partido</th><th>Escaños 2023</th><th>Qué permite leer</th></tr></thead>
+      <tbody>
+        {% for p in g.parties if p.territorial %}<tr><td><strong>{{ p.party }}</strong></td><td class="num">{{ p.seats }}</td><td>Puede formar parte de una suma; su apoyo no está implícito.</td></tr>{% endfor %}
+      </tbody>
+    </table></div>
+    <p class="muted small">No se atribuye a estos partidos una intención de pacto. La ficha es aritmética y recuerda que un escaño no es un apoyo.</p>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Calculadora de sumas</h2><span class="hint">2023 · umbral 176</span></div>
+    <div style="display:flex;gap:22px;flex-wrap:wrap;align-items:flex-start">
+      <div style="flex:1 1 320px;min-width:0">
+        <p class="muted small" style="margin:0 0 8px">Selecciona partidos:</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:6px 12px">
+          {% for p in g.parties %}
+          <label style="display:flex;align-items:center;gap:8px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;cursor:pointer">
+            <input type="checkbox" class="calc23-seat" data-party="{{ p.party }}" data-seats="{{ p.seats }}" style="accent-color:var(--accent)">
+            <strong>{{ p.party }}</strong>
+            <span class="muted small" style="margin-left:auto">{{ p.seats }}</span>
+          </label>
+          {% endfor %}
+        </div>
+      </div>
+      <div style="flex:0 1 260px;min-width:210px;border-left:1px solid var(--line);padding-left:20px">
+        <p class="muted small" style="margin:0">Total seleccionado</p>
+        <p style="margin:2px 0 0"><b id="calc23-total" style="font-size:44px;line-height:1;letter-spacing:-.03em">0</b><span class="muted"> / {{ g.total }}</span></p>
+        <p id="calc23-status" class="muted small" aria-live="polite" style="min-height:44px;margin:8px 0">Selecciona una combinación.</p>
+        <div class="cta" style="margin-top:8px">
+          <button class="btn ghost smallbtn" type="button" data-preset23="ppvox">PP + VOX</button>
+          <button class="btn ghost smallbtn" type="button" data-preset23="psoesumar">PSOE + Sumar</button>
+          <button class="btn ghost smallbtn" type="button" data-preset23="territorial">PSOE + Sumar + territoriales</button>
+          <button class="btn ghost smallbtn" type="button" data-preset23="all">Todos</button>
+          <button class="btn ghost smallbtn" type="button" data-preset23="none">Ninguno</button>
+        </div>
+        <p class="muted small" style="margin:10px 0 0">Mayoría absoluta: <strong>{{ g.threshold }}</strong>.</p>
+      </div>
+    </div>
+    <noscript><p class="muted small">Sin JavaScript puedes usar la tabla de escenarios de arriba.</p></noscript>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><h2>Qué no dice esta página</h2></div>
+    <ul class="muted small">
+      <li>No es el Congreso de 2026: usa el resultado oficial de 2023.</li>
+      <li>No es una proyección: no convierte sondeos en escaños.</li>
+      <li>No es una probabilidad: no calcula “gobierno probable”.</li>
+      <li>No es un pacto: una suma no es un acuerdo.</li>
+      <li>No sustituye a los datos provinciales ni a la investidura real.</li>
+    </ul>
+  </div>
+
+  <div class="cta">
+    <a class="btn" href="/data/gobernabilidad.json">JSON de gobernabilidad</a>
+    <a class="btn ghost" href="/mayorias.html">Calculadora de simulación</a>
+    <a class="btn ghost" href="/hemiciclo.html">Hemiciclo</a>
+    <a class="btn ghost" href="/metodologia.html">Metodología</a>
+    <a class="btn ghost" href="/caveat.html">Qué no dice</a>
+  </div>
+  <script>
+  (function(){
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('.calc23-seat'));
+    var totalEl = document.getElementById('calc23-total');
+    var statusEl = document.getElementById('calc23-status');
+    var THRESHOLD = {{ g.threshold }};
+    function update(){
+      var total = 0;
+      boxes.forEach(function(b){ if (b.checked) total += parseInt(b.dataset.seats, 10) || 0; });
+      totalEl.textContent = total;
+      if (total >= THRESHOLD) {
+        statusEl.textContent = 'Mayoría aritmética: ' + (total - THRESHOLD) + ' por encima de 176.';
+        statusEl.style.color = 'var(--accent2)';
+      } else {
+        statusEl.textContent = 'Sin mayoría aritmética: faltan ' + (THRESHOLD - total) + ' para 176.';
+        statusEl.style.color = 'var(--muted)';
+      }
+    }
+    boxes.forEach(function(b){ b.addEventListener('change', update); });
+    var presets = {
+      ppvox: ['PP','VOX'],
+      psoesumar: ['PSOE','Sumar'],
+      territorial: ['PSOE','Sumar','ERC','Junts','EH Bildu','PNV','CCa','BNG','UPN']
+    };
+    document.querySelectorAll('[data-preset23]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var p = btn.dataset.preset23;
+        boxes.forEach(function(b){
+          if (p === 'all') b.checked = true;
+          else if (p === 'none') b.checked = false;
+          else b.checked = (presets[p] || []).indexOf(b.dataset.party) >= 0;
+        });
+        update();
+      });
+    });
+    update();
+  })();
+  </script>
+  {% else %}
+  <div class="alert warn">No hay datos oficiales de 2023 cargados.</div>
+  {% endif %}
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>
