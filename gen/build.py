@@ -1213,6 +1213,27 @@ def build_competitive_provinces(congreso: dict, oficial: dict, circ_pages: list)
     }
     return rows, summary
 
+def build_escenarios_charts(e):
+    if not e:
+        return {}
+    labels = {"PP": "PP", "PSOE": "PSOE", "VOX": "VOX", "SUMAR": "Sumar", "ERC": "ERC", "EH Bildu": "EH Bildu", "PNV": "PNV", "JUNTS": "Junts", "BNG": "BNG", "UPN": "UPN", "CCa": "CCa"}
+    order = ["PP", "PSOE", "VOX", "SUMAR", "ERC", "EH Bildu", "PNV", "JUNTS", "BNG", "UPN", "CCa"]
+    max_party = 150
+    seats, ranges = [], []
+    for p in order:
+        sc = e.get("scenario", {}).get(p)
+        if not sc:
+            continue
+        base = e.get("baseline", {}).get(p, 0)
+        seats.append({"label": labels.get(p, p), "base": base, "p50": sc["p50"], "base_pct": round(base / max_party * 100, 2), "p50_pct": round(sc["p50"] / max_party * 100, 2)})
+        ranges.append({"label": labels.get(p, p), "p10": sc["p10"], "p50": sc["p50"], "p90": sc["p90"], "left": round(sc["p10"] / max_party * 100, 2), "width": round((sc["p90"] - sc["p10"]) / max_party * 100, 2), "dot": round(sc["p50"] / max_party * 100, 2)})
+    block_labels = {"PP+VOX": "PP + VOX", "PSOE+SUMAR": "PSOE + Sumar", "PSOE+SUMAR+TERRITORIALES": "PSOE + Sumar + territoriales"}
+    max_blocks = 220
+    blocks = []
+    for name, b in e.get("blocks", {}).items():
+        blocks.append({"label": block_labels.get(name, name.replace("+", " + ")), "p10": b["p10"], "p50": b["p50"], "p90": b["p90"], "left": round(b["p10"] / max_blocks * 100, 2), "width": round((b["p90"] - b["p10"]) / max_blocks * 100, 2), "threshold": round(176 / max_blocks * 100, 2)})
+    return {"seats": seats, "ranges": ranges, "blocks": blocks}
+
 def build_gobernabilidad(congreso: dict) -> dict:
     """Aritmética de investidura sobre el Congreso oficial de 2023.
 
@@ -2416,6 +2437,7 @@ def main(out: str = "web") -> None:
         "sim_congress": simulate_congress(parties_main),
         "gobernabilidad": build_gobernabilidad(congreso),
         "escenarios": escenarios,
+        "escenarios_charts": build_escenarios_charts(escenarios),
         "mayorias_sim": {
             "label": "Última foto",
             "n_polls": latest.get("n_polls", 0),

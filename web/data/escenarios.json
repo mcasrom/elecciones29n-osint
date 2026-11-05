@@ -137,5 +137,11 @@
   ],
   "n_polls": 12,
   "n_houses": 8,
-  "frozen": true
+  "frozen": true,
+  "dates": {
+    "scenario": "2026-11-05",
+    "baseline": "2023-07-23",
+    "backtest_from": "2019-04-28",
+    "backtest_to": "2019-11-10"
+  }
 }
