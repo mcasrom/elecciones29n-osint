@@ -12,7 +12,7 @@
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/escenarios.html">
 
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202611052041">
+<link rel="stylesheet" href="/css/main.css?v=202611052042">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -125,7 +125,8 @@ document.addEventListener('DOMContentLoaded', function(){
 <main class="container">
   <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Escenarios de escaños</h1>
   <p class="muted" style="margin:0 0 12px">Qué reparto saldría si las cuotas nacionales de los sondeos se trasladaran de forma <strong>uniforme</strong> al mapa provincial de 2023, con D'Hondt por circunscripción y umbral del 3 %. <strong>No es un pronóstico ni una probabilidad electoral.</strong></p>
-  <p class="muted small" style="margin:0 0 12px">Actualizado: 2026-11-05 · 12 sondeos · 8 casas. Documento de escenario, no una estimación oficial.</p>
+  <p class="muted small" style="margin:0 0 12px">Corte: 2026-11-05 · 12 sondeos · 8 casas. Documento de escenario, no una estimación oficial.</p>
+  <p class="muted small" style="margin:0 0 12px"><strong>Escenario congelado.</strong> No se recalcula con cada sondeo; si cambia la foto, se publica una versión nueva.</p>
   <div class="alert warn"><strong>No hay sondeos provinciales.</strong> El modelo supone que cada partido sube o baja igual en todas las provincias. Es una simplificación fuerte. No se modelan pactos, investidura, abstención diferencial ni disciplina de partido. Un escaño no es un apoyo.</div>
 
   
@@ -219,11 +220,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202611052041" hidden>
+<div class="swupdate" id="swupdate" data-build="202611052042" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611052041');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611052042');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -252,7 +253,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202611052041', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202611052042', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

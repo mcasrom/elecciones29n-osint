@@ -12,7 +12,8 @@
 <main class="container">
   <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Escenarios de escaños</h1>
   <p class="muted" style="margin:0 0 12px">Qué reparto saldría si las cuotas nacionales de los sondeos se trasladaran de forma <strong>uniforme</strong> al mapa provincial de 2023, con D'Hondt por circunscripción y umbral del 3 %. <strong>No es un pronóstico ni una probabilidad electoral.</strong></p>
-  <p class="muted small" style="margin:0 0 12px">Actualizado: {{ escenarios.updated }} · {{ escenarios.n_polls }} sondeos · {{ escenarios.n_houses }} casas. Documento de escenario, no una estimación oficial.</p>
+  <p class="muted small" style="margin:0 0 12px">Corte: {{ escenarios.updated }} · {{ escenarios.n_polls }} sondeos · {{ escenarios.n_houses }} casas. Documento de escenario, no una estimación oficial.</p>
+  <p class="muted small" style="margin:0 0 12px"><strong>Escenario congelado.</strong> No se recalcula con cada sondeo; si cambia la foto, se publica una versión nueva.</p>
   <div class="alert warn"><strong>No hay sondeos provinciales.</strong> El modelo supone que cada partido sube o baja igual en todas las provincias. Es una simplificación fuerte. No se modelan pactos, investidura, abstención diferencial ni disciplina de partido. Un escaño no es un apoyo.</div>
 
   {% if escenarios %}
