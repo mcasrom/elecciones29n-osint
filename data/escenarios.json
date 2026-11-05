@@ -143,5 +143,6 @@
     "baseline": "2023-07-23",
     "backtest_from": "2019-04-28",
     "backtest_to": "2019-11-10"
-  }
+  },
+  "iteraciones": 5000
 }

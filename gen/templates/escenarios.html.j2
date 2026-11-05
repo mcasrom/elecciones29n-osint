@@ -1,5 +1,5 @@
 {% set page_title = "Escenarios de escaños · 29N" %}
-{% set page_desc = "Escenario provincial de escaños del 29N: base 2023, foto 2026, backtest 2019, D'Hondt y rangos p10-p90. No es un pronóstico." %}
+{% set page_desc = "Escenario provincial de escaños del 29N: base 2023, foto 2026, backtest 2019. Percentiles p10-p90 de 5.000 simulaciones, no probabilidades." %}
 {% set canonical = site_url ~ "/escenarios.html" %}
 {% set jsonld = webpages['escenarios.html'] %}
 <!DOCTYPE html>
@@ -31,15 +31,21 @@
 .esc-block header{display:flex;justify-content:space-between;gap:10px;align-items:baseline;margin-bottom:8px}
 .esc-block strong{font-size:14px}
 .esc-block small{color:#6b7280}
-.esc-timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0}
+.esc-timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0 16px}
 .esc-step{border-left:3px solid #2563eb;padding:6px 0 6px 10px}
 .esc-step span{display:block;font-size:11px;color:#6b7280;text-transform:uppercase;letter-spacing:.06em}
 .esc-step strong{display:block;font-size:14px;margin:2px 0}
 .esc-step small{color:#6b7280;font-size:12px}
 .esc-note{background:#fff8e6;border:1px solid #f2d38b;border-radius:10px;padding:10px 12px;font-size:13px;color:#5b4a1d;margin:12px 0}
+.esc-pcts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
+.esc-pct{border:1px solid #e5e1d8;border-radius:10px;padding:10px 12px;background:#faf9f5}
+.esc-pct strong{display:block;font-size:18px;color:#1d4ed8}
+.esc-pct span{display:block;font-size:13px;color:#374151;margin:2px 0}
+.esc-pct small{color:#6b7280;font-size:12px}
+.esc-example{border-left:3px solid #2563eb;padding:2px 0 2px 10px;margin:10px 0;font-size:13px;color:#374151}
 .esc-two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .esc-table td,.esc-table th{font-size:13px}
-@media(max-width:760px){.esc-kpis{grid-template-columns:1fr 1fr}.esc-grid,.esc-two{grid-template-columns:1fr}.esc-timeline{grid-template-columns:1fr 1fr}.esc-row{grid-template-columns:68px 1fr}.esc-label{font-size:12px}}
+@media(max-width:760px){.esc-kpis{grid-template-columns:1fr 1fr}.esc-grid,.esc-two,.esc-pcts{grid-template-columns:1fr}.esc-timeline{grid-template-columns:1fr 1fr}.esc-row{grid-template-columns:68px 1fr}.esc-label{font-size:12px}.esc-block header{display:block}.esc-block small{display:block;margin-top:2px}}
 </style>
 </head>
 <body>
@@ -49,10 +55,10 @@
   <p class="muted" style="margin:0 0 10px;max-width:780px">La base es <strong>2023</strong>. La foto actual es <strong>2026</strong>. El backtest que prueba el mecanismo es <strong>2019</strong>. No hay sondeos provinciales: el escenario supone que cada partido sube o baja igual en todas las provincias.</p>
 
   <div class="esc-kpis">
-    <div class="esc-kpi"><span>Corte de sondeos</span><strong>5 nov 2026</strong><small>12 sondeos · 8 casas</small></div>
+    <div class="esc-kpi"><span>Corte de datos</span><strong>5 nov 2026</strong><small>12 sondeos · 8 casas</small></div>
     <div class="esc-kpi"><span>Escenario</span><strong>29N · 2026</strong><small>swing uniforme</small></div>
     <div class="esc-kpi"><span>Base oficial</span><strong>23 jul 2023</strong><small>350 escaños</small></div>
-    <div class="esc-kpi"><span>Backtest</span><strong>2019</strong><small>MAE 1 escaño</small></div>
+    <div class="esc-kpi"><span>Simulaciones</span><strong>5.000</strong><small>remuestreo de 12 sondeos</small></div>
   </div>
 
   <div class="esc-timeline">
@@ -63,8 +69,19 @@
   </div>
 
   {% if escenarios %}
+  <section class="card"><div class="cardhead"><h2>Qué son p10, p50 y p90</h2><span class="hint">percentiles, no probabilidades</span></div>
+    <p class="muted small" style="margin:0 0 10px">No son encuestas nuevas ni probabilidades. Son los percentiles de <strong>{{ escenarios.iteraciones }} simulaciones</strong>. En cada simulación se toman 12 sondeos del histórico de 90 días, con reemplazo, se promedian y se aplica el swing uniforme. No hay 5.000 encuestas: hay 12 encuestas reutilizadas 5.000 veces.</p>
+    <div class="esc-pcts">
+      <div class="esc-pct"><strong>p10</strong><span>10 % de las simulaciones quedan por debajo</span><small>extremo bajo del modelo</small></div>
+      <div class="esc-pct"><strong>p50</strong><span>la mitad por debajo, la mitad por encima</span><small>mediana, no media</small></div>
+      <div class="esc-pct"><strong>p90</strong><span>10 % de las simulaciones quedan por encima</span><small>extremo alto del modelo</small></div>
+    </div>
+    <p class="muted small" style="margin:8px 0 0">El tramo <strong>p10–p90</strong> contiene el <strong>80 % central de las simulaciones</strong>. No es un intervalo de confianza ni la probabilidad de que el resultado real caiga ahí: la incertidumbre real es mayor.</p>
+    <div class="esc-example"><strong>Ejemplo, PP:</strong> p10 132 · p50 136 · p90 139. En la simulación mediana saca 136; el 80 % central del modelo va de 132 a 139. Eso no significa “80 % de probabilidad de sacar entre 132 y 139”.</div>
+  </section>
+
   <div class="esc-grid">
-    <section class="card"><div class="cardhead"><h2>2023 vs 2026</h2><span class="hint">escaños · p50</span></div>
+    <section class="card"><div class="cardhead"><h2>2023 vs 2026</h2><span class="hint">escaños · mediana 2026</span></div>
       <div class="esc-chart">
         {% for r in escenarios_charts.seats %}
         <div class="esc-row"><div class="esc-label">{{ r.label }}</div><div>
@@ -76,7 +93,7 @@
       <p class="muted small">Gris = 2023. Azul = mediana del escenario 2026. No es una proyección oficial.</p>
     </section>
 
-    <section class="card"><div class="cardhead"><h2>Rango 2026</h2><span class="hint">p10 · p50 · p90</span></div>
+    <section class="card"><div class="cardhead"><h2>Rango simulado 2026</h2><span class="hint">p10 · p50 · p90</span></div>
       <div class="esc-chart">
         {% for r in escenarios_charts.ranges %}
         <div class="esc-row"><div class="esc-label">{{ r.label }}</div><div>
@@ -85,7 +102,7 @@
         </div></div>
         {% endfor %}
       </div>
-      <p class="muted small">La banda es sensibilidad del modelo, no un intervalo de confianza.</p>
+      <p class="muted small">La banda es el 80 % central de las simulaciones, no un intervalo de confianza.</p>
     </section>
   </div>
 
@@ -106,20 +123,21 @@
       <p class="muted small"><strong>MAE {{ escenarios.backtest.mae_escanos }}.</strong> Prueba el reparto provincial cuando las cuotas nacionales son correctas; no prueba los sondeos de 2026.</p>
     </section>
 
-    <section class="card"><div class="cardhead"><h2>Cómo se lee</h2></div>
-      <ol class="muted small" style="margin:6px 0 0 18px;line-height:1.65">
-        <li><strong>2023</strong> no es el escenario: es el punto de partida.</li>
-        <li><strong>2026</strong> es el escenario con la foto de sondeos del 5-nov.</li>
-        <li><strong>2019</strong> es la prueba del mecanismo, no una predicción.</li>
-      </ol>
-      <p class="muted small" style="margin-top:10px">Si cambia la foto de sondeos, se publica un corte nuevo. Este queda congelado.</p>
+    <section class="card"><div class="cardhead"><h2>Qué no es</h2></div>
+      <ul class="muted small" style="margin:6px 0 0 18px;line-height:1.65">
+        <li>No es un pronóstico ni una probabilidad electoral.</li>
+        <li>No son 5.000 encuestas nuevas: se remuestrean 12 sondeos existentes.</li>
+        <li>No hay sondeos provinciales; el swing es uniforme.</li>
+        <li>No modela pactos, investidura ni abstención diferencial.</li>
+      </ul>
+      <p class="muted small" style="margin-top:10px">Corte congelado: si cambia la foto de sondeos, se publica una versión nueva.</p>
     </section>
   </div>
 
-  <details class="card"><summary><strong>Datos y límites</strong></summary>
+  <details class="card"><summary><strong>Datos y método</strong></summary>
     <div class="esc-two" style="margin-top:10px">
       <div><h3>Datos</h3><ul class="muted small"><li>Base oficial: Ministerio del Interior, 23-jul-2023.</li><li>Foto: 12 sondeos de 8 casas, corte 5-nov-2026.</li><li>Backtest: resultados oficiales 28-abr y 10-nov-2019.</li></ul></div>
-      <div><h3>Límites</h3><ul class="muted small"><li>No hay sondeos provinciales.</li><li>Swing uniforme: no captura cambios territoriales.</li><li>No modela pactos, investidura ni abstención diferencial.</li><li>No es una probabilidad electoral.</li></ul></div>
+      <div><h3>Método</h3><ul class="muted small"><li>5.000 iteraciones; 12 sondeos con reemplazo por iteración.</li><li>Swing uniforme y D'Hondt provincial; umbral del 3 %.</li><li>Percentiles p10/p50/p90 de los escaños simulados.</li><li>Semilla fija; resultados reproducibles.</li></ul></div>
     </div>
   </details>
 
