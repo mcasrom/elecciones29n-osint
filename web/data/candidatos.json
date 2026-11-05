@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T18:08:20+00:00",
+  "generated_at": "2026-11-05T18:15:26+00:00",
   "source": "intelligence-hub/news.db",
   "source_label": "Titulares y sumarios de prensa española",
   "candidates_source": "BOE-A-2026-23103 · JEC · candidaturas proclamadas 3-nov-2026",
@@ -8,23 +8,23 @@
   "note": "Cabezas de lista proclamados en el BOE; no son necesariamente los líderes del partido. No se incluye Sumar como marca propia: aparece integrada en Frente Amplio/Comuns. Yolanda Díaz no figura como candidata.",
   "windows": {
     "1": {
-      "n_articles": 132,
+      "n_articles": 158,
       "sources": [
         {
           "name": "El Mundo",
-          "articles": 49
+          "articles": 58
         },
         {
           "name": "El País",
-          "articles": 39
+          "articles": 46
         },
         {
           "name": "La Vanguardia",
-          "articles": 30
+          "articles": 35
         },
         {
           "name": "El Diario Cantabria",
-          "articles": 14
+          "articles": 19
         }
       ],
       "leaders": [
@@ -33,9 +33,18 @@
           "name": "Pedro Sánchez",
           "party": "PSOE",
           "province": "Madrid",
-          "articles": 14,
-          "share_pct": 10.6,
+          "articles": 18,
+          "share_pct": 11.4,
           "days": 2
+        },
+        {
+          "id": "pp-alberto-nunez-feijoo",
+          "name": "Feijóo",
+          "party": "PP",
+          "province": "Madrid",
+          "articles": 3,
+          "share_pct": 1.9,
+          "days": 1
         },
         {
           "id": "vox-santiago-abascal",
@@ -43,25 +52,16 @@
           "party": "VOX",
           "province": "Madrid",
           "articles": 2,
-          "share_pct": 1.5,
+          "share_pct": 1.3,
           "days": 1
         },
         {
           "id": "comuns-ada-colau",
           "name": "Ada Colau",
-          "party": "Comuns-Front Ampli",
+          "party": "Frente Amplio / Comuns",
           "province": "Barcelona",
           "articles": 2,
-          "share_pct": 1.5,
-          "days": 1
-        },
-        {
-          "id": "pp-alberto-nunez-feijoo",
-          "name": "Feijóo",
-          "party": "PP",
-          "province": "Madrid",
-          "articles": 2,
-          "share_pct": 1.5,
+          "share_pct": 1.3,
           "days": 1
         },
         {
@@ -70,7 +70,7 @@
           "party": "ERC",
           "province": "Barcelona",
           "articles": 1,
-          "share_pct": 0.8,
+          "share_pct": 0.6,
           "days": 1
         },
         {
@@ -79,7 +79,7 @@
           "party": "Podemos",
           "province": "Madrid",
           "articles": 1,
-          "share_pct": 0.8,
+          "share_pct": 0.6,
           "days": 1
         },
         {
@@ -110,9 +110,9 @@
           "days": 0
         },
         {
-          "id": "upn-javier-esparza",
-          "name": "Javier Esparza",
-          "party": "UPN",
+          "id": "upn-leticia-san-martin",
+          "name": "Leticia San Martín",
+          "party": "UPN-PP",
           "province": "Navarra",
           "articles": 0,
           "share_pct": 0.0,
@@ -128,6 +128,15 @@
           "days": 0
         },
         {
+          "id": "bng-nestor-rego",
+          "name": "Néstor Rego",
+          "party": "BNG",
+          "province": "A Coruña",
+          "articles": 0,
+          "share_pct": 0.0,
+          "days": 0
+        },
+        {
           "id": "ehbildu-oihana-etxebarrieta",
           "name": "Oihana Etxebarrieta",
           "party": "EH Bildu",
@@ -135,36 +144,27 @@
           "articles": 0,
           "share_pct": 0.0,
           "days": 0
-        },
-        {
-          "id": "bng-olalla-rodil",
-          "name": "Olalla Rodil",
-          "party": "BNG",
-          "province": "A Coruña",
-          "articles": 0,
-          "share_pct": 0.0,
-          "days": 0
         }
       ]
     },
     "7": {
-      "n_articles": 1025,
+      "n_articles": 1050,
       "sources": [
         {
           "name": "El Mundo",
-          "articles": 324
+          "articles": 333
         },
         {
           "name": "El País",
-          "articles": 309
+          "articles": 316
         },
         {
           "name": "La Vanguardia",
-          "articles": 262
+          "articles": 267
         },
         {
           "name": "El Diario Cantabria",
-          "articles": 130
+          "articles": 134
         }
       ],
       "leaders": [
@@ -173,8 +173,8 @@
           "name": "Pedro Sánchez",
           "party": "PSOE",
           "province": "Madrid",
-          "articles": 71,
-          "share_pct": 6.9,
+          "articles": 75,
+          "share_pct": 7.1,
           "days": 8
         },
         {
@@ -182,7 +182,7 @@
           "name": "Feijóo",
           "party": "PP",
           "province": "Madrid",
-          "articles": 34,
+          "articles": 35,
           "share_pct": 3.3,
           "days": 7
         },
@@ -192,13 +192,13 @@
           "party": "VOX",
           "province": "Madrid",
           "articles": 12,
-          "share_pct": 1.2,
+          "share_pct": 1.1,
           "days": 5
         },
         {
           "id": "comuns-ada-colau",
           "name": "Ada Colau",
-          "party": "Comuns-Front Ampli",
+          "party": "Frente Amplio / Comuns",
           "province": "Barcelona",
           "articles": 5,
           "share_pct": 0.5,
@@ -259,10 +259,19 @@
           "days": 0
         },
         {
-          "id": "upn-javier-esparza",
-          "name": "Javier Esparza",
-          "party": "UPN",
+          "id": "upn-leticia-san-martin",
+          "name": "Leticia San Martín",
+          "party": "UPN-PP",
           "province": "Navarra",
+          "articles": 0,
+          "share_pct": 0.0,
+          "days": 0
+        },
+        {
+          "id": "bng-nestor-rego",
+          "name": "Néstor Rego",
+          "party": "BNG",
+          "province": "A Coruña",
           "articles": 0,
           "share_pct": 0.0,
           "days": 0
@@ -275,17 +284,21 @@
           "articles": 0,
           "share_pct": 0.0,
           "days": 0
-        },
-        {
-          "id": "bng-olalla-rodil",
-          "name": "Olalla Rodil",
-          "party": "BNG",
-          "province": "A Coruña",
-          "articles": 0,
-          "share_pct": 0.0,
-          "days": 0
         }
       ]
     }
-  }
+  },
+  "top_ids": [
+    "psoe-pedro-sanchez",
+    "pp-alberto-nunez-feijoo",
+    "vox-santiago-abascal",
+    "comuns-ada-colau",
+    "erc-gabriel-rufian",
+    "frente-amplio-emilio-delgado",
+    "podemos-irene-montero",
+    "junts-miriam-nogueras",
+    "salf-alvise-perez",
+    "pnv-idoia-sagastizabal"
+  ],
+  "top_note": "Se muestran los 10 con más menciones a 7 días; el JSON conserva los 13."
 }

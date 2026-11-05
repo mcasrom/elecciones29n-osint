@@ -23,8 +23,8 @@ ALIASES = {
     "Míriam Nogueras": ["miriam nogueras", "nogueras"],
     "Oihana Etxebarrieta": ["oihana etxebarrieta", "etxebarrieta"],
     "Idoia Sagastizabal": ["idoia sagastizabal", "sagastizabal"],
-    "Olalla Rodil": ["olalla rodil", "rodil"],
-    "Javier Esparza": ["jose javier esparza", "javier esparza"],
+    "Néstor Rego": ["nestor rego", "rego"],
+    "Leticia San Martín": ["leticia san martin"],
     "Ada Colau": ["ada colau", "colau"],
     "Emilio Delgado": ["emilio delgado"],
     "Irene Montero": ["irene montero"],
@@ -38,8 +38,8 @@ IDS = {
     "Míriam Nogueras": "junts-miriam-nogueras",
     "Oihana Etxebarrieta": "ehbildu-oihana-etxebarrieta",
     "Idoia Sagastizabal": "pnv-idoia-sagastizabal",
-    "Olalla Rodil": "bng-olalla-rodil",
-    "Javier Esparza": "upn-javier-esparza",
+    "Néstor Rego": "bng-nestor-rego",
+    "Leticia San Martín": "upn-leticia-san-martin",
     "Ada Colau": "comuns-ada-colau",
     "Emilio Delgado": "frente-amplio-emilio-delgado",
     "Irene Montero": "podemos-irene-montero",
@@ -53,9 +53,9 @@ META = {
     "Míriam Nogueras": ("Junts", "Barcelona"),
     "Oihana Etxebarrieta": ("EH Bildu", "Gipuzkoa"),
     "Idoia Sagastizabal": ("PNV", "Bizkaia"),
-    "Olalla Rodil": ("BNG", "A Coruña"),
-    "Javier Esparza": ("UPN", "Navarra"),
-    "Ada Colau": ("Comuns-Front Ampli", "Barcelona"),
+    "Néstor Rego": ("BNG", "A Coruña"),
+    "Leticia San Martín": ("UPN-PP", "Navarra"),
+    "Ada Colau": ("Frente Amplio / Comuns", "Barcelona"),
     "Emilio Delgado": ("Frente Amplio", "Madrid"),
     "Irene Montero": ("Podemos", "Madrid"),
     "Alvise Pérez": ("SALF", "Madrid"),
@@ -93,19 +93,25 @@ def collect() -> dict:
             leaders.append({"id": IDS[k], "name": k, "party": party, "province": province, "articles": counts[k], "share_pct": round(100 * counts[k] / n, 1) if n else 0, "days": len(day_sets[k])})
         leaders.sort(key=lambda x: (-x["articles"], x["name"]))
         out["windows"][str(days)] = {"n_articles": n, "sources": sources, "leaders": leaders}
-    con.close(); return out
+    con.close()
+    top_ids = [x["id"] for x in out["windows"]["7"]["leaders"][:10]]
+    out["top_ids"] = top_ids
+    out["top_note"] = "Se muestran los 10 con más menciones a 7 días; el JSON conserva los 13."
+    return out
 
 def font(size: int, bold: bool = False):
     return ImageFont.truetype("/usr/share/fonts/truetype/liberation/LiberationSans-%s.ttf" % ("Bold" if bold else "Regular"), size)
 
-def chart(window: dict, days: int, path: Path) -> None:
+def chart(window: dict, days: int, path: Path, top_ids: list[str]) -> None:
     W, H = 1000, max(640, 130 + 52 * len(window["leaders"]) + 40)
     bg, ink, muted, orange = "#ffffff", "#172033", "#64748b", "#ff5a1f"
     im = Image.new("RGB", (W, H), bg); d = ImageDraw.Draw(im)
     d.rectangle([0, 0, W, 10], fill=orange)
-    d.text((54, 38), "Cabezas de lista · %s" % ("24 horas" if days == 1 else "7 días"), font=font(31, True), fill=ink)
+    d.text((54, 38), "Cabezas de lista · %s · top 10" % ("24 horas" if days == 1 else "7 días"), font=font(31, True), fill=ink)
     d.text((54, 82), "Artículos cuyo titular o sumario menciona al candidato · n=%d" % window["n_articles"], font=font(17), fill=muted)
-    leaders = window["leaders"]; maxv = max((x["articles"] for x in leaders), default=1) or 1
+    by = {x["id"]: x for x in window["leaders"]}
+    leaders = [by[i] for i in top_ids if i in by]
+    maxv = max((x["articles"] for x in leaders), default=1) or 1
     y = 130
     for x in leaders:
         name, val = x["name"], x["articles"]
@@ -124,7 +130,7 @@ def main():
     out = Path(a.out); (out / "data").mkdir(parents=True, exist_ok=True); (out / "img").mkdir(parents=True, exist_ok=True)
     data = collect()
     (out / "data" / "candidatos.json").write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    for days in WINDOWS: chart(data["windows"][str(days)], days, out / "img" / ("candidatos-%dd.png" % days))
+    for days in WINDOWS: chart(data["windows"][str(days)], days, out / "img" / ("candidatos-%dd.png" % days), data["top_ids"])
     print("candidatos ok", out, "1d", data["windows"]["1"]["n_articles"], "7d", data["windows"]["7"]["n_articles"])
 
 if __name__ == "__main__": main()
