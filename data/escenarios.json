@@ -1,0 +1,140 @@
+{
+  "updated": "2026-11-05",
+  "warning": "Escenario de swing uniforme. No es un pronóstico ni una probabilidad electoral. No hay sondeos provinciales.",
+  "baseline": {
+    "PP": 137,
+    "PSOE": 121,
+    "VOX": 33,
+    "SUMAR": 31,
+    "ERC": 7,
+    "JUNTS": 7,
+    "EH Bildu": 6,
+    "PNV": 5,
+    "BNG": 1,
+    "UPN": 1,
+    "CCa": 1
+  },
+  "scenario": {
+    "PP": {
+      "p10": 132,
+      "p50": 136,
+      "p90": 139
+    },
+    "PSOE": {
+      "p10": 107,
+      "p50": 110,
+      "p90": 114
+    },
+    "VOX": {
+      "p10": 65,
+      "p50": 66,
+      "p90": 67
+    },
+    "ERC": {
+      "p10": 8,
+      "p50": 8,
+      "p90": 10
+    },
+    "SUMAR": {
+      "p10": 8,
+      "p50": 8,
+      "p90": 10
+    },
+    "EH Bildu": {
+      "p10": 7,
+      "p50": 7,
+      "p90": 7
+    },
+    "PNV": {
+      "p10": 4,
+      "p50": 6,
+      "p90": 6
+    },
+    "JUNTS": {
+      "p10": 4,
+      "p50": 5,
+      "p90": 6
+    },
+    "BNG": {
+      "p10": 2,
+      "p50": 2,
+      "p90": 2
+    },
+    "UPN": {
+      "p10": 1,
+      "p50": 1,
+      "p90": 1
+    },
+    "CCa": {
+      "p10": 1,
+      "p50": 1,
+      "p90": 1
+    }
+  },
+  "blocks": {
+    "PP+VOX": {
+      "p10": 198,
+      "p50": 202,
+      "p90": 205,
+      "greater_than_176": true
+    },
+    "PSOE+SUMAR": {
+      "p10": 115,
+      "p50": 118,
+      "p90": 122,
+      "greater_than_176": false
+    },
+    "PSOE+SUMAR+TERRITORIALES": {
+      "p10": 144,
+      "p50": 147,
+      "p90": 151,
+      "greater_than_176": false
+    }
+  },
+  "backtest": {
+    "modelo": "abril-2019 → noviembre-2019; swing uniforme; D'Hondt provincial",
+    "partidos": [
+      {
+        "partido": "PSOE",
+        "real_nov2019": 120,
+        "predicho": 121,
+        "error": 1
+      },
+      {
+        "partido": "PP",
+        "real_nov2019": 87,
+        "predicho": 88,
+        "error": 1
+      },
+      {
+        "partido": "VOX",
+        "real_nov2019": 52,
+        "predicho": 51,
+        "error": -1
+      },
+      {
+        "partido": "Cs",
+        "real_nov2019": 10,
+        "predicho": 11,
+        "error": 1
+      }
+    ],
+    "mae_escanos": 1,
+    "total_real": 269,
+    "total_predicho": 271,
+    "nota": "Prueba del mecanismo, no de los sondeos de 2026. Solo cuatro partidos con etiqueta estable; no incluye Cs→? ni coaliciones."
+  },
+  "method": [
+    "Parte de resultados oficiales de 2023 por provincia.",
+    "Aplica un swing uniforme a las cuotas nacionales de los sondeos.",
+    "Reparte con D'Hondt provincial y umbral del 3 %.",
+    "No modela pactos, abstención diferencial ni investidura."
+  ],
+  "sources": [
+    "Ministerio del Interior · resultados 2023",
+    "Sondeos 29N · 12 encuestas y 8 casas",
+    "Backtest abril-noviembre 2019"
+  ],
+  "n_polls": 12,
+  "n_houses": 8
+}

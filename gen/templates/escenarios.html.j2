@@ -1,0 +1,38 @@
+{% set page_title = "Escenarios de escaños · 29N" %}
+{% set page_desc = "Escenario provincial de escaños del 29N con swing uniforme desde 2023, D'Hondt y rangos p10-p90. No es un pronóstico ni una probabilidad electoral." %}
+{% set canonical = site_url ~ "/escenarios.html" %}
+{% set jsonld = webpages['escenarios.html'] %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Escenarios de escaños</h1>
+  <p class="muted" style="margin:0 0 12px">Qué reparto saldría si las cuotas nacionales de los sondeos se trasladaran de forma <strong>uniforme</strong> al mapa provincial de 2023, con D'Hondt por circunscripción y umbral del 3 %. <strong>No es un pronóstico ni una probabilidad electoral.</strong></p>
+  <p class="muted small" style="margin:0 0 12px">Actualizado: {{ escenarios.updated }} · {{ escenarios.n_polls }} sondeos · {{ escenarios.n_houses }} casas. Documento de escenario, no una estimación oficial.</p>
+  <div class="alert warn"><strong>No hay sondeos provinciales.</strong> El modelo supone que cada partido sube o baja igual en todas las provincias. Es una simplificación fuerte. No se modelan pactos, investidura, abstención diferencial ni disciplina de partido. Un escaño no es un apoyo.</div>
+
+  {% if escenarios %}
+  <div class="card"><div class="cardhead"><h2>Punto de partida</h2><span class="hint">resultado oficial 2023</span></div><div class="tablewrap"><table><thead><tr><th>Partido</th><th>Escaños 2023</th></tr></thead><tbody>{% for p,n in escenarios.baseline.items() %}<tr><td><strong>{{ p }}</strong></td><td class="num">{{ n }}</td></tr>{% endfor %}<tr><td><strong>Total</strong></td><td class="num"><strong>350</strong></td></tr></tbody></table></div><p class="muted small">Fuente: Ministerio del Interior. Es el punto de partida, no el escenario.</p></div>
+
+  <div class="card"><div class="cardhead"><h2>Escenario con sondeos</h2><span class="hint">p10 · p50 · p90 · no probabilidad</span></div><div class="tablewrap"><table><thead><tr><th>Partido</th><th>p10</th><th>p50</th><th>p90</th></tr></thead><tbody>{% for p,r in escenarios.scenario.items() %}<tr><td><strong>{{ p }}</strong></td><td class="num">{{ r.p10 }}</td><td class="num"><strong>{{ r.p50 }}</strong></td><td class="num">{{ r.p90 }}</td></tr>{% endfor %}</tbody></table></div><p class="muted small">p50 = mediana de las simulaciones. p10–p90 = rango de sensibilidad del modelo, no intervalo de confianza. Los partidos que no aparecen no obtienen escaño en este escenario.</p></div>
+
+  <div class="card"><div class="cardhead"><h2>Bloques aritméticos</h2><span class="hint">sumas, no pactos</span></div><div class="tablewrap"><table><thead><tr><th>Bloque</th><th>p10</th><th>p50</th><th>p90</th><th>¿Supera 176?</th></tr></thead><tbody>{% for name,r in escenarios.blocks.items() %}<tr><td>{{ name.replace('+', ' + ') }}</td><td class="num">{{ r.p10 }}</td><td class="num"><strong>{{ r.p50 }}</strong></td><td class="num">{{ r.p90 }}</td><td>{% if r.greater_than_176 %}sí, desde p10{% else %}no en el escenario{% endif %}</td></tr>{% endfor %}</tbody></table></div><p class="muted small">Una suma de 176 o más solo indica mayoría aritmética en este escenario. No implica acuerdo, abstención ni investidura. El bloque PSOE+Sumar+territoriales no incluye a UPN.</p></div>
+
+  <div class="card"><div class="cardhead"><h2>Backtest: abril → noviembre 2019</h2><span class="hint">mecanismo, no sondeos</span></div><div class="tablewrap"><table><thead><tr><th>Partido</th><th>Real nov-2019</th><th>Predicho</th><th>Error</th></tr></thead><tbody>{% for r in escenarios.backtest.partidos %}<tr><td><strong>{{ r.partido }}</strong></td><td class="num">{{ r.real_nov2019 }}</td><td class="num">{{ r.predicho }}</td><td class="num">{{ "%+d"|format(r.error) }}</td></tr>{% endfor %}</tbody></table></div><p class="muted small">MAE: <strong>{{ escenarios.backtest.mae_escanos }}</strong> escaño. Valida el reparto provincial cuando las cuotas nacionales son correctas; no valida los sondeos de 2026.</p></div>
+
+  <div class="card"><div class="cardhead"><h2>Método</h2></div><ol class="muted small">{% for x in escenarios.method %}<li>{{ x }}</li>{% endfor %}</ol><p class="muted small">Datos: resultados oficiales 2023, 12 sondeos de 8 casas y backtest oficial 2019.</p></div>
+
+  <div class="card"><div class="cardhead"><h2>Qué no dice</h2></div><ul class="muted small"><li>No dice quién va a ganar.</li><li>No dice quién gobernará ni qué pactos habrá.</li><li>No es una probabilidad electoral: es un escenario de modelo.</li><li>No captura cambios territoriales del voto.</li><li>No sustituye a sondeos provinciales, que no existen en esta serie.</li></ul></div>
+
+  <div class="cta"><a class="btn" href="/data/escenarios.json">JSON del escenario</a> <a class="btn ghost" href="/metodologia.html">Metodología</a> <a class="btn ghost" href="/hemiciclo.html">Hemiciclo</a> <a class="btn ghost" href="/mayorias.html">Calculadora de sumas</a> <a class="btn ghost" href="/caveat.html">Qué no dice</a></div>
+  {% else %}
+  <div class="alert warn">No hay datos de escenarios cargados.</div>
+  {% endif %}
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>

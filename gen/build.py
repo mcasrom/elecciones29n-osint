@@ -87,6 +87,7 @@ PAGES = [
     ("en/post-election.html", "en/post-election.html", "2026-10-25", "weekly", "0.6"),
     ("competitivas.html", "competitivas.html", "2026-10-25", "weekly", "0.7"),
     ("gobernabilidad.html", "gobernabilidad.html", "2026-11-05", "monthly", "0.7"),
+    ("escenarios.html", "escenarios.html", "2026-11-05", "monthly", "0.7"),
     ("mayorias.html", "mayorias.html", "2026-10-25", "weekly", "0.7"),
     ("postelectoral.html", "postelectoral.html", "2026-10-25", "weekly", "0.7"),
     ("incrustar.html", "incrustar.html", "2026-10-25", "monthly", "0.4"),
@@ -2142,6 +2143,10 @@ def main(out: str = "web") -> None:
         autoescape=select_autoescape(["html", "xml"]),
     )
 
+    escenarios = {}
+    if os.path.exists("data/escenarios.json"):
+        with open("data/escenarios.json", encoding="utf-8") as f:
+            escenarios = json.load(f)
     congreso = {}
     if os.path.exists("data/congreso.json"):
         with open("data/congreso.json", encoding="utf-8") as f:
@@ -2379,6 +2384,7 @@ def main(out: str = "web") -> None:
             "en/post-election.html": build_webpage_jsonld("Post-election calibration", "/en/post-election.html", "Pre-election average versus official results, errors and seats."),
             "competitivas.html": build_webpage_jsonld("Provincias competitivas", "/competitivas.html", "Provincias ordenadas por el margen oficial de 2023 entre los dos primeros. Contexto factual, no proyección."),
             "gobernabilidad.html": build_webpage_jsonld("Gobernabilidad y árbitros territoriales", "/gobernabilidad.html", "Aritmética de investidura sobre el Congreso oficial de 2023: 176 escaños, partidos territoriales y escenarios. No es una proyección."),
+            "escenarios.html": build_webpage_jsonld("Escenarios de escaños", "/escenarios.html", "Escenario provincial con swing uniforme desde 2023, D'Hondt y rangos p10-p90. No es un pronóstico ni una probabilidad electoral."),
             "mayorias.html": build_webpage_jsonld("Calculadora de mayorías", "/mayorias.html", "Suma aritmética de escaños simulados con umbral 176. No predice pactos ni investidura."),
             "postelectoral.html": build_webpage_jsonld("Calibración post-electoral", "/postelectoral.html", "Comparación entre la última media pre-electoral y el escrutinio oficial."),
             "incrustar.html": build_webpage_jsonld("Incrustar los datos del 29N", "/incrustar.html", "Guía de uso de los embeds de media, robustez y hemiciclo, con atribución y límites."),
@@ -2409,6 +2415,7 @@ def main(out: str = "web") -> None:
         "bloc_left": latest.get("bloc_left"),
         "sim_congress": simulate_congress(parties_main),
         "gobernabilidad": build_gobernabilidad(congreso),
+        "escenarios": escenarios,
         "mayorias_sim": {
             "label": "Última foto",
             "n_polls": latest.get("n_polls", 0),
@@ -2422,7 +2429,7 @@ def main(out: str = "web") -> None:
     }
 
     for tname in ["index.html", "hemiciclo.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "lideres.html", "participacion.html", "territorio.html",
-             "circunscripciones.html", "mi-circunscripcion.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html", "competitivas.html", "gobernabilidad.html", "mayorias.html", "postelectoral.html", "candidatos.html", "dirigentes.html", "incrustar.html", "aviso.html", "prensa.html", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html", "en/post-election.html"]:
+             "circunscripciones.html", "mi-circunscripcion.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html", "competitivas.html", "gobernabilidad.html", "escenarios.html", "mayorias.html", "postelectoral.html", "candidatos.html", "dirigentes.html", "incrustar.html", "aviso.html", "prensa.html", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html", "en/post-election.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(current=tname, **context)
         with open(os.path.join(OUT, tname), "w", encoding="utf-8") as f:
@@ -2445,6 +2452,9 @@ def main(out: str = "web") -> None:
     write_participacion_data(participacion)
     write_escanos_data(escanos)
     write_gobernabilidad_data(context.get("gobernabilidad"))
+    if escenarios:
+        with open(os.path.join(OUT, "data", "escenarios.json"), "w", encoding="utf-8") as f:
+            json.dump(escenarios, f, ensure_ascii=False, indent=2)
     write_congreso_oficial_data(oficial)
     write_municipios_data(circ_pages, censo)
     write_robustez_data(latest)
