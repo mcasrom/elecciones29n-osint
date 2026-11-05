@@ -11,7 +11,7 @@
 {% include "_nav.html.j2" %}
 <main class="container">
   <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Candidatos y cabezas de lista</h1>
-  <p class="muted" style="margin:0 0 12px">Cabezas de lista proclamados en el <strong>PDF oficial de candidaturas del 29N</strong> (BOE-A-2026-23103, 3-nov-2026) y sus menciones en titulares de prensa española a <strong>24 horas</strong> y <strong>7 días</strong>. No es intención de voto ni valoración.</p>
+  <p class="muted" style="margin:0 0 12px">Cabezas de lista proclamados en el <strong>PDF oficial de candidaturas del 29N</strong> (BOE-A-2026-23103, 3-nov-2026) y sus menciones en titulares de <strong>4 fuentes de prensa</strong> a <strong>24 horas</strong> y <strong>7 días</strong>. No es intención de voto ni valoración.</p>
   <div class="alert warn"><strong>Cabezas de lista, no necesariamente líderes del partido.</strong> Se usa el nº 1 proclamado por provincia. No se incluye Sumar: no aparece como candidatura propia en Madrid y Yolanda Díaz no figura como candidata en el PDF. Una mención en prensa no implica apoyo.</div>
   <p class="muted small">Fuente de nombres: <a href="https://www.juntaelectoralcentral.es/cs/jec/documentos/eg2026_candidaturas_proclamadas.pdf" rel="noopener" target="_blank">JEC · candidaturas proclamadas 2026</a> · BOE-A-2026-23103. Fuente de menciones: titulares y sumarios de prensa española.</p>
   <div class="grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
@@ -24,7 +24,8 @@
       <figcaption class="muted small">7 días · titulares y sumarios</figcaption>
     </figure>
   </div>
-  <div class="card" style="margin-top:16px"><div class="cardhead"><h2>Detalle</h2><span class="hint">artículos · % del corpus · días</span></div><div class="tablewrap"><table><thead><tr><th>Candidato</th><th>Partido · provincia</th><th>24 h</th><th>7 días</th><th>Días con mención (7 d)</th></tr></thead><tbody id="candidatos-body"><tr><td colspan="5" class="muted">Cargando…</td></tr></tbody></table></div><p class="muted small" id="candidatos-meta">Fuente: titulares de prensa. No se usan actos ni sondeos.</p></div>
+  <div class="card"><div class="cardhead"><h2>Fuentes del corpus</h2><span class="hint">7 días</span></div><ul id="candidatos-sources" class="muted small"><li>Cargando…</li></ul><p class="muted small">No es una muestra de toda la prensa española. La selección de fuentes condiciona las menciones; por eso se publica el listado y el número de artículos.</p></div>
+<div class="card" style="margin-top:16px"><div class="cardhead"><h2>Detalle</h2><span class="hint">artículos · % del corpus · días</span></div><div class="tablewrap"><table><thead><tr><th>Candidato</th><th>Partido · provincia</th><th>24 h</th><th>7 días</th><th>Días con mención (7 d)</th></tr></thead><tbody id="candidatos-body"><tr><td colspan="5" class="muted">Cargando…</td></tr></tbody></table></div><p class="muted small" id="candidatos-meta">Fuente: titulares de prensa. No se usan actos ni sondeos.</p></div>
   <div class="card"><div class="cardhead"><h2>Cómo leerlo</h2></div><ul class="muted small"><li>El corpus son titulares y sumarios de prensa; no es una muestra representativa de la sociedad.</li><li>Un artículo cuenta una vez por candidato, aunque lo mencione varias veces.</li><li>La ventana de 24 h puede tener pocos artículos: mira siempre <code>n</code>.</li><li>La diferencia entre candidatos puede reflejar agenda mediática, no intención de voto.</li><li>Los nombres y provincias salen del PDF oficial; no se inventan candidaturas.</li></ul></div>
   <div class="cta"><a class="btn" href="/lideres.html">Valoración CIS</a> <a class="btn ghost" href="/metodologia.html">Metodología</a> <a class="btn ghost" href="/caveat.html">Qué no dice</a> <a class="btn ghost" href="/data/candidatos.json">JSON</a></div>
   <script>
@@ -45,6 +46,8 @@
         tr.children[4].textContent=s.days;
         body.appendChild(tr);
       });
+      var src=document.getElementById('candidatos-sources');
+      if(src){src.innerHTML='';(seven.sources||[]).forEach(function(x){var li=document.createElement('li');li.textContent=x.name+' · '+x.articles+' artículos';src.appendChild(li);});}
       var meta=document.getElementById('candidatos-meta');
       if(meta) meta.textContent='Fuente: titulares de prensa española · '+(one.n_articles||0)+' artículos en 24 h · '+(seven.n_articles||0)+' en 7 días · cabezas de lista BOE/JEC.';
     }).catch(function(){});

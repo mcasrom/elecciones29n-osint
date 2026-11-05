@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T15:55:28+00:00",
+  "generated_at": "2026-11-05T16:00:22+00:00",
   "source": "intelligence-hub/news.db",
   "source_label": "Titulares y sumarios de prensa española",
   "candidates_source": "BOE-A-2026-23103 · JEC · candidaturas proclamadas 3-nov-2026",
@@ -8,6 +8,24 @@
   "windows": {
     "1": {
       "n_articles": 155,
+      "sources": [
+        {
+          "name": "El Mundo",
+          "articles": 57
+        },
+        {
+          "name": "El País",
+          "articles": 43
+        },
+        {
+          "name": "La Vanguardia",
+          "articles": 36
+        },
+        {
+          "name": "El Diario Cantabria",
+          "articles": 19
+        }
+      ],
       "leaders": [
         {
           "name": "Pedro Sánchez",
@@ -85,6 +103,24 @@
     },
     "7": {
       "n_articles": 1042,
+      "sources": [
+        {
+          "name": "El Mundo",
+          "articles": 332
+        },
+        {
+          "name": "El País",
+          "articles": 314
+        },
+        {
+          "name": "La Vanguardia",
+          "articles": 264
+        },
+        {
+          "name": "El Diario Cantabria",
+          "articles": 132
+        }
+      ],
       "leaders": [
         {
           "name": "Pedro Sánchez",

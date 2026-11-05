@@ -61,12 +61,14 @@ def collect() -> dict:
                 if hit(text, aliases):
                     counts[k] += 1; day_sets[k].add(day)
         n = len(rows)
+        src_rows = con.execute("SELECT source, COUNT(*) AS n FROM articles WHERE lang='es' AND country='espana' AND published>=? GROUP BY source ORDER BY n DESC", (cut,)).fetchall()
+        sources = [{"name": r["source"], "articles": r["n"]} for r in src_rows]
         leaders = []
         for k in ALIASES:
             party, province = META[k]
             leaders.append({"name": k, "party": party, "province": province, "articles": counts[k], "share_pct": round(100 * counts[k] / n, 1) if n else 0, "days": len(day_sets[k])})
         leaders.sort(key=lambda x: (-x["articles"], x["name"]))
-        out["windows"][str(days)] = {"n_articles": n, "leaders": leaders}
+        out["windows"][str(days)] = {"n_articles": n, "sources": sources, "leaders": leaders}
     con.close(); return out
 
 def font(size: int, bold: bool = False):
