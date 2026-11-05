@@ -60,6 +60,7 @@ PAGES = [
     ("caveat.html", "caveat.html", "2026-10-17", "monthly", "0.5"),
     ("electorado.html", "electorado.html", "2026-10-18", "monthly", "0.7"),
     ("lideres.html", "lideres.html", "2026-11-02", "monthly", "0.6"),
+    ("menciones.html", "menciones.html", "2026-11-05", "daily", "0.6"),
     ("participacion.html", "participacion.html", "2026-10-18", "monthly", "0.7"),
     ("territorio.html", "territorio.html", "2026-10-18", "monthly", "0.7"),
     ("circunscripciones.html", "circunscripciones.html", "2026-10-22", "monthly", "0.6"),
@@ -2354,6 +2355,7 @@ def main(out: str = "web") -> None:
         "noche_jsonld": build_webpage_jsonld("Noche electoral 29N", "/noche-electoral.html", "Qué se publica, cuándo y con qué fuente."),
         "webpages": {
             "lideres.html": build_webpage_jsonld("Valoración de líderes", "/lideres.html", "Valoración 1–10 de cuatro líderes según el CIS de octubre de 2026. Una sola casa y una sola ola."),
+            "menciones.html": build_webpage_jsonld("Menciones de líderes", "/menciones.html", "Frecuencia de menciones de líderes en titulares de prensa, 24 h y 7 días. No es intención de voto."),
             "metodologia.html": build_webpage_jsonld("Metodología", "/metodologia.html", "Método de sondeos, censo, participación, territorio y M5."),
             "fuentes.html": build_webpage_jsonld("Fuentes y datos abiertos", "/fuentes.html", "Fuentes, catálogo de datos y licencias."),
             "caveat.html": build_webpage_jsonld("Qué no dice este sitio", "/caveat.html", "Límites y no-objetivos del observatorio."),
@@ -2418,7 +2420,7 @@ def main(out: str = "web") -> None:
     }
 
     for tname in ["index.html", "hemiciclo.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "lideres.html", "participacion.html", "territorio.html",
-             "circunscripciones.html", "mi-circunscripcion.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html", "competitivas.html", "gobernabilidad.html", "mayorias.html", "postelectoral.html", "incrustar.html", "aviso.html", "prensa.html", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html", "en/post-election.html"]:
+             "circunscripciones.html", "mi-circunscripcion.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html", "competitivas.html", "gobernabilidad.html", "mayorias.html", "postelectoral.html", "menciones.html", "incrustar.html", "aviso.html", "prensa.html", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html", "en/post-election.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(current=tname, **context)
         with open(os.path.join(OUT, tname), "w", encoding="utf-8") as f:

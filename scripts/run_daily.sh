@@ -53,6 +53,7 @@ PYTHONPATH="$REPO_DIR" python3 -m agg.aggregate --out "$STAGE/data"
 
 # 3) Build estático en staging
 PYTHONPATH="$REPO_DIR" python3 -m gen.build --out "$STAGE"
+/usr/bin/python3 "$REPO_DIR/scripts/leader_mentions.py" --out "$STAGE" || echo "[run_daily] aviso: menciones no generadas"
 
 # 4) OG (PIL del sistema; best-effort)
 if /usr/bin/python3 -c "import PIL" 2>/dev/null; then
