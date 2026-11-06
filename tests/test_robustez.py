@@ -73,10 +73,10 @@ class RobustezTest(unittest.TestCase):
         today = datetime.now(TZ).strftime("%Y-%m-%d")
         url = "https://electomania.es/electopanel-18-oct/"
         res = self.run_with([
-            ("PP", today, 31.8, url, 3141, "ElectoPanel", "tracking"),
-            ("PSOE", today, 27.1, url, 3141, "ElectoPanel", "tracking"),
+            ("PP", today, 31.8, url, 3141, "Electomania", "tracking"),
+            ("PSOE", today, 27.1, url, 3141, "Electomania", "tracking"),
         ])
-        row = next(r for r in res["house_latest"] if r["pollster"] == "ElectoPanel")
+        row = next(r for r in res["house_latest"] if r["pollster"] == "Electomania")
         self.assertEqual(row["url"], url)
 
 
