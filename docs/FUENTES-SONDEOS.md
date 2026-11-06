@@ -62,3 +62,15 @@ El registro no se publica en la web: es una herramienta de trabajo.
 
 La rutina semanal (`docs/RUTINA-SEMANAL.md`) usa este registro como punto de
 partida. Objetivo: **≥4 sondeos y ≥2 encuestadoras** en la media.
+
+
+## Mastodon: descubrimiento, no fuente
+
+- `@electomania@masto.ai` se usa solo para **descubrir** piezas y enlaces.
+- `@electografica@social.politicaconciencia.org` está **inactiva desde 2023**; no se usa para el 29N.
+- El post de Mastodon **no es el dato canónico**: hay que abrir la pieza enlazada, verificar fecha, casa, muestra y tabla completa.
+- `scripts/watch_sondeos.py` añade esos hallazgos a `data/candidatos_sondeos.csv` como `pendiente_revision`.
+- No se importa automáticamente ningún porcentaje leído de una red social.
+- Un tracking puede servir de contexto, pero no se suma como si fuera un sondeo independiente sin declararlo.
+- Si la tabla no suma ~100 %, falta un partido o no hay enlace verificable, **no entra en la media**: se queda pendiente.
+- No se rellena “Otros” con un residual inventado salvo que la fuente lo publique y se documente.
