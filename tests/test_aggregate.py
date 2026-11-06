@@ -104,6 +104,19 @@ class AggregateTest(unittest.TestCase):
         self.assertEqual(p["mean"], 10.0)
         self.assertIn("Promedio", res["excluded_averages"])
 
+    def test_tracking_houses_excluded_from_average(self):
+        today = datetime.now(TZ).strftime("%Y-%m-%d")
+        res = self.run_with([
+            ("X", today, 10.0, "u", 1000, "A", "tracking"),
+            ("X", today, 20.0, "u", 1000, "ElectoPanel", "tracking"),
+            ("X", today, 30.0, "u", None, "SW Demoscopia", "tracking"),
+        ])
+        p = next(p for p in res["parties"] if p["party"] == "X")
+        self.assertEqual(p["n"], 1)
+        self.assertEqual(p["mean"], 10.0)
+        self.assertIn("ElectoPanel", res["excluded_trackings"])
+        self.assertIn("SW Demoscopia", res["excluded_trackings"])
+
     def test_extension_to_four_polls(self):
         rows = []
         for i, d in enumerate(["2026-08-20", "2026-09-01", "2026-09-15", "2026-10-01", "2026-10-10"]):
@@ -186,7 +199,7 @@ class AggregateTest(unittest.TestCase):
         today = datetime.now(TZ).strftime("%Y-%m-%d")
         res = self.run_with([
             ("X", today, 10.0, "https://www.ondacero.es/x", None, "Sigma Dos", "tracking"),
-            ("X", today, 20.0, "https://electomania.es/x", 1000, "ElectoPanel", "tracking"),
+            ("X", today, 20.0, "https://electomania.es/x", 1000, "Electomania", "tracking"),
             ("X", today, 30.0, "https://www.cis.es/x", 4000, "CIS", "tracking"),
         ])
         w = res["weights"]

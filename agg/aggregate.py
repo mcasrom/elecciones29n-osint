@@ -25,6 +25,8 @@ HOUSE_NOTA = {"CIS": "estimación de voto"}
 # Partidos que solo se presentan en algunas circunscripciones. Se publican,
 # pero no se suman a la tabla principal: en Onda Cero ya van dentro de "Otros".
 TERRITORIAL = {"ERC", "JUNTS", "BILDU", "PNV"}
+# Series de tracking: contexto, no observaciones independientes para la media.
+TRACKING_POLLSTERS = {"ElectoPanel", "SW Demoscopia"}
 
 
 def _parse_date(s: str) -> datetime | None:
@@ -463,7 +465,9 @@ def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[st
         return _empty(now, True)
 
     polls_all = load_polls()
-    tracking = [p for p in polls_all if p.get("kind") != "average"]
+    all_candidates = [p for p in polls_all if p.get("kind") != "average"]
+    tracking = [p for p in all_candidates if (p.get("pollster") or "") not in TRACKING_POLLSTERS]
+    excluded_trackings = [p for p in all_candidates if (p.get("pollster") or "") in TRACKING_POLLSTERS]
     if not tracking:
         if os.path.exists(latest_path):
             with open(latest_path, encoding="utf-8") as f:
@@ -652,7 +656,7 @@ def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[st
         "reasons": reasons,
     }
 
-    novedades = _novedades(polls_all, now)
+    novedades = _novedades(tracking, now)
     weights = _poll_weights(recent, now, extended)
     sensitivity = _sensitivity(recent, parties, weights, now)
 
@@ -696,6 +700,9 @@ def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[st
         ),
         "excluded_averages": sorted(
             {p.get("pollster") for p in polls_all if p.get("kind") == "average"}
+        ),
+        "excluded_trackings": sorted(
+            {p.get("pollster") for p in excluded_trackings}
         ),
     }
 

@@ -194,6 +194,9 @@
       {% endif %}
       <p class="muted small" style="margin-top:10px">Qué mide esto: <a href="/metodologia.html#robustez">robustez del dato</a>. No es una nota de calidad, ni un pronóstico, ni una probabilidad.</p>
       <p class="muted small">Una sola encuestadora no es una media entre casas: es su serie. La salud mejora añadiendo sondeos de otras casas con fuente y muestra.</p>
+      {% if excluded_trackings %}
+      <p class="muted small"><strong>Trackings excluidos de la media:</strong> {{ excluded_trackings|join(', ') }}. Se usan como contexto de evolución, no como observaciones independientes.</p>
+      {% endif %}
       {% endif %}
     </div>
 
