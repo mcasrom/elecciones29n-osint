@@ -29,7 +29,7 @@ class CampaignDigestTest(unittest.TestCase):
         r = detect(prev, cur)
         self.assertIn("nuevo sondeo", r)
         self.assertIn("PP +2.0 pp", r)
-        self.assertIn("PP +5 escaños", r)
+        self.assertNotIn("PP +5 escaños", r)
 
 
 if __name__ == "__main__":

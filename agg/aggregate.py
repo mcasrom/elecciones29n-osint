@@ -694,9 +694,9 @@ def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[st
         "bloc_left": round(sum(means.get(k, 0) for k in ("PSOE", "SUMAR", "PODEMOS")), 2),
         "weight_basis": (
             "recencia (vida media 10 d); √n cuando la fuente declara muestra; "
-            "topes 25 % por casa y 40 % por fuente"
+            "topes 25 % por casa y 40 % por fuente cuando hay grupos suficientes"
             if weighted
-            else "recencia (vida media 10 d); topes 25 % por casa y 40 % por fuente"
+            else "recencia (vida media 10 d); topes 25 % por casa y 40 % por fuente cuando hay grupos suficientes"
         ),
         "excluded_averages": sorted(
             {p.get("pollster") for p in polls_all if p.get("kind") == "average"}

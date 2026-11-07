@@ -74,3 +74,40 @@ partida. Objetivo: **≥4 sondeos y ≥2 encuestadoras** en la media.
 - Un tracking puede servir de contexto, pero no se suma como si fuera un sondeo independiente sin declararlo.
 - Si la tabla no suma ~100 %, falta un partido o no hay enlace verificable, **no entra en la media**: se queda pendiente.
 - No se rellena “Otros” con un residual inventado salvo que la fuente lo publique y se documente.
+
+
+## Exploración 7-nov-2026: qué hay y qué no se incorpora
+
+- **SW Demoscopia · 5–6 nov · La Séptima/Electomanía:** aparece en el histórico y en
+  la cola como `tracking` y sin `sample`. Es una pieza nueva, pero **no entra en la
+  media** hasta comprobar la ficha original, la muestra y si es un tracking
+  independiente. No basta el artículo-resumen de un tercero.
+- **Celeste Tel · 6-nov:** la cola de descubrimiento ya la detecta; falta verificar
+  ficha, campo y muestra antes de introducirla. No se añade por titular.
+- **Encuestas regionales de Galicia, Andalucía y Comunidad Valenciana (6–7 nov):**
+  son material regional; no se meten en la media nacional. Solo entrarían en
+  `regional_sondeos.csv` si tienen la tabla y la ficha completas.
+- **La Sexta, Antena 3, ABC, Demócrata y similares:** sus páginas de seguimiento
+  son **pistas de descubrimiento**, no sondeos independientes. Hay que abrir la
+  pieza original y registrar casa, campo, muestra, cliente y tabla completa.
+- **Búsqueda viable:** sí, con `site:`/RSS por casa y prensa; no con scraping
+  agresivo ni contando titulares parciales. La cola `watch_sondeos.py` ya deja
+  candidatos para revisión, pero **no publica**.
+
+## Canal Bluesky específico
+
+- **Hub Electoral | Prueba Pública** · `@electoraldatahub.bsky.social`.
+- Uso previsto: mensajes del proceso electoral 29N. No se mezcla con la cuenta
+  general; las credenciales viven en la configuración privada y no se documentan.
+
+## Decisión 7-nov-2026: fuentes de descubrimiento
+
+| Fuente | Prueba | Decisión |
+|---|---|---|
+| Sigma Dos/Demócrata | `democrata.es` 403 al servidor | **Manual/pendiente**; revisar en navegador y no usar sin ficha primaria |
+| PolitPro | 200, aplicación JS y `/es/api` | **Contraste/descubrimiento**; no ingesta automática |
+| 40dB / El País | 200; informe citado de febrero | **Solo formato/metodología**; no es un sondeo del 29N |
+| Wikipedia EN | 200; última edición 7-nov | **Índice de descubrimiento** CC BY-SA; enlazar la fuente original |
+
+Ninguna de estas fuentes se incorpora automáticamente ni altera la media. La cola
+`candidatos_sondeos.csv` sigue siendo el punto de entrada para revisión humana.
