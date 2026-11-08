@@ -1,8 +1,8 @@
 {
   "version": "0.11.2",
-  "build": "202611081653",
+  "build": "202611081801",
   "date": "2026-11-08",
-  "commit": "e8b9d3e",
+  "commit": "a1d07a7",
   "generated_at": "2026-11-08T16:53:37.075725+01:00",
   "n_polls": 11,
   "n_pollsters": 7,
@@ -31,8 +31,8 @@
   ],
   "snapshot": {
     "date": "2026-11-08",
-    "hash": "5369fe66b73381b72f0c522135bc552f6507bcb47c0f1e321277a2fb20707278",
-    "prev_hash": "7ccbffa2cae4a0b0e2e990fdd50fd9545c108c459305b9ecae74f4b6afd028ea"
+    "hash": "5744119ba1b6bf4e30ddae232835084b1ca58881b6b60d8df8af14fff0c0cbb4",
+    "prev_hash": "5369fe66b73381b72f0c522135bc552f6507bcb47c0f1e321277a2fb20707278"
   },
   "pre_registro": {
     "sha256": "bc4ca92087eeacbe17a85a24d9a0212f125c27d6a4bb35cd785f2ea0dfc25ac0",

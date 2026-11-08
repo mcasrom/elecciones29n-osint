@@ -105,8 +105,7 @@ def collect() -> dict:
     con.close()
     top_ids = [x["id"] for x in out["windows"]["7"]["leaders"][:10]]
     out["top_ids"] = top_ids
-    out["top_note"] = "Se muestran los 10 con más menciones a 7 días; el JSON conserva los 13."
-    out["top_note"] = "Top 10 por menciones en contexto electoral a 7 días; el JSON conserva los 13 y ambos totales."
+    out["top_note"] = "Top 10 por artículos con contexto electoral a 7 días; empates por total y nombre. El JSON conserva los 13 y ambos totales."
     return out
 
 def font(size: int, bold: bool = False):

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T15:53:39+00:00",
+  "generated_at": "2026-11-08T17:01:54+00:00",
   "source": "intelligence-hub/news.db",
   "source_label": "Titulares y sumarios de prensa española",
   "candidates_source": "BOE-A-2026-23103 · JEC · candidaturas proclamadas 3-nov-2026",
@@ -8,28 +8,28 @@
   "note": "Cabezas de lista proclamados en el BOE; no son necesariamente los líderes del partido. No se incluye Sumar como marca propia: aparece integrada en Frente Amplio/Comuns. Yolanda Díaz no figura como candidata.",
   "windows": {
     "1": {
-      "n_articles": 357,
-      "n_electoral": 81,
+      "n_articles": 342,
+      "n_electoral": 78,
       "sources": [
         {
           "name": "ABC",
-          "articles": 154
+          "articles": 149
         },
         {
           "name": "El Mundo",
-          "articles": 43
-        },
-        {
-          "name": "20minutos",
-          "articles": 34
+          "articles": 42
         },
         {
           "name": "La Vanguardia",
-          "articles": 33
+          "articles": 32
+        },
+        {
+          "name": "20minutos",
+          "articles": 32
         },
         {
           "name": "El País",
-          "articles": 31
+          "articles": 28
         },
         {
           "name": "elDiario.es",
@@ -41,7 +41,7 @@
         },
         {
           "name": "El Diario Cantabria",
-          "articles": 17
+          "articles": 14
         }
       ],
       "leaders": [
@@ -50,11 +50,11 @@
           "name": "Pedro Sánchez",
           "party": "PSOE",
           "province": "Madrid",
-          "articles": 29,
-          "share_pct": 8.1,
+          "articles": 27,
+          "share_pct": 7.9,
           "days": 2,
           "electoral": 14,
-          "electoral_share_pct": 17.3,
+          "electoral_share_pct": 17.9,
           "electoral_days": 2
         },
         {
@@ -63,10 +63,10 @@
           "party": "PP",
           "province": "Madrid",
           "articles": 18,
-          "share_pct": 5.0,
+          "share_pct": 5.3,
           "days": 2,
           "electoral": 14,
-          "electoral_share_pct": 17.3,
+          "electoral_share_pct": 17.9,
           "electoral_days": 2
         },
         {
@@ -74,11 +74,11 @@
           "name": "Abascal",
           "party": "VOX",
           "province": "Madrid",
-          "articles": 9,
-          "share_pct": 2.5,
-          "days": 2,
+          "articles": 7,
+          "share_pct": 2.0,
+          "days": 1,
           "electoral": 6,
-          "electoral_share_pct": 7.4,
+          "electoral_share_pct": 7.7,
           "electoral_days": 1
         },
         {
@@ -86,23 +86,11 @@
           "name": "Ada Colau",
           "party": "Frente Amplio / Comuns",
           "province": "Barcelona",
-          "articles": 5,
-          "share_pct": 1.4,
+          "articles": 4,
+          "share_pct": 1.2,
           "days": 2,
-          "electoral": 5,
-          "electoral_share_pct": 6.2,
-          "electoral_days": 2
-        },
-        {
-          "id": "frente-amplio-emilio-delgado",
-          "name": "Emilio Delgado",
-          "party": "Frente Amplio",
-          "province": "Madrid",
-          "articles": 2,
-          "share_pct": 0.6,
-          "days": 2,
-          "electoral": 2,
-          "electoral_share_pct": 2.5,
+          "electoral": 4,
+          "electoral_share_pct": 5.1,
           "electoral_days": 2
         },
         {
@@ -111,10 +99,22 @@
           "party": "ERC",
           "province": "Barcelona",
           "articles": 3,
-          "share_pct": 0.8,
+          "share_pct": 0.9,
           "days": 1,
           "electoral": 1,
-          "electoral_share_pct": 1.2,
+          "electoral_share_pct": 1.3,
+          "electoral_days": 1
+        },
+        {
+          "id": "frente-amplio-emilio-delgado",
+          "name": "Emilio Delgado",
+          "party": "Frente Amplio",
+          "province": "Madrid",
+          "articles": 1,
+          "share_pct": 0.3,
+          "days": 1,
+          "electoral": 1,
+          "electoral_share_pct": 1.3,
           "electoral_days": 1
         },
         {
@@ -126,7 +126,7 @@
           "share_pct": 0.3,
           "days": 1,
           "electoral": 1,
-          "electoral_share_pct": 1.2,
+          "electoral_share_pct": 1.3,
           "electoral_days": 1
         },
         {
@@ -204,7 +204,7 @@
       ]
     },
     "7": {
-      "n_articles": 1871,
+      "n_articles": 1865,
       "n_electoral": 402,
       "sources": [
         {
@@ -213,15 +213,15 @@
         },
         {
           "name": "El Mundo",
-          "articles": 357
+          "articles": 355
         },
         {
           "name": "El País",
-          "articles": 317
+          "articles": 316
         },
         {
           "name": "La Vanguardia",
-          "articles": 287
+          "articles": 286
         },
         {
           "name": "20minutos",
@@ -229,7 +229,7 @@
         },
         {
           "name": "El Diario Cantabria",
-          "articles": 132
+          "articles": 130
         },
         {
           "name": "elDiario.es",
@@ -259,7 +259,7 @@
           "party": "PP",
           "province": "Madrid",
           "articles": 72,
-          "share_pct": 3.8,
+          "share_pct": 3.9,
           "days": 8,
           "electoral": 41,
           "electoral_share_pct": 10.2,
@@ -412,5 +412,5 @@
     "salf-alvise-perez",
     "pnv-idoia-sagastizabal"
   ],
-  "top_note": "Top 10 por menciones en contexto electoral a 7 días; el JSON conserva los 13 y ambos totales."
+  "top_note": "Top 10 por artículos con contexto electoral a 7 días; empates por total y nombre. El JSON conserva los 13 y ambos totales."
 }

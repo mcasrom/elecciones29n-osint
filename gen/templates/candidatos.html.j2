@@ -11,7 +11,7 @@
 {% include "_nav.html.j2" %}
 <main class="container">
   <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Candidatos y cabezas de lista</h1>
-  <p class="muted" style="margin:0 0 12px">Cabezas de lista proclamados en el <strong>BOE oficial</strong> (BOE-A-2026-23103, 3-nov-2026) y sus menciones en titulares de <strong>8 fuentes de prensa</strong>. Se muestran <strong>dos cifras</strong>: total y solo artículos con <strong>contexto electoral</strong>. La ventana principal es <strong>7 días</strong>; la de 24 h es contexto. No es intención de voto ni valoración.</p>
+  <p class="muted" style="margin:0 0 12px">Una selección de <strong>13 cabezas de lista</strong> proclamados en el <strong>BOE oficial</strong> (BOE-A-2026-23103, 3-nov-2026) y sus menciones en titulares de <strong>8 fuentes de prensa</strong>. No es el listado completo del BOE. Se muestran <strong>dos cifras</strong>: total y solo artículos con <strong>contexto electoral</strong>. La ventana principal es <strong>7 días</strong>; la de 24 h es contexto. No es intención de voto ni valoración.</p>
   <div class="alert warn"><strong>Cabezas de lista, no necesariamente líderes del partido.</strong> Se usa el nº 1 proclamado por provincia. No se incluye Sumar como marca propia: aparece integrada en Frente Amplio/Comuns. Yolanda Díaz no figura como candidata en el BOE. Colau y Delgado son cabezas de listas distintas de la misma órbita; no se suman. <strong>Emilio Delgado figura en el BOE como nº1 de Frente Amplio por Madrid</strong>; si otra fuente dice lo contrario, prevalece el BOE. Una mención en prensa no implica apoyo.</div>
   <p class="muted small">Fuente de nombres: <a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-23103" rel="noopener" target="_blank">BOE-A-2026-23103</a> · <a href="https://www.boe.es/boe/dias/2026/11/03/pdfs/BOE-A-2026-23103.pdf" rel="noopener" target="_blank">PDF oficial</a>. Fuente de menciones: titulares y sumarios de prensa española.</p>
   <div class="grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
@@ -25,35 +25,37 @@
     </figure>
   </div>
   <div class="card"><div class="cardhead"><h2>Fuentes del corpus</h2><span class="hint">7 días</span></div><ul id="candidatos-sources" class="muted small"><li>Cargando…</li></ul><p class="muted small">No es una muestra de toda la prensa española. La selección de fuentes condiciona las menciones; por eso se publica el listado y el número de artículos.</p></div>
-<div class="card"><div class="cardhead"><h2>Lectura</h2><span class="hint">no es un ranking de apoyo</span></div><p>La conversación está muy concentrada: los tres primeros puestos absorben la mayor parte de las menciones. Los partidos territoriales aparecen poco en este corpus, y varios candidatos quedan a cero. Eso <strong>no mide apoyo ni ausencia política</strong>: mide la agenda de cuatro medios durante una semana. Los ceros se mantienen para no confundir silencio mediático con inexistencia. Sánchez puede aparecer también como presidente del Gobierno y Feijóo como líder de la oposición; por eso la cifra principal es la de <strong>contexto electoral</strong>, no la total.</p><p class="muted small">Top 10 por menciones a 7 días. El JSON conserva los 13 candidatos.</p></div>
-<div class="card" style="margin-top:16px"><div class="cardhead"><h2>Detalle</h2><span class="hint">top 10 de 13 · total / electoral</span></div><div class="tablewrap"><table><thead><tr><th>Candidato</th><th>Partido · provincia</th><th>24 h total</th><th>24 h electoral</th><th>7 d total</th><th>7 d electoral</th><th>Fechas electorales (7 d)</th></tr></thead><tbody id="candidatos-body"><tr><td colspan="7" class="muted">Cargando…</td></tr></tbody></table></div><p class="muted small" id="candidatos-meta">Fuente: titulares de prensa. No se usan actos ni sondeos. La ventana de 7 días son 168 h: puede tocar 8 fechas UTC distintas, no es un error de cómputo.</p></div>
-  <div class="card"><div class="cardhead"><h2>Cómo leerlo</h2></div><ul class="muted small"><li>El corpus son titulares y sumarios de prensa; no es una muestra representativa de la sociedad.</li><li>Un artículo cuenta una vez por candidato, aunque lo mencione varias veces.</li><li>La ventana de 7 días son 168 h; por eso “fechas distintas con mención” puede ser 8 aunque la ventana sea de 7 días.</li><li>La ventana de 24 h puede tener pocos artículos: mira siempre <code>n</code>.</li><li>La diferencia entre candidatos puede reflejar agenda mediática, no intención de voto.</li><li>Los nombres y provincias salen del PDF oficial; no se inventan candidaturas.</li></ul></div>
+<div class="card"><div class="cardhead"><h2>Lectura</h2><span class="hint">no es un ranking de apoyo</span></div><p>La conversación está concentrada: los tres primeros puestos reúnen la mayoría de las menciones nominales, pero no la mayoría de los artículos electorales. Los partidos territoriales aparecen poco en este corpus, y varios candidatos quedan a cero. Eso <strong>no mide apoyo ni ausencia política</strong>: mide la agenda de ocho fuentes durante una semana. Los ceros se mantienen para no confundir silencio mediático con inexistencia. Sánchez puede aparecer también como presidente del Gobierno y Feijóo como líder de la oposición; por eso la cifra principal es la de <strong>contexto electoral</strong>, no la total.</p><p class="muted small">Top 10 por artículos con contexto electoral a 7 días; empates por total y nombre. El JSON conserva los 13 candidatos.</p></div>
+<div class="card" style="margin-top:16px"><div class="cardhead"><h2>Detalle</h2><span class="hint">top 10 de 13 · artículos / electoral</span></div><div class="tablewrap"><table><thead><tr><th>Candidato</th><th>Partido · provincia</th><th>24 h artículos</th><th>24 h electoral</th><th>7 d artículos</th><th>7 d electoral</th><th>Fechas electorales (7 d)</th></tr></thead><tbody id="candidatos-body"><tr><td colspan="7" class="muted">Cargando…</td></tr></tbody></table></div><p class="muted small" id="candidatos-meta">Fuente: titulares de prensa. No se usan actos ni sondeos. La ventana de 7 días son 168 h: puede tocar 8 fechas UTC distintas según la hora de corte. No es un error de cómputo.</p></div>
+  <div class="card"><div class="cardhead"><h2>Cómo leerlo</h2></div><ul class="muted small"><li>El corpus son titulares y sumarios de prensa; no es una muestra representativa de la sociedad.</li><li>Un artículo cuenta una vez por candidato, aunque lo mencione varias veces.</li><li>La ventana de 7 días son 168 h; según la hora de corte puede tocar 8 fechas UTC distintas, aunque su duración sea de 7 días.</li><li>La ventana de 24 h puede tener pocos artículos: mira siempre <code>n</code>.</li><li>La diferencia entre candidatos puede reflejar agenda mediática, no intención de voto.</li><li>Los nombres y provincias salen del PDF oficial; no se inventan candidaturas.</li></ul></div>
   <div class="cta"><a class="btn" href="/lideres.html">Valoración CIS</a> <a class="btn ghost" href="/metodologia.html">Metodología</a> <a class="btn ghost" href="/caveat.html">Qué no dice</a> <a class="btn ghost" href="/data/candidatos.json">JSON</a></div>
   <script>
   (function(){
     fetch('/data/candidatos.json').then(function(r){return r.json();}).then(function(d){
       var body=document.getElementById('candidatos-body'); if(!body) return;
-      var one=d.windows['1'], seven=d.windows['7']; var by={};
-      (seven.leaders||[]).forEach(function(x){by[x.name]=x;});
+      var one=d.windows['1'], seven=d.windows['7'];
+      var byOne={};
+      (one.leaders||[]).forEach(function(x){byOne[x.name]=x;});
+      function pct(v){ return (v===null||v===undefined||v==='')?'—':String(v).replace('.', ','); }
       body.innerHTML='';
       var top=(d.top_ids||[]).slice(0,10);
-      (one.leaders||[]).filter(function(x){return top.indexOf(x.id)>=0;}).forEach(function(x){
-        var s=by[x.name]||{articles:'—',share_pct:'—',days:'—'};
+      (seven.leaders||[]).filter(function(x){return top.indexOf(x.id)>=0;}).forEach(function(x){
+        var o=byOne[x.name]||{articles:'—',electoral:'—',electoral_share_pct:'—',electoral_days:'—'};
         var tr=document.createElement('tr');
         tr.innerHTML='<td><strong></strong></td><td></td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td>';
         tr.children[0].querySelector('strong').textContent=x.name;
         tr.children[1].textContent=x.party+' · '+x.province;
-        tr.children[2].textContent=x.articles;
-        tr.children[3].textContent=x.electoral+' ('+x.electoral_share_pct+' %)';
-        tr.children[4].textContent=s.articles;
-        tr.children[5].textContent=s.electoral+' ('+s.electoral_share_pct+' %)';
-        tr.children[6].textContent=s.electoral_days;
+        tr.children[2].textContent=o.articles;
+        tr.children[3].textContent=o.electoral+' ('+pct(o.electoral_share_pct)+' %)';
+        tr.children[4].textContent=x.articles;
+        tr.children[5].textContent=x.electoral+' ('+pct(x.electoral_share_pct)+' %)';
+        tr.children[6].textContent=x.electoral_days;
         body.appendChild(tr);
       });
       var src=document.getElementById('candidatos-sources');
       if(src){src.innerHTML='';(seven.sources||[]).forEach(function(x){var li=document.createElement('li');li.textContent=x.name+' · '+x.articles+' artículos';src.appendChild(li);});}
       var meta=document.getElementById('candidatos-meta');
-      if(meta) meta.textContent='Top 10 de 13 por contexto electoral a 7 días · '+(one.n_articles||0)+' artículos totales en 24 h ('+(one.n_electoral||0)+' electorales) · '+(seven.n_articles||0)+' en 7 días ('+(seven.n_electoral||0)+' electorales) · 8 fuentes.';
+      if(meta) meta.textContent='Top 10 de 13 por artículos con contexto electoral a 7 días · '+(one.n_articles||0)+' artículos totales en 24 h ('+(one.n_electoral||0)+' electorales) · '+(seven.n_articles||0)+' en 7 días ('+(seven.n_electoral||0)+' electorales) · 8 fuentes.';
     }).catch(function(){});
   })();
   </script>
