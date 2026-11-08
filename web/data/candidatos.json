@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T17:01:54+00:00",
+  "generated_at": "2026-11-08T17:14:35+00:00",
   "source": "intelligence-hub/news.db",
   "source_label": "Titulares y sumarios de prensa española",
   "candidates_source": "BOE-A-2026-23103 · JEC · candidaturas proclamadas 3-nov-2026",
@@ -8,24 +8,24 @@
   "note": "Cabezas de lista proclamados en el BOE; no son necesariamente los líderes del partido. No se incluye Sumar como marca propia: aparece integrada en Frente Amplio/Comuns. Yolanda Díaz no figura como candidata.",
   "windows": {
     "1": {
-      "n_articles": 342,
-      "n_electoral": 78,
+      "n_articles": 337,
+      "n_electoral": 77,
       "sources": [
         {
           "name": "ABC",
-          "articles": 149
+          "articles": 145
         },
         {
           "name": "El Mundo",
           "articles": 42
         },
         {
-          "name": "La Vanguardia",
+          "name": "20minutos",
           "articles": 32
         },
         {
-          "name": "20minutos",
-          "articles": 32
+          "name": "La Vanguardia",
+          "articles": 31
         },
         {
           "name": "El País",
@@ -51,10 +51,10 @@
           "party": "PSOE",
           "province": "Madrid",
           "articles": 27,
-          "share_pct": 7.9,
+          "share_pct": 8.0,
           "days": 2,
           "electoral": 14,
-          "electoral_share_pct": 17.9,
+          "electoral_share_pct": 18.2,
           "electoral_days": 2
         },
         {
@@ -66,7 +66,7 @@
           "share_pct": 5.3,
           "days": 2,
           "electoral": 14,
-          "electoral_share_pct": 17.9,
+          "electoral_share_pct": 18.2,
           "electoral_days": 2
         },
         {
@@ -75,10 +75,10 @@
           "party": "VOX",
           "province": "Madrid",
           "articles": 7,
-          "share_pct": 2.0,
+          "share_pct": 2.1,
           "days": 1,
           "electoral": 6,
-          "electoral_share_pct": 7.7,
+          "electoral_share_pct": 7.8,
           "electoral_days": 1
         },
         {
@@ -90,7 +90,7 @@
           "share_pct": 1.2,
           "days": 2,
           "electoral": 4,
-          "electoral_share_pct": 5.1,
+          "electoral_share_pct": 5.2,
           "electoral_days": 2
         },
         {

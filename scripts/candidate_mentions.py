@@ -134,12 +134,55 @@ def chart(window: dict, days: int, path: Path, top_ids: list[str]) -> None:
     d.text((54, H - 28), "Fuente: titulares de prensa · cabezas de lista BOE/JEC · no es intención de voto", font=font(13), fill=muted)
     im.save(path, optimize=True)
 
+def og_card(data: dict, path: Path) -> None:
+    """Tarjeta 1200x630 para preview social y OG de la página."""
+    W, H = 1200, 630
+    bg, panel, fg, muted, orange, line = "#0f1026", "#181a36", "#eef0f6", "#a7abc4", "#ff5a1f", "#303458"
+    im = Image.new("RGB", (W, H), bg)
+    d = ImageDraw.Draw(im)
+    w = data["windows"]["7"]
+    leaders = (w.get("leaders") or [])[:5]
+    n_articles = w.get("n_articles", 0)
+    n_electoral = w.get("n_electoral", 0)
+    n_sources = len(w.get("sources") or [])
+
+    def miles(v: int) -> str:
+        return f"{v:,}".replace(",", ".")
+
+    d.rectangle([0, 0, W, 10], fill=orange)
+    d.text((52, 38), "elecciones29n-osint", font=font(28, True), fill=fg)
+    d.text((52, 76), "Agenda mediática · Elecciones Generales 29N 2026", font=font(21), fill=muted)
+    d.text((52, 132), "CABEZAS DE LISTA · 7 DÍAS", font=font(16, True), fill=orange)
+    d.text((52, 160), "Quién ocupa la conversación", font=font(52, True), fill=fg)
+    d.text((52, 226), f"{miles(n_articles)} artículos · {miles(n_electoral)} con contexto electoral · {n_sources} fuentes",
+           font=font(23), fill=muted)
+
+    maxv = max((x.get("electoral", 0) for x in leaders), default=1) or 1
+    y = 292
+    for x in leaders:
+        val = x.get("electoral", 0)
+        d.text((52, y + 4), x.get("name", "—"), font=font(21, True), fill=fg)
+        d.text((52, y + 28), "%s · %s" % (x.get("party", "—"), x.get("province", "—")), font=font(13), fill=muted)
+        d.rounded_rectangle([350, y + 8, 980, y + 32], radius=6, fill=panel)
+        bw = int(630 * val / maxv) if maxv and val else 0
+        if bw:
+            d.rounded_rectangle([350, y + 8, 350 + bw, y + 32], radius=6, fill=orange)
+        d.text((1150, y + 4), str(val), font=font(19, True), fill=fg, anchor="ra")
+        y += 48
+
+    d.rectangle([52, 552, 1148, 554], fill=line)
+    d.text((52, 570), "No es una encuesta: es la agenda de 8 fuentes.", font=font(25, True), fill=fg)
+    d.text((52, 604), "elecciones29n.pruebapublica.com/candidatos.html", font=font(18), fill=orange)
+    im.save(path, "PNG", optimize=True)
+
+
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--out", default=OUT_DEFAULT); a = ap.parse_args()
     out = Path(a.out); (out / "data").mkdir(parents=True, exist_ok=True); (out / "img").mkdir(parents=True, exist_ok=True)
     data = collect()
     (out / "data" / "candidatos.json").write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     for days in WINDOWS: chart(data["windows"][str(days)], days, out / "img" / ("candidatos-%dd.png" % days), data["top_ids"])
+    og_card(data, out / "og-candidatos.png")
     print("candidatos ok", out, "1d", data["windows"]["1"]["n_articles"], "7d", data["windows"]["7"]["n_articles"])
 
 if __name__ == "__main__": main()
