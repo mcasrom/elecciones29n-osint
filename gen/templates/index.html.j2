@@ -186,6 +186,7 @@
           <span><b>{{ health.n_pollsters }}</b>encuestadoras</span>
           <span><b>{% if health.days_since_last is not none %}{{ health.days_since_last }}{% else %}—{% endif %}</b>días desde el último</span>
           <span><b>{% if health.sample_pct is not none %}{{ health.sample_pct }}%{% else %}—{% endif %}</b>con muestra declarada</span>
+          <span><b>{{ health.candidates_pending|default(0) }}</b>candidatos pendientes</span>
           <span><b>{% if health.dispersion_iqr is not none %}{{ "%.1f"|format(health.dispersion_iqr) }}{% else %}—{% endif %}</b>pp de dispersión (IQR)</span>
         </div>
       </div>

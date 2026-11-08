@@ -133,11 +133,11 @@ agregado.
 
 | Estado | Criterio | Qué significa |
 |---|---|---|
-| **Datos suficientes** | ≥4 sondeos, ≥2 casas, último ≤10 días | media entre encuestadoras |
-| **Datos frágiles** | 4 sondeos pero una sola casa, o último >10 días | se publica con aviso |
-| **Datos insuficientes** | <4 sondeos o último >21 días | se publica con aviso visible |
+| **Datos suficientes** | ≥4 sondeos, ≥2 casas, último ≤4 días | media entre encuestadoras |
+| **Datos frágiles** | 5–6 días o una sola casa | se publica con aviso |
+| **Datos insuficientes** | <4 sondeos o ≥7 días | se publica con aviso visible |
 
-> Al 3-nov: **12 sondeos y 8 encuestadoras en la ventana de 14 d**, último **2-nov** → **datos suficientes**. Media: PP **31,4** · PSOE **26,2** · Vox **19,3** · Sumar **6,6**.
+> Al 8-nov: **9 sondeos y 6 encuestadoras en la ventana de 14 d**, último **2-nov** → **datos frágiles** (6 días). Hay **20 candidatos pendientes**, incluidos IMOP y Sondaxe del 8-nov; no se incorporan sin ficha completa. Media: PP **31,6** · PSOE **26,2** · VOX **19,4** · SUMAR **6,7**.
 > Se combinan Electomanía, Onda Cero, ElectoPanel, Sigma Dos, SocioMétrica, NC Report, Target Point, Sondaxe, Ateneo del Dato e IMOP. Ver
 > [`docs/RUTINA-SEMANAL.md`](docs/RUTINA-SEMANAL.md).
 

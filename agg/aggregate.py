@@ -6,6 +6,7 @@ import math
 import os
 import statistics
 from datetime import date, datetime, timedelta
+from email.utils import parsedate_to_datetime
 from typing import Any, Dict, List
 
 import pytz
@@ -574,9 +575,13 @@ def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[st
     if n_pollsters <= 1:
         status = "bad" if status == "bad" else "warn"
         reasons.append("una sola encuestadora")
-    if days_since is not None and days_since > 10:
-        status = "bad" if days_since > 21 else ("warn" if status == "ok" else status)
-        reasons.append(f"último sondeo hace {days_since} días")
+    if days_since is not None:
+        if days_since >= 7:
+            status = "bad"
+            reasons.append(f"último sondeo hace {days_since} días (insuficiente)")
+        elif days_since >= 5 and status == "ok":
+            status = "warn"
+            reasons.append(f"último sondeo hace {days_since} días (frágil)")
     # Contraste por casa: última encuesta de cada casa (45 d), mismo peso
     house_polls = [p for p in tracking if p["date"].date() >= house_cutoff]
     latest_by_house: Dict[str, Dict[str, Any]] = {}
@@ -633,6 +638,24 @@ def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[st
         })
     house_latest.sort(key=lambda r: (r["date"], r["pollster"]), reverse=True)
 
+    candidates_pending = 0
+    last_candidate_date = None
+    try:
+        with open("data/candidatos_sondeos.csv", encoding="utf-8", newline="") as _cf:
+            for _row in csv.DictReader(_cf):
+                if (_row.get("estado") or "").strip() == "pendiente_revision":
+                    candidates_pending += 1
+                    _raw = (_row.get("pub") or "").strip()
+                    try:
+                        _pub = (datetime.fromisoformat(_raw.replace("Z", "+00:00")).date().isoformat()
+                                if "T" in _raw else parsedate_to_datetime(_raw).date().isoformat())
+                    except (TypeError, ValueError):
+                        _pub = ""
+                    if _pub and (last_candidate_date is None or _pub > last_candidate_date):
+                        last_candidate_date = _pub
+    except OSError:
+        pass
+
     _disp = [h["iqr"] for h in house_parties if h["n_houses"] >= 3 and h["mean"] >= 3]
     dispersion = round(sum(_disp) / len(_disp), 2) if _disp else None
     _with_sample = {
@@ -653,6 +676,8 @@ def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[st
         "sample_pct": sample_pct,
         "sample_polls": len(_with_sample),
         "dispersion_iqr": dispersion,
+        "candidates_pending": candidates_pending,
+        "last_candidate_date": last_candidate_date,
         "reasons": reasons,
     }
 

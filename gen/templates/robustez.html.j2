@@ -25,6 +25,7 @@
         <span><b>{{ health.n_pollsters }}</b>casas</span>
         <span><b>{% if health.days_since_last is not none %}{{ health.days_since_last }}{% else %}—{% endif %}</b>días desde el último</span>
         <span><b>{% if health.sample_pct is not none %}{{ health.sample_pct }}%{% else %}—{% endif %}</b>con muestra declarada</span>
+          <span><b>{{ health.candidates_pending|default(0) }}</b>candidatos pendientes</span>
         <span><b>{% if health.dispersion_iqr is not none %}{{ "%.1f"|format(health.dispersion_iqr) }}{% else %}—{% endif %}</b>pp de dispersión (IQR)</span>
       </div>
     </div>
@@ -167,7 +168,7 @@
       <li><strong>Muestra declarada</strong>: porcentaje de sondeos que publican <code>n</code>. Mide información disponible para ponderar, no calidad.</li>
       <li><strong>Dispersión (IQR)</strong>: rango intercuartílico entre la última encuesta de cada casa (45 días), promediado en partidos con ≥3 casas y ≥3 % de voto.</li>
     </ul>
-    <p class="muted small">Estados: «suficiente» = ≥4 sondeos, ≥2 casas y último ≤10 días; «frágil» = 11–21 días o una sola casa; «insuficiente» = &lt;4 sondeos o &gt;21 días. Si el IQR medio supera 3 pp se añade un aviso, pero no cambia el estado por sí solo.</p>
+    <p class="muted small">Estados: «suficiente» = ≥4 sondeos, ≥2 casas y último ≤4 días; «frágil» = 5–6 días o una sola casa; «insuficiente» = &lt;4 sondeos o ≥7 días. Si el IQR medio supera 3 pp se añade un aviso, pero no cambia el estado por sí solo.</p>
     <div class="cta">
       <a class="btn" href="/metodologia.html#robustez">Método y límites</a>
       <a class="btn ghost" href="/data/latest.json">Datos (JSON)</a>

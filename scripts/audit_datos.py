@@ -145,8 +145,9 @@ def main() -> int:
     check("series.ma", len(ma) >= 1, f"MA PP {len(ma)} puntos")
 
     idx = open("web/index.html", encoding="utf-8", errors="ignore").read() if os.path.exists("web/index.html") else ""
-    for label in ("media móvil de 14 días", "Datos suficientes", "Otros", "pasa el cursor"):
+    for label in ("media móvil de 14 días", "Otros", "pasa el cursor"):
         check(f"ui.index.{label}", label in idx, label)
+    check("ui.index.health-label", any(x in idx for x in ("Datos suficientes", "Datos frágiles", "Datos insuficientes")))
 
     # ---------------- Censo ----------------
     cen = load("data/censo_2026.json", {})
