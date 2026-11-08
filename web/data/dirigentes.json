@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-08T14:36:05+00:00",
+  "generated_at": "2026-11-08T15:06:28+00:00",
   "source": "intelligence-hub/news.db",
   "candidates_source": "BOE-A-2026-23103 · JEC · candidaturas proclamadas 3-nov-2026",
   "candidates_url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-23103",
   "note": "Registro operativo. Solo se marca 'verificado' lo que consta en el BOE (candidatura). Los cargos orgánicos no contrastados quedan como pendientes y no se publican como hechos.",
   "windows": {
     "1": {
-      "n_articles": 315,
+      "n_articles": 313,
       "n_electoral": 65,
       "sources": [
         {
@@ -15,11 +15,11 @@
         },
         {
           "name": "El Mundo",
-          "articles": 40
+          "articles": 39
         },
         {
           "name": "20minutos",
-          "articles": 32
+          "articles": 31
         },
         {
           "name": "La Vanguardia",
@@ -97,7 +97,7 @@
           "status": "verified",
           "notes": "Cargo orgánico: presidente nacional, pendiente de fuente en este registro.",
           "articles": 8,
-          "share_pct": 2.5,
+          "share_pct": 2.6,
           "days": 2,
           "electoral": 5,
           "electoral_share_pct": 7.7,
@@ -560,8 +560,8 @@
       ]
     },
     "7": {
-      "n_articles": 1822,
-      "n_electoral": 386,
+      "n_articles": 1820,
+      "n_electoral": 385,
       "sources": [
         {
           "name": "ABC",
@@ -569,7 +569,7 @@
         },
         {
           "name": "El Mundo",
-          "articles": 353
+          "articles": 351
         },
         {
           "name": "El País",
@@ -614,7 +614,7 @@
           "share_pct": 9.3,
           "days": 7,
           "electoral": 68,
-          "electoral_share_pct": 17.6,
+          "electoral_share_pct": 17.7,
           "electoral_days": 7
         },
         {
@@ -634,7 +634,7 @@
           "share_pct": 3.5,
           "days": 8,
           "electoral": 36,
-          "electoral_share_pct": 9.3,
+          "electoral_share_pct": 9.4,
           "electoral_days": 7
         },
         {

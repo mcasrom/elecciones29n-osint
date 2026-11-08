@@ -1,158 +1,193 @@
 {
-  "updated_at": "2026-11-08 15:35 CET",
-  "updated_at_iso": "2026-11-08T15:35:59.938329+01:00",
+  "updated_at": "2026-11-08 16:06 CET",
+  "updated_at_iso": "2026-11-08T16:06:22.578033+01:00",
   "in_blackout": false,
   "window_days": 14,
   "parties": [
     {
       "party": "PP",
-      "mean": 31.6,
-      "median": 31.8,
+      "mean": 31.15,
+      "median": 31.4,
       "min": 29.2,
       "max": 33.0,
-      "n": 9,
-      "sample_total": 9345,
-      "sample_n": 4,
-      "n_houses_window": 13,
-      "n_houses_recent": 6,
+      "n": 11,
+      "sample_total": 7345,
+      "sample_n": 3,
+      "n_houses_window": 15,
+      "n_houses_recent": 7,
       "territorial": false,
       "pollsters": [
-        "Ateneo del Dato",
+        "Celeste-Tel",
+        "IMOP",
         "NC Report",
         "Sigma Dos",
         "Sociométrica",
         "Sondaxe",
         "Target Point"
       ],
-      "mean_sin_cis": 31.6,
-      "median_sin_cis": 31.8,
+      "mean_sin_cis": 31.15,
+      "median_sin_cis": 31.4,
       "min_sin_cis": 29.2,
       "max_sin_cis": 33.0,
-      "n_sin_cis": 9,
-      "mean_sin_cis_45d": 31.59,
-      "n_sin_cis_45d": 26,
-      "n_houses": 13,
-      "iqr": 3.8
+      "n_sin_cis": 11,
+      "mean_sin_cis_45d": 31.23,
+      "n_sin_cis_45d": 29,
+      "n_houses": 15,
+      "iqr": 3.0
     },
     {
       "party": "PSOE",
-      "mean": 26.18,
-      "median": 26.1,
+      "mean": 26.14,
+      "median": 25.9,
       "min": 24.6,
-      "max": 27.6,
-      "n": 9,
-      "sample_total": 9345,
-      "sample_n": 4,
-      "n_houses_window": 13,
-      "n_houses_recent": 6,
+      "max": 27.3,
+      "n": 11,
+      "sample_total": 7345,
+      "sample_n": 3,
+      "n_houses_window": 15,
+      "n_houses_recent": 7,
       "territorial": false,
       "pollsters": [
-        "Ateneo del Dato",
+        "Celeste-Tel",
+        "IMOP",
         "NC Report",
         "Sigma Dos",
         "Sociométrica",
         "Sondaxe",
         "Target Point"
       ],
-      "mean_sin_cis": 26.18,
-      "median_sin_cis": 26.1,
+      "mean_sin_cis": 26.14,
+      "median_sin_cis": 25.9,
       "min_sin_cis": 24.6,
-      "max_sin_cis": 27.6,
-      "n_sin_cis": 9,
-      "mean_sin_cis_45d": 26.27,
-      "n_sin_cis_45d": 26,
-      "n_houses": 13,
-      "iqr": 2.2
+      "max_sin_cis": 27.3,
+      "n_sin_cis": 11,
+      "mean_sin_cis_45d": 26.29,
+      "n_sin_cis_45d": 29,
+      "n_houses": 15,
+      "iqr": 2.3
     },
     {
       "party": "VOX",
-      "mean": 19.35,
-      "median": 19.3,
+      "mean": 19.28,
+      "median": 19.2,
       "min": 18.6,
       "max": 19.9,
-      "n": 9,
-      "sample_total": 9345,
-      "sample_n": 4,
-      "n_houses_window": 13,
-      "n_houses_recent": 6,
+      "n": 11,
+      "sample_total": 7345,
+      "sample_n": 3,
+      "n_houses_window": 15,
+      "n_houses_recent": 7,
       "territorial": false,
       "pollsters": [
-        "Ateneo del Dato",
+        "Celeste-Tel",
+        "IMOP",
         "NC Report",
         "Sigma Dos",
         "Sociométrica",
         "Sondaxe",
         "Target Point"
       ],
-      "mean_sin_cis": 19.35,
-      "median_sin_cis": 19.3,
+      "mean_sin_cis": 19.28,
+      "median_sin_cis": 19.2,
       "min_sin_cis": 18.6,
       "max_sin_cis": 19.9,
-      "n_sin_cis": 9,
+      "n_sin_cis": 11,
       "mean_sin_cis_45d": 19.22,
-      "n_sin_cis_45d": 26,
-      "n_houses": 13,
-      "iqr": 1.05
+      "n_sin_cis_45d": 29,
+      "n_houses": 15,
+      "iqr": 1.2
     },
     {
       "party": "Otros",
-      "mean": 11.11,
-      "median": 11.3,
+      "mean": 10.4,
+      "median": 10.5,
       "min": 7.0,
       "max": 14.9,
-      "n": 9,
-      "sample_total": 9345,
-      "sample_n": 4,
-      "n_houses_window": 13,
-      "n_houses_recent": 6,
+      "n": 11,
+      "sample_total": 7345,
+      "sample_n": 3,
+      "n_houses_window": 15,
+      "n_houses_recent": 7,
       "territorial": false,
       "pollsters": [
-        "Ateneo del Dato",
+        "Celeste-Tel",
+        "IMOP",
         "NC Report",
         "Sigma Dos",
         "Sociométrica",
         "Sondaxe",
         "Target Point"
       ],
-      "mean_sin_cis": 11.11,
-      "median_sin_cis": 11.3,
+      "mean_sin_cis": 10.4,
+      "median_sin_cis": 10.5,
       "min_sin_cis": 7.0,
       "max_sin_cis": 14.9,
-      "n_sin_cis": 9,
-      "mean_sin_cis_45d": 11.5,
-      "n_sin_cis_45d": 26,
-      "n_houses": 13,
-      "iqr": 2.15
+      "n_sin_cis": 11,
+      "mean_sin_cis_45d": 10.92,
+      "n_sin_cis_45d": 29,
+      "n_houses": 15,
+      "iqr": 3.8
     },
     {
       "party": "SUMAR",
-      "mean": 6.67,
-      "median": 6.8,
+      "mean": 6.84,
+      "median": 6.9,
       "min": 4.6,
-      "max": 8.0,
-      "n": 9,
-      "sample_total": 9345,
-      "sample_n": 4,
-      "n_houses_window": 13,
-      "n_houses_recent": 6,
+      "max": 8.1,
+      "n": 11,
+      "sample_total": 7345,
+      "sample_n": 3,
+      "n_houses_window": 15,
+      "n_houses_recent": 7,
       "territorial": false,
       "pollsters": [
-        "Ateneo del Dato",
+        "Celeste-Tel",
+        "IMOP",
         "NC Report",
         "Sigma Dos",
         "Sociométrica",
         "Sondaxe",
         "Target Point"
       ],
-      "mean_sin_cis": 6.67,
-      "median_sin_cis": 6.8,
+      "mean_sin_cis": 6.84,
+      "median_sin_cis": 6.9,
       "min_sin_cis": 4.6,
-      "max_sin_cis": 8.0,
-      "n_sin_cis": 9,
-      "mean_sin_cis_45d": 6.75,
-      "n_sin_cis_45d": 26,
-      "n_houses": 13,
-      "iqr": 1.6
+      "max_sin_cis": 8.1,
+      "n_sin_cis": 11,
+      "mean_sin_cis_45d": 6.86,
+      "n_sin_cis_45d": 29,
+      "n_houses": 15,
+      "iqr": 1.9
+    },
+    {
+      "party": "ERC",
+      "mean": 2.51,
+      "median": 2.5,
+      "min": 2.0,
+      "max": 2.9,
+      "n": 6,
+      "sample_total": 7345,
+      "sample_n": 3,
+      "n_houses_window": 7,
+      "n_houses_recent": 6,
+      "territorial": true,
+      "pollsters": [
+        "Celeste-Tel",
+        "IMOP",
+        "NC Report",
+        "Sigma Dos",
+        "Sociométrica",
+        "Sondaxe"
+      ],
+      "mean_sin_cis": 2.51,
+      "median_sin_cis": 2.5,
+      "min_sin_cis": 2.0,
+      "max_sin_cis": 2.9,
+      "n_sin_cis": 6,
+      "mean_sin_cis_45d": 2.51,
+      "n_sin_cis_45d": 6,
+      "n_houses": 4,
+      "iqr": 0.67
     },
     {
       "party": "SAF",
@@ -178,156 +213,229 @@
       "n_sin_cis": 4,
       "mean_sin_cis_45d": 2.14,
       "n_sin_cis_45d": 15,
-      "n_houses": 9,
-      "iqr": 0.95
-    },
-    {
-      "party": "ERC",
-      "mean": 2.39,
-      "median": 2.5,
-      "min": 2.0,
-      "max": 2.5,
-      "n": 3,
-      "sample_total": 7345,
-      "sample_n": 3,
-      "n_houses_window": 4,
-      "n_houses_recent": 3,
-      "territorial": true,
-      "pollsters": [
-        "NC Report",
-        "Sigma Dos",
-        "Sociométrica"
-      ],
-      "mean_sin_cis": 2.39,
-      "median_sin_cis": 2.5,
-      "min_sin_cis": 2.0,
-      "max_sin_cis": 2.5,
-      "n_sin_cis": 3,
-      "mean_sin_cis_45d": 2.39,
-      "n_sin_cis_45d": 3,
-      "n_houses": 1,
-      "iqr": 0.0
+      "n_houses": 8,
+      "iqr": 1.03
     },
     {
       "party": "PODEMOS",
-      "mean": 2.21,
-      "median": 2.4,
-      "min": 1.7,
+      "mean": 2.01,
+      "median": 2.0,
+      "min": 1.2,
       "max": 2.8,
-      "n": 9,
+      "n": 11,
       "sample_total": 0,
       "sample_n": 0,
-      "n_houses_window": 13,
-      "n_houses_recent": 6,
+      "n_houses_window": 15,
+      "n_houses_recent": 7,
       "territorial": false,
       "pollsters": [
-        "Ateneo del Dato",
+        "Celeste-Tel",
+        "IMOP",
         "NC Report",
         "Sigma Dos",
         "Sociométrica",
         "Sondaxe",
         "Target Point"
       ],
-      "mean_sin_cis": 2.21,
-      "median_sin_cis": 2.4,
-      "min_sin_cis": 1.7,
+      "mean_sin_cis": 2.01,
+      "median_sin_cis": 2.0,
+      "min_sin_cis": 1.2,
       "max_sin_cis": 2.8,
-      "n_sin_cis": 9,
-      "mean_sin_cis_45d": 2.39,
-      "n_sin_cis_45d": 26,
-      "n_houses": 13,
+      "n_sin_cis": 11,
+      "mean_sin_cis_45d": 2.21,
+      "n_sin_cis_45d": 29,
+      "n_houses": 15,
       "iqr": 0.7
     },
     {
       "party": "JUNTS",
-      "mean": 1.53,
-      "median": 1.7,
+      "mean": 1.43,
+      "median": 1.45,
       "min": 1.2,
       "max": 1.8,
-      "n": 3,
+      "n": 6,
       "sample_total": 7345,
       "sample_n": 3,
-      "n_houses_window": 4,
-      "n_houses_recent": 3,
+      "n_houses_window": 7,
+      "n_houses_recent": 6,
       "territorial": true,
       "pollsters": [
+        "Celeste-Tel",
+        "IMOP",
         "NC Report",
         "Sigma Dos",
-        "Sociométrica"
+        "Sociométrica",
+        "Sondaxe"
       ],
-      "mean_sin_cis": 1.53,
-      "median_sin_cis": 1.7,
+      "mean_sin_cis": 1.43,
+      "median_sin_cis": 1.45,
       "min_sin_cis": 1.2,
       "max_sin_cis": 1.8,
-      "n_sin_cis": 3,
-      "mean_sin_cis_45d": 1.53,
-      "n_sin_cis_45d": 3,
-      "n_houses": 1,
-      "iqr": 0.0
+      "n_sin_cis": 6,
+      "mean_sin_cis_45d": 1.43,
+      "n_sin_cis_45d": 6,
+      "n_houses": 4,
+      "iqr": 0.35
     },
     {
       "party": "BILDU",
-      "mean": 1.28,
-      "median": 1.3,
+      "mean": 1.42,
+      "median": 1.4,
       "min": 1.2,
-      "max": 1.4,
-      "n": 3,
+      "max": 1.6,
+      "n": 6,
       "sample_total": 7345,
       "sample_n": 3,
-      "n_houses_window": 4,
-      "n_houses_recent": 3,
+      "n_houses_window": 7,
+      "n_houses_recent": 6,
       "territorial": true,
       "pollsters": [
+        "Celeste-Tel",
+        "IMOP",
         "NC Report",
         "Sigma Dos",
-        "Sociométrica"
+        "Sociométrica",
+        "Sondaxe"
       ],
-      "mean_sin_cis": 1.28,
-      "median_sin_cis": 1.3,
+      "mean_sin_cis": 1.42,
+      "median_sin_cis": 1.4,
       "min_sin_cis": 1.2,
-      "max_sin_cis": 1.4,
-      "n_sin_cis": 3,
-      "mean_sin_cis_45d": 1.28,
-      "n_sin_cis_45d": 3,
-      "n_houses": 1,
-      "iqr": 0.0
+      "max_sin_cis": 1.6,
+      "n_sin_cis": 6,
+      "mean_sin_cis_45d": 1.42,
+      "n_sin_cis_45d": 6,
+      "n_houses": 4,
+      "iqr": 0.18
     },
     {
       "party": "PNV",
-      "mean": 0.86,
-      "median": 0.9,
-      "min": 0.8,
+      "mean": 0.78,
+      "median": 0.8,
+      "min": 0.7,
       "max": 0.9,
-      "n": 3,
+      "n": 5,
       "sample_total": 7345,
       "sample_n": 3,
-      "n_houses_window": 4,
-      "n_houses_recent": 3,
+      "n_houses_window": 6,
+      "n_houses_recent": 5,
       "territorial": true,
       "pollsters": [
+        "IMOP",
         "NC Report",
         "Sigma Dos",
-        "Sociométrica"
+        "Sociométrica",
+        "Sondaxe"
       ],
-      "mean_sin_cis": 0.86,
-      "median_sin_cis": 0.9,
-      "min_sin_cis": 0.8,
+      "mean_sin_cis": 0.78,
+      "median_sin_cis": 0.8,
+      "min_sin_cis": 0.7,
       "max_sin_cis": 0.9,
-      "n_sin_cis": 3,
-      "mean_sin_cis_45d": 0.86,
-      "n_sin_cis_45d": 3,
-      "n_houses": 1,
-      "iqr": 0.0
+      "n_sin_cis": 5,
+      "mean_sin_cis_45d": 0.78,
+      "n_sin_cis_45d": 5,
+      "n_houses": 3,
+      "iqr": 0.1
     }
   ],
-  "table_sum": 99.6,
+  "table_sum": 98.3,
   "series": {
-    "Otros": [
+    "BILDU": [
       {
-        "date": "2026-10-25",
-        "value": 12.0,
-        "pollster": "Ateneo del Dato"
+        "date": "2026-10-26",
+        "value": 1.4,
+        "pollster": "NC Report"
       },
+      {
+        "date": "2026-10-26",
+        "value": 1.2,
+        "pollster": "Sigma Dos"
+      },
+      {
+        "date": "2026-10-26",
+        "value": 1.3,
+        "pollster": "Sociométrica"
+      },
+      {
+        "date": "2026-11-06",
+        "value": 1.4,
+        "pollster": "Celeste-Tel"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 1.6,
+        "pollster": "IMOP"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 1.5,
+        "pollster": "Sondaxe"
+      }
+    ],
+    "ERC": [
+      {
+        "date": "2026-10-26",
+        "value": 2.0,
+        "pollster": "NC Report"
+      },
+      {
+        "date": "2026-10-26",
+        "value": 2.5,
+        "pollster": "Sigma Dos"
+      },
+      {
+        "date": "2026-10-26",
+        "value": 2.5,
+        "pollster": "Sociométrica"
+      },
+      {
+        "date": "2026-11-06",
+        "value": 2.2,
+        "pollster": "Celeste-Tel"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 2.6,
+        "pollster": "IMOP"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 2.9,
+        "pollster": "Sondaxe"
+      }
+    ],
+    "JUNTS": [
+      {
+        "date": "2026-10-26",
+        "value": 1.8,
+        "pollster": "NC Report"
+      },
+      {
+        "date": "2026-10-26",
+        "value": 1.2,
+        "pollster": "Sigma Dos"
+      },
+      {
+        "date": "2026-10-26",
+        "value": 1.7,
+        "pollster": "Sociométrica"
+      },
+      {
+        "date": "2026-11-06",
+        "value": 1.5,
+        "pollster": "Celeste-Tel"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 1.2,
+        "pollster": "IMOP"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 1.4,
+        "pollster": "Sondaxe"
+      }
+    ],
+    "Otros": [
       {
         "date": "2026-10-26",
         "value": 7.0,
@@ -367,14 +475,51 @@
         "date": "2026-11-02",
         "value": 12.8,
         "pollster": "NC Report"
+      },
+      {
+        "date": "2026-11-06",
+        "value": 10.5,
+        "pollster": "Celeste-Tel"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 9.0,
+        "pollster": "IMOP"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 8.6,
+        "pollster": "Sondaxe"
+      }
+    ],
+    "PNV": [
+      {
+        "date": "2026-10-26",
+        "value": 0.9,
+        "pollster": "NC Report"
+      },
+      {
+        "date": "2026-10-26",
+        "value": 0.9,
+        "pollster": "Sigma Dos"
+      },
+      {
+        "date": "2026-10-26",
+        "value": 0.8,
+        "pollster": "Sociométrica"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 0.7,
+        "pollster": "IMOP"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 0.7,
+        "pollster": "Sondaxe"
       }
     ],
     "PP": [
-      {
-        "date": "2026-10-25",
-        "value": 31.1,
-        "pollster": "Ateneo del Dato"
-      },
       {
         "date": "2026-10-26",
         "value": 32.9,
@@ -414,14 +559,24 @@
         "date": "2026-11-02",
         "value": 33.0,
         "pollster": "NC Report"
+      },
+      {
+        "date": "2026-11-06",
+        "value": 31.4,
+        "pollster": "Celeste-Tel"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 29.8,
+        "pollster": "IMOP"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 29.7,
+        "pollster": "Sondaxe"
       }
     ],
     "PSOE": [
-      {
-        "date": "2026-10-25",
-        "value": 27.6,
-        "pollster": "Ateneo del Dato"
-      },
       {
         "date": "2026-10-26",
         "value": 25.8,
@@ -461,14 +616,24 @@
         "date": "2026-11-02",
         "value": 25.6,
         "pollster": "NC Report"
+      },
+      {
+        "date": "2026-11-06",
+        "value": 25.7,
+        "pollster": "Celeste-Tel"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 25.9,
+        "pollster": "IMOP"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 27.3,
+        "pollster": "Sondaxe"
       }
     ],
     "PODEMOS": [
-      {
-        "date": "2026-10-25",
-        "value": 2.7,
-        "pollster": "Ateneo del Dato"
-      },
       {
         "date": "2026-10-26",
         "value": 2.6,
@@ -508,14 +673,24 @@
         "date": "2026-11-02",
         "value": 2.4,
         "pollster": "NC Report"
+      },
+      {
+        "date": "2026-11-06",
+        "value": 1.9,
+        "pollster": "Celeste-Tel"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 1.2,
+        "pollster": "IMOP"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 2.2,
+        "pollster": "Sondaxe"
       }
     ],
     "SUMAR": [
-      {
-        "date": "2026-10-25",
-        "value": 6.8,
-        "pollster": "Ateneo del Dato"
-      },
       {
         "date": "2026-10-26",
         "value": 6.6,
@@ -555,14 +730,24 @@
         "date": "2026-11-02",
         "value": 6.9,
         "pollster": "NC Report"
+      },
+      {
+        "date": "2026-11-06",
+        "value": 6.2,
+        "pollster": "Celeste-Tel"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 8.1,
+        "pollster": "IMOP"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 7.1,
+        "pollster": "Sondaxe"
       }
     ],
     "VOX": [
-      {
-        "date": "2026-10-25",
-        "value": 19.8,
-        "pollster": "Ateneo del Dato"
-      },
       {
         "date": "2026-10-26",
         "value": 19.0,
@@ -602,74 +787,21 @@
         "date": "2026-11-02",
         "value": 19.3,
         "pollster": "NC Report"
-      }
-    ],
-    "BILDU": [
-      {
-        "date": "2026-10-26",
-        "value": 1.4,
-        "pollster": "NC Report"
       },
       {
-        "date": "2026-10-26",
-        "value": 1.2,
-        "pollster": "Sigma Dos"
+        "date": "2026-11-06",
+        "value": 19.2,
+        "pollster": "Celeste-Tel"
       },
       {
-        "date": "2026-10-26",
-        "value": 1.3,
-        "pollster": "Sociométrica"
-      }
-    ],
-    "ERC": [
-      {
-        "date": "2026-10-26",
-        "value": 2.0,
-        "pollster": "NC Report"
+        "date": "2026-11-08",
+        "value": 19.9,
+        "pollster": "IMOP"
       },
       {
-        "date": "2026-10-26",
-        "value": 2.5,
-        "pollster": "Sigma Dos"
-      },
-      {
-        "date": "2026-10-26",
-        "value": 2.5,
-        "pollster": "Sociométrica"
-      }
-    ],
-    "JUNTS": [
-      {
-        "date": "2026-10-26",
-        "value": 1.8,
-        "pollster": "NC Report"
-      },
-      {
-        "date": "2026-10-26",
-        "value": 1.2,
-        "pollster": "Sigma Dos"
-      },
-      {
-        "date": "2026-10-26",
-        "value": 1.7,
-        "pollster": "Sociométrica"
-      }
-    ],
-    "PNV": [
-      {
-        "date": "2026-10-26",
-        "value": 0.9,
-        "pollster": "NC Report"
-      },
-      {
-        "date": "2026-10-26",
-        "value": 0.9,
-        "pollster": "Sigma Dos"
-      },
-      {
-        "date": "2026-10-26",
-        "value": 0.8,
-        "pollster": "Sociométrica"
+        "date": "2026-11-08",
+        "value": 18.6,
+        "pollster": "Sondaxe"
       }
     ],
     "SAF": [
@@ -876,6 +1008,21 @@
         "date": "2026-11-02",
         "value": 12.8,
         "pollster": "NC Report"
+      },
+      {
+        "date": "2026-11-06",
+        "value": 10.5,
+        "pollster": "Celeste-Tel"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 9.0,
+        "pollster": "IMOP"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 8.6,
+        "pollster": "Sondaxe"
       }
     ],
     "PODEMOS": [
@@ -1058,6 +1205,21 @@
         "date": "2026-11-02",
         "value": 2.4,
         "pollster": "NC Report"
+      },
+      {
+        "date": "2026-11-06",
+        "value": 1.9,
+        "pollster": "Celeste-Tel"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 1.2,
+        "pollster": "IMOP"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 2.2,
+        "pollster": "Sondaxe"
       }
     ],
     "PP": [
@@ -1240,6 +1402,21 @@
         "date": "2026-11-02",
         "value": 33.0,
         "pollster": "NC Report"
+      },
+      {
+        "date": "2026-11-06",
+        "value": 31.4,
+        "pollster": "Celeste-Tel"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 29.8,
+        "pollster": "IMOP"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 29.7,
+        "pollster": "Sondaxe"
       }
     ],
     "PSOE": [
@@ -1422,6 +1599,21 @@
         "date": "2026-11-02",
         "value": 25.6,
         "pollster": "NC Report"
+      },
+      {
+        "date": "2026-11-06",
+        "value": 25.7,
+        "pollster": "Celeste-Tel"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 25.9,
+        "pollster": "IMOP"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 27.3,
+        "pollster": "Sondaxe"
       }
     ],
     "SUMAR": [
@@ -1604,6 +1796,21 @@
         "date": "2026-11-02",
         "value": 6.9,
         "pollster": "NC Report"
+      },
+      {
+        "date": "2026-11-06",
+        "value": 6.2,
+        "pollster": "Celeste-Tel"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 8.1,
+        "pollster": "IMOP"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 7.1,
+        "pollster": "Sondaxe"
       }
     ],
     "VOX": [
@@ -1786,6 +1993,21 @@
         "date": "2026-11-02",
         "value": 19.3,
         "pollster": "NC Report"
+      },
+      {
+        "date": "2026-11-06",
+        "value": 19.2,
+        "pollster": "Celeste-Tel"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 19.9,
+        "pollster": "IMOP"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 18.6,
+        "pollster": "Sondaxe"
       }
     ],
     "SAF": [
@@ -1930,6 +2152,21 @@
         "date": "2026-10-26",
         "value": 1.3,
         "pollster": "Sociométrica"
+      },
+      {
+        "date": "2026-11-06",
+        "value": 1.4,
+        "pollster": "Celeste-Tel"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 1.6,
+        "pollster": "IMOP"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 1.5,
+        "pollster": "Sondaxe"
       }
     ],
     "ERC": [
@@ -1957,6 +2194,21 @@
         "date": "2026-10-26",
         "value": 2.5,
         "pollster": "Sociométrica"
+      },
+      {
+        "date": "2026-11-06",
+        "value": 2.2,
+        "pollster": "Celeste-Tel"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 2.6,
+        "pollster": "IMOP"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 2.9,
+        "pollster": "Sondaxe"
       }
     ],
     "JUNTS": [
@@ -1984,6 +2236,21 @@
         "date": "2026-10-26",
         "value": 1.7,
         "pollster": "Sociométrica"
+      },
+      {
+        "date": "2026-11-06",
+        "value": 1.5,
+        "pollster": "Celeste-Tel"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 1.2,
+        "pollster": "IMOP"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 1.4,
+        "pollster": "Sondaxe"
       }
     ],
     "PNV": [
@@ -2011,6 +2278,16 @@
         "date": "2026-10-26",
         "value": 0.8,
         "pollster": "Sociométrica"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 0.7,
+        "pollster": "IMOP"
+      },
+      {
+        "date": "2026-11-08",
+        "value": 0.7,
+        "pollster": "Sondaxe"
       }
     ]
   },
@@ -2588,11 +2865,11 @@
       "majority": "right"
     },
     {
-      "date": "2026-11-08",
-      "is_current": true,
-      "window_start": "2026-10-26",
-      "n_polls": 8,
-      "n_houses": 5,
+      "date": "2026-11-06",
+      "is_current": false,
+      "window_start": "2026-10-24",
+      "n_polls": 10,
+      "n_houses": 7,
       "low_n": false,
       "seats": [
         {
@@ -2618,151 +2895,245 @@
         "others": 0
       },
       "majority": "right"
+    },
+    {
+      "date": "2026-11-08",
+      "is_current": true,
+      "window_start": "2026-10-26",
+      "n_polls": 11,
+      "n_houses": 7,
+      "low_n": false,
+      "seats": [
+        {
+          "party": "PP",
+          "seats": 131
+        },
+        {
+          "party": "PSOE",
+          "seats": 110
+        },
+        {
+          "party": "VOX",
+          "seats": 81
+        },
+        {
+          "party": "SUMAR",
+          "seats": 28
+        }
+      ],
+      "blocks": {
+        "right": 212,
+        "left": 138,
+        "others": 0
+      },
+      "majority": "right"
     }
   ],
   "poll_dates": [
-    "2026-10-25",
     "2026-10-26",
     "2026-11-01",
-    "2026-11-02"
+    "2026-11-02",
+    "2026-11-06",
+    "2026-11-08"
   ],
-  "n_polls": 9,
-  "n_polls_sin_cis": 9,
-  "n_polls_sin_cis_45d": 26,
+  "n_polls": 11,
+  "n_polls_sin_cis": 11,
+  "n_polls_sin_cis_45d": 29,
   "low_n": false,
-  "window_extended": true,
-  "window_span": "2026-10-25 – 2026-11-02",
+  "window_extended": false,
+  "window_span": "2026-10-26 – 2026-11-08",
   "sources": [
-    "https://www.eldiario.es/politica/bloque-izquierdas-recorta-distancias-pp-vox-mantienen-mayoria-absoluta_1_13611052.html",
+    "https://electomania.es/encuesta-celeste-tel-6-nov-pp-y-vox-lograrian-la-absolutisima/",
+    "https://electomania.es/encuesta-imop-8-nov-la-derecha-recupera-6-escanos-a-la-izquierda/",
+    "https://electomania.es/encuesta-sondaxe-8-nov-el-pp-ganaria-las-elecciones/",
     "https://www.elespanol.com/espana/politica/20261026/millon-votantes-psoe-sumar-decidido-pasarse-pp-vox-solo-haran-inversa/1003744434359_0.html",
     "https://www.elmundo.es/espana/encuestas/2026/10/26/6addf8c4fdddfff23d8b4581.html",
     "https://www.larazon.es/espana/18-votantes-socialistas-apoyan-hoy-vox_202610266adea62a3eef771e1ac8d43d.html",
     "https://www.ondacero.es/elecciones/generales/encuestas/"
   ],
-  "last_poll_date": "2026-11-02",
+  "last_poll_date": "2026-11-08",
   "health": {
-    "status": "warn",
-    "n_polls": 9,
-    "n_polls_sin_cis": 9,
-    "n_pollsters": 6,
+    "status": "ok",
+    "n_polls": 11,
+    "n_polls_sin_cis": 11,
+    "n_pollsters": 7,
     "pollsters": [
-      "Ateneo del Dato",
+      "Celeste-Tel",
+      "IMOP",
       "NC Report",
       "Sigma Dos",
       "Sociométrica",
       "Sondaxe",
       "Target Point"
     ],
-    "days_since_last": 6,
-    "sample_pct": 44,
-    "sample_polls": 4,
-    "dispersion_iqr": 2.16,
-    "candidates_pending": 20,
+    "days_since_last": 0,
+    "sample_pct": 27,
+    "sample_polls": 3,
+    "dispersion_iqr": 2.44,
+    "candidates_pending": 18,
     "last_candidate_date": "2026-11-08",
-    "reasons": [
-      "último sondeo hace 6 días (frágil)"
-    ]
+    "reasons": []
   },
-  "novedades": [],
+  "novedades": [
+    {
+      "pollster": "IMOP",
+      "date": "2026-11-08"
+    },
+    {
+      "pollster": "Sondaxe",
+      "date": "2026-11-08"
+    },
+    {
+      "pollster": "Celeste-Tel",
+      "date": "2026-11-06"
+    }
+  ],
   "weights": {
     "window_days": 14,
-    "extended": true,
-    "total_polls": 9,
-    "total_weight": 5.6433,
+    "extended": false,
+    "total_polls": 11,
+    "total_weight": 7.978,
     "top_source": "Onda Cero",
-    "top_source_share_pct": 57.7,
+    "top_source_share_pct": 40.0,
     "sources": [
       {
         "source": "Onda Cero",
-        "weight": 3.2548,
+        "weight": 3.1912,
         "n_polls": 5,
         "n_houses": 2,
-        "share_pct": 57.7
+        "share_pct": 40.0
+      },
+      {
+        "source": "Electomanía",
+        "weight": 2.909,
+        "n_polls": 3,
+        "n_houses": 2,
+        "share_pct": 36.5
       },
       {
         "source": "Otras fuentes",
-        "weight": 2.3887,
-        "n_polls": 4,
-        "n_houses": 4,
-        "share_pct": 42.3
+        "weight": 1.8777,
+        "n_polls": 3,
+        "n_houses": 3,
+        "share_pct": 23.5
       }
     ],
-    "effective_sources": 1.95,
-    "top_house": "Sociométrica",
-    "top_share_pct": 24.6,
+    "effective_sources": 2.87,
+    "top_house": "Sondaxe",
+    "top_share_pct": 20.3,
     "houses": [
+      {
+        "pollster": "Sondaxe",
+        "source": "Onda Cero",
+        "weight": 1.617,
+        "n_polls": 2,
+        "last_date": "2026-11-08",
+        "sample": null,
+        "n_parties": 10,
+        "share_pct": 20.3
+      },
       {
         "pollster": "Sociométrica",
         "source": "Otras fuentes",
-        "weight": 1.3889,
+        "weight": 1.3858,
         "n_polls": 2,
         "last_date": "2026-11-02",
         "sample": 3223,
         "n_parties": 11,
-        "share_pct": 24.6
+        "share_pct": 17.4
       },
       {
         "pollster": "Sigma Dos",
         "source": "Otras fuentes",
-        "weight": 1.3774,
+        "weight": 1.3741,
         "n_polls": 2,
         "last_date": "2026-11-02",
         "sample": 3122,
         "n_parties": 10,
-        "share_pct": 24.4
+        "share_pct": 17.2
       },
       {
         "pollster": "NC Report",
         "source": "Otras fuentes",
-        "weight": 1.0659,
+        "weight": 1.0585,
         "n_polls": 2,
         "last_date": "2026-11-02",
         "sample": 1000,
         "n_parties": 10,
-        "share_pct": 18.9
+        "share_pct": 13.3
+      },
+      {
+        "pollster": "IMOP",
+        "source": "Electomanía",
+        "weight": 1.0134,
+        "n_polls": 1,
+        "last_date": "2026-11-08",
+        "sample": null,
+        "n_parties": 10,
+        "share_pct": 12.7
+      },
+      {
+        "pollster": "Celeste-Tel",
+        "source": "Electomanía",
+        "weight": 0.8822,
+        "n_polls": 1,
+        "last_date": "2026-11-06",
+        "sample": null,
+        "n_parties": 9,
+        "share_pct": 11.1
       },
       {
         "pollster": "Target Point",
         "source": "Onda Cero",
-        "weight": 0.6598,
+        "weight": 0.6469,
         "n_polls": 1,
         "last_date": "2026-11-02",
         "sample": null,
         "n_parties": 7,
-        "share_pct": 11.7
+        "share_pct": 8.1
+      }
+    ],
+    "effective_houses": 6.5,
+    "polls": [
+      {
+        "pollster": "IMOP",
+        "source": "Electomanía",
+        "date": "2026-11-08",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 1.0134,
+        "n_parties": 10,
+        "share_pct": 12.7
       },
       {
         "pollster": "Sondaxe",
-        "source": "Onda Cero",
-        "weight": 0.6156,
-        "n_polls": 1,
-        "last_date": "2026-11-01",
+        "source": "Electomanía",
+        "date": "2026-11-08",
         "sample": null,
-        "n_parties": 7,
-        "share_pct": 10.9
+        "kind": "tracking",
+        "weight": 1.0134,
+        "n_parties": 10,
+        "share_pct": 12.7
       },
       {
-        "pollster": "Ateneo del Dato",
-        "source": "Otras fuentes",
-        "weight": 0.5359,
-        "n_polls": 1,
-        "last_date": "2026-10-25",
-        "sample": 2000,
-        "n_parties": 6,
-        "share_pct": 9.5
-      }
-    ],
-    "effective_houses": 5.25,
-    "polls": [
+        "pollster": "Celeste-Tel",
+        "source": "Electomanía",
+        "date": "2026-11-06",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.8822,
+        "n_parties": 9,
+        "share_pct": 11.1
+      },
       {
         "pollster": "Sociométrica",
         "source": "Otras fuentes",
         "date": "2026-10-26",
         "sample": 3223,
         "kind": "tracking",
-        "weight": 0.7291,
+        "weight": 0.7389,
         "n_parties": 11,
-        "share_pct": 12.9
+        "share_pct": 9.3
       },
       {
         "pollster": "Sigma Dos",
@@ -2770,9 +3141,9 @@
         "date": "2026-10-26",
         "sample": 3122,
         "kind": "tracking",
-        "weight": 0.7176,
+        "weight": 0.7272,
         "n_parties": 10,
-        "share_pct": 12.7
+        "share_pct": 9.1
       },
       {
         "pollster": "Target Point",
@@ -2780,9 +3151,9 @@
         "date": "2026-11-02",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.6598,
+        "weight": 0.6469,
         "n_parties": 7,
-        "share_pct": 11.7
+        "share_pct": 8.1
       },
       {
         "pollster": "Sociométrica",
@@ -2790,9 +3161,9 @@
         "date": "2026-11-02",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.6598,
+        "weight": 0.6469,
         "n_parties": 7,
-        "share_pct": 11.7
+        "share_pct": 8.1
       },
       {
         "pollster": "Sigma Dos",
@@ -2800,9 +3171,9 @@
         "date": "2026-11-02",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.6598,
+        "weight": 0.6469,
         "n_parties": 6,
-        "share_pct": 11.7
+        "share_pct": 8.1
       },
       {
         "pollster": "NC Report",
@@ -2810,9 +3181,9 @@
         "date": "2026-11-02",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.6598,
+        "weight": 0.6469,
         "n_parties": 6,
-        "share_pct": 11.7
+        "share_pct": 8.1
       },
       {
         "pollster": "Sondaxe",
@@ -2820,19 +3191,9 @@
         "date": "2026-11-01",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.6156,
+        "weight": 0.6036,
         "n_parties": 7,
-        "share_pct": 10.9
-      },
-      {
-        "pollster": "Ateneo del Dato",
-        "source": "Otras fuentes",
-        "date": "2026-10-25",
-        "sample": 2000,
-        "kind": "tracking",
-        "weight": 0.5359,
-        "n_parties": 6,
-        "share_pct": 9.5
+        "share_pct": 7.6
       },
       {
         "pollster": "NC Report",
@@ -2840,9 +3201,9 @@
         "date": "2026-10-26",
         "sample": 1000,
         "kind": "tracking",
-        "weight": 0.4061,
+        "weight": 0.4116,
         "n_parties": 10,
-        "share_pct": 7.2
+        "share_pct": 5.2
       }
     ],
     "caps": {
@@ -2854,196 +3215,223 @@
     {
       "kind": "Fuente",
       "name": "Onda Cero",
-      "n_polls": 9,
+      "n_polls": 8,
       "means": {
         "PP": {
           "mean": 31.63,
-          "delta": 0.03
+          "delta": 0.48
         },
         "PSOE": {
           "mean": 25.83,
-          "delta": -0.35
+          "delta": -0.31
         },
         "VOX": {
           "mean": 19.36,
-          "delta": 0.01
+          "delta": 0.08
         },
         "Otros": {
           "mean": 12.65,
-          "delta": 1.54
+          "delta": 2.25
         },
         "SUMAR": {
           "mean": 6.96,
-          "delta": 0.29
+          "delta": 0.12
         },
         "SAF": {
           "mean": 2.48,
           "delta": 0.0
         },
         "PODEMOS": {
-          "mean": 2.21,
-          "delta": -0.0
+          "mean": 2.17,
+          "delta": 0.16
         }
       }
     },
     {
       "kind": "Casa",
-      "name": "Sociométrica",
+      "name": "Sondaxe",
       "n_polls": 2,
       "means": {
         "PP": {
-          "mean": 32.39,
-          "delta": 0.79
+          "mean": 29.51,
+          "delta": -1.64
         },
         "PSOE": {
-          "mean": 26.81,
-          "delta": 0.63
+          "mean": 27.15,
+          "delta": 1.01
         },
         "VOX": {
-          "mean": 18.84,
-          "delta": -0.51
+          "mean": 18.83,
+          "delta": -0.45
         },
         "Otros": {
-          "mean": 10.36,
-          "delta": -0.75
+          "mean": 10.31,
+          "delta": -0.09
         },
         "SUMAR": {
-          "mean": 5.31,
-          "delta": -1.36
-        },
-        "SAF": {
-          "mean": 2.46,
-          "delta": -0.02
+          "mean": 7.14,
+          "delta": 0.3
         },
         "ERC": {
-          "mean": 2.5,
-          "delta": 0.11
+          "mean": 2.9,
+          "delta": 0.39
+        },
+        "SAF": {
+          "mean": 2.4,
+          "delta": -0.08
         },
         "PODEMOS": {
-          "mean": 1.74,
-          "delta": -0.47
+          "mean": 2.12,
+          "delta": 0.11
         },
         "JUNTS": {
-          "mean": 1.7,
-          "delta": 0.17
+          "mean": 1.4,
+          "delta": -0.03
         },
         "BILDU": {
-          "mean": 1.3,
-          "delta": 0.02
+          "mean": 1.5,
+          "delta": 0.08
         },
         "PNV": {
-          "mean": 0.8,
-          "delta": -0.06
+          "mean": 0.7,
+          "delta": -0.08
         }
       }
     }
   ],
   "house_mean": {
     "window_days": 45,
-    "n_houses": 13,
+    "n_houses": 15,
     "parties": [
       {
         "party": "PP",
-        "mean": 30.66,
+        "mean": 30.69,
         "min": 22.2,
         "max": 34.0,
         "median": 31.4,
-        "iqr": 3.8,
-        "n_houses": 13
+        "iqr": 3.0,
+        "n_houses": 15
       },
       {
         "party": "PSOE",
-        "mean": 27.28,
+        "mean": 27.11,
         "min": 24.6,
         "max": 34.0,
-        "median": 26.9,
-        "iqr": 2.2,
-        "n_houses": 13
+        "median": 26.6,
+        "iqr": 2.3,
+        "n_houses": 15
       },
       {
         "party": "VOX",
-        "mean": 18.98,
+        "mean": 19.01,
         "min": 17.1,
         "max": 20.0,
         "median": 19.1,
-        "iqr": 1.05,
-        "n_houses": 13
+        "iqr": 1.2,
+        "n_houses": 15
       },
       {
         "party": "Otros",
-        "mean": 12.19,
-        "min": 9.1,
+        "mean": 11.57,
+        "min": 8.6,
         "max": 14.9,
-        "median": 12.4,
-        "iqr": 2.15,
-        "n_houses": 13
+        "median": 11.7,
+        "iqr": 3.8,
+        "n_houses": 15
       },
       {
         "party": "SUMAR",
-        "mean": 6.84,
+        "mean": 6.87,
         "min": 5.3,
         "max": 8.9,
         "median": 6.8,
-        "iqr": 1.6,
-        "n_houses": 13
+        "iqr": 1.9,
+        "n_houses": 15
       },
       {
         "party": "ERC",
-        "mean": 3.0,
-        "min": 3.0,
+        "mean": 2.67,
+        "min": 2.2,
         "max": 3.0,
-        "median": 3.0,
-        "iqr": 0.0,
-        "n_houses": 1
+        "median": 2.75,
+        "iqr": 0.67,
+        "n_houses": 4
       },
       {
         "party": "PODEMOS",
-        "mean": 2.39,
-        "min": 1.7,
+        "mean": 2.29,
+        "min": 1.2,
         "max": 3.2,
-        "median": 2.4,
+        "median": 2.3,
         "iqr": 0.7,
-        "n_houses": 13
+        "n_houses": 15
       },
       {
         "party": "SAF",
-        "mean": 1.84,
+        "mean": 1.77,
         "min": 0.5,
         "max": 2.6,
         "median": 1.8,
-        "iqr": 0.95,
-        "n_houses": 9
+        "iqr": 1.03,
+        "n_houses": 8
       },
       {
         "party": "BILDU",
-        "mean": 1.6,
-        "min": 1.6,
+        "mean": 1.52,
+        "min": 1.4,
         "max": 1.6,
-        "median": 1.6,
-        "iqr": 0.0,
-        "n_houses": 1
+        "median": 1.55,
+        "iqr": 0.18,
+        "n_houses": 4
       },
       {
         "party": "JUNTS",
-        "mean": 1.1,
+        "mean": 1.3,
         "min": 1.1,
-        "max": 1.1,
-        "median": 1.1,
-        "iqr": 0.0,
-        "n_houses": 1
+        "max": 1.5,
+        "median": 1.3,
+        "iqr": 0.35,
+        "n_houses": 4
       },
       {
         "party": "PNV",
-        "mean": 0.6,
+        "mean": 0.67,
         "min": 0.6,
-        "max": 0.6,
-        "median": 0.6,
-        "iqr": 0.0,
-        "n_houses": 1
+        "max": 0.7,
+        "median": 0.7,
+        "iqr": 0.1,
+        "n_houses": 3
       }
     ]
   },
   "house_latest": [
+    {
+      "pollster": "Sondaxe",
+      "date": "2026-11-08",
+      "pp": 29.7,
+      "psoe": 27.3,
+      "sample": null,
+      "nota": null,
+      "url": "https://electomania.es/encuesta-sondaxe-8-nov-el-pp-ganaria-las-elecciones/"
+    },
+    {
+      "pollster": "IMOP",
+      "date": "2026-11-08",
+      "pp": 29.8,
+      "psoe": 25.9,
+      "sample": null,
+      "nota": null,
+      "url": "https://electomania.es/encuesta-imop-8-nov-la-derecha-recupera-6-escanos-a-la-izquierda/"
+    },
+    {
+      "pollster": "Celeste-Tel",
+      "date": "2026-11-06",
+      "pp": 31.4,
+      "psoe": 25.7,
+      "sample": null,
+      "nota": null,
+      "url": "https://electomania.es/encuesta-celeste-tel-6-nov-pp-y-vox-lograrian-la-absolutisima/"
+    },
     {
       "pollster": "Target Point",
       "date": "2026-11-02",
@@ -3076,15 +3464,6 @@
       "date": "2026-11-02",
       "pp": 33.0,
       "psoe": 25.6,
-      "sample": null,
-      "nota": null,
-      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
-    },
-    {
-      "pollster": "Sondaxe",
-      "date": "2026-11-01",
-      "pp": 29.2,
-      "psoe": 26.9,
       "sample": null,
       "nota": null,
       "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
@@ -3164,9 +3543,9 @@
   ],
   "days_to_election": 21,
   "days_to_blackout": 16,
-  "gap_pp_psoe": 5.42,
-  "bloc_right": 50.95,
-  "bloc_left": 35.06,
+  "gap_pp_psoe": 5.01,
+  "bloc_right": 50.43,
+  "bloc_left": 34.99,
   "weight_basis": "recencia (vida media 10 d); √n cuando la fuente declara muestra; topes 25 % por casa y 40 % por fuente cuando hay grupos suficientes",
   "excluded_averages": [
     "ElectoPromedio"

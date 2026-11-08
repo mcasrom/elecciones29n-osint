@@ -137,7 +137,7 @@ agregado.
 | **Datos frágiles** | 5–6 días o una sola casa | se publica con aviso |
 | **Datos insuficientes** | <4 sondeos o ≥7 días | se publica con aviso visible |
 
-> Al 8-nov: **9 sondeos y 6 encuestadoras en la ventana de 14 d**, último **2-nov** → **datos frágiles** (6 días). Hay **20 candidatos pendientes**, incluidos IMOP y Sondaxe del 8-nov; no se incorporan sin ficha completa. Media: PP **31,6** · PSOE **26,2** · VOX **19,4** · SUMAR **6,7**.
+> Al 8-nov: **11 sondeos y 7 encuestadoras en la ventana de 14 d**, último **8-nov** → **datos suficientes** (0 días). Se han incorporado IMOP, Sondaxe y Celeste-Tel con su URL; 18 candidatos siguen pendientes. Media: PP **31,15** · PSOE **26,14** · VOX **19,28** · SUMAR **6,84**.
 > Se combinan Electomanía, Onda Cero, ElectoPanel, Sigma Dos, SocioMétrica, NC Report, Target Point, Sondaxe, Ateneo del Dato e IMOP. Ver
 > [`docs/RUTINA-SEMANAL.md`](docs/RUTINA-SEMANAL.md).
 

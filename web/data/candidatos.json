@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T14:36:02+00:00",
+  "generated_at": "2026-11-08T15:06:24+00:00",
   "source": "intelligence-hub/news.db",
   "source_label": "Titulares y sumarios de prensa española",
   "candidates_source": "BOE-A-2026-23103 · JEC · candidaturas proclamadas 3-nov-2026",
@@ -8,7 +8,7 @@
   "note": "Cabezas de lista proclamados en el BOE; no son necesariamente los líderes del partido. No se incluye Sumar como marca propia: aparece integrada en Frente Amplio/Comuns. Yolanda Díaz no figura como candidata.",
   "windows": {
     "1": {
-      "n_articles": 315,
+      "n_articles": 313,
       "n_electoral": 65,
       "sources": [
         {
@@ -17,11 +17,11 @@
         },
         {
           "name": "El Mundo",
-          "articles": 40
+          "articles": 39
         },
         {
           "name": "20minutos",
-          "articles": 32
+          "articles": 31
         },
         {
           "name": "La Vanguardia",
@@ -75,7 +75,7 @@
           "party": "VOX",
           "province": "Madrid",
           "articles": 8,
-          "share_pct": 2.5,
+          "share_pct": 2.6,
           "days": 2,
           "electoral": 5,
           "electoral_share_pct": 7.7,
@@ -204,8 +204,8 @@
       ]
     },
     "7": {
-      "n_articles": 1822,
-      "n_electoral": 386,
+      "n_articles": 1820,
+      "n_electoral": 385,
       "sources": [
         {
           "name": "ABC",
@@ -213,7 +213,7 @@
         },
         {
           "name": "El Mundo",
-          "articles": 353
+          "articles": 351
         },
         {
           "name": "El País",
@@ -250,7 +250,7 @@
           "share_pct": 9.3,
           "days": 7,
           "electoral": 68,
-          "electoral_share_pct": 17.6,
+          "electoral_share_pct": 17.7,
           "electoral_days": 7
         },
         {
@@ -262,7 +262,7 @@
           "share_pct": 3.5,
           "days": 8,
           "electoral": 36,
-          "electoral_share_pct": 9.3,
+          "electoral_share_pct": 9.4,
           "electoral_days": 7
         },
         {
