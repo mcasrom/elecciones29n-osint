@@ -14,7 +14,7 @@
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/robustez.html">
 <link rel="alternate" hreflang="es" href="https://elecciones29n.pruebapublica.com/robustez.html"><link rel="alternate" hreflang="en" href="https://elecciones29n.pruebapublica.com/en/robustness.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202611081606">
+<link rel="stylesheet" href="/css/main.css?v=202611081653">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -436,6 +436,27 @@ document.addEventListener('DOMContentLoaded', function(){
     </div>
     <p class="muted small">Con la fuente y el rango, no solo con la media.</p>
   </div>
+  <div class="card" id="disruptiva">
+    <div class="cardhead"><h2>¿Quién mueve la media?</h2><span class="hint">sensibilidad descriptiva · no es una nota</span></div>
+    <div class="healthitems" id="disruptiva-kpis">
+      <span><b id="disruptiva-kish">—</b>Kish efectivo</span>
+      <span><b id="disruptiva-source">—</b>fuente principal</span>
+      <span><b id="disruptiva-house">—</b>casa principal</span>
+      <span><b id="disruptiva-leverage">—</b>leverage</span>
+    </div>
+    <p class="muted small" id="disruptiva-reading">Cargando análisis de sensibilidad…</p>
+    <p class="muted small">Mide cuánto pesan las fuentes y las casas, y qué cambia al quitar una. No es un intervalo de confianza ni un pronóstico.</p>
+  </div>
+  <script>
+  fetch('/data/disruptiva.json').then(function(r){return r.json();}).then(function(d){
+    var lo = (d.leave_one_house_out || []).filter(function(x){return x.pollster === 'Sondaxe' && (x.party === 'PP' || x.party === 'PSOE');});
+    document.getElementById('disruptiva-kish').textContent = d.kish_effective_polls != null ? d.kish_effective_polls.toFixed(1) + '/11' : '—';
+    document.getElementById('disruptiva-source').textContent = d.top_source && d.top_source.name ? d.top_source.name + ' · ' + d.top_source.share_pct + '%' : '—';
+    document.getElementById('disruptiva-house').textContent = d.top_house && d.top_house.name ? d.top_house.name + ' · ' + d.top_house.share_pct + '%' : '—';
+    document.getElementById('disruptiva-leverage').textContent = lo.length ? lo.map(function(x){return x.party + ' ' + (x.delta > 0 ? '+' : '') + x.delta.toFixed(2);}).join(' · ') : '—';
+    document.getElementById('disruptiva-reading').textContent = 'La media no es una muestra independiente de 11 sondeos: el Kish efectivo es ' + (d.kish_effective_polls || '—') + '. Quitar ' + (d.top_house && d.top_house.name ? d.top_house.name : 'la casa principal') + ' mueve PP/PSOE según la tabla. Es una aproximación con el último sondeo de cada casa.';
+  }).catch(function(){ document.getElementById('disruptiva-reading').textContent = 'No se pudo cargar el análisis de sensibilidad.'; });
+  </script>
   <section class="subscribe" id="aviso" aria-labelledby="aviso-title">
   <div class="subscribe-copy">
     <p class="eyebrow">Aviso por correo</p>
@@ -593,11 +614,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202611081606" hidden>
+<div class="swupdate" id="swupdate" data-build="202611081653" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611081606');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611081653');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -626,7 +647,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202611081606', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202611081653', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){

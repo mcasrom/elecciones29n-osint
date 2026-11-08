@@ -189,6 +189,27 @@
     </div>
     <p class="muted small">Con la fuente y el rango, no solo con la media.</p>
   </div>
+  <div class="card" id="disruptiva">
+    <div class="cardhead"><h2>¿Quién mueve la media?</h2><span class="hint">sensibilidad descriptiva · no es una nota</span></div>
+    <div class="healthitems" id="disruptiva-kpis">
+      <span><b id="disruptiva-kish">—</b>Kish efectivo</span>
+      <span><b id="disruptiva-source">—</b>fuente principal</span>
+      <span><b id="disruptiva-house">—</b>casa principal</span>
+      <span><b id="disruptiva-leverage">—</b>leverage</span>
+    </div>
+    <p class="muted small" id="disruptiva-reading">Cargando análisis de sensibilidad…</p>
+    <p class="muted small">Mide cuánto pesan las fuentes y las casas, y qué cambia al quitar una. No es un intervalo de confianza ni un pronóstico.</p>
+  </div>
+  <script>
+  fetch('/data/disruptiva.json').then(function(r){return r.json();}).then(function(d){
+    var lo = (d.leave_one_house_out || []).filter(function(x){return x.pollster === 'Sondaxe' && (x.party === 'PP' || x.party === 'PSOE');});
+    document.getElementById('disruptiva-kish').textContent = d.kish_effective_polls != null ? d.kish_effective_polls.toFixed(1) + '/11' : '—';
+    document.getElementById('disruptiva-source').textContent = d.top_source && d.top_source.name ? d.top_source.name + ' · ' + d.top_source.share_pct + '%' : '—';
+    document.getElementById('disruptiva-house').textContent = d.top_house && d.top_house.name ? d.top_house.name + ' · ' + d.top_house.share_pct + '%' : '—';
+    document.getElementById('disruptiva-leverage').textContent = lo.length ? lo.map(function(x){return x.party + ' ' + (x.delta > 0 ? '+' : '') + x.delta.toFixed(2);}).join(' · ') : '—';
+    document.getElementById('disruptiva-reading').textContent = 'La media no es una muestra independiente de 11 sondeos: el Kish efectivo es ' + (d.kish_effective_polls || '—') + '. Quitar ' + (d.top_house && d.top_house.name ? d.top_house.name : 'la casa principal') + ' mueve PP/PSOE según la tabla. Es una aproximación con el último sondeo de cada casa.';
+  }).catch(function(){ document.getElementById('disruptiva-reading').textContent = 'No se pudo cargar el análisis de sensibilidad.'; });
+  </script>
   {% include "_captura.html.j2" %}
   <div class="card">
     <div class="cardhead"><h2>Incrustar este panel</h2><span class="hint">iframe · atribución incluida</span></div>

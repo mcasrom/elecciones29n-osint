@@ -36,6 +36,7 @@ if [ ! -f data/congreso-oficial.json ] || [ data/raw/elecciones-congreso.xlsx -n
 fi
 
 PYTHONPATH="$REPO_DIR" python3 -m agg.aggregate --out "$STAGE/data"
+PYTHONPATH="$REPO_DIR" python3 scripts/disruptive_analysis.py --latest "$STAGE/data/latest.json" --out "$STAGE/data/disruptiva.json" || echo "[run_daily] aviso: análisis disruptivo no generado"
 PYTHONPATH="$REPO_DIR" python3 -m gen.build --out "$STAGE"
 /usr/bin/python3 "$REPO_DIR/scripts/candidate_mentions.py" --out "$STAGE" || echo "[run_daily] aviso: menciones no generadas"
 /usr/bin/python3 "$REPO_DIR/scripts/dirigentes_mentions.py" --out "$STAGE" || echo "[run_daily] aviso: dirigentes no generados"

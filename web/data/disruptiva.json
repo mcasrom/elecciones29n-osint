@@ -1,0 +1,192 @@
+{
+  "method": "Kish, HHI, efecto de casa y leave-one-house-out aproximado",
+  "n_polls": 11,
+  "n_houses": 7,
+  "last_poll_date": "2026-11-08",
+  "kish_effective_polls": 10.41,
+  "effective_sources": 2.87,
+  "effective_houses": 6.5,
+  "source_hhi": 0.3485,
+  "house_hhi": 0.1538,
+  "top_source": {
+    "name": "Onda Cero",
+    "share_pct": 40.0
+  },
+  "top_house": {
+    "name": "Sondaxe",
+    "share_pct": 20.3
+  },
+  "house_effect": [
+    {
+      "pollster": "Sondaxe",
+      "party": "PP",
+      "value": 29.7,
+      "minus_main": -1.45
+    },
+    {
+      "pollster": "Sondaxe",
+      "party": "PSOE",
+      "value": 27.3,
+      "minus_main": 1.16
+    },
+    {
+      "pollster": "IMOP",
+      "party": "PP",
+      "value": 29.8,
+      "minus_main": -1.35
+    },
+    {
+      "pollster": "IMOP",
+      "party": "PSOE",
+      "value": 25.9,
+      "minus_main": -0.24
+    },
+    {
+      "pollster": "Celeste-Tel",
+      "party": "PP",
+      "value": 31.4,
+      "minus_main": 0.25
+    },
+    {
+      "pollster": "Celeste-Tel",
+      "party": "PSOE",
+      "value": 25.7,
+      "minus_main": -0.44
+    },
+    {
+      "pollster": "Target Point",
+      "party": "PP",
+      "value": 31.8,
+      "minus_main": 0.65
+    },
+    {
+      "pollster": "Target Point",
+      "party": "PSOE",
+      "value": 25.5,
+      "minus_main": -0.64
+    },
+    {
+      "pollster": "Sociométrica",
+      "party": "PP",
+      "value": 32.7,
+      "minus_main": 1.55
+    },
+    {
+      "pollster": "Sociométrica",
+      "party": "PSOE",
+      "value": 26.6,
+      "minus_main": 0.46
+    },
+    {
+      "pollster": "Sigma Dos",
+      "party": "PP",
+      "value": 31.3,
+      "minus_main": 0.15
+    },
+    {
+      "pollster": "Sigma Dos",
+      "party": "PSOE",
+      "value": 24.6,
+      "minus_main": -1.54
+    },
+    {
+      "pollster": "NC Report",
+      "party": "PP",
+      "value": 33.0,
+      "minus_main": 1.85
+    },
+    {
+      "pollster": "NC Report",
+      "party": "PSOE",
+      "value": 25.6,
+      "minus_main": -0.54
+    }
+  ],
+  "leave_one_house_out": [
+    {
+      "pollster": "Sondaxe",
+      "party": "PP",
+      "delta": 0.56,
+      "without": 31.71
+    },
+    {
+      "pollster": "IMOP",
+      "party": "PP",
+      "delta": 0.37,
+      "without": 31.52
+    },
+    {
+      "pollster": "Celeste-Tel",
+      "party": "PP",
+      "delta": 0.14,
+      "without": 31.29
+    },
+    {
+      "pollster": "Target Point",
+      "party": "PP",
+      "delta": 0.11,
+      "without": 31.26
+    },
+    {
+      "pollster": "Sociométrica",
+      "party": "PP",
+      "delta": -0.14,
+      "without": 31.01
+    },
+    {
+      "pollster": "Sigma Dos",
+      "party": "PP",
+      "delta": 0.16,
+      "without": 31.31
+    },
+    {
+      "pollster": "NC Report",
+      "party": "PP",
+      "delta": -0.1,
+      "without": 31.05
+    },
+    {
+      "pollster": "Sondaxe",
+      "party": "PSOE",
+      "delta": -0.49,
+      "without": 25.65
+    },
+    {
+      "pollster": "IMOP",
+      "party": "PSOE",
+      "delta": -0.14,
+      "without": 26.0
+    },
+    {
+      "pollster": "Celeste-Tel",
+      "party": "PSOE",
+      "delta": -0.12,
+      "without": 26.02
+    },
+    {
+      "pollster": "Target Point",
+      "party": "PSOE",
+      "delta": -0.11,
+      "without": 26.03
+    },
+    {
+      "pollster": "Sociométrica",
+      "party": "PSOE",
+      "delta": -0.28,
+      "without": 25.86
+    },
+    {
+      "pollster": "Sigma Dos",
+      "party": "PSOE",
+      "delta": 0.14,
+      "without": 26.28
+    },
+    {
+      "pollster": "NC Report",
+      "party": "PSOE",
+      "delta": -0.09,
+      "without": 26.05
+    }
+  ],
+  "caveat": "Sensibilidad descriptiva con el último sondeo de cada casa; no es un intervalo de confianza ni un pronóstico."
+}

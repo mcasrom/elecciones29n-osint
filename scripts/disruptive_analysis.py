@@ -11,13 +11,18 @@ from datetime import date, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-LATEST = ROOT / "web" / "data" / "latest.json"
-OUT = ROOT / "data" / "disruptive_analysis.json"
+DEFAULT_LATEST = ROOT / "web" / "data" / "latest.json"
+DEFAULT_OUT = ROOT / "data" / "disruptive_analysis.json"
 PARTIES = ("PP", "PSOE", "VOX", "SUMAR")
 
 
 def main() -> int:
-    data = json.loads(LATEST.read_text(encoding="utf-8"))
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--latest", type=Path, default=DEFAULT_LATEST)
+    parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
+    args = parser.parse_args()
+    data = json.loads(args.latest.read_text(encoding="utf-8"))
     weights = data.get("weights", {})
     polls = weights.get("polls", [])
     poll_weights = [float(p.get("weight") or 0) for p in polls]
@@ -83,7 +88,8 @@ def main() -> int:
         "leave_one_house_out": leverage,
         "caveat": "Sensibilidad descriptiva con el último sondeo de cada casa; no es un intervalo de confianza ni un pronóstico.",
     }
-    OUT.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    args.out.parent.mkdir(parents=True, exist_ok=True)
+    args.out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({
         "kish": result["kish_effective_polls"],
         "source_hhi": result["source_hhi"],
