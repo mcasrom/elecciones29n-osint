@@ -30,23 +30,21 @@ dato, no en una nota al pie.
 - **AVE:** reincorporado como contexto con fuente oficial del **112 de Castilla-La Mancha** (2-nov-2026): **69 fallecidos**, no 68. No entra en la media ni se usa para atribuir tendencia.
 - **Blackout 24–28 nov:** `scripts/blackout_switch.sh` corta a las **00:00**, retira agregados, JSON, encuestas de líderes/comportamiento y **todas las OG**; cron propio y simulación de staging probada.
 - **D'Hondt nacional:** fuera de la portada. Un distrito único de 350 escaños asignaba todo a cuatro partidos y producía «otros: 0»; `/hemiciclo.html` queda como material de método con aviso.
-- **Pesos:** topes de **25 % por casa** y **40 % por fuente cuando hay grupos suficientes**. Con solo dos fuentes, el tope del 40 % no es matemáticamente aplicable: Onda Cero concentra el **57,7 %** y la web lo muestra con aviso, sin ocultarlo. Se mantiene una entrada por casa y oleada.
-- **Contador de días:** diferencia de fechas naturales: 26 al 29N y 21 al blackout a 3-nov.
+- **Pesos:** topes de **25 % por casa** y **40 % por fuente cuando hay grupos suficientes**. Con pocas fuentes el tope puede no ser aplicable; la web publica la concentración observada (a 9-nov, Electomanía **71,3 %** de la fuente) y la muestra con aviso. Se mantiene una entrada por casa y oleada.
+- **Contador de días:** a 9-nov quedan **20 días al 29N** y **15 al blackout** (24-nov).
 - **Sin CIS:** columna de sensibilidad a **45 días** (incluye el CIS del 14/10 en la ventana de contraste, sin usarlo en el cálculo). La media principal no cambia.
 - **Gráfico duplicado:** retirado de «Agregado»; queda uno en «Evolución».
 - Auditoría completa y P1 pendiente: [`docs/AUDITORIA-20261103.md`](docs/AUDITORIA-20261103.md).
 
 ## Fuentes y criterio de incorporación
 
-La media solo incorpora sondeos con **casa, fecha de campo, muestra y tabla
-completa**. El resto se usa para descubrir o contrastar, nunca como dato
-automático:
+La media incorpora sondeos con **casa, fecha, tabla completa y URL**. La muestra se usa cuando la fuente la publica y se marca como no consta cuando falta; no se inventa. El resto se usa para descubrir o contrastar, nunca como dato automático:
 
 - **Demócrata / Sigma Dos** — revisión manual; el sitio devuelve 403 al servidor.
   No se incorpora sin la ficha primaria.
 - **PolitPro** — agregador JS; solo contraste/descubrimiento.
-- **40dB / El País** — el informe de febrero se usa como formato y metodología,
-  no como sondeo del 29N.
+- **40dB / El País** — encuesta del 9-nov verificada en ficha individual; entra sin muestra declarada. El informe de febrero se usa solo como formato y metodología.
+- **GAD3 / ABC** — encuesta del 9-nov; entra con tabla completa y sin muestra declarada.
 - **Wikipedia EN** — índice de descubrimiento (CC BY-SA); la cifra se contrasta
   siempre con la fuente original.
 
@@ -137,9 +135,8 @@ agregado.
 | **Datos frágiles** | 5–6 días o una sola casa | se publica con aviso |
 | **Datos insuficientes** | <4 sondeos o ≥7 días | se publica con aviso visible |
 
-> Al 8-nov: **11 sondeos y 7 encuestadoras en la ventana de 14 d**, último **8-nov** → **datos suficientes** (0 días). Se han incorporado IMOP, Sondaxe y Celeste-Tel con su URL; 18 candidatos siguen pendientes. Media: PP **31,15** · PSOE **26,14** · VOX **19,28** · SUMAR **6,84**.
-> Se combinan Electomanía, Onda Cero, ElectoPanel, Sigma Dos, SocioMétrica, NC Report, Target Point, Sondaxe, Ateneo del Dato e IMOP. Ver
-> [`docs/RUTINA-SEMANAL.md`](docs/RUTINA-SEMANAL.md).
+> Al 9-nov: **13 sondeos y 9 encuestadoras en la ventana de 14 d**, último **9-nov** → **datos suficientes** (0 días), pero **sin muestra declarada (0 %)**. 19 candidatos siguen pendientes. Media: PP **31,4** · PSOE **26,43** · VOX **19,09** · SUMAR **6,75**.
+> Se combinan encuestas individuales de Electomanía, Onda Cero, Sigma Dos, SocioMétrica, NC Report, Target Point, Sondaxe, IMOP, Celeste-Tel, GAD3 y 40dB. **ElectoPanel** y **SW Demoscopia** se publican como tracking separado y no entran en la media; **Ateneo del Dato** se usa como contraste. Ver [`docs/RUTINA-SEMANAL.md`](docs/RUTINA-SEMANAL.md).
 
 ```bash
 .venv/bin/python scripts/health_report.py
@@ -170,7 +167,7 @@ Hay dos capas:
 > para evitar builds competidores. El portátil queda para editar y probar; si
 > ejecutas `run_daily.sh` a mano, asumes que publica.
 
-Los medios que publican la tabla solo en HTML/imagen (**El Mundo/Sigma Dos, El Español/SocioMétrica, La Razón/NC Report, elDiario/Ateneo**) no se cargan solos: el watcher los pone en cola y la tabla completa se verifica antes de importar. Es deliberado: evitar porcentajes parciales que rompan la suma 90–110 %.
+Los medios que publican la tabla solo en HTML/imagen (**El Mundo/Sigma Dos, El Español/SocioMétrica, La Razón/NC Report, elDiario/Ateneo, ABC/GAD3, El País/40dB**) no se cargan solos: el watcher los pone en cola y la tabla completa se verifica antes de importar. Es deliberado: evitar porcentajes parciales que rompan la suma 90–110 %.
 
 ## Fuentes
 
@@ -178,7 +175,7 @@ Los medios que publican la tabla solo en HTML/imagen (**El Mundo/Sigma Dos, El E
 |---|---|---|
 | Sondeos (automática) | [Electomania · ElectoPanel](https://electomania.es/) | WordPress REST API · autorización escrita 23-oct-2026, enlace por pieza y escaños publicados sin recalcular |
 | Sondeos (automática) | [Onda Cero · Encuestas 29N](https://www.ondacero.es/elecciones/generales/encuestas/) | HTML/JSON |
-| Sondeos (manual + watcher) | [CIS](https://www.cis.es/), [El Mundo/Sigma Dos](https://www.elmundo.es/espana/encuestas/), [El Español/SocioMétrica](https://www.elespanol.com/), [La Razón/NC Report](https://www.larazon.es/), [elDiario/Ateneo del Dato](https://www.eldiario.es/) | PDF/HTML · tabla completa verificada antes de importar |
+| Sondeos (manual + watcher) | [CIS](https://www.cis.es/), [El Mundo/Sigma Dos](https://www.elmundo.es/espana/encuestas/), [El Español/SocioMétrica](https://www.elespanol.com/), [La Razón/NC Report](https://www.larazon.es/), [elDiario/Ateneo del Dato](https://www.eldiario.es/), [ABC/GAD3](https://www.abc.es/), [El País/40dB](https://elpais.com/) | PDF/HTML · tabla completa verificada antes de importar |
 | Contraste | [Política Sin Ruido](https://politicasinruido.com/encuestas) | HTML |
 | Censo | [INE · CEL](https://www.ine.es/dyngs/CEL/es/index.htm?cid=1703) | XLSX (tablas 2/3/6/9/12) |
 | Participación | [JEC](https://www.juntaelectoralcentral.es/) | tablas por elección |
