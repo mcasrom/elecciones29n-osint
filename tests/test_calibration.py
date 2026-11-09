@@ -33,6 +33,15 @@ class CalibrationTest(unittest.TestCase):
         self.assertNotIn("seat_rows", out)
         self.assertEqual(out["official_url"], "https://example.org")
 
+    def test_pre_registered_parties_and_blocs(self):
+        votes = {"PP": 30, "PSOE": 25, "VOX": 20, "SUMAR": 7, "ERC": 3, "JUNTS": 3, "PNV": 2, "PODEMOS": 2}
+        snap = {"parties": [{"party": p, "mean": v} for p, v in votes.items()]}
+        out = build_calibration({"votos": votes, "votos_validos": 100}, snap)
+        names = {r["party"] for r in out["rows"]}
+        self.assertEqual(names, {"PP", "PSOE", "VOX", "SUMAR", "ERC", "JUNTS", "PNV"})
+        self.assertEqual(len(out["block_rows"]), 2)
+        self.assertEqual({r["bloc"] for r in out["block_rows"]}, {"PP + VOX", "PSOE + SUMAR + PODEMOS"})
+
     def test_fallback_denominator_is_flagged(self):
         res = {"votos": {"PP": 1, "PSOE": 1}}
         snap = {"parties": [{"party": "PP", "mean": 50}, {"party": "PSOE", "mean": 50}]}

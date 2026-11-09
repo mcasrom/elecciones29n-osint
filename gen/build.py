@@ -1116,14 +1116,22 @@ def build_calibration(resultados: dict, snapshot: dict) -> dict:
     if not validos:
         validos = sum(int(v) for v in votes.values())
         denominator_source = "suma de votos importados"
+    def vote_value(name):
+        for key, value in votes.items():
+            if str(key).upper() == name.upper():
+                return int(value)
+        return None
+
     snap = {p.get("party"): p for p in snapshot.get("parties", [])}
     rows = []
+    # Partidos fijados en el pre-registro 1.0. Podemos queda para el bloque.
     if validos:
-        for party in ("PP", "PSOE", "VOX", "SUMAR", "PODEMOS"):
-            if party not in votes or party not in snap:
+        for party in ("PP", "PSOE", "VOX", "SUMAR", "ERC", "JUNTS", "PNV"):
+            value = vote_value(party)
+            if value is None or party not in snap:
                 continue
             poll = float(snap[party].get("mean") or 0)
-            official = 100.0 * int(votes[party]) / validos
+            official = 100.0 * value / validos
             rows.append({
                 "party": party,
                 "poll": round(poll, 2),
@@ -1132,6 +1140,21 @@ def build_calibration(resultados: dict, snapshot: dict) -> dict:
             })
     mae = round(sum(abs(r["error"]) for r in rows) / len(rows), 2) if rows else None
     bias = round(sum(r["error"] for r in rows) / len(rows), 2) if rows else None
+
+    block_rows = []
+    if validos:
+        for label, parties in (("PP + VOX", ("PP", "VOX")), ("PSOE + SUMAR + PODEMOS", ("PSOE", "SUMAR", "PODEMOS"))):
+            values = [vote_value(party) for party in parties]
+            if any(value is None for value in values) or any(party not in snap for party in parties):
+                continue
+            poll = sum(float(snap[party].get("mean") or 0) for party in parties)
+            official = 100.0 * sum(values) / validos
+            block_rows.append({
+                "bloc": label,
+                "poll": round(poll, 2),
+                "official": round(official, 2),
+                "error": round(poll - official, 2),
+            })
 
     house_rows = []
     if validos:
@@ -1160,6 +1183,7 @@ def build_calibration(resultados: dict, snapshot: dict) -> dict:
         "bias": bias,
         "house_rows": house_rows,
         "house_mae": house_mae,
+        "block_rows": block_rows,
         "n": len(rows),
         "house_n": len(house_rows),
         "votos_validos": validos,

@@ -22,6 +22,7 @@
     <ul class="muted">
       <li><strong>Media pre-electoral vs resultado oficial</strong> por partido, con error en puntos porcentuales.</li>
       <li><strong>MAE y sesgo medio</strong>: error absoluto medio y signo del error (si la media sobrestimó o subestimó).</li>
+      <li><strong>Error por bloque</strong>: PP+VOX y PSOE+SUMAR+Podemos, sin convertirlo en escaños.</li>
       <li><strong>Error por casa</strong>: última pieza de cada casa frente al oficial, solo PP y PSOE cuando están publicados.</li>
       <li><strong>Foto congelada</strong>: fecha y número de sondeos de la última media antes del blackout.</li>
       <li><strong>Fuente</strong> oficial y fecha de actualización del escrutinio.</li>
@@ -57,6 +58,17 @@
   </div>
   {% endif %}
 
+
+  {% if calibration.block_rows %}
+  <div class="card">
+    <div class="cardhead"><h2>Error por bloque</h2><span class="hint">puntos porcentuales</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Bloque</th><th>Media</th><th>Oficial</th><th>Error</th></tr></thead>
+      <tbody>{% for r in calibration.block_rows %}<tr><td><strong>{{ r.bloc }}</strong></td><td class="num">{{ fmt_pct(r.poll) }}%</td><td class="num">{{ fmt_pct(r.official) }}%</td><td class="num">{{ "%+.2f"|format(r.error) }} pp</td></tr>{% endfor %}</tbody>
+    </table></div>
+    <p class="muted small">PP+VOX y PSOE+SUMAR+Podemos, tal como se fijó en el pre-registro. No es una proyección de escaños.</p>
+  </div>
+  {% endif %}
 
   {% if calibration.house_rows %}
   <div class="card">

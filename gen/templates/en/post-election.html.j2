@@ -23,6 +23,7 @@
     <ul class="muted">
       <li>Pre-election average vs official vote share by party, in percentage points.</li>
       <li>MAE and mean bias: did the average over- or underestimate?</li>
+      <li>Bloc error: PP+VOX and PSOE+SUMAR+Podemos, not a seat projection.</li>
       <li>Error by polling house: last verifiable poll vs official, PP and PSOE only.</li>
       <li>Snapshot date and number of polls; official source and update time.</li>
     </ul>
@@ -55,6 +56,17 @@
   </div>
   {% endif %}
 
+
+  {% if calibration.block_rows %}
+  <div class="card">
+    <div class="cardhead"><h2>Error by bloc</h2><span class="hint">percentage points</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Bloc</th><th>Average</th><th>Official</th><th>Error</th></tr></thead>
+      <tbody>{% for r in calibration.block_rows %}<tr><td><strong>{{ r.bloc }}</strong></td><td class="num">{{ fmt_pct(r.poll) }}%</td><td class="num">{{ fmt_pct(r.official) }}%</td><td class="num">{{ "%+.2f"|format(r.error) }} pp</td></tr>{% endfor %}</tbody>
+    </table></div>
+    <p class="muted small">PP+VOX and PSOE+SUMAR+Podemos, as fixed in the pre-registration. This is not a seat projection.</p>
+  </div>
+  {% endif %}
 
   {% if calibration.house_rows %}
   <div class="card">
