@@ -1,6 +1,9 @@
 import unittest
+from datetime import datetime
 
-from gen.build import build_calibration
+import pytz
+
+from gen.build import build_calibration, snapshot_due
 
 
 class CalibrationTest(unittest.TestCase):
@@ -32,6 +35,11 @@ class CalibrationTest(unittest.TestCase):
         self.assertAlmostEqual(out["house_rows"][0]["error"], 33 - 100 * 8000000 / 15000000, places=2)
         self.assertNotIn("seat_rows", out)
         self.assertEqual(out["official_url"], "https://example.org")
+
+    def test_snapshot_freezes_after_last_build_before_blackout(self):
+        tz = pytz.timezone("Europe/Madrid")
+        self.assertFalse(snapshot_due(tz.localize(datetime(2026, 11, 23, 23, 49))))
+        self.assertTrue(snapshot_due(tz.localize(datetime(2026, 11, 23, 23, 50))))
 
     def test_pre_registered_parties_and_blocs(self):
         votes = {"PP": 30, "PSOE": 25, "VOX": 20, "SUMAR": 7, "ERC": 3, "JUNTS": 3, "PNV": 2, "PODEMOS": 2}

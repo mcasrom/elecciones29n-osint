@@ -1,5 +1,5 @@
 {
- "version": "1.0",
+ "version": "1.1",
  "registered_at": "2026-11-03",
  "cutoff": "2026-11-13T23:59:59+01:00",
  "status": "pre_campaign",
@@ -20,5 +20,9 @@
   "Una media de sondeos no predice el resultado.",
   "El error se publica aunque sea alto.",
   "No se evalúan escaños: la media no es una proyección provincial."
- ]
+ ],
+ "cutoff_scope": "congelación de métricas y reglas",
+ "metric_freeze_at": "2026-11-13T23:59:59+01:00",
+ "data_cutoff_at": "2026-11-23T23:59:59+01:00",
+ "data_cutoff_scope": "última foto de sondeos; el blackout empieza el 24 y no se incorporan sondeos publicados del 24 al 28"
 }

@@ -30,6 +30,11 @@ SITE_DESC = (
 )
 
 INDEXNOW_KEY = "e29n0sint2026b7f3c1a9d4e6"
+PRE_SNAPSHOT_FINAL = ROOT / "data" / "pre_election_snapshot.json"
+PRE_SNAPSHOT_WORKING = ROOT / "data" / "pre_election_snapshot_working.json"
+PRE_SNAPSHOT_MARKER = ROOT / "data" / "pre_election_snapshot.freeze.json"
+PRE_DATA_CUTOFF = TZ.localize(datetime(2026, 11, 23, 23, 50))
+PRE_DATA_CUTOFF_LABEL = "2026-11-23T23:59:59+01:00"
 
 BLACKOUT_SITEMAP = [
     ("", 1.0),
@@ -1101,6 +1106,51 @@ def build_house_compare(house: dict, parties: list) -> list:
 
 
 
+def snapshot_due(now: datetime) -> bool:
+    """La foto final se crea en la última build antes del blackout."""
+    return now >= PRE_DATA_CUTOFF
+
+
+def _snapshot_payload(latest: dict) -> dict:
+    return {
+        "updated_at": latest.get("updated_at"),
+        "n_polls": latest.get("n_polls"),
+        "parties": [
+            {k: p.get(k) for k in ("party", "mean", "min", "max", "n")}
+            for p in latest.get("parties", [])
+        ],
+        "house_latest": latest.get("house_latest", []),
+        "hemicycle_last": (latest.get("hemicycle") or [{}])[-1],
+    }
+
+
+def write_pre_election_snapshot(latest: dict, now: datetime) -> bool:
+    """Guarda una foto de trabajo o, tras el corte, una foto final inmutable."""
+    if PRE_SNAPSHOT_MARKER.exists():
+        return False
+    payload = _snapshot_payload(latest)
+    if not snapshot_due(now):
+        with open(PRE_SNAPSHOT_WORKING, "w", encoding="utf-8") as f:
+            json.dump(payload, f, ensure_ascii=False, indent=2)
+        return False
+    payload["data_cutoff_at"] = PRE_DATA_CUTOFF_LABEL
+    payload["frozen_at"] = now.isoformat()
+    raw = json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True)
+    payload["sha256"] = hashlib.sha256(raw.encode("utf-8")).hexdigest()
+    tmp = PRE_SNAPSHOT_FINAL.with_suffix(".json.tmp")
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, indent=2)
+    os.replace(tmp, PRE_SNAPSHOT_FINAL)
+    with open(PRE_SNAPSHOT_MARKER, "w", encoding="utf-8") as f:
+        json.dump({
+            "sha256": payload["sha256"],
+            "frozen_at": payload["frozen_at"],
+            "data_cutoff_at": PRE_DATA_CUTOFF_LABEL,
+            "n_polls": payload["n_polls"],
+        }, f, ensure_ascii=False, indent=2)
+    return True
+
+
 def build_calibration(resultados: dict, snapshot: dict) -> dict:
     """Comparación pre-electoral vs escrutinio oficial, si ambos existen.
 
@@ -1721,7 +1771,12 @@ def write_repro_data(version: str, build_ts: str, build_date: str, build_commit:
             for s in (latest.get("weights") or {}).get("sources", [])
         ],
         "snapshot": snapshot,
-        "pre_registro": {"sha256": pre_hash, "cutoff": "2026-11-13T23:59:59+01:00"},
+        "pre_registro": {
+            "sha256": pre_hash,
+            "metric_freeze_at": "2026-11-13T23:59:59+01:00",
+            "data_cutoff_at": PRE_DATA_CUTOFF_LABEL,
+            "snapshot_frozen": PRE_SNAPSHOT_MARKER.exists(),
+        },
         "nota": "Hashes SHA-256 de los ficheros publicados y cadena diaria en data/snapshots.json; no incluye datos personales.",
     }
     with open(os.path.join(data_dir, "status.json"), "w", encoding="utf-8") as f:
@@ -2521,15 +2576,8 @@ def main(out: str = "web") -> None:
 
     if datetime(2026, 11, 1).date() <= now.date() < datetime(2026, 11, 29).date():
         os.makedirs("data", exist_ok=True)
-        snap = {
-            "updated_at": latest.get("updated_at"),
-            "n_polls": latest.get("n_polls"),
-            "parties": [{k: p.get(k) for k in ("party", "mean", "min", "max", "n")} for p in latest.get("parties", [])],
-            "house_latest": latest.get("house_latest", []),
-            "hemicycle_last": (latest.get("hemicycle") or [{}])[-1],
-        }
-        with open("data/pre_election_snapshot.json", "w", encoding="utf-8") as f:
-            json.dump(snap, f, ensure_ascii=False, indent=2)
+        if write_pre_election_snapshot(latest, now):
+            print("foto pre-electoral congelada", PRE_SNAPSHOT_FINAL)
 
     print("build ok", now)
 
