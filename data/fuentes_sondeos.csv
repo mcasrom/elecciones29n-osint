@@ -1,8 +1,8 @@
 encuestadora,medio,url,frecuencia,estado,notas
 Electomania,Electomania,https://electomania.es/,diario/semanal,automatico,ElectoPanel; API WordPress; autorizado 23-oct-2026: solo datos abiertos
 CIS,CIS,https://www.cis.es/,mensual,manual,"manual; barómetro; estimación de voto, no voto directo"
-40dB,El Pais / 40dB,https://40db.es/,semanal,manual,manual; informe de febrero solo como formato/metodologia; no usar como sondeo 29N
-GAD3,ABC / La Vanguardia,https://www.gad3.com/,semanal,manual,
+40dB,El Pais / 40dB,https://40db.es/,semanal,manual,manual; encuesta 9-nov para El Pais; ficha individual verificada; no usar el informe de febrero como sondeo
+GAD3,ABC / La Vanguardia,https://www.gad3.com/,semanal,manual,manual; watcher RSS; encuesta 9-nov para ABC
 Sigma Dos,El Mundo,https://www.sigmados.com/,semanal,manual,manual; watcher RSS; tabla completa en El Mundo; campo 8-22 oct
 SocioMetria,El Espanol,https://www.sociometrica.es/,semanal,manual,manual; watcher RSS; tracking acumulado CAWI; tabla en El Español
 Simple Logica,elDiario.es,https://www.simplelogica.com/,periodica,manual,
@@ -22,7 +22,7 @@ Ateneo del Dato,El Diario,https://ateneodeldato.com/,periodica,manual,manual; wa
 IMOP Insights,El Confidencial,https://www.imop.es/,periodica,manual,
 Opina 360,Antena 3,https://www.opina360.es/,ocasional,manual,
 Politica Sin Ruido,contraste,https://politicasinruido.com/encuestas,diario,contraste,4 casas; una por casa; metadatos campo/muestra; no se usa en la media
-SW Demoscopia,La Septima / Electomania,https://electomania.es/encuesta-sw-demoscopia-5-nov-mayoria-de-pp-y-vox-con-el-psoe-primero/,manual,manual,tracking; sin muestra; Frente Amplio mapeado a SUMAR
+SW Demoscopia,La Septima / Electomania,https://electomania.es/tracking-sw-demoscopia-8-nov-pp-y-vox-en-177-escanos/,manual,manual,tracking; sin muestra; Frente Amplio mapeado a SUMAR; entrada 8-nov
 Democrata,Democrata,https://www.democrata.es/encuestas/,diario,manual,403 al servidor; revisar en navegador; no es fuente primaria; no entra sin ficha
 PolitPro,PolitPro,https://politpro.eu/es/spain/encuestas,diario,contraste,Agregador JS; sin ficha primaria clara; solo contraste/descubrimiento; no ingesta automatica
 Wikipedia (EN),Wikipedia,https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Spanish_general_election,continua,contraste,CC BY-SA; solo indice de descubrimiento; no sustituye la fuente original
