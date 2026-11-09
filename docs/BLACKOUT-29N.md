@@ -2,12 +2,23 @@
 
 > Objetivo: retirar el origen de los sondeos y reducir copias residuales sin prometer lo que no se puede controlar. La obligación legal es no publicar, difundir ni reproducir sondeos (LOREG art. 69.7).
 
-## T-7 días (17 nov)
+## T-7 días (17 nov) — adelantado y verificado el 9-nov
 
-- [ ] Congelar el calendario social: no programar tarjetas con cifras para 24–28 nov.
-- [ ] Revisar el aviso legal y el texto de la página de blackout.
-- [ ] Comprobar que `agg/blackout.py` cubre 24–28 y que el build de staging retira datos.
-- [ ] Backup del vhost nginx y del `web/` actual.
+- [x] Congelar el calendario social: no programar tarjetas con cifras para 24–28 nov.
+      `E29N_BLACKOUT_TEST=1 social_queue.py run --dry` → no publica; 0 elementos en 24–28.
+- [x] Revisar el aviso legal y el texto de la página de blackout.
+- [x] Comprobar que `agg/blackout.py` cubre 24–28 y que el build de staging retira datos.
+      `blackout_switch.sh --simulate-dry` → OK.
+- [x] Backup del vhost nginx y del `web/` actual:
+      `~/backups/elecciones29n/web-preblackout-20261109.tar.gz` y `vhost-20261109.conf`.
+
+### Hallazgo T-7: páginas derivadas de sondeos sin retirar
+
+El staging de blackout conservaba `escenarios.html`, `data/escenarios.json` y
+`data/disruptiva.json`. Son datos derivados de los sondeos y no deben quedar
+accesibles del 24 al 28. Añadidos a la retirada de `write_blackout_site()` y a
+las comprobaciones de `blackout_switch.sh` y `tests/test_blackout_site.py`.
+Verificado: el staging ya no contiene ninguno de los tres.
 
 ## Estado de la preparación (25-oct)
 

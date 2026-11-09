@@ -701,7 +701,7 @@ def write_blackout_site(
         with open(os.path.join(OUT, filename), "w", encoding="utf-8") as f:
             f.write(html)
 
-    for rel in ("data/latest.json", "data/robustez.json", "data/status.json", "data/changelog.json", "data/v1/latest.json", "data/v1/robustez.json", "data/v1/status.json", "data/cis_lideres_2026.json", "data/cis-m4-2026.json", "data/cis-m4-2023.csv", "og-robustez.png", "og.png", "og-hemiciclo.png", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html", "en/post-election.html", "embed/medias.html", "embed/robustez.html", "embed/hemiciclo.html", "mayorias.html", "postelectoral.html", "lideres.html", "comportamiento.html"):
+    for rel in ("data/latest.json", "data/robustez.json", "data/status.json", "data/changelog.json", "data/v1/latest.json", "data/v1/robustez.json", "data/v1/status.json", "data/cis_lideres_2026.json", "data/cis-m4-2026.json", "data/cis-m4-2023.csv", "og-robustez.png", "og.png", "og-hemiciclo.png", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html", "en/post-election.html", "embed/medias.html", "embed/robustez.html", "embed/hemiciclo.html", "mayorias.html", "postelectoral.html", "lideres.html", "comportamiento.html", "escenarios.html", "data/escenarios.json", "data/disruptiva.json"):
         _remove_if_exists(rel)
     for path in glob.glob(os.path.join(OUT, "og*.png")):
         _remove_if_exists(os.path.relpath(path, OUT))

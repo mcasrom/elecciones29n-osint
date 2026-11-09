@@ -41,6 +41,9 @@ PY
 
 test -f "$STAGE/index.html"
 test ! -f "$STAGE/data/latest.json"
+test ! -f "$STAGE/data/escenarios.json"
+test ! -f "$STAGE/data/disruptiva.json"
+test ! -f "$STAGE/escenarios.html"
 test ! -f "$STAGE/og.png"
 if find "$STAGE" -maxdepth 1 -name 'og*.png' | grep -q .; then
   echo "[blackout] quedan OG en la raíz" >&2
