@@ -1,7 +1,7 @@
 # Sprint de mejora — Escenarios 29N
 
 **Fecha:** 5-nov-2026  
-**Estado:** planificación, no ejecutado  
+**Estado:** E0 ejecutado 9-nov-2026; E1+ bloqueados por falta de código reproducible del modelo  
 **Página viva:** https://elecciones29n.pruebapublica.com/escenarios.html  
 **Último commit de la página:** `7317d15`
 
@@ -42,9 +42,16 @@ el swing provincial no sea uniforme por decreto.
 
 ---
 
+## Bloqueo detectado en E0
+
+No existen `seat_model.py` ni `backtest.py` en el repositorio actual. El
+`data/escenarios.json` está congelado el 5-nov y no se puede reproducir el Monte
+Carlo ni el backtest. **E1/E2 no se inician hasta recuperar o reescribir el
+generador con tests.**
+
 ## Sprint 1 — P0 · Incertidumbre y provincia (≈4 h)
 
-### E0. Auditoría de datos y del Monte Carlo (30 min)
+### E0. Auditoría de datos y del Monte Carlo (30 min) — ✅ ejecutado 9-nov
 
 **Problema:** el Monte Carlo promedia 12 sondeos en cada iteración; eso reduce
 la dispersión. Además, `ElectoPromedio` puede estar entrando como un sondeo
@@ -53,12 +60,13 @@ el Monte Carlo.
 
 **Tareas:**
 
-- [ ] Comparar el universo de `latest.json` con el de `polls_history.csv`.
-- [ ] Verificar si `kind=average` entra en `load_poll_groups`; excluirlo o
-      separarlo con etiqueta.
-- [ ] Detectar duplicados por `(date, pollster, party)`.
-- [ ] Medir cuántos sondeos tienen `sample` y en qué casas.
-- [ ] Escribir `docs/AUDITORIA-INCERTIDUMBRE-20261105.md` con:
+- [x] Comparar el universo de `latest.json` con el de `polls_history.csv`.
+      → 13 sondeos/9 casas (9-nov) vs 12/8 (escenario congelado 5-nov).
+- [x] Verificar si `kind=average` entra en `load_poll_groups`; excluirlo o
+      separarlo con etiqueta. → Los 3 `ElectoPromedio` están excluidos de la media.
+- [x] Detectar duplicados por `(date, pollster, party)`. → 0 duplicados.
+- [x] Medir cuántos sondeos tienen `sample` y en qué casas. → 168/959 filas; 0/13 en la ventana.
+- [x] Escribir `docs/AUDITORIA-INCERTIDUMBRE-20261105.md` con:
       universo, exclusiones, cobertura de `sample`, rangos actuales.
 
 **Aceptación:**
