@@ -50,6 +50,11 @@
       <h1>Sondeos del 29N, con rango y sin pronóstico</h1>
       <p class="sub">Media móvil de los sondeos publicados. La incertidumbre va en el dato, no en una nota al pie.</p>
 
+      <div class="viewswitch" role="group" aria-label="Vista de la página">
+        <button type="button" class="viewbtn" data-view="rapida" aria-pressed="false">Vista rápida</button>
+        <button type="button" class="viewbtn active" data-view="completa" aria-pressed="true">Vista completa</button>
+      </div>
+
       <div class="hero-kpis">
         <div class="hk"><b>{{ days_to_election }}</b><span>días para el 29N</span></div>
         <div class="hk"><b>{{ n_polls }}</b><span>sondeos en la media</span></div>
@@ -97,6 +102,58 @@
 </header>
 
 <main class="container">
+
+  <section id="vista-rapida" class="quickview" aria-label="Vista rápida">
+    <div class="quickhead">
+      <p class="eyebrow">Vista rápida</p>
+      <h2>La media en 20 segundos</h2>
+      <p class="sub">Qué dicen los sondeos, cuánto se dispersan y qué no se puede concluir.</p>
+    </div>
+
+    {% if low_n %}
+    <div class="alert warn"><strong>Pocos sondeos en la media</strong> · solo {{ n_polls }}. Interpreta el rango con cautela.</div>
+    {% endif %}
+
+    <div class="kpis">
+      {% for p in parties_main[:4] %}
+      <div class="kpi">
+        <span class="kpi-name">{{ p.party }}</span>
+        <b>{{ "%.1f"|format(p.mean) }}%</b>
+        <span class="kpi-range">rango {{ "%.1f"|format(p.min) }}–{{ "%.1f"|format(p.max) }} · n={{ p.n }}{% if p.sample_total %} · {{ p.sample_n }}/{{ p.n }} con muestra{% endif %}</span>
+      </div>
+      {% endfor %}
+    </div>
+    <p class="muted small">Media de <strong>{{ n_polls }}</strong> sondeos · ventana {{ window_span or "14 días" }} · actualizado {{ updated_at }}{% if last_poll_date %} · último sondeo {{ last_poll_date }}{% endif %}.</p>
+
+    {% if health %}
+    {% set hlabel = {'ok':'Datos suficientes','warn':'Datos frágiles','bad':'Datos insuficientes'}[health.status] %}
+    <div class="card">
+      <div class="cardhead"><h2>Robustez del dato</h2><span class="hint"><a href="/robustez.html">Ficha completa →</a></span></div>
+      <div class="health">
+        <span class="chip {{ health.status }}">{{ hlabel }}</span>
+        <div class="healthitems">
+          <span><b>{{ health.n_polls }}</b>sondeos</span>
+          <span><b>{{ health.n_pollsters }}</b>encuestadoras</span>
+          <span><b>{% if health.days_since_last is not none %}{{ health.days_since_last }}{% else %}—{% endif %}</b>días desde el último</span>
+          <span><b>{% if health.sample_pct is not none %}{{ health.sample_pct }}%{% else %}—{% endif %}</b>con muestra declarada</span>
+          <span><b>{% if health.dispersion_iqr is not none %}{{ "%.1f"|format(health.dispersion_iqr) }}{% else %}—{% endif %}</b>pp de dispersión (IQR)</span>
+        </div>
+      </div>
+      <p class="muted small" style="margin-top:10px">La media no es un pronóstico. El rango no es un intervalo de confianza: son los sondeos observados. No se publican escaños nacionales.</p>
+    </div>
+    {% endif %}
+
+    <div class="card">
+      <div class="cardhead"><h2>Qué no dice</h2></div>
+      <p class="muted small">No anticipa el resultado del 29N ni la composición del Congreso. Una media alta o baja no demuestra coordinación, intención ni campaña.</p>
+      <div class="cta">
+        <a class="btn" href="/metodologia.html">Metodología</a>
+        <a class="btn ghost" href="/robustez.html">Robustez</a>
+        <a class="btn ghost" href="/caveat.html">Qué no dice</a>
+        <button type="button" class="btn ghost" data-view="completa">Vista completa</button>
+      </div>
+    </div>
+  </section>
 
   {% if in_blackout %}
   <div class="alert"><strong>Blackout electoral activo</strong> · {{ blackout_reason }}. La agregación y sus JSON quedan retirados.</div>
@@ -402,6 +459,32 @@
     var h = location.hash.replace('#','');
     if (document.getElementById('tab-' + h)) show(h);
   }
+
+  var viewButtons = document.querySelectorAll('[data-view]');
+  function setView(mode, persist){
+    var quick = mode === 'rapida';
+    document.body.classList.toggle('vista-rapida', quick);
+    viewButtons.forEach(function(b){
+      var on = b.dataset.view === mode;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    if (persist) {
+      try { localStorage.setItem('e29n_vista', mode); } catch (e) {}
+      var u = new URL(location.href);
+      if (quick) u.searchParams.set('vista','rapida');
+      else u.searchParams.delete('vista');
+      if (history.replaceState) history.replaceState(null, '', u.pathname + u.search + u.hash);
+    }
+  }
+  viewButtons.forEach(function(b){ b.addEventListener('click', function(){ setView(b.dataset.view, true); }); });
+  var params = new URLSearchParams(location.search);
+  var saved = null;
+  try { saved = localStorage.getItem('e29n_vista'); } catch (e) {}
+  var initial = params.get('vista') === 'rapida' ? 'rapida'
+              : params.get('vista') === 'completa' ? 'completa'
+              : (saved === 'rapida' ? 'rapida' : 'completa');
+  setView(initial, false);
 })();
 </script>
 </body>
