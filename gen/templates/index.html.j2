@@ -483,7 +483,7 @@
   try { saved = localStorage.getItem('e29n_vista'); } catch (e) {}
   var initial = params.get('vista') === 'rapida' ? 'rapida'
               : params.get('vista') === 'completa' ? 'completa'
-              : (saved === 'rapida' ? 'rapida' : 'completa');
+              : (saved === 'completa' ? 'completa' : 'rapida');
   setView(initial, false);
 })();
 </script>
