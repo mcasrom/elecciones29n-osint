@@ -25,16 +25,40 @@ proyección de escaños. El rango no es un intervalo de confianza: es la
 dispersión observada entre los sondeos incluidos. La incertidumbre va en el
 dato, no en una nota al pie.
 
+La portada tiene **dos vistas**:
+
+- **Vista rápida** (primera visita): KPIs, rango, robustez, “qué no dice” y enlace a metodología.
+- **Vista completa**: agregado, evolución, Congreso, Senado y resto de módulos.
+- Conmutador visible; `?vista=rapida` y `?vista=completa`; la preferencia se recuerda.
+
+## Pre-registro y calibración post-electoral
+
+- **Pre-registro:** `data/pre_registro.json` v1.1, registrado el **3-nov-2026**.
+- **Congelación de métricas:** **13-nov-2026 23:59**; después no se cambian partidos, bloques ni definiciones.
+- **Corte de datos:** **23-nov-2026 23:59**, antes del blackout.
+- **Foto final:** se crea en el build de cierre del **23-nov 23:50**, con SHA-256, y no se sobrescribe después.
+- **Métrica:** MAE y sesgo de PP, PSOE, VOX, SUMAR, ERC, Junts y PNV; error del gap PP-PSOE y de los bloques PP+VOX / PSOE+SUMAR+Podemos. No se evalúan escaños.
+- **Página:** `/postelectoral.html`; pendiente hasta el escrutinio oficial.
+
 ## P0 3-nov-2026
 
 - **AVE:** reincorporado como contexto con fuente oficial del **112 de Castilla-La Mancha** (2-nov-2026): **69 fallecidos**, no 68. No entra en la media ni se usa para atribuir tendencia.
-- **Blackout 24–28 nov:** `scripts/blackout_switch.sh` corta a las **00:00**, retira agregados, JSON, encuestas de líderes/comportamiento y **todas las OG**; cron propio y simulación de staging probada.
+- **Blackout 24–28 nov:** `scripts/blackout_switch.sh` corta a las **00:00**, retira agregados, JSON, escenarios, análisis derivado, encuestas de líderes/comportamiento y **todas las OG**; cron propio y simulación de staging probada. La foto pre-electoral se congela antes, el **23-nov a las 23:50**.
 - **D'Hondt nacional:** fuera de la portada. Un distrito único de 350 escaños asignaba todo a cuatro partidos y producía «otros: 0»; `/hemiciclo.html` queda como material de método con aviso.
 - **Pesos:** topes de **25 % por casa** y **40 % por fuente cuando hay grupos suficientes**. Con pocas fuentes el tope puede no ser aplicable; la web publica la concentración observada (a 9-nov, Electomanía **71,3 %** de la fuente) y la muestra con aviso. Se mantiene una entrada por casa y oleada.
 - **Contador de días:** a 9-nov quedan **20 días al 29N** y **15 al blackout** (24-nov).
 - **Sin CIS:** columna de sensibilidad a **45 días** (incluye el CIS del 14/10 en la ventana de contraste, sin usarlo en el cálculo). La media principal no cambia.
 - **Gráfico duplicado:** retirado de «Agregado»; queda uno en «Evolución».
 - Auditoría completa y P1 pendiente: [`docs/AUDITORIA-20261103.md`](docs/AUDITORIA-20261103.md).
+
+## Escenarios: congelados y con límite declarado
+
+La página `/escenarios.html` mantiene la foto del **5-nov-2026** (12 sondeos,
+8 casas) y su aviso de swing uniforme. La auditoría **E0** detectó que el
+generador `seat_model.py`/`backtest.py` no está en el repositorio actual, así que
+el Monte Carlo no se puede reproducir ni actualizar sin reescribirlo. Hasta
+entonces no se publica una foto nueva ni se presenta el rango p10–p90 como
+probabilidad. Informe: [`docs/AUDITORIA-INCERTIDUMBRE-20261105.md`](docs/AUDITORIA-INCERTIDUMBRE-20261105.md).
 
 ## Fuentes y criterio de incorporación
 
@@ -61,7 +85,7 @@ credenciales no están en el repositorio.
 - `/en.html` — **resumen mínimo en inglés**: media, rango, límites, método, datos y enlaces. `hreflang` es/en; el resto del sitio sigue en español.
 - `/competitivas.html` — **52 provincias por margen oficial 2023** entre los dos primeros, con escaños, diferencia y participación. Contexto factual, no proyección.
 - `/mayorias.html` — **calculadora de mayorías** sobre el hemiciclo simulado: suma de escaños, umbral 176 y presets. No predice pactos ni investidura.
-- `/postelectoral.html` — **calibración post-electoral**: pendiente hasta el escrutinio; comparará media pre-electoral, resultado oficial, MAE, sesgo y escaños.
+- `/postelectoral.html` — **calibración post-electoral**: pendiente hasta el escrutinio; comparará media pre-electoral, resultado oficial, MAE, sesgo, partidos y bloques. No compara escaños.
 - `/embed/medias.html`, `/embed/robustez.html`, `/embed/hemiciclo.html` — **paneles incrustables** con atribución; ejemplos iframe en sus páginas y en `/fuentes.html`.
 - `/aviso.html` — **landing de avisos**: un correo solo cuando cambia la media o el hemiciclo; doble opt-in y baja en un clic.
 - `/prensa.html` — **kit de prensa**: titular canónico (media ponderada + rango), cifras, método, cita, contacto y enlaces a datos/embeds.
@@ -82,6 +106,7 @@ credenciales no están en el repositorio.
 
 - `data/latest.json` y `data/robustez.json`: agregado y robustez.
 - `data/status.json`: build, commit, fuentes y **hashes SHA-256** de los ficheros publicados.
+- `data/pre-registro.json`: métricas y reglas fijadas antes de la campaña, con corte de métricas y de datos.
 - `data/changelog.json`: historial de builds/datos (máximo 100 entradas).
 - `/data/v1/latest.json`, `/data/v1/robustez.json`, `/data/v1/status.json` y `/data/v1/schema.json`: contrato versionado y esquema.
 - `scripts/reproduce.sh`: reconstruye con el CSV y los datos actuales y devuelve los hashes. El cálculo es **determinista** (D’Hondt y ponderación); no usa semilla. Para reproducir un build histórico hay que congelar antes el CSV y los JSON de entrada.
