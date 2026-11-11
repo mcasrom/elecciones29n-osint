@@ -1,6 +1,6 @@
 {% set page_image = "/og-claves-29n.png" %}
 {% set page_title = "Claves del 29N · datos para leer sin pronóstico" %}
-{% set page_desc = "Cuatro datos para leer el 29N sin pronóstico: voto exterior, electores nuevos, votos que no llegan al escaño y estructura por edad." %}
+{% set page_desc = "Datos para leer el 29N sin pronóstico: voto exterior, electores nuevos, votos que no llegan al escaño y estructura por edad." %}
 {% set canonical = site_url ~ "/claves.html" %}
 {% set jsonld = claves_jsonld %}
 <!DOCTYPE html>
@@ -21,17 +21,18 @@
 .clave p{font-size:14.5px;color:var(--muted);margin:8px 0}
 .clave .src{font-size:12px;color:var(--faint);margin-top:auto;padding-top:12px}
 .barlist{display:grid;gap:9px;margin:10px 0 4px}
-.barrow{display:grid;grid-template-columns:92px 1fr 62px;gap:8px;align-items:center;font-size:12.5px;color:var(--muted)}
-.barrow .track{height:12px;border-radius:99px;background:color-mix(in oklab,var(--fg) 10%,transparent);overflow:hidden}
-.barrow .fill{height:100%;border-radius:99px;background:var(--accent)}
-.barrow .fill.teal{background:var(--accent2)}
-.barrow .val{text-align:right;color:var(--fg);font-weight:700;font-variant-numeric:tabular-nums}
+.barrow{display:grid;grid-template-columns:118px 1fr 76px;gap:10px;align-items:center;font-size:13px;color:var(--fg)}
+.barrow .track{height:16px;border-radius:99px;background:#e1e6ef;border:1px solid #d2d9e6;overflow:hidden;box-shadow:inset 0 1px 2px rgba(20,30,50,.08)}
+.barrow .fill{display:block;height:100%;min-width:5px;border-radius:99px;background:linear-gradient(90deg,#d94a12,#ff7a36 70%,#ffb078);box-shadow:0 0 0 1px rgba(217,74,18,.18) inset}
+.barrow .fill.teal{background:linear-gradient(90deg,#178a73,#3ddc97)}
+.barrow .val{text-align:right;color:var(--fg);font-weight:800;font-variant-numeric:tabular-nums}
 .clave .mini{font-size:12.5px;color:var(--faint);margin-top:8px}
 .clave .tag{display:inline-block;font-size:11px;border:1px solid var(--line);border-radius:999px;padding:2px 8px;color:var(--muted);margin:2px 4px 2px 0}
-.clave table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px}
-.clave th,.clave td{text-align:left;padding:5px 0;border-bottom:1px solid var(--line)}
+.clave table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px;table-layout:fixed}
+.clave th,.clave td{text-align:left;padding:5px 0;border-bottom:1px solid var(--line);vertical-align:top}
 .clave th{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
-.clave td.num{text-align:right;font-variant-numeric:tabular-nums}
+.clave th:first-child,.clave td:first-child{width:68%;overflow-wrap:anywhere}
+.clave th.num,.clave td.num{width:32%;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
 .clave .note{font-size:12.5px;color:var(--faint);border-left:2px solid var(--accent2);padding-left:10px;margin-top:10px}
 .claves-foot{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;margin:18px 0 30px}
 @media(max-width:760px){.claves-foot{grid-template-columns:1fr}}
@@ -42,7 +43,7 @@
 <main class="container">
   <section class="claves-hero">
     <p class="eyebrow">29N · Claves</p>
-    <h1>Cuatro datos para leer el 29N sin pronóstico.</h1>
+    <h1>Claves para leer el 29N sin pronóstico.</h1>
     <p>No son predicciones. Son puntos de partida: quién puede votar, dónde pesa el voto, qué voto no se convierte en escaño y cómo es el censo por edad. Cada dato lleva su límite.</p>
   </section>
 
@@ -81,10 +82,10 @@
       <h2>1,93 M de votos no eligieron escaño en su provincia.</h2>
       <div class="big">1.930.424 <small>7,82% de los votos válidos · 2023</small></div>
       <div class="barlist">
-        <div class="barrow"><span>Sin escaño provincial</span><div class="track"><i class="fill" style="width:7.82%"></i></div><span class="val">7,82%</span></div>
-        <div class="barrow"><span>Partidos sin escaño</span><div class="track"><i class="fill teal" style="width:2.46%"></i></div><span class="val">2,46%</span></div>
+        <div class="barrow"><span>Sin escaño provincial</span><div class="track"><i class="fill" style="width:100%"></i></div><span class="val">1.930.424</span></div>
+        <div class="barrow"><span>Partidos sin escaño</span><div class="track"><i class="fill teal" style="width:31.4%"></i></div><span class="val">606.450</span></div>
       </div>
-      <p>Son dos cifras distintas. La primera incluye votos a partidos que sí tienen escaño en otra provincia; la segunda es la más estricta: <strong>606.450 votos</strong> a candidaturas sin ningún escaño en el Congreso.</p>
+      <p>La primera barra es el total de votos que no eligieron escaño en su provincia (7,82 %); la segunda, los votos a partidos sin ningún escaño nacional (606.450; 2,46 %). La segunda cifra es la más estricta: <strong>606.450 votos</strong> a candidaturas sin ningún escaño en el Congreso.</p>
       <table>
         <thead><tr><th>Sin escaño nacional</th><th class="num">Votos</th></tr></thead>
         <tbody>

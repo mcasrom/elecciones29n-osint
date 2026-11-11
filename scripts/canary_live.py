@@ -149,7 +149,7 @@ def main() -> int:
         except Exception as e:
             errors.append(f"latest.json inválido: {e}")
 
-    for _path, _needle in (("/claves.html", "Cuatro datos"),
+    for _path, _needle in (("/claves.html", "Claves para leer"),
                            ("/glosario.html", "Glosario"),
                            ("/robustez.html", "Robustez del dato"),
                            ("/hemiciclo.html", "Simulación nacional de escaños"),

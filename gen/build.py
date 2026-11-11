@@ -2475,7 +2475,7 @@ def main(out: str = "web") -> None:
         "factores_jsonld": build_factores_jsonld(),
         "m4_jsonld": build_m4_jsonld(),
         "noche_jsonld": build_webpage_jsonld("Noche electoral 29N", "/noche-electoral.html", "Qué se publica, cuándo y con qué fuente."),
-        "claves_jsonld": build_webpage_jsonld("Claves del 29N", "/claves.html", "Cuatro datos para leer el 29N sin pronóstico: voto exterior, electores nuevos, voto sin escaño y estructura por edad."),
+        "claves_jsonld": build_webpage_jsonld("Claves del 29N", "/claves.html", "Datos para leer el 29N sin pronóstico: voto exterior, electores nuevos, voto sin escaño y estructura por edad."),
         "webpages": {
             "lideres.html": build_webpage_jsonld("Valoración de líderes", "/lideres.html", "Valoración 1–10 de cuatro líderes según el CIS de octubre de 2026. Una sola casa y una sola ola."),
             "candidatos.html": build_webpage_jsonld("Candidatos y cabezas de lista", "/candidatos.html", "Cabezas de lista proclamados BOE/JEC y menciones en titulares, 24 h y 7 días. No es intención de voto."),
