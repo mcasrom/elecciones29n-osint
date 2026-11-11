@@ -18,7 +18,7 @@ sys.path.insert(0, ROOT)
 from metrics import moving_average, series_span  # noqa: E402
 
 REQUIRED = [
-    "index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html",
+    "index.html", "claves.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html",
     "robots.txt", "sitemap.xml", "llms.txt", "favicon.svg",
     "cambios.xml", "data/latest.json", "data/robustez.json", "css/main.css", "glosario.html", "robustez.html", "hemiciclo.html", "como-leer.html", "novedades.html",
     "electorado.html", "data/censo-2026.json", "data/censo-provincias.csv",
@@ -26,7 +26,7 @@ REQUIRED = [
     "territorio.html", "mi-circunscripcion.html", "data/escanos-2026.json", "data/escanos-2026.csv",
     "circunscripciones.html", "data/congreso-oficial.json", "circunscripcion/madrid.html",
     "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "competitivas.html", "mayorias.html", "postelectoral.html", "incrustar.html", "aviso.html", "prensa.html", "en.html", "embed/medias.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html", "en/post-election.html", "embed/robustez.html", "embed/hemiciclo.html",
-    "manifest.webmanifest", "sw.js", "icons/icon-192.png", "icons/icon-512.png",
+    "og-claves-29n.png", "manifest.webmanifest", "sw.js", "icons/icon-192.png", "icons/icon-512.png",
     "factores.html", "comportamiento.html", "version.json", "favicon.ico",
     "data/participacion-provincial.json", "data/resultados-2023.csv", "data/status.json", "data/changelog.json", "data/v1/latest.json", "data/v1/robustez.json", "data/v1/status.json",
     "data/m5-results.json", "data/cis-m4-2026.json", "data/cis-m4-2023.csv", "og/provincia-madrid.png",
@@ -38,7 +38,7 @@ def validate_blackout(d: str) -> int:
     errors: list[str] = []
     warns: list[str] = []
     required = [
-        "index.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html",
+        "index.html", "claves.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html",
         "glosario.html", "electorado.html", "participacion.html", "territorio.html",
         "circunscripciones.html", "noche-electoral.html", "factores.html",
         "como-leer.html", "hemiciclo.html", "apoyo.html", "sobre-mi.html", "privacidad.html",

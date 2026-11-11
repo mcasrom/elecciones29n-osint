@@ -57,6 +57,7 @@ BLACKOUT_SITEMAP = [
 ]
 
 PAGES = [
+    ("claves.html", "claves.html", "2026-11-11", "weekly", "0.9"),
     ("index.html", "", "2026-10-17", "daily", "1.0"),
     ("hemiciclo.html", "hemiciclo.html", "2026-10-23", "daily", "0.8"),
     ("metodologia.html", "metodologia.html", "2026-10-17", "monthly", "0.8"),
@@ -2238,6 +2239,9 @@ def main(out: str = "web") -> None:
         return
     _remove_if_exists("data/blackout.json")
     ensure_dirs()
+    _claves_og = ROOT / "gen" / "og-claves-29n.png"
+    if _claves_og.exists():
+        shutil.copyfile(_claves_og, os.path.join(OUT, "og-claves-29n.png"))
     write_css()
     write_js()
     write_robots()
@@ -2471,6 +2475,7 @@ def main(out: str = "web") -> None:
         "factores_jsonld": build_factores_jsonld(),
         "m4_jsonld": build_m4_jsonld(),
         "noche_jsonld": build_webpage_jsonld("Noche electoral 29N", "/noche-electoral.html", "Qué se publica, cuándo y con qué fuente."),
+        "claves_jsonld": build_webpage_jsonld("Claves del 29N", "/claves.html", "Cuatro datos para leer el 29N sin pronóstico: voto exterior, electores nuevos, voto sin escaño y estructura por edad."),
         "webpages": {
             "lideres.html": build_webpage_jsonld("Valoración de líderes", "/lideres.html", "Valoración 1–10 de cuatro líderes según el CIS de octubre de 2026. Una sola casa y una sola ola."),
             "candidatos.html": build_webpage_jsonld("Candidatos y cabezas de lista", "/candidatos.html", "Cabezas de lista proclamados BOE/JEC y menciones en titulares, 24 h y 7 días. No es intención de voto."),
@@ -2541,7 +2546,7 @@ def main(out: str = "web") -> None:
         "share_url": SITE_URL + "/",
     }
 
-    for tname in ["index.html", "hemiciclo.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "lideres.html", "participacion.html", "territorio.html",
+    for tname in ["claves.html", "index.html", "hemiciclo.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "lideres.html", "participacion.html", "territorio.html",
              "circunscripciones.html", "mi-circunscripcion.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html", "competitivas.html", "gobernabilidad.html", "escenarios.html", "mayorias.html", "postelectoral.html", "candidatos.html", "dirigentes.html", "incrustar.html", "aviso.html", "prensa.html", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html", "en/post-election.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(current=tname, **context)

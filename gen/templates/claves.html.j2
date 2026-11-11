@@ -1,0 +1,138 @@
+{% set page_image = "/og-claves-29n.png" %}
+{% set page_title = "Claves del 29N · datos para leer sin pronóstico" %}
+{% set page_desc = "Cuatro datos para leer el 29N sin pronóstico: voto exterior, electores nuevos, votos que no llegan al escaño y estructura por edad." %}
+{% set canonical = site_url ~ "/claves.html" %}
+{% set jsonld = claves_jsonld %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+<style>
+.claves-hero{padding:22px 0 6px}
+.claves-hero h1{font-size:clamp(32px,5vw,50px);line-height:1.02;margin:0;letter-spacing:-.04em}
+.claves-hero p{max-width:68ch;color:var(--muted);font-size:17px;margin:12px 0 0}
+.clavegrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:20px 0}
+@media(max-width:820px){.clavegrid{grid-template-columns:1fr}}
+.clave{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:16px;padding:20px;min-height:300px;display:flex;flex-direction:column}
+.clave .kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2);font-weight:800;margin:0 0 8px}
+.clave h2{font-size:22px;line-height:1.15;margin:0 0 12px;letter-spacing:-.02em}
+.clave .big{font-size:clamp(34px,5vw,48px);line-height:1;font-weight:900;letter-spacing:-.04em;margin:2px 0 6px}
+.clave .big small{font-size:14px;font-weight:600;letter-spacing:0;color:var(--muted);display:block;margin-top:6px}
+.clave p{font-size:14.5px;color:var(--muted);margin:8px 0}
+.clave .src{font-size:12px;color:var(--faint);margin-top:auto;padding-top:12px}
+.barlist{display:grid;gap:9px;margin:10px 0 4px}
+.barrow{display:grid;grid-template-columns:92px 1fr 62px;gap:8px;align-items:center;font-size:12.5px;color:var(--muted)}
+.barrow .track{height:12px;border-radius:99px;background:color-mix(in oklab,var(--fg) 10%,transparent);overflow:hidden}
+.barrow .fill{height:100%;border-radius:99px;background:var(--accent)}
+.barrow .fill.teal{background:var(--accent2)}
+.barrow .val{text-align:right;color:var(--fg);font-weight:700;font-variant-numeric:tabular-nums}
+.clave .mini{font-size:12.5px;color:var(--faint);margin-top:8px}
+.clave .tag{display:inline-block;font-size:11px;border:1px solid var(--line);border-radius:999px;padding:2px 8px;color:var(--muted);margin:2px 4px 2px 0}
+.clave table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px}
+.clave th,.clave td{text-align:left;padding:5px 0;border-bottom:1px solid var(--line)}
+.clave th{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.clave td.num{text-align:right;font-variant-numeric:tabular-nums}
+.clave .note{font-size:12.5px;color:var(--faint);border-left:2px solid var(--accent2);padding-left:10px;margin-top:10px}
+.claves-foot{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;margin:18px 0 30px}
+@media(max-width:760px){.claves-foot{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="container">
+  <section class="claves-hero">
+    <p class="eyebrow">29N · Claves</p>
+    <h1>Cuatro datos para leer el 29N sin pronóstico.</h1>
+    <p>No son predicciones. Son puntos de partida: quién puede votar, dónde pesa el voto, qué voto no se convierte en escaño y cómo es el censo por edad. Cada dato lleva su límite.</p>
+  </section>
+
+  <div class="clavegrid">
+    <article class="clave">
+      <p class="kicker">01 · Voto exterior</p>
+      <h2>El exterior no es un bloque: es una abstención enorme.</h2>
+      <div class="big">{{ fmt_miles(censo.cera) }} <small>con derecho a voto desde el extranjero</small></div>
+      <div class="barlist">
+        <div class="barrow"><span>Exterior 2023</span><div class="track"><i class="fill" style="width:{{ (cera_2023.participacion or 0) }}%"></i></div><span class="val">{{ fmt_pct(cera_2023.participacion) }}%</span></div>
+        <div class="barrow"><span>Interior 2023</span><div class="track"><i class="fill teal" style="width:70.41%"></i></div><span class="val">70,41%</span></div>
+      </div>
+      <p>Solo <strong>{{ fmt_miles(cera_2023.votantes) }}</strong> votaron en 2023: el <strong>{{ fmt_pct(cera_2023.participacion) }}%</strong>. El voto exterior no es un bloque homogéneo ni una previsión.</p>
+      <p class="note"><strong>Asturias:</strong> 8.766 votos CERA frente a un margen PP-PSOE de 7.767 en 2023. Es el ejemplo de dónde el exterior puede pesar; no dice a quién votará en 2026.</p>
+      <p class="src">Fuente: INE / Ministerio del Interior · CERA 2023. <a href="/electorado.html">Ver censo completo →</a></p>
+    </article>
+
+    <article class="clave">
+      <p class="kicker">02 · Electores nuevos</p>
+      <h2>1,6 M de electores nuevos. En 24 provincias pesan más que el margen del 23-J.</h2>
+      <div class="big">{{ fmt_miles(censo.nuevos_desde_2023) }} <small>nuevos electores desde 2023</small></div>
+      <div class="barlist">
+        {% set np = censo.nuevos_provincia[:5] %}
+        {% set nmax = np[0].desde_2023 if np else 1 %}
+        {% for p in np %}
+        <div class="barrow"><span>{{ p.nombre|replace(' / ', '/') }}</span><div class="track"><i class="fill" style="width:{{ (p.desde_2023 / nmax * 100)|round(1) }}%"></i></div><span class="val">{{ fmt_miles(p.desde_2023) }}</span></div>
+        {% endfor %}
+      </div>
+      <p><strong>CIS 2023 (18–24):</strong> PSOE 42,0% · VOX 18,2% · PP 14,0% · SUMAR 10,7%. Es <strong>recuerdo de voto</strong>, no intención de voto 2026.</p>
+      <p class="note">Nuevos electores no significa nuevos votantes. Que un bloque supere un margen histórico no implica que vote ni a quién.</p>
+      <p class="src">Fuente: INE · CIS 3582 (2023) · <a href="/electorado.html">Ver nuevos electores →</a></p>
+    </article>
+
+    <article class="clave">
+      <p class="kicker">03 · Voto sin escaño</p>
+      <h2>1,93 M de votos no eligieron escaño en su provincia.</h2>
+      <div class="big">1.930.424 <small>7,82% de los votos válidos · 2023</small></div>
+      <div class="barlist">
+        <div class="barrow"><span>Sin escaño provincial</span><div class="track"><i class="fill" style="width:7.82%"></i></div><span class="val">7,82%</span></div>
+        <div class="barrow"><span>Partidos sin escaño</span><div class="track"><i class="fill teal" style="width:2.46%"></i></div><span class="val">2,46%</span></div>
+      </div>
+      <p>Son dos cifras distintas. La primera incluye votos a partidos que sí tienen escaño en otra provincia; la segunda es la más estricta: <strong>606.450 votos</strong> a candidaturas sin ningún escaño en el Congreso.</p>
+      <table>
+        <thead><tr><th>Sin escaño nacional</th><th class="num">Votos</th></tr></thead>
+        <tbody>
+          <tr><td>PACMA</td><td class="num">169.237</td></tr>
+          <tr><td>CUP-PR</td><td class="num">99.644</td></tr>
+          <tr><td>FO</td><td class="num">46.274</td></tr>
+          <tr><td>NC-bc</td><td class="num">45.595</td></tr>
+          <tr><td>PDeCAT-E-CiU</td><td class="num">32.016</td></tr>
+        </tbody>
+      </table>
+      <p class="src">Fuente: resultados oficiales 23-J. No es “voto tirado”: no todos los votos valen lo mismo en el reparto provincial. <a href="/territorio.html">Ver territorio →</a></p>
+    </article>
+
+    <article class="clave">
+      <p class="kicker">04 · Edad y censo</p>
+      <h2>El grupo más numeroso no es el más joven.</h2>
+      <div class="big">3,55 M <small>personas de 50 a 54 años en el censo</small></div>
+      <div class="barlist">
+        {% set ages = censo.edad_sexo|sort(attribute='total', reverse=true) %}
+        {% set amax = ages[0].total if ages else 1 %}
+        {% for g in ages[:6] %}
+        <div class="barrow"><span>{{ g.grupo }}</span><div class="track"><i class="fill" style="width:{{ (g.total / amax * 100)|round(1) }}%"></i></div><span class="val">{{ fmt_miles(g.total) }}</span></div>
+        {% endfor %}
+      </div>
+      <p>El censo está envejecido en su parte alta: los grupos de 45 a 64 años concentran el mayor volumen. Los jóvenes pesan menos en el total, pero no por ello dejan de ser decisivos en provincias ajustadas.</p>
+      <p class="note"><strong>Ojo:</strong> tamaño del grupo ≠ participación ≠ intención de voto. La edad no decide sola.</p>
+      <p class="src">Fuente: INE · censo 2026. <a href="/electorado.html">Ver distribución por edad →</a></p>
+    </article>
+  </div>
+
+  <div class="claves-foot">
+    <div class="card">
+      <div class="cardhead"><h2>Qué no dicen estos datos</h2><span class="hint">límites</span></div>
+      <ul class="muted small">
+        <li>No son un pronóstico del 29N.</li>
+        <li>El voto exterior y los nuevos electores no votan necesariamente.</li>
+        <li>“Sin escaño en la provincia” no es lo mismo que “partido sin representación”.</li>
+        <li>La estructura por edad no mide intención ni participación.</li>
+        <li>Los datos de 2023 no se trasladan mecánicamente a 2026.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="cardhead"><h2>Cómo leerlo</h2><span class="hint">método</span></div>
+      <p class="muted small">Cada tarjeta enlaza a la página de datos que la sostiene. Las cifras son históricas y oficiales; las lecturas son descriptivas.</p>
+      <p><a class="btn" href="/electorado.html">Electorado</a> <a class="btn" href="/territorio.html">Territorio</a> <a class="btn" href="/como-leer.html">Cómo leer</a></p>
+    </div>
+  </div>
+</main>
+{% include "_footer.html.j2" %}
+</body>
+</html>
