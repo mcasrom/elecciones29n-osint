@@ -91,7 +91,7 @@ credenciales no están en el repositorio.
 - `/aviso.html` — **landing de avisos**: un correo solo cuando cambia la media o el hemiciclo; doble opt-in y baja en un clic.
 - `/prensa.html` — **kit de prensa**: titular canónico (media ponderada + rango), cifras, método, cita, contacto y enlaces a datos/embeds.
 - `/electorado.html` — Censo 29N: total, CER/CERA, edad y sexo, provincias y nuevos electores.
-- `/claves.html` — **seis tarjetas** para leer el 29N sin pronóstico: voto exterior, electores nuevos, voto sin escaño, edad, **electores por escaño** y **CERA/nuevos electores frente al margen del último escaño de 2023**. La sección «Estructura del sistema» separa el coste de escaño del voto ponderado y no proyecta 2026.
+- `/claves.html` — **seis tarjetas** para leer el 29N sin pronóstico: voto exterior, electores nuevos, voto sin escaño, edad, **electores por escaño** y **CERA/nuevos electores frente al margen del último escaño de 2023**. La sección «Estructura del sistema» separa el coste de escaño del voto ponderado y no proyecta 2026. La tarjeta 05 tiene OG propia (`og-claves-malapportionment.png`) para difusión.
 - `/participacion.html` — Participación nacional 1979–2023 y **provincial 1977–2023** (selector + comparación con la media nacional).
 - `/territorio.html` — 350 escaños, 52 circunscripciones, electores por escaño y **votos↔escaños 2023 con índice de Gallagher**.
 - `/mi-circunscripcion.html` — **buscador municipio → provincia**: escaños, censo, participación y resultado de 2023. No hay media provincial inventada; enlaza a la ficha y a la calculadora D'Hondt.
