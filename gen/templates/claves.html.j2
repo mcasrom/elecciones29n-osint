@@ -26,6 +26,7 @@
 .barrow .fill{display:block;height:100%;min-width:5px;border-radius:99px;background:linear-gradient(90deg,#d94a12,#ff7a36 70%,#ffb078);box-shadow:0 0 0 1px rgba(217,74,18,.18) inset}
 .barrow .fill.teal{background:linear-gradient(90deg,#178a73,#3ddc97)}
 .barrow .val{text-align:right;color:var(--fg);font-weight:800;font-variant-numeric:tabular-nums}
+.barrow small{display:block;font-size:10px;color:var(--faint);font-weight:500;line-height:1.2}
 .clave .mini{font-size:12.5px;color:var(--faint);margin-top:8px}
 .clave .tag{display:inline-block;font-size:11px;border:1px solid var(--line);border-radius:999px;padding:2px 8px;color:var(--muted);margin:2px 4px 2px 0}
 .clave table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px;table-layout:fixed;min-width:0}
@@ -135,21 +136,22 @@
         {{ escanos_gap_chart|safe }}
         <p>La LOREG asigna un mínimo de dos escaños por provincia. Eso protege la representación territorial, pero hace que el número de electores necesario para elegir un diputado varíe mucho.</p>
         <p class="note"><strong>Ojo:</strong> no es un voto ponderado ni “un voto vale 4,1”. Es el <strong>coste de escaño</strong>: electores censados por escaño asignado.</p>
+        <p class="mini">Media nacional: <strong>{{ fmt_miles(escanos_kpis.media) }}</strong> electores por escaño. <strong>{{ escanos_kpis.low80 }} escaños</strong> ({{ '%.1f'|format(escanos_kpis.low80_pct)|replace('.', ',') }}%) se eligen con menos de 80.000 electores.</p>
         <p class="src">Fuente: INE · censo 2026 · RD 806/2026. <a href="/territorio.html">Ver territorio →</a></p>
       </article>
 
       <article class="clave">
         <p class="kicker">06 · CERA y nuevos electores</p>
-        <h2>En {{ estructura_claves.both }} provincias, CERA y nuevos electores superan el margen PP-PSOE de 2023.</h2>
-        <div class="big">{{ estructura_claves.both }} <small>provincias donde ambos superan el margen de 2023</small></div>
+        <h2>En {{ estructura_claves.both }} provincias, CERA y nuevos electores superan el margen del último escaño de 2023.</h2>
+        <div class="big">{{ estructura_claves.both }} <small>provincias donde ambos superan el margen del último escaño</small></div>
         <div class="barlist">
           {% for r in estructura_claves.top %}
-          <div class="barrow"><span>{{ r.name|replace(' / ', '/') }}</span><div class="track"><i class="fill" style="width:{{ (r.new_ratio / estructura_claves.top_max * 100)|round(1) }}%"></i></div><span class="val">{{ '%.1f'|format(r.new_ratio)|replace('.', ',') }}×</span></div>
+          <div class="barrow"><span>{{ r.name|replace(' / ', '/') }}<small>margen {{ fmt_miles(r.margin) }}</small></span><div class="track"><i class="fill" style="width:{{ (r.new_ratio / estructura_claves.top_max * 100)|round(1) }}%"></i></div><span class="val">{{ '%.1f'|format(r.new_ratio)|replace('.', ',') }}×</span></div>
           {% endfor %}
         </div>
-        <p>El CERA supera ese margen en <strong>{{ estructura_claves.cera_over }}</strong> provincias; los nuevos electores, en <strong>{{ estructura_claves.new_over }}</strong>. Aquí se muestran las que cumplen ambas condiciones; la barra indica cuántas veces los nuevos electores superan el margen.</p>
-        <p class="note"><strong>No es un pronóstico:</strong> CERA y nuevos electores son censo, no votos. Superar un margen no implica votar ni decidir el escaño.</p>
-        <p class="src">Fuente: INE · censo 2026 · Ministerio del Interior · 23-J. <a href="/electorado.html">Ver electorado →</a></p>
+        <p>El CERA supera ese margen en <strong>{{ estructura_claves.cera_over }}</strong> provincias; los nuevos electores, en <strong>{{ estructura_claves.new_over }}</strong>. Aquí se muestran las que cumplen ambas condiciones ({{ estructura_claves.both }} de {{ estructura_claves.n_margin }} con margen calculable); la barra indica cuántas veces los nuevos electores superan el margen.</p>
+        <p class="note"><strong>No es un pronóstico:</strong> el margen es el del <strong>último escaño</strong> de 2023 (D'Hondt), no la diferencia PP-PSOE. CERA y nuevos electores son censo, no votos; superar un margen no implica votar ni decidir el escaño.</p>
+        <p class="src">Fuente: INE · censo 2026 · Ministerio del Interior · D'Hondt 23-J. <a href="/electorado.html">Ver electorado →</a></p>
       </article>
     </div>
   </section>

@@ -3,6 +3,7 @@ import os
 import re
 import unittest
 
+from gen import circunscripciones
 from gen.build import build_chart, build_claves_estructura, build_escanos_gap_chart, build_hemicycle, build_hemicycle_svg, simulate_congress
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -57,8 +58,9 @@ class BuildTest(unittest.TestCase):
     def test_claves_estructura_calcula_margenes(self):
         censo = json.load(open(os.path.join(ROOT, "data", "censo_2026.json"), encoding="utf-8"))
         escanos = json.load(open(os.path.join(ROOT, "data", "escanos_2026.json"), encoding="utf-8"))
-        congreso = json.load(open(os.path.join(ROOT, "data", "congreso.json"), encoding="utf-8"))
-        out = build_claves_estructura(congreso, censo, escanos)
+        oficial = json.load(open(os.path.join(ROOT, "data", "congreso-oficial.json"), encoding="utf-8"))
+        pages = circunscripciones.build_pages(oficial, escanos, censo)
+        out = build_claves_estructura(pages, censo, escanos)
         self.assertGreater(out["gap_ratio"], 4)
         self.assertGreaterEqual(out["both"], 1)
         self.assertLessEqual(len(out["top"]), 5)

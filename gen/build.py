@@ -1456,19 +1456,18 @@ def build_escanos_gap_chart(provincias: list) -> str:
     return "".join(parts)
 
 
-def build_claves_estructura(congreso: dict, censo: dict, escanos: dict) -> dict:
-    """Datos de la tarjeta 06: CERA y nuevos electores frente al margen PP-PSOE 2023."""
-    provs = ((congreso.get("elecciones", {}) or {}).get("2023-07-23", {}) or {}).get("provincias", []) or []
+def build_claves_estructura(circ_pages: list, censo: dict, escanos: dict) -> dict:
+    """Datos de la tarjeta 06: CERA y nuevos electores frente al margen del último escaño."""
     cera = {_norm_provincia(p.get("nombre")): p.get("cera", 0) for p in censo.get("provincias", [])}
     nuevos = {_norm_provincia(p.get("nombre")): p.get("desde_2023", 0) for p in censo.get("nuevos_provincia", [])}
     rows = []
-    for p in provs:
+    for p in circ_pages:
         key = _norm_provincia(p.get("nombre"))
         if key not in cera or key not in nuevos:
             continue
-        votes = p.get("votos", {}) or {}
-        margin = abs(votes.get("PP", 0) - votes.get("PSOE", 0))
-        if margin <= 0:
+        marginal = ((p.get("marginales") or {}).get("2023-07-23") or {})
+        margin = marginal.get("margen_votos")
+        if margin is None or margin <= 0:
             continue
         rows.append({
             "name": p.get("nombre"),
@@ -1484,6 +1483,7 @@ def build_claves_estructura(congreso: dict, censo: dict, escanos: dict) -> dict:
     gap_min = ep[0] if ep else None
     gap_max = ep[-1] if ep else None
     return {
+        "n_margin": len(rows),
         "both": len(both),
         "cera_over": sum(1 for r in rows if r["cera"] > r["margin"]),
         "new_over": sum(1 for r in rows if r["new"] > r["margin"]),
@@ -2597,13 +2597,15 @@ def main(out: str = "web") -> None:
         "prov_2023": (prov_part.get("elecciones", {}).get("2023-07-23", {}).get("provincias", [])),
         "escanos_chart": build_escanos_chart(escanos.get("provincias", [])),
         "escanos_gap_chart": build_escanos_gap_chart(escanos.get("provincias", [])),
-        "estructura_claves": build_claves_estructura(congreso, censo, escanos),
+        "estructura_claves": build_claves_estructura(circ_pages, censo, escanos),
         "escanos_kpis": {
             "total": escanos.get("total_escanos", 0),
             "n": len(escanos.get("provincias", [])),
             "media": round(sum(p["electores"] for p in escanos.get("provincias", [])) / max(1, escanos.get("total_escanos", 1)), 0),
             "min": min(escanos.get("provincias", []), key=lambda p: p["electores_por_escanos"]) if escanos.get("provincias") else None,
             "max": max(escanos.get("provincias", []), key=lambda p: p["electores_por_escanos"]) if escanos.get("provincias") else None,
+            "low80": sum(p["escanos"] for p in escanos.get("provincias", []) if p["electores_por_escanos"] < 80000),
+            "low80_pct": round(100 * sum(p["escanos"] for p in escanos.get("provincias", []) if p["electores_por_escanos"] < 80000) / max(1, escanos.get("total_escanos", 1)), 1),
         },
         "days_to_election": latest.get("days_to_election", 0),
         "days_to_blackout": latest.get("days_to_blackout", 0),
