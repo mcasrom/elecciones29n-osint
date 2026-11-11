@@ -1,6 +1,6 @@
 {% set page_image = "/og-claves-29n.png" %}
 {% set page_title = "Claves del 29N · datos para leer sin pronóstico" %}
-{% set page_desc = "Datos para leer el 29N sin pronóstico: voto exterior, electores nuevos, votos que no llegan al escaño y estructura por edad." %}
+{% set page_desc = "Datos para leer el 29N sin pronóstico: voto exterior, electores nuevos, voto sin escaño, edad y estructura del sistema (electores por escaño y márgenes)." %}
 {% set canonical = site_url ~ "/claves.html" %}
 {% set jsonld = claves_jsonld %}
 <!DOCTYPE html>
@@ -34,6 +34,11 @@
 .clave th:first-child,.clave td:first-child{width:68%;overflow-wrap:anywhere}
 .clave th.num,.clave td.num{width:32%;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;padding-right:14px}
 .clave .note{font-size:12.5px;color:var(--faint);border-left:2px solid var(--accent2);padding-left:10px;margin-top:10px}
+.claves-seccion{margin:34px 0 6px}
+.claves-seccion-head{border-top:1px solid var(--line);padding-top:24px;margin-bottom:14px}
+.claves-seccion-head h2{font-size:clamp(24px,3vw,34px);line-height:1.08;letter-spacing:-.03em;margin:4px 0 6px}
+.claves-seccion-head p{max-width:70ch;color:var(--muted);font-size:15px;margin:0}
+.clave .chart{margin:8px 0 2px;max-width:100%}
 .claves-foot{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;margin:18px 0 30px}
 @media(max-width:760px){.claves-foot{grid-template-columns:1fr}}
 </style>
@@ -44,7 +49,7 @@
   <section class="claves-hero">
     <p class="eyebrow">29N · Claves</p>
     <h1>Claves para leer el 29N sin pronóstico.</h1>
-    <p>No son predicciones. Son puntos de partida: quién puede votar, dónde pesa el voto, qué voto no se convierte en escaño y cómo es el censo por edad. Cada dato lleva su límite.</p>
+    <p>No son predicciones. Son puntos de partida: quién puede votar, dónde pesa el voto, qué voto no se convierte en escaño, cómo es el censo por edad y cuánto cuesta un escaño según la provincia. Cada dato lleva su límite.</p>
   </section>
 
   <div class="clavegrid">
@@ -96,7 +101,7 @@
           <tr><td>PDeCAT-E-CiU</td><td class="num">32.016</td></tr>
         </tbody>
       </table>
-      <p class="src">Fuente: resultados oficiales 23-J. No es “voto tirado”: no todos los votos valen lo mismo en el reparto provincial. <a href="/territorio.html">Ver territorio →</a></p>
+      <p class="src">Fuente: resultados oficiales 23-J. No es “voto tirado”: no todos los votos valen lo mismo en el reparto provincial. <a href="https://analisis.pruebapublica.com/posts/voto-sin-escanio-2023/?utm_source=29n&utm_medium=crosspromo&utm_campaign=claves">Análisis provincial completo →</a> · <a href="/territorio.html">Ver territorio →</a></p>
     </article>
 
     <article class="clave">
@@ -115,6 +120,39 @@
       <p class="src">Fuente: INE · censo 2026. <a href="/electorado.html">Ver distribución por edad →</a></p>
     </article>
   </div>
+
+  <section class="claves-seccion" aria-labelledby="estructura-title">
+    <div class="claves-seccion-head">
+      <p class="eyebrow">Estructura del sistema</p>
+      <h2 id="estructura-title">El coste de un escaño no es igual en todas las provincias.</h2>
+      <p>Dos capas distintas: el coste de un escaño según el censo y la relación entre los márgenes de 2023, el voto exterior y los electores nuevos. Son datos históricos; no son una proyección del 29N.</p>
+    </div>
+    <div class="clavegrid">
+      <article class="clave">
+        <p class="kicker">05 · Electores por escaño</p>
+        <h2>Un escaño en Teruel cuesta 4,1 veces menos electores que en Madrid.</h2>
+        <div class="big">{{ '%.1f'|format(estructura_claves.gap_ratio)|replace('.', ',') }}× <small>electores por escaño: {{ estructura_claves.gap_min.nombre }} {{ fmt_miles(estructura_claves.gap_min.electores_por_escanos) }} · {{ estructura_claves.gap_max.nombre }} {{ fmt_miles(estructura_claves.gap_max.electores_por_escanos) }}</small></div>
+        {{ escanos_gap_chart|safe }}
+        <p>La LOREG asigna un mínimo de dos escaños por provincia. Eso protege la representación territorial, pero hace que el número de electores necesario para elegir un diputado varíe mucho.</p>
+        <p class="note"><strong>Ojo:</strong> no es un voto ponderado ni “un voto vale 4,1”. Es el <strong>coste de escaño</strong>: electores censados por escaño asignado.</p>
+        <p class="src">Fuente: INE · censo 2026 · RD 806/2026. <a href="/territorio.html">Ver territorio →</a></p>
+      </article>
+
+      <article class="clave">
+        <p class="kicker">06 · CERA y nuevos electores</p>
+        <h2>En {{ estructura_claves.both }} provincias, CERA y nuevos electores superan el margen PP-PSOE de 2023.</h2>
+        <div class="big">{{ estructura_claves.both }} <small>provincias donde ambos superan el margen de 2023</small></div>
+        <div class="barlist">
+          {% for r in estructura_claves.top %}
+          <div class="barrow"><span>{{ r.name|replace(' / ', '/') }}</span><div class="track"><i class="fill" style="width:{{ (r.new_ratio / estructura_claves.top_max * 100)|round(1) }}%"></i></div><span class="val">{{ '%.1f'|format(r.new_ratio)|replace('.', ',') }}×</span></div>
+          {% endfor %}
+        </div>
+        <p>El CERA supera ese margen en <strong>{{ estructura_claves.cera_over }}</strong> provincias; los nuevos electores, en <strong>{{ estructura_claves.new_over }}</strong>. Aquí se muestran las que cumplen ambas condiciones; la barra indica cuántas veces los nuevos electores superan el margen.</p>
+        <p class="note"><strong>No es un pronóstico:</strong> CERA y nuevos electores son censo, no votos. Superar un margen no implica votar ni decidir el escaño.</p>
+        <p class="src">Fuente: INE · censo 2026 · Ministerio del Interior · 23-J. <a href="/electorado.html">Ver electorado →</a></p>
+      </article>
+    </div>
+  </section>
 
   <div class="claves-foot">
     <div class="card">

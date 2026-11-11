@@ -7,6 +7,7 @@ import json
 import math
 import os
 import shutil
+import unicodedata
 from datetime import datetime
 from pathlib import Path
 
@@ -1415,6 +1416,85 @@ def build_escanos_chart(provincias: list) -> str:
     return "".join(parts)
 
 
+def _norm_provincia(s: str) -> str:
+    s = unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode().lower()
+    s = s.replace("/", " ").replace("-", " ")
+    return " ".join(s.split())
+
+
+def build_escanos_gap_chart(provincias: list) -> str:
+    """Barras de los extremos de electores por escaño (no es voto ponderado)."""
+    if not provincias:
+        return ""
+    rows = sorted(provincias, key=lambda p: p["electores_por_escanos"])
+    small, large = rows[:4], rows[-4:][::-1]
+    selected = small + large
+    W, row_h, pad_l, pad_r, pad_t = 760, 27, 122, 82, 12
+    H = pad_t + row_h * len(selected) + 4
+    vmax = max(p["electores_por_escanos"] for p in selected) or 1
+    scale = (W - pad_l - pad_r) / vmax
+    parts = [
+        f'<svg class="chart" viewBox="0 0 {W} {H}" role="img" '
+        'aria-label="Electores por escaño: extremos provinciales">'
+    ]
+    for i, p in enumerate(selected):
+        y = pad_t + i * row_h
+        w = max(4.0, p["electores_por_escanos"] * scale)
+        color = "#ff5a1f" if p in large else "#3ddc97"
+        parts.append(
+            f'<text x="{pad_l-6}" y="{y+12}" text-anchor="end" fill="var(--muted)" font-size="10">'
+            f'{p["nombre"][:19]}</text>'
+        )
+        parts.append(
+            f'<rect x="{pad_l}" y="{y+3}" width="{w:.1f}" height="11" rx="2" fill="{color}" opacity="0.86"/>'
+        )
+        parts.append(
+            f'<text x="{pad_l+w+6:.1f}" y="{y+12}" fill="var(--muted)" font-size="9.5">'
+            f'{fmt_miles(p["electores_por_escanos"])}</text>'
+        )
+    parts.append("</svg>")
+    return "".join(parts)
+
+
+def build_claves_estructura(congreso: dict, censo: dict, escanos: dict) -> dict:
+    """Datos de la tarjeta 06: CERA y nuevos electores frente al margen PP-PSOE 2023."""
+    provs = ((congreso.get("elecciones", {}) or {}).get("2023-07-23", {}) or {}).get("provincias", []) or []
+    cera = {_norm_provincia(p.get("nombre")): p.get("cera", 0) for p in censo.get("provincias", [])}
+    nuevos = {_norm_provincia(p.get("nombre")): p.get("desde_2023", 0) for p in censo.get("nuevos_provincia", [])}
+    rows = []
+    for p in provs:
+        key = _norm_provincia(p.get("nombre"))
+        if key not in cera or key not in nuevos:
+            continue
+        votes = p.get("votos", {}) or {}
+        margin = abs(votes.get("PP", 0) - votes.get("PSOE", 0))
+        if margin <= 0:
+            continue
+        rows.append({
+            "name": p.get("nombre"),
+            "cera": cera[key],
+            "new": nuevos[key],
+            "margin": margin,
+            "cera_ratio": cera[key] / margin,
+            "new_ratio": nuevos[key] / margin,
+        })
+    both = [r for r in rows if r["cera"] > r["margin"] and r["new"] > r["margin"]]
+    top = sorted(both, key=lambda r: r["new_ratio"], reverse=True)[:5]
+    ep = sorted(escanos.get("provincias", []) or [], key=lambda p: p["electores_por_escanos"])
+    gap_min = ep[0] if ep else None
+    gap_max = ep[-1] if ep else None
+    return {
+        "both": len(both),
+        "cera_over": sum(1 for r in rows if r["cera"] > r["margin"]),
+        "new_over": sum(1 for r in rows if r["new"] > r["margin"]),
+        "top": top,
+        "top_max": max((r["new_ratio"] for r in top), default=1),
+        "gap_min": gap_min,
+        "gap_max": gap_max,
+        "gap_ratio": (gap_max["electores_por_escanos"] / gap_min["electores_por_escanos"]) if gap_min and gap_max and gap_min["electores_por_escanos"] else None,
+    }
+
+
 def build_participacion_chart(rows: list) -> str:
     if len(rows) < 2:
         return ""
@@ -2475,7 +2555,7 @@ def main(out: str = "web") -> None:
         "factores_jsonld": build_factores_jsonld(),
         "m4_jsonld": build_m4_jsonld(),
         "noche_jsonld": build_webpage_jsonld("Noche electoral 29N", "/noche-electoral.html", "Qué se publica, cuándo y con qué fuente."),
-        "claves_jsonld": build_webpage_jsonld("Claves del 29N", "/claves.html", "Datos para leer el 29N sin pronóstico: voto exterior, electores nuevos, voto sin escaño y estructura por edad."),
+        "claves_jsonld": build_webpage_jsonld("Claves del 29N", "/claves.html", "Datos para leer el 29N sin pronóstico: voto exterior, electores nuevos, voto sin escaño, edad y estructura del sistema (electores por escaño y márgenes)."),
         "webpages": {
             "lideres.html": build_webpage_jsonld("Valoración de líderes", "/lideres.html", "Valoración 1–10 de cuatro líderes según el CIS de octubre de 2026. Una sola casa y una sola ola."),
             "candidatos.html": build_webpage_jsonld("Candidatos y cabezas de lista", "/candidatos.html", "Cabezas de lista proclamados BOE/JEC y menciones en titulares, 24 h y 7 días. No es intención de voto."),
@@ -2516,6 +2596,8 @@ def main(out: str = "web") -> None:
         ),
         "prov_2023": (prov_part.get("elecciones", {}).get("2023-07-23", {}).get("provincias", [])),
         "escanos_chart": build_escanos_chart(escanos.get("provincias", [])),
+        "escanos_gap_chart": build_escanos_gap_chart(escanos.get("provincias", [])),
+        "estructura_claves": build_claves_estructura(congreso, censo, escanos),
         "escanos_kpis": {
             "total": escanos.get("total_escanos", 0),
             "n": len(escanos.get("provincias", [])),

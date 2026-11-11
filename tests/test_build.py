@@ -1,7 +1,11 @@
+import json
+import os
 import re
 import unittest
 
-from gen.build import build_chart, build_hemicycle, build_hemicycle_svg, simulate_congress
+from gen.build import build_chart, build_claves_estructura, build_escanos_gap_chart, build_hemicycle, build_hemicycle_svg, simulate_congress
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 class BuildTest(unittest.TestCase):
@@ -42,6 +46,23 @@ class BuildTest(unittest.TestCase):
         seats = simulate_congress(parties)
         self.assertEqual(sum(seats.values()), 350)
         self.assertGreater(seats["PP"], seats["PSOE"])
+
+    def test_escanos_gap_chart_muestra_extremos(self):
+        d = json.load(open(os.path.join(ROOT, "data", "escanos_2026.json"), encoding="utf-8"))
+        svg = build_escanos_gap_chart(d["provincias"])
+        self.assertIn("<svg", svg)
+        self.assertIn("Teruel", svg)
+        self.assertIn("Madrid", svg)
+
+    def test_claves_estructura_calcula_margenes(self):
+        censo = json.load(open(os.path.join(ROOT, "data", "censo_2026.json"), encoding="utf-8"))
+        escanos = json.load(open(os.path.join(ROOT, "data", "escanos_2026.json"), encoding="utf-8"))
+        congreso = json.load(open(os.path.join(ROOT, "data", "congreso.json"), encoding="utf-8"))
+        out = build_claves_estructura(congreso, censo, escanos)
+        self.assertGreater(out["gap_ratio"], 4)
+        self.assertGreaterEqual(out["both"], 1)
+        self.assertLessEqual(len(out["top"]), 5)
+        self.assertGreaterEqual(out["new_over"], out["both"])
 
     def test_hemicycle_svg_has_350_seats(self):
         svg = build_hemicycle_svg([
