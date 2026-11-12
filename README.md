@@ -380,6 +380,12 @@ Además de la media por sondeo (ponderada por recencia y muestra cuando existe),
 - No se atribuyen preferencias por edad, sexo, renta o territorio.
 - No se mezclan señales sociales con sondeos, censo o participación.
 
+## SEO 12-nov-2026
+
+- Portada y `electorado.html` con títulos de intención (sondeos/censo) y respuesta rápida del censo.
+- Las **52 fichas provinciales** incluyen FAQ visible, `FAQPage` JSON-LD y enlaces a Claves, Territorio y Electorado.
+- **Pendiente:** export de **Cobertura con URLs** de las 422 páginas rastreadas sin indexar; clasificar por host/plantilla antes de decidir `noindex` o consolidación. No tocar fichas que ya traen clics.
+
 ## Hoja de ruta
 
 - **M4 v1** · Comportamiento por grupos: ✅ hecho (CIS 3582, recuerdo 2023; edad/sexo/ideología; celdas n<30 suprimidas).

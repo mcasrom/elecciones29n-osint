@@ -1,6 +1,6 @@
 {% set page_image = "/og-nuevos-2026.png" %}
-{% set page_title = "Censo electoral 29N 2026 · quién puede votar" %}
-{% set page_desc = "Censo de las elecciones generales del 29 de noviembre de 2026: total, residentes en España y en el extranjero, nuevos electores y distribución por edad, sexo y provincia. Fuente: INE." %}
+{% set page_title = "Censo electoral 29N 2026: 38,7 millones de electores" %}
+{% set page_desc = "Censo electoral del 29N 2026: 38.728.356 electores (CER y CERA), 1.615.127 nuevos y distribución por edad, sexo y provincia. Fuente: INE. No es una previsión de voto." %}
 {% set canonical = site_url ~ "/electorado.html" %}
 {% set jsonld = censo_jsonld %}
 <!DOCTYPE html>
@@ -13,6 +13,12 @@
 <main class="container">
   <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">El electorado del 29N en cifras</h1>
   <p class="muted" style="margin:0 0 14px">Quién puede votar, según el censo oficial. Datos del INE · Oficina del Censo Electoral.</p>
+  {% if censo %}
+  <div class="card" style="border-left:3px solid var(--accent2)">
+    <p style="margin:0;font-size:17px;line-height:1.6"><strong>Respuesta rápida:</strong> el censo del 29N es de <strong>{{ fmt_miles(censo.total) }}</strong> electores: <strong>{{ fmt_miles(censo.cer) }}</strong> residentes en España (CER) y <strong>{{ fmt_miles(censo.cera) }}</strong> en el extranjero (CERA). Hay <strong>{{ fmt_miles(censo.nuevos_desde_2023) }}</strong> nuevos electores desde el 23-J de 2023.</p>
+    <p class="muted small" style="margin:8px 0 0">El censo dice quién puede votar; no mide intención de voto ni participación.</p>
+  </div>
+  {% endif %}
 
   {% if censo %}
   <p class="muted small"><strong>Referencia 2023:</strong> la participación CERA fue del {{ fmt_pct(cera_2023.participacion) }}% ({{ fmt_miles(cera_2023.votantes) }} de {{ fmt_miles(cera_2023.electores) }}), no la nacional del 66,59 %. No es una previsión para el 29N.</p>

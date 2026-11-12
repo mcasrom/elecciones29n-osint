@@ -2424,6 +2424,35 @@ def main(out: str = "web") -> None:
             f"/circunscripcion/{p['slug']}.html",
             f"{p['nombre']}: {p['escanos_2026']} {'diputado' if p['escanos_2026'] == 1 else 'diputados'}, censo y resultados oficiales de 2019 y 2023.",
         )
+        dip = "diputado" if p["escanos_2026"] == 1 else "diputados"
+        m23 = (p.get("marginales") or {}).get("2023-07-23") or {}
+        ultimo = m23.get("ultimo") or {}
+        siguiente = m23.get("siguiente") or {}
+        margen = m23.get("margen_votos")
+        if ultimo:
+            cola = f"Último escaño: <strong>{ultimo.get('etiqueta')}</strong> con {fmt_miles(ultimo.get('votos') or 0)} votos."
+            if siguiente and margen is not None:
+                cola += f" La primera candidatura sin escaño era <strong>{siguiente.get('etiqueta')}</strong> y necesitaba {fmt_miles(margen)} votos más."
+            else:
+                cola += " No hay una candidatura sin escaño con opciones para calcular el margen."
+        else:
+            cola = "No hay escaños o candidaturas suficientes para calcular el margen de 2023."
+        p["faq"] = [
+            {"q": f"¿Cuántos diputados elige {p['nombre']} en el 29N?",
+             "a": f"En el 29N, {p['nombre']} elige {p['escanos_2026']} {dip} al Congreso. Es la asignación legal del RD 806/2026; no es una proyección electoral."},
+            {"q": f"¿Cuántos electores hay en {p['nombre']}?",
+             "a": f"{fmt_miles(p['electores_2026'])} electores censados en 2026; {fmt_miles(p['electores_por_escanos'])} electores por escaño. Fuente: INE."},
+            {"q": f"¿Qué pasó en {p['nombre']} en 2023?",
+             "a": "Participación: " + (f"{fmt_pct(p['participacion_2023'])} %." if p.get("participacion_2023") is not None else "no consta.") + " " + cola.replace("<strong>", "").replace("</strong>", "")},
+        ]
+        p["faq_jsonld"] = json.dumps({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {"@type": "Question", "name": f["q"], "acceptedAnswer": {"@type": "Answer", "text": f["a"]}}
+                for f in p["faq"]
+            ],
+        }, ensure_ascii=False)
 
     latest = {"parties": []}
     if os.path.exists(os.path.join(OUT, "data/latest.json")):
