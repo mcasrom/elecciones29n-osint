@@ -138,6 +138,8 @@ python3 scripts/newsletter_provincia.py --test tu@email --province madrid
 
 **Criterios:** máximo **1 publicación/día** y **cooldown 24 h**; muestra mínima **4 sondeos y 2 casas**; evento por **Δ≥0,5 pp** en PP/PSOE/VOX/SUMAR o **Δgap PP-PSOE≥0,5**; cambio de **bloques ≥1 escaño**; **líderes ≥0,2** o cambio de orden. Con muestra **frágil** no se publica el evento: solo la pizarra semanal, con aviso. **Blackout 24–28 nov.** Aprobación opcional con `--approval` o `29N_REQUIRE_APPROVAL=1` (queda pendiente en la cola). Detalle y cron en [`docs/CAMPANA-29N.md`](docs/CAMPANA-29N.md).
 
+La **infografía v2** incluye voto de PP/PSOE/VOX/SUMAR/**Otros**, bloques PP+VOX vs PSOE+SUMAR+PODEMOS y un panel de **partidos territoriales** (ERC, Junts, Bildu, PNV) con su **n** y rango. No inventa voto por provincia: solo muestra los partidos territoriales que publican las casas; sus porcentajes no se suman a los bloques ni a «Otros».
+
 ## Aviso por correo
 
 La web incluye un **aviso de doble opt-in** para saber cuándo cambia la media o
