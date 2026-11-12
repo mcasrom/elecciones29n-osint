@@ -100,6 +100,7 @@
   <div class="card" id="cis-3584">
     <div class="cardhead"><h2>Macroencuesta CIS 3584</h2><span class="hint">preelectoral · fuera de la media</span></div>
     <p class="muted small" style="margin-top:0">Estudio 3584, trabajo de campo {{ cis_preelectoral.fieldwork_start }}–{{ cis_preelectoral.fieldwork_end }} · {{ "{:,}".format(cis_preelectoral.sample)|replace(",", ".") }} entrevistas · no entra en la media diaria.</p>
+    <p class="muted small" style="margin-top:0"><strong>No sabe {{ "%.1f"|format(cis_preelectoral.no_sabe_pct)|replace(".", ",") }} %</strong> · <strong>No contesta {{ "%.1f"|format(cis_preelectoral.no_contesta_pct)|replace(".", ",") }} %</strong> · <strong>No votaría {{ "%.1f"|format(cis_preelectoral.no_votaria_pct)|replace(".", ",") }} %</strong>. No se reparten ni se leen como voto oculto.</p>
     <div class="tablewrap"><table>
       <thead><tr><th>Partido</th><th>Estimación</th><th>Escaños (p5–p95)</th></tr></thead>
       <tbody>
