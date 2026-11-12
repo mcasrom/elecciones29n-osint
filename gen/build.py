@@ -2516,6 +2516,15 @@ def main(out: str = "web") -> None:
         psoe_sin = psoe_row.get("mean_sin_cis_45d")
         if pp_sin is not None and psoe_sin is not None:
             gap_sin_cis = round(pp_sin - psoe_sin, 2)
+    cis_comparison = []
+    if cis_preelectoral:
+        _cis = {r.get("party"): r for r in cis_preelectoral.get("vote_estimate", [])}
+        _media = {p.get("party"): p for p in parties}
+        for _party in ("PSOE", "PP", "VOX"):
+            if _party in _cis and _party in _media:
+                _cv = float(_cis[_party].get("pct") or 0)
+                _mv = float(_media[_party].get("mean") or 0)
+                cis_comparison.append({"party": _party, "cis": round(_cv, 2), "media": round(_mv, 2), "delta": round(_cv - _mv, 2)})
 
     build_ts = now.strftime("%Y%m%d%H%M")
     prov_selector = build_prov_selector(escanos, congreso)
@@ -2533,6 +2542,7 @@ def main(out: str = "web") -> None:
         "blackout_reason": blackout.blackout_reason(),
         "parties": parties,
         "cis_preelectoral": cis_preelectoral,
+        "cis_comparison": cis_comparison,
         "parties_table": parties_table,
         "parties_territorial": parties_territorial,
         "table_sum": latest.get("table_sum", round(sum(p["mean"] for p in parties_table), 2)),

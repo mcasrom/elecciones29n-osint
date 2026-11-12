@@ -49,7 +49,7 @@ La portada tiene **dos vistas**:
 - **Pesos:** topes de **25 % por casa** y **40 % por fuente cuando hay grupos suficientes**. Con pocas fuentes el tope puede no ser aplicable; la web publica la concentración observada (a 9-nov, Electomanía **71,3 %** de la fuente) y la muestra con aviso. Se mantiene una entrada por casa y oleada.
 - **Contador de días:** a 9-nov quedan **20 días al 29N** y **15 al blackout** (24-nov).
 - **Sin CIS:** columna de sensibilidad a **45 días** (incluye el CIS del 14/10 en la ventana de contraste, sin usarlo en el cálculo). La media principal no cambia.
-- **CIS 3584 (preelectoral):** macroencuesta de **45.074 entrevistas** (7–30 oct, publicada 12-nov) en tarjeta propia de `/robustez.html`; **no entra en la media** porque usa Frente Amplio y una ERC-Podemos conjunta. JSON/CSV en `/data/cis-3584.json` y `.csv`. El estudio 3582 sigue siendo el barómetro usado para M4.
+- **CIS 3584 (preelectoral):** macroencuesta de **45.074 entrevistas** (7–30 oct, publicada 12-nov) en tarjeta propia de `/robustez.html`; **no entra en la media** porque usa Frente Amplio y una ERC-Podemos conjunta. Incluye contraste descriptivo CIS vs media 14 d (PSOE/PP/VOX) y PP+VOX máximo. JSON/CSV en `/data/cis-3584.json` y `.csv`. El estudio 3582 sigue siendo el barómetro usado para M4.
 - **Gráfico duplicado:** retirado de «Agregado»; queda uno en «Evolución».
 - Auditoría completa y P1 pendiente: [`docs/AUDITORIA-20261103.md`](docs/AUDITORIA-20261103.md).
 

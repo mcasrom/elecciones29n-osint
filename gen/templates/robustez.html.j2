@@ -108,6 +108,17 @@
       {% endfor %}
       </tbody>
     </table></div>
+    {% if cis_comparison %}
+    <div class="tablewrap" style="margin-top:12px"><table>
+      <thead><tr><th>Partido</th><th>CIS 3584</th><th>Media 14 d</th><th>Δ</th></tr></thead>
+      <tbody>
+      {% for r in cis_comparison %}
+        <tr><td><strong>{{ r.party }}</strong></td><td class="num">{{ "%.1f"|format(r.cis)|replace(".", ",") }}%</td><td class="num">{{ "%.1f"|format(r.media)|replace(".", ",") }}%</td><td class="num">{{ "%+.1f"|format(r.delta)|replace(".", ",") }} pp</td></tr>
+      {% endfor %}
+      </tbody>
+    </table></div>
+    <p class="muted small">Comparación descriptiva, no una media conjunta: el CIS tiene campo 7–30 oct y otra estructura de partidos. PP+VOX llega a {{ cis_preelectoral.pp_vox_max }} escaños como máximo, a {{ cis_preelectoral.pp_vox_short }} de la mayoría.</p>
+    {% endif %}
     <p class="muted small">No se suma a la media: usa <strong>Frente Amplio</strong> y una <strong>ERC-Podemos</strong> conjunta, y su muestra no es comparable con los trackings. Los escaños son percentiles 5–95, no intervalos de confianza y no se suman entre partidos. Fuente: <a href="{{ cis_preelectoral.source_url }}" rel="noopener" target="_blank">CIS</a> · <a href="/data/cis-3584.json">JSON</a> · <a href="/data/cis-3584.csv">CSV</a>.</p>
   </div>
   {% endif %}
