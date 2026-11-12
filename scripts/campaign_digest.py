@@ -61,6 +61,7 @@ def snapshot(latest: dict) -> dict:
         "seats": seats,
         "blocks": hem.get("blocks") or {},
         "block_gap": (int((hem.get("blocks") or {}).get("right") or 0) - int((hem.get("blocks") or {}).get("left") or 0)),
+        "gap": round(float(parties.get("PP") or 0) - float(parties.get("PSOE") or 0), 2),
         "health_status": (latest.get("health") or {}).get("status"),
         "leaders": _leaders_snapshot(),
         "majority": hem.get("majority"),
@@ -87,6 +88,10 @@ def detect(prev: dict, cur: dict) -> list[str]:
         b = float((prev.get("parties") or {}).get(p) or 0)
         if abs(a - b) >= 0.5:
             reasons.append(f"{p} {a - b:+.1f} pp")
+    if cur.get("gap") is not None and prev.get("gap") is not None:
+        dgap = float(cur["gap"]) - float(prev["gap"])
+        if abs(dgap) >= 0.5:
+            reasons.append(f"gap PP-PSOE {dgap:+.1f} pp")
     # Un cambio de bloques o de valoración de líderes también merece una imagen.
     a = (cur.get("blocks") or {}); b = (prev.get("blocks") or {})
     if a and b and abs(int(a.get("right") or 0) - int(b.get("right") or 0)) >= 1:
@@ -97,6 +102,10 @@ def detect(prev: dict, cur: dict) -> list[str]:
         old = (prev.get("leaders") or {}).get(name)
         if old is not None and abs(float(value) - float(old)) >= 0.2:
             reasons.append(f"líderes: {name} {float(value)-float(old):+.2f}")
+    prev_order = [k for k, _ in sorted((prev.get("leaders") or {}).items(), key=lambda x: -float(x[1]))]
+    cur_order = [k for k, _ in sorted((cur.get("leaders") or {}).items(), key=lambda x: -float(x[1]))]
+    if prev_order and cur_order and prev_order[:4] != cur_order[:4]:
+        reasons.append("orden de líderes")
     return reasons
 
 
@@ -112,12 +121,14 @@ def build_text(cur: dict, prev: dict, weekly: bool = False) -> str:
         low, high = (ranges.get(party) or ["—", "—"])[:2]
         parts.append(f"{party} {value:.1f}%")
     last = cur.get("last_poll_date") or "—"
+    health = cur.get("health_status")
+    health_note = " · muestra frágil" if health and health != "ok" else ""
     head = "Pizarra semanal 29N" if weekly else "Actualización 29N"
     detail = "Sin sondeos nuevos; " if weekly and not cur.get("changed") else ""
     return (
         f"{head} · {d.day} {MESES[d.month-1]}\n"
         + " · ".join(parts)
-        + f"\n{detail}{cur.get('n_polls', 0)} sondeos/{cur.get('n_houses', 0)} casas · IQR {cur.get('iqr') or '—'} pp · último {last} · sin pronóstico.\n{{url}}\n#29N #Sondeos"
+        + f"\n{detail}{cur.get('n_polls', 0)} sondeos/{cur.get('n_houses', 0)} casas · IQR {cur.get('iqr') or '—'} pp · último {last} · sin pronóstico{health_note}.\n{{url}}\n#29N #Sondeos"
     )
 
 
@@ -144,7 +155,7 @@ def make_infografia(tag: str) -> str:
     return f"https://elecciones29n.pruebapublica.com/og/{out.name}"
 
 
-def enqueue(item_id: str, text: str, image: str, account: str = "electoralhub") -> int:
+def enqueue(item_id: str, text: str, image: str, account: str = "electoralhub", approval: bool = False) -> int:
     py = "/usr/bin/python3"
     add = [py, "social_queue.py", "add", "--id", item_id,
            "--when", datetime.now(TZ).isoformat(timespec="seconds"),
@@ -157,6 +168,9 @@ def enqueue(item_id: str, text: str, image: str, account: str = "electoralhub") 
     if r.returncode != 0:
         print(r.stdout + r.stderr, file=sys.stderr)
         return r.returncode
+    if approval:
+        print("[digest] pendiente de aprobación; no se publica todavía")
+        return 0
     r = subprocess.run([py, "social_queue.py", "approve", item_id], cwd=str(SP),
                        capture_output=True, text=True, timeout=60)
     if r.returncode != 0:
@@ -170,7 +184,10 @@ def main() -> int:
     ap.add_argument("--force", action="store_true", help="ignora la ventana de campaña (pruebas)")
     ap.add_argument("--account", default="electoralhub",
                     help="cuenta de Bluesky en social-poster (por defecto electoralhub)")
+    ap.add_argument("--approval", action="store_true",
+                    help="deja el post pendiente de aprobación en Telegram")
     a = ap.parse_args()
+    approval = a.approval or os.environ.get("29N_REQUIRE_APPROVAL") == "1"
 
     now = datetime.now(TZ)
     if now.date() >= date(2026, 11, 24):
@@ -186,8 +203,25 @@ def main() -> int:
         return 1
     cur = snapshot(latest)
     prev = load_state()
+    if cur.get("n_polls", 0) < 4 or cur.get("n_houses", 0) < 2:
+        print(f"[digest] muestra insuficiente: {cur.get('n_polls')} sondeos/{cur.get('n_houses')} casas; no se publica")
+        return 0
+    last_ts = prev.get("last_queued_at")
+    if last_ts:
+        try:
+            last_dt = datetime.fromisoformat(last_ts)
+            if last_dt.tzinfo is None:
+                last_dt = last_dt.replace(tzinfo=TZ)
+            if (now - last_dt).total_seconds() < 86400:
+                print("[digest] cooldown 24 h activo; no se publica")
+                return 0
+        except ValueError:
+            pass
     reasons = detect(prev, cur)
     weekly = now.weekday() in WEEKLY_DAYS
+    if cur.get("health_status") != "ok" and reasons and not weekly:
+        print("[digest] muestra frágil: evento bloqueado; solo se permite pizarra semanal con aviso")
+        return 0
     if not reasons and not weekly:
         print("[digest] sin cambios relevantes y fuera de pizarra semanal; no se publica")
         return 0
@@ -208,9 +242,11 @@ def main() -> int:
     except Exception as ex:
         print(f"[digest] no se pudo generar la infografía: {ex}", file=sys.stderr)
         return 1
-    if enqueue(item_id, text, image, account=a.account) != 0:
+    if enqueue(item_id, text, image, account=a.account, approval=approval) != 0:
         return 1
     cur["queued_id"] = item_id
+    cur["last_queued_at"] = now.isoformat(timespec="seconds")
+    cur["last_queued_day"] = cur["date"]
     STATE.parent.mkdir(parents=True, exist_ok=True)
     STATE.write_text(json.dumps(cur, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"[digest] encolado {item_id}")

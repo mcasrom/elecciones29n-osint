@@ -134,7 +134,9 @@ python3 scripts/newsletter_provincia.py --test tu@email --province madrid
 ## Parte matinal de campaña
 
 
-`scripts/campaign_digest.py` aplica el calendario social: **pizarra lunes y viernes a las 08:00 (9–23 nov)** y **posts solo por evento** (nuevo sondeo o Δ≥0,5 pp; también cambio de bloques, líderes o salud de la muestra). Genera la infografía y publica automáticamente en **Mastodon/Bluesky/Telegram**; **X y LinkedIn** se remiten al dueño para copiar. Sin evento ni pizarra, silencio. No usa simulación de escaños y no publica agregaciones del 24 al 28. Detalle y cron en [`docs/CAMPANA-29N.md`](docs/CAMPANA-29N.md).
+`scripts/campaign_digest.py` aplica el calendario social: **pizarra lunes y viernes a las 08:00 (9–23 nov)** y **posts solo por evento**. Genera la infografía y publica automáticamente en **Mastodon/Bluesky/Telegram**; **X y LinkedIn** se remiten al dueño para copiar. Sin evento ni pizarra, silencio.
+
+**Criterios:** máximo **1 publicación/día** y **cooldown 24 h**; muestra mínima **4 sondeos y 2 casas**; evento por **Δ≥0,5 pp** en PP/PSOE/VOX/SUMAR o **Δgap PP-PSOE≥0,5**; cambio de **bloques ≥1 escaño**; **líderes ≥0,2** o cambio de orden. Con muestra **frágil** no se publica el evento: solo la pizarra semanal, con aviso. **Blackout 24–28 nov.** Aprobación opcional con `--approval` o `29N_REQUIRE_APPROVAL=1` (queda pendiente en la cola). Detalle y cron en [`docs/CAMPANA-29N.md`](docs/CAMPANA-29N.md).
 
 ## Aviso por correo
 
