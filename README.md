@@ -92,7 +92,7 @@ credenciales no están en el repositorio.
 - `/prensa.html` — **kit de prensa**: titular canónico (media ponderada + rango), cifras, método, cita, contacto y enlaces a datos/embeds.
 - `/electorado.html` — Censo 29N: total, CER/CERA, edad y sexo, provincias y nuevos electores.
 - `/claves.html` — **seis tarjetas** para leer el 29N sin pronóstico: voto exterior, electores nuevos, voto sin escaño, edad, **electores por escaño** y **CERA/nuevos electores frente al margen del último escaño de 2023**. La sección «Estructura del sistema» separa el coste de escaño del voto ponderado y no proyecta 2026. La tarjeta 05 tiene OG propia (`og-claves-malapportionment.png`) para difusión.
-- **Infografía de resumen (11-nov):** `web/elecciones29n_infografia.png` (2400×1350) y `web/elecciones29n_infografia_linkedin.png` (1200×627) con media, rango, bloques y límites; no es pronóstico.
+- **Infografía de resumen:** `gen/gen_infografia_29n.py` genera **2400×1350** + variante **1200×627** con media, rango, bloques, líderes y límites; los bloques son **voto**, no escaños. `campaign_digest.py` la regenera si cambia un parámetro relevante y publica en **Mastodon/Bluesky/Telegram**; **X y LinkedIn** quedan como texto manual para el dueño.
 - `/participacion.html` — Participación nacional 1979–2023 y **provincial 1977–2023** (selector + comparación con la media nacional).
 - `/territorio.html` — 350 escaños, 52 circunscripciones, electores por escaño y **votos↔escaños 2023 con índice de Gallagher**.
 - `/mi-circunscripcion.html` — **buscador municipio → provincia**: escaños, censo, participación y resultado de 2023. No hay media provincial inventada; enlaza a la ficha y a la calculadora D'Hondt.
@@ -134,7 +134,7 @@ python3 scripts/newsletter_provincia.py --test tu@email --province madrid
 ## Parte matinal de campaña
 
 
-`scripts/campaign_digest.py` aplica el calendario social: **pizarra lunes y viernes a las 08:00 (9–23 nov)** y **posts solo por evento** (nuevo sondeo o Δ≥0,5 pp). Encola en Mastodon/Bluesky/Telegram y manda al dueño el texto de X; sin evento ni pizarra, silencio. No usa simulación de escaños y no publica agregaciones del 24 al 28. Detalle y cron en [`docs/CAMPANA-29N.md`](docs/CAMPANA-29N.md).
+`scripts/campaign_digest.py` aplica el calendario social: **pizarra lunes y viernes a las 08:00 (9–23 nov)** y **posts solo por evento** (nuevo sondeo o Δ≥0,5 pp; también cambio de bloques, líderes o salud de la muestra). Genera la infografía y publica automáticamente en **Mastodon/Bluesky/Telegram**; **X y LinkedIn** se remiten al dueño para copiar. Sin evento ni pizarra, silencio. No usa simulación de escaños y no publica agregaciones del 24 al 28. Detalle y cron en [`docs/CAMPANA-29N.md`](docs/CAMPANA-29N.md).
 
 ## Aviso por correo
 

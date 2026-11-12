@@ -13,6 +13,7 @@ import json
 import os
 import subprocess
 import sys
+import shutil
 from datetime import date, datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -24,6 +25,9 @@ STATE = ROOT / "data" / "campaign_digest_state.json"
 SP = Path("/home/deploy/social-poster")
 URL = "https://elecciones29n.pruebapublica.com/robustez.html"
 IMG = "https://elecciones29n.pruebapublica.com/og-robustez.png"
+LEADERS = ROOT / "data" / "cis_lideres_2026.json"
+INFOG = ROOT / "gen" / "gen_infografia_29n.py"
+PUBLIC_OG = Path("/var/www/elecciones29n/og")
 MAIN = ("PP", "PSOE", "VOX", "SUMAR")
 MESES = ("ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic")
 START = date(2026, 11, 9)
@@ -56,9 +60,20 @@ def snapshot(latest: dict) -> dict:
         "parties": parties,
         "seats": seats,
         "blocks": hem.get("blocks") or {},
+        "block_gap": (int((hem.get("blocks") or {}).get("right") or 0) - int((hem.get("blocks") or {}).get("left") or 0)),
+        "health_status": (latest.get("health") or {}).get("status"),
+        "leaders": _leaders_snapshot(),
         "majority": hem.get("majority"),
         "hem_date": hem.get("date"),
     }
+
+
+def _leaders_snapshot() -> dict:
+    try:
+        data = json.loads(LEADERS.read_text(encoding="utf-8"))
+        return {x.get("name"): round(float(x.get("mean") or 0), 2) for x in data.get("leaders", [])}
+    except (OSError, ValueError):
+        return {}
 
 
 def detect(prev: dict, cur: dict) -> list[str]:
@@ -72,6 +87,16 @@ def detect(prev: dict, cur: dict) -> list[str]:
         b = float((prev.get("parties") or {}).get(p) or 0)
         if abs(a - b) >= 0.5:
             reasons.append(f"{p} {a - b:+.1f} pp")
+    # Un cambio de bloques o de valoración de líderes también merece una imagen.
+    a = (cur.get("blocks") or {}); b = (prev.get("blocks") or {})
+    if a and b and abs(int(a.get("right") or 0) - int(b.get("right") or 0)) >= 1:
+        reasons.append("cambio de bloques")
+    if cur.get("health_status") != prev.get("health_status") and prev.get("health_status"):
+        reasons.append("salud de la muestra")
+    for name, value in (cur.get("leaders") or {}).items():
+        old = (prev.get("leaders") or {}).get(name)
+        if old is not None and abs(float(value) - float(old)) >= 0.2:
+            reasons.append(f"líderes: {name} {float(value)-float(old):+.2f}")
     return reasons
 
 
@@ -102,12 +127,29 @@ def build_event_text(cur: dict, reasons: list[str]) -> str:
     )
 
 
-def enqueue(item_id: str, text: str, account: str = "electoralhub") -> int:
+def make_infografia(tag: str) -> str:
+    """Genera el resumen y lo publica como estático; devuelve su URL."""
+    out = ROOT / "web" / "og" / f"29n-infografia-{tag}.png"
+    linkedin = ROOT / "web" / "og" / f"29n-infografia-{tag}-linkedin.png"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    r = subprocess.run(
+        ["/usr/bin/python3", str(INFOG), "--out", str(out), "--linkedin", str(linkedin)],
+        cwd=str(ROOT), capture_output=True, text=True, timeout=120,
+    )
+    if r.returncode != 0:
+        raise RuntimeError((r.stdout + r.stderr)[-500:])
+    PUBLIC_OG.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(out, PUBLIC_OG / out.name)
+    shutil.copy2(linkedin, PUBLIC_OG / linkedin.name)
+    return f"https://elecciones29n.pruebapublica.com/og/{out.name}"
+
+
+def enqueue(item_id: str, text: str, image: str, account: str = "electoralhub") -> int:
     py = "/usr/bin/python3"
     add = [py, "social_queue.py", "add", "--id", item_id,
            "--when", datetime.now(TZ).isoformat(timespec="seconds"),
-           "--channels", "mastodon,bluesky,telegram,x",
-           "--text", text, "--image", IMG, "--url", URL,
+           "--channels", "mastodon,bluesky,telegram,x,linkedin",
+           "--text", text, "--image", image, "--url", URL,
            "--campaign", "29n-campaign"]
     if account:
         add += ["--account", account]
@@ -161,7 +203,12 @@ def main() -> int:
     if a.dry:
         print("[digest] dry: no se encola")
         return 0
-    if enqueue(item_id, text, account=a.account) != 0:
+    try:
+        image = make_infografia(digest)
+    except Exception as ex:
+        print(f"[digest] no se pudo generar la infografía: {ex}", file=sys.stderr)
+        return 1
+    if enqueue(item_id, text, image, account=a.account) != 0:
         return 1
     cur["queued_id"] = item_id
     STATE.parent.mkdir(parents=True, exist_ok=True)
