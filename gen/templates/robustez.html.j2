@@ -96,6 +96,22 @@
   <div class="alert warn">No hay datos de robustez disponibles todavía.</div>
   {% endif %}
 
+  {% if cis_preelectoral %}
+  <div class="card" id="cis-3584">
+    <div class="cardhead"><h2>Macroencuesta CIS 3584</h2><span class="hint">preelectoral · fuera de la media</span></div>
+    <p class="muted small" style="margin-top:0">Estudio 3584, trabajo de campo {{ cis_preelectoral.fieldwork_start }}–{{ cis_preelectoral.fieldwork_end }} · {{ "{:,}".format(cis_preelectoral.sample)|replace(",", ".") }} entrevistas · no entra en la media diaria.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Partido</th><th>Estimación</th><th>Escaños (p5–p95)</th></tr></thead>
+      <tbody>
+      {% for r in cis_preelectoral.vote_estimate %}
+        <tr><td><strong>{{ r.party }}</strong></td><td class="num">{{ "%.1f"|format(r.pct)|replace(".", ",") }}%</td><td class="num">{% if r.seats_min is not none %}{{ r.seats_min }}–{{ r.seats_max }}{% else %}—{% endif %}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table></div>
+    <p class="muted small">No se suma a la media: usa <strong>Frente Amplio</strong> y una <strong>ERC-Podemos</strong> conjunta, y su muestra no es comparable con los trackings. Los escaños son percentiles 5–95, no intervalos de confianza y no se suman entre partidos. Fuente: <a href="{{ cis_preelectoral.source_url }}" rel="noopener" target="_blank">CIS</a> · <a href="/data/cis-3584.json">JSON</a> · <a href="/data/cis-3584.csv">CSV</a>.</p>
+  </div>
+  {% endif %}
+
   <div class="card">
     <div class="cardhead"><h2>Sensibilidad: CIS</h2><span class="hint">ventana 45 d · no altera la media principal</span></div>
     <div class="tablewrap"><table>

@@ -36,6 +36,7 @@ PRE_SNAPSHOT_WORKING = ROOT / "data" / "pre_election_snapshot_working.json"
 PRE_SNAPSHOT_MARKER = ROOT / "data" / "pre_election_snapshot.freeze.json"
 PRE_DATA_CUTOFF = TZ.localize(datetime(2026, 11, 23, 23, 50))
 PRE_DATA_CUTOFF_LABEL = "2026-11-23T23:59:59+01:00"
+CIS_3584 = ROOT / "data" / "cis_3584_2026.json"
 
 BLACKOUT_SITEMAP = [
     ("", 1.0),
@@ -1797,6 +1798,19 @@ def write_robustez_data(latest: dict) -> None:
 
 
 
+def write_cis_3584_data(data: dict | None) -> None:
+    if not data:
+        return
+    os.makedirs(os.path.join(OUT, "data"), exist_ok=True)
+    with open(os.path.join(OUT, "data", "cis-3584.json"), "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    with open(os.path.join(OUT, "data", "cis-3584.csv"), "w", encoding="utf-8", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["party", "pct", "direct_pct", "seats_min", "seats_max"])
+        for row in data.get("vote_estimate", []):
+            w.writerow([row.get("party"), row.get("pct"), row.get("direct_pct"), row.get("seats_min"), row.get("seats_max")])
+
+
 def write_repro_data(version: str, build_ts: str, build_date: str, build_commit: str, latest: dict) -> None:
     """Estado, changelog y copia versionada de los datos públicos."""
     data_dir = os.path.join(OUT, "data")
@@ -2458,6 +2472,10 @@ def main(out: str = "web") -> None:
     if os.path.exists(os.path.join(OUT, "data/latest.json")):
         with open(os.path.join(OUT, "data/latest.json"), encoding="utf-8") as f:
             latest = json.load(f)
+    cis_preelectoral = None
+    if CIS_3584.exists():
+        with open(CIS_3584, encoding="utf-8") as f:
+            cis_preelectoral = json.load(f)
 
     now = datetime.now(TZ)
     today = now.strftime("%Y-%m-%d")
@@ -2514,6 +2532,7 @@ def main(out: str = "web") -> None:
         "in_blackout": in_blackout,
         "blackout_reason": blackout.blackout_reason(),
         "parties": parties,
+        "cis_preelectoral": cis_preelectoral,
         "parties_table": parties_table,
         "parties_territorial": parties_territorial,
         "table_sum": latest.get("table_sum", round(sum(p["mean"] for p in parties_table), 2)),
@@ -2689,6 +2708,7 @@ def main(out: str = "web") -> None:
     write_congreso_oficial_data(oficial)
     write_municipios_data(circ_pages, censo)
     write_robustez_data(latest)
+    write_cis_3584_data(cis_preelectoral)
     write_resultados_data(resultados)
     write_congreso_web(prov_part, congreso)
     write_m5_data(m5)
