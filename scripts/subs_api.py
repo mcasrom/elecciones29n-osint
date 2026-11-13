@@ -77,6 +77,7 @@ def init_db() -> None:
                 confirmed_at TEXT,
                 unsubscribed_at TEXT,
                 last_sent_at TEXT,
+                reminder_sent_at TEXT,
                 consent_version TEXT
             );
             CREATE INDEX IF NOT EXISTS idx_subs_status ON subscribers(status);
@@ -86,6 +87,8 @@ def init_db() -> None:
         cols = {row["name"] for row in conn.execute("PRAGMA table_info(subscribers)")}
         if "consent_version" not in cols:
             conn.execute("ALTER TABLE subscribers ADD COLUMN consent_version TEXT")
+        if "reminder_sent_at" not in cols:
+            conn.execute("ALTER TABLE subscribers ADD COLUMN reminder_sent_at TEXT")
         conn.execute(
             "UPDATE subscribers SET consent_version = 'pre-2026-10-23' WHERE consent_version IS NULL"
         )
