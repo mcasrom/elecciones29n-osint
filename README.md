@@ -51,6 +51,8 @@ La portada tiene **dos vistas**:
 - **Sin CIS:** columna de sensibilidad a **45 días** (incluye el CIS del 14/10 en la ventana de contraste, sin usarlo en el cálculo). La media principal no cambia.
 - **CIS 3584 (preelectoral):** macroencuesta de **45.074 entrevistas** (7–30 oct, publicada 12-nov) en tarjeta propia de `/robustez.html`; **no entra en la media** porque usa Frente Amplio y una ERC-Podemos conjunta. Incluye contraste descriptivo CIS vs media 14 d (PSOE/PP/VOX) y PP+VOX máximo. JSON/CSV en `/data/cis-3584.json` y `.csv`. El estudio 3582 sigue siendo el barómetro usado para M4. **Indecisos:** 15,8 % no sabe, 2,3 % no contesta y 1,7 % no votaría; no se reparten proporcionalmente ni se interpretan como voto oculto. Página específica: `/cis-3584-indecisos.html` (canonical, OG y `NewsArticle`).
 
+**Vigilancia diaria:** `scripts/watch_tracking.py` (cron 13–27 nov, 07:00 CET) avisa por Telegram de nuevos sondeos y posibles microdatos; no importa nada automáticamente. Plan: `docs/TRACKING-DIARIO.md`.
+
 **Casas canónicas y dedup:** `IMOP Insights` se une a `IMOP` y `Celeste Tel` a `Celeste-Tel`; una fila por casa/día, eligiendo la fuente con más partidos. La ventana pasa de 17 etiquetas a **15 sondeos efectivos** y de 12 a **10 casas**. La tabla de robustez muestra **media ponderada** y **media simple**; la media principal no cambia de fórmula.
 - **Gráfico duplicado:** retirado de «Agregado»; queda uno en «Evolución».
 - Auditoría completa y P1 pendiente: [`docs/AUDITORIA-20261103.md`](docs/AUDITORIA-20261103.md).
