@@ -1778,7 +1778,7 @@ def write_resultados_data(data: dict) -> None:
 
 def write_robustez_data(latest: dict) -> None:
     os.makedirs(os.path.join(OUT, "data"), exist_ok=True)
-    keys = ("party", "mean", "median", "min", "max", "n", "mean_sin_cis",
+    keys = ("party", "mean", "mean_simple", "median", "min", "max", "n", "mean_sin_cis",
             "median_sin_cis", "min_sin_cis", "max_sin_cis", "n_sin_cis",
             "mean_sin_cis_45d", "n_sin_cis_45d", "n_houses", "iqr")
     payload = {

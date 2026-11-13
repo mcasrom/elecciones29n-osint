@@ -38,10 +38,10 @@
   <div class="card">
     <div class="cardhead"><h2>Por partido</h2><span class="hint">media, rango entre sondeos, casas e IQR</span></div>
     <div class="tablewrap"><table>
-      <thead><tr><th>Partido</th><th>Media</th><th>Rango</th><th>Casas (45 d)</th><th>Casas (14 d)</th><th>IQR</th></tr></thead>
+      <thead><tr><th>Partido</th><th>Media</th><th>Simple</th><th>Rango</th><th>Casas (45 d)</th><th>Casas (14 d)</th><th>IQR</th></tr></thead>
       <tbody>
       {% for p in parties_table %}
-        <tr><td><strong>{{ p.party }}</strong>{% if p.n < 4 or (p.n_houses_recent and p.n_houses_recent < 3) %}<span title="n&lt;4 o menos de 3 casas en 14 d: media frágil" style="color:#f2c94c">*</span>{% endif %}</td><td class="num">{{ fmt_pct(p.mean) }}%</td><td class="num">{{ fmt_pct(p.min) }}–{{ fmt_pct(p.max) }}%</td><td class="num">{% if p.n_houses_window %}{{ p.n_houses_window }}{% else %}—{% endif %}</td><td class="num">{% if p.n_houses_recent %}{{ p.n_houses_recent }}{% else %}—{% endif %}</td><td class="num">{% if p.iqr is not none %}{{ "%.1f"|format(p.iqr) }}{% else %}—{% endif %}</td></tr>
+        <tr><td><strong>{{ p.party }}</strong>{% if p.n < 4 or (p.n_houses_recent and p.n_houses_recent < 3) %}<span title="n&lt;4 o menos de 3 casas en 14 d: media frágil" style="color:#f2c94c">*</span>{% endif %}</td><td class="num">{{ fmt_pct(p.mean) }}%</td><td class="num">{{ fmt_pct(p.mean_simple) }}%</td><td class="num">{{ fmt_pct(p.min) }}–{{ fmt_pct(p.max) }}%</td><td class="num">{% if p.n_houses_window %}{{ p.n_houses_window }}{% else %}—{% endif %}</td><td class="num">{% if p.n_houses_recent %}{{ p.n_houses_recent }}{% else %}—{% endif %}</td><td class="num">{% if p.iqr is not none %}{{ "%.1f"|format(p.iqr) }}{% else %}—{% endif %}</td></tr>
       {% endfor %}
       </tbody>
     </table></div>

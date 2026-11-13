@@ -162,6 +162,29 @@ class AggregateTest(unittest.TestCase):
         self.assertEqual(house["mean"], 25.0)
         self.assertEqual(house["n_houses"], 2)
 
+    def test_house_aliases_are_one_poll_and_prefer_complete_source(self):
+        today = datetime.now(TZ).strftime("%Y-%m-%d")
+        res = self.run_with([
+            ("PP", today, 30.0, "https://electomania.es/x", None, "IMOP", "tracking"),
+            ("PSOE", today, 26.0, "https://electomania.es/x", None, "IMOP", "tracking"),
+            ("PP", today, 99.0, "https://www.ondacero.es/x", None, "IMOP Insights", "tracking"),
+        ])
+        pp = next(p for p in res["parties"] if p["party"] == "PP")
+        self.assertEqual(res["n_polls"], 1)
+        self.assertEqual(res["health"]["n_pollsters"], 1)
+        self.assertEqual(pp["mean"], 30.0)
+        self.assertEqual(pp["n"], 1)
+
+    def test_mean_simple_is_exposed(self):
+        today = datetime.now(TZ).strftime("%Y-%m-%d")
+        res = self.run_with([
+            ("X", today, 10.0, "u", 1000, "A", "tracking"),
+            ("X", today, 20.0, "u", 1000, "B", "tracking"),
+        ])
+        x = next(p for p in res["parties"] if p["party"] == "X")
+        self.assertEqual(x["mean_simple"], 15.0)
+        self.assertIn("mean_simple", x)
+
     def test_party_names_canonical(self):
         today = datetime.now(TZ).strftime("%Y-%m-%d")
         res = self.run_with([

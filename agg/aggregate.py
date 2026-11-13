@@ -22,6 +22,7 @@ HOUSE_WINDOW_DAYS = 45
 MAX_HOUSE_SHARE = 0.25
 MAX_SOURCE_SHARE = 0.40
 CANON = {"Podemos": "PODEMOS", "Bildu": "BILDU", "Junts": "JUNTS", "Cs": "Cs", "C's": "Cs", "Ciudadanos": "Cs"}
+HOUSE_ALIASES = {"IMOP Insights": "IMOP", "Celeste Tel": "Celeste-Tel"}
 HOUSE_NOTA = {"CIS": "estimación de voto"}
 # Partidos que solo se presentan en algunas circunscripciones. Se publican,
 # pero no se suman a la tabla principal: en Onda Cero ya van dentro de "Otros".
@@ -43,8 +44,7 @@ def load_polls() -> List[Dict[str, Any]]:
     hist = "data/polls_history.csv"
     if not os.path.exists(hist):
         return []
-    polls: List[Dict[str, Any]] = []
-    seen: Dict[tuple, int] = {}
+    rows: List[Dict[str, Any]] = []
     with open(hist, encoding="utf-8", newline="") as f:
         for row in csv.DictReader(f):
             party = (row.get("party") or "").strip()
@@ -61,24 +61,38 @@ def load_polls() -> List[Dict[str, Any]]:
                 sample_i = int(sample) if sample else None
             except ValueError:
                 sample_i = None
-            pollster = (row.get("pollster") or "Electomania").strip()
-            kind = (row.get("kind") or "tracking").strip().lower()
-            key = (party, dt.strftime("%Y-%m-%d"), pollster)
-            item = {
-                    "party": party,
-                    "date": dt,
-                    "value": val,
-                    "source_url": (row.get("source_url") or "").strip(),
-                    "sample": sample_i,
-                    "pollster": pollster,
-                    "kind": kind,
-                }
-            if key in seen:
-                polls[seen[key]] = item
-            else:
-                seen[key] = len(polls)
-                polls.append(item)
-    return polls
+            raw_house = (row.get("pollster") or "Electomania").strip()
+            pollster = HOUSE_ALIASES.get(raw_house, raw_house)
+            if not pollster:
+                pollster = "Electomania"
+            rows.append({
+                "party": party,
+                "date": dt,
+                "value": val,
+                "source_url": (row.get("source_url") or "").strip(),
+                "sample": sample_i,
+                "pollster": pollster,
+                "kind": (row.get("kind") or "tracking").strip().lower(),
+            })
+    # Una casa con dos etiquetas (Onda Cero/Electomanía) es una sola observación.
+    # Se elige la fuente que publica más partidos para ese sondeo; si hay empate,
+    # se usa el nombre de la fuente para que el resultado sea determinista.
+    groups: Dict[tuple, List[Dict[str, Any]]] = {}
+    for row in rows:
+        groups.setdefault((row["date"].strftime("%Y-%m-%d"), row["pollster"]), []).append(row)
+    selected: List[Dict[str, Any]] = []
+    for group in groups.values():
+        source_counts: Dict[str, int] = {}
+        for row in group:
+            source_counts[row["source_url"]] = source_counts.get(row["source_url"], 0) + 1
+        best_source = max(source_counts, key=lambda url: (source_counts[url], url))
+        seen_parties = set()
+        for row in group:
+            if row["source_url"] != best_source or row["party"] in seen_parties:
+                continue
+            seen_parties.add(row["party"])
+            selected.append(row)
+    return selected
 
 
 def _iqr(vals: List[float]) -> float:
@@ -534,6 +548,7 @@ def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[st
             {
                 "party": party,
                 "mean": round(mean, 2),
+                "mean_simple": round(statistics.mean(vals), 2),
                 "median": round(statistics.median(vals), 2),
                 "min": round(min(vals), 2),
                 "max": round(max(vals), 2),
