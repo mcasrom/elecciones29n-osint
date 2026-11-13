@@ -2707,7 +2707,7 @@ def main(out: str = "web") -> None:
         with open(os.path.join(OUT, "circunscripcion", p["slug"] + ".html"), "w", encoding="utf-8") as f:
             f.write(html)
 
-    write_sitemap(today, [f"circunscripcion/{p['slug']}.html" for p in circ_pages] + ["cis-3584-indecisos.html"])
+    write_sitemap(today, [f"circunscripcion/{p['slug']}.html" for p in circ_pages] + ["cis-3584-indecisos.html", "voto-provincial.html"])
     write_censo_data(censo)
     write_participacion_data(participacion)
     write_escanos_data(escanos)

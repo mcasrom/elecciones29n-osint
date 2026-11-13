@@ -1,0 +1,2214 @@
+{
+  "meta": {
+    "source": "CIS 3584 Preelectoral elecciones generales 2026",
+    "source_url": "https://www.cis.es/es/w/avance-de-resultados-del-estudio-3584-preelectoral-elecciones-generales-2026-",
+    "method": "P3R, voto directo ponderado. Agregación regional por N provincial. NO es estimación de voto ni proyección de escaños.",
+    "fieldwork": "2026-10-07/2026-10-30",
+    "generated": "2026-11-13"
+  },
+  "regions": [
+    {
+      "ccaa": "Andalucía",
+      "n": 7609.0,
+      "provinces": 8,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 28.96
+        },
+        {
+          "party": "PP",
+          "pct": 18.78
+        },
+        {
+          "party": "VOX",
+          "pct": 17.72
+        },
+        {
+          "party": "Adelante Andalucía",
+          "pct": 5.61
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 3.32
+        },
+        {
+          "party": "Otro partido",
+          "pct": 1.92
+        }
+      ]
+    },
+    {
+      "ccaa": "Aragón",
+      "n": 1884.0,
+      "provinces": 3,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 30.75
+        },
+        {
+          "party": "PP",
+          "pct": 19.58
+        },
+        {
+          "party": "VOX",
+          "pct": 15.48
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 6.56
+        },
+        {
+          "party": "Otro partido",
+          "pct": 2.64
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 1.11
+        }
+      ]
+    },
+    {
+      "ccaa": "Asturias",
+      "n": 999.0,
+      "provinces": 1,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 34.32
+        },
+        {
+          "party": "PP",
+          "pct": 17.69
+        },
+        {
+          "party": "VOX",
+          "pct": 11.48
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 6.52
+        },
+        {
+          "party": "Otro partido",
+          "pct": 4.36
+        },
+        {
+          "party": "Podemos",
+          "pct": 1.42
+        }
+      ]
+    },
+    {
+      "ccaa": "Baleares",
+      "n": 981.0,
+      "provinces": 1,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 28.28
+        },
+        {
+          "party": "PP",
+          "pct": 19.42
+        },
+        {
+          "party": "VOX",
+          "pct": 16.78
+        },
+        {
+          "party": "Ara Més",
+          "pct": 8.65
+        },
+        {
+          "party": "Otro partido",
+          "pct": 2.58
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 0.85
+        }
+      ]
+    },
+    {
+      "ccaa": "C. Valenciana",
+      "n": 3981.0,
+      "provinces": 3,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 26.22
+        },
+        {
+          "party": "VOX",
+          "pct": 18.72
+        },
+        {
+          "party": "PP",
+          "pct": 18.57
+        },
+        {
+          "party": "Compromís",
+          "pct": 11.18
+        },
+        {
+          "party": "Otro partido",
+          "pct": 1.94
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 1.49
+        }
+      ]
+    },
+    {
+      "ccaa": "Canarias",
+      "n": 2010.0,
+      "provinces": 2,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 28.17
+        },
+        {
+          "party": "VOX",
+          "pct": 17.24
+        },
+        {
+          "party": "PP",
+          "pct": 15.03
+        },
+        {
+          "party": "UPC",
+          "pct": 6.29
+        },
+        {
+          "party": "CC-Municipalistas",
+          "pct": 3.19
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 2.3
+        }
+      ]
+    },
+    {
+      "ccaa": "Cantabria",
+      "n": 675.0,
+      "provinces": 1,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 34.61
+        },
+        {
+          "party": "PP",
+          "pct": 19.69
+        },
+        {
+          "party": "VOX",
+          "pct": 13.17
+        },
+        {
+          "party": "Otro partido",
+          "pct": 3.49
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 1.58
+        },
+        {
+          "party": "Podemos",
+          "pct": 1.02
+        }
+      ]
+    },
+    {
+      "ccaa": "Castilla y León",
+      "n": 4550.0,
+      "provinces": 9,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 34.79
+        },
+        {
+          "party": "PP",
+          "pct": 22.42
+        },
+        {
+          "party": "VOX",
+          "pct": 14.58
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 2.41
+        },
+        {
+          "party": "Otro partido",
+          "pct": 2.31
+        },
+        {
+          "party": "Podemos",
+          "pct": 1.13
+        }
+      ]
+    },
+    {
+      "ccaa": "Castilla-La Mancha",
+      "n": 2826.0,
+      "provinces": 5,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 32.74
+        },
+        {
+          "party": "PP",
+          "pct": 22.42
+        },
+        {
+          "party": "VOX",
+          "pct": 19.8
+        },
+        {
+          "party": "Otro partido",
+          "pct": 2.0
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 1.94
+        },
+        {
+          "party": "Podemos",
+          "pct": 1.07
+        }
+      ]
+    },
+    {
+      "ccaa": "Cataluña",
+      "n": 5596.0,
+      "provinces": 4,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 26.51
+        },
+        {
+          "party": "ERC",
+          "pct": 16.48
+        },
+        {
+          "party": "VOX",
+          "pct": 12.09
+        },
+        {
+          "party": "PP",
+          "pct": 6.48
+        },
+        {
+          "party": "Junts",
+          "pct": 4.66
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 3.85
+        }
+      ]
+    },
+    {
+      "ccaa": "Ceuta",
+      "n": 93.0,
+      "provinces": 1,
+      "top": [
+        {
+          "party": "PP",
+          "pct": 33.6
+        },
+        {
+          "party": "VOX",
+          "pct": 21.23
+        },
+        {
+          "party": "PSOE",
+          "pct": 20.6
+        },
+        {
+          "party": "Otro partido",
+          "pct": 3.49
+        },
+        {
+          "party": "Podemos",
+          "pct": 1.49
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 0.0
+        }
+      ]
+    },
+    {
+      "ccaa": "Extremadura",
+      "n": 1240.0,
+      "provinces": 2,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 35.88
+        },
+        {
+          "party": "PP",
+          "pct": 23.93
+        },
+        {
+          "party": "VOX",
+          "pct": 15.48
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 2.7
+        },
+        {
+          "party": "Otro partido",
+          "pct": 1.57
+        },
+        {
+          "party": "Podemos",
+          "pct": 1.38
+        }
+      ]
+    },
+    {
+      "ccaa": "Galicia",
+      "n": 3202.0,
+      "provinces": 4,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 30.52
+        },
+        {
+          "party": "PP",
+          "pct": 24.55
+        },
+        {
+          "party": "BNG",
+          "pct": 10.75
+        },
+        {
+          "party": "VOX",
+          "pct": 9.08
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 1.5
+        },
+        {
+          "party": "Otro partido",
+          "pct": 1.21
+        }
+      ]
+    },
+    {
+      "ccaa": "La Rioja",
+      "n": 477.0,
+      "provinces": 1,
+      "top": [
+        {
+          "party": "PP",
+          "pct": 30.33
+        },
+        {
+          "party": "PSOE",
+          "pct": 29.75
+        },
+        {
+          "party": "VOX",
+          "pct": 11.35
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 4.0
+        },
+        {
+          "party": "Otro partido",
+          "pct": 1.71
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 0.96
+        }
+      ]
+    },
+    {
+      "ccaa": "Madrid",
+      "n": 4744.0,
+      "provinces": 1,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 27.66
+        },
+        {
+          "party": "PP",
+          "pct": 22.3
+        },
+        {
+          "party": "VOX",
+          "pct": 14.42
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 8.1
+        },
+        {
+          "party": "Podemos",
+          "pct": 2.41
+        },
+        {
+          "party": "Otro partido",
+          "pct": 1.49
+        }
+      ]
+    },
+    {
+      "ccaa": "Melilla",
+      "n": 88.0,
+      "provinces": 1,
+      "top": [
+        {
+          "party": "PP",
+          "pct": 35.68
+        },
+        {
+          "party": "PSOE",
+          "pct": 24.94
+        },
+        {
+          "party": "VOX",
+          "pct": 19.16
+        },
+        {
+          "party": "Otro partido",
+          "pct": 4.14
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 0.0
+        },
+        {
+          "party": "ERC",
+          "pct": 0.0
+        }
+      ]
+    },
+    {
+      "ccaa": "Murcia",
+      "n": 1216.0,
+      "provinces": 1,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 23.02
+        },
+        {
+          "party": "PP",
+          "pct": 21.75
+        },
+        {
+          "party": "VOX",
+          "pct": 19.17
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 3.92
+        },
+        {
+          "party": "Otro partido",
+          "pct": 2.26
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 1.7
+        }
+      ]
+    },
+    {
+      "ccaa": "Navarra",
+      "n": 659.0,
+      "provinces": 1,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 21.91
+        },
+        {
+          "party": "UPN-PP",
+          "pct": 17.14
+        },
+        {
+          "party": "EH Bildu",
+          "pct": 15.51
+        },
+        {
+          "party": "VOX",
+          "pct": 8.34
+        },
+        {
+          "party": "Otro partido",
+          "pct": 3.41
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 2.12
+        }
+      ]
+    },
+    {
+      "ccaa": "País Vasco",
+      "n": 2244.0,
+      "provinces": 3,
+      "top": [
+        {
+          "party": "EH Bildu",
+          "pct": 24.83
+        },
+        {
+          "party": "PSOE",
+          "pct": 23.95
+        },
+        {
+          "party": "EAJ-PNV",
+          "pct": 9.66
+        },
+        {
+          "party": "PP",
+          "pct": 6.06
+        },
+        {
+          "party": "VOX",
+          "pct": 4.51
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 3.37
+        }
+      ]
+    }
+  ],
+  "provinces": [
+    {
+      "province": "Sevilla",
+      "ccaa": "Andalucía",
+      "n": 1548.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 30.87
+        },
+        {
+          "party": "PP",
+          "pct": 16.6
+        },
+        {
+          "party": "VOX",
+          "pct": 14.62
+        },
+        {
+          "party": "Adelante Andalucía",
+          "pct": 7.87
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 3.44
+        },
+        {
+          "party": "Otro partido",
+          "pct": 2.4
+        }
+      ]
+    },
+    {
+      "province": "Málaga",
+      "ccaa": "Andalucía",
+      "n": 1297.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 26.0
+        },
+        {
+          "party": "PP",
+          "pct": 20.31
+        },
+        {
+          "party": "VOX",
+          "pct": 16.96
+        },
+        {
+          "party": "Adelante Andalucía",
+          "pct": 5.13
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 2.85
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 2.64
+        }
+      ]
+    },
+    {
+      "province": "Cádiz",
+      "ccaa": "Andalucía",
+      "n": 1140.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 26.47
+        },
+        {
+          "party": "VOX",
+          "pct": 19.13
+        },
+        {
+          "party": "PP",
+          "pct": 16.5
+        },
+        {
+          "party": "Adelante Andalucía",
+          "pct": 8.73
+        },
+        {
+          "party": "Otro partido",
+          "pct": 2.8
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 2.75
+        }
+      ]
+    },
+    {
+      "province": "Granada",
+      "ccaa": "Andalucía",
+      "n": 861.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 30.7
+        },
+        {
+          "party": "VOX",
+          "pct": 22.19
+        },
+        {
+          "party": "PP",
+          "pct": 16.41
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 4.57
+        },
+        {
+          "party": "Adelante Andalucía",
+          "pct": 2.46
+        },
+        {
+          "party": "Podemos",
+          "pct": 1.66
+        }
+      ]
+    },
+    {
+      "province": "Córdoba",
+      "ccaa": "Andalucía",
+      "n": 780.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 29.09
+        },
+        {
+          "party": "PP",
+          "pct": 21.78
+        },
+        {
+          "party": "VOX",
+          "pct": 14.99
+        },
+        {
+          "party": "Adelante Andalucía",
+          "pct": 6.25
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 5.81
+        },
+        {
+          "party": "Otro partido",
+          "pct": 1.6
+        }
+      ]
+    },
+    {
+      "province": "Jaén",
+      "ccaa": "Andalucía",
+      "n": 705.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 28.26
+        },
+        {
+          "party": "VOX",
+          "pct": 21.51
+        },
+        {
+          "party": "PP",
+          "pct": 20.25
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 2.59
+        },
+        {
+          "party": "Adelante Andalucía",
+          "pct": 2.15
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 1.25
+        }
+      ]
+    },
+    {
+      "province": "Almería",
+      "ccaa": "Andalucía",
+      "n": 678.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 29.59
+        },
+        {
+          "party": "PP",
+          "pct": 22.7
+        },
+        {
+          "party": "VOX",
+          "pct": 19.72
+        },
+        {
+          "party": "Otro partido",
+          "pct": 2.97
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 2.51
+        },
+        {
+          "party": "Adelante Andalucía",
+          "pct": 2.16
+        }
+      ]
+    },
+    {
+      "province": "Huelva",
+      "ccaa": "Andalucía",
+      "n": 600.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 32.57
+        },
+        {
+          "party": "PP",
+          "pct": 18.81
+        },
+        {
+          "party": "VOX",
+          "pct": 15.13
+        },
+        {
+          "party": "Adelante Andalucía",
+          "pct": 6.52
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 2.66
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 1.54
+        }
+      ]
+    },
+    {
+      "province": "Zaragoza",
+      "ccaa": "Aragón",
+      "n": 905.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 27.86
+        },
+        {
+          "party": "PP",
+          "pct": 21.52
+        },
+        {
+          "party": "VOX",
+          "pct": 14.36
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 9.14
+        },
+        {
+          "party": "Otro partido",
+          "pct": 2.16
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 1.39
+        }
+      ]
+    },
+    {
+      "province": "Huesca",
+      "ccaa": "Aragón",
+      "n": 557.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 34.21
+        },
+        {
+          "party": "PP",
+          "pct": 20.01
+        },
+        {
+          "party": "VOX",
+          "pct": 15.31
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 7.35
+        },
+        {
+          "party": "Otro partido",
+          "pct": 1.63
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 0.6
+        }
+      ]
+    },
+    {
+      "province": "Teruel",
+      "ccaa": "Aragón",
+      "n": 422.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 32.4
+        },
+        {
+          "party": "VOX",
+          "pct": 18.11
+        },
+        {
+          "party": "PP",
+          "pct": 14.87
+        },
+        {
+          "party": "Otro partido",
+          "pct": 5.0
+        },
+        {
+          "party": "Teruel Existe",
+          "pct": 3.06
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 1.19
+        }
+      ]
+    },
+    {
+      "province": "Asturias",
+      "ccaa": "Asturias",
+      "n": 999.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 34.32
+        },
+        {
+          "party": "PP",
+          "pct": 17.69
+        },
+        {
+          "party": "VOX",
+          "pct": 11.48
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 6.52
+        },
+        {
+          "party": "Otro partido",
+          "pct": 4.36
+        },
+        {
+          "party": "Podemos",
+          "pct": 1.42
+        }
+      ]
+    },
+    {
+      "province": "Balears (Illes)",
+      "ccaa": "Baleares",
+      "n": 981.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 28.28
+        },
+        {
+          "party": "PP",
+          "pct": 19.42
+        },
+        {
+          "party": "VOX",
+          "pct": 16.78
+        },
+        {
+          "party": "Ara Més",
+          "pct": 8.65
+        },
+        {
+          "party": "Otro partido",
+          "pct": 2.58
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 0.85
+        }
+      ]
+    },
+    {
+      "province": "Valencia/València",
+      "ccaa": "C. Valenciana",
+      "n": 1948.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 26.96
+        },
+        {
+          "party": "VOX",
+          "pct": 18.34
+        },
+        {
+          "party": "PP",
+          "pct": 16.59
+        },
+        {
+          "party": "Compromís",
+          "pct": 13.42
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 2.15
+        },
+        {
+          "party": "Otro partido",
+          "pct": 1.65
+        }
+      ]
+    },
+    {
+      "province": "Alicante/Alacant",
+      "ccaa": "C. Valenciana",
+      "n": 1358.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 25.8
+        },
+        {
+          "party": "PP",
+          "pct": 21.01
+        },
+        {
+          "party": "VOX",
+          "pct": 19.42
+        },
+        {
+          "party": "Compromís",
+          "pct": 8.81
+        },
+        {
+          "party": "Otro partido",
+          "pct": 2.5
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 1.13
+        }
+      ]
+    },
+    {
+      "province": "Castellón/Castelló",
+      "ccaa": "C. Valenciana",
+      "n": 675.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 24.92
+        },
+        {
+          "party": "PP",
+          "pct": 19.37
+        },
+        {
+          "party": "VOX",
+          "pct": 18.4
+        },
+        {
+          "party": "Compromís",
+          "pct": 9.49
+        },
+        {
+          "party": "Otro partido",
+          "pct": 1.66
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 0.3
+        }
+      ]
+    },
+    {
+      "province": "Palmas (Las)",
+      "ccaa": "Canarias",
+      "n": 1033.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 29.25
+        },
+        {
+          "party": "VOX",
+          "pct": 17.96
+        },
+        {
+          "party": "PP",
+          "pct": 14.86
+        },
+        {
+          "party": "UPC",
+          "pct": 6.55
+        },
+        {
+          "party": "CC-Municipalistas",
+          "pct": 3.04
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 2.35
+        }
+      ]
+    },
+    {
+      "province": "Santa Cruz de Tenerife",
+      "ccaa": "Canarias",
+      "n": 977.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 27.03
+        },
+        {
+          "party": "VOX",
+          "pct": 16.49
+        },
+        {
+          "party": "PP",
+          "pct": 15.2
+        },
+        {
+          "party": "UPC",
+          "pct": 6.03
+        },
+        {
+          "party": "CC-Municipalistas",
+          "pct": 3.35
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 2.24
+        }
+      ]
+    },
+    {
+      "province": "Cantabria",
+      "ccaa": "Cantabria",
+      "n": 675.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 34.61
+        },
+        {
+          "party": "PP",
+          "pct": 19.69
+        },
+        {
+          "party": "VOX",
+          "pct": 13.17
+        },
+        {
+          "party": "Otro partido",
+          "pct": 3.49
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 1.58
+        },
+        {
+          "party": "Podemos",
+          "pct": 1.02
+        }
+      ]
+    },
+    {
+      "province": "Valladolid",
+      "ccaa": "Castilla y León",
+      "n": 674.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 31.98
+        },
+        {
+          "party": "PP",
+          "pct": 23.89
+        },
+        {
+          "party": "VOX",
+          "pct": 17.21
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 2.47
+        },
+        {
+          "party": "Otro partido",
+          "pct": 1.78
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 1.19
+        }
+      ]
+    },
+    {
+      "province": "León",
+      "ccaa": "Castilla y León",
+      "n": 565.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 38.97
+        },
+        {
+          "party": "PP",
+          "pct": 17.07
+        },
+        {
+          "party": "VOX",
+          "pct": 10.99
+        },
+        {
+          "party": "Otro partido",
+          "pct": 4.83
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 2.05
+        },
+        {
+          "party": "Podemos",
+          "pct": 1.69
+        }
+      ]
+    },
+    {
+      "province": "Burgos",
+      "ccaa": "Castilla y León",
+      "n": 518.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 35.24
+        },
+        {
+          "party": "PP",
+          "pct": 22.95
+        },
+        {
+          "party": "VOX",
+          "pct": 10.65
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 3.48
+        },
+        {
+          "party": "Otro partido",
+          "pct": 3.29
+        },
+        {
+          "party": "Podemos",
+          "pct": 3.1
+        }
+      ]
+    },
+    {
+      "province": "Salamanca",
+      "ccaa": "Castilla y León",
+      "n": 504.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 33.85
+        },
+        {
+          "party": "PP",
+          "pct": 23.24
+        },
+        {
+          "party": "VOX",
+          "pct": 15.41
+        },
+        {
+          "party": "Otro partido",
+          "pct": 2.35
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 2.24
+        },
+        {
+          "party": "Podemos",
+          "pct": 0.87
+        }
+      ]
+    },
+    {
+      "province": "Palencia",
+      "ccaa": "Castilla y León",
+      "n": 494.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 38.61
+        },
+        {
+          "party": "PP",
+          "pct": 25.18
+        },
+        {
+          "party": "VOX",
+          "pct": 13.24
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 1.54
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 0.98
+        },
+        {
+          "party": "Otro partido",
+          "pct": 0.66
+        }
+      ]
+    },
+    {
+      "province": "Zamora",
+      "ccaa": "Castilla y León",
+      "n": 492.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 39.82
+        },
+        {
+          "party": "PP",
+          "pct": 21.19
+        },
+        {
+          "party": "VOX",
+          "pct": 14.6
+        },
+        {
+          "party": "Otro partido",
+          "pct": 2.01
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 1.33
+        },
+        {
+          "party": "Podemos",
+          "pct": 0.98
+        }
+      ]
+    },
+    {
+      "province": "Segovia",
+      "ccaa": "Castilla y León",
+      "n": 478.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 30.92
+        },
+        {
+          "party": "PP",
+          "pct": 24.58
+        },
+        {
+          "party": "VOX",
+          "pct": 16.54
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 3.57
+        },
+        {
+          "party": "Otro partido",
+          "pct": 1.82
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 1.05
+        }
+      ]
+    },
+    {
+      "province": "Ávila",
+      "ccaa": "Castilla y León",
+      "n": 468.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 29.83
+        },
+        {
+          "party": "PP",
+          "pct": 23.89
+        },
+        {
+          "party": "VOX",
+          "pct": 15.8
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 3.65
+        },
+        {
+          "party": "Otro partido",
+          "pct": 2.25
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 1.17
+        }
+      ]
+    },
+    {
+      "province": "Soria",
+      "ccaa": "Castilla y León",
+      "n": 357.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 33.68
+        },
+        {
+          "party": "PP",
+          "pct": 19.3
+        },
+        {
+          "party": "VOX",
+          "pct": 17.39
+        },
+        {
+          "party": "Soria Ya",
+          "pct": 3.28
+        },
+        {
+          "party": "Otro partido",
+          "pct": 1.33
+        },
+        {
+          "party": "Podemos",
+          "pct": 1.24
+        }
+      ]
+    },
+    {
+      "province": "Toledo",
+      "ccaa": "Castilla-La Mancha",
+      "n": 728.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 35.03
+        },
+        {
+          "party": "VOX",
+          "pct": 21.46
+        },
+        {
+          "party": "PP",
+          "pct": 18.41
+        },
+        {
+          "party": "Otro partido",
+          "pct": 2.1
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 1.78
+        },
+        {
+          "party": "Podemos",
+          "pct": 1.5
+        }
+      ]
+    },
+    {
+      "province": "Ciudad Real",
+      "ccaa": "Castilla-La Mancha",
+      "n": 594.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 31.25
+        },
+        {
+          "party": "PP",
+          "pct": 26.01
+        },
+        {
+          "party": "VOX",
+          "pct": 18.22
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 2.08
+        },
+        {
+          "party": "Otro partido",
+          "pct": 1.94
+        },
+        {
+          "party": "Podemos",
+          "pct": 1.02
+        }
+      ]
+    },
+    {
+      "province": "Albacete",
+      "ccaa": "Castilla-La Mancha",
+      "n": 530.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 34.43
+        },
+        {
+          "party": "PP",
+          "pct": 22.24
+        },
+        {
+          "party": "VOX",
+          "pct": 16.88
+        },
+        {
+          "party": "Otro partido",
+          "pct": 2.28
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 1.65
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 1.18
+        }
+      ]
+    },
+    {
+      "province": "Cuenca",
+      "ccaa": "Castilla-La Mancha",
+      "n": 512.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 28.06
+        },
+        {
+          "party": "PP",
+          "pct": 27.44
+        },
+        {
+          "party": "VOX",
+          "pct": 19.9
+        },
+        {
+          "party": "Otro partido",
+          "pct": 2.1
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 1.35
+        },
+        {
+          "party": "Podemos",
+          "pct": 1.22
+        }
+      ]
+    },
+    {
+      "province": "Guadalajara",
+      "ccaa": "Castilla-La Mancha",
+      "n": 462.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 34.31
+        },
+        {
+          "party": "VOX",
+          "pct": 22.46
+        },
+        {
+          "party": "PP",
+          "pct": 18.79
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 2.99
+        },
+        {
+          "party": "Otro partido",
+          "pct": 1.5
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 1.32
+        }
+      ]
+    },
+    {
+      "province": "Barcelona",
+      "ccaa": "Cataluña",
+      "n": 3662.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 27.25
+        },
+        {
+          "party": "ERC",
+          "pct": 17.19
+        },
+        {
+          "party": "VOX",
+          "pct": 11.83
+        },
+        {
+          "party": "PP",
+          "pct": 6.84
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 4.58
+        },
+        {
+          "party": "Junts",
+          "pct": 3.87
+        }
+      ]
+    },
+    {
+      "province": "Tarragona",
+      "ccaa": "Cataluña",
+      "n": 742.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 28.57
+        },
+        {
+          "party": "ERC",
+          "pct": 13.39
+        },
+        {
+          "party": "VOX",
+          "pct": 11.99
+        },
+        {
+          "party": "PP",
+          "pct": 6.37
+        },
+        {
+          "party": "Junts",
+          "pct": 4.16
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 4.06
+        }
+      ]
+    },
+    {
+      "province": "Girona",
+      "ccaa": "Cataluña",
+      "n": 691.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 23.2
+        },
+        {
+          "party": "ERC",
+          "pct": 15.35
+        },
+        {
+          "party": "VOX",
+          "pct": 13.43
+        },
+        {
+          "party": "Junts",
+          "pct": 8.89
+        },
+        {
+          "party": "Otro partido",
+          "pct": 5.94
+        },
+        {
+          "party": "PP",
+          "pct": 5.46
+        }
+      ]
+    },
+    {
+      "province": "Lleida",
+      "ccaa": "Cataluña",
+      "n": 501.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 22.68
+        },
+        {
+          "party": "ERC",
+          "pct": 17.44
+        },
+        {
+          "party": "VOX",
+          "pct": 12.32
+        },
+        {
+          "party": "PP",
+          "pct": 5.47
+        },
+        {
+          "party": "Junts",
+          "pct": 5.4
+        },
+        {
+          "party": "Otro partido",
+          "pct": 3.42
+        }
+      ]
+    },
+    {
+      "province": "Ceuta",
+      "ccaa": "Ceuta",
+      "n": 93.0,
+      "top": [
+        {
+          "party": "PP",
+          "pct": 33.6
+        },
+        {
+          "party": "VOX",
+          "pct": 21.23
+        },
+        {
+          "party": "PSOE",
+          "pct": 20.6
+        },
+        {
+          "party": "Otro partido",
+          "pct": 3.49
+        },
+        {
+          "party": "Podemos",
+          "pct": 1.49
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 0.0
+        }
+      ]
+    },
+    {
+      "province": "Badajoz",
+      "ccaa": "Extremadura",
+      "n": 709.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 35.82
+        },
+        {
+          "party": "PP",
+          "pct": 25.91
+        },
+        {
+          "party": "VOX",
+          "pct": 13.15
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 2.93
+        },
+        {
+          "party": "Otro partido",
+          "pct": 1.97
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 1.58
+        }
+      ]
+    },
+    {
+      "province": "Cáceres",
+      "ccaa": "Extremadura",
+      "n": 531.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 35.97
+        },
+        {
+          "party": "PP",
+          "pct": 21.3
+        },
+        {
+          "party": "VOX",
+          "pct": 18.61
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 2.39
+        },
+        {
+          "party": "Podemos",
+          "pct": 1.77
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 1.07
+        }
+      ]
+    },
+    {
+      "province": "Coruña (A)",
+      "ccaa": "Galicia",
+      "n": 1097.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 29.24
+        },
+        {
+          "party": "PP",
+          "pct": 24.31
+        },
+        {
+          "party": "BNG",
+          "pct": 13.84
+        },
+        {
+          "party": "VOX",
+          "pct": 7.0
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 1.5
+        },
+        {
+          "party": "Otro partido",
+          "pct": 1.26
+        }
+      ]
+    },
+    {
+      "province": "Pontevedra",
+      "ccaa": "Galicia",
+      "n": 945.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 30.92
+        },
+        {
+          "party": "PP",
+          "pct": 22.8
+        },
+        {
+          "party": "BNG",
+          "pct": 10.99
+        },
+        {
+          "party": "VOX",
+          "pct": 10.42
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 2.49
+        },
+        {
+          "party": "Otro partido",
+          "pct": 1.4
+        }
+      ]
+    },
+    {
+      "province": "Lugo",
+      "ccaa": "Galicia",
+      "n": 689.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 32.98
+        },
+        {
+          "party": "PP",
+          "pct": 21.95
+        },
+        {
+          "party": "VOX",
+          "pct": 9.78
+        },
+        {
+          "party": "BNG",
+          "pct": 7.98
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 0.92
+        },
+        {
+          "party": "Podemos",
+          "pct": 0.89
+        }
+      ]
+    },
+    {
+      "province": "Ourense",
+      "ccaa": "Galicia",
+      "n": 471.0,
+      "top": [
+        {
+          "party": "PP",
+          "pct": 32.39
+        },
+        {
+          "party": "PSOE",
+          "pct": 29.1
+        },
+        {
+          "party": "VOX",
+          "pct": 10.25
+        },
+        {
+          "party": "BNG",
+          "pct": 7.08
+        },
+        {
+          "party": "Otro partido",
+          "pct": 1.73
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 0.69
+        }
+      ]
+    },
+    {
+      "province": "Rioja (La)",
+      "ccaa": "La Rioja",
+      "n": 477.0,
+      "top": [
+        {
+          "party": "PP",
+          "pct": 30.33
+        },
+        {
+          "party": "PSOE",
+          "pct": 29.75
+        },
+        {
+          "party": "VOX",
+          "pct": 11.35
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 4.0
+        },
+        {
+          "party": "Otro partido",
+          "pct": 1.71
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 0.96
+        }
+      ]
+    },
+    {
+      "province": "Madrid",
+      "ccaa": "Madrid",
+      "n": 4744.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 27.66
+        },
+        {
+          "party": "PP",
+          "pct": 22.3
+        },
+        {
+          "party": "VOX",
+          "pct": 14.42
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 8.1
+        },
+        {
+          "party": "Podemos",
+          "pct": 2.41
+        },
+        {
+          "party": "Otro partido",
+          "pct": 1.49
+        }
+      ]
+    },
+    {
+      "province": "Melilla",
+      "ccaa": "Melilla",
+      "n": 88.0,
+      "top": [
+        {
+          "party": "PP",
+          "pct": 35.68
+        },
+        {
+          "party": "PSOE",
+          "pct": 24.94
+        },
+        {
+          "party": "VOX",
+          "pct": 19.16
+        },
+        {
+          "party": "Otro partido",
+          "pct": 4.14
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 0.0
+        },
+        {
+          "party": "ERC",
+          "pct": 0.0
+        }
+      ]
+    },
+    {
+      "province": "Murcia",
+      "ccaa": "Murcia",
+      "n": 1216.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 23.02
+        },
+        {
+          "party": "PP",
+          "pct": 21.75
+        },
+        {
+          "party": "VOX",
+          "pct": 19.17
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 3.92
+        },
+        {
+          "party": "Otro partido",
+          "pct": 2.26
+        },
+        {
+          "party": "Se Acabó la Fiesta",
+          "pct": 1.7
+        }
+      ]
+    },
+    {
+      "province": "Navarra",
+      "ccaa": "Navarra",
+      "n": 659.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 21.91
+        },
+        {
+          "party": "UPN-PP",
+          "pct": 17.14
+        },
+        {
+          "party": "EH Bildu",
+          "pct": 15.51
+        },
+        {
+          "party": "VOX",
+          "pct": 8.34
+        },
+        {
+          "party": "Otro partido",
+          "pct": 3.41
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 2.12
+        }
+      ]
+    },
+    {
+      "province": "Gipuzkoa",
+      "ccaa": "País Vasco",
+      "n": 999.0,
+      "top": [
+        {
+          "party": "EH Bildu",
+          "pct": 29.41
+        },
+        {
+          "party": "PSOE",
+          "pct": 22.06
+        },
+        {
+          "party": "EAJ-PNV",
+          "pct": 8.17
+        },
+        {
+          "party": "PP",
+          "pct": 5.51
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 3.58
+        },
+        {
+          "party": "VOX",
+          "pct": 3.43
+        }
+      ]
+    },
+    {
+      "province": "Bizkaia",
+      "ccaa": "País Vasco",
+      "n": 739.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 26.09
+        },
+        {
+          "party": "EH Bildu",
+          "pct": 21.6
+        },
+        {
+          "party": "EAJ-PNV",
+          "pct": 10.94
+        },
+        {
+          "party": "PP",
+          "pct": 5.47
+        },
+        {
+          "party": "VOX",
+          "pct": 5.01
+        },
+        {
+          "party": "Otro partido",
+          "pct": 3.87
+        }
+      ]
+    },
+    {
+      "province": "Araba/Álava",
+      "ccaa": "País Vasco",
+      "n": 506.0,
+      "top": [
+        {
+          "party": "PSOE",
+          "pct": 24.56
+        },
+        {
+          "party": "EH Bildu",
+          "pct": 20.5
+        },
+        {
+          "party": "EAJ-PNV",
+          "pct": 10.74
+        },
+        {
+          "party": "PP",
+          "pct": 8.02
+        },
+        {
+          "party": "VOX",
+          "pct": 5.92
+        },
+        {
+          "party": "Frente Amplio",
+          "pct": 2.71
+        }
+      ]
+    }
+  ]
+}
