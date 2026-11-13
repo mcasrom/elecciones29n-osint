@@ -30,13 +30,17 @@ def main():
     cv={r["party"]:float(r["pct"]) for r in cis["vote_estimate"]}
     mv={p["party"]:float(p["mean"]) for p in latest.get("parties",[])}
     rows=[("PSOE",cv.get("PSOE",0),mv.get("PSOE",0)),("PP",cv.get("PP",0),mv.get("PP",0)),("VOX",cv.get("VOX",0),mv.get("VOX",0))]
+    def sg(v): return ("+" if v>=0 else "−")+fmt(abs(v))
+    n_polls=latest.get("n_polls")
+    d_ps=cv.get("PSOE",0)-mv.get("PSOE",0)
+    d_pp=cv.get("PP",0)-mv.get("PP",0)
     img=Image.new("RGB",(1200,630),BG); dr=ImageDraw.Draw(img)
     dr.rectangle([0,0,10,630],fill=ACCENT)
     dr.text((52,36),"elecciones29n-osint",font=font(27,True),fill=FG)
     dr.text((52,74),"CIS 3584 · publicado 12-nov-2026",font=font(20),fill=MUTED)
     dr.text((52,132),"El CIS se desmarca",font=font(64,True,True),fill=FG)
     dr.rectangle([54,212,220,218],fill=ACCENT)
-    dr.text((52,236),"PSOE +6,9 pp · PP −5,8 pp frente a la media de 17 sondeos",font=font(23),fill=MUTED)
+    dr.text((52,236),f"PSOE {sg(d_ps)} pp · PP {sg(d_pp)} pp frente a la media de {n_polls} sondeos",font=font(23),fill=MUTED)
     y=304
     for name,c,m in rows:
         d=c-m; col=OK if d>=0 else ACCENT
