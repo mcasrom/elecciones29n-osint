@@ -1,0 +1,443 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claves del 29N · datos para leer sin pronóstico</title>
+<meta name="description" content="Datos para leer el 29N sin pronóstico: voto exterior, electores nuevos, voto sin escaño, edad y estructura del sistema (electores por escaño y márgenes).">
+<link rel="canonical" href="https://elecciones29n.pruebapublica.com/claves.html">
+
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="stylesheet" href="/css/main.css?v=202611132115">
+<script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  function sync(){
+    var light = document.documentElement.dataset.theme === 'light';
+    document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+      var i=b.querySelector('.ticon'), l=b.querySelector('.tlabel');
+      if(i) i.textContent = light ? '☾' : '☀';
+      if(l) l.textContent = light ? 'Oscuro' : 'Claro';
+      b.setAttribute('title', light ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro');
+    });
+  }
+  sync();
+  document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var root = document.documentElement;
+      var next = root.dataset.theme === 'light' ? 'dark' : 'light';
+      root.dataset.theme = next;
+      try { localStorage.setItem('e29n-theme', next); } catch(e) {}
+      sync();
+    });
+  });
+});
+</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta name="theme-color" content="#0b0c1c">
+<meta name="generator" content="elecciones29n-osint v0.11.2">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="elecciones29n-osint">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Claves del 29N · datos para leer sin pronóstico">
+<meta property="og:description" content="Datos para leer el 29N sin pronóstico: voto exterior, electores nuevos, voto sin escaño, edad y estructura del sistema (electores por escaño y márgenes).">
+<meta property="og:url" content="https://elecciones29n.pruebapublica.com/claves.html">
+
+<meta property="og:image" content="https://elecciones29n.pruebapublica.com/og-claves-29n.png">
+<meta property="og:image:alt" content="Claves del 29N · datos para leer sin pronóstico">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Claves del 29N · datos para leer sin pronóstico">
+<meta name="twitter:description" content="Datos para leer el 29N sin pronóstico: voto exterior, electores nuevos, voto sin escaño, edad y estructura del sistema (electores por escaño y márgenes).">
+<meta name="twitter:image" content="https://elecciones29n.pruebapublica.com/og-claves-29n.png">
+<meta name="twitter:image:alt" content="Claves del 29N · datos para leer sin pronóstico">
+<link rel="alternate" type="application/json" href="/data/latest.json" title="Datos agregados (JSON)">
+<link rel="alternate" type="application/rss+xml" href="/cambios.xml" title="Cambios · nuevos sondeos">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Claves del 29N", "url": "https://elecciones29n.pruebapublica.com/claves.html", "description": "Datos para leer el 29N sin pronóstico: voto exterior, electores nuevos, voto sin escaño, edad y estructura del sistema (electores por escaño y márgenes).", "inLanguage": "es-ES"}</script>
+<style>
+.claves-hero{padding:22px 0 6px}
+.claves-hero h1{font-size:clamp(32px,5vw,50px);line-height:1.02;margin:0;letter-spacing:-.04em}
+.claves-hero p{max-width:68ch;color:var(--muted);font-size:17px;margin:12px 0 0}
+.clavegrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:20px 0;min-width:0}
+@media(max-width:820px){.clavegrid{grid-template-columns:minmax(0,1fr)}}
+.clave{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:16px;padding:20px;min-height:300px;display:flex;flex-direction:column;min-width:0}
+.clave .kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2);font-weight:800;margin:0 0 8px}
+.clave h2{font-size:22px;line-height:1.15;margin:0 0 12px;letter-spacing:-.02em}
+.clave .big{font-size:clamp(34px,5vw,48px);line-height:1;font-weight:900;letter-spacing:-.04em;margin:2px 0 6px}
+.clave .big small{font-size:14px;font-weight:600;letter-spacing:0;color:var(--muted);display:block;margin-top:6px}
+.clave p{font-size:14.5px;color:var(--muted);margin:8px 0}
+.clave .src{font-size:12px;color:var(--faint);margin-top:auto;padding-top:12px}
+.barlist{display:grid;gap:9px;margin:10px 0 4px}
+.barrow{display:grid;grid-template-columns:118px 1fr 76px;gap:10px;align-items:center;font-size:13px;color:var(--fg)}
+.barrow .track{height:16px;border-radius:99px;background:#e1e6ef;border:1px solid #d2d9e6;overflow:hidden;box-shadow:inset 0 1px 2px rgba(20,30,50,.08)}
+.barrow .fill{display:block;height:100%;min-width:5px;border-radius:99px;background:linear-gradient(90deg,#d94a12,#ff7a36 70%,#ffb078);box-shadow:0 0 0 1px rgba(217,74,18,.18) inset}
+.barrow .fill.teal{background:linear-gradient(90deg,#178a73,#3ddc97)}
+.barrow .val{text-align:right;color:var(--fg);font-weight:800;font-variant-numeric:tabular-nums}
+.barrow small{display:block;font-size:10px;color:var(--faint);font-weight:500;line-height:1.2}
+.clave .mini{font-size:12.5px;color:var(--faint);margin-top:8px}
+.clave .tag{display:inline-block;font-size:11px;border:1px solid var(--line);border-radius:999px;padding:2px 8px;color:var(--muted);margin:2px 4px 2px 0}
+.clave table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px;table-layout:fixed;min-width:0}
+.clave th,.clave td{text-align:left;padding:5px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.clave th{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.clave th:first-child,.clave td:first-child{width:68%;overflow-wrap:anywhere}
+.clave th.num,.clave td.num{width:32%;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;padding-right:14px}
+.clave .note{font-size:12.5px;color:var(--faint);border-left:2px solid var(--accent2);padding-left:10px;margin-top:10px}
+.claves-seccion{margin:34px 0 6px}
+.claves-seccion-head{border-top:1px solid var(--line);padding-top:24px;margin-bottom:14px}
+.claves-seccion-head h2{font-size:clamp(24px,3vw,34px);line-height:1.08;letter-spacing:-.03em;margin:4px 0 6px}
+.claves-seccion-head p{max-width:70ch;color:var(--muted);font-size:15px;margin:0}
+.clave .chart{margin:8px 0 2px;max-width:100%}
+.claves-foot{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;margin:18px 0 30px}
+@media(max-width:760px){.claves-foot{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">
+        <span class="mark"></span>
+        <span class="brandname"><a href="/">elecciones29n-osint</a></span>
+        <span class="tag">Media agregada de sondeos · 29N 2026</span>
+      </div>
+      <div class="status">
+        <button class="helpopen" id="helpbtn" aria-expanded="false" aria-controls="helppanel">? Ayuda</button>
+        <button class="themebtn" data-theme-toggle aria-label="Cambiar entre tema claro y oscuro" title="Cambiar tema"><span class="ticon">☀</span><span class="tlabel">Claro</span></button>
+      </div>
+    </div>
+
+    <nav class="mainnav" aria-label="Principal">
+      <div class="navrow navrow-primary">
+        <a class="navpill " href="/">Inicio</a>
+        <a class="navpill active" href="/claves.html">Claves</a>
+        <a class="navpill " href="/hemiciclo.html">Simulación</a>
+        <a class="navpill " href="/gobernabilidad.html">Gobernabilidad</a>
+        <a class="navpill " href="/escenarios.html">Escenarios</a>
+        <a class="navpill " href="/electorado.html">Electorado</a>
+        <a class="navpill " href="/lideres.html">Líderes</a>
+        <a class="navpill " href="/candidatos.html">Candidatos</a>
+        <a class="navpill " href="/dirigentes.html">Dirigentes</a>
+        <a class="navpill " href="/participacion.html">Participación</a>
+        <a class="navpill " href="/mi-circunscripcion.html">Mi circunscripción</a>
+        <a class="navpill " href="/territorio.html">Territorio</a>
+        <a class="navpill " href="/competitivas.html">Competitivas</a>
+        <a class="navpill " href="/circunscripciones.html">Circunscripciones</a>
+        <a class="navpill " href="/voto-provincial.html">Voto provincial</a>
+        <a class="navpill " href="/noche-electoral.html">Noche electoral</a>
+      </div>
+      <div class="navrow navrow-secondary">
+        <a class="" href="/metodologia.html">Metodología</a>
+        <a class="" href="/glosario.html">Glosario</a>
+        <a class="" href="/robustez.html">Robustez</a>
+        <a class="" href="/como-leer.html">Cómo leer</a>
+        <a class="" href="/fuentes.html">Fuentes y datos</a>
+        <a class="" href="/novedades.html">Novedades</a>
+        <a class="" href="/factores.html">Factores</a>
+        <a class="" href="/comportamiento.html">Comportamiento</a>
+        <a class="" href="/caveat.html">Qué no dice</a>
+        <a class="" href="/apoyo.html">Apoyo</a>
+        <a class="" href="/sobre-mi.html">Sobre mí</a>
+        <a class="" href="/about.html">Acerca del proyecto</a>
+        <a class="" href="/mayorias.html">Mayorías</a>
+        <a class="" href="/escenarios.html">Escenarios</a>
+        <a class="" href="/postelectoral.html">Post-electoral</a>
+        <a class="" href="/prensa.html">Prensa</a>
+        <a class="" href="/aviso.html">Avisos</a>
+        <a class="" href="/incrustar.html">Incrustar</a>
+        <a class="" href="/en.html">English</a>
+        <a class="" href="/privacidad.html">Privacidad</a>
+        <a class="navdata" href="/data/latest.json">Datos abiertos ↗</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <section class="claves-hero">
+    <p class="eyebrow">29N · Claves</p>
+    <h1>Claves para leer el 29N sin pronóstico.</h1>
+    <p>No son predicciones. Son puntos de partida: quién puede votar, dónde pesa el voto, qué voto no se convierte en escaño, cómo es el censo por edad y cuánto cuesta un escaño según la provincia. Cada dato lleva su límite.</p>
+  </section>
+
+  <div class="clavegrid">
+    <article class="clave">
+      <p class="kicker">01 · Voto exterior</p>
+      <h2>El exterior no es un bloque: es una abstención enorme.</h2>
+      <div class="big">2.769.645 <small>con derecho a voto desde el extranjero</small></div>
+      <div class="barlist">
+        <div class="barrow"><span>Exterior 2023</span><div class="track"><i class="fill" style="width:8.95%"></i></div><span class="val">8,95%</span></div>
+        <div class="barrow"><span>Interior 2023</span><div class="track"><i class="fill teal" style="width:70.41%"></i></div><span class="val">70,41%</span></div>
+      </div>
+      <p>Solo <strong>208.431</strong> votaron en 2023: el <strong>8,95%</strong>. El voto exterior no es un bloque homogéneo ni una previsión.</p>
+      <p class="note"><strong>Asturias:</strong> 8.766 votos CERA frente a un margen PP-PSOE de 7.767 en 2023. Es el ejemplo de dónde el exterior puede pesar; no dice a quién votará en 2026.</p>
+      <p class="src">Fuente: INE / Ministerio del Interior · CERA 2023. <a href="/electorado.html">Ver censo completo →</a></p>
+    </article>
+
+    <article class="clave">
+      <p class="kicker">02 · Electores nuevos</p>
+      <h2>1,6 M de electores nuevos. En 24 provincias pesan más que el margen del 23-J.</h2>
+      <div class="big">1.615.127 <small>nuevos electores desde 2023</small></div>
+      <div class="barlist">
+        
+        
+        
+        <div class="barrow"><span>Madrid</span><div class="track"><i class="fill" style="width:100.0%"></i></div><span class="val">227.433</span></div>
+        
+        <div class="barrow"><span>Barcelona</span><div class="track"><i class="fill" style="width:85.8%"></i></div><span class="val">195.095</span></div>
+        
+        <div class="barrow"><span>Valencia/València</span><div class="track"><i class="fill" style="width:40.3%"></i></div><span class="val">91.635</span></div>
+        
+        <div class="barrow"><span>Sevilla</span><div class="track"><i class="fill" style="width:35.4%"></i></div><span class="val">80.589</span></div>
+        
+        <div class="barrow"><span>Alicante/Alacant</span><div class="track"><i class="fill" style="width:27.4%"></i></div><span class="val">62.327</span></div>
+        
+      </div>
+      <p><strong>CIS 2023 (18–24):</strong> PSOE 42,0% · VOX 18,2% · PP 14,0% · SUMAR 10,7%. Es <strong>recuerdo de voto</strong>, no intención de voto 2026.</p>
+      <p class="note">Nuevos electores no significa nuevos votantes. Que un bloque supere un margen histórico no implica que vote ni a quién.</p>
+      <p class="src">Fuente: INE · CIS 3582 (2023) · <a href="/electorado.html">Ver nuevos electores →</a></p>
+    </article>
+
+    <article class="clave">
+      <p class="kicker">03 · Voto sin escaño</p>
+      <h2>1,93 M de votos no eligieron escaño en su provincia.</h2>
+      <div class="big">1.930.424 <small>7,82% de los votos válidos · 2023</small></div>
+      <div class="barlist">
+        <div class="barrow"><span>Sin escaño provincial</span><div class="track"><i class="fill" style="width:100%"></i></div><span class="val">1.930.424</span></div>
+        <div class="barrow"><span>Partidos sin escaño</span><div class="track"><i class="fill teal" style="width:31.4%"></i></div><span class="val">606.450</span></div>
+      </div>
+      <p>La primera barra es el total de votos que no eligieron escaño en su provincia (7,82 %); la segunda, los votos a partidos sin ningún escaño nacional (606.450; 2,46 %). La segunda cifra es la más estricta: <strong>606.450 votos</strong> a candidaturas sin ningún escaño en el Congreso.</p>
+      <table>
+        <thead><tr><th>Sin escaño nacional</th><th class="num">Votos</th></tr></thead>
+        <tbody>
+          <tr><td>PACMA</td><td class="num">169.237</td></tr>
+          <tr><td>CUP-PR</td><td class="num">99.644</td></tr>
+          <tr><td>FO</td><td class="num">46.274</td></tr>
+          <tr><td>NC-bc</td><td class="num">45.595</td></tr>
+          <tr><td>PDeCAT-E-CiU</td><td class="num">32.016</td></tr>
+        </tbody>
+      </table>
+      <p class="src">Fuente: resultados oficiales 23-J. No es “voto tirado”: no todos los votos valen lo mismo en el reparto provincial. <a href="https://analisis.pruebapublica.com/posts/voto-sin-escanio-2023/?utm_source=29n&utm_medium=crosspromo&utm_campaign=claves">Análisis provincial completo →</a> · <a href="/territorio.html">Ver territorio →</a></p>
+    </article>
+
+    <article class="clave">
+      <p class="kicker">04 · Edad y censo</p>
+      <h2>El grupo más numeroso no es el más joven.</h2>
+      <div class="big">3,55 M <small>personas de 50 a 54 años en el censo</small></div>
+      <div class="barlist">
+        
+        
+        
+        <div class="barrow"><span>50 a 54</span><div class="track"><i class="fill" style="width:100.0%"></i></div><span class="val">3.548.480</span></div>
+        
+        <div class="barrow"><span>55 a 59</span><div class="track"><i class="fill" style="width:94.6%"></i></div><span class="val">3.357.662</span></div>
+        
+        <div class="barrow"><span>45 a 49</span><div class="track"><i class="fill" style="width:93.1%"></i></div><span class="val">3.303.731</span></div>
+        
+        <div class="barrow"><span>60 a 64</span><div class="track"><i class="fill" style="width:89.4%"></i></div><span class="val">3.172.989</span></div>
+        
+        <div class="barrow"><span>65 a 69</span><div class="track"><i class="fill" style="width:78.8%"></i></div><span class="val">2.794.438</span></div>
+        
+        <div class="barrow"><span>40 a 44</span><div class="track"><i class="fill" style="width:74.0%"></i></div><span class="val">2.626.945</span></div>
+        
+      </div>
+      <p>El censo está envejecido en su parte alta: los grupos de 45 a 64 años concentran el mayor volumen. Los jóvenes pesan menos en el total, pero no por ello dejan de ser decisivos en provincias ajustadas.</p>
+      <p class="note"><strong>Ojo:</strong> tamaño del grupo ≠ participación ≠ intención de voto. La edad no decide sola.</p>
+      <p class="src">Fuente: INE · censo 2026. <a href="/electorado.html">Ver distribución por edad →</a></p>
+    </article>
+  </div>
+
+  <section class="claves-seccion" aria-labelledby="estructura-title">
+    <div class="claves-seccion-head">
+      <p class="eyebrow">Estructura del sistema</p>
+      <h2 id="estructura-title">El coste de un escaño no es igual en todas las provincias.</h2>
+      <p>Dos capas distintas: el coste de un escaño según el censo y la relación entre los márgenes de 2023, el voto exterior y los electores nuevos. Son datos históricos; no son una proyección del 29N.</p>
+    </div>
+    <div class="clavegrid">
+      <article class="clave">
+        <p class="kicker">05 · Electores por escaño</p>
+        <h2>Un escaño en Teruel cuesta 4,1 veces menos electores que en Madrid.</h2>
+        <div class="big">4,1× <small>electores por escaño: Teruel 35.417 · Madrid 145.708</small></div>
+        <svg class="chart" viewBox="0 0 760 232" role="img" aria-label="Electores por escaño: extremos provinciales"><text x="116" y="24" text-anchor="end" fill="var(--muted)" font-size="10">Teruel</text><rect x="122" y="15" width="135.1" height="11" rx="2" fill="#3ddc97" opacity="0.86"/><text x="263.1" y="24" fill="var(--muted)" font-size="9.5">35.417</text><text x="116" y="51" text-anchor="end" fill="var(--muted)" font-size="10">Soria</text><rect x="122" y="42" width="147.0" height="11" rx="2" fill="#3ddc97" opacity="0.86"/><text x="275.0" y="51" fill="var(--muted)" font-size="9.5">38.534</text><text x="116" y="78" text-anchor="end" fill="var(--muted)" font-size="10">Segovia</text><rect x="122" y="69" width="154.5" height="11" rx="2" fill="#3ddc97" opacity="0.86"/><text x="282.5" y="78" fill="var(--muted)" font-size="9.5">40.487</text><text x="116" y="105" text-anchor="end" fill="var(--muted)" font-size="10">Ávila</text><rect x="122" y="96" width="173.7" height="11" rx="2" fill="#3ddc97" opacity="0.86"/><text x="301.7" y="105" fill="var(--muted)" font-size="9.5">45.533</text><text x="116" y="132" text-anchor="end" fill="var(--muted)" font-size="10">Madrid</text><rect x="122" y="123" width="556.0" height="11" rx="2" fill="#ff5a1f" opacity="0.86"/><text x="684.0" y="132" fill="var(--muted)" font-size="9.5">145.708</text><text x="116" y="159" text-anchor="end" fill="var(--muted)" font-size="10">Asturias</text><rect x="122" y="150" width="533.7" height="11" rx="2" fill="#ff5a1f" opacity="0.86"/><text x="661.7" y="159" fill="var(--muted)" font-size="9.5">139.868</text><text x="116" y="186" text-anchor="end" fill="var(--muted)" font-size="10">Coruña, A</text><rect x="122" y="177" width="527.9" height="11" rx="2" fill="#ff5a1f" opacity="0.86"/><text x="655.9" y="186" fill="var(--muted)" font-size="9.5">138.336</text><text x="116" y="213" text-anchor="end" fill="var(--muted)" font-size="10">Barcelona</text><rect x="122" y="204" width="524.5" height="11" rx="2" fill="#ff5a1f" opacity="0.86"/><text x="652.5" y="213" fill="var(--muted)" font-size="9.5">137.461</text></svg>
+        <p>La LOREG asigna un mínimo de dos escaños por provincia. Eso protege la representación territorial, pero hace que el número de electores necesario para elegir un diputado varíe mucho.</p>
+        <p class="note"><strong>Ojo:</strong> no es un voto ponderado ni “un voto vale 4,1”. Es el <strong>coste de escaño</strong>: electores censados por escaño asignado.</p>
+        <p class="mini">Media nacional: <strong>110.652</strong> electores por escaño. <strong>53 escaños</strong> (15,1%) se eligen con menos de 80.000 electores.</p>
+        <p class="src">Fuente: INE · censo 2026 · RD 806/2026. <a href="/territorio.html">Ver territorio →</a></p>
+      </article>
+
+      <article class="clave">
+        <p class="kicker">06 · CERA y nuevos electores</p>
+        <h2>En 17 provincias, CERA y nuevos electores superan el margen del último escaño de 2023.</h2>
+        <div class="big">17 <small>provincias donde ambos superan el margen del último escaño</small></div>
+        <div class="barlist">
+          
+          <div class="barrow"><span>Girona<small>margen 285</small></span><div class="track"><i class="fill" style="width:100.0%"></i></div><span class="val">96,2×</span></div>
+          
+          <div class="barrow"><span>Santa Cruz de Tenerife<small>margen 1.565</small></span><div class="track"><i class="fill" style="width:22.6%"></i></div><span class="val">21,7×</span></div>
+          
+          <div class="barrow"><span>Palmas, Las<small>margen 3.190</small></span><div class="track"><i class="fill" style="width:12.3%"></i></div><span class="val">11,9×</span></div>
+          
+          <div class="barrow"><span>Tarragona<small>margen 2.753</small></span><div class="track"><i class="fill" style="width:11.2%"></i></div><span class="val">10,7×</span></div>
+          
+          <div class="barrow"><span>Gipuzkoa<small>margen 2.433</small></span><div class="track"><i class="fill" style="width:10.5%"></i></div><span class="val">10,1×</span></div>
+          
+        </div>
+        <p>El CERA supera ese margen en <strong>29</strong> provincias; los nuevos electores, en <strong>20</strong>. Aquí se muestran las que cumplen ambas condiciones (17 de 38 con margen calculable); la barra indica cuántas veces los nuevos electores superan el margen.</p>
+        <p class="note"><strong>No es un pronóstico:</strong> el margen es el del <strong>último escaño</strong> de 2023 (D'Hondt), no la diferencia PP-PSOE. CERA y nuevos electores son censo, no votos; superar un margen no implica votar ni decidir el escaño.</p>
+        <p class="src">Fuente: INE · censo 2026 · Ministerio del Interior · D'Hondt 23-J. <a href="/electorado.html">Ver electorado →</a></p>
+      </article>
+    </div>
+  </section>
+
+  <div class="claves-foot">
+    <div class="card">
+      <div class="cardhead"><h2>Qué no dicen estos datos</h2><span class="hint">límites</span></div>
+      <ul class="muted small">
+        <li>No son un pronóstico del 29N.</li>
+        <li>El voto exterior y los nuevos electores no votan necesariamente.</li>
+        <li>“Sin escaño en la provincia” no es lo mismo que “partido sin representación”.</li>
+        <li>La estructura por edad no mide intención ni participación.</li>
+        <li>Los datos de 2023 no se trasladan mecánicamente a 2026.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="cardhead"><h2>Cómo leerlo</h2><span class="hint">método</span></div>
+      <p class="muted small">Cada tarjeta enlaza a la página de datos que la sostiene. Las cifras son históricas y oficiales; las lecturas son descriptivas.</p>
+      <p><a class="btn" href="/electorado.html">Electorado</a> <a class="btn" href="/territorio.html">Territorio</a> <a class="btn" href="/como-leer.html">Cómo leer</a></p>
+    </div>
+  </div>
+</main>
+<footer class="footer">
+  <div class="container">
+    <p>elecciones29n-osint · Media agregada de sondeos publicados para las elecciones generales del 29 de noviembre de 2026.</p>
+    <p>Una media no es un pronóstico. <a href="/caveat.html">Qué no dice este sitio</a>.</p>
+    <p>Datos abiertos · <a href="/novedades.html">Novedades</a> · <a href="/cambios.xml">RSS de cambios</a> · <a href="/embed/medias.html">Embed</a> · <a href="/incrustar.html">Guía de uso</a> · <a href="/aviso.html">Avisos</a> · <a href="/prensa.html">Prensa</a> · <a href="/apoyo.html">Apoyo</a> · <a href="/sobre-mi.html">Sobre mí</a> · <a href="/privacidad.html">Privacidad</a> · <a href="/mayorias.html">Mayorías</a> · <a href="/postelectoral.html">Post-electoral</a> · <a href="/competitivas.html">Competitivas</a> · <a href="/en.html">English</a> · Hecho por Miguel Castillo · software v0.11.2 · 2026-11-13.</p>
+    <p class="eco">Ecosistema:
+      <a href="https://www.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Prueba Pública</a> ·
+      <a href="https://analisis.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Blog de análisis</a> ·
+      <a href="https://fimi.viajeinteligencia.com/?utm_source=elecciones29n&utm_medium=footer">Observatorio de amplificación</a> ·
+      <a href="https://vivienda.pruebapublica.com/?utm_source=elecciones29n&utm_medium=footer">Vivienda</a>
+    </p>
+    <div class="footer-actions">
+      <a class="support repo" href="https://github.com/mcasrom/elecciones29n-osint" target="_blank" rel="noopener noreferrer">GitHub · AGPL-3.0</a>
+      <a class="support kofi" href="https://ko-fi.com/m_castillo" target="_blank" rel="noopener noreferrer">☕ Apoyar en Ko-fi</a>
+    </div>
+  </div>
+</footer>
+
+<div class="helpbackdrop" id="helpbackdrop" hidden></div>
+<aside class="helppanel" id="helppanel" role="dialog" aria-modal="true" aria-labelledby="helptitle" hidden>
+  <div class="helphead">
+    <h2 id="helptitle">Cómo leer el observatorio</h2>
+    <button class="helpclose" id="helpclose" aria-label="Cerrar ayuda">×</button>
+  </div>
+  <ol class="helpsteps">
+    <li><strong>Sondeos ≠ pronóstico.</strong> Es la media de los sondeos publicados, con rango mínimo–máximo. El rango no es un intervalo de confianza.</li>
+    <li><strong>Tres capas distintas.</strong> Quién puede votar (censo), quién vota (participación) y cómo se traduce (territorio).</li>
+    <li><strong>Datos oficiales.</strong> Censo (INE), participación (JEC) y escaños (BOE) no son estimaciones. Los sondeos sí.</li>
+    <li><strong>Lo que no dice.</strong> No predice el resultado ni atribuye preferencias por edad, sexo o territorio.</li>
+  </ol>
+  <div class="cta">
+    <a class="btn" href="/metodologia.html">Ver metodología</a>
+    <a class="btn ghost" href="/caveat.html">Qué no dice este sitio</a>
+  </div>
+</aside>
+<script>
+(function(){
+  var btn = document.getElementById('helpbtn');
+  var panel = document.getElementById('helppanel');
+  var bd = document.getElementById('helpbackdrop');
+  var close = document.getElementById('helpclose');
+  if (!btn || !panel) return;
+  var open = false;
+  function setOpen(v){
+    open = v;
+    panel.hidden = !v;
+    bd.hidden = !v;
+    btn.setAttribute('aria-expanded', v ? 'true' : 'false');
+    document.body.style.overflow = v ? 'hidden' : '';
+    if (v) close.focus();
+  }
+  btn.addEventListener('click', function(){ setOpen(true); });
+  close.addEventListener('click', function(){ setOpen(false); });
+  bd.addEventListener('click', function(){ setOpen(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && open) setOpen(false); });
+  var intro = document.getElementById('helpintro');
+  var INTRO_KEY = 'e29n_help_intro';
+  if (intro) {
+    try {
+      if (!localStorage.getItem(INTRO_KEY)) intro.hidden = false;
+    } catch(e) {}
+    var io = document.getElementById('helpintro-open');
+    var ic = document.getElementById('helpintro-off');
+    if (io) io.addEventListener('click', function(){
+      intro.hidden = true; setOpen(true);
+      try { localStorage.setItem(INTRO_KEY, 'off'); } catch(e) {}
+    });
+    if (ic) ic.addEventListener('click', function(){
+      intro.hidden = true;
+      try { localStorage.setItem(INTRO_KEY, 'off'); } catch(e) {}
+    });
+  }
+})();
+</script>
+
+<div class="swupdate" id="swupdate" data-build="202611132115" hidden>
+  <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
+  <button id="swupdate-btn" type="button">Recargar</button>
+  <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611132115');}catch(e){}">×</button>
+</div>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function(){
+    var box = document.getElementById('swupdate');
+    var btn = document.getElementById('swupdate-btn');
+    var close = document.getElementById('swupdate-close');
+    var reg = null;
+    var userClicked = false;
+    var DISMISS = 'e29n_sw_dismiss';
+    function isDismissed(){
+      try { return !!(reg && reg.waiting && localStorage.getItem(DISMISS) === reg.waiting.scriptURL); }
+      catch(e) { return false; }
+    }
+    function isHiddenHere(){
+      try { return sessionStorage.getItem('e29n_sw_hidden') === (box && box.dataset.build); }
+      catch(e) { return false; }
+    }
+    function show(){ if (box && !isDismissed() && !isHiddenHere()) box.hidden = false; }
+    if (close) close.addEventListener('click', function(){
+      box.hidden = true;
+      try { if (reg && reg.waiting) localStorage.setItem(DISMISS, reg.waiting.scriptURL); } catch(e) {}
+    });
+    if (btn) btn.addEventListener('click', function(){
+      box.hidden = true;
+      userClicked = true;
+      if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
+    });
+    navigator.serviceWorker.register('/sw.js?v=202611132115', {updateViaCache: 'none'}).then(function(r){
+      reg = r;
+      if (r.waiting && navigator.serviceWorker.controller) show();
+      r.addEventListener('updatefound', function(){
+        var nw = r.installing;
+        if (!nw) return;
+        nw.addEventListener('statechange', function(){
+          if (nw.state === 'installed' && navigator.serviceWorker.controller) show();
+        });
+      });
+    }).catch(function(){});
+    navigator.serviceWorker.addEventListener('controllerchange', function(){ if (userClicked) window.location.reload(); });
+  });
+}
+</script>
+</body>
+</html>

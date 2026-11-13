@@ -36,6 +36,16 @@ a{color:var(--blue)}
 .eyebrow{margin:0 0 8px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);font-weight:700}
 .hero h1{margin:0;font-size:clamp(30px,5vw,52px);line-height:1.05;letter-spacing:-.035em;font-weight:850;max-width:16ch}
 .sub{margin:12px 0 0;color:var(--muted);font-size:clamp(15px,2vw,18px);max-width:62ch}
+.viewswitch{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0 0}
+.viewbtn{appearance:none;border:1px solid var(--line);background:var(--panel);color:var(--muted);font:inherit;font-size:13px;font-weight:600;padding:8px 13px;border-radius:999px;cursor:pointer}
+.viewbtn:hover{color:var(--fg);border-color:var(--muted)}
+.viewbtn.active{background:var(--accent);border-color:var(--accent);color:var(--btn-fg);font-weight:700}
+.quickview{display:none}
+.quickview .quickhead{margin:8px 0 4px}
+.quickview .quickhead h2{font-size:clamp(22px,4vw,32px);margin:0}
+body.vista-rapida .quickview{display:block}
+body.vista-rapida .hero-kpis,body.vista-rapida .hero > .cta,body.vista-rapida .hero > .stamp,body.vista-rapida .tabs,body.vista-rapida .subnav{display:none}
+body.vista-rapida main.container > :not(.quickview){display:none}
 .hero-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:22px 0 0}
 .hk{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:14px;padding:14px 16px}
 .hk b{display:block;font-size:clamp(26px,4vw,38px);line-height:1;letter-spacing:-.03em;font-weight:850}
