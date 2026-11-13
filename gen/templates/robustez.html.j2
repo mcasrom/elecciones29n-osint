@@ -47,6 +47,21 @@
     </table></div>
     <p class="muted small">Rango = mínimo y máximo observados: un solo sondeo puede fijar ambos extremos. El IQR (Q3−Q1) describe la dispersión típica. El CIS publica estimación de voto, no intención directa. <strong>Casas (45 d)</strong> cuenta todas las casas que publicaron al partido en 45 días; <strong>Casas (14 d)</strong>, las de la media. Los partidos territoriales (ERC, Junts, Bildu, PNV) están en la <a href="/#agregado">tabla de la portada</a> y no se suman aquí. <span style="color:#b45309">*</span> n&lt;4 o menos de 3 casas en 14 d: media frágil.</p>
   </div>
+  {% if house_mean and house_mean.parties %}
+  <div class="card" id="dispersion-casas">
+    <div class="cardhead"><h2>Dispersión entre casas</h2><span class="hint">última encuesta de cada casa · 45 d</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Partido</th><th>Mediana</th><th>Rango entre casas</th><th>IQR</th><th>Casas</th></tr></thead>
+      <tbody>
+      {% for p in house_mean.parties %}
+        <tr><td><strong>{{ p.party }}</strong></td><td class="num">{{ fmt_pct(p.median) }}%</td><td class="num">{{ fmt_pct(p.min) }}–{{ fmt_pct(p.max) }}%</td><td class="num">{% if p.iqr is not none %}{{ "%.1f"|format(p.iqr) }}{% else %}—{% endif %}</td><td class="num">{{ p.n_houses }}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table></div>
+    <p class="muted small">Es una <strong>dispersión observada</strong>, no un intervalo de confianza ni una predicción. Mide cuánto cambia la foto entre la última encuesta de cada casa; no corrige muestra ni sesgo de casa. La tabla “Quita una fuente o casa” muestra el efecto de retirar un bloque.</p>
+  </div>
+  {% endif %}
+
   {% if weights and weights.houses %}
   <div class="card" id="peso">
     <div class="cardhead"><h2>Peso de cada casa y sondeo</h2><span class="hint">cuota sobre el total de la ventana · se recalcula cada día</span></div>
