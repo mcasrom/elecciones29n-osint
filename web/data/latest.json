@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-14 14:17 CET",
-  "updated_at_iso": "2026-11-14T14:17:06.615666+01:00",
+  "updated_at": "2026-11-14 20:02 CET",
+  "updated_at_iso": "2026-11-14T20:02:22.841774+01:00",
   "in_blackout": false,
   "window_days": 14,
   "parties": [
@@ -3447,8 +3447,8 @@
     "sample_pct": 0,
     "sample_polls": 0,
     "dispersion_iqr": 2.48,
-    "candidates_pending": 41,
-    "last_candidate_date": "2026-11-13",
+    "candidates_pending": 43,
+    "last_candidate_date": "2026-11-14",
     "reasons": [
       "último sondeo hace 5 días (frágil)"
     ]

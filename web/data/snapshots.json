@@ -844,5 +844,14 @@
     "polls_sha256": null,
     "prev_hash": "1c88dd5ab1d0a0b142c56e54e19c9d08a47f22915ee06ee182ffb3118f8aaeb5",
     "hash": "9f9a6db8612c370ac4c883cbcf48fe01cc2848d081df92f7718af1d1bfa7df5b"
+  },
+  {
+    "date": "2026-11-14",
+    "build": "202611142002",
+    "latest_sha256": "f79e7d791dd96f73ff42ace45b42ceab6926ce5630cd11b9fc00f29dce85c485",
+    "robustez_sha256": "452c240fc91b7548ad6c670baaa5d87c46df0cb071966f64b20e5f55bcf26557",
+    "polls_sha256": null,
+    "prev_hash": "9f9a6db8612c370ac4c883cbcf48fe01cc2848d081df92f7718af1d1bfa7df5b",
+    "hash": "67051e460b90c081d64aff8c9611523f70be8d87aaa4e044d5c699c13c1778b1"
   }
 ]

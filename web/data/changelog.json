@@ -1,16 +1,5 @@
 [
   {
-    "build": "202610261437",
-    "date": "2026-10-26",
-    "commit": "e747867",
-    "n_polls": 9,
-    "files": {
-      "data/latest.json": "e2b48623a647a585b36c7bde24531a9960071495e31a261a30f5bd8121363036",
-      "data/robustez.json": "a236f4454f2ef82c1a33509f79465ecdf724cf3767c8dca4c2cc919468ecb536",
-      "data/polls_history.csv": null
-    }
-  },
-  {
     "build": "202610261440",
     "date": "2026-10-26",
     "commit": "439d007",
@@ -1184,5 +1173,17 @@
       "data/polls_history.csv": null
     },
     "snapshot_hash": "9f9a6db8612c370ac4c883cbcf48fe01cc2848d081df92f7718af1d1bfa7df5b"
+  },
+  {
+    "build": "202611142002",
+    "date": "2026-11-14",
+    "commit": "3965984",
+    "n_polls": 15,
+    "files": {
+      "data/latest.json": "f79e7d791dd96f73ff42ace45b42ceab6926ce5630cd11b9fc00f29dce85c485",
+      "data/robustez.json": "452c240fc91b7548ad6c670baaa5d87c46df0cb071966f64b20e5f55bcf26557",
+      "data/polls_history.csv": null
+    },
+    "snapshot_hash": "67051e460b90c081d64aff8c9611523f70be8d87aaa4e044d5c699c13c1778b1"
   }
 ]
