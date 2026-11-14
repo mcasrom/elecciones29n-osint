@@ -1,5 +1,5 @@
 {% set page_title = "Escenarios de escaños · 29N" %}
-{% set page_desc = "Escenario provincial de escaños del 29N: base 2023, foto 2026, backtest 2019. Percentiles p10-p90 de 5.000 simulaciones, no probabilidades." %}
+{% set page_desc = "Escenario provincial de escaños del 29N: base 2023, foto congelada 5-nov-2026, backtest 2019. Percentiles p10-p90 de 5.000 simulaciones, no probabilidades." %}
 {% set canonical = site_url ~ "/escenarios.html" %}
 {% set jsonld = webpages['escenarios.html'] %}
 <!DOCTYPE html>
@@ -51,17 +51,19 @@
 .esc-example{border-left:3px solid #2563eb;padding:2px 0 2px 10px;margin:10px 0;font-size:13px;color:#374151}
 .esc-two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .esc-table td,.esc-table th{font-size:13px}
-@media(max-width:760px){.esc-kpis{grid-template-columns:1fr 1fr}.esc-grid,.esc-two,.esc-pcts{grid-template-columns:1fr}.esc-timeline{grid-template-columns:1fr 1fr}.esc-row{grid-template-columns:68px 1fr}.esc-label{font-size:12px}.esc-block header{display:block}.esc-block small{display:block;margin-top:2px}}
+@media(max-width:760px){.esc-kpis{grid-template-columns:1fr 1fr}.esc-grid,.esc-two,.esc-pcts{grid-template-columns:1fr;min-width:0}.esc-two>.card{min-width:0}.esc-timeline{grid-template-columns:1fr 1fr}.esc-row{grid-template-columns:68px 1fr}.esc-label{font-size:12px}.esc-block header{display:block}.esc-block small{display:block;margin-top:2px}.tablewrap{max-width:100%;overflow-x:auto}.esc-table{min-width:480px}}
 </style>
 </head>
 <body>
 {% include "_nav.html.j2" %}
 <main class="container">
   <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Escenarios de escaños</h1>
-  <p class="muted" style="margin:0 0 10px;max-width:780px">La base es <strong>2023</strong>. La foto actual es <strong>2026</strong>. El backtest que prueba el mecanismo es <strong>2019</strong>. No hay sondeos provinciales: el escenario supone que cada partido sube o baja igual en todas las provincias.</p>
+  <p class="muted" style="margin:0 0 10px;max-width:780px">La base es <strong>2023</strong>. La foto del escenario es <strong>2026</strong> y está congelada el <strong>5-nov</strong>. El backtest que prueba el mecanismo es <strong>2019</strong>. No hay sondeos provinciales: el escenario supone que cada partido sube o baja igual en todas las provincias.</p>
+
+  <div class="alert warn" style="max-width:900px;margin:12px 0 0"><strong>Foto congelada, no foto actual.</strong> Este escenario usa <strong>12 sondeos · 8 casas</strong> con corte <strong>5-nov-2026</strong>. La media actual va al <strong>{% if last_poll_date %}{{ last_poll_date[8:10] }}/{{ last_poll_date[5:7] }}{% else %}—{% endif %}</strong> con <strong>{{ n_polls }} sondeos · {{ health.n_pollsters }} casas</strong>. No se actualiza hasta tener un generador reproducible; p10–p90 no se tocan. <a href="/robustez.html">Ver robustez actual</a>.</div>
 
   <div class="esc-kpis">
-    <div class="esc-kpi"><span>Corte de datos</span><strong>5 nov 2026</strong><small>12 sondeos · 8 casas</small></div>
+    <div class="esc-kpi"><span>Corte del escenario</span><strong>5 nov 2026</strong><small>12 sondeos · 8 casas</small></div>
     <div class="esc-kpi"><span>Escenario</span><strong>29N · 2026</strong><small>swing uniforme</small></div>
     <div class="esc-kpi"><span>Base oficial</span><strong>23 jul 2023</strong><small>350 escaños</small></div>
     <div class="esc-kpi"><span>Simulaciones</span><strong>5.000</strong><small>remuestreo de 12 sondeos</small></div>
@@ -71,7 +73,7 @@
     <div class="esc-step"><span>28 abr 2019</span><strong>Base del backtest</strong><small>resultado oficial</small></div>
     <div class="esc-step"><span>10 nov 2019</span><strong>Objetivo del backtest</strong><small>predicho con MAE 1</small></div>
     <div class="esc-step"><span>23 jul 2023</span><strong>Punto de partida</strong><small>último Congreso</small></div>
-    <div class="esc-step"><span>5 nov 2026</span><strong>Foto actual</strong><small>escenario 29N</small></div>
+    <div class="esc-step"><span>5 nov 2026</span><strong>Foto congelada</strong><small>escenario 29N</small></div>
   </div>
 
   {% if escenarios %}
@@ -135,14 +137,15 @@
         <li>No son 5.000 encuestas nuevas: se remuestrean 12 sondeos existentes.</li>
         <li>No hay sondeos provinciales; el swing es uniforme.</li>
         <li>No modela pactos, investidura ni abstención diferencial.</li>
+        <li>No es la foto actual de la media: está congelado el 5-nov.</li>
       </ul>
-      <p class="muted small" style="margin-top:10px">Corte congelado: si cambia la foto de sondeos, se publica una versión nueva.</p>
+      <p class="muted small" style="margin-top:10px">Foto congelada: no se actualiza con la media diaria. Si se genera una nueva, se publica como versión nueva.</p>
     </section>
   </div>
 
   <details class="card"><summary><strong>Datos y método</strong></summary>
     <div class="esc-two" style="margin-top:10px">
-      <div><h3>Datos</h3><ul class="muted small"><li>Base oficial: Ministerio del Interior, 23-jul-2023.</li><li>Foto: 12 sondeos de 8 casas, corte 5-nov-2026.</li><li>Backtest: resultados oficiales 28-abr y 10-nov-2019.</li></ul></div>
+      <div><h3>Datos</h3><ul class="muted small"><li>Base oficial: Ministerio del Interior, 23-jul-2023.</li><li>Foto congelada: 12 sondeos de 8 casas, corte 5-nov-2026.</li><li>Backtest: resultados oficiales 28-abr y 10-nov-2019.</li></ul></div>
       <div><h3>Método</h3><ul class="muted small"><li>5.000 iteraciones; 12 sondeos con reemplazo por iteración.</li><li>Swing uniforme y D'Hondt provincial; umbral del 3 %.</li><li>Percentiles p10/p50/p90 de los escaños simulados.</li><li>Semilla fija; resultados reproducibles.</li></ul></div>
     </div>
   </details>

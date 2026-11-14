@@ -1,9 +1,9 @@
 {
-  "generado": "2026-11-13 21:15 CET",
+  "generado": "2026-11-14 14:17 CET",
   "n_polls": 15,
   "n_polls_sin_cis": 15,
   "health": {
-    "status": "ok",
+    "status": "warn",
     "n_polls": 15,
     "n_polls_sin_cis": 15,
     "n_pollsters": 10,
@@ -19,13 +19,15 @@
       "Sondaxe",
       "Target Point"
     ],
-    "days_since_last": 4,
+    "days_since_last": 5,
     "sample_pct": 0,
     "sample_polls": 0,
     "dispersion_iqr": 2.48,
     "candidates_pending": 41,
     "last_candidate_date": "2026-11-13",
-    "reasons": []
+    "reasons": [
+      "último sondeo hace 5 días (frágil)"
+    ]
   },
   "excluded_trackings": [
     "ElectoPanel",
@@ -235,20 +237,20 @@
     "window_days": 14,
     "extended": false,
     "total_polls": 15,
-    "total_weight": 9.4839,
+    "total_weight": 8.8488,
     "top_source": "Electomanía",
     "top_source_share_pct": 60.3,
     "sources": [
       {
         "source": "Electomanía",
-        "weight": 5.7177,
+        "weight": 5.3348,
         "n_polls": 8,
         "n_houses": 4,
         "share_pct": 60.3
       },
       {
         "source": "Onda Cero",
-        "weight": 3.7663,
+        "weight": 3.5142,
         "n_polls": 7,
         "n_houses": 6,
         "share_pct": 39.7
@@ -261,7 +263,7 @@
       {
         "pollster": "Sigma Dos",
         "source": "Onda Cero",
-        "weight": 1.9315,
+        "weight": 1.8022,
         "n_polls": 3,
         "last_date": "2026-11-09",
         "sample": null,
@@ -271,7 +273,7 @@
       {
         "pollster": "NC Report",
         "source": "Onda Cero",
-        "weight": 1.2244,
+        "weight": 1.1424,
         "n_polls": 2,
         "last_date": "2026-11-09",
         "sample": null,
@@ -281,7 +283,7 @@
       {
         "pollster": "Sociométrica",
         "source": "Onda Cero",
-        "weight": 1.1736,
+        "weight": 1.0951,
         "n_polls": 2,
         "last_date": "2026-11-08",
         "sample": null,
@@ -291,7 +293,7 @@
       {
         "pollster": "Sondaxe",
         "source": "Onda Cero",
-        "weight": 1.1424,
+        "weight": 1.0659,
         "n_polls": 2,
         "last_date": "2026-11-08",
         "sample": null,
@@ -301,7 +303,7 @@
       {
         "pollster": "GAD3",
         "source": "Electomanía",
-        "weight": 0.7579,
+        "weight": 0.7071,
         "n_polls": 1,
         "last_date": "2026-11-09",
         "sample": null,
@@ -311,7 +313,7 @@
       {
         "pollster": "40dB",
         "source": "Electomanía",
-        "weight": 0.7579,
+        "weight": 0.7071,
         "n_polls": 1,
         "last_date": "2026-11-09",
         "sample": null,
@@ -321,7 +323,7 @@
       {
         "pollster": "IMOP",
         "source": "Electomanía",
-        "weight": 0.7071,
+        "weight": 0.6598,
         "n_polls": 1,
         "last_date": "2026-11-08",
         "sample": null,
@@ -331,7 +333,7 @@
       {
         "pollster": "Ateneo del Dato",
         "source": "Onda Cero",
-        "weight": 0.7071,
+        "weight": 0.6598,
         "n_polls": 1,
         "last_date": "2026-11-08",
         "sample": null,
@@ -341,7 +343,7 @@
       {
         "pollster": "Celeste-Tel",
         "source": "Electomanía",
-        "weight": 0.6156,
+        "weight": 0.5743,
         "n_polls": 1,
         "last_date": "2026-11-06",
         "sample": null,
@@ -351,7 +353,7 @@
       {
         "pollster": "Target Point",
         "source": "Onda Cero",
-        "weight": 0.4665,
+        "weight": 0.4353,
         "n_polls": 1,
         "last_date": "2026-11-02",
         "sample": null,
@@ -367,7 +369,7 @@
         "date": "2026-11-09",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.7579,
+        "weight": 0.7071,
         "n_parties": 10,
         "share_pct": 8.0
       },
@@ -377,7 +379,7 @@
         "date": "2026-11-09",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.7579,
+        "weight": 0.7071,
         "n_parties": 5,
         "share_pct": 8.0
       },
@@ -387,7 +389,7 @@
         "date": "2026-11-09",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.7579,
+        "weight": 0.7071,
         "n_parties": 6,
         "share_pct": 8.0
       },
@@ -397,7 +399,7 @@
         "date": "2026-11-09",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.7579,
+        "weight": 0.7071,
         "n_parties": 6,
         "share_pct": 8.0
       },
@@ -407,7 +409,7 @@
         "date": "2026-11-08",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.7071,
+        "weight": 0.6598,
         "n_parties": 10,
         "share_pct": 7.5
       },
@@ -417,7 +419,7 @@
         "date": "2026-11-08",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.7071,
+        "weight": 0.6598,
         "n_parties": 10,
         "share_pct": 7.5
       },
@@ -427,7 +429,7 @@
         "date": "2026-11-08",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.7071,
+        "weight": 0.6598,
         "n_parties": 10,
         "share_pct": 7.5
       },
@@ -437,7 +439,7 @@
         "date": "2026-11-08",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.7071,
+        "weight": 0.6598,
         "n_parties": 10,
         "share_pct": 7.5
       },
@@ -447,7 +449,7 @@
         "date": "2026-11-08",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.7071,
+        "weight": 0.6598,
         "n_parties": 7,
         "share_pct": 7.5
       },
@@ -457,7 +459,7 @@
         "date": "2026-11-06",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.6156,
+        "weight": 0.5743,
         "n_parties": 9,
         "share_pct": 6.5
       },
@@ -467,7 +469,7 @@
         "date": "2026-11-02",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.4665,
+        "weight": 0.4353,
         "n_parties": 7,
         "share_pct": 4.9
       },
@@ -477,7 +479,7 @@
         "date": "2026-11-02",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.4665,
+        "weight": 0.4353,
         "n_parties": 7,
         "share_pct": 4.9
       },
@@ -487,7 +489,7 @@
         "date": "2026-11-02",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.4665,
+        "weight": 0.4353,
         "n_parties": 6,
         "share_pct": 4.9
       },
@@ -497,7 +499,7 @@
         "date": "2026-11-02",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.4665,
+        "weight": 0.4353,
         "n_parties": 6,
         "share_pct": 4.9
       },
@@ -507,7 +509,7 @@
         "date": "2026-11-01",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.4353,
+        "weight": 0.4061,
         "n_parties": 7,
         "share_pct": 4.6
       }

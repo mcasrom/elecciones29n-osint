@@ -1,15 +1,15 @@
 {
   "version": "0.11.2",
-  "build": "202611132115",
-  "date": "2026-11-13",
-  "commit": "a40abe0",
-  "generated_at": "2026-11-13T21:15:37.314439+01:00",
+  "build": "202611141417",
+  "date": "2026-11-14",
+  "commit": "dba8608",
+  "generated_at": "2026-11-14T14:17:06.615666+01:00",
   "n_polls": 15,
   "n_pollsters": 10,
   "window_days": 14,
   "files": {
-    "data/latest.json": "87bb86532b766a395d14b80f58278dc343974e9c8120b595390b7d4669a500ac",
-    "data/robustez.json": "5daea89a682c4d41899a41385cc1e1d82ed029af84a449eff0939a33705457d9",
+    "data/latest.json": "c4d43956deb5ef3804147cd72c15b7a6000563b9ffde8ee3dcc58db4fe7d5852",
+    "data/robustez.json": "b41ebfee6087077900986da70c324e44dca8471035e7226791d577ff864f7522",
     "data/polls_history.csv": null
   },
   "sources": [
@@ -25,9 +25,9 @@
     }
   ],
   "snapshot": {
-    "date": "2026-11-13",
-    "hash": "b3d709d3965692ff42e068971fa3996a1d082162586513d190c3d7400aaea462",
-    "prev_hash": "1259691c91f6f0556a8ce015177f1ec9a54a16be12a8f95579651745eac8a5dc"
+    "date": "2026-11-14",
+    "hash": "9f9a6db8612c370ac4c883cbcf48fe01cc2848d081df92f7718af1d1bfa7df5b",
+    "prev_hash": "1c88dd5ab1d0a0b142c56e54e19c9d08a47f22915ee06ee182ffb3118f8aaeb5"
   },
   "pre_registro": {
     "sha256": "e2fc1caa4510627ec412d983cbe22e7d3925f8f8c4535f3f70ea6e3dbf5ff83f",

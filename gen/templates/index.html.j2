@@ -35,11 +35,11 @@
   {% if in_blackout %}
         <span class="dot off"></span> BLACKOUT · datos retirados
         {% else %}
-        <span class="dot" title="Hora de generación del sitio, no del último sondeo"></span> Actualizado {{ updated_at }} · {% if last_poll_date == build_date %}último sondeo hoy{% elif last_poll_date %}último sondeo {{ last_poll_date[8:10] }}/{{ last_poll_date[5:7] }}{% if last_poll_date != build_date %} · sin sondeo nuevo hoy{% endif %}{% else %}sin sondeo{% endif %}
+        <span class="dot" title="Fecha de generación de la web; el dato es el último sondeo incorporado a la media"></span> Web actualizada {{ updated_at }} · {% if last_poll_date == build_date %}último sondeo en la media hoy{% elif last_poll_date %}último sondeo en la media {{ last_poll_date[8:10] }}/{{ last_poll_date[5:7] }}{% if health and health.days_since_last is not none %} (hace {{ health.days_since_last }} día{% if health.days_since_last != 1 %}s{% endif %}){% endif %} · sin sondeo nuevo hoy{% else %}sin sondeo{% endif %} · <span title="ElectoPanel (13/11) y SW Demoscopia (8/11) no entran en la media; el CIS 3584 tiene campo 7–30 oct">trackings recientes fuera de la media</span>
         {% endif %}
         {% if novedades %}
-        <a class="novedad" href="#tab-agregado" title="Ultima ingesta de sondeos">
-          <span class="ndot"></span>Nuevo sondeo · {{ novedades[0].pollster }} ({{ novedades[0].date[8:] }}/{{ novedades[0].date[5:7] }}){% if novedades|length > 1 %} +{{ novedades|length - 1 }}{% endif %}
+        <a class="novedad" href="#tab-agregado" title="Incorporación reciente al archivo; no implica que sea un sondeo de hoy">
+          <span class="ndot"></span>Añadido al archivo · {{ novedades[0].pollster }} ({{ novedades[0].date[8:] }}/{{ novedades[0].date[5:7] }}){% if novedades|length > 1 %} +{{ novedades|length - 1 }}{% endif %}
         </a>
         {% endif %}
       </div>
