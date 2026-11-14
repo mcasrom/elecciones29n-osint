@@ -1,7 +1,8 @@
 # Sprint de mejora — Escenarios 29N
 
 **Fecha:** 5-nov-2026  
-**Estado:** E0 ejecutado 9-nov-2026; E1+ bloqueados por falta de código reproducible del modelo  
+**Estado:** E0 ejecutado 9-nov-2026; E1+ bloqueados por falta de código reproducible del modelo.  
+**Decisión 14-nov-2026:** no tocar el escenario antes del 29N. E1/E2 pasan al sprint post-29N: **`docs/SPRINT-MODELO-ESCENARIOS-POST29N.md`**.  
 **Página viva:** https://elecciones29n.pruebapublica.com/escenarios.html  
 **Último commit de la página:** `7317d15`
 
