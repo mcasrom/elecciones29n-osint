@@ -49,7 +49,7 @@ La congelación es de **reglas**, no de datos: los sondeos siguen entrando hasta
 - Base local: `data/accesos_29n.db` (ignorada por Git). **Cron diario 07:10 UTC**: informe de ayer al Telegram del dueño; alerta si hay **0 humanos** o los bots superan **3× la mediana de 7 días**.
 - No se envía al canal público: son métricas internas. La clasificación distingue a **ChatGPT-User/Claude-User** (alguien pidió abrir el enlace) de los crawlers de IA.
 - **Límite:** nginx conserva 14 rotaciones. El corte del **14-nov** cubre **31-oct → 14-nov**; los días 17–30 de octubre no se pueden reconstruir.
-- Foto 31-oct→14-nov: **2.549 peticiones humanas (10,9 %)**, **1.794 IPs**, **48 repiten en ≥2 días**, **349 con ≥2 páginas**; 9.535 bots, 1.215 IA crawler, 2.200 dueño, 7.051 interno. No se usa para afirmar “lectores únicos” verificados.
+- Foto 31-oct→14-nov: **2.549 peticiones humanas (10,9 % del total; 18,1 % excluyendo dueño e interno)**, **1.794 IPs únicas**, **48 repiten en ≥2 días**, **349 IPs únicas con ≥2 páginas en algún día (396 IP-día)**; 9.535 bots, 1.215 IA crawler, 2.200 dueño, 7.051 interno. No se usa para afirmar “lectores únicos” verificados.
 - **Tarjeta social:** `campaign_digest.py` está activo (08:00, 9–23 nov) y encola infografía si cambia la media; **no** vigila cambios de escenarios ni de detalles de páginas. La tarjeta manual `publish_e29n_card.py` sigue pendiente.
 
 ## P0 3-nov-2026
