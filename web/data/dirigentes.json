@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-14T19:02:35+00:00",
+  "generated_at": "2026-11-14T19:13:10+00:00",
   "source": "intelligence-hub/news.db",
   "candidates_source": "BOE-A-2026-23103 · JEC · candidaturas proclamadas 3-nov-2026",
   "candidates_url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-23103",
   "note": "Registro operativo. Solo se marca 'verificado' lo que consta en el BOE (candidatura). Los cargos orgánicos no contrastados quedan como pendientes y no se publican como hechos.",
   "windows": {
     "1": {
-      "n_articles": 225,
+      "n_articles": 224,
       "n_electoral": 63,
       "sources": [
         {
@@ -35,7 +35,7 @@
         },
         {
           "name": "El Diario Cantabria",
-          "articles": 12
+          "articles": 11
         },
         {
           "name": "Europa Press",
@@ -57,7 +57,7 @@
           "status": "verified",
           "notes": "Cargo orgánico: secretario general, pendiente de fuente en este registro.",
           "articles": 27,
-          "share_pct": 12.0,
+          "share_pct": 12.1,
           "days": 2,
           "electoral": 17,
           "electoral_share_pct": 27.0,
@@ -560,8 +560,8 @@
       ]
     },
     "7": {
-      "n_articles": 2855,
-      "n_electoral": 615,
+      "n_articles": 2853,
+      "n_electoral": 614,
       "sources": [
         {
           "name": "ABC",
@@ -581,7 +581,7 @@
         },
         {
           "name": "La Vanguardia",
-          "articles": 297
+          "articles": 296
         },
         {
           "name": "elDiario.es",
@@ -589,7 +589,7 @@
         },
         {
           "name": "El Diario Cantabria",
-          "articles": 167
+          "articles": 166
         },
         {
           "name": "Europa Press",

@@ -13,7 +13,7 @@
 <link rel="canonical" href="https://elecciones29n.pruebapublica.com/metodologia.html">
 <link rel="alternate" hreflang="es" href="https://elecciones29n.pruebapublica.com/metodologia.html"><link rel="alternate" hreflang="en" href="https://elecciones29n.pruebapublica.com/en/method.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="stylesheet" href="/css/main.css?v=202611142002">
+<link rel="stylesheet" href="/css/main.css?v=202611142013">
 <script>(function(){try{var t=localStorage.getItem("e29n-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -143,6 +143,12 @@ document.addEventListener('DOMContentLoaded', function(){
       <li><strong>Contraste por casa</strong>: además de la media por sondeo, se calcula la <strong>última encuesta de cada casa</strong> en 45 días con <strong>peso igual por casa</strong>. Sirve para ver si la media está dominada por una encuestadora; no es la media principal.</li>
       <li><strong>Blackout</strong>: del 24 al 28 de noviembre de 2026 no se publican, difunden ni reproducen sondeos. La agregación, la robustez y sus JSON se retiran hasta el 29.</li>
     </ul>
+  </div>
+
+  <div class="card">
+    <h3>Comparativa externa: Demoscopio</h3>
+    <p class="muted"><a href="https://demoscopio.es/es" rel="noopener">Demoscopio</a> publica un promedio de ciclo —más de 350 sondeos de 24 casas a 14-nov— y un modelo probabilístico de escaños. <strong>No es la misma ventana ni el mismo producto</strong>: nuestra media es de 14 días y no publica probabilidades. Se enlaza como referencia externa; no se usa para el cálculo ni se copian sus datos.</p>
+    <p class="muted small">Tampoco es una fuente de microdatos: publica agregados de sondeos. Para microdatos siguen haciendo falta el CIS (FID/Banco de Datos) o los ficheros de cada encuestadora.</p>
   </div>
 
   <div class="card">
@@ -335,11 +341,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
-<div class="swupdate" id="swupdate" data-build="202611142002" hidden>
+<div class="swupdate" id="swupdate" data-build="202611142013" hidden>
   <span><strong>Nueva versión disponible.</strong> Recarga para ver los últimos datos.</span>
   <button id="swupdate-btn" type="button">Recargar</button>
   <button id="swupdate-close" type="button" aria-label="Cerrar aviso"
-    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611142002');}catch(e){}">×</button>
+    onclick="var b=document.getElementById('swupdate');if(b){b.hidden=true;}try{sessionStorage.setItem('e29n_sw_hidden','202611142013');}catch(e){}">×</button>
 </div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -368,7 +374,7 @@ if ('serviceWorker' in navigator) {
       userClicked = true;
       if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
     });
-    navigator.serviceWorker.register('/sw.js?v=202611142002', {updateViaCache: 'none'}).then(function(r){
+    navigator.serviceWorker.register('/sw.js?v=202611142013', {updateViaCache: 'none'}).then(function(r){
       reg = r;
       if (r.waiting && navigator.serviceWorker.controller) show();
       r.addEventListener('updatefound', function(){
