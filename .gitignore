@@ -26,3 +26,7 @@ data/lideres_40db_state.json
 data/candidatos_lideres.csv
 data/pre_election_snapshot_working.json
 data/pre_election_snapshot.freeze.json
+
+# Accesos 29N: agregado diario sin IP en claro (cron + SQLite)
+data/accesos_29n.db
+logs/accesos_29n.log
