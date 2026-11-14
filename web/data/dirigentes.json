@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-14T19:19:59+00:00",
+  "generated_at": "2026-11-14T19:57:34+00:00",
   "source": "intelligence-hub/news.db",
   "candidates_source": "BOE-A-2026-23103 · JEC · candidaturas proclamadas 3-nov-2026",
   "candidates_url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-23103",
   "note": "Registro operativo. Solo se marca 'verificado' lo que consta en el BOE (candidatura). Los cargos orgánicos no contrastados quedan como pendientes y no se publican como hechos.",
   "windows": {
     "1": {
-      "n_articles": 223,
-      "n_electoral": 63,
+      "n_articles": 219,
+      "n_electoral": 62,
       "sources": [
         {
           "name": "ABC",
@@ -23,11 +23,11 @@
         },
         {
           "name": "20minutos",
-          "articles": 24
+          "articles": 23
         },
         {
           "name": "elDiario.es",
-          "articles": 21
+          "articles": 20
         },
         {
           "name": "La Vanguardia",
@@ -39,7 +39,7 @@
         },
         {
           "name": "El Diario Cantabria",
-          "articles": 10
+          "articles": 8
         }
       ],
       "people": [
@@ -57,10 +57,10 @@
           "status": "verified",
           "notes": "Cargo orgánico: secretario general, pendiente de fuente en este registro.",
           "articles": 27,
-          "share_pct": 12.1,
+          "share_pct": 12.3,
           "days": 2,
           "electoral": 17,
-          "electoral_share_pct": 27.0,
+          "electoral_share_pct": 27.4,
           "electoral_days": 2
         },
         {
@@ -77,10 +77,10 @@
           "status": "verified",
           "notes": "Cargo orgánico: presidente nacional, pendiente de fuente en este registro.",
           "articles": 13,
-          "share_pct": 5.8,
+          "share_pct": 5.9,
           "days": 2,
           "electoral": 10,
-          "electoral_share_pct": 15.9,
+          "electoral_share_pct": 16.1,
           "electoral_days": 2
         },
         {
@@ -97,10 +97,10 @@
           "status": "verified",
           "notes": "Cargo orgánico: presidente nacional, pendiente de fuente en este registro.",
           "articles": 7,
-          "share_pct": 3.1,
+          "share_pct": 3.2,
           "days": 2,
           "electoral": 6,
-          "electoral_share_pct": 9.5,
+          "electoral_share_pct": 9.7,
           "electoral_days": 2
         },
         {
@@ -120,27 +120,8 @@
           "share_pct": 2.7,
           "days": 2,
           "electoral": 5,
-          "electoral_share_pct": 7.9,
+          "electoral_share_pct": 8.1,
           "electoral_days": 2
-        },
-        {
-          "id": "podemos-irene-montero",
-          "full_name": "Irene Montero Gil",
-          "aliases": [
-            "Irene Montero"
-          ],
-          "org": "Podemos",
-          "role": "Cabeza de lista por Madrid",
-          "role_type": "candidate",
-          "candidate": true,
-          "status": "verified",
-          "notes": "No es la secretaria general; no se duplica con Ione Belarra.",
-          "articles": 2,
-          "share_pct": 0.9,
-          "days": 2,
-          "electoral": 1,
-          "electoral_share_pct": 1.6,
-          "electoral_days": 1
         },
         {
           "id": "pnv-aitor-esteban",
@@ -155,7 +136,7 @@
           "status": "pending",
           "notes": "No consta como presidente del PNV/EBB; no se publica como presidente. La cabeza de lista por Bizkaia es Sagastizabal.",
           "articles": 1,
-          "share_pct": 0.4,
+          "share_pct": 0.5,
           "days": 1,
           "electoral": 0,
           "electoral_share_pct": 0.0,
@@ -174,31 +155,30 @@
           "status": "verified",
           "notes": "Cabeza distinta de Colau; no se suman.",
           "articles": 1,
-          "share_pct": 0.4,
+          "share_pct": 0.5,
           "days": 1,
           "electoral": 0,
           "electoral_share_pct": 0.0,
           "electoral_days": 0
         },
         {
-          "id": "erc-gabriel-rufian",
-          "full_name": "Gabriel Rufián Romero",
+          "id": "podemos-irene-montero",
+          "full_name": "Irene Montero Gil",
           "aliases": [
-            "Gabriel Rufián",
-            "Rufián"
+            "Irene Montero"
           ],
-          "org": "ERC",
-          "role": "Cabeza de lista por Barcelona",
+          "org": "Podemos",
+          "role": "Cabeza de lista por Madrid",
           "role_type": "candidate",
           "candidate": true,
           "status": "verified",
-          "notes": "Oriol Junqueras es otra persona y otro cargo; no se agrupan.",
+          "notes": "No es la secretaria general; no se duplica con Ione Belarra.",
           "articles": 1,
-          "share_pct": 0.4,
+          "share_pct": 0.5,
           "days": 1,
-          "electoral": 1,
-          "electoral_share_pct": 1.6,
-          "electoral_days": 1
+          "electoral": 0,
+          "electoral_share_pct": 0.0,
+          "electoral_days": 0
         },
         {
           "id": "compromis-agueda-mico",
@@ -214,7 +194,7 @@
           "status": "pending",
           "notes": "Cabeza de lista pendiente de confirmar.",
           "articles": 1,
-          "share_pct": 0.4,
+          "share_pct": 0.5,
           "days": 1,
           "electoral": 1,
           "electoral_share_pct": 1.6,
@@ -292,6 +272,26 @@
           "candidate": false,
           "status": "pending",
           "notes": "Cabeza de lista pendiente de confirmar en el BOE.",
+          "articles": 0,
+          "share_pct": 0.0,
+          "days": 0,
+          "electoral": 0,
+          "electoral_share_pct": 0.0,
+          "electoral_days": 0
+        },
+        {
+          "id": "erc-gabriel-rufian",
+          "full_name": "Gabriel Rufián Romero",
+          "aliases": [
+            "Gabriel Rufián",
+            "Rufián"
+          ],
+          "org": "ERC",
+          "role": "Cabeza de lista por Barcelona",
+          "role_type": "candidate",
+          "candidate": true,
+          "status": "verified",
+          "notes": "Oriol Junqueras es otra persona y otro cargo; no se agrupan.",
           "articles": 0,
           "share_pct": 0.0,
           "days": 0,
@@ -560,16 +560,16 @@
       ]
     },
     "7": {
-      "n_articles": 2847,
-      "n_electoral": 614,
+      "n_articles": 2832,
+      "n_electoral": 610,
       "sources": [
         {
           "name": "ABC",
-          "articles": 981
+          "articles": 973
         },
         {
           "name": "El Mundo",
-          "articles": 373
+          "articles": 372
         },
         {
           "name": "20minutos",
@@ -577,19 +577,19 @@
         },
         {
           "name": "El País",
-          "articles": 297
-        },
-        {
-          "name": "La Vanguardia",
           "articles": 296
         },
         {
+          "name": "La Vanguardia",
+          "articles": 295
+        },
+        {
           "name": "elDiario.es",
-          "articles": 242
+          "articles": 239
         },
         {
           "name": "El Diario Cantabria",
-          "articles": 166
+          "articles": 165
         },
         {
           "name": "Europa Press",
@@ -611,10 +611,10 @@
           "status": "verified",
           "notes": "Cargo orgánico: secretario general, pendiente de fuente en este registro.",
           "articles": 245,
-          "share_pct": 8.6,
+          "share_pct": 8.7,
           "days": 8,
           "electoral": 129,
-          "electoral_share_pct": 21.0,
+          "electoral_share_pct": 21.1,
           "electoral_days": 7
         },
         {
@@ -634,7 +634,7 @@
           "share_pct": 5.5,
           "days": 7,
           "electoral": 70,
-          "electoral_share_pct": 11.4,
+          "electoral_share_pct": 11.5,
           "electoral_days": 7
         },
         {
@@ -651,10 +651,10 @@
           "status": "verified",
           "notes": "Cargo orgánico: presidente nacional, pendiente de fuente en este registro.",
           "articles": 152,
-          "share_pct": 5.3,
+          "share_pct": 5.4,
           "days": 8,
           "electoral": 93,
-          "electoral_share_pct": 15.1,
+          "electoral_share_pct": 15.2,
           "electoral_days": 8
         },
         {

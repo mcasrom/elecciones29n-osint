@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T19:19:50+00:00",
+  "generated_at": "2026-11-14T19:57:26+00:00",
   "source": "intelligence-hub/news.db",
   "source_label": "Titulares y sumarios de prensa española",
   "candidates_source": "BOE-A-2026-23103 · JEC · candidaturas proclamadas 3-nov-2026",
@@ -8,8 +8,8 @@
   "note": "Cabezas de lista proclamados en el BOE; no son necesariamente los líderes del partido. No se incluye Sumar como marca propia: aparece integrada en Frente Amplio/Comuns. Yolanda Díaz no figura como candidata.",
   "windows": {
     "1": {
-      "n_articles": 223,
-      "n_electoral": 63,
+      "n_articles": 219,
+      "n_electoral": 62,
       "sources": [
         {
           "name": "ABC",
@@ -25,11 +25,11 @@
         },
         {
           "name": "20minutos",
-          "articles": 24
+          "articles": 23
         },
         {
           "name": "elDiario.es",
-          "articles": 21
+          "articles": 20
         },
         {
           "name": "La Vanguardia",
@@ -41,7 +41,7 @@
         },
         {
           "name": "El Diario Cantabria",
-          "articles": 10
+          "articles": 8
         }
       ],
       "leaders": [
@@ -51,10 +51,10 @@
           "party": "PSOE",
           "province": "Madrid",
           "articles": 27,
-          "share_pct": 12.1,
+          "share_pct": 12.3,
           "days": 2,
           "electoral": 17,
-          "electoral_share_pct": 27.0,
+          "electoral_share_pct": 27.4,
           "electoral_days": 2
         },
         {
@@ -63,10 +63,10 @@
           "party": "PP",
           "province": "Madrid",
           "articles": 13,
-          "share_pct": 5.8,
+          "share_pct": 5.9,
           "days": 2,
           "electoral": 10,
-          "electoral_share_pct": 15.9,
+          "electoral_share_pct": 16.1,
           "electoral_days": 2
         },
         {
@@ -75,10 +75,10 @@
           "party": "VOX",
           "province": "Madrid",
           "articles": 7,
-          "share_pct": 3.1,
+          "share_pct": 3.2,
           "days": 2,
           "electoral": 6,
-          "electoral_share_pct": 9.5,
+          "electoral_share_pct": 9.7,
           "electoral_days": 2
         },
         {
@@ -90,32 +90,8 @@
           "share_pct": 2.7,
           "days": 2,
           "electoral": 5,
-          "electoral_share_pct": 7.9,
+          "electoral_share_pct": 8.1,
           "electoral_days": 2
-        },
-        {
-          "id": "podemos-irene-montero",
-          "name": "Irene Montero",
-          "party": "Podemos",
-          "province": "Madrid",
-          "articles": 2,
-          "share_pct": 0.9,
-          "days": 2,
-          "electoral": 1,
-          "electoral_share_pct": 1.6,
-          "electoral_days": 1
-        },
-        {
-          "id": "erc-gabriel-rufian",
-          "name": "Gabriel Rufián",
-          "party": "ERC",
-          "province": "Barcelona",
-          "articles": 1,
-          "share_pct": 0.4,
-          "days": 1,
-          "electoral": 1,
-          "electoral_share_pct": 1.6,
-          "electoral_days": 1
         },
         {
           "id": "frente-amplio-emilio-delgado",
@@ -123,7 +99,19 @@
           "party": "Frente Amplio",
           "province": "Madrid",
           "articles": 1,
-          "share_pct": 0.4,
+          "share_pct": 0.5,
+          "days": 1,
+          "electoral": 0,
+          "electoral_share_pct": 0.0,
+          "electoral_days": 0
+        },
+        {
+          "id": "podemos-irene-montero",
+          "name": "Irene Montero",
+          "party": "Podemos",
+          "province": "Madrid",
+          "articles": 1,
+          "share_pct": 0.5,
           "days": 1,
           "electoral": 0,
           "electoral_share_pct": 0.0,
@@ -134,6 +122,18 @@
           "name": "Alvise Pérez",
           "party": "SALF",
           "province": "Madrid",
+          "articles": 0,
+          "share_pct": 0.0,
+          "days": 0,
+          "electoral": 0,
+          "electoral_share_pct": 0.0,
+          "electoral_days": 0
+        },
+        {
+          "id": "erc-gabriel-rufian",
+          "name": "Gabriel Rufián",
+          "party": "ERC",
+          "province": "Barcelona",
           "articles": 0,
           "share_pct": 0.0,
           "days": 0,
@@ -204,16 +204,16 @@
       ]
     },
     "7": {
-      "n_articles": 2847,
-      "n_electoral": 614,
+      "n_articles": 2832,
+      "n_electoral": 610,
       "sources": [
         {
           "name": "ABC",
-          "articles": 981
+          "articles": 973
         },
         {
           "name": "El Mundo",
-          "articles": 373
+          "articles": 372
         },
         {
           "name": "20minutos",
@@ -221,19 +221,19 @@
         },
         {
           "name": "El País",
-          "articles": 297
-        },
-        {
-          "name": "La Vanguardia",
           "articles": 296
         },
         {
+          "name": "La Vanguardia",
+          "articles": 295
+        },
+        {
           "name": "elDiario.es",
-          "articles": 242
+          "articles": 239
         },
         {
           "name": "El Diario Cantabria",
-          "articles": 166
+          "articles": 165
         },
         {
           "name": "Europa Press",
@@ -247,10 +247,10 @@
           "party": "PSOE",
           "province": "Madrid",
           "articles": 245,
-          "share_pct": 8.6,
+          "share_pct": 8.7,
           "days": 8,
           "electoral": 129,
-          "electoral_share_pct": 21.0,
+          "electoral_share_pct": 21.1,
           "electoral_days": 7
         },
         {
@@ -259,10 +259,10 @@
           "party": "PP",
           "province": "Madrid",
           "articles": 152,
-          "share_pct": 5.3,
+          "share_pct": 5.4,
           "days": 8,
           "electoral": 93,
-          "electoral_share_pct": 15.1,
+          "electoral_share_pct": 15.2,
           "electoral_days": 8
         },
         {
@@ -274,7 +274,7 @@
           "share_pct": 5.5,
           "days": 7,
           "electoral": 70,
-          "electoral_share_pct": 11.4,
+          "electoral_share_pct": 11.5,
           "electoral_days": 7
         },
         {

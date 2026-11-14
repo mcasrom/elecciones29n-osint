@@ -53,6 +53,8 @@ PYTHONPATH="$REPO_DIR" python3 -m agg.aggregate --out "$STAGE/data"
 
 # 3) Build estático en staging
 PYTHONPATH="$REPO_DIR" python3 -m gen.build --out "$STAGE"
+/usr/bin/python3 gen/gen_cis3584_page.py --latest "$STAGE/data/latest.json" --out "$STAGE/cis-3584.html" || { echo "[run_daily] CIS 3584 no generado"; exit 1; }
+/usr/bin/python3 gen/gen_cis_indecisos_page.py --latest "$STAGE/data/latest.json" --out "$STAGE/cis-3584-indecisos.html" || { echo "[run_daily] CIS indecisos no generado"; exit 1; }
 /usr/bin/python3 "$REPO_DIR/scripts/candidate_mentions.py" --out "$STAGE" || echo "[run_daily] aviso: menciones no generadas"
 /usr/bin/python3 "$REPO_DIR/scripts/dirigentes_mentions.py" --out "$STAGE" || echo "[run_daily] aviso: dirigentes no generados"
 
@@ -64,6 +66,12 @@ if /usr/bin/python3 -c "import PIL" 2>/dev/null; then
 fi
 
 # 5) Validación: si falla, NO se publica y se conserva la última versión
+if ! /usr/bin/python3 scripts/check_coherencia.py "$STAGE" > "$STATE_LOG_DIR/coherencia.log" 2>&1; then
+  echo "[run_daily] COHERENCIA FALLIDA — no se publica"
+  cat "$STATE_LOG_DIR/coherencia.log"
+  exit 1
+fi
+
 if ! /usr/bin/python3 scripts/validate_site.py "$STAGE" > "$STATE_LOG_DIR/validate.log" 2>&1; then
   echo "[run_daily] VALIDACIÓN FALLIDA — no se publica"
   cat "$STATE_LOG_DIR/validate.log"
