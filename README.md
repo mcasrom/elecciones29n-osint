@@ -41,6 +41,17 @@ La portada tiene **dos vistas**:
 - **Métrica:** MAE y sesgo de PP, PSOE, VOX, SUMAR, ERC, Junts y PNV; error del gap PP-PSOE y de los bloques PP+VOX / PSOE+SUMAR+Podemos. No se evalúan escaños.
 - **Página:** `/postelectoral.html`; pendiente hasta el escrutinio oficial.
 
+La congelación es de **reglas**, no de datos: los sondeos siguen entrando hasta el **23-nov** y la media se actualiza; lo que no cambia es la definición con la que se evaluará después.
+
+## Accesos y auditoría de uso
+
+- **`scripts/accesos_29n.py`** agrega por día **humano / dueño / IA gente / bots / IA crawler / API / interno**, sin guardar IPs en claro.
+- Base local: `data/accesos_29n.db` (ignorada por Git). **Cron diario 07:10 UTC**: informe de ayer al Telegram del dueño; alerta si hay **0 humanos** o los bots superan **3× la mediana de 7 días**.
+- No se envía al canal público: son métricas internas. La clasificación distingue a **ChatGPT-User/Claude-User** (alguien pidió abrir el enlace) de los crawlers de IA.
+- **Límite:** nginx conserva 14 rotaciones. El corte del **14-nov** cubre **31-oct → 14-nov**; los días 17–30 de octubre no se pueden reconstruir.
+- Foto 31-oct→14-nov: **2.549 peticiones humanas (10,9 %)**, **1.794 IPs**, **48 repiten en ≥2 días**, **349 con ≥2 páginas**; 9.535 bots, 1.215 IA crawler, 2.200 dueño, 7.051 interno. No se usa para afirmar “lectores únicos” verificados.
+- **Tarjeta social:** `campaign_digest.py` está activo (08:00, 9–23 nov) y encola infografía si cambia la media; **no** vigila cambios de escenarios ni de detalles de páginas. La tarjeta manual `publish_e29n_card.py` sigue pendiente.
+
 ## P0 3-nov-2026
 
 - **AVE:** reincorporado como contexto con fuente oficial del **112 de Castilla-La Mancha** (2-nov-2026): **69 fallecidos**, no 68. No entra en la media ni se usa para atribuir tendencia.
