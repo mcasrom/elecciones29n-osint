@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-14T19:13:10+00:00",
+  "generated_at": "2026-11-14T19:19:59+00:00",
   "source": "intelligence-hub/news.db",
   "candidates_source": "BOE-A-2026-23103 · JEC · candidaturas proclamadas 3-nov-2026",
   "candidates_url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-23103",
   "note": "Registro operativo. Solo se marca 'verificado' lo que consta en el BOE (candidatura). Los cargos orgánicos no contrastados quedan como pendientes y no se publican como hechos.",
   "windows": {
     "1": {
-      "n_articles": 224,
+      "n_articles": 223,
       "n_electoral": 63,
       "sources": [
         {
@@ -34,12 +34,12 @@
           "articles": 19
         },
         {
-          "name": "El Diario Cantabria",
+          "name": "Europa Press",
           "articles": 11
         },
         {
-          "name": "Europa Press",
-          "articles": 11
+          "name": "El Diario Cantabria",
+          "articles": 10
         }
       ],
       "people": [
@@ -560,12 +560,12 @@
       ]
     },
     "7": {
-      "n_articles": 2853,
+      "n_articles": 2847,
       "n_electoral": 614,
       "sources": [
         {
           "name": "ABC",
-          "articles": 985
+          "articles": 981
         },
         {
           "name": "El Mundo",
@@ -577,7 +577,7 @@
         },
         {
           "name": "El País",
-          "articles": 299
+          "articles": 297
         },
         {
           "name": "La Vanguardia",

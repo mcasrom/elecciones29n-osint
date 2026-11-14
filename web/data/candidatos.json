@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T19:13:02+00:00",
+  "generated_at": "2026-11-14T19:19:50+00:00",
   "source": "intelligence-hub/news.db",
   "source_label": "Titulares y sumarios de prensa española",
   "candidates_source": "BOE-A-2026-23103 · JEC · candidaturas proclamadas 3-nov-2026",
@@ -8,7 +8,7 @@
   "note": "Cabezas de lista proclamados en el BOE; no son necesariamente los líderes del partido. No se incluye Sumar como marca propia: aparece integrada en Frente Amplio/Comuns. Yolanda Díaz no figura como candidata.",
   "windows": {
     "1": {
-      "n_articles": 224,
+      "n_articles": 223,
       "n_electoral": 63,
       "sources": [
         {
@@ -41,7 +41,7 @@
         },
         {
           "name": "El Diario Cantabria",
-          "articles": 11
+          "articles": 10
         }
       ],
       "leaders": [
@@ -204,12 +204,12 @@
       ]
     },
     "7": {
-      "n_articles": 2853,
+      "n_articles": 2847,
       "n_electoral": 614,
       "sources": [
         {
           "name": "ABC",
-          "articles": 985
+          "articles": 981
         },
         {
           "name": "El Mundo",
@@ -221,7 +221,7 @@
         },
         {
           "name": "El País",
-          "articles": 299
+          "articles": 297
         },
         {
           "name": "La Vanguardia",

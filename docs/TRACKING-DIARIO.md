@@ -48,7 +48,15 @@
 
 ## Decisión
 
-No importar automáticamente los trackings de hoy: primero verificar ficha, campo, muestra y URL. La media actual sigue con **17 sondeos / 12 casas**.
+No importar automáticamente los trackings de hoy: primero verificar ficha, campo, muestra y URL. La media actual sigue con **15 sondeos / 10 casas** (último incorporado, 9-N).
+
+## 40dB del 13-N (tracking)
+
+- **Fuente primaria:** [El País, 14-nov-2026](https://elpais.com/espana/elecciones-generales/2026-11-14/la-diferencia-entre-pp-y-psoe-se-estrecha-segun-el-tracking-diario-de-40db.html), campo **10–13 nov**, **1.500** entrevistas, CAWI, error ±2,2 %.
+- **Estimación publicada:** PP **31,1 %**, PSOE **29,8 %**, Vox **18,5 %**, Frente Amplio **5,2 %**, SALF **1,6 %**, Podemos **1,3 %**.
+- **No importado todavía:** es un *tracking* con días solapados con el 40dB del 12-N; la cola de revisión contiene valores contradictorios (`31,5/29,4` del 12-N y `28,4/31,5`, que no cuadra). No se mezclan.
+- El ZIP de El País incluye **microdatos individuales**; no se usan para la media ni se copian. Solo se usa la tabla agregada y la ficha.
+- Decisión: **no entra en la media** hasta resolver duplicados y tener la tabla completa; no se toca el escenario.
 
 ## Automatización preparada
 
