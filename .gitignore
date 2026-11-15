@@ -30,3 +30,21 @@ data/pre_election_snapshot.freeze.json
 # Accesos 29N: agregado diario sin IP en claro (cron + SQLite)
 data/accesos_29n.db
 logs/accesos_29n.log
+# Higiene: copias, staging y logs locales
+*.bak
+*.bak-*
+web_prev*/
+web_bad*/
+web_cis*/
+tmp_upload/
+preview_map/
+logs/*.log
+data/*.bak*
+scripts/*.bak*
+gen/*.bak*
+get/*.bak*
+tests/*.bak*
+backups/
+data/alertas_email_state.json
+data/tracking_watch_state.json
+web/og/*test*

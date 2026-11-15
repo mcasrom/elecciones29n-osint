@@ -123,8 +123,8 @@ credenciales no están en el repositorio.
 
 ## Datos abiertos y reproducibilidad
 
-- `data/latest.json` y `data/robustez.json`: agregado y robustez.
-- `data/status.json`: build, commit, fuentes y **hashes SHA-256** de los ficheros publicados.
+- `web/data/latest.json` y `web/data/robustez.json`: agregado y robustez.
+- `web/data/status.json`: build, commit, fuentes y **hashes SHA-256** de los ficheros publicados.
 - `data/pre-registro.json`: métricas y reglas fijadas antes de la campaña, con corte de métricas y de datos.
 - `data/changelog.json`: historial de builds/datos (máximo 100 entradas).
 - `/data/v1/latest.json`, `/data/v1/robustez.json`, `/data/v1/status.json` y `/data/v1/schema.json`: contrato versionado y esquema.
@@ -183,7 +183,7 @@ agregado.
 | **Datos frágiles** | 5–6 días o una sola casa | se publica con aviso |
 | **Datos insuficientes** | <4 sondeos o ≥7 días | se publica con aviso visible |
 
-> Al 9-nov: **13 sondeos y 9 encuestadoras en la ventana de 14 d**, último **9-nov** → **datos suficientes** (0 días), pero **sin muestra declarada (0 %)**. 19 candidatos siguen pendientes. Media: PP **31,4** · PSOE **26,43** · VOX **19,09** · SUMAR **6,75**.
+> Al 15-nov: **14 sondeos y 10 encuestadoras en la ventana de 14 d**, último **sondeo individual 9-nov** → **datos frágiles** (6 días), **sin muestra declarada (0 %)**. Los trackings 13–15-nov no entran en la media. 50 candidatos siguen pendientes. Media: PP **31,5** · PSOE **26,48** · VOX **19,07** · SUMAR **6,79**.
 > Se combinan encuestas individuales de Electomanía, Onda Cero, Sigma Dos, SocioMétrica, NC Report, Target Point, Sondaxe, IMOP, Celeste-Tel, GAD3 y 40dB. **ElectoPanel** y **SW Demoscopia** se publican como tracking separado y no entran en la media; **Ateneo del Dato** se usa como contraste. Ver [`docs/RUTINA-SEMANAL.md`](docs/RUTINA-SEMANAL.md).
 
 ```bash

@@ -1,5 +1,5 @@
 {
-  "generado": "2026-11-15 07:15 CET",
+  "generado": "2026-11-15 21:15 CET",
   "n_polls": 14,
   "n_polls_sin_cis": 14,
   "health": {
@@ -23,8 +23,8 @@
     "sample_pct": 0,
     "sample_polls": 0,
     "dispersion_iqr": 2.48,
-    "candidates_pending": 44,
-    "last_candidate_date": "2026-11-14",
+    "candidates_pending": 50,
+    "last_candidate_date": "2026-11-15",
     "reasons": [
       "último sondeo hace 6 días (frágil)"
     ]
