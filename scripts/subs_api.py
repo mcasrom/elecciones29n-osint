@@ -78,6 +78,8 @@ def init_db() -> None:
                 unsubscribed_at TEXT,
                 last_sent_at TEXT,
                 reminder_sent_at TEXT,
+                reminder_count INTEGER DEFAULT 0,
+                last_reminder_resend_id TEXT,
                 consent_version TEXT
             );
             CREATE INDEX IF NOT EXISTS idx_subs_status ON subscribers(status);
@@ -89,6 +91,10 @@ def init_db() -> None:
             conn.execute("ALTER TABLE subscribers ADD COLUMN consent_version TEXT")
         if "reminder_sent_at" not in cols:
             conn.execute("ALTER TABLE subscribers ADD COLUMN reminder_sent_at TEXT")
+        if "reminder_count" not in cols:
+            conn.execute("ALTER TABLE subscribers ADD COLUMN reminder_count INTEGER DEFAULT 0")
+        if "last_reminder_resend_id" not in cols:
+            conn.execute("ALTER TABLE subscribers ADD COLUMN last_reminder_resend_id TEXT")
         conn.execute(
             "UPDATE subscribers SET consent_version = 'pre-2026-10-23' WHERE consent_version IS NULL"
         )
@@ -98,7 +104,7 @@ def prune_pending() -> int:
     cutoff = (datetime.now(timezone.utc) - timedelta(days=PENDING_DAYS)).isoformat(timespec="seconds")
     with db() as conn:
         cur = conn.execute(
-            "DELETE FROM subscribers WHERE status='pending' AND COALESCE(last_sent_at, created_at) < ?",
+            "DELETE FROM subscribers WHERE status='pending' AND COALESCE(reminder_sent_at, last_sent_at, created_at) < ?",
             (cutoff,),
         )
         return cur.rowcount
@@ -255,11 +261,11 @@ def mark_unsubscribed(token: str) -> str:
         return "ok"
 
 
-def send_confirmation(email: str, token: str) -> bool:
+def send_confirmation(email: str, token: str, *, reminder: bool = False, return_id: bool = False):
     env = load_env(ENV_PATH)
     if os.environ.get("RESEND_DRY_RUN") == "1":
-        print(f"subs_api: dry-run confirmation for {email} ({token})", file=sys.stderr)
-        return True
+        print(f"subs_api: dry-run {'reminder' if reminder else 'confirmation'} for {email} ({token})", file=sys.stderr)
+        return (True, None) if return_id else True
     key = env.get("RESEND_API_KEY", "")
     if not key:
         raise RuntimeError("RESEND_API_KEY no configurada")
@@ -268,50 +274,58 @@ def send_confirmation(email: str, token: str) -> bool:
         sender = f"Observatorio 29N <{sender}>"
     confirm_url = f"{BASE_URL}/api/confirm?id={quote(token)}"
     unsub_url = f"{BASE_URL}/api/unsubscribe?id={quote(token)}"
-    text = (
-        "Confirma tu suscripción al Observatorio Electoral 29N.\n\n"
-        f"{confirm_url}\n\n"
-        "Si no has solicitado esta suscripción, ignora este mensaje.\n"
-        f"Baja: {unsub_url}\n"
-    )
+    if reminder:
+        subject = "¿Te quedó pendiente confirmar tu suscripción?"
+        heading = "Te quedó pendiente confirmar"
+        lede = "Hace unos días te pedí confirmar tu suscripción al Observatorio Electoral 29N. Si sigues queriendo recibir el aviso, pulsa el botón. Si no, ignora este mensaje."
+        text = (
+            "Te quedó pendiente confirmar tu suscripción al Observatorio Electoral 29N.\n\n"
+            f"{confirm_url}\n\n"
+            "Si no quieres recibir el aviso, ignora este mensaje.\n"
+            f"Baja: {unsub_url}\n"
+        )
+    else:
+        subject = "Confirma tu suscripción al Observatorio 29N"
+        heading = "Confirma tu suscripción"
+        lede = "Te avisaré cuando cambie la media de sondeos o salga una encuesta nueva. Sin ruido y sin pronósticos."
+        text = (
+            "Confirma tu suscripción al Observatorio Electoral 29N.\n\n"
+            f"{confirm_url}\n\n"
+            "Si no has solicitado esta suscripción, ignora este mensaje.\n"
+            f"Baja: {unsub_url}\n"
+        )
     html = f"""<!doctype html><html lang="es"><body style="margin:0;background:#f6f3ed;color:#17202a;font-family:Georgia,serif">
 <div style="max-width:560px;margin:0 auto;padding:32px 22px">
 <p style="font-family:Arial,sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#b4532a">Observatorio Electoral 29N</p>
-<h1 style="font-size:26px;line-height:1.2;margin:10px 0 14px">Confirma tu suscripción</h1>
-<p style="font-size:16px;line-height:1.6">Te avisaré cuando cambie la media de sondeos o salga una encuesta nueva. Sin ruido y sin pronósticos.</p>
+<h1 style="font-size:26px;line-height:1.2;margin:10px 0 14px">{heading}</h1>
+<p style="font-size:16px;line-height:1.6">{lede}</p>
 <p style="margin:26px 0"><a href="{confirm_url}" style="display:inline-block;background:#17202a;color:#fff;text-decoration:none;padding:13px 20px;border-radius:4px;font-family:Arial,sans-serif">Confirmar suscripción</a></p>
 <p style="font-size:13px;line-height:1.6;color:#59636e">Si no has solicitado esta suscripción, ignora este mensaje.</p>
 <p style="font-size:13px;line-height:1.6"><a href="{unsub_url}" style="color:#59636e">Darse de baja</a></p>
 </div></body></html>"""
-    payload = json.dumps(
-        {
-            "from": sender,
-            "to": [email],
-            "reply_to": REPLY_TO,
-            "subject": "Confirma tu suscripción al Observatorio 29N",
-            "text": text,
-            "html": html,
-        }
-    ).encode("utf-8")
+    payload = json.dumps({"from": sender, "to": [email], "reply_to": REPLY_TO, "subject": subject, "text": text, "html": html}).encode("utf-8")
     req = urllib.request.Request(
-        "https://api.resend.com/emails",
-        data=payload,
-        headers={
-            "Authorization": f"Bearer {key}",
-            "Content-Type": "application/json",
-            "User-Agent": "Mozilla/5.0 (compatible; Observatorio29N/1.0)",
-        },
+        "https://api.resend.com/emails", data=payload,
+        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json",
+                 "User-Agent": "Mozilla/5.0 (compatible; Observatorio29N/1.0)"},
         method="POST",
     )
     try:
         with urllib.request.urlopen(req, timeout=20) as resp:
-            return 200 <= resp.status < 300
+            ok = 200 <= resp.status < 300
+            rid = None
+            if ok:
+                try:
+                    rid = json.loads(resp.read().decode()).get("id")
+                except Exception:
+                    rid = None
+            return (ok, rid) if return_id else ok
     except urllib.error.HTTPError as exc:
         print(f"subs_api: Resend HTTP {exc.code}: {exc.read(500).decode('utf-8', 'replace')}", file=sys.stderr)
-        return False
+        return (False, None) if return_id else False
     except (urllib.error.URLError, TimeoutError) as exc:
         print(f"subs_api: Resend error: {exc}", file=sys.stderr)
-        return False
+        return (False, None) if return_id else False
 
 
 class RateLimiter:
