@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import base64
+import hashlib
+import hmac
 import json
 import os
 import re
@@ -80,10 +83,23 @@ def init_db() -> None:
                 reminder_sent_at TEXT,
                 reminder_count INTEGER DEFAULT 0,
                 last_reminder_resend_id TEXT,
+                email_status TEXT,
+                last_event_at TEXT,
+                last_event_type TEXT,
+                last_event_id TEXT,
                 consent_version TEXT
             );
             CREATE INDEX IF NOT EXISTS idx_subs_status ON subscribers(status);
             CREATE INDEX IF NOT EXISTS idx_subs_created ON subscribers(created_at);
+            CREATE TABLE IF NOT EXISTS email_events (
+                id TEXT PRIMARY KEY,
+                email_id TEXT,
+                event_type TEXT NOT NULL,
+                recipient TEXT,
+                created_at TEXT,
+                received_at TEXT NOT NULL
+            );
+            CREATE INDEX IF NOT EXISTS idx_email_events_recipient ON email_events(recipient);
             """
         )
         cols = {row["name"] for row in conn.execute("PRAGMA table_info(subscribers)")}
@@ -95,6 +111,14 @@ def init_db() -> None:
             conn.execute("ALTER TABLE subscribers ADD COLUMN reminder_count INTEGER DEFAULT 0")
         if "last_reminder_resend_id" not in cols:
             conn.execute("ALTER TABLE subscribers ADD COLUMN last_reminder_resend_id TEXT")
+        if "email_status" not in cols:
+            conn.execute("ALTER TABLE subscribers ADD COLUMN email_status TEXT")
+        if "last_event_at" not in cols:
+            conn.execute("ALTER TABLE subscribers ADD COLUMN last_event_at TEXT")
+        if "last_event_type" not in cols:
+            conn.execute("ALTER TABLE subscribers ADD COLUMN last_event_type TEXT")
+        if "last_event_id" not in cols:
+            conn.execute("ALTER TABLE subscribers ADD COLUMN last_event_id TEXT")
         conn.execute(
             "UPDATE subscribers SET consent_version = 'pre-2026-10-23' WHERE consent_version IS NULL"
         )
@@ -397,6 +421,79 @@ def page(status: str) -> str:
 <body><main><p class="eyebrow">Observatorio Electoral 29N</p><h1>{title}</h1><p>{body}</p><p><b>Puedes cerrar esta pestaña.</b></p><p><a href="/">Volver al observatorio</a></p></main></body></html>"""
 
 
+def _webhook_verify(headers, raw: bytes) -> bool:
+    secret = load_env(ENV_PATH).get("RESEND_WEBHOOK_SECRET", "").strip()
+    if not secret.startswith("whsec_") or not raw:
+        return False
+    sid = (headers.get("svix-id") or "").strip()
+    ts = (headers.get("svix-timestamp") or "").strip()
+    sigs = (headers.get("svix-signature") or "").strip()
+    if not sid or not ts or not sigs:
+        return False
+    try:
+        if abs(time.time() - int(ts)) > 300:
+            return False
+    except ValueError:
+        return False
+    try:
+        key = base64.b64decode(secret[len("whsec_"):])
+    except Exception:
+        return False
+    expected = base64.b64encode(
+        hmac.new(key, f"{sid}.{ts}.".encode() + raw, hashlib.sha256).digest()
+    ).decode()
+    for sig in sigs.split():
+        if sig.startswith("v1,") and hmac.compare_digest(sig[3:], expected):
+            return True
+    return False
+
+
+def record_email_event(event: dict) -> str | None:
+    """Registra un webhook de Resend y actualiza el estado de entrega."""
+    event_id = str(event.get("id") or "").strip()
+    event_type = str(event.get("type") or "").strip()
+    data = event.get("data") or {}
+    email_id = str(data.get("email_id") or "").strip()
+    recipients = data.get("to") or []
+    if isinstance(recipients, str):
+        recipients = [recipients]
+    recipients = [norm_email(x) for x in recipients if norm_email(x)]
+    if not event_id or not event_type or not recipients:
+        return None
+    mapping = {
+        "email.delivered": "delivered",
+        "email.bounced": "bounced",
+        "email.complained": "complained",
+        "email.delivery_delayed": "delayed",
+    }
+    status = mapping.get(event_type)
+    stamp = now_iso()
+    with db() as conn:
+        conn.execute(
+            "INSERT OR IGNORE INTO email_events (id,email_id,event_type,recipient,created_at,received_at) VALUES (?,?,?,?,?,?)",
+            (event_id, email_id, event_type, ",".join(recipients),
+             str(data.get("created_at") or ""), stamp),
+        )
+        if status:
+            for email in recipients:
+                conn.execute(
+                    """UPDATE subscribers SET email_status=?, last_event_at=?, last_event_type=?, last_event_id=?
+                       WHERE email=?""",
+                    (status, stamp, event_type, event_id, email),
+                )
+    return status or event_type
+
+
+def _read_body(handler, limit: int) -> bytes:
+    try:
+        n = int(handler.headers.get("Content-Length", "0"))
+    except ValueError:
+        n = 0
+    if n <= 0 or n > limit:
+        return b""
+    return handler.rfile.read(n)
+
+
 class Handler(BaseHTTPRequestHandler):
     server_version = "Observatorio29N/1.0"
     sys_version = ""
@@ -454,6 +551,19 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self) -> None:
         global LAST_PRUNE
         path = urlsplit(self.path).path
+        if path == "/api/resend/webhook":
+            raw = _read_body(self, 1_000_000)
+            if not _webhook_verify(self.headers, raw):
+                self.send_json(401, {"ok": False, "error": "signature"})
+                return
+            try:
+                event = json.loads(raw.decode("utf-8"))
+            except (UnicodeDecodeError, json.JSONDecodeError):
+                self.send_json(400, {"ok": False, "error": "json"})
+                return
+            result = record_email_event(event)
+            self.send_json(200, {"ok": True, "event": result})
+            return
         if path in ("/api/confirm", "/api/unsubscribe"):
             try:
                 length = int(self.headers.get("Content-Length", "0"))

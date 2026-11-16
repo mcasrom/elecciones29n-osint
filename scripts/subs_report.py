@@ -26,6 +26,7 @@ def report(path: Path, days: int = 14) -> dict:
     out["utm"] = [dict(r) for r in rows(conn, "SELECT COALESCE(NULLIF(utm_source,''),'(directo)') utm_source, COUNT(*) n FROM subscribers GROUP BY utm_source ORDER BY n DESC")]
     out["referrers"] = [dict(r) for r in rows(conn, "SELECT COALESCE(NULLIF(referrer_host,''),'(sin referrer)') referrer_host, COUNT(*) n FROM subscribers GROUP BY referrer_host ORDER BY n DESC LIMIT 12")]
     out["daily"] = [dict(r) for r in rows(conn, "SELECT substr(created_at,1,10) dia, COUNT(*) n FROM subscribers WHERE created_at >= date('now', ?) GROUP BY dia ORDER BY dia", (f"-{days} days",))]
+    out["delivery"] = {r["email_status"] or "(sin evento)": r["n"] for r in rows(conn, "SELECT COALESCE(NULLIF(email_status,''),'') email_status, COUNT(*) n FROM subscribers GROUP BY email_status")}
     out["funnel"] = {
         "pendientes": out["status"].get("pending", 0),
         "confirmados": out["status"].get("confirmed", 0),
@@ -52,6 +53,8 @@ def main() -> int:
         return 0
     print(f"base: {data['db']}")
     print(f"total: {data['total']} · pendientes {data['funnel']['pendientes']} · confirmados {data['funnel']['confirmados']} · bajas {data['funnel']['bajas']} · confirmación {data['funnel'].get('tasa_confirmacion_pct', 0)}%")
+    if data["delivery"]:
+        print("\nentrega:", " · ".join(f"{k}: {v}" for k,v in data["delivery"].items()))
     for key, title in (("sources", "fuente"), ("pages", "página"), ("utm", "utm_source"), ("referrers", "referrer")):
         if data[key]:
             print(f"\n{title}:")
