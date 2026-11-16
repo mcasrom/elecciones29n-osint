@@ -88,7 +88,6 @@ def main():
     if a.test:
         sys.path.insert(0, '/home/deploy/social-poster')
         import social_queue as q
-        from pathlib import Path
         env = q.load_env(Path('/home/deploy/hybrid-fimi-radar/.env'))
         chat = env.get('FIMI_OWNER_CHAT', '')
         ok = q.send_tg(chat, '✅ Watch 29N operativo. Avisaré de nuevos sondeos/microdatos; no importo nada automáticamente.')

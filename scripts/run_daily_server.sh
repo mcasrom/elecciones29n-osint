@@ -74,7 +74,7 @@ if ! /usr/bin/python3 scripts/audit_datos.py > "$HOME/.local/state/elecciones29n
 fi
 
 rsync -a --delete web/ /var/www/elecciones29n/
-REQUIRED=(index.html glosario.html como-leer.html circunscripciones.html circunscripcion/madrid.html hemiciclo.html privacidad.html)
+REQUIRED=(index.html radar.html glosario.html como-leer.html circunscripciones.html circunscripcion/madrid.html hemiciclo.html privacidad.html)
 if [ ! -f "/var/www/elecciones29n/data/blackout.json" ]; then
   REQUIRED+=(robustez.html)
 fi

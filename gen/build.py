@@ -2407,6 +2407,7 @@ def build_radar(latest: dict) -> dict:
         "blackout_start": "2026-11-24",
         "blackout_end": "2026-11-28",
         "last_label": label(last),
+        "today_label": label(today),
         "window_label": f"{first_win}–{last_win}",
         "n_polls": latest.get("n_polls", 0),
         "n_houses": health.get("n_pollsters", 0),

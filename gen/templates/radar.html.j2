@@ -14,6 +14,8 @@
 .radar-kicker{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent2);font-weight:750;margin:0}
 .radar-head h1{font-size:clamp(30px,5vw,50px);line-height:1.05;margin:0;letter-spacing:-.035em;font-weight:850;max-width:18ch}
 .radar-lede{max-width:68ch;margin:0;color:var(--muted);font-size:16px}
+.radar-stale{margin:2px 0 0;padding:10px 12px;border:1px solid color-mix(in oklab,#f2c94c 45%,var(--line));border-radius:10px;background:color-mix(in oklab,#f2c94c 9%,var(--panel));color:var(--fg);font-size:13.5px;line-height:1.45}
+.radar-stale strong{color:var(--fg)}
 .radar-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:8px}
 .radar-tile{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:13px;padding:12px 14px;min-width:0}
 .radar-tile b{display:block;font-size:30px;line-height:1.08;letter-spacing:-.03em}
@@ -89,6 +91,9 @@
     <p class="radar-kicker">Elecciones generales · 29 de noviembre de 2026 · media al {{ radar.last_label }}</p>
     <h1>Radar de sondeos 29N</h1>
     <p class="radar-lede">{{ radar.lede }}</p>
+    {% if radar.days_since and radar.days_since >= 3 %}
+    <p class="radar-stale"><strong>Actualizado el {{ radar.today_label }} · último sondeo individual incorporado: {{ radar.last_label }} (hace {{ radar.days_since }} días).</strong> La media no se mueve: solo cambia cuando entra un sondeo individual nuevo. Los trackings de abajo son otra serie y no se mezclan con ella.</p>
+    {% endif %}
     <div class="radar-tiles">
       <div class="radar-tile"><b>{{ radar.gap_label }}</b><span>PP sobre PSOE en la media{% if radar.gap_sin_cis_label %} (sin CIS, {{ radar.gap_sin_cis_label }}){% endif %}</span></div>
       <div class="radar-tile"><b>{{ radar.n_polls }} sondeos</b><span>de {{ radar.n_houses }} casas · media al {{ radar.last_label }}</span></div>
