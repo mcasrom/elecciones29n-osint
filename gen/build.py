@@ -8,7 +8,7 @@ import math
 import os
 import shutil
 import unicodedata
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 
 import pytz
@@ -40,6 +40,7 @@ CIS_3584 = ROOT / "data" / "cis_3584_2026.json"
 
 BLACKOUT_SITEMAP = [
     ("", 1.0),
+    ("radar.html", 0.8),
     ("metodologia.html", 0.8),
     ("fuentes.html", 0.7),
     ("caveat.html", 0.5),
@@ -61,6 +62,7 @@ BLACKOUT_SITEMAP = [
 PAGES = [
     ("claves.html", "claves.html", "2026-11-11", "weekly", "0.9"),
     ("index.html", "", "2026-10-17", "daily", "1.0"),
+    ("radar.html", "radar.html", "2026-11-16", "daily", "0.8"),
     ("hemiciclo.html", "hemiciclo.html", "2026-10-23", "daily", "0.8"),
     ("metodologia.html", "metodologia.html", "2026-10-17", "monthly", "0.8"),
     ("fuentes.html", "fuentes.html", "2026-10-17", "weekly", "0.7"),
@@ -698,6 +700,7 @@ def write_blackout_site(
         ("robustez.html", "Robustez del dato · blackout", "Robustez del dato retirada", "/robustez.html"),
         ("novedades.html", "Novedades · blackout", "Novedades retiradas", "/novedades.html"),
         ("hemiciclo.html", "Hemiciclo · blackout", "Hemiciclo retirado", "/hemiciclo.html"),
+        ("radar.html", "Radar de sondeos · blackout", "Radar de sondeos retirado", "/radar.html"),
     ]
     for filename, title, heading, canonical in pages:
         html = tpl.render(
@@ -2317,6 +2320,109 @@ def build_prov_selector(escanos: dict, congreso: dict) -> list:
     return sorted(out, key=lambda x: x["nombre"])
 
 
+
+def build_radar(latest: dict) -> dict:
+    """Datos del radar visual: sondeos individuales, medias y trackings separados."""
+    from collections import defaultdict
+
+    parties = {p.get("party"): p for p in latest.get("parties", [])}
+    means = {k: float((parties.get(k) or {}).get("mean") or 0) for k in ("PP", "PSOE", "VOX", "SUMAR")}
+    trackers = {"ElectoPanel", "SW Demoscopia"}
+    aliases = {"Celeste Tel": "Celeste-Tel", "IMOP Insights": "IMOP"}
+    start = "2026-08-31"
+    groups: dict = defaultdict(dict)
+    hist = ROOT / "data" / "polls_history.csv"
+    if hist.exists():
+        with hist.open(encoding="utf-8", newline="") as f:
+            for row in csv.DictReader(f):
+                if (row.get("kind") or "tracking") != "tracking":
+                    continue
+                house = aliases.get((row.get("pollster") or "").strip(), (row.get("pollster") or "").strip())
+                if house in trackers or not house or (row.get("date") or "") < start:
+                    continue
+                if row.get("party") not in ("PP", "PSOE", "VOX", "SUMAR"):
+                    continue
+                try:
+                    groups[(row["date"], house)][row["party"]] = float(row["value"])
+                except (TypeError, ValueError):
+                    continue
+    polls = []
+    for (date, house), vals in groups.items():
+        if all(p in vals for p in ("PP", "PSOE", "VOX", "SUMAR")):
+            polls.append({"house": house, "date": date, "pp": round(vals["PP"], 2),
+                          "psoe": round(vals["PSOE"], 2), "vox": round(vals["VOX"], 2),
+                          "sumar": round(vals["SUMAR"], 2)})
+    polls.sort(key=lambda q: (q["date"], q["house"]))
+    last = max((q["date"] for q in polls), default=latest.get("last_poll_date", ""))
+    last_dt = datetime.strptime(last, "%Y-%m-%d") if last else datetime.now(TZ)
+    window = (last_dt - timedelta(days=6)).strftime("%Y-%m-%d")
+    today = datetime.now(TZ).strftime("%Y-%m-%d")
+    month = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
+    def label(d):
+        try:
+            return f"{int(d[8:10])} {month[int(d[5:7])-1]}"
+        except Exception:
+            return d
+    ahead = sum(1 for q in polls if q["pp"] > q["psoe"])
+    exceptions = len(polls) - ahead
+    gap = latest.get("gap_pp_psoe")
+    gap = float(gap) if gap is not None else means["PP"] - means["PSOE"]
+    gap_sin = means["PP"] - means["PSOE"]
+    try:
+        gap_sin = float((parties.get("PP") or {}).get("mean_sin_cis_45d") or 0) - float((parties.get("PSOE") or {}).get("mean_sin_cis_45d") or 0)
+    except Exception:
+        pass
+    def signed(n):
+        return f"{'+' if n >= 0 else ''}{n:.1f}".replace(".", ",") + " pp"
+    poll_dates = latest.get("poll_dates") or []
+    win_dates = [q["date"] for q in polls if q["date"] >= window]
+    first_win = label(min(win_dates)) if win_dates else label(window)
+    last_win = label(max(win_dates)) if win_dates else label(last)
+    health = latest.get("health") or {}
+    hstatus = health.get("status", "warn")
+    hlabel = {"ok": "Datos suficientes", "warn": "Datos frágiles", "bad": "Datos insuficientes"}.get(hstatus, "Datos frágiles")
+    right = float(latest.get("bloc_right") or 0)
+    left = float(latest.get("bloc_left") or 0)
+    blocks = [
+        {"label": "PP + VOX", "value": right, "note": "derecha"},
+        {"label": "PSOE + Sumar + Podemos", "value": left, "note": "izquierda"},
+        {"label": "No asignado", "value": max(0.0, 100.0 - right - left), "note": "resto"},
+    ]
+    trackings = []
+    for t in latest.get("tracking_latest") or []:
+        try:
+            trackings.append({**t, "date_label": label(t.get("date") or "")})
+        except Exception:
+            continue
+    return {
+        "polls": polls,
+        "means": means,
+        "start": start,
+        "end": last,
+        "window_start": window,
+        "today": today,
+        "election": "2026-11-29",
+        "campaign_start": "2026-11-13",
+        "campaign_end": "2026-11-27",
+        "blackout_start": "2026-11-24",
+        "blackout_end": "2026-11-28",
+        "last_label": label(last),
+        "window_label": f"{first_win}–{last_win}",
+        "n_polls": latest.get("n_polls", 0),
+        "n_houses": health.get("n_pollsters", 0),
+        "days_to_election": latest.get("days_to_election", 0),
+        "days_since": health.get("days_since_last"),
+        "blackout_label": "24–28 nov",
+        "window_label": f"{first_win}–{last_win}",
+        "health_label": hlabel,
+        "gap_label": signed(gap),
+        "gap_sin_cis_label": signed(gap_sin),
+        "lede": f"{ahead} de {len(polls)} sondeos dan al PP por delante del PSOE. Las dos excepciones son barómetros del CIS, que publica estimación de voto y se sitúa en los extremos del rango." if exceptions == 2 else f"{ahead} de {len(polls)} sondeos dan al PP por delante del PSOE.",
+        "blocks": blocks,
+        "trackings": trackings,
+        "health": health,
+    }
+
 def main(out: str = "web") -> None:
     global OUT
     OUT = out
@@ -2557,6 +2663,7 @@ def main(out: str = "web") -> None:
         "hemicycle": build_hemicycle(latest.get("hemicycle", [])),
         "poll_dates": latest.get("poll_dates", []),
         "n_polls": latest.get("n_polls", 0),
+        "radar": build_radar(latest),
         "n_polls_sin_cis": latest.get("n_polls_sin_cis", 0),
         "n_polls_sin_cis_45d": latest.get("n_polls_sin_cis_45d", 0),
         "pp_mean": next((p["mean"] for p in parties if p["party"] == "PP"), None),
@@ -2629,6 +2736,7 @@ def main(out: str = "web") -> None:
             "fuentes.html": build_webpage_jsonld("Fuentes y datos abiertos", "/fuentes.html", "Fuentes, catálogo de datos y licencias."),
             "caveat.html": build_webpage_jsonld("Qué no dice este sitio", "/caveat.html", "Límites y no-objetivos del observatorio."),
             "glosario.html": build_webpage_jsonld("Glosario", "/glosario.html", "Diccionario breve de términos electorales y de sondeos."),
+            "radar.html": build_webpage_jsonld("Radar visual de sondeos", "/radar.html", "Nube de sondeos, brecha PP-PSOE y bloques de voto. Media de sondeos publicados, no pronóstico."),
             "robustez.html": build_webpage_jsonld("Robustez del dato", "/robustez.html", "Cinco indicadores de la base de la media: sondeos, casas, antigüedad, muestra e IQR."),
             "hemiciclo.html": build_webpage_jsonld("Simulación nacional de escaños (distrito único)", "/hemiciclo.html", "Simulación mecánica con D'Hondt de distrito único por fecha de sondeo. No es una proyección ni la composición real del Congreso; excluye territoriales."),
             "como-leer.html": build_webpage_jsonld("Cómo leer la media", "/como-leer.html", "Guía breve para leer una media de sondeos sin sobreinterpretar."),
@@ -2695,7 +2803,7 @@ def main(out: str = "web") -> None:
         "share_url": SITE_URL + "/",
     }
 
-    for tname in ["claves.html", "index.html", "hemiciclo.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "lideres.html", "participacion.html", "territorio.html",
+    for tname in ["claves.html", "index.html", "radar.html", "hemiciclo.html", "metodologia.html", "fuentes.html", "about.html", "caveat.html", "electorado.html", "lideres.html", "participacion.html", "territorio.html",
              "circunscripciones.html", "mi-circunscripcion.html", "como-leer.html", "robustez.html", "glosario.html", "novedades.html", "apoyo.html", "sobre-mi.html", "privacidad.html", "noche-electoral.html", "factores.html", "comportamiento.html", "competitivas.html", "gobernabilidad.html", "escenarios.html", "mayorias.html", "postelectoral.html", "candidatos.html", "dirigentes.html", "incrustar.html", "aviso.html", "prensa.html", "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html", "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html", "en/post-election.html"]:
         tpl = env.get_template(tname + ".j2")
         html = tpl.render(current=tname, **context)

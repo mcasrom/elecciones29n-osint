@@ -151,6 +151,7 @@ def main() -> int:
 
     for _path, _needle in (("/claves.html", "Claves para leer"),
                            ("/glosario.html", "Glosario"),
+                           ("/radar.html", "Radar de sondeos 29N"),
                            ("/robustez.html", "Robustez del dato"),
                            ("/hemiciclo.html", "Simulación nacional de escaños"),
                            ("/como-leer.html", "Cómo leer la media"),

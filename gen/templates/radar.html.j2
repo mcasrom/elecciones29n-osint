@@ -1,0 +1,293 @@
+{% set page_title = "Radar visual de sondeos · observatorio electoral 29N" %}
+{% set page_desc = "Nube de sondeos, brecha PP-PSOE y bloques de voto. Cada punto es un sondeo publicado; la línea es la media del observatorio. No es un pronóstico." %}
+{% set canonical = site_url ~ "/radar.html" %}
+{% set page_image = "/og.png" %}
+{% set jsonld = webpages['radar.html'] %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+{% include "_head.html.j2" %}
+<style>
+.radar-page{--rn-old:#86b6ef;--rn-new:#184f95;max-width:1120px;margin:0 auto;padding:22px 20px 32px}
+:root[data-theme="dark"] .radar-page{--rn-old:#184f95;--rn-new:#6da7ec}
+.radar-head{display:flex;flex-direction:column;gap:9px}
+.radar-kicker{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent2);font-weight:750;margin:0}
+.radar-head h1{font-size:clamp(30px,5vw,50px);line-height:1.05;margin:0;letter-spacing:-.035em;font-weight:850;max-width:18ch}
+.radar-lede{max-width:68ch;margin:0;color:var(--muted);font-size:16px}
+.radar-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:8px}
+.radar-tile{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:13px;padding:12px 14px;min-width:0}
+.radar-tile b{display:block;font-size:30px;line-height:1.08;letter-spacing:-.03em}
+.radar-tile span{display:block;font-size:12.5px;color:var(--muted);margin-top:3px}
+.radar-chip{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--fg);margin-top:6px}
+.radar-chip i{width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:11px solid #f2c94c;display:inline-block}
+.radar-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;min-width:0}
+.radar-tracking-card{border-left:4px solid #f2c94c;background:linear-gradient(90deg,#f2c94c10 0,var(--panel) 34%)}
+.radar-cardhead{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:7px}
+.radar-card h2{font-size:18px;margin:0;letter-spacing:-.01em}
+.radar-sub{margin:0 0 12px;color:var(--muted);font-size:13.5px;max-width:76ch}
+.radar-plot{position:relative;width:100%;min-width:0}
+.radar-plot svg{display:block;width:100%;height:auto;overflow:visible}
+.radar-plot svg text{font-family:inherit;fill:var(--muted)}
+.radar-grid{stroke:var(--line);stroke-width:1}
+.radar-axis{stroke:var(--faint);stroke-width:1}
+.radar-tick{font-size:11px;fill:var(--faint)}
+.radar-rowname{font-size:14px;font-weight:750;fill:var(--fg)}
+.radar-rowmean{font-size:12px;fill:var(--muted)}
+.radar-band{fill:var(--blue);opacity:.10}
+.radar-mean{stroke:var(--fg);stroke-width:2}
+.radar-dot{stroke:var(--panel);stroke-width:1.5}
+.radar-ring{fill:none;stroke:var(--accent);stroke-width:2.5}
+.radar-lab{font-size:11px;font-weight:650;fill:var(--fg)}
+.radar-zero{stroke:var(--muted);stroke-width:1.2}
+.radar-roll{fill:none;stroke:var(--fg);stroke-width:2;stroke-linejoin:round}
+.radar-future{fill:var(--faint);opacity:.10}
+.radar-camp{fill:var(--blue);opacity:.07}
+.radar-vline{stroke:var(--muted);stroke-width:1;stroke-dasharray:3 3}
+.radar-tip{position:absolute;pointer-events:none;background:var(--fg);color:var(--bg);font-size:12px;line-height:1.35;padding:6px 8px;border-radius:6px;white-space:nowrap;z-index:5;opacity:0;transition:opacity .08s}
+.radar-tip.on{opacity:1}
+.radar-legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin:10px 0 0;padding:0;list-style:none;font-size:12.5px;color:var(--muted)}
+.radar-legend li{display:flex;align-items:center;gap:6px}
+.radar-sw{width:11px;height:11px;border-radius:50%;display:inline-block;flex:none}
+.radar-sw.ring{background:none;border:2.5px solid var(--accent);width:13px;height:13px}
+.radar-sw.line{width:16px;height:0;border-radius:0;border-top:2px solid var(--fg)}
+.radar-sw.hatch{border-radius:2px;background:repeating-linear-gradient(45deg,var(--faint) 0 2px,transparent 2px 5px);opacity:.8}
+.radar-sw.ramp{width:34px;border-radius:6px;background:linear-gradient(90deg,var(--rn-old),var(--rn-new))}
+.radar-blocks{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+.radar-blockrow{display:grid;grid-template-columns:minmax(130px,1.1fr) minmax(160px,2fr) 58px;gap:10px;align-items:center;font-size:13px}
+.radar-blockrow b{font-size:13.5px}
+.radar-blockrow .val{text-align:right;font-variant-numeric:tabular-nums;font-weight:750}
+.radar-blockrow svg{display:block;width:100%;height:20px;overflow:visible}
+.radar-axisline{stroke:var(--faint);stroke-width:1.5}
+.radar-zero-line{stroke:var(--faint);stroke-width:1}
+.radar-dotmark{stroke:var(--panel);stroke-width:2}
+.radar-note{font-size:13px;color:var(--muted);margin:9px 0 0}
+.radar-notes{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:7px}
+.radar-notes p{margin:0;max-width:82ch}
+.radar-table{width:100%;border-collapse:collapse;font-size:13.5px}
+.radar-table th,.radar-table td{border-bottom:1px solid var(--line);padding:8px 6px;text-align:left;vertical-align:top}
+.radar-table th{font-size:12px;color:var(--muted);font-weight:650}
+.radar-table td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.radar-empty{color:var(--muted);font-size:13.5px}
+@media(max-width:620px){.radar-blockrow{grid-template-columns:1fr 58px}.radar-blockrow .track{grid-column:1/-1}.radar-page{padding-left:14px;padding-right:14px}.radar-card{padding:13px}
+.radar-table,.radar-table tbody{display:block}
+.radar-table thead{display:none}
+.radar-table tr{display:grid;grid-template-columns:repeat(2,1fr);gap:5px 10px;border:1px solid var(--line);border-radius:10px;padding:10px;margin-bottom:8px}
+.radar-table td{display:flex;justify-content:space-between;gap:8px;border:0;padding:0;font-size:12.5px}
+.radar-table td::before{content:attr(data-label);color:var(--muted);font-weight:600}
+.radar-table td:nth-child(1),.radar-table td:nth-child(2),.radar-table td:nth-child(7){grid-column:1/-1}
+.radar-table td:nth-child(1){font-size:14px}
+.radar-table td:nth-child(1)::before,.radar-table td:nth-child(2)::before,.radar-table td:nth-child(7)::before{display:none}
+.radar-table td.num{justify-content:space-between}
+}
+@media(prefers-reduced-motion:reduce){.radar-tip{transition:none}}
+</style>
+</head>
+<body>
+{% include "_nav.html.j2" %}
+<main class="radar-page">
+  <header class="radar-head">
+    <p class="radar-kicker">Elecciones generales · 29 de noviembre de 2026 · media al {{ radar.last_label }}</p>
+    <h1>Radar de sondeos 29N</h1>
+    <p class="radar-lede">{{ radar.lede }}</p>
+    <div class="radar-tiles">
+      <div class="radar-tile"><b>{{ radar.gap_label }}</b><span>PP sobre PSOE en la media{% if radar.gap_sin_cis_label %} (sin CIS, {{ radar.gap_sin_cis_label }}){% endif %}</span></div>
+      <div class="radar-tile"><b>{{ radar.n_polls }} sondeos</b><span>de {{ radar.n_houses }} casas · media al {{ radar.last_label }}</span></div>
+      <div class="radar-tile"><b>{{ radar.days_to_election }} días</b><span>hasta la jornada electoral; blackout del {{ radar.blackout_label }}<span class="radar-chip"><i></i>{{ radar.health_label }}: último sondeo hace {{ radar.days_since }} días</span></span></div>
+    </div>
+  </header>
+
+  <section class="radar-card">
+    <div class="radar-cardhead"><h2>La nube de sondeos, partido a partido</h2><span class="radar-sub" style="margin:0">31 ago → {{ radar.last_label }}</span></div>
+    <p class="radar-sub">Cada punto es un sondeo publicado. Más abajo y más oscuro significa más reciente. La línea es la media ponderada del observatorio; la banda es el rango de los últimos 7 días.</p>
+    <div class="radar-plot" id="radar-hero"></div>
+    <ul class="radar-legend">
+      <li><span class="radar-sw ramp"></span>31 ago → {{ radar.last_label }}</li>
+      <li><span class="radar-sw ring"></span>CIS (estimación de voto, no intención directa)</li>
+      <li><span class="radar-sw line"></span>media ponderada</li>
+      <li><span class="radar-sw" style="background:var(--blue);opacity:.25;border-radius:2px"></span>rango 7 días</li>
+    </ul>
+  </section>
+
+  <section class="radar-card">
+    <div class="radar-cardhead"><h2>La brecha PP–PSOE hasta el 29N</h2><span class="radar-sub" style="margin:0">cada punto, un sondeo</span></div>
+    <p class="radar-sub">Diferencia en puntos de cada sondeo (PP menos PSOE). A la derecha, el calendario que queda: campaña y, del 24 al 28, ningún sondeo se puede publicar.</p>
+    <div class="radar-plot" id="radar-gap"></div>
+    <ul class="radar-legend">
+      <li><span class="radar-sw" style="background:var(--blue)"></span>PP por delante</li>
+      <li><span class="radar-sw" style="background:var(--accent)"></span>PSOE por delante</li>
+      <li><span class="radar-sw line"></span>media móvil 14 d, sin ponderar</li>
+      <li><span class="radar-sw hatch"></span>24–28 nov sin sondeos</li>
+    </ul>
+  </section>
+
+  <section class="radar-card">
+    <div class="radar-cardhead"><h2>Los bloques, sin escaños</h2><span class="radar-sub" style="margin:0">suma de medias de voto</span></div>
+    <p class="radar-sub">Cada punto es la suma de las medias de voto de ese bloque. No es una coalición, no es una proyección de escaños y no es una mayoría.</p>
+    <div class="radar-blocks">
+      {% for b in radar.blocks %}
+      <div class="radar-blockrow">
+        <div><b>{{ b.label }}</b><div class="radar-note" style="margin:0">{{ b.note }}</div></div>
+        <div class="track" data-value="{{ b.value }}" data-label="{{ b.label }}"></div>
+        <div class="val">{{ "%.1f"|format(b.value) }} %</div>
+      </div>
+      {% endfor %}
+    </div>
+    <p class="radar-note">«No asignado» reúne ERC, Junts, Bildu, PNV, BNG, CC y el resto. Los porcentajes son sumas de medias, no votos reales.</p>
+  </section>
+
+  <section class="radar-card radar-tracking-card">
+    <div class="radar-cardhead"><h2><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#f2c94c;margin-right:8px;box-shadow:0 0 0 3px #f2c94c26"></span>Trackings fuera de la media</h2><span class="radar-sub" style="margin:0">contexto de evolución · no entran en la media</span></div>
+    {% if radar.trackings %}
+    <div style="overflow-x:auto">
+      <table class="radar-table">
+        <thead><tr><th>Tracking</th><th>Fecha</th><th>PP</th><th>PSOE</th><th>VOX</th><th>SUMAR</th><th></th></tr></thead>
+        <tbody>
+        {% for t in radar.trackings %}
+          <tr>
+            <td data-label="Tracking"><strong>{{ t.pollster }}</strong></td>
+            <td data-label="Fecha">{{ t.date_label }}</td>
+            <td class="num" data-label="PP">{{ "%.1f"|format(t.pp) }} %</td>
+            <td class="num" data-label="PSOE">{{ "%.1f"|format(t.psoe) }} %</td>
+            <td class="num" data-label="VOX">{{ "%.1f"|format(t.vox) }} %</td>
+            <td class="num" data-label="SUMAR">{{ "%.1f"|format(t.sumar) }} %</td>
+            <td data-label="Enlace">{% if t.url %}<a href="{{ t.url }}" target="_blank" rel="noopener noreferrer">fuente ↗</a>{% endif %}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="radar-note">Son series de una sola casa y pueden publicarse a diario. No son sondeos independientes ni se mezclan en la media: sirven para ver el movimiento reciente, no para sustituir la foto.</p>
+    {% else %}
+    <p class="radar-empty">Sin trackings disponibles en esta actualización.</p>
+    {% endif %}
+  </section>
+
+  <section class="radar-card radar-notes">
+    <h2>Qué no dice este gráfico</h2>
+    <p>Es una media de sondeos publicados, no un pronóstico. El rango es la dispersión observada entre sondeos, no un intervalo de confianza. No se muestran escaños porque un D'Hondt nacional daría un artefacto, no un reparto.</p>
+    <p>La media por casa del observatorio pesa por recencia (vida media de 10 días) y limita el peso de cada casa. Los puntos de esta página son los sondeos tal cual, sin ponderar. Ningún sondeo declara muestra en la ficha, salvo el CIS (n=4.042 en septiembre y 5.025 en octubre).</p>
+    <p>Fuente: <a href="{{ site_url }}/" target="_blank" rel="noopener">Observatorio electoral 29N</a> v{{ version }}, actualizado el {{ build_date }}. Código AGPL-3.0: <a href="https://github.com/mcasrom/elecciones29n-osint" target="_blank" rel="noopener">elecciones29n-osint</a>.</p>
+  </section>
+</main>
+{% include "_footer.html.j2" %}
+
+<script>
+const RADAR = {{ radar|tojson }};
+const PARTIES = ['PP','PSOE','VOX','SUMAR'];
+const MEANS = RADAR.means;
+const day = s => Date.UTC(+s.slice(0,4), +s.slice(5,7)-1, +s.slice(8,10)) / 864e5;
+const fmt = (n,d=1) => n.toFixed(d).replace('.', ',');
+const dlabel = s => { const m=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic']; return +s.slice(8,10)+' '+m[+s.slice(5,7)-1]; };
+const polls = RADAR.polls.map(q => ({...q, t: day(q.date), v:{PP:q.pp, PSOE:q.psoe, VOX:q.vox, SUMAR:q.sumar}, cis:q.house==='CIS'}));
+const T0 = day(RADAR.start), T1 = day(RADAR.end), W0 = day(RADAR.window_start);
+const HOY = day(RADAR.today), ELECTION = day(RADAR.election);
+
+function tip(box) {
+  let el = box.querySelector('.radar-tip');
+  if (!el) { el = document.createElement('div'); el.className = 'radar-tip'; box.appendChild(el); }
+  box.onpointermove = e => {
+    const t = e.target.closest ? e.target.closest('[data-tip]') : null;
+    if (!t) { el.classList.remove('on'); return; }
+    const r = box.getBoundingClientRect();
+    el.textContent = t.getAttribute('data-tip');
+    el.classList.add('on');
+    const w = el.offsetWidth;
+    let x = e.clientX - r.left + 12; if (x + w > r.width) x = e.clientX - r.left - w - 12;
+    el.style.left = Math.max(0, x) + 'px'; el.style.top = Math.max(0, e.clientY - r.top - 34) + 'px';
+  };
+  box.onpointerleave = () => el.classList.remove('on');
+}
+
+function hero() {
+  const box = document.getElementById('radar-hero');
+  if (!box) return;
+  const W = Math.max(300, box.clientWidth), pad = 10, pw = W - pad*2, rowH = 126, hd = 26, dh = 86, top = 4;
+  const H = top + PARTIES.length*rowH + 22;
+  const x = v => pad + v/36*pw;
+  let s = '';
+  [0,10,20,30].forEach(g => {
+    s += `<line class="radar-grid" x1="${x(g)}" x2="${x(g)}" y1="${top}" y2="${H-20}"/>`;
+    s += `<text class="radar-tick" x="${x(g)}" y="${H-5}" text-anchor="middle">${g} %</text>`;
+  });
+  const win = polls.filter(q => q.t >= W0);
+  PARTIES.forEach((p,i) => {
+    const y0 = top + i*rowH, dy = y0 + hd;
+    const vs = win.map(q => q.v[p]), mn = Math.min(...vs), mx = Math.max(...vs);
+    s += `<line class="radar-axis" x1="${pad}" x2="${W-pad}" y1="${y0}" y2="${y0}"/>`;
+    s += `<text x="${pad}" y="${y0+17}"><tspan class="radar-rowname">${p}</tspan><tspan class="radar-rowmean" dx="8">${fmt(MEANS[p])} % de media · rango ${fmt(mn)}–${fmt(mx)}</tspan></text>`;
+    s += `<rect class="radar-band" x="${x(mn)}" y="${dy-4}" width="${x(mx)-x(mn)}" height="${dh+8}"/>`;
+    s += `<line class="radar-mean" x1="${x(MEANS[p])}" x2="${x(MEANS[p])}" y1="${dy-4}" y2="${dy+dh+4}"/>`;
+    polls.forEach(q => {
+      const f = (q.t - T0) / (T1 - T0), cx = x(q.v[p]), cy = dy + f*dh;
+      const tipTxt = `${q.house} · ${dlabel(q.date)} · ${p} ${fmt(q.v[p])} %`;
+      s += `<circle class="radar-dot" data-tip="${tipTxt}" cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${q.t >= W0 ? 5 : 3.6}" style="fill:color-mix(in srgb, var(--rn-new) ${(f*100).toFixed(0)}%, var(--rn-old))"/>`;
+      if (q.cis) {
+        s += `<circle class="radar-ring" cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="7.5"/>`;
+        if (p === 'PP' || p === 'PSOE') s += `<text class="radar-lab" x="${(cx+11).toFixed(1)}" y="${(cy+4).toFixed(1)}">CIS</text>`;
+      }
+    });
+  });
+  box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Sondeos por partido: PP, PSOE, VOX y Sumar">${s}</svg>`;
+  tip(box);
+}
+
+function gap() {
+  const box = document.getElementById('radar-gap');
+  if (!box) return;
+  const W = Math.max(300, box.clientWidth), L = 32, R = 8, T = 22, B = 30, H = 260;
+  const D0 = T0, D1 = ELECTION;
+  const X = t => L + (t - D0)/(D1 - D0)*(W - L - R);
+  const Y = g => T + (12 - g)/25*(H - T - B);
+  let s = `<defs><pattern id="radar-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="var(--faint)" stroke-width="2"/></pattern></defs>`;
+  s += `<rect class="radar-camp" x="${X(day(RADAR.campaign_start))}" y="${T}" width="${X(day(RADAR.campaign_end))-X(day(RADAR.campaign_start))}" height="${H-T-B}"/>`;
+  s += `<rect class="radar-future" x="${X(HOY)}" y="${T}" width="${X(D1)-X(HOY)}" height="${H-T-B}"/>`;
+  s += `<rect x="${X(day(RADAR.blackout_start))}" y="${T}" width="${X(day(RADAR.blackout_end))-X(day(RADAR.blackout_start))}" height="${H-T-B}" fill="url(#radar-hatch)" opacity=".55"/>`;
+  [-10,-5,0,5,10].forEach(g => {
+    s += `<line class="${g===0?'radar-zero':'radar-grid'}" x1="${L}" x2="${W-R}" y1="${Y(g)}" y2="${Y(g)}"/>`;
+    s += `<text class="radar-tick" x="${L-6}" y="${Y(g)+4}" text-anchor="end">${g>0?'+':''}${g}</text>`;
+  });
+  s += `<text class="radar-tick" x="${L+4}" y="${Y(12)+10}">PP por delante</text><text class="radar-tick" x="${L+4}" y="${Y(-12.4)}">PSOE por delante</text>`;
+  [['2026-09-01','sep'],['2026-10-01','oct'],['2026-11-01','nov']].forEach(([d,l]) => {
+    s += `<line class="radar-axis" x1="${X(day(d))}" x2="${X(day(d))}" y1="${H-B}" y2="${H-B+5}"/><text class="radar-tick" x="${X(day(d))+3}" y="${H-B+16}">${l}</text>`;
+  });
+  s += `<line class="radar-vline" x1="${X(HOY)}" x2="${X(HOY)}" y1="${T-6}" y2="${H-B}"/><text class="radar-tick" x="${X(HOY)-4}" y="${T-9}" text-anchor="end">hoy</text>`;
+  s += `<line class="radar-vline" x1="${X(D1)}" x2="${X(D1)}" y1="${T-6}" y2="${H-B}"/><text class="radar-lab" x="${X(D1)}" y="${T-9}" text-anchor="end">29N</text>`;
+  let path = '';
+  for (let d = T0; d <= T1; d += 0.5) {
+    const near = polls.filter(q => Math.abs(q.t - d) <= 7);
+    if (!near.length) continue;
+    const m = near.reduce((a,q) => a + q.v.PP - q.v.PSOE, 0) / near.length;
+    path += (path ? 'L' : 'M') + X(d).toFixed(1) + ',' + Y(m).toFixed(1);
+  }
+  s += `<path class="radar-roll" d="${path}"/>`;
+  polls.forEach(q => {
+    const g = q.v.PP - q.v.PSOE, cx = X(q.t), cy = Y(g);
+    s += `<circle class="radar-dot" data-tip="${q.house} · ${dlabel(q.date)} · PP–PSOE ${g>0?'+':''}${fmt(g)} pp" cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="4.2" fill="${g>=0?'var(--blue)':'var(--accent)'}"/>`;
+    if (q.cis) s += `<circle class="radar-ring" cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="8"/><text class="radar-lab" x="${(cx+12).toFixed(1)}" y="${(cy+4).toFixed(1)}">CIS</text>`;
+  });
+  box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Diferencia PP menos PSOE por sondeo, con el calendario hasta el 29N">${s}</svg>`;
+  tip(box);
+}
+
+function blocks() {
+  document.querySelectorAll('.radar-blockrow .track').forEach(el => {
+    const v = Math.max(0, Math.min(100, +el.dataset.value));
+    const W = 300, H = 20, pad = 3;
+    const x = n => pad + n/100*(W-pad*2);
+    let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${el.dataset.label}: ${fmt(v)} por ciento"><line class="radar-axisline" x1="${pad}" x2="${W-pad}" y1="10" y2="10"/>`;
+    [0,25,50,75,100].forEach(n => { s += `<line class="radar-zero-line" x1="${x(n)}" x2="${x(n)}" y1="7" y2="13"/>`; });
+    s += `<circle class="radar-dotmark" cx="${x(v)}" cy="10" r="6" fill="var(--accent)"/></svg>`;
+    el.innerHTML = s;
+  });
+}
+
+function draw() { hero(); gap(); blocks(); }
+draw();
+const box = document.getElementById('radar-hero');
+if (box && 'ResizeObserver' in window) {
+  let lastW = box.clientWidth;
+  new ResizeObserver(() => { const w = box.clientWidth; if (Math.abs(w - lastW) > 2) { lastW = w; draw(); } }).observe(box);
+}
+</script>
+</body>
+</html>
