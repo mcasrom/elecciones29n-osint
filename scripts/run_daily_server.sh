@@ -26,6 +26,7 @@ rm -rf "$STAGE" web_prev
 cp -a web "$STAGE"
 
 PYTHONPATH="$REPO_DIR" python3 -m ingest.electomania || echo "[run_daily_server] aviso: electomania sin novedades"
+PYTHONPATH="$REPO_DIR" python3 -m ingest.tracking_electomania || echo "[run_daily_server] aviso: tracking electomania sin novedades"
 PYTHONPATH="$REPO_DIR" python3 -m ingest.ondacero || echo "[run_daily_server] aviso: ondacero sin novedades"
 
 [ ! -f data/censo_2026.json ] || [ -n "$(find data/censo_2026.json -mtime +30 2>/dev/null)" ] && PYTHONPATH="$REPO_DIR" python3 -m ingest.censo || true

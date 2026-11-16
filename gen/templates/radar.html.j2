@@ -92,7 +92,7 @@
     <h1>Radar de sondeos 29N</h1>
     <p class="radar-lede">{{ radar.lede }}</p>
     {% if radar.days_since and radar.days_since >= 3 %}
-    <p class="radar-stale"><strong>Actualizado el {{ radar.today_label }} · último sondeo individual incorporado: {{ radar.last_label }} (hace {{ radar.days_since }} días).</strong> La media no se mueve: solo cambia cuando entra un sondeo individual nuevo. Los trackings de abajo son otra serie y no se mezclan con ella.</p>
+    <p class="radar-stale"><strong>Actualizado el {{ radar.today_label }} · último sondeo individual incorporado: {{ radar.last_label }} (hace {{ radar.days_since }} días).</strong> La media no se mueve: solo cambia cuando entra un sondeo individual nuevo. Los trackings son otra serie y no se mezclan con ella.</p>
     {% endif %}
     <div class="radar-tiles">
       <div class="radar-tile"><b>{{ radar.gap_label }}</b><span>PP sobre PSOE en la media{% if radar.gap_sin_cis_label %} (sin CIS, {{ radar.gap_sin_cis_label }}){% endif %}</span></div>
@@ -125,6 +125,19 @@
     </ul>
   </section>
 
+  {% if radar.tracking_series %}
+  <section class="radar-card">
+    <div class="radar-cardhead"><h2>Trackings, día a día</h2><span class="radar-sub" style="margin:0">brecha PP–PSOE por casa</span></div>
+    <p class="radar-sub">Cada línea es un tracking distinto. No son sondeos independientes ni entran en la media: sirven para ver el movimiento diario de cada casa. Si una casa no publica un día, la línea se corta; no se interpola.</p>
+    <div class="radar-plot" id="radar-tracking"></div>
+    <ul class="radar-legend">
+      {% for s in radar.tracking_series %}
+      <li><span class="radar-sw" style="background:{{ ['#ff5a1f','#8ec5ff','#3ddc97','#f2c94c','#c084fc'][loop.index0 % 5] }}"></span>{{ s.house }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
   <section class="radar-card">
     <div class="radar-cardhead"><h2>Los bloques, sin escaños</h2><span class="radar-sub" style="margin:0">suma de medias de voto</span></div>
     <p class="radar-sub">Cada punto es la suma de las medias de voto de ese bloque. No es una coalición, no es una proyección de escaños y no es una mayoría.</p>
@@ -149,7 +162,7 @@
         <tbody>
         {% for t in radar.trackings %}
           <tr>
-            <td data-label="Tracking"><strong>{{ t.pollster }}</strong></td>
+            <td data-label="Tracking"><strong>{{ t.display }}</strong></td>
             <td data-label="Fecha">{{ t.date_label }}</td>
             <td class="num" data-label="PP">{{ "%.1f"|format(t.pp) }} %</td>
             <td class="num" data-label="PSOE">{{ "%.1f"|format(t.psoe) }} %</td>
@@ -274,6 +287,49 @@ function gap() {
   tip(box);
 }
 
+function trackingChart() {
+  const box = document.getElementById('radar-tracking');
+  if (!box) return;
+  const series = RADAR.tracking_series || [];
+  if (!series.length) return;
+  const W = Math.max(300, box.clientWidth), L = 38, R = 14, T = 20, B = 32, H = 250;
+  const dates = [...new Set(series.flatMap(s => s.points.map(p => p.date)))].sort();
+  const D0 = day(dates[0]), D1 = day(dates[dates.length - 1]);
+  const gaps = series.flatMap(s => s.points.map(p => p.gap));
+  let lo = Math.min(0, ...gaps), hi = Math.max(0, ...gaps);
+  const span = Math.max(4, hi - lo);
+  lo = Math.floor((lo - 1) / 2) * 2; hi = Math.ceil((hi + 1) / 2) * 2;
+  const Y = g => T + (hi - g) / (hi - lo) * (H - T - B);
+  const X = d => L + (day(d) - D0) / Math.max(1, D1 - D0) * (W - L - R);
+  const colors = ['#ff5a1f','#8ec5ff','#3ddc97','#f2c94c','#c084fc'];
+  let s = '';
+  for (let g = lo; g <= hi; g += 2) {
+    s += `<line class="${g===0?'radar-zero':'radar-grid'}" x1="${L}" x2="${W-R}" y1="${Y(g)}" y2="${Y(g)}"/>`;
+    s += `<text class="radar-tick" x="${L-6}" y="${Y(g)+4}" text-anchor="end">${g>0?'+':''}${g}</text>`;
+  }
+  dates.forEach(d => {
+    s += `<line class="radar-axis" x1="${X(d)}" x2="${X(d)}" y1="${H-B}" y2="${H-B+5}"/>`;
+    s += `<text class="radar-tick" x="${X(d)}" y="${H-B+16}" text-anchor="middle">${dlabel(d)}</text>`;
+  });
+  series.forEach((ser, i) => {
+    const c = colors[i % colors.length];
+    const pts = [...ser.points].sort((a,b) => a.date.localeCompare(b.date));
+    let path = '', prev = null;
+    pts.forEach(p => {
+      const jump = prev && (day(p.date) - day(prev.date) > 1);
+      path += (path && !jump ? 'L' : 'M') + X(p.date).toFixed(1) + ',' + Y(p.gap).toFixed(1);
+      prev = p;
+    });
+    s += `<path d="${path}" fill="none" stroke="${c}" stroke-width="2.5" stroke-linejoin="round"/>`;
+    pts.forEach(p => {
+      const tip = `${ser.house} · ${dlabel(p.date)} · PP–PSOE ${p.gap>0?'+':''}${fmt(p.gap)} pp`;
+      s += `<circle class="radar-dot" data-tip="${tip}" cx="${X(p.date).toFixed(1)}" cy="${Y(p.gap).toFixed(1)}" r="4.2" fill="${c}"/>`;
+    });
+  });
+  box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Brecha PP-PSOE por tracking y fecha">${s}</svg>`;
+  tip(box);
+}
+
 function blocks() {
   document.querySelectorAll('.radar-blockrow .track').forEach(el => {
     const v = Math.max(0, Math.min(100, +el.dataset.value));
@@ -286,7 +342,7 @@ function blocks() {
   });
 }
 
-function draw() { hero(); gap(); blocks(); }
+function draw() { hero(); gap(); trackingChart(); blocks(); }
 draw();
 const box = document.getElementById('radar-hero');
 if (box && 'ResizeObserver' in window) {

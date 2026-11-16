@@ -28,7 +28,7 @@ HOUSE_NOTA = {"CIS": "estimación de voto"}
 # pero no se suman a la tabla principal: en Onda Cero ya van dentro de "Otros".
 TERRITORIAL = {"ERC", "JUNTS", "BILDU", "PNV"}
 # Series de tracking: contexto, no observaciones independientes para la media.
-TRACKING_POLLSTERS = {"ElectoPanel", "SW Demoscopia"}
+TRACKING_POLLSTERS = {"ElectoPanel", "SW Demoscopia", "40dB tracking", "Sigma Dos tracking"}
 
 
 def _parse_date(s: str) -> datetime | None:

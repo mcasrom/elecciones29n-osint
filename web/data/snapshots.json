@@ -1024,5 +1024,23 @@
     "polls_sha256": null,
     "prev_hash": "f43236be86d3d66816b80de2e2adcc898406a801293348c8508ab28a05c4bf60",
     "hash": "e8a07c0dddfa24e0a8dfcabc9eb38d7f7c12a5701fe3e803f6743c7ba79cc273"
+  },
+  {
+    "date": "2026-11-16",
+    "build": "202611161030",
+    "latest_sha256": "e6d3aa50b02001493b6a814fd44accd2a4448749377d9fd964c334c38909f975",
+    "robustez_sha256": "85368626f514438086f92b80e280387d53a46f84d600d02298a4e0010f13e3ba",
+    "polls_sha256": null,
+    "prev_hash": "e8a07c0dddfa24e0a8dfcabc9eb38d7f7c12a5701fe3e803f6743c7ba79cc273",
+    "hash": "cb3e484b5b45ff095589e78bd0d186ea55907fca30560744d0bc5d0e56b43598"
+  },
+  {
+    "date": "2026-11-16",
+    "build": "202611161031",
+    "latest_sha256": "e6d3aa50b02001493b6a814fd44accd2a4448749377d9fd964c334c38909f975",
+    "robustez_sha256": "85368626f514438086f92b80e280387d53a46f84d600d02298a4e0010f13e3ba",
+    "polls_sha256": null,
+    "prev_hash": "cb3e484b5b45ff095589e78bd0d186ea55907fca30560744d0bc5d0e56b43598",
+    "hash": "570be1d0ea0d502f320acd812d75accf2dd570255d3c67fd947a069166a9c43d"
   }
 ]

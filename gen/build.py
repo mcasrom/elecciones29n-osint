@@ -2327,7 +2327,7 @@ def build_radar(latest: dict) -> dict:
 
     parties = {p.get("party"): p for p in latest.get("parties", [])}
     means = {k: float((parties.get(k) or {}).get("mean") or 0) for k in ("PP", "PSOE", "VOX", "SUMAR")}
-    trackers = {"ElectoPanel", "SW Demoscopia"}
+    trackers = {"ElectoPanel", "SW Demoscopia", "40dB tracking", "Sigma Dos tracking"}
     aliases = {"Celeste Tel": "Celeste-Tel", "IMOP Insights": "IMOP"}
     start = "2026-08-31"
     groups: dict = defaultdict(dict)
@@ -2353,6 +2353,31 @@ def build_radar(latest: dict) -> dict:
                           "psoe": round(vals["PSOE"], 2), "vox": round(vals["VOX"], 2),
                           "sumar": round(vals["SUMAR"], 2)})
     polls.sort(key=lambda q: (q["date"], q["house"]))
+    tracking_hist: dict = defaultdict(dict)
+    if hist.exists():
+        with hist.open(encoding="utf-8", newline="") as f:
+            for row in csv.DictReader(f):
+                house = aliases.get((row.get("pollster") or "").strip(), (row.get("pollster") or "").strip())
+                if house not in trackers or (row.get("date") or "") < "2026-11-13":
+                    continue
+                if row.get("party") not in ("PP", "PSOE", "VOX", "SUMAR"):
+                    continue
+                try:
+                    tracking_hist[house].setdefault(row["date"], {})[row["party"]] = float(row["value"])
+                except (TypeError, ValueError):
+                    continue
+    tracking_series = []
+    for house, by_date in tracking_hist.items():
+        pts = []
+        for d, vals in sorted(by_date.items()):
+            if all(p in vals for p in ("PP", "PSOE", "VOX", "SUMAR")):
+                pts.append({"date": d, "pp": round(vals["PP"], 2), "psoe": round(vals["PSOE"], 2),
+                            "vox": round(vals["VOX"], 2), "sumar": round(vals["SUMAR"], 2),
+                            "gap": round(vals["PP"] - vals["PSOE"], 2)})
+        if pts:
+            tracking_series.append({"house": house.replace(" tracking", ""), "points": pts,
+                                    "last": pts[-1]["date"]})
+    tracking_series.sort(key=lambda s: (-len(s["points"]), s["house"]))
     last = max((q["date"] for q in polls), default=latest.get("last_poll_date", ""))
     last_dt = datetime.strptime(last, "%Y-%m-%d") if last else datetime.now(TZ)
     window = (last_dt - timedelta(days=6)).strftime("%Y-%m-%d")
@@ -2391,7 +2416,8 @@ def build_radar(latest: dict) -> dict:
     trackings = []
     for t in latest.get("tracking_latest") or []:
         try:
-            trackings.append({**t, "date_label": label(t.get("date") or "")})
+            trackings.append({**t, "display": str(t.get("pollster") or "").replace(" tracking", ""),
+                              "date_label": label(t.get("date") or "")})
         except Exception:
             continue
     return {
@@ -2421,6 +2447,7 @@ def build_radar(latest: dict) -> dict:
         "lede": f"{ahead} de {len(polls)} sondeos dan al PP por delante del PSOE. Las dos excepciones son barómetros del CIS, que publica estimación de voto y se sitúa en los extremos del rango." if exceptions == 2 else f"{ahead} de {len(polls)} sondeos dan al PP por delante del PSOE.",
         "blocks": blocks,
         "trackings": trackings,
+        "tracking_series": tracking_series,
         "health": health,
     }
 

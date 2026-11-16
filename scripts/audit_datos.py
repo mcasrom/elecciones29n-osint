@@ -95,6 +95,10 @@ def main() -> int:
 
     bad_sum = []
     for (d, pollster), vals in polls.items():
+        # Los trackings publican solo las cuatro fuerzas principales; su suma
+        # no incluye "otros" y no se puede medir con el umbral de un sondeo.
+        if pollster.endswith(" tracking") or pollster in ("ElectoPanel", "SW Demoscopia"):
+            continue
         s = round(sum(vals.values()), 1)
         if not (90 <= s <= 110):
             bad_sum.append((d, pollster, s))

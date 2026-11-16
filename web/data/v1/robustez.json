@@ -1,5 +1,5 @@
 {
-  "generado": "2026-11-16 09:30 CET",
+  "generado": "2026-11-16 10:30 CET",
   "n_polls": 14,
   "n_polls_sin_cis": 14,
   "health": {
@@ -30,10 +30,21 @@
     ]
   },
   "excluded_trackings": [
+    "40dB tracking",
     "ElectoPanel",
-    "SW Demoscopia"
+    "SW Demoscopia",
+    "Sigma Dos tracking"
   ],
   "tracking_latest": [
+    {
+      "pollster": "40dB tracking",
+      "date": "2026-11-16",
+      "pp": 31.5,
+      "psoe": 30.3,
+      "vox": 18.0,
+      "sumar": 5.4,
+      "url": "https://electomania.es/tracking-40db-16-nov-el-psoe-remonta-pero-no-altera-la-mayoria-de-la-derecha/"
+    },
     {
       "pollster": "ElectoPanel",
       "date": "2026-11-15",
@@ -44,13 +55,22 @@
       "url": "https://electomania.es/tracking-electopanel-15-nov-vox-recupera-el-19-y-arana-escanos-a-pp-y-psoe/"
     },
     {
+      "pollster": "Sigma Dos tracking",
+      "date": "2026-11-15",
+      "pp": 31.0,
+      "psoe": 25.6,
+      "vox": 19.7,
+      "sumar": 5.6,
+      "url": "https://electomania.es/tracking-sigma-dos-15-nov-pp-y-vox-se-aferran-al-51-de-los-votos-y-hasta-199-escanos/"
+    },
+    {
       "pollster": "SW Demoscopia",
-      "date": "2026-11-08",
-      "pp": 28.5,
-      "psoe": 31.0,
-      "vox": 17.3,
-      "sumar": 7.6,
-      "url": "https://electomania.es/tracking-sw-demoscopia-8-nov-pp-y-vox-en-177-escanos/"
+      "date": "2026-11-14",
+      "pp": 28.3,
+      "psoe": 31.7,
+      "vox": 17.1,
+      "sumar": 7.3,
+      "url": "https://electomania.es/tracking-sw-demoscopia-14-nov-pp-y-vox-en-173-escanos/"
     }
   ],
   "parties": [
