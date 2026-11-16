@@ -696,6 +696,30 @@ def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[st
         "reasons": reasons,
     }
 
+    tracking_latest = []
+    _by_tracker = {}
+    for _p in excluded_trackings:
+        _name = _p.get("pollster") or "tracking"
+        _d = _p["date"]
+        cur = _by_tracker.get(_name)
+        if not cur or _d > cur["date"]:
+            _by_tracker[_name] = {"date": _d, "rows": [_p]}
+        elif _d == cur["date"]:
+            cur["rows"].append(_p)
+    for _name, _obj in sorted(_by_tracker.items(), key=lambda kv: kv[1]["date"], reverse=True):
+        _vals = {}
+        for _p in _obj["rows"]:
+            _vals.setdefault(_p["party"], []).append(_p["value"])
+        _avg = {k: sum(v) / len(v) for k, v in _vals.items()}
+        tracking_latest.append({
+            "pollster": _name,
+            "date": _obj["date"].strftime("%Y-%m-%d"),
+            "pp": round(_avg["PP"], 2) if "PP" in _avg else None,
+            "psoe": round(_avg["PSOE"], 2) if "PSOE" in _avg else None,
+            "vox": round(_avg["VOX"], 2) if "VOX" in _avg else None,
+            "sumar": round(_avg["SUMAR"], 2) if "SUMAR" in _avg else None,
+            "url": next((_p.get("source_url") for _p in _obj["rows"] if _p.get("source_url")), None),
+        })
     novedades = _novedades(tracking, now)
     weights = _poll_weights(recent, now, extended)
     sensitivity = _sensitivity(recent, parties, weights, now)
@@ -744,6 +768,7 @@ def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[st
         "excluded_trackings": sorted(
             {p.get("pollster") for p in excluded_trackings}
         ),
+        "tracking_latest": tracking_latest,
     }
 
 

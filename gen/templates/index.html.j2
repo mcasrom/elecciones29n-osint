@@ -259,6 +259,18 @@
       {% endif %}
     </div>
 
+    {% if tracking_latest %}
+    <div class="card">
+      <div class="cardhead"><h2>Trackings fuera de la media</h2><span class="hint">contexto de evolución, no media</span></div>
+      <p class="muted small">No son observaciones independientes y no entran en la media. Sirven para ver hacia dónde se mueve una serie cuando no hay sondeos nuevos.</p>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Tracking</th><th>Fecha</th><th class="num">PP</th><th class="num">PSOE</th><th class="num">VOX</th><th class="num">SUMAR</th><th>Fuente</th></tr></thead>
+        <tbody>{% for t in tracking_latest %}<tr><td><strong>{{ t.pollster }}</strong></td><td>{{ t.date[8:10] }}/{{ t.date[5:7] }}</td><td class="num">{% if t.pp is not none %}{{ "%.2f"|format(t.pp) }}%{% else %}—{% endif %}</td><td class="num">{% if t.psoe is not none %}{{ "%.2f"|format(t.psoe) }}%{% else %}—{% endif %}</td><td class="num">{% if t.vox is not none %}{{ "%.2f"|format(t.vox) }}%{% else %}—{% endif %}</td><td class="num">{% if t.sumar is not none %}{{ "%.2f"|format(t.sumar) }}%{% else %}—{% endif %}</td><td>{% if t.url %}<a href="{{ t.url }}" rel="noopener">fuente</a>{% else %}—{% endif %}</td></tr>{% endfor %}</tbody>
+      </table></div>
+      <p class="muted small">La media principal no se actualiza con estos datos. Si no hay un sondeo individual nuevo, se mantiene la última media y se declara su antigüedad.</p>
+    </div>
+    {% endif %}
+
     {% if house_compare %}
     <div class="card">
       <div class="cardhead"><h2>Contraste por casa</h2><span class="hint">{{ house_mean.n_houses }} casas · última de cada una · 45 días</span></div>

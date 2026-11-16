@@ -1,45 +1,45 @@
 {
-  "generated_at": "2026-11-15T20:15:32+00:00",
+  "generated_at": "2026-11-16T06:15:34+00:00",
   "source": "intelligence-hub/news.db",
   "candidates_source": "BOE-A-2026-23103 · JEC · candidaturas proclamadas 3-nov-2026",
   "candidates_url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-23103",
   "note": "Registro operativo. Solo se marca 'verificado' lo que consta en el BOE (candidatura). Los cargos orgánicos no contrastados quedan como pendientes y no se publican como hechos.",
   "windows": {
     "1": {
-      "n_articles": 281,
-      "n_electoral": 98,
+      "n_articles": 357,
+      "n_electoral": 108,
       "sources": [
         {
           "name": "ABC",
-          "articles": 99
+          "articles": 158
         },
         {
           "name": "20minutos",
-          "articles": 44
+          "articles": 56
         },
         {
           "name": "El Mundo",
-          "articles": 31
+          "articles": 38
         },
         {
           "name": "El País",
-          "articles": 30
-        },
-        {
-          "name": "La Vanguardia",
-          "articles": 28
+          "articles": 29
         },
         {
           "name": "elDiario.es",
-          "articles": 23
-        },
-        {
-          "name": "Europa Press",
-          "articles": 14
+          "articles": 27
         },
         {
           "name": "El Diario Cantabria",
-          "articles": 12
+          "articles": 17
+        },
+        {
+          "name": "Europa Press",
+          "articles": 17
+        },
+        {
+          "name": "La Vanguardia",
+          "articles": 15
         }
       ],
       "people": [
@@ -57,10 +57,10 @@
           "status": "verified",
           "notes": "Cargo orgánico: secretario general, pendiente de fuente en este registro.",
           "articles": 46,
-          "share_pct": 16.4,
+          "share_pct": 12.9,
           "days": 2,
           "electoral": 39,
-          "electoral_share_pct": 39.8,
+          "electoral_share_pct": 36.1,
           "electoral_days": 2
         },
         {
@@ -76,10 +76,10 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cargo orgánico: presidente nacional, pendiente de fuente en este registro.",
-          "articles": 26,
-          "share_pct": 9.3,
+          "articles": 27,
+          "share_pct": 7.6,
           "days": 2,
-          "electoral": 19,
+          "electoral": 21,
           "electoral_share_pct": 19.4,
           "electoral_days": 2
         },
@@ -97,10 +97,10 @@
           "status": "verified",
           "notes": "Cargo orgánico: presidente nacional, pendiente de fuente en este registro.",
           "articles": 11,
-          "share_pct": 3.9,
-          "days": 1,
+          "share_pct": 3.1,
+          "days": 2,
           "electoral": 9,
-          "electoral_share_pct": 9.2,
+          "electoral_share_pct": 8.3,
           "electoral_days": 1
         },
         {
@@ -117,10 +117,10 @@
           "status": "verified",
           "notes": "Denominación oficial BOE: Comuns-Front Ampli. Cabeza de lista por Barcelona.",
           "articles": 8,
-          "share_pct": 2.8,
+          "share_pct": 2.2,
           "days": 1,
-          "electoral": 6,
-          "electoral_share_pct": 6.1,
+          "electoral": 5,
+          "electoral_share_pct": 4.6,
           "electoral_days": 1
         },
         {
@@ -136,12 +136,12 @@
           "candidate": true,
           "status": "verified",
           "notes": "Oriol Junqueras es otra persona y otro cargo; no se agrupan.",
-          "articles": 3,
-          "share_pct": 1.1,
-          "days": 2,
-          "electoral": 2,
-          "electoral_share_pct": 2.0,
-          "electoral_days": 2
+          "articles": 2,
+          "share_pct": 0.6,
+          "days": 1,
+          "electoral": 1,
+          "electoral_share_pct": 0.9,
+          "electoral_days": 1
         },
         {
           "id": "podemos-irene-montero",
@@ -155,12 +155,12 @@
           "candidate": true,
           "status": "verified",
           "notes": "No es la secretaria general; no se duplica con Ione Belarra.",
-          "articles": 3,
-          "share_pct": 1.1,
-          "days": 2,
-          "electoral": 3,
-          "electoral_share_pct": 3.1,
-          "electoral_days": 2
+          "articles": 2,
+          "share_pct": 0.6,
+          "days": 1,
+          "electoral": 2,
+          "electoral_share_pct": 1.9,
+          "electoral_days": 1
         },
         {
           "id": "junts-miriam-nogueras",
@@ -175,12 +175,32 @@
           "candidate": true,
           "status": "verified",
           "notes": "Carles Puigdemont es otra persona y otro cargo; no se agrupan.",
-          "articles": 3,
-          "share_pct": 1.1,
+          "articles": 2,
+          "share_pct": 0.6,
           "days": 1,
-          "electoral": 3,
-          "electoral_share_pct": 3.1,
+          "electoral": 2,
+          "electoral_share_pct": 1.9,
           "electoral_days": 1
+        },
+        {
+          "id": "masmadrid-monica-garcia",
+          "full_name": "Mónica García Gómez",
+          "aliases": [
+            "Mónica García",
+            "Monica Garcia"
+          ],
+          "org": "Más Madrid",
+          "role": "Dirigente (cargo pendiente)",
+          "role_type": "organic",
+          "candidate": false,
+          "status": "pending",
+          "notes": "Cabeza de lista pendiente de confirmar.",
+          "articles": 1,
+          "share_pct": 0.3,
+          "days": 1,
+          "electoral": 0,
+          "electoral_share_pct": 0.0,
+          "electoral_days": 0
         },
         {
           "id": "pnv-aitor-esteban",
@@ -410,26 +430,6 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cargo orgánico pendiente de fuente.",
-          "articles": 0,
-          "share_pct": 0.0,
-          "days": 0,
-          "electoral": 0,
-          "electoral_share_pct": 0.0,
-          "electoral_days": 0
-        },
-        {
-          "id": "masmadrid-monica-garcia",
-          "full_name": "Mónica García Gómez",
-          "aliases": [
-            "Mónica García",
-            "Monica Garcia"
-          ],
-          "org": "Más Madrid",
-          "role": "Dirigente (cargo pendiente)",
-          "role_type": "organic",
-          "candidate": false,
-          "status": "pending",
-          "notes": "Cabeza de lista pendiente de confirmar.",
           "articles": 0,
           "share_pct": 0.0,
           "days": 0,
@@ -560,40 +560,40 @@
       ]
     },
     "7": {
-      "n_articles": 2786,
-      "n_electoral": 646,
+      "n_articles": 2818,
+      "n_electoral": 657,
       "sources": [
         {
           "name": "ABC",
-          "articles": 916
+          "articles": 936
         },
         {
           "name": "El Mundo",
-          "articles": 356
+          "articles": 362
         },
         {
           "name": "20minutos",
-          "articles": 345
-        },
-        {
-          "name": "La Vanguardia",
-          "articles": 300
+          "articles": 361
         },
         {
           "name": "El País",
-          "articles": 295
+          "articles": 296
+        },
+        {
+          "name": "La Vanguardia",
+          "articles": 288
         },
         {
           "name": "elDiario.es",
-          "articles": 243
+          "articles": 241
         },
         {
           "name": "El Diario Cantabria",
-          "articles": 169
+          "articles": 174
         },
         {
           "name": "Europa Press",
-          "articles": 162
+          "articles": 160
         }
       ],
       "people": [
@@ -610,11 +610,11 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cargo orgánico: secretario general, pendiente de fuente en este registro.",
-          "articles": 268,
+          "articles": 270,
           "share_pct": 9.6,
           "days": 8,
-          "electoral": 158,
-          "electoral_share_pct": 24.5,
+          "electoral": 160,
+          "electoral_share_pct": 24.4,
           "electoral_days": 8
         },
         {
@@ -630,11 +630,11 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cargo orgánico: presidente nacional, pendiente de fuente en este registro.",
-          "articles": 166,
-          "share_pct": 6.0,
+          "articles": 164,
+          "share_pct": 5.8,
           "days": 8,
-          "electoral": 101,
-          "electoral_share_pct": 15.6,
+          "electoral": 100,
+          "electoral_share_pct": 15.2,
           "electoral_days": 8
         },
         {
@@ -650,12 +650,12 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cargo orgánico: presidente nacional, pendiente de fuente en este registro.",
-          "articles": 159,
-          "share_pct": 5.7,
+          "articles": 152,
+          "share_pct": 5.4,
           "days": 8,
-          "electoral": 74,
-          "electoral_share_pct": 11.5,
-          "electoral_days": 8
+          "electoral": 69,
+          "electoral_share_pct": 10.5,
+          "electoral_days": 7
         },
         {
           "id": "comuns-ada-colau",
@@ -670,11 +670,11 @@
           "candidate": true,
           "status": "verified",
           "notes": "Denominación oficial BOE: Comuns-Front Ampli. Cabeza de lista por Barcelona.",
-          "articles": 50,
+          "articles": 51,
           "share_pct": 1.8,
           "days": 7,
           "electoral": 35,
-          "electoral_share_pct": 5.4,
+          "electoral_share_pct": 5.3,
           "electoral_days": 7
         },
         {
@@ -709,7 +709,7 @@
           "candidate": true,
           "status": "verified",
           "notes": "No es la secretaria general; no se duplica con Ione Belarra.",
-          "articles": 18,
+          "articles": 17,
           "share_pct": 0.6,
           "days": 6,
           "electoral": 11,
@@ -730,7 +730,7 @@
           "status": "verified",
           "notes": "Corrección BOE: era la ficha de Olalla Rodil; el nº1 por A Coruña es Néstor Rego.",
           "articles": 7,
-          "share_pct": 0.3,
+          "share_pct": 0.2,
           "days": 4,
           "electoral": 2,
           "electoral_share_pct": 0.3,
@@ -755,26 +755,6 @@
           "electoral": 6,
           "electoral_share_pct": 0.9,
           "electoral_days": 4
-        },
-        {
-          "id": "salf-alvise-perez",
-          "full_name": "Luis Alvise Pérez Fernández",
-          "aliases": [
-            "Alvise Pérez",
-            "Alvise"
-          ],
-          "org": "SALF",
-          "role": "Cabeza de lista por Madrid",
-          "role_type": "candidate",
-          "candidate": true,
-          "status": "verified",
-          "notes": "Cargo orgánico pendiente de fuente.",
-          "articles": 5,
-          "share_pct": 0.2,
-          "days": 4,
-          "electoral": 3,
-          "electoral_share_pct": 0.5,
-          "electoral_days": 2
         },
         {
           "id": "junts-carles-puigdemont",
@@ -833,6 +813,26 @@
           "electoral": 2,
           "electoral_share_pct": 0.3,
           "electoral_days": 2
+        },
+        {
+          "id": "salf-alvise-perez",
+          "full_name": "Luis Alvise Pérez Fernández",
+          "aliases": [
+            "Alvise Pérez",
+            "Alvise"
+          ],
+          "org": "SALF",
+          "role": "Cabeza de lista por Madrid",
+          "role_type": "candidate",
+          "candidate": true,
+          "status": "verified",
+          "notes": "Cargo orgánico pendiente de fuente.",
+          "articles": 3,
+          "share_pct": 0.1,
+          "days": 2,
+          "electoral": 2,
+          "electoral_share_pct": 0.3,
+          "electoral_days": 1
         },
         {
           "id": "bng-ana-ponton",
@@ -933,6 +933,26 @@
           "electoral_days": 0
         },
         {
+          "id": "masmadrid-monica-garcia",
+          "full_name": "Mónica García Gómez",
+          "aliases": [
+            "Mónica García",
+            "Monica Garcia"
+          ],
+          "org": "Más Madrid",
+          "role": "Dirigente (cargo pendiente)",
+          "role_type": "organic",
+          "candidate": false,
+          "status": "pending",
+          "notes": "Cabeza de lista pendiente de confirmar.",
+          "articles": 1,
+          "share_pct": 0.0,
+          "days": 1,
+          "electoral": 0,
+          "electoral_share_pct": 0.0,
+          "electoral_days": 0
+        },
+        {
           "id": "compromis-agueda-mico",
           "full_name": "Àgueda Micó i Micó",
           "aliases": [
@@ -1024,26 +1044,6 @@
           "candidate": true,
           "status": "verified",
           "notes": "Corrección BOE: Esparza va al Senado; Leticia San Martín encabeza el Congreso por Navarra.",
-          "articles": 0,
-          "share_pct": 0.0,
-          "days": 0,
-          "electoral": 0,
-          "electoral_share_pct": 0.0,
-          "electoral_days": 0
-        },
-        {
-          "id": "masmadrid-monica-garcia",
-          "full_name": "Mónica García Gómez",
-          "aliases": [
-            "Mónica García",
-            "Monica Garcia"
-          ],
-          "org": "Más Madrid",
-          "role": "Dirigente (cargo pendiente)",
-          "role_type": "organic",
-          "candidate": false,
-          "status": "pending",
-          "notes": "Cabeza de lista pendiente de confirmar.",
           "articles": 0,
           "share_pct": 0.0,
           "days": 0,
