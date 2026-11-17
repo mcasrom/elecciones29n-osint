@@ -93,10 +93,10 @@ class BuildTest(unittest.TestCase):
         self.assertEqual(svg.count("<title>PP</title>"), 127)
         self.assertEqual(svg.count("<title>PSOE</title>"), 118)
         self.assertEqual(svg.count("<title>VOX</title>"), 79)
-        self.assertEqual(svg.count("<title>SUMAR</title>"), 26)
+        self.assertEqual(svg.count("<title>Frente Amplio</title>"), 26)
         rows = {
             cy for cy in re.findall(
-                r'<circle[^>]*cy="([\d.]+)"[^>]*><title>SUMAR</title>', svg
+                r'<circle[^>]*cy="([\d.]+)"[^>]*><title>Frente Amplio</title>', svg
             )
         }
         self.assertGreaterEqual(len(rows), 8)
