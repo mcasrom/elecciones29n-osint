@@ -18,7 +18,7 @@ histórico de 2023 y una de las formaciones de la coalición.
 `data/auditoria_sondeos_20261117.csv`: 15 sondeos de la ventana de 14 días.
 
 - 15/15 usan **Frente Amplio** como etiqueta original.
-- 2 discrepancias de valor entre compiladores: Sociométrica (4,4 vs 5,9) y GAD3 (7,5 vs 6,9). Se conserva la pieza de Electomanía y se documenta la alternativa de Onda Cero; no se agrega.
+- 2 discrepancias de valor entre compiladores: Sociométrica (4,4 vs 5,9) y GAD3 (7,5 vs 6,9). En Sociométrica, el titular de El Español apunta a 5 escaños y respalda el 4,4 % de Electomanía; Onda Cero publica 5,9 %. En GAD3 sigue la discrepancia 7,5/6,9 y ABC no es accesible desde el servidor. Se conserva Electomanía y no se agrega.
 - 0/15 publican muestra en la fuente usada.
 - La media anterior no se republica con la etiqueta corregida: primero se resuelven discrepancias.
 
