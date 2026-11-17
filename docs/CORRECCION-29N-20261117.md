@@ -27,3 +27,7 @@ histórico de 2023 y una de las formaciones de la coalición.
 - Resultados oficiales de 2023: siguen diciendo Sumar.
 - `pre_registro.json`: métricas y reglas congeladas.
 - No se modifica el histórico para “hacerlo coincidir” con la etiqueta actual.
+
+## Trackings del 16-N
+
+`data/auditoria_trackings_20261117.csv`: 3 trackings (40dB, Sigma Dos tracking y SW Demoscopia). Usan **Frente Amplio** y quedan **fuera de la media**, solo como contexto de evolución. La media sigue en 15 sondeos; el último sondeo incorporado es el 15-N.

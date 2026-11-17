@@ -22,5 +22,7 @@
     "Las observaciones individuales conservan casa, fecha, etiqueta original y fuente."
   ],
   "frozen_reference": "data/pre_registro.json",
-  "data_cutoff": "2026-11-23T23:59:59+01:00"
+  "data_cutoff": "2026-11-23T23:59:59+01:00",
+  "tracking_audit": "data/auditoria_trackings_20261117.csv",
+  "tracking_audit_n": 3
 }
