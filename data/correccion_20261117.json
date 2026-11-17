@@ -24,5 +24,6 @@
   "frozen_reference": "data/pre_registro.json",
   "data_cutoff": "2026-11-23T23:59:59+01:00",
   "tracking_audit": "data/auditoria_trackings_20261117.csv",
-  "tracking_audit_n": 3
+  "tracking_audit_n": 3,
+  "series_break": "data/series_breaks.json"
 }

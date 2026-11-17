@@ -1,0 +1,10 @@
+{
+  "SUMAR": {
+    "legacy_label": "Sumar",
+    "current_label": "Frente Amplio",
+    "break_date": "2026-10-12",
+    "comparable": false,
+    "reason": "Cambio de denominación y composición de la candidatura; no se reescribe la serie histórica.",
+    "rule": "No usar SUMAR histórico como media de Frente Amplio; el agregado actual está retirado."
+  }
+}

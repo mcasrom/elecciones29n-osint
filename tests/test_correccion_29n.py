@@ -17,6 +17,11 @@ class Correccion29NTest(unittest.TestCase):
         self.assertEqual(d["SUMAR"]["historical_display_name"], "Sumar (2023)")
         self.assertFalse(d["SUMAR"]["aggregate_visible"])
 
+    def test_serie_no_comparable(self):
+        d = json.loads((ROOT / "data" / "series_breaks.json").read_text(encoding="utf-8"))
+        self.assertFalse(d["SUMAR"]["comparable"])
+        self.assertEqual(d["SUMAR"]["current_label"], "Frente Amplio")
+
     def test_auditoria_15(self):
         with (ROOT / "data" / "auditoria_sondeos_20261117.csv").open(encoding="utf-8") as f:
             rows = list(csv.DictReader(f))

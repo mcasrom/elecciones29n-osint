@@ -31,3 +31,7 @@ histórico de 2023 y una de las formaciones de la coalición.
 ## Trackings del 16-N
 
 `data/auditoria_trackings_20261117.csv`: 3 trackings (40dB, Sigma Dos tracking y SW Demoscopia). Usan **Frente Amplio** y quedan **fuera de la media**, solo como contexto de evolución. La media sigue en 15 sondeos; el último sondeo incorporado es el 15-N.
+
+## Serie histórica
+
+`data/series_breaks.json`: la etiqueta **Sumar** no se reutiliza como **Frente Amplio** para toda la serie. La comparabilidad no está acreditada antes del cambio de denominación; por eso no se publica una línea larga de Frente Amplio ni se reescribe el histórico.
