@@ -1,0 +1,16 @@
+date,pollster,fa_value,source_url,label_original,label_status,source_type,discrepancy,note,source_used,decision,resolution
+2026-11-06,Celeste-Tel,6.2,https://electomania.es/encuesta-celeste-tel-6-nov-pp-y-vox-lograrian-la-absolutisima/,Frente Amplio,verificada,Electomanía,no,,Electomanía,usar Electomanía; Onda Cero es compilación,
+2026-11-08,Ateneo del Dato,6.1,https://www.ondacero.es/elecciones/generales/encuestas/,Frente Amplio,verificada,Onda Cero (fa),no,,Onda Cero (fa),usar fuente indicada; no agregar,
+2026-11-08,IMOP,8.1,https://electomania.es/encuesta-imop-8-nov-la-derecha-recupera-6-escanos-a-la-izquierda/,Frente Amplio,verificada,Electomanía,no,,Electomanía,usar fuente indicada; no agregar,
+2026-11-08,Sigma Dos,8.1,https://electomania.es/encuesta-sigma-dos-8-nov-pp-y-vox-en-el-504/,Frente Amplio,verificada,Electomanía,no,,Electomanía,usar fuente indicada; no agregar,
+2026-11-08,Sociométrica,4.4,https://electomania.es/encuesta-sociometrica-8-nov-los-partidos-del-actual-bloque-de-investidura-quedarian-reducidos-hoy-a-145-escanos/,Frente Amplio,verificada_con_discrepancia,Electomanía,si,Onda Cero publica fa=5.9; no usar sin resolver,Electomanía,usar Electomanía; discrepancia documentada; no agregar,"parcial: El Español titula Frente Amplio 5 escaños; se mantiene 4,4 de Electomanía; Onda 5,9 no coincide"
+2026-11-08,Sondaxe,7.1,https://electomania.es/encuesta-sondaxe-8-nov-el-pp-ganaria-las-elecciones/,Frente Amplio,verificada,Electomanía,no,,Electomanía,usar fuente indicada; no agregar,
+2026-11-09,40dB,5.0,https://electomania.es/encuesta-40db-9-nov-el-psoe-remonta-pero-pp-y-vox-mantienen-la-mayoria-absoluta/,Frente Amplio,verificada,Electomanía,no,,Electomanía,usar fuente indicada; no agregar,
+2026-11-09,GAD3,5.0,https://www.gad3.com/barometro-abc-i-estimacion-de-voto-nacional-noviembre-2026/,Frente Amplio,verificada_primaria,GAD3 (Datawrapper),si,"GAD3 artículo: 5% y 6 escaños; Datawrapper: 5,0% y 5 escaños; Electomanía 7,5; Onda 6,9",GAD3/Datawrapper,"incluir 5,0; discrepancia de escaños documentada","primaria resuelve voto 5,0; texto 6 escaños vs gráfico 5; se usa 5,0"
+2026-11-09,NC Report,6.9,https://electomania.es/encuesta-nc-report-9-nov-el-pp-supera-en-7-puntos-a-un-psoe-que-cae-a-100-escanos/,Frente Amplio,verificada,Electomanía,no,,Electomanía,usar fuente indicada; no agregar,
+2026-11-09,Sigma Dos,8.1,https://www.ondacero.es/elecciones/generales/encuestas/,Frente Amplio,verificada,Onda Cero (fa),no,,Onda Cero (fa),usar fuente indicada; no agregar,
+2026-11-10,DYM,5.6,https://www.ondacero.es/elecciones/generales/encuestas/,Frente Amplio,verificada,Onda Cero (fa),no,,Onda Cero (fa),usar fuente indicada; no agregar,
+2026-11-15,40dB,5.4,https://www.ondacero.es/elecciones/generales/encuestas/,Frente Amplio,verificada,Onda Cero (fa),no,,Onda Cero (fa),usar fuente indicada; no agregar,
+2026-11-15,Sigma Dos,7.2,https://www.ondacero.es/elecciones/generales/encuestas/,Frente Amplio,verificada,Onda Cero (fa),no,,Onda Cero (fa),usar fuente indicada; no agregar,
+2026-11-15,Sondaxe,6.4,https://www.ondacero.es/elecciones/generales/encuestas/,Frente Amplio,verificada,Onda Cero (fa),no,,Onda Cero (fa),usar fuente indicada; no agregar,
+2026-11-15,YouGov,9.2,https://www.ondacero.es/elecciones/generales/encuestas/,Frente Amplio,verificada,Onda Cero (fa),no,,Onda Cero (fa),usar fuente indicada; no agregar,
