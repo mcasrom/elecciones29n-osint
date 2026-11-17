@@ -372,12 +372,16 @@
 
     <div class="card">
       <div class="cardhead"><h2>Bloques sin territoriales (no coalición)</h2></div>
+      {% if fa_aggregate_visible %}
       <div class="blocks">
         <div class="block"><span>PP + VOX</span><b>{% if bloc_right is not none %}{{ "%.1f"|format(bloc_right) }}%{% else %}—{% endif %}</b></div>
-        <div class="block"><span>PSOE + Frente Amplio + Podemos</span><b>{% if fa_aggregate_visible and bloc_left is not none %}{{ "%.1f"|format(bloc_left) }}%{% else %}—{% endif %}</b></div>
+        <div class="block"><span>PSOE + Frente Amplio + Podemos</span><b>{% if bloc_left is not none %}{{ "%.1f"|format(bloc_left) }}%{% else %}—{% endif %}</b></div>
         <div class="block"><span>No asignado (territoriales y otros)</span><b>{% if bloc_right is not none and bloc_left is not none %}{{ "%.1f"|format(100 - bloc_right - bloc_left) }}%{% else %}—{% endif %}</b></div>
       </div>
-      <p class="muted small">Frente Amplio no tiene agregado comparable; su bloque queda sin cifra. Suma de medias de voto, no de escaños. No es una coalición, una investidura ni una proyección: solo una resta aritmética. ERC, Junts, Bildu, PNV, BNG, CC y el resto no se asignan a ninguno de los dos bloques.</p>
+      <p class="muted small">Suma de medias de voto, no de escaños. No es una coalición, una investidura ni una proyección: solo una resta aritmética. ERC, Junts, Bildu, PNV, BNG, CC y el resto no se asignan a ninguno de los dos bloques.</p>
+      {% else %}
+      <p class="muted small"><strong>Bloques no calculables.</strong> No hay agregado comparable de Frente Amplio. Sin él, el bloque PSOE + Frente Amplio + Podemos no se puede calcular y no se publica una resta parcial que deje al PSOE fuera o infle «No asignado».</p>
+      {% endif %}
     </div>
   </section>
 

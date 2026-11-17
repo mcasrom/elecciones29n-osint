@@ -138,6 +138,7 @@
   </section>
   {% endif %}
 
+  {% if fa_aggregate_visible and radar.blocks %}
   <section class="radar-card">
     <div class="radar-cardhead"><h2>Los bloques, sin escaños</h2><span class="radar-sub" style="margin:0">suma de medias de voto</span></div>
     <p class="radar-sub">Cada punto es la suma de las medias de voto de ese bloque. No es una coalición, no es una proyección de escaños y no es una mayoría.</p>
@@ -146,12 +147,18 @@
       <div class="radar-blockrow">
         <div><b>{{ b.label }}</b><div class="radar-note" style="margin:0">{{ b.note }}</div></div>
         <div class="track" data-value="{{ b.value }}" data-label="{{ b.label }}"></div>
-        <div class="val">{% if b.value is not none %}{{ "%.1f"|format(b.value) }} %{% else %}—{% endif %}</div>
+        <div class="val">{{ "%.1f"|format(b.value) }} %</div>
       </div>
       {% endfor %}
     </div>
-    <p class="radar-note">«No asignado» reúne ERC, Junts, Bildu, PNV, BNG, CC y el resto. Frente Amplio no tiene agregado comparable y queda fuera de los bloques. Los porcentajes son sumas de medias, no votos reales.</p>
+    <p class="radar-note">«No asignado» reúne ERC, Junts, Bildu, PNV, BNG, CC y el resto. Los porcentajes son sumas de medias, no votos reales.</p>
   </section>
+  {% else %}
+  <section class="radar-card">
+    <div class="radar-cardhead"><h2>Bloques no calculables</h2><span class="radar-sub" style="margin:0">sin cifra</span></div>
+    <p class="radar-sub">No hay agregado comparable de Frente Amplio. Sin él, el bloque PSOE + Frente Amplio + Podemos no se puede calcular y no se publica una resta parcial que deje al PSOE fuera o infle «No asignado».</p>
+  </section>
+  {% endif %}
 
   <section class="radar-card radar-tracking-card">
     <div class="radar-cardhead"><h2><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#f2c94c;margin-right:8px;box-shadow:0 0 0 3px #f2c94c26"></span>Trackings fuera de la media</h2><span class="radar-sub" style="margin:0">contexto de evolución · no entran en la media</span></div>

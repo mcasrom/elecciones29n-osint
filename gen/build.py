@@ -2439,13 +2439,14 @@ def build_radar(latest: dict) -> dict:
     hstatus = health.get("status", "warn")
     hlabel = {"ok": "Datos suficientes", "warn": "Datos frágiles", "bad": "Datos insuficientes"}.get(hstatus, "Datos frágiles")
     right = float(latest.get("bloc_right") or 0)
-    left = float(latest.get("bloc_left") or 0)
-    left = float(latest.get("bloc_left") or 0) if fa_visible else None
-    blocks = [
-        {"label": "PP + VOX", "value": right, "note": "derecha"},
-        {"label": "PSOE + Frente Amplio + Podemos", "value": left, "note": "sin agregado de Frente Amplio"},
-        {"label": "No asignado", "value": max(0.0, 100.0 - right - (left or 0)), "note": "resto"},
-    ]
+    blocks = []
+    if fa_visible:
+        left = float(latest.get("bloc_left") or 0)
+        blocks = [
+            {"label": "PP + VOX", "value": right, "note": "derecha"},
+            {"label": "PSOE + Frente Amplio + Podemos", "value": left, "note": "izquierda"},
+            {"label": "No asignado", "value": max(0.0, 100.0 - right - left), "note": "resto"},
+        ]
     trackings = []
     for t in latest.get("tracking_latest") or []:
         try:
