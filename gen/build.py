@@ -1807,6 +1807,7 @@ def write_robustez_data(latest: dict) -> None:
         "generado": latest.get("updated_at"),
         "n_polls": latest.get("n_polls"),
         "n_houses": (latest.get("health") or {}).get("n_pollsters", 0),
+        "n_pollsters": (latest.get("health") or {}).get("n_pollsters", 0),
         "n_polls_sin_cis": latest.get("n_polls_sin_cis"),
         "health": latest.get("health", {}),
         "excluded_trackings": latest.get("excluded_trackings", []),
@@ -2967,6 +2968,7 @@ def main(out: str = "web") -> None:
         "fa_aggregate_visible": fa_visible,
         "fa_observations": fa_observations,
         "n_houses": (latest.get("health") or {}).get("n_pollsters", 0),
+        "n_pollsters": (latest.get("health") or {}).get("n_pollsters", 0),
     }
     os.makedirs(os.path.join(OUT, "data"), exist_ok=True)
     with open(os.path.join(OUT, "data", "latest.json"), "w", encoding="utf-8") as f:
