@@ -19,7 +19,7 @@
     <div class="tablewrap"><table>
       <thead><tr><th>Líder</th><th>Partido</th><th>Media</th><th>Mediana</th><th>n válido</th></tr></thead>
       <tbody>
-      {% for x in lideres.leaders if x.party != 'SUMAR' %}
+      {% for x in lideres_29n %}
         <tr><td><strong>{{ x.name }}</strong></td><td>{{ x.party }}</td><td class="num">{{ "%.2f"|format(x.mean)|replace(".", ",") }}</td><td class="num">{{ x.median }}</td><td class="num">{{ fmt_miles(x.n_valid) }}</td></tr>
       {% endfor %}
       </tbody>
@@ -29,7 +29,7 @@
 
   <div class="card">
     <div class="cardhead"><h2>Distribución de la valoración</h2><span class="hint">porcentaje de respuestas 1–10</span></div>
-    {% for x in lideres.leaders if x.party != 'SUMAR' %}
+    {% for x in lideres_29n %}
     <div style="margin:18px 0 22px">
       <div class="cardhead" style="margin:0 0 8px"><h3 style="margin:0">{{ x.name }}</h3><span class="hint">{{ x.party }} · media {{ "%.2f"|format(x.mean)|replace(".", ",") }} · n {{ fmt_miles(x.n_valid) }}</span></div>
       <div class="tablewrap"><table>

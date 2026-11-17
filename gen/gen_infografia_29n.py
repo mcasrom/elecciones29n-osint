@@ -18,7 +18,7 @@ def fmt(v,dec=1):
 
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--latest",default="web/data/latest.json"); ap.add_argument("--leaders",default="data/cis_lideres_2026.json"); ap.add_argument("--out",default="web/og/29n-infografia.png"); ap.add_argument("--linkedin",default=""); a=ap.parse_args()
-    d=json.load(open(a.latest,encoding="utf-8")); leaders=json.load(open(a.leaders,encoding="utf-8")).get("leaders",[])
+    d=json.load(open(a.latest,encoding="utf-8")); leaders=json.load(open(a.leaders,encoding="utf-8")).get("leaders",[]); party_display=json.load(open("data/partidos_display.json",encoding="utf-8"))
     by={p["party"]:p for p in d.get("parties",[]) if not p.get("territorial")}; hem=d.get("hemicycle",[])[-1]; h=d.get("health",{}); blocks={"right":d.get("bloc_right"),"left":d.get("bloc_left")}
     main_parties=[x for x in ("PP","PSOE","VOX","SUMAR","Otros") if x in by]
     terr=[p for p in d.get("parties",[]) if p.get("territorial") and p.get("party") in {"ERC","JUNTS","BILDU","PNV"}]
@@ -27,7 +27,7 @@ def main():
     maxmean=max((by[x]["mean"] for x in main_parties),default=40)
     bars=""
     colors={"PP":"#2f6fdb","PSOE":"#d9343e","VOX":"#4b9b3f","SUMAR":"#d63f8a","Otros":"#8b93a7"}
-    display={"SUMAR":"Frente Amplio"}
+    display={k:v.get("display_name",k) for k,v in party_display.items()}
     for x in main_parties:
         p=by[x]; w=float(p["mean"])/maxmean*100
         bars+=f'<div class="barrow"><span class="pl">{display.get(x,x)}</span><div class="track"><i style="width:{w:.1f}%;background:{colors.get(x,"#77a")}"></i></div><b>{fmt(p["mean"])}%</b><small>{fmt(p["min"])}–{fmt(p["max"])}</small></div>'
@@ -35,7 +35,7 @@ def main():
     for p in terr:
         terrrows+=f'<div class="terrow"><span>{tlabel.get(p["party"],p["party"])}</span><b>{fmt(p.get("mean"))}%</b><small>n={p.get("n","—")} · {fmt(p.get("min"))}–{fmt(p.get("max"))}</small></div>'
     leadrows=""
-    for l in [x for x in leaders if x.get("party") != "SUMAR"][:4]:
+    for l in [x for x in leaders if party_display.get(x.get("party"),{}).get("display_in_29n_leaders", True)][:4]:
         w=float(l["mean"])/5*100
         leadrows+=f'<div class="leadrow"><span>{l["name"].replace("Alberto Núñez ","").replace("Pedro ","").replace("Santiago ","")}</span><div class="track2"><i style="width:{w:.1f}%"></i></div><b>{fmt(l["mean"],2)}</b></div>'
     gap=d.get("gap_pp_psoe"); days=d.get("days_to_election")

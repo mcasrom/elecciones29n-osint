@@ -182,7 +182,7 @@
       <div class="legend">
         {% for l in chart_legend %}<span class="lg"><i style="background:{{ l.color }}"></i>{{ l.party }}</span>{% endfor %}
       </div>
-      <p class="muted small" style="margin-top:6px">Eje vertical: media de voto (%). Cada línea es la media móvil de 14 días (ventana simétrica; truncada en el borde derecho) de PP, PSOE, VOX y Sumar. Los puntos son sondeos individuales: pasa el cursor para ver casa, fecha y valor.</p>
+      <p class="muted small" style="margin-top:6px">Eje vertical: media de voto (%). Cada línea es la media móvil de 14 días (ventana simétrica; truncada en el borde derecho) de PP, PSOE, VOX y Frente Amplio. Los puntos son sondeos individuales: pasa el cursor para ver casa, fecha y valor.</p>
     </div>
     {% endif %}
 
@@ -358,7 +358,7 @@
       <div class="cardhead"><h2>Bloques sin territoriales (no coalición)</h2></div>
       <div class="blocks">
         <div class="block"><span>PP + VOX</span><b>{% if bloc_right is not none %}{{ "%.1f"|format(bloc_right) }}%{% else %}—{% endif %}</b></div>
-        <div class="block"><span>PSOE + SUMAR + Podemos</span><b>{% if bloc_left is not none %}{{ "%.1f"|format(bloc_left) }}%{% else %}—{% endif %}</b></div>
+        <div class="block"><span>PSOE + Frente Amplio + Podemos</span><b>{% if bloc_left is not none %}{{ "%.1f"|format(bloc_left) }}%{% else %}—{% endif %}</b></div>
         <div class="block"><span>No asignado (territoriales y otros)</span><b>{% if bloc_right is not none and bloc_left is not none %}{{ "%.1f"|format(100 - bloc_right - bloc_left) }}%{% else %}—{% endif %}</b></div>
       </div>
       <p class="muted small">Suma de medias de voto, no de escaños. No es una coalición, una investidura ni una proyección: solo una resta aritmética. ERC, Junts, Bildu, PNV, BNG, CC y el resto no se asignan a ninguno de los dos bloques.</p>

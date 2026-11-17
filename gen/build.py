@@ -37,6 +37,7 @@ PRE_SNAPSHOT_MARKER = ROOT / "data" / "pre_election_snapshot.freeze.json"
 PRE_DATA_CUTOFF = TZ.localize(datetime(2026, 11, 23, 23, 50))
 PRE_DATA_CUTOFF_LABEL = "2026-11-23T23:59:59+01:00"
 CIS_3584 = ROOT / "data" / "cis_3584_2026.json"
+PARTY_DISPLAY_PATH = ROOT / "data" / "partidos_display.json"
 
 BLACKOUT_SITEMAP = [
     ("", 1.0),
@@ -2451,6 +2452,17 @@ def build_radar(latest: dict) -> dict:
         "health": health,
     }
 
+
+def _party_display() -> dict:
+    try:
+        return json.loads(PARTY_DISPLAY_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def party_label(code: str) -> str:
+    return _party_display().get(code, {}).get("display_name", code)
+
 def main(out: str = "web") -> None:
     global OUT
     OUT = out
@@ -2713,6 +2725,8 @@ def main(out: str = "web") -> None:
         "calendar": calendar,
         "censo": censo,
         "lideres": lideres,
+        "lideres_29n": [x for x in (lideres.get("leaders") or []) if _party_display().get(x.get("party"), {}).get("display_in_29n_leaders", True)],
+        "party_display": _party_display(),
         "age_svg": build_age_chart(censo.get("edad_sexo", [])),
         "cera_svg": build_cera_chart(censo.get("cera_paises", [])[:10]),
         "fmt_miles": fmt_miles,
