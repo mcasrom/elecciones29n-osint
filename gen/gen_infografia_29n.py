@@ -27,16 +27,17 @@ def main():
     maxmean=max((by[x]["mean"] for x in main_parties),default=40)
     bars=""
     colors={"PP":"#2f6fdb","PSOE":"#d9343e","VOX":"#4b9b3f","SUMAR":"#d63f8a","Otros":"#8b93a7"}
+    display={"SUMAR":"Frente Amplio"}
     for x in main_parties:
         p=by[x]; w=float(p["mean"])/maxmean*100
-        bars+=f'<div class="barrow"><span class="pl">{x}</span><div class="track"><i style="width:{w:.1f}%;background:{colors.get(x,"#77a")}"></i></div><b>{fmt(p["mean"])}%</b><small>{fmt(p["min"])}–{fmt(p["max"])}</small></div>'
+        bars+=f'<div class="barrow"><span class="pl">{display.get(x,x)}</span><div class="track"><i style="width:{w:.1f}%;background:{colors.get(x,"#77a")}"></i></div><b>{fmt(p["mean"])}%</b><small>{fmt(p["min"])}–{fmt(p["max"])}</small></div>'
     terrrows=""
     for p in terr:
         terrrows+=f'<div class="terrow"><span>{tlabel.get(p["party"],p["party"])}</span><b>{fmt(p.get("mean"))}%</b><small>n={p.get("n","—")} · {fmt(p.get("min"))}–{fmt(p.get("max"))}</small></div>'
     leadrows=""
-    for l in leaders[:4]:
+    for l in [x for x in leaders if x.get("party") != "SUMAR"][:4]:
         w=float(l["mean"])/5*100
-        leadrows+=f'<div class="leadrow"><span>{l["name"].replace("Alberto Núñez ","").replace("Pedro ","").replace("Yolanda ","").replace("Santiago ","")}</span><div class="track2"><i style="width:{w:.1f}%"></i></div><b>{fmt(l["mean"],2)}</b></div>'
+        leadrows+=f'<div class="leadrow"><span>{l["name"].replace("Alberto Núñez ","").replace("Pedro ","").replace("Santiago ","")}</span><div class="track2"><i style="width:{w:.1f}%"></i></div><b>{fmt(l["mean"],2)}</b></div>'
     gap=d.get("gap_pp_psoe"); days=d.get("days_to_election")
     html=f'''<!doctype html><html><head><meta charset="utf-8"><style>
 *{{box-sizing:border-box}} body{{margin:0;background:#0b0c1c;color:#f0f2f7;font-family:Arial,Helvetica,sans-serif}}
@@ -55,8 +56,8 @@ h1{{font-family:Georgia,serif;font-size:38px;line-height:1.02;margin:18px 0 5px;
 </style></head><body><div class="page">
 <div class="top"><div><div class="brand">ESPAÑA <span>|</span> ELECCIONES GENERALES 29N 2026</div><div class="sub">Media agregada de sondeos con rango · sin pronóstico</div></div><div class="right">{d.get("updated_at","")}<b>NO ES UN PRONÓSTICO</b></div></div>
 <h1>El 29N en una imagen.</h1><p class="lead">Datos observados, no una predicción. La incertidumbre va en el rango.</p>
-<div class="kpis"><div class="kpi"><b>{days if days is not None else "—"}</b><span>días para el 29N</span></div><div class="kpi"><b>{d.get("n_polls","—")}</b><span>sondeos · {h.get("n_pollsters","—")} casas</span></div><div class="kpi"><b>{("+"+fmt(gap)) if gap is not None else "—"}</b><span>puntos PP–PSOE</span></div><div class="kpi"><b>{fmt(blocks.get("right"))} / {fmt(blocks.get("left"))}</b><span>bloques de voto PP+VOX / PSOE+SUMAR</span></div><div class="kpi"><b>{fmt(h.get("dispersion_iqr"))} pp</b><span>dispersión entre casas (IQR)</span></div></div>
-<div class="grid"><div class="card"><h2>Estimación de voto · media y rango</h2>{bars}<p>Barra = media; texto = mínimo–máximo observado. «Otros» agrupa formaciones no desglosadas; no es una coalición.</p><div class="terr"><div class="terrhead"><h3>Voto territorial</h3><span>n bajo · no suma a bloques</span></div><div class="terrgrid">{terrrows}</div><p class="note">Partidos que publican las casas; no es voto por provincia ni se suma a «Otros».</p></div></div><div class="card"><h2>Bloques y líderes</h2><div class="blockrow"><div class="bl"><b>{fmt(blocks.get("right"))}%</b><span>PP + VOX</span></div><div class="bl"><b>{fmt(blocks.get("left"))}%</b><span>PSOE + SUMAR + PODEMOS</span></div></div><p style="margin:0 0 8px">Mayoría absoluta: 176 escaños. Bloques = suma de medias de voto, no escaños ni coalición. «Otros» y territoriales quedan fuera.</p>{leadrows}<p class="note">Valoración de líderes: CIS oct-2026, escala 1–10, una sola casa y ola. No es intención de voto.</p></div></div>
+<div class="kpis"><div class="kpi"><b>{days if days is not None else "—"}</b><span>días para el 29N</span></div><div class="kpi"><b>{d.get("n_polls","—")}</b><span>sondeos · {h.get("n_pollsters","—")} casas</span></div><div class="kpi"><b>{("+"+fmt(gap)) if gap is not None else "—"}</b><span>puntos PP–PSOE</span></div><div class="kpi"><b>{fmt(blocks.get("right"))} / {fmt(blocks.get("left"))}</b><span>bloques de voto PP+VOX / PSOE+Frente Amplio</span></div><div class="kpi"><b>{fmt(h.get("dispersion_iqr"))} pp</b><span>dispersión entre casas (IQR)</span></div></div>
+<div class="grid"><div class="card"><h2>Estimación de voto · media y rango</h2>{bars}<p>Barra = media; texto = mínimo–máximo observado. «Otros» agrupa formaciones no desglosadas; no es una coalición. Frente Amplio es la coalición; la serie interna se llama SUMAR.</p><div class="terr"><div class="terrhead"><h3>Voto territorial</h3><span>n bajo · no suma a bloques</span></div><div class="terrgrid">{terrrows}</div><p class="note">Partidos que publican las casas; no es voto por provincia ni se suma a «Otros».</p></div></div><div class="card"><h2>Bloques y líderes</h2><div class="blockrow"><div class="bl"><b>{fmt(blocks.get("right"))}%</b><span>PP + VOX</span></div><div class="bl"><b>{fmt(blocks.get("left"))}%</b><span>PSOE + Frente Amplio + Podemos</span></div></div><p style="margin:0 0 8px">Mayoría absoluta: 176 escaños. Bloques = suma de medias de voto, no escaños ni coalición. «Otros» y territoriales quedan fuera.</p>{leadrows}<p class="note">Valoración de líderes: CIS oct-2026, escala 1–10, una sola casa y ola. No es intención de voto. Yolanda Díaz no es candidata en el 29N: el espacio es Frente Amplio (Ada Colau).</p></div></div>
 <div class="foot"><span>Fuente: sondeos publicados (Onda Cero, Electomanía, CIS, Sigma Dos, SocioMétrica, NC Report, GAD3, 40dB, IMOP, DYM, Celeste-Tel, Target Point). Datos abiertos AGPL-3.0.</span><span>elecciones29n.pruebapublica.com</span></div></div></body></html>'''
     with sync_playwright() as pw:
         b=pw.chromium.launch(executable_path="/home/deploy/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome", args=["--no-sandbox"]); page=b.new_page(viewport={"width":1200,"height":675},device_scale_factor=2); page.set_content(html,wait_until="load"); page.screenshot(path=a.out,type="png"); b.close()

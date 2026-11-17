@@ -1,5 +1,5 @@
 {% set page_title = "Valoración de líderes · CIS octubre 2026" %}
-{% set page_desc = "Valoración 1–10 de Pedro Sánchez, Yolanda Díaz, Alberto Núñez Feijóo y Santiago Abascal según el CIS de octubre de 2026. Una sola casa y una sola ola." %}
+{% set page_desc = "Valoración 1–10 de Pedro Sánchez, Alberto Núñez Feijóo y Santiago Abascal según el CIS de octubre de 2026. Yolanda Díaz no es candidata en el 29N; el espacio es Frente Amplio (Ada Colau). Una sola casa y una sola ola." %}
 {% set canonical = site_url ~ "/lideres.html" %}
 {% set jsonld = webpages['lideres.html'] %}
 <!DOCTYPE html>
@@ -15,11 +15,11 @@
 
   {% if lideres %}
   <div class="card">
-    <div class="cardhead"><h2>CIS · octubre 2026</h2><span class="hint">n≈5.000 · cuatro líderes</span></div>
+    <div class="cardhead"><h2>CIS · octubre 2026</h2><span class="hint">n≈5.000 · tres líderes · Díaz no candidata</span></div>
     <div class="tablewrap"><table>
       <thead><tr><th>Líder</th><th>Partido</th><th>Media</th><th>Mediana</th><th>n válido</th></tr></thead>
       <tbody>
-      {% for x in lideres.leaders %}
+      {% for x in lideres.leaders if x.party != 'SUMAR' %}
         <tr><td><strong>{{ x.name }}</strong></td><td>{{ x.party }}</td><td class="num">{{ "%.2f"|format(x.mean)|replace(".", ",") }}</td><td class="num">{{ x.median }}</td><td class="num">{{ fmt_miles(x.n_valid) }}</td></tr>
       {% endfor %}
       </tbody>
@@ -29,7 +29,7 @@
 
   <div class="card">
     <div class="cardhead"><h2>Distribución de la valoración</h2><span class="hint">porcentaje de respuestas 1–10</span></div>
-    {% for x in lideres.leaders %}
+    {% for x in lideres.leaders if x.party != 'SUMAR' %}
     <div style="margin:18px 0 22px">
       <div class="cardhead" style="margin:0 0 8px"><h3 style="margin:0">{{ x.name }}</h3><span class="hint">{{ x.party }} · media {{ "%.2f"|format(x.mean)|replace(".", ",") }} · n {{ fmt_miles(x.n_valid) }}</span></div>
       <div class="tablewrap"><table>
@@ -52,7 +52,7 @@
       <li><strong>Qué no mide:</strong> intención de voto, probabilidad de victoria, aprobación de gobierno ni popularidad comparable entre encuestadoras.</li>
       <li><strong>Una casa:</strong> CIS. No se promedia con 40dB, GAD3, Sigma Dos ni otras casas.</li>
       <li><strong>Una ola:</strong> octubre de 2026. No hay tendencia hasta tener otra ola comparable.</li>
-      <li><strong>Cuatro líderes:</strong> los incluidos en la pregunta 20a del CIS; no es una lista completa de candidaturas.</li>
+      <li><strong>Tres líderes:</strong> los incluidos en la pregunta 20a del CIS; no es una lista completa de candidaturas. Yolanda Díaz aparece en el CIS como líder de Sumar, pero no es candidata en el 29N; el espacio es Frente Amplio (Ada Colau).</li>
     </ul>
     <p class="muted small">Fuente: <a href="{{ lideres.meta.source_url }}" rel="noopener" target="_blank">{{ lideres.meta.source }}</a>. Pregunta: «{{ lideres.meta.question }}».</p>
   </div>
