@@ -1798,6 +1798,16 @@ def write_resultados_data(data: dict) -> None:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
+def write_auditoria_data() -> None:
+    os.makedirs(os.path.join(OUT, "data"), exist_ok=True)
+    for src, dst in (
+        (ROOT / "data" / "auditoria_sondeos_20261117.csv", "auditoria-sondeos-20261117.csv"),
+        (ROOT / "data" / "auditoria_trackings_20261117.csv", "auditoria-trackings-20261117.csv"),
+    ):
+        if src.exists():
+            shutil.copyfile(src, os.path.join(OUT, "data", dst))
+
+
 def write_robustez_data(latest: dict) -> None:
     os.makedirs(os.path.join(OUT, "data"), exist_ok=True)
     keys = ("party", "mean", "mean_simple", "median", "min", "max", "n", "mean_sin_cis",
@@ -2943,6 +2953,7 @@ def main(out: str = "web") -> None:
             json.dump(escenarios, f, ensure_ascii=False, indent=2)
     write_congreso_oficial_data(oficial)
     write_municipios_data(circ_pages, censo)
+    write_auditoria_data()
     write_robustez_data(latest)
     write_cis_3584_data(cis_preelectoral)
     write_resultados_data(resultados)
