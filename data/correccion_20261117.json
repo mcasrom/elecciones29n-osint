@@ -25,5 +25,7 @@
   "data_cutoff": "2026-11-23T23:59:59+01:00",
   "tracking_audit": "data/auditoria_trackings_20261117.csv",
   "tracking_audit_n": 3,
-  "series_break": "data/series_breaks.json"
+  "series_break": "data/series_breaks.json",
+  "aggregate_decision": "retirado hasta resolver GAD3 con fuente primaria; no se publica media de Frente Amplio",
+  "aggregate_decision_date": "2026-11-17"
 }

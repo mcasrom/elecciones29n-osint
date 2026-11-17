@@ -35,3 +35,7 @@ histórico de 2023 y una de las formaciones de la coalición.
 ## Serie histórica
 
 `data/series_breaks.json`: la etiqueta **Sumar** no se reutiliza como **Frente Amplio** para toda la serie. La comparabilidad no está acreditada antes del cambio de denominación; por eso no se publica una línea larga de Frente Amplio ni se reescribe el histórico.
+
+## Decisión sobre el agregado
+
+**No vuelve el agregado de Frente Amplio** mientras GAD3 no se resuelva con la fuente primaria. La serie actual queda en observaciones individuales auditadas. Esta decisión no cambia el pre-registro ni la foto congelada.
