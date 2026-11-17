@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Vigila nuevos sondeos y microdatos del 29N. No importa nada: avisa."""
 from __future__ import annotations
-import argparse, hashlib, json, re, sys, urllib.parse, urllib.request
+import argparse, hashlib, json, re, sys, time, urllib.error, urllib.parse, urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
@@ -22,8 +22,15 @@ QUERIES = {
 
 def get(url: str) -> bytes:
     req = urllib.request.Request(url, headers={'User-Agent': UA, 'Accept': 'text/html,application/xml'})
-    with urllib.request.urlopen(req, timeout=25) as r:
-        return r.read(2_000_000)
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(req, timeout=25) as r:
+                return r.read(2_000_000)
+        except urllib.error.HTTPError as exc:
+            if exc.code in (429, 500, 502, 503, 504) and attempt < 2:
+                time.sleep(5 * (attempt + 1))
+                continue
+            raise
 
 def fetch_rss(q: str):
     url = 'https://news.google.com/rss/search?' + urllib.parse.urlencode({'q': q, 'hl': 'es', 'gl': 'ES', 'ceid': 'ES:es'})
@@ -108,7 +115,7 @@ def main():
         except Exception as exc:
             print(f'watch: error {name}: {exc}', file=sys.stderr)
     micro = cis_microdata_links()
-    print(f'nuevos={len(found)} micro_links={len(micro)}')
+    print(f'[{datetime.now(timezone.utc).isoformat(timespec="seconds")}] nuevos={len(found)} micro_links={len(micro)}')
     for name, item in found:
         print(name, item['date'], item['title'][:160])
     if micro:
@@ -130,7 +137,10 @@ def main():
     import social_queue as q
     env = q.load_env(Path('/home/deploy/hybrid-fimi-radar/.env'))
     chat = env.get('FIMI_OWNER_CHAT', '')
-    ok = q.send_tg(chat, '\n'.join(lines))
+    msg = '\n'.join(lines)
+    if len(msg) > 3900:
+        msg = msg[:3900].rsplit('\n', 1)[0] + '\n… (aviso recortado)'
+    ok = q.send_tg(chat, msg)
     print('telegram', ok)
     if ok:
         for _, item in found:
