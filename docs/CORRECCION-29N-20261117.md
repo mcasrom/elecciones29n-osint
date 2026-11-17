@@ -18,7 +18,7 @@ histórico de 2023 y una de las formaciones de la coalición.
 `data/auditoria_sondeos_20261117.csv`: 15 sondeos de la ventana de 14 días.
 
 - 15/15 usan **Frente Amplio** como etiqueta original.
-- 2 discrepancias de valor entre compiladores: Sociométrica (4,4 vs 5,9) y GAD3 (7,5 vs 6,9).
+- 2 discrepancias de valor entre compiladores: Sociométrica (4,4 vs 5,9) y GAD3 (7,5 vs 6,9). Se conserva la pieza de Electomanía y se documenta la alternativa de Onda Cero; no se agrega.
 - 0/15 publican muestra en la fuente usada.
 - La media anterior no se republica con la etiqueta corregida: primero se resuelven discrepancias.
 
