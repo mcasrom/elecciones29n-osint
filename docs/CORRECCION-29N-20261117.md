@@ -43,3 +43,16 @@ histórico de 2023 y una de las formaciones de la coalición.
 ## GAD3
 
 GAD3 queda **excluida de una futura media de Frente Amplio** mientras no se resuelva la discrepancia **7,5 % / 6,9 %** con fuente primaria. Se mantiene como observación individual auditada. El agregado actual sigue retirado.
+
+## Resolución GAD3 con fuente primaria (17-nov-2026)
+
+Se localizó la publicación primaria de GAD3 para ABC:
+
+- Artículo: `https://www.gad3.com/barometro-abc-i-estimacion-de-voto-nacional-noviembre-2026/`
+- Gráfico: `https://datawrapper.dwcdn.net/YXZE0/6/`
+- Datos descargables: `https://datawrapper.dwcdn.net/YXZE0/6/dataset.csv`
+- Captura: `data/sources/gad3-abc-20261109/`
+
+La fuente primaria fija **Frente Amplio en 5,0 %**. El texto del artículo indica **6 escaños** y el gráfico/Datawrapper **5 escaños**; se documenta la discrepancia de escaños. El voto usado es **5,0 %**, no 7,5 % de Electomanía ni 6,9 % de Onda Cero.
+
+El agregado de Frente Amplio se reabre con 15 sondeos y GAD3 incluida.

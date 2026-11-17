@@ -1601,8 +1601,8 @@ def build_sparklines(series: dict, parties: list) -> str:
         sign = "+" if delta > 0 else ""
         panels.append(
             f'<div class="spark">'
-            f'<div class="sparkhead"><span>{party}</span><b>{summary["last"]:.1f}%</b></div>'
-            f'<svg viewBox="0 0 {W} {H}" role="img" aria-label="Media móvil de {party}">'
+            f'<div class="sparkhead"><span>{party_label(party)}</span><b>{summary["last"]:.1f}%</b></div>'
+            f'<svg viewBox="0 0 {W} {H}" role="img" aria-label="Media móvil de {party_label(party)}">'
             f'<path d="{dpath}" fill="none" stroke="{color}" stroke-width="2.2"/>{dots}</svg>'
             f'<div class="sparkfoot"><span>{dates[0][5:].replace("-", "/")}</span>'
             f'<span class="delta {cls}">{sign}{delta:.1f} pts</span>'
@@ -2239,7 +2239,7 @@ def _band(coords_lo, coords_hi) -> str:
 
 def chart_legend(parties: list) -> list:
     return [
-        {"party": p["party"], "color": CHART_COLORS[i % len(CHART_COLORS)]}
+        {"party": party_label(p["party"]), "color": CHART_COLORS[i % len(CHART_COLORS)]}
         for i, p in enumerate(parties[:4])
     ]
 
@@ -2311,14 +2311,14 @@ def build_chart(series: dict, parties: list) -> str:
             )
             parts.append(f'<path d="{ma_path}" fill="none" stroke="{color}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>')
         for item, (cx, cy) in zip(pts, coords):
-            title = f"{party} · {item.get('pollster','?')} · {item['date']} · {item['value']}%"
+            title = f"{party_label(party)} · {item.get('pollster','?')} · {item['date']} · {item['value']}%"
             parts.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="2.5" fill="{color}" opacity="0.8"><title>{title}</title></circle>')
         last = ma[-1] if ma else pts[-1]
         lx, ly = x(dates.index(last["date"])), y(last["value"])
         ends.append((ly, party, last["value"], color))
 
     for ly, party, value, color in sorted(ends):
-        parts.append(f'<text x="{W-pad_r+8}" y="{ly+4:.1f}" fill="{color}" font-size="12.5" font-weight="700">{party} {value:.1f}%</text>')
+        parts.append(f'<text x="{W-pad_r+8}" y="{ly+4:.1f}" fill="{color}" font-size="12.5" font-weight="700">{party_label(party)} {value:.1f}%</text>')
     parts.append(f'<text x="12" y="{pad_t+4}" fill="currentColor" opacity="0.55" font-size="10">% voto · media móvil 14 d</text>')
     parts.append("</svg>")
     return "".join(parts)
@@ -2708,6 +2708,9 @@ def main(out: str = "web") -> None:
     series = {k: v for k, v in series_all.items() if fa_visible or k != "SUMAR"}
     series_long_all = latest.get("series_long", {}) or {}
     series_long = {k: v for k, v in series_long_all.items() if fa_visible or k != "SUMAR"}
+    if fa_visible and "SUMAR" in series_long:
+        # La serie antigua de Sumar no se presenta como Frente Amplio.
+        series_long["SUMAR"] = [p for p in series_long["SUMAR"] if p.get("date", "") >= "2026-10-12"]
     # Observaciones individuales de Frente Amplio: no hay agregado mientras
     # la etiqueta y la comparabilidad no estén cerradas.
     fa_audit = {}

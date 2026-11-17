@@ -1,0 +1,27 @@
+{
+  "source": "GAD3 / ABC",
+  "published": "2026-11-09",
+  "article": "https://www.gad3.com/barometro-abc-i-estimacion-de-voto-nacional-noviembre-2026/",
+  "datawrapper": "https://datawrapper.dwcdn.net/YXZE0/6/",
+  "dataset": "https://datawrapper.dwcdn.net/YXZE0/6/dataset.csv",
+  "captured_at": "2026-11-17T15:45:00+01:00",
+  "user_agent": "Googlebot/2.1 (+http://www.google.com/bot.html)",
+  "files": {
+    "chart-data.csv": {
+      "sha256": "6917822eb0d9c30d89510e84ee8dc1ec6be68db4f8340826901d4a383b15da3b",
+      "bytes": 539
+    },
+    "chart.html": {
+      "sha256": "e463e8cb4137323f64e179d709dc0670d70b84d9d57e6e2c8d32a87cb7f84944",
+      "bytes": 116562
+    },
+    "source.html": {
+      "sha256": "9cf221c5adbcd6fa67a2ab14590ab003d6325c19d97b00bda6467a7d35e72dca",
+      "bytes": 152227
+    }
+  },
+  "primary_fa_vote": 5.0,
+  "article_text": "Frente Amplio: 5% de votos y 6 escaños",
+  "chart_dataset": "Frente Amplio: 5,0% y 5 escaños",
+  "note": "La fuente primaria fija el voto en 5,0; el número de escaños del texto y del gráfico difiere (6 vs 5)."
+}

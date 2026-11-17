@@ -198,12 +198,14 @@
 
 <script>
 const RADAR = {{ radar|tojson }};
-const PARTIES = ['PP','PSOE','VOX'];
+const SHOW_FA = {{ 'true' if fa_aggregate_visible else 'false' }};
+const PARTIES = SHOW_FA ? ['PP','PSOE','VOX','SUMAR'] : ['PP','PSOE','VOX'];
+const LABEL = {SUMAR:'Frente Amplio'};
 const MEANS = RADAR.means;
 const day = s => Date.UTC(+s.slice(0,4), +s.slice(5,7)-1, +s.slice(8,10)) / 864e5;
 const fmt = (n,d=1) => n.toFixed(d).replace('.', ',');
 const dlabel = s => { const m=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic']; return +s.slice(8,10)+' '+m[+s.slice(5,7)-1]; };
-const polls = RADAR.polls.map(q => ({...q, t: day(q.date), v:{PP:q.pp, PSOE:q.psoe, VOX:q.vox}, cis:q.house==='CIS'}));
+const polls = RADAR.polls.map(q => ({...q, t: day(q.date), v:{PP:q.pp, PSOE:q.psoe, VOX:q.vox, ...(SHOW_FA ? {SUMAR:q.sumar} : {})}, cis:q.house==='CIS'}));
 const T0 = day(RADAR.start), T1 = day(RADAR.end), W0 = day(RADAR.window_start);
 const HOY = day(RADAR.today), ELECTION = day(RADAR.election);
 
@@ -244,7 +246,7 @@ function hero() {
     s += `<line class="radar-mean" x1="${x(MEANS[p])}" x2="${x(MEANS[p])}" y1="${dy-4}" y2="${dy+dh+4}"/>`;
     polls.forEach(q => {
       const f = (q.t - T0) / (T1 - T0), cx = x(q.v[p]), cy = dy + f*dh;
-      const tipTxt = `${q.house} · ${dlabel(q.date)} · ${p} ${fmt(q.v[p])} %`;
+      const tipTxt = `${q.house} · ${dlabel(q.date)} · ${LABEL[p]||p} ${fmt(q.v[p])} %`;
       s += `<circle class="radar-dot" data-tip="${tipTxt}" cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${q.t >= W0 ? 5 : 3.6}" style="fill:color-mix(in srgb, var(--rn-new) ${(f*100).toFixed(0)}%, var(--rn-old))"/>`;
       if (q.cis) {
         s += `<circle class="radar-ring" cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="7.5"/>`;

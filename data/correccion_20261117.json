@@ -4,7 +4,7 @@
   "kind": "correccion_etiquetas_y_agregado",
   "summary": "Separar Sumar (2023) de Frente Amplio (2026); retirar el agregado de Frente Amplio hasta completar la auditoría.",
   "aggregate_visible": {
-    "SUMAR": false
+    "SUMAR": true
   },
   "labels": {
     "SUMAR": {
@@ -26,10 +26,17 @@
   "tracking_audit": "data/auditoria_trackings_20261117.csv",
   "tracking_audit_n": 3,
   "series_break": "data/series_breaks.json",
-  "aggregate_decision": "retirado hasta resolver GAD3 con fuente primaria; no se publica media de Frente Amplio",
+  "aggregate_decision": "reabierto: GAD3 primaria fija Frente Amplio en 5,0%; se documenta discrepancia de escaños (6 texto / 5 gráfico)",
   "aggregate_decision_date": "2026-11-17",
-  "aggregate_exclusions": [
-    "GAD3"
-  ],
-  "aggregate_exclusion_reason": "Discrepancia 7,5/6,9 sin fuente primaria accesible; GAD3 queda como observación individual, no en una futura media de Frente Amplio."
+  "aggregate_exclusions": [],
+  "aggregate_exclusion_reason": "Discrepancia 7,5/6,9 sin fuente primaria accesible; GAD3 queda como observación individual, no en una futura media de Frente Amplio.",
+  "gad3_primary": {
+    "vote": 5.0,
+    "source": "GAD3/Datawrapper",
+    "article": "https://www.gad3.com/barometro-abc-i-estimacion-de-voto-nacional-noviembre-2026/",
+    "chart": "https://datawrapper.dwcdn.net/YXZE0/6/",
+    "seats_text": 6,
+    "seats_chart": 5,
+    "capture": "data/sources/gad3-abc-20261109"
+  }
 }

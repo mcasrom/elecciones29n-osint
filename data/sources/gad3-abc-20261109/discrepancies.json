@@ -1,0 +1,11 @@
+{
+  "GAD3": {
+    "primary_vote": 5.0,
+    "electomania": 7.5,
+    "onda_cero": 6.9,
+    "primary_seats_text": 6,
+    "primary_seats_chart": 5,
+    "status": "primary_resolves_vote",
+    "action": "usar 5,0; anotar discrepancia de escaños"
+  }
+}
