@@ -39,3 +39,7 @@ histórico de 2023 y una de las formaciones de la coalición.
 ## Decisión sobre el agregado
 
 **No vuelve el agregado de Frente Amplio** mientras GAD3 no se resuelva con la fuente primaria. La serie actual queda en observaciones individuales auditadas. Esta decisión no cambia el pre-registro ni la foto congelada.
+
+## GAD3
+
+GAD3 queda **excluida de una futura media de Frente Amplio** mientras no se resuelva la discrepancia **7,5 % / 6,9 %** con fuente primaria. Se mantiene como observación individual auditada. El agregado actual sigue retirado.

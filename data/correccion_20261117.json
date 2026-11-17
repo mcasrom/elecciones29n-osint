@@ -27,5 +27,9 @@
   "tracking_audit_n": 3,
   "series_break": "data/series_breaks.json",
   "aggregate_decision": "retirado hasta resolver GAD3 con fuente primaria; no se publica media de Frente Amplio",
-  "aggregate_decision_date": "2026-11-17"
+  "aggregate_decision_date": "2026-11-17",
+  "aggregate_exclusions": [
+    "GAD3"
+  ],
+  "aggregate_exclusion_reason": "Discrepancia 7,5/6,9 sin fuente primaria accesible; GAD3 queda como observación individual, no en una futura media de Frente Amplio."
 }

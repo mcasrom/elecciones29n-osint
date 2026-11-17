@@ -10,6 +10,7 @@ class Correccion29NTest(unittest.TestCase):
     def test_agregado_fa_retirado(self):
         d = json.loads((ROOT / "data" / "correccion_20261117.json").read_text(encoding="utf-8"))
         self.assertFalse(d["aggregate_visible"]["SUMAR"])
+        self.assertIn("GAD3", d["aggregate_exclusions"])
 
     def test_labels(self):
         d = json.loads((ROOT / "data" / "partidos_display.json").read_text(encoding="utf-8"))
