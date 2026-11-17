@@ -150,8 +150,12 @@ def make_infografia(tag: str) -> str:
     if r.returncode != 0:
         raise RuntimeError((r.stdout + r.stderr)[-500:])
     PUBLIC_OG.mkdir(parents=True, exist_ok=True)
+    # Alias estable para OG/X/Telegram; el hash diario queda como histórico.
+    stable = out.parent / "29n-infografia.png"
+    shutil.copy2(out, stable)
     shutil.copy2(out, PUBLIC_OG / out.name)
     shutil.copy2(linkedin, PUBLIC_OG / linkedin.name)
+    shutil.copy2(stable, PUBLIC_OG / stable.name)
     return f"https://elecciones29n.pruebapublica.com/og/{out.name}"
 
 
