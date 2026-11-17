@@ -999,7 +999,7 @@ def build_hemicycle_svg(seats: list[dict]) -> str:
     left = sum(counts.get(p, 0) for p in ("PSOE", "SUMAR", "PODEMOS"))
     parts = [
         '<svg class="hemi" viewBox="0 0 360 205" role="img" '
-        f'aria-label="Simulación nacional de escaños: {right} escaños PP y VOX, {left} PSOE, Sumar y Podemos, '
+        f'aria-label="Simulación nacional de escaños: {right} escaños PP y VOX, {left} PSOE, Frente Amplio y Podemos, '
         f'{350 - right - left} otros">'
     ]
     for row, block in zip(rows, alloc):
@@ -1008,10 +1008,11 @@ def build_hemicycle_svg(seats: list[dict]) -> str:
             sequence.extend([p] * block.get(p, 0))
         for (x, y), party in zip(row, sequence):
             color = HEMI_PARTY_COLORS.get(party, HEMI_PARTY_COLORS["Otros"])
+            display = "Frente Amplio" if party == "SUMAR" else party
             parts.append(
                 f'<circle cx="{x:.2f}" cy="{y:.2f}" r="3.6" fill="{color}" '
                 f'stroke="var(--panel)" stroke-width=".5" class="hemi-seat">'
-                f'<title>{party}</title></circle>'
+                f'<title>{display}</title></circle>'
             )
     parts.append('<text x="18" y="202" fill="var(--muted)" font-size="10">Izquierda</text>')
     parts.append('<text x="342" y="202" fill="var(--muted)" font-size="10" text-anchor="end">Derecha</text>')
@@ -1023,7 +1024,7 @@ def build_hemicycle(entries: list) -> list:
     out = []
     for e in entries:
         seat_rows = [
-            {**r, "color": HEMI_PARTY_COLORS.get(r["party"], HEMI_PARTY_COLORS["Otros"])}
+            {**r, "party_label": party_label(r["party"]), "color": HEMI_PARTY_COLORS.get(r["party"], HEMI_PARTY_COLORS["Otros"])}
             for r in e.get("seats", [])
         ]
         majority = e.get("majority", "none")
