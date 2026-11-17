@@ -146,11 +146,11 @@
       <div class="radar-blockrow">
         <div><b>{{ b.label }}</b><div class="radar-note" style="margin:0">{{ b.note }}</div></div>
         <div class="track" data-value="{{ b.value }}" data-label="{{ b.label }}"></div>
-        <div class="val">{{ "%.1f"|format(b.value) }} %</div>
+        <div class="val">{% if b.value is not none %}{{ "%.1f"|format(b.value) }} %{% else %}—{% endif %}</div>
       </div>
       {% endfor %}
     </div>
-    <p class="radar-note">«No asignado» reúne ERC, Junts, Bildu, PNV, BNG, CC y el resto. Los porcentajes son sumas de medias, no votos reales.</p>
+    <p class="radar-note">«No asignado» reúne ERC, Junts, Bildu, PNV, BNG, CC y el resto. Frente Amplio no tiene agregado comparable y queda fuera de los bloques. Los porcentajes son sumas de medias, no votos reales.</p>
   </section>
 
   <section class="radar-card radar-tracking-card">
@@ -167,7 +167,7 @@
             <td class="num" data-label="PP">{{ "%.1f"|format(t.pp) }} %</td>
             <td class="num" data-label="PSOE">{{ "%.1f"|format(t.psoe) }} %</td>
             <td class="num" data-label="VOX">{{ "%.1f"|format(t.vox) }} %</td>
-            <td class="num" data-label="SUMAR">{{ "%.1f"|format(t.sumar) }} %</td>
+            <td class="num" data-label="Frente Amplio">{{ "%.1f"|format(t.sumar) }} %</td>
             <td data-label="Enlace">{% if t.url %}<a href="{{ t.url }}" target="_blank" rel="noopener noreferrer">fuente ↗</a>{% endif %}</td>
           </tr>
         {% endfor %}
@@ -191,12 +191,12 @@
 
 <script>
 const RADAR = {{ radar|tojson }};
-const PARTIES = ['PP','PSOE','VOX','SUMAR'];
+const PARTIES = ['PP','PSOE','VOX'];
 const MEANS = RADAR.means;
 const day = s => Date.UTC(+s.slice(0,4), +s.slice(5,7)-1, +s.slice(8,10)) / 864e5;
 const fmt = (n,d=1) => n.toFixed(d).replace('.', ',');
 const dlabel = s => { const m=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic']; return +s.slice(8,10)+' '+m[+s.slice(5,7)-1]; };
-const polls = RADAR.polls.map(q => ({...q, t: day(q.date), v:{PP:q.pp, PSOE:q.psoe, VOX:q.vox, SUMAR:q.sumar}, cis:q.house==='CIS'}));
+const polls = RADAR.polls.map(q => ({...q, t: day(q.date), v:{PP:q.pp, PSOE:q.psoe, VOX:q.vox}, cis:q.house==='CIS'}));
 const T0 = day(RADAR.start), T1 = day(RADAR.end), W0 = day(RADAR.window_start);
 const HOY = day(RADAR.today), ELECTION = day(RADAR.election);
 

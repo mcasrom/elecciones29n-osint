@@ -45,11 +45,11 @@
   <div class="card">
     <div class="cardhead"><h2>Leave one out</h2><span class="hint">average without that source or house · Δ vs main average</span></div>
     <div class="tablewrap"><table>
-      <thead><tr><th>Excluded</th><th>PP</th><th>PSOE</th><th>VOX</th><th>SUMAR</th><th>Polls left</th></tr></thead>
+      <thead><tr><th>Excluded</th><th>PP</th><th>PSOE</th><th>VOX</th><th>Polls left</th></tr></thead>
       <tbody>
       {% for s in sensitivity %}
       <tr><td><strong>{{ s.name }}</strong><br><span class="muted small">{{ s.kind }}</span></td>
-      {% for p in ("PP", "PSOE", "VOX", "SUMAR") %}{% set m = s.means.get(p) %}<td class="num">{% if m %}{{ fmt_pct(m.mean) }}%<br><span class="muted small">{{ "%+.1f"|format(m.delta) }} pp</span>{% else %}—{% endif %}</td>{% endfor %}
+      {% for p in ("PP", "PSOE", "VOX") %}{% set m = s.means.get(p) %}<td class="num">{% if m %}{{ fmt_pct(m.mean) }}%<br><span class="muted small">{{ "%+.1f"|format(m.delta) }} pp</span>{% else %}—{% endif %}</td>{% endfor %}
       <td class="num">{{ s.n_polls }}</td></tr>
       {% endfor %}
       </tbody>

@@ -119,7 +119,7 @@
     <div class="kpis">
       {% for p in parties_main[:4] %}
       <div class="kpi">
-        <span class="kpi-name">{{ p.party }}</span>
+        <span class="kpi-name">{{ p.party_label }}</span>
         <b>{{ "%.1f"|format(p.mean) }}%</b>
         <span class="kpi-range">rango {{ "%.1f"|format(p.min) }}–{{ "%.1f"|format(p.max) }} · n={{ p.n }}{% if p.sample_total %} · {{ p.sample_n }}/{{ p.n }} con muestra{% endif %}</span>
       </div>
@@ -168,7 +168,7 @@
     <div class="kpis">
       {% for p in parties_main[:4] %}
       <div class="kpi">
-        <span class="kpi-name">{{ p.party }}</span>
+        <span class="kpi-name">{{ p.party_label }}</span>
         <b>{{ "%.1f"|format(p.mean) }}%</b>
         <span class="kpi-range">rango {{ "%.1f"|format(p.min) }}–{{ "%.1f"|format(p.max) }} · n={{ p.n }}{% if p.sample_total %} · {{ p.sample_n }}/{{ p.n }} con muestra ({{ "{:,}".format(p.sample_total)|replace(",", ".") }} encuestados){% endif %}</span>
       </div>
@@ -177,12 +177,12 @@
 
     {% if chart_svg %}
     <div class="card">
-      <div class="cardhead"><h2>Evolución de los sondeos</h2><span class="hint">últimos 90 días · 4 partidos · media móvil 14 d</span></div>
+      <div class="cardhead"><h2>Evolución de los sondeos</h2><span class="hint">últimos 90 días · {{ parties_main|length }} partidos · media móvil 14 d</span></div>
       <div class="chartwrap">{{ chart_svg|safe }}</div>
       <div class="legend">
         {% for l in chart_legend %}<span class="lg"><i style="background:{{ l.color }}"></i>{{ l.party }}</span>{% endfor %}
       </div>
-      <p class="muted small" style="margin-top:6px">Eje vertical: media de voto (%). Cada línea es la media móvil de 14 días (ventana simétrica; truncada en el borde derecho) de PP, PSOE, VOX y Frente Amplio. Los puntos son sondeos individuales: pasa el cursor para ver casa, fecha y valor.</p>
+      <p class="muted small" style="margin-top:6px">Eje vertical: media de voto (%). Cada línea es la media móvil de 14 días (ventana simétrica; truncada en el borde derecho) de los partidos mostrados. Frente Amplio no tiene agregado: se muestra aparte. Los puntos son sondeos individuales: pasa el cursor para ver casa, fecha y valor.</p>
     </div>
     {% endif %}
 
@@ -205,7 +205,7 @@
         <thead><tr><th>Partido</th><th>Media</th><th>Sin CIS (45 d)</th><th>Mediana</th><th>Mín</th><th>Máx</th><th>n (14 d)</th><th>Casas (45 d)</th><th>Casas (14 d)</th><th>IQR</th></tr></thead>
         <tbody>
         {% for p in parties_table %}
-          <tr><td><strong>{{ p.party }}</strong>{% if p.n < 4 or (p.n_houses_recent and p.n_houses_recent < 3) %}<span title="n&lt;4 o menos de 3 casas en 14 d: media frágil" style="color:#f2c94c">*</span>{% endif %}</td><td class="num">{{ "%.2f"|format(p.mean) }}%</td><td class="num">{% if p.mean_sin_cis_45d is not none %}{{ "%.2f"|format(p.mean_sin_cis_45d) }}%{% else %}—{% endif %}</td><td class="num">{{ "%.2f"|format(p.median) }}%</td><td class="num">{{ "%.2f"|format(p.min) }}%</td><td class="num">{{ "%.2f"|format(p.max) }}%</td><td class="num">{{ p.n }}</td><td class="num">{% if p.n_houses_window %}{{ p.n_houses_window }}{% else %}—{% endif %}</td><td class="num">{% if p.n_houses_recent %}{{ p.n_houses_recent }}{% else %}—{% endif %}</td><td class="num">{% if p.iqr is not none %}{{ "%.1f"|format(p.iqr) }}{% else %}—{% endif %}</td></tr>
+          <tr><td><strong>{{ p.party_label }}</strong>{% if p.n < 4 or (p.n_houses_recent and p.n_houses_recent < 3) %}<span title="n&lt;4 o menos de 3 casas en 14 d: media frágil" style="color:#f2c94c">*</span>{% endif %}</td><td class="num">{{ "%.2f"|format(p.mean) }}%</td><td class="num">{% if p.mean_sin_cis_45d is not none %}{{ "%.2f"|format(p.mean_sin_cis_45d) }}%{% else %}—{% endif %}</td><td class="num">{{ "%.2f"|format(p.median) }}%</td><td class="num">{{ "%.2f"|format(p.min) }}%</td><td class="num">{{ "%.2f"|format(p.max) }}%</td><td class="num">{{ p.n }}</td><td class="num">{% if p.n_houses_window %}{{ p.n_houses_window }}{% else %}—{% endif %}</td><td class="num">{% if p.n_houses_recent %}{{ p.n_houses_recent }}{% else %}—{% endif %}</td><td class="num">{% if p.iqr is not none %}{{ "%.1f"|format(p.iqr) }}{% else %}—{% endif %}</td></tr>
         {% endfor %}
         </tbody>
       </table></div>
@@ -219,12 +219,28 @@
         <thead><tr><th>Partido</th><th>Media</th><th>n (14 d)</th><th>Casas (45 d)</th><th>Casas (14 d)</th></tr></thead>
         <tbody>
         {% for p in parties_territorial %}
-          <tr><td><strong>{{ p.party }}</strong></td><td class="num">{{ "%.2f"|format(p.mean) }}%</td><td class="num">{{ p.n }}</td><td class="num">{% if p.n_houses_window %}{{ p.n_houses_window }}{% else %}—{% endif %}</td><td class="num">{% if p.n_houses_recent %}{{ p.n_houses_recent }}{% else %}—{% endif %}</td></tr>
+          <tr><td><strong>{{ p.party_label }}</strong></td><td class="num">{{ "%.2f"|format(p.mean) }}%</td><td class="num">{{ p.n }}</td><td class="num">{% if p.n_houses_window %}{{ p.n_houses_window }}{% else %}—{% endif %}</td><td class="num">{% if p.n_houses_recent %}{{ p.n_houses_recent }}{% else %}—{% endif %}</td></tr>
         {% endfor %}
         </tbody>
       </table></div>
       {% endif %}
     </div>
+
+    {% if not fa_aggregate_visible and fa_observations %}
+    <div class="card" id="frente-amplio">
+      <div class="cardhead"><h2>Frente Amplio · observaciones individuales</h2><span class="hint">sin agregado · 15 sondeos auditados</span></div>
+      <p class="muted small"><strong>No hay media agregada de Frente Amplio.</strong> La serie interna antigua no se reutiliza como etiqueta electoral en 2026. Se muestran las observaciones con la etiqueta original, casa, fecha y fuente; no se rellena el hueco con una formación que no concurre.</p>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Fecha</th><th>Casa</th><th>Etiqueta original</th><th>Valor</th><th>Fuente</th><th>Estado</th></tr></thead>
+        <tbody>
+        {% for r in fa_observations %}
+          <tr><td>{{ r.date }}</td><td><strong>{{ r.pollster }}</strong></td><td>{{ r.label_original }}</td><td class="num">{{ "%.1f"|format(r.value) }}%</td><td>{% if r.source_url %}<a href="{{ r.source_url }}" rel="noopener" target="_blank">enlace</a>{% else %}—{% endif %}</td><td>{% if r.discrepancy == "si" %}<span title="{{ r.note }}">discrepancia</span>{% else %}{{ r.label_status }}{% endif %}</td></tr>
+        {% endfor %}
+        </tbody>
+      </table></div>
+      <p class="muted small">La auditoría detectó dos discrepancias de valor entre compiladores (Sociométrica y GAD3). No se publica una media mientras no se resuelvan. <a href="/metodologia.html">Método y límites</a>.</p>
+    </div>
+    {% endif %}
 
     <div class="card">
       <div class="cardhead"><h2>Preguntas frecuentes</h2></div>
@@ -265,7 +281,7 @@
       <div class="cardhead"><h2><span class="track-dot" aria-hidden="true"></span>Trackings fuera de la media</h2><span class="hint">contexto de evolución · no media</span></div>
       <p class="muted small">No son observaciones independientes y no entran en la media. Sirven para ver hacia dónde se mueve una serie cuando no hay sondeos nuevos.</p>
       <div class="tablewrap"><table>
-        <thead><tr><th>Tracking</th><th>Fecha</th><th class="num">PP</th><th class="num">PSOE</th><th class="num">VOX</th><th class="num">SUMAR</th><th>Fuente</th></tr></thead>
+        <thead><tr><th>Tracking</th><th>Fecha</th><th class="num">PP</th><th class="num">PSOE</th><th class="num">VOX</th><th class="num">Frente Amplio</th><th>Fuente</th></tr></thead>
         <tbody>{% for t in tracking_latest %}<tr><td><strong>{{ t.pollster }}</strong></td><td>{{ t.date[8:10] }}/{{ t.date[5:7] }}</td><td class="num">{% if t.pp is not none %}{{ "%.2f"|format(t.pp) }}%{% else %}—{% endif %}</td><td class="num">{% if t.psoe is not none %}{{ "%.2f"|format(t.psoe) }}%{% else %}—{% endif %}</td><td class="num">{% if t.vox is not none %}{{ "%.2f"|format(t.vox) }}%{% else %}—{% endif %}</td><td class="num">{% if t.sumar is not none %}{{ "%.2f"|format(t.sumar) }}%{% else %}—{% endif %}</td><td>{% if t.url %}<a href="{{ t.url }}" rel="noopener">fuente</a>{% else %}—{% endif %}</td></tr>{% endfor %}</tbody>
       </table></div>
       <p class="muted small">La media principal no se actualiza con estos datos. Si no hay un sondeo individual nuevo, se mantiene la última media y se declara su antigüedad.</p>
@@ -280,7 +296,7 @@
           <thead><tr><th>Partido</th><th>Media por casa</th><th>Rango</th><th>Casas</th><th>Media por sondeo</th><th>Diferencia</th></tr></thead>
           <tbody>
           {% for r in house_compare %}
-            <tr><td>{{ r.party }}</td><td class="num">{{ fmt_pct(r.mean) }}%</td><td class="num">{{ fmt_pct(r.min) }}–{{ fmt_pct(r.max) }}</td><td class="num">{{ r.n_houses }}</td><td class="num">{% if r.poll_mean is not none %}{{ fmt_pct(r.poll_mean) }}%{% else %}—{% endif %}</td><td class="num">{% if r.diff is not none %}{{ "%+.2f"|format(r.diff) }} pp{% else %}—{% endif %}</td></tr>
+            <tr><td>{{ r.party_label }}</td><td class="num">{{ fmt_pct(r.mean) }}%</td><td class="num">{{ fmt_pct(r.min) }}–{{ fmt_pct(r.max) }}</td><td class="num">{{ r.n_houses }}</td><td class="num">{% if r.poll_mean is not none %}{{ fmt_pct(r.poll_mean) }}%{% else %}—{% endif %}</td><td class="num">{% if r.diff is not none %}{{ "%+.2f"|format(r.diff) }} pp{% else %}—{% endif %}</td></tr>
           {% endfor %}
           </tbody>
         </table>
@@ -347,7 +363,7 @@
         <thead><tr><th>Partido</th><th>Escaños</th></tr></thead>
         <tbody>
         {% for name, seats in ref_congreso %}
-          <tr><td>{{ name }}</td><td class="num">{{ seats }}</td></tr>
+          <tr><td>{% if name == "SUMAR" %}Sumar (2023){% else %}{{ name }}{% endif %}</td><td class="num">{{ seats }}</td></tr>
         {% endfor %}
         </tbody>
       </table></div>
@@ -358,10 +374,10 @@
       <div class="cardhead"><h2>Bloques sin territoriales (no coalición)</h2></div>
       <div class="blocks">
         <div class="block"><span>PP + VOX</span><b>{% if bloc_right is not none %}{{ "%.1f"|format(bloc_right) }}%{% else %}—{% endif %}</b></div>
-        <div class="block"><span>PSOE + Frente Amplio + Podemos</span><b>{% if bloc_left is not none %}{{ "%.1f"|format(bloc_left) }}%{% else %}—{% endif %}</b></div>
+        <div class="block"><span>PSOE + Frente Amplio + Podemos</span><b>{% if fa_aggregate_visible and bloc_left is not none %}{{ "%.1f"|format(bloc_left) }}%{% else %}—{% endif %}</b></div>
         <div class="block"><span>No asignado (territoriales y otros)</span><b>{% if bloc_right is not none and bloc_left is not none %}{{ "%.1f"|format(100 - bloc_right - bloc_left) }}%{% else %}—{% endif %}</b></div>
       </div>
-      <p class="muted small">Suma de medias de voto, no de escaños. No es una coalición, una investidura ni una proyección: solo una resta aritmética. ERC, Junts, Bildu, PNV, BNG, CC y el resto no se asignan a ninguno de los dos bloques.</p>
+      <p class="muted small">Frente Amplio no tiene agregado comparable; su bloque queda sin cifra. Suma de medias de voto, no de escaños. No es una coalición, una investidura ni una proyección: solo una resta aritmética. ERC, Junts, Bildu, PNV, BNG, CC y el resto no se asignan a ninguno de los dos bloques.</p>
     </div>
   </section>
 

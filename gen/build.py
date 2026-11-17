@@ -38,6 +38,18 @@ PRE_DATA_CUTOFF = TZ.localize(datetime(2026, 11, 23, 23, 50))
 PRE_DATA_CUTOFF_LABEL = "2026-11-23T23:59:59+01:00"
 CIS_3584 = ROOT / "data" / "cis_3584_2026.json"
 PARTY_DISPLAY_PATH = ROOT / "data" / "partidos_display.json"
+CORRECTION_PATH = ROOT / "data" / "correccion_20261117.json"
+
+
+def _correction() -> dict:
+    try:
+        return json.loads(CORRECTION_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def _fa_aggregate_visible() -> bool:
+    return bool((_correction().get("aggregate_visible") or {}).get("SUMAR", False))
 
 BLACKOUT_SITEMAP = [
     ("", 1.0),
@@ -1119,7 +1131,7 @@ def build_house_compare(house: dict, parties: list) -> list:
             continue
         m = main.get(p["party"])
         rows.append({
-            "party": p["party"], "mean": p["mean"], "min": p["min"],
+            "party": p["party"], "party_label": party_label(p["party"]), "mean": p["mean"], "min": p["min"],
             "max": p["max"], "n_houses": p["n_houses"],
             "poll_mean": m, "diff": round(p["mean"] - m, 2) if m is not None else None,
         })
@@ -1793,11 +1805,17 @@ def write_robustez_data(latest: dict) -> None:
     payload = {
         "generado": latest.get("updated_at"),
         "n_polls": latest.get("n_polls"),
+        "n_houses": (latest.get("health") or {}).get("n_pollsters", 0),
         "n_polls_sin_cis": latest.get("n_polls_sin_cis"),
         "health": latest.get("health", {}),
         "excluded_trackings": latest.get("excluded_trackings", []),
         "tracking_latest": latest.get("tracking_latest", []),
-        "parties": [{k: p.get(k) for k in keys} for p in latest.get("parties", [])],
+        "parties": [
+            {k: p.get(k) for k in keys}
+            for p in latest.get("parties", [])
+            if _fa_aggregate_visible() or p.get("party") != "SUMAR"
+        ],
+        "fa_aggregate_visible": _fa_aggregate_visible(),
         "weights": latest.get("weights"),
         "house_latest": latest.get("house_latest", []),
         "house_latest_sorted": sorted(latest.get("house_latest", []), key=lambda r: (r.get("pp") is None, -(r.get("pp") or 0))),
@@ -2327,7 +2345,8 @@ def build_radar(latest: dict) -> dict:
     from collections import defaultdict
 
     parties = {p.get("party"): p for p in latest.get("parties", [])}
-    means = {k: float((parties.get(k) or {}).get("mean") or 0) for k in ("PP", "PSOE", "VOX", "SUMAR")}
+    fa_visible = _fa_aggregate_visible()
+    means = {k: float((parties.get(k) or {}).get("mean") or 0) for k in ("PP", "PSOE", "VOX", "SUMAR") if fa_visible or k != "SUMAR"}
     trackers = {"ElectoPanel", "SW Demoscopia", "40dB tracking", "Sigma Dos tracking"}
     aliases = {"Celeste Tel": "Celeste-Tel", "IMOP Insights": "IMOP"}
     start = "2026-08-31"
@@ -2409,10 +2428,11 @@ def build_radar(latest: dict) -> dict:
     hlabel = {"ok": "Datos suficientes", "warn": "Datos frágiles", "bad": "Datos insuficientes"}.get(hstatus, "Datos frágiles")
     right = float(latest.get("bloc_right") or 0)
     left = float(latest.get("bloc_left") or 0)
+    left = float(latest.get("bloc_left") or 0) if fa_visible else None
     blocks = [
         {"label": "PP + VOX", "value": right, "note": "derecha"},
-        {"label": "PSOE + Sumar + Podemos", "value": left, "note": "izquierda"},
-        {"label": "No asignado", "value": max(0.0, 100.0 - right - left), "note": "resto"},
+        {"label": "PSOE + Frente Amplio + Podemos", "value": left, "note": "sin agregado de Frente Amplio"},
+        {"label": "No asignado", "value": max(0.0, 100.0 - right - (left or 0)), "note": "resto"},
     ]
     trackings = []
     for t in latest.get("tracking_latest") or []:
@@ -2462,6 +2482,14 @@ def _party_display() -> dict:
 
 def party_label(code: str) -> str:
     return _party_display().get(code, {}).get("display_name", code)
+
+
+def _public_house_mean(house: dict, fa_visible: bool) -> dict:
+    if fa_visible or not house:
+        return house
+    out = dict(house)
+    out["parties"] = [p for p in house.get("parties", []) if p.get("party") != "SUMAR"]
+    return out
 
 def main(out: str = "web") -> None:
     global OUT
@@ -2655,11 +2683,40 @@ def main(out: str = "web") -> None:
          "state": "active" if now >= election_dt else ""},
     ]
     in_blackout = blackout.is_blackout(now)
-    parties = latest.get("parties", [])
+    fa_visible = _fa_aggregate_visible()
+    parties_all = latest.get("parties", [])
+    parties = [p for p in parties_all if fa_visible or p.get("party") != "SUMAR"]
     parties_table = [p for p in parties if not p.get("territorial")]
     parties_territorial = [p for p in parties if p.get("territorial")]
     parties_main = [p for p in parties if p.get("party") != "Otros" and not p.get("territorial")]
-    series = latest.get("series", {})
+    for _p in parties_all + parties + parties_table + parties_territorial + parties_main:
+        _p["party_label"] = party_label(_p.get("party") or "")
+    series_all = latest.get("series", {}) or {}
+    series = {k: v for k, v in series_all.items() if fa_visible or k != "SUMAR"}
+    series_long_all = latest.get("series_long", {}) or {}
+    series_long = {k: v for k, v in series_long_all.items() if fa_visible or k != "SUMAR"}
+    # Observaciones individuales de Frente Amplio: no hay agregado mientras
+    # la etiqueta y la comparabilidad no estén cerradas.
+    fa_audit = {}
+    try:
+        with open("data/auditoria_sondeos_20261117.csv", encoding="utf-8", newline="") as _af:
+            for _r in csv.DictReader(_af):
+                fa_audit[(_r.get("date"), _r.get("pollster"))] = _r
+    except OSError:
+        pass
+    fa_observations = []
+    for _p in series_all.get("SUMAR", []):
+        _a = fa_audit.get((_p.get("date"), _p.get("pollster")), {})
+        fa_observations.append({
+            "date": _p.get("date"),
+            "pollster": _p.get("pollster"),
+            "value": _p.get("value"),
+            "label_original": _a.get("label_original", "Frente Amplio"),
+            "label_status": _a.get("label_status", "pendiente"),
+            "source_url": _a.get("source_url"),
+            "discrepancy": _a.get("discrepancy", ""),
+            "note": _a.get("note", ""),
+        })
     pp_row = next((p for p in parties if p.get("party") == "PP"), None)
     psoe_row = next((p for p in parties if p.get("party") == "PSOE"), None)
     gap_sin_cis = None
@@ -2697,24 +2754,29 @@ def main(out: str = "web") -> None:
         "cis_comparison": cis_comparison,
         "parties_table": parties_table,
         "parties_territorial": parties_territorial,
-        "table_sum": latest.get("table_sum", round(sum(p["mean"] for p in parties_table), 2)),
+        "table_sum": round(sum(p["mean"] for p in parties_table), 2),
         "parties_main": parties_main,
+        "fa_aggregate_visible": fa_visible,
+        "fa_observations": fa_observations,
         "series": series,
-        "hemicycle": build_hemicycle(latest.get("hemicycle", [])),
+        "hemicycle": build_hemicycle([
+            x for x in latest.get("hemicycle", []) if fa_visible or x.get("party") != "SUMAR"
+        ]),
         "poll_dates": latest.get("poll_dates", []),
         "n_polls": latest.get("n_polls", 0),
+        "n_houses": (latest.get("health") or {}).get("n_pollsters", 0),
         "radar": build_radar(latest),
         "n_polls_sin_cis": latest.get("n_polls_sin_cis", 0),
         "n_polls_sin_cis_45d": latest.get("n_polls_sin_cis_45d", 0),
         "pp_mean": next((p["mean"] for p in parties if p["party"] == "PP"), None),
         "psoe_mean": next((p["mean"] for p in parties if p["party"] == "PSOE"), None),
         "sources": latest.get("sources", []),
-        "chart_svg": build_chart(latest.get("series_long", series), parties_main),
+        "chart_svg": build_chart(series_long, parties_main),
         "chart_legend": chart_legend(parties_main),
         "censo_jsonld": build_censo_jsonld(censo),
         "person_jsonld": build_person_jsonld(),
-        "sparks_svg": build_sparklines(latest.get("series_long", series), parties_main),
-        "series_span": series_span(latest.get("series_long", {})),
+        "sparks_svg": build_sparklines(series_long, parties_main),
+        "series_span": series_span(series_long),
         "updated_iso": latest.get("updated_at_iso", now.isoformat()),
         "low_n": latest.get("low_n", False),
         "window_span": latest.get("window_span", ""),
@@ -2727,6 +2789,8 @@ def main(out: str = "web") -> None:
         "lideres": lideres,
         "lideres_29n": [x for x in (lideres.get("leaders") or []) if _party_display().get(x.get("party"), {}).get("display_in_29n_leaders", True)],
         "party_display": _party_display(),
+        "party_label": party_label,
+        "historical_party_label": lambda code: (_party_display().get(code, {}) or {}).get("historical_display_name", code),
         "age_svg": build_age_chart(censo.get("edad_sexo", [])),
         "cera_svg": build_cera_chart(censo.get("cera_paises", [])[:10]),
         "fmt_miles": fmt_miles,
@@ -2738,12 +2802,15 @@ def main(out: str = "web") -> None:
         "excluded_trackings": latest.get("excluded_trackings", []),
         "tracking_latest": latest.get("tracking_latest", []),
         "novedades": latest.get("novedades", []),
-        "house_mean": latest.get("house_mean", {}),
+        "house_mean": _public_house_mean(latest.get("house_mean", {}), fa_visible),
         "weights": latest.get("weights") or {},
-        "sensitivity": latest.get("sensitivity", []),
+        "sensitivity": [
+            {**s, "means": {k: v for k, v in (s.get("means") or {}).items() if k != "SUMAR"}}
+            for s in latest.get("sensitivity", [])
+        ] if not fa_visible else latest.get("sensitivity", []),
         "house_latest": latest.get("house_latest", []),
         "house_latest_sorted": sorted(latest.get("house_latest", []), key=lambda r: (r.get("pp") is None, -(r.get("pp") or 0))),
-        "house_compare": build_house_compare(latest.get("house_mean", {}), parties),
+        "house_compare": build_house_compare(_public_house_mean(latest.get("house_mean", {}), fa_visible), parties),
         "escanos": escanos,
         "prov_selector": prov_selector,
         "prov_selector_json": json.dumps(prov_selector, ensure_ascii=False),
@@ -2828,7 +2895,7 @@ def main(out: str = "web") -> None:
         "gap_pp_psoe": latest.get("gap_pp_psoe"),
         "gap_pp_psoe_sin_cis": gap_sin_cis,
         "bloc_right": latest.get("bloc_right"),
-        "bloc_left": latest.get("bloc_left"),
+        "bloc_left": None if not fa_visible else latest.get("bloc_left"),
         "sim_congress": simulate_congress(parties_main),
         "gobernabilidad": build_gobernabilidad(congreso),
         "escenarios": escenarios,
@@ -2884,10 +2951,25 @@ def main(out: str = "web") -> None:
     write_repro_data(version, build_ts, build_date, build_commit, latest)
     append_snapshot_rss()
 
-    if not os.path.exists(os.path.join(OUT, "data/latest.json")):
-        safe_context = {k: v for k, v in context.items() if not callable(v)}
-        with open(os.path.join(OUT, "data/latest.json"), "w", encoding="utf-8") as f:
-            json.dump(safe_context, f, ensure_ascii=False, indent=2)
+    public_latest = {
+        **latest,
+        "parties": [p for p in latest.get("parties", []) if fa_visible or p.get("party") != "SUMAR"],
+        "series": {k: v for k, v in (latest.get("series") or {}).items() if fa_visible or k != "SUMAR"},
+        "series_long": {k: v for k, v in (latest.get("series_long") or {}).items() if fa_visible or k != "SUMAR"},
+        "hemicycle": [x for x in latest.get("hemicycle", []) if fa_visible or x.get("party") != "SUMAR"],
+        "house_mean": _public_house_mean(latest.get("house_mean", {}), fa_visible),
+        "sensitivity": [
+            {**s, "means": {k: v for k, v in (s.get("means") or {}).items() if fa_visible or k != "SUMAR"}}
+            for s in latest.get("sensitivity", [])
+        ],
+        "bloc_left": latest.get("bloc_left") if fa_visible else None,
+        "fa_aggregate_visible": fa_visible,
+        "fa_observations": fa_observations,
+        "n_houses": (latest.get("health") or {}).get("n_pollsters", 0),
+    }
+    os.makedirs(os.path.join(OUT, "data"), exist_ok=True)
+    with open(os.path.join(OUT, "data", "latest.json"), "w", encoding="utf-8") as f:
+        json.dump(public_latest, f, ensure_ascii=False, indent=2)
 
     if datetime(2026, 11, 1).date() <= now.date() < datetime(2026, 11, 29).date():
         os.makedirs("data", exist_ok=True)

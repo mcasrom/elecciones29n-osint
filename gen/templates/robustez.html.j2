@@ -41,7 +41,7 @@
       <thead><tr><th>Partido</th><th>Media</th><th>Simple</th><th>Rango</th><th>Casas (45 d)</th><th>Casas (14 d)</th><th>IQR</th></tr></thead>
       <tbody>
       {% for p in parties_table %}
-        <tr><td><strong>{{ p.party }}</strong>{% if p.n < 4 or (p.n_houses_recent and p.n_houses_recent < 3) %}<span title="n&lt;4 o menos de 3 casas en 14 d: media frágil" style="color:#f2c94c">*</span>{% endif %}</td><td class="num">{{ fmt_pct(p.mean) }}%</td><td class="num">{{ fmt_pct(p.mean_simple) }}%</td><td class="num">{{ fmt_pct(p.min) }}–{{ fmt_pct(p.max) }}%</td><td class="num">{% if p.n_houses_window %}{{ p.n_houses_window }}{% else %}—{% endif %}</td><td class="num">{% if p.n_houses_recent %}{{ p.n_houses_recent }}{% else %}—{% endif %}</td><td class="num">{% if p.iqr is not none %}{{ "%.1f"|format(p.iqr) }}{% else %}—{% endif %}</td></tr>
+        <tr><td><strong>{{ p.party_label }}</strong>{% if p.n < 4 or (p.n_houses_recent and p.n_houses_recent < 3) %}<span title="n&lt;4 o menos de 3 casas en 14 d: media frágil" style="color:#f2c94c">*</span>{% endif %}</td><td class="num">{{ fmt_pct(p.mean) }}%</td><td class="num">{{ fmt_pct(p.mean_simple) }}%</td><td class="num">{{ fmt_pct(p.min) }}–{{ fmt_pct(p.max) }}%</td><td class="num">{% if p.n_houses_window %}{{ p.n_houses_window }}{% else %}—{% endif %}</td><td class="num">{% if p.n_houses_recent %}{{ p.n_houses_recent }}{% else %}—{% endif %}</td><td class="num">{% if p.iqr is not none %}{{ "%.1f"|format(p.iqr) }}{% else %}—{% endif %}</td></tr>
       {% endfor %}
       </tbody>
     </table></div>
@@ -54,7 +54,7 @@
       <thead><tr><th>Partido</th><th>Mediana</th><th>Rango entre casas</th><th>IQR</th><th>Casas</th></tr></thead>
       <tbody>
       {% for p in house_mean.parties %}
-        <tr><td><strong>{{ p.party }}</strong></td><td class="num">{{ fmt_pct(p.median) }}%</td><td class="num">{{ fmt_pct(p.min) }}–{{ fmt_pct(p.max) }}%</td><td class="num">{% if p.iqr is not none %}{{ "%.1f"|format(p.iqr) }}{% else %}—{% endif %}</td><td class="num">{{ p.n_houses }}</td></tr>
+        <tr><td><strong>{{ p.party_label }}</strong></td><td class="num">{{ fmt_pct(p.median) }}%</td><td class="num">{{ fmt_pct(p.min) }}–{{ fmt_pct(p.max) }}%</td><td class="num">{% if p.iqr is not none %}{{ "%.1f"|format(p.iqr) }}{% else %}—{% endif %}</td><td class="num">{{ p.n_houses }}</td></tr>
       {% endfor %}
       </tbody>
     </table></div>
@@ -145,7 +145,7 @@
       <thead><tr><th>Partido</th><th>Media 14 d</th><th>Sin CIS (45 d)</th></tr></thead>
       <tbody>
       {% for p in parties[:8] %}
-        <tr><td><strong>{{ p.party }}</strong></td><td class="num">{{ fmt_pct(p.mean) }}%</td><td class="num">{% if p.mean_sin_cis_45d is not none %}{{ fmt_pct(p.mean_sin_cis_45d) }}%{% else %}—{% endif %}</td></tr>
+        <tr><td><strong>{{ p.party_label }}</strong></td><td class="num">{{ fmt_pct(p.mean) }}%</td><td class="num">{% if p.mean_sin_cis_45d is not none %}{{ fmt_pct(p.mean_sin_cis_45d) }}%{% else %}—{% endif %}</td></tr>
       {% endfor %}
       </tbody>
     </table></div>
@@ -156,11 +156,11 @@
   <div class="card" id="sensibilidad">
     <div class="cardhead"><h2>Quita una fuente o casa</h2><span class="hint">media recalculada sin ese bloque · Δ frente a la media</span></div>
     <div class="tablewrap"><table>
-      <thead><tr><th>Exclusión</th><th>PP</th><th>PSOE</th><th>VOX</th><th>Frente Amplio</th><th>Sondeos</th></tr></thead>
+      <thead><tr><th>Exclusión</th><th>PP</th><th>PSOE</th><th>VOX</th><th>Sondeos</th></tr></thead>
       <tbody>
       {% for s in sensitivity %}
         <tr><td><strong>{{ s.name }}</strong><br><span class="muted small">{{ s.kind }}</span></td>
-        {% for p in ("PP", "PSOE", "VOX", "SUMAR") %}
+        {% for p in ("PP", "PSOE", "VOX") %}
           {% set m = s.means.get(p) %}
           <td class="num">{% if m %}{{ fmt_pct(m.mean) }}%<br><span class="muted small">{{ "%+.1f"|format(m.delta) }} pp</span>{% else %}—{% endif %}</td>
         {% endfor %}

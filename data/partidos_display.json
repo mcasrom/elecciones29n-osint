@@ -6,15 +6,82 @@
     "leader": "Ada Colau",
     "leader_role": "candidate",
     "display_in_29n_leaders": false,
-    "note": "Serie interna SUMAR; coalición Frente Amplio. Yolanda Díaz no es candidata en el 29N."
+    "note": "Serie interna SUMAR; en 2026 la candidatura es Frente Amplio. Sumar (2023) es histórico y no se renombra.",
+    "historical_display_name": "Sumar (2023)",
+    "aggregate_visible": false,
+    "label_original": "Frente Amplio",
+    "current_election": "29N 2026"
   },
-  "PP": {"code":"PP","display_name":"PP","coalition":false,"leader":"Alberto Núñez Feijóo","leader_role":"candidate","display_in_29n_leaders":true},
-  "PSOE": {"code":"PSOE","display_name":"PSOE","coalition":false,"leader":"Pedro Sánchez","leader_role":"candidate","display_in_29n_leaders":true},
-  "VOX": {"code":"VOX","display_name":"VOX","coalition":false,"leader":"Santiago Abascal","leader_role":"candidate","display_in_29n_leaders":true},
-  "PODEMOS": {"code":"PODEMOS","display_name":"Podemos","coalition":false,"leader":"","leader_role":"","display_in_29n_leaders":false},
-  "ERC": {"code":"ERC","display_name":"ERC","coalition":false,"leader":"","leader_role":"","display_in_29n_leaders":false},
-  "JUNTS": {"code":"JUNTS","display_name":"Junts","coalition":false,"leader":"","leader_role":"","display_in_29n_leaders":false},
-  "BILDU": {"code":"BILDU","display_name":"Bildu","coalition":false,"leader":"","leader_role":"","display_in_29n_leaders":false},
-  "PNV": {"code":"PNV","display_name":"PNV","coalition":false,"leader":"","leader_role":"","display_in_29n_leaders":false},
-  "SAF": {"code":"SAF","display_name":"Se Acabó la Fiesta","coalition":false,"leader":"","leader_role":"","display_in_29n_leaders":false}
+  "PP": {
+    "code": "PP",
+    "display_name": "PP",
+    "coalition": false,
+    "leader": "Alberto Núñez Feijóo",
+    "leader_role": "candidate",
+    "display_in_29n_leaders": true
+  },
+  "PSOE": {
+    "code": "PSOE",
+    "display_name": "PSOE",
+    "coalition": false,
+    "leader": "Pedro Sánchez",
+    "leader_role": "candidate",
+    "display_in_29n_leaders": true
+  },
+  "VOX": {
+    "code": "VOX",
+    "display_name": "VOX",
+    "coalition": false,
+    "leader": "Santiago Abascal",
+    "leader_role": "candidate",
+    "display_in_29n_leaders": true
+  },
+  "PODEMOS": {
+    "code": "PODEMOS",
+    "display_name": "Podemos",
+    "coalition": false,
+    "leader": "",
+    "leader_role": "",
+    "display_in_29n_leaders": false
+  },
+  "ERC": {
+    "code": "ERC",
+    "display_name": "ERC",
+    "coalition": false,
+    "leader": "",
+    "leader_role": "",
+    "display_in_29n_leaders": false
+  },
+  "JUNTS": {
+    "code": "JUNTS",
+    "display_name": "Junts",
+    "coalition": false,
+    "leader": "",
+    "leader_role": "",
+    "display_in_29n_leaders": false
+  },
+  "BILDU": {
+    "code": "BILDU",
+    "display_name": "Bildu",
+    "coalition": false,
+    "leader": "",
+    "leader_role": "",
+    "display_in_29n_leaders": false
+  },
+  "PNV": {
+    "code": "PNV",
+    "display_name": "PNV",
+    "coalition": false,
+    "leader": "",
+    "leader_role": "",
+    "display_in_29n_leaders": false
+  },
+  "SAF": {
+    "code": "SAF",
+    "display_name": "Se Acabó la Fiesta",
+    "coalition": false,
+    "leader": "",
+    "leader_role": "",
+    "display_in_29n_leaders": false
+  }
 }

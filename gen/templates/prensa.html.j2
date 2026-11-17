@@ -28,7 +28,7 @@
     <div class="cardhead"><h2>Cifras principales</h2><span class="hint">media y rango observado</span></div>
     <div class="tablewrap"><table>
       <thead><tr><th>Partido</th><th>Media</th><th>Rango</th><th>n</th></tr></thead>
-      <tbody>{% for p in parties_table[:6] %}<tr><td><strong>{{ p.party }}</strong></td><td class="num">{{ fmt_pct(p.mean) }}%</td><td class="num">{{ fmt_pct(p.min) }}–{{ fmt_pct(p.max) }}</td><td class="num">{{ p.n }}</td></tr>{% endfor %}</tbody>
+      <tbody>{% for p in parties_table[:6] %}<tr><td><strong>{{ p.party_label }}</strong></td><td class="num">{{ fmt_pct(p.mean) }}%</td><td class="num">{{ fmt_pct(p.min) }}–{{ fmt_pct(p.max) }}</td><td class="num">{{ p.n }}</td></tr>{% endfor %}</tbody>
     </table></div>
     <p class="muted small">El rango es la dispersión observada entre los sondeos incluidos; <strong>no es un intervalo de confianza</strong>.</p>
   </div>

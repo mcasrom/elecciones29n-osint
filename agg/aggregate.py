@@ -736,6 +736,8 @@ def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[st
         "hemicycle": hemicycle,
         "poll_dates": poll_dates,
         "n_polls": n_polls,
+        "n_houses": n_pollsters,
+        "n_pollsters": n_pollsters,
         "n_polls_sin_cis": n_polls_sin_cis,
         "n_polls_sin_cis_45d": n_polls_sin_cis_45d,
         "low_n": n_polls < LOW_N,

@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.12.0 — 2026-11-17
+
+- **Corrección de etiquetas**: `SUMAR` deja de mostrarse como candidatura de 2026.
+  La candidatura es **Frente Amplio**; **Sumar** queda solo como resultado
+  histórico de 2023.
+- **Agregado retirado**: no se publica media de Frente Amplio mientras se
+  resuelven las discrepancias de la auditoría. Se muestran 15 observaciones
+  individuales con etiqueta, casa, fecha, fuente y estado.
+- **Auditoría**: `data/auditoria_sondeos_20261117.csv`; 15/15 etiqueta
+  Frente Amplio; 2 discrepancias de valor entre compiladores.
+- **Datos públicos**: `latest.json` y `robustez.json` dejan fuera el agregado
+  de SUMAR; `n_polls=15`, `n_houses=11`, `sample_pct=0`, último sondeo 15-N.
+- **Histórico intacto**: los resultados de 2023 siguen etiquetados como
+  «Sumar (2023)»; no se reescribe el pasado.
+
 ## 2026-10-28
 
 - **Alertas 29N**: el aviso distingue “nuevo sondeo”, “recalculo por ventana”

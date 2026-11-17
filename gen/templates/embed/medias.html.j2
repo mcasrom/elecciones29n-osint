@@ -24,7 +24,7 @@ body.embed{background:var(--panel);padding:0}
     <thead><tr><th>Partido</th><th>Media</th><th>Rango</th><th>Sondeos</th></tr></thead>
     <tbody>
     {% for p in parties_table[:7] %}
-      <tr><td><strong>{{ p.party }}</strong></td><td class="num">{{ fmt_pct(p.mean) }}%</td><td class="num">{{ fmt_pct(p.min) }}–{{ fmt_pct(p.max) }}</td><td class="num">{{ p.n }}</td></tr>
+      <tr><td><strong>{{ p.party_label }}</strong></td><td class="num">{{ fmt_pct(p.mean) }}%</td><td class="num">{{ fmt_pct(p.min) }}–{{ fmt_pct(p.max) }}</td><td class="num">{{ p.n }}</td></tr>
     {% endfor %}
     </tbody>
   </table></div>
