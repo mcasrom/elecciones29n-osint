@@ -5,7 +5,7 @@
 [![En vivo](https://img.shields.io/badge/en%20vivo-elecciones29n.pruebapublica.com-ff5a1f)](https://elecciones29n.pruebapublica.com/)
 [![Licencia](https://img.shields.io/badge/licencia-AGPL--3.0-3ddc97)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.12-8ec5ff)](https://www.python.org/)
-[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.11.2-ff5a1f)](CHANGELOG.md)
+[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.12.0-ff5a1f)](CHANGELOG.md)
 
 ---
 
@@ -38,7 +38,7 @@ La portada tiene **dos vistas**:
 - **Congelación de métricas:** **13-nov-2026 23:59**; después no se cambian partidos, bloques ni definiciones.
 - **Corte de datos:** **23-nov-2026 23:59**, antes del blackout.
 - **Foto final:** se crea en el build de cierre del **23-nov 23:50**, con SHA-256, y no se sobrescribe después.
-- **Métrica:** MAE y sesgo de PP, PSOE, VOX, SUMAR, ERC, Junts y PNV; error del gap PP-PSOE y de los bloques PP+VOX / PSOE+SUMAR+Podemos. No se evalúan escaños.
+- **Métrica:** MAE y sesgo de PP, PSOE, VOX, **Frente Amplio** (clave interna `SUMAR`), ERC, Junts y PNV; error del gap PP-PSOE y de los bloques PP+VOX / PSOE+Frente Amplio+Podemos. No se evalúan escaños.
 - **Página:** `/postelectoral.html`; pendiente hasta el escrutinio oficial.
 
 La congelación es de **reglas**, no de datos: los sondeos siguen entrando hasta el **23-nov** y la media se actualiza; lo que no cambia es la definición con la que se evaluará después.
@@ -64,7 +64,7 @@ La congelación es de **reglas**, no de datos: los sondeos siguen entrando hasta
 
 **Vigilancia diaria:** `scripts/watch_tracking.py` (cron 13–27 nov, 07:00 CET) avisa por Telegram de nuevos sondeos y posibles microdatos; no importa nada automáticamente. Plan: `docs/TRACKING-DIARIO.md`.
 
-**Casas canónicas y dedup:** `IMOP Insights` se une a `IMOP` y `Celeste Tel` a `Celeste-Tel`; una fila por casa/día, eligiendo la fuente con más partidos. La ventana pasa de 17 etiquetas a **15 sondeos efectivos** y de 12 a **10 casas**. La tabla de robustez muestra **media ponderada** y **media simple**; la media principal no cambia de fórmula.
+**Casas canónicas y dedup:** `IMOP Insights` se une a `IMOP` y `Celeste Tel` a `Celeste-Tel`; una fila por casa/día, eligiendo la fuente con más partidos. La ventana queda en **15 sondeos efectivos y 11 casas** tras el corte del 17-nov. La tabla de robustez muestra **media ponderada** y **media simple**; la media principal no cambia de fórmula.
 - **Gráfico duplicado:** retirado de «Agregado»; queda uno en «Evolución».
 - Auditoría completa y P1 pendiente: [`docs/AUDITORIA-20261103.md`](docs/AUDITORIA-20261103.md).
 
@@ -85,7 +85,7 @@ La media incorpora sondeos con **casa, fecha, tabla completa y URL**. La muestra
   No se incorpora sin la ficha primaria.
 - **PolitPro** — agregador JS; solo contraste/descubrimiento.
 - **40dB / El País** — encuesta del 9-nov verificada en ficha individual; entra sin muestra declarada. El informe de febrero se usa solo como formato y metodología.
-- **GAD3 / ABC** — encuesta del 9-nov; entra con tabla completa y sin muestra declarada.
+- **GAD3 / ABC** — encuesta del 9-nov; **5,0 %** de Frente Amplio según la fuente primaria GAD3/Datawrapper. El artículo dice 6 escaños y el gráfico 5; se usa el voto 5,0 % y se documenta la diferencia. Sin muestra declarada.
 - **Wikipedia EN** — índice de descubrimiento (CC BY-SA); la cifra se contrasta
   siempre con la fuente original.
 
@@ -152,9 +152,9 @@ python3 scripts/newsletter_provincia.py --test tu@email --province madrid
 
 `scripts/campaign_digest.py` aplica el calendario social: **pizarra lunes y viernes a las 08:00 (9–23 nov)** y **posts solo por evento**. Genera la infografía y publica automáticamente en **Mastodon/Bluesky/Telegram**; **X y LinkedIn** se remiten al dueño para copiar. Sin evento ni pizarra, silencio.
 
-**Criterios:** máximo **1 publicación/día** y **cooldown 24 h**; muestra mínima **4 sondeos y 2 casas**; evento por **Δ≥0,5 pp** en PP/PSOE/VOX/SUMAR o **Δgap PP-PSOE≥0,5**; cambio de **bloques ≥1 escaño**; **líderes ≥0,2** o cambio de orden. Con muestra **frágil** no se publica el evento: solo la pizarra semanal, con aviso. **Blackout 24–28 nov.** Aprobación opcional con `--approval` o `29N_REQUIRE_APPROVAL=1` (queda pendiente en la cola). Detalle y cron en [`docs/CAMPANA-29N.md`](docs/CAMPANA-29N.md).
+**Criterios:** máximo **1 publicación/día** y **cooldown 24 h**; muestra mínima **4 sondeos y 2 casas**; evento por **Δ≥0,5 pp** en PP/PSOE/VOX/**Frente Amplio** (clave interna `SUMAR`) o **Δgap PP-PSOE≥0,5**; cambio de **bloques ≥1 escaño**; **líderes ≥0,2** o cambio de orden. Con muestra **frágil** no se publica el evento: solo la pizarra semanal, con aviso. **Blackout 24–28 nov.** Aprobación opcional con `--approval` o `29N_REQUIRE_APPROVAL=1` (queda pendiente en la cola). Detalle y cron en [`docs/CAMPANA-29N.md`](docs/CAMPANA-29N.md).
 
-La **infografía v2** incluye voto de PP/PSOE/VOX/SUMAR/**Otros**, bloques PP+VOX vs PSOE+SUMAR+PODEMOS y un panel de **partidos territoriales** (ERC, Junts, Bildu, PNV) con su **n** y rango. No inventa voto por provincia: solo muestra los partidos territoriales que publican las casas; sus porcentajes no se suman a los bloques ni a «Otros».
+La **infografía v2** incluye voto de PP/PSOE/VOX/**Frente Amplio**/**Otros**, bloques PP+VOX vs PSOE+Frente Amplio+Podemos y un panel de **partidos territoriales** (ERC, Junts, Bildu, PNV) con su **n** y rango. No inventa voto por provincia: solo muestra los partidos territoriales que publican las casas; sus porcentajes no se suman a los bloques ni a «Otros».
 
 ## Aviso por correo
 
@@ -183,20 +183,30 @@ agregado.
 | **Datos frágiles** | 5–6 días o una sola casa | se publica con aviso |
 | **Datos insuficientes** | <4 sondeos o ≥7 días | se publica con aviso visible |
 
-> Al 15-nov: **14 sondeos y 10 encuestadoras en la ventana de 14 d**, último **sondeo individual 9-nov** → **datos frágiles** (6 días), **sin muestra declarada (0 %)**. Los trackings 13–15-nov no entran en la media. 50 candidatos siguen pendientes. Media: PP **31,5** · PSOE **26,48** · VOX **19,07** · SUMAR **6,79**.
-> Se combinan encuestas individuales de Electomanía, Onda Cero, Sigma Dos, SocioMétrica, NC Report, Target Point, Sondaxe, IMOP, Celeste-Tel, GAD3 y 40dB. **ElectoPanel** y **SW Demoscopia** se publican como tracking separado y no entran en la media; **Ateneo del Dato** se usa como contraste. Ver [`docs/RUTINA-SEMANAL.md`](docs/RUTINA-SEMANAL.md).
+> Al 17-nov: **15 sondeos y 11 casas en la ventana de 14 d** (6–15 nov), último **sondeo individual 15-nov** → **datos suficientes**. **Sin muestra declarada (0 %)**. Media: PP **31,22** · PSOE **26,84** · VOX **19,01** · **Frente Amplio 6,64**. Bloques: PP+VOX **50,23** · PSOE+FA+Podemos **35,14** · no asignado **14,63**.
+> Se combinan encuestas individuales de Electomanía, Onda Cero, Sigma Dos, SocioMétrica, NC Report, Target Point, Sondaxe, IMOP, Celeste-Tel, GAD3 y 40dB. **ElectoPanel**, **SW Demoscopia**, **40dB tracking** y **Sigma Dos tracking** no entran en la media. **GAD3** entra con **5,0 %** de Frente Amplio, confirmado con la fuente primaria; Electomanía (7,5) y Onda Cero (6,9) quedan documentados como discrepancias. Ver [`docs/CORRECCION-29N-20261117.md`](docs/CORRECCION-29N-20261117.md).
 
 ```bash
 .venv/bin/python scripts/health_report.py
 ```
 
+## Corrección GAD3 y etiquetas (17-nov-2026)
+
+- **SUMAR deja de ser una etiqueta pública de 2026.** La candidatura es **Frente Amplio**; **Sumar (2023)** queda como referencia histórica.
+- **GAD3: 5,0 %** confirmado con la fuente primaria (GAD3/Datawrapper). El artículo indica 6 escaños y el gráfico 5; se documenta la discrepancia de escaños y se usa el 5,0 % de voto.
+- **Agregado reabierto**: 15 sondeos, 11 casas, GAD3 incluida; PP+VOX 50,2 %, PSOE+FA+Podemos 35,1 %, no asignado 14,6 %.
+- **Captura documental**: `data/sources/gad3-abc-20261109/` con HTML, CSV, metadatos y SHA-256.
+- **Serie histórica**: `data/series_breaks.json`; no se presenta la serie antigua de Sumar como Frente Amplio.
+- Las páginas muestran **Frente Amplio**; no hay `SUMAR` como candidatura actual en portada, radar, robustez, hemiciclo, postelectoral ni claves.
+- La **clave interna de datos** sigue siendo `SUMAR` por compatibilidad; no es una etiqueta electoral pública en 2026.
+
 ## Revisión P0 histórica (23-oct-2026)
 
 - **Ventana por fecha natural**, no por hora: 14 días contando hoy (45/90 en sus ventanas). Un sondeo del día 14 ya no entra a las 23:00 y desaparece a las 08:00.
-- **Frente Amplio → SUMAR**: el ElectoPanel del 18-oct publica «Frente Amplio … 4,9 %»; se mapea a SUMAR y se backfilla la fila (suma del sondeo 87,3 → 92,2).
+- **Frente Amplio → SUMAR (histórico)**: el ElectoPanel del 18-oct se mapeó a la clave interna `SUMAR`. Desde el 17-nov esa equivalencia **no se usa como etiqueta pública**: la serie histórica Sumar y la candidatura Frente Amplio de 2026 no se mezclan. Ver `data/series_breaks.json`.
 - **Sin doble conteo territorial**: ERC, Junts, Bildu y PNV salen de la tabla principal (en Onda Cero ya van dentro de «Otros») y se publican aparte. La tabla muestra su suma: **98,83**.
 - **Etiquetas y auditoría**: «Datos suficientes/frágiles/insuficientes», muestra «3/9 con muestra (12.291 encuestados)» y casas a 45/14 d. `audit_datos.py` exige 90–110 en sondeos tracking y comprueba la suma.
-- Verificación: **103 tests**, **233 comprobaciones, 0 fallos críticos**; `n_polls=9` (11–19 oct). Versión **0.10.6**.
+- Verificación actual: **143 tests**, **233 comprobaciones, 0 fallos críticos**; `n_polls=15`, **11 casas**, último **15-nov**. Versión **0.12.0**.
 
 ## Actualización automática de sondeos
 
@@ -328,7 +338,7 @@ data/           histórico de sondeos y datasets normalizados (fuente de verdad)
 web/            salida estática publicada
 scripts/        run_daily, check, validate_site, canary, IndexNow, add_poll, health_report
 docs/           método, fuentes, rutina semanal, legal y sprint del observatorio
-tests/          120 pruebas (datos, build, validador, blackout, fichas provinciales)
+tests/          143 pruebas (datos, build, validador, blackout, fichas provinciales)
 systemd/        servicio y timer
 ```
 
@@ -372,7 +382,7 @@ Además de la media por sondeo (ponderada por recencia y muestra cuando existe),
 
 ## Calidad
 
-- **120 tests** (`unittest`) y hook **pre-push**.
+- **143 tests** (`unittest`) y hook **pre-push**.
 - `scripts/check.sh`: compila, tests, valida el sitio local y ejecuta la auditoría de datos.
 - **Validador** de publicación: gráfico con puntos, pestañas, JSON, sitemap, OG,
   RSS, censo, participación y escaños.
