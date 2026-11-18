@@ -29,6 +29,7 @@ HOUSE_NOTA = {"CIS": "estimación de voto"}
 TERRITORIAL = {"ERC", "JUNTS", "BILDU", "PNV"}
 # Series de tracking: contexto, no observaciones independientes para la media.
 TRACKING_POLLSTERS = {"ElectoPanel", "SW Demoscopia", "40dB tracking", "Sigma Dos tracking"}
+TRACKING_REGISTRY = "data/trackings_registry.csv"
 
 
 def _parse_date(s: str) -> datetime | None:
@@ -93,6 +94,35 @@ def load_polls() -> List[Dict[str, Any]]:
             seen_parties.add(row["party"])
             selected.append(row)
     return selected
+
+
+def load_tracking_registry() -> List[Dict[str, Any]]:
+    """Registro separado de trackings; no alimenta la media."""
+    path = TRACKING_REGISTRY
+    if not os.path.exists(path):
+        return []
+    rows: List[Dict[str, Any]] = []
+    with open(path, encoding="utf-8", newline="") as f:
+        for r in csv.DictReader(f):
+            if not r.get("pollster") or not r.get("date"):
+                continue
+            def num(k):
+                try: return float(r.get(k)) if r.get(k) not in (None, "") else None
+                except ValueError: return None
+            rows.append({
+                "pollster": r.get("pollster"),
+                "series": r.get("series") or r.get("pollster"),
+                "date": r.get("date"),
+                "pp": num("pp"), "psoe": num("psoe"), "vox": num("vox"), "sumar": num("sumar"),
+                "url": r.get("url") or "",
+                "sample": r.get("sample") or "",
+                "method": r.get("method") or "",
+                "cadence": r.get("cadence") or "",
+                "status": r.get("status") or "sin_ficha",
+                "note": r.get("note") or "",
+                "source": r.get("source") or "",
+            })
+    return sorted(rows, key=lambda x: (x["date"], x["pollster"]), reverse=True)
 
 
 def _iqr(vals: List[float]) -> float:
@@ -720,6 +750,9 @@ def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[st
             "sumar": round(_avg["SUMAR"], 2) if "SUMAR" in _avg else None,
             "url": next((_p.get("source_url") for _p in _obj["rows"] if _p.get("source_url")), None),
         })
+    registry = load_tracking_registry()
+    if registry:
+        tracking_latest = registry
     novedades = _novedades(tracking, now)
     weights = _poll_weights(recent, now, extended)
     sensitivity = _sensitivity(recent, parties, weights, now)
@@ -771,6 +804,9 @@ def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[st
             {p.get("pollster") for p in excluded_trackings}
         ),
         "tracking_latest": tracking_latest,
+        "tracking_registry": registry,
+        "tracking_registry_n": len(registry),
+        "tracking_no_ficha": sum(1 for x in registry if x.get("status") != "verificado"),
     }
 
 

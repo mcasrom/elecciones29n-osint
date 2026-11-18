@@ -1,0 +1,70 @@
+{
+  "updated_at": "2026-11-18 07:15 CET",
+  "n": 4,
+  "trackings": [
+    {
+      "pollster": "ElectoPanel",
+      "series": "ElectoPanel",
+      "date": "2026-11-17",
+      "pp": 30.8,
+      "psoe": 27.0,
+      "vox": 18.8,
+      "sumar": 6.1,
+      "url": "https://electomania.es/tracking-electopanel-17-nov-el-pp-sube-y-junto-al-psoe-arrebatan-varios-escanos-a-un-vox-en-torno-al-19/",
+      "sample": "",
+      "method": "",
+      "cadence": "diaria",
+      "status": "sin_ficha",
+      "note": "tracking; fuera de la media; sin muestra/método enlazados",
+      "source": "Electomanía"
+    },
+    {
+      "pollster": "SW Demoscopia",
+      "series": "SW Demoscopia",
+      "date": "2026-11-17",
+      "pp": 28.9,
+      "psoe": 31.9,
+      "vox": 16.5,
+      "sumar": 7.3,
+      "url": "https://electomania.es/tracking-sw-demoscopia-17-nov-el-pp-sube-pero-a-costa-de-vox/",
+      "sample": "",
+      "method": "",
+      "cadence": "diaria",
+      "status": "sin_ficha",
+      "note": "tracking; fuera de la media; sin muestra/método enlazados",
+      "source": "Electomanía"
+    },
+    {
+      "pollster": "40dB tracking",
+      "series": "40dB",
+      "date": "2026-11-17",
+      "pp": 31.8,
+      "psoe": 30.6,
+      "vox": 17.5,
+      "sumar": 3.7,
+      "url": "https://electomania.es/tracking-40db-17-nov-vox-se-frena-y-cede-terreno-al-pp/",
+      "sample": "",
+      "method": "",
+      "cadence": "diaria",
+      "status": "sin_ficha",
+      "note": "tracking; fuera de la media; sin muestra/método enlazados",
+      "source": "Electomanía"
+    },
+    {
+      "pollster": "Sigma Dos tracking",
+      "series": "Sigma Dos",
+      "date": "2026-11-17",
+      "pp": 30.7,
+      "psoe": 26.4,
+      "vox": 19.8,
+      "sumar": 6.7,
+      "url": "https://electomania.es/tracking-sigma-dos-17-nov-sanchez-esquilma-a-toda-la-izquierda-podemos-se-aleja-del-escano-y-colau-ya-roza-los-10-diputados/",
+      "sample": "",
+      "method": "",
+      "cadence": "diaria",
+      "status": "sin_ficha",
+      "note": "tracking; fuera de la media; sin muestra/método enlazados",
+      "source": "Electomanía"
+    }
+  ]
+}

@@ -1808,6 +1808,21 @@ def write_auditoria_data() -> None:
             shutil.copyfile(src, os.path.join(OUT, "data", dst))
 
 
+def write_trackings_data(latest: dict) -> None:
+    rows = latest.get("tracking_registry") or []
+    if not rows:
+        return
+    os.makedirs(os.path.join(OUT, "data"), exist_ok=True)
+    payload = {
+        "updated_at": latest.get("updated_at"),
+        "n": len(rows),
+        "note": "Registro separado de trackings. No entra en la media.",
+        "trackings": rows,
+    }
+    with open(os.path.join(OUT, "data", "trackings.json"), "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, indent=2)
+
+
 def write_robustez_data(latest: dict) -> None:
     os.makedirs(os.path.join(OUT, "data"), exist_ok=True)
     keys = ("party", "mean", "mean_simple", "median", "min", "max", "n", "mean_sin_cis",
@@ -2448,7 +2463,7 @@ def build_radar(latest: dict) -> dict:
             {"label": "No asignado", "value": max(0.0, 100.0 - right - left), "note": "resto"},
         ]
     trackings = []
-    for t in latest.get("tracking_latest") or []:
+    for t in (latest.get("tracking_registry") or latest.get("tracking_latest") or []):
         try:
             trackings.append({**t, "display": str(t.get("pollster") or "").replace(" tracking", ""),
                               "date_label": label(t.get("date") or "")})
@@ -2486,6 +2501,8 @@ def build_radar(latest: dict) -> dict:
         "blocks": blocks,
         "trackings": trackings,
         "tracking_series": tracking_series,
+        "tracking_registry_n": latest.get("tracking_registry_n", len(trackings)),
+        "tracking_no_ficha": latest.get("tracking_no_ficha", 0),
         "health": health,
     }
 
@@ -2962,6 +2979,7 @@ def main(out: str = "web") -> None:
     write_congreso_oficial_data(oficial)
     write_municipios_data(circ_pages, censo)
     write_auditoria_data()
+    write_trackings_data(latest)
     write_robustez_data(latest)
     write_cis_3584_data(cis_preelectoral)
     write_resultados_data(resultados)

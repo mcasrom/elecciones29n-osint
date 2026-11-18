@@ -3,18 +3,18 @@
   "n_polls": 15,
   "n_houses": 11,
   "last_poll_date": "2026-11-15",
-  "kish_effective_polls": 14.26,
-  "effective_sources": 1.98,
-  "effective_houses": 8.39,
-  "source_hhi": 0.5042,
-  "house_hhi": 0.1192,
+  "kish_effective_polls": 11.53,
+  "effective_sources": 2.78,
+  "effective_houses": 8.26,
+  "source_hhi": 0.36,
+  "house_hhi": 0.1211,
   "top_source": {
-    "name": "Onda Cero",
-    "share_pct": 54.6
+    "name": "Electomanía",
+    "share_pct": 40.0
   },
   "top_house": {
-    "name": "Sigma Dos",
-    "share_pct": 20.8
+    "name": "GAD3",
+    "share_pct": 20.0
   },
   "house_effect": [
     {
@@ -106,86 +106,86 @@
     {
       "pollster": "YouGov",
       "party": "PP",
-      "delta": 0.3,
-      "without": 31.52
+      "delta": 0.38,
+      "without": 31.6
     },
     {
       "pollster": "Sondaxe",
       "party": "PP",
-      "delta": 0.19,
-      "without": 31.41
+      "delta": 0.33,
+      "without": 31.55
     },
     {
       "pollster": "Sigma Dos",
+      "party": "PP",
+      "delta": 0.27,
+      "without": 31.49
+    },
+    {
+      "pollster": "40dB",
+      "party": "PP",
+      "delta": 0.22,
+      "without": 31.44
+    },
+    {
+      "pollster": "DYM",
       "party": "PP",
       "delta": 0.11,
       "without": 31.33
     },
     {
-      "pollster": "40dB",
+      "pollster": "NC Report",
+      "party": "PP",
+      "delta": 0.11,
+      "without": 31.33
+    },
+    {
+      "pollster": "GAD3",
       "party": "PP",
       "delta": 0.05,
       "without": 31.27
     },
     {
-      "pollster": "DYM",
-      "party": "PP",
-      "delta": -0.09,
-      "without": 31.13
-    },
-    {
-      "pollster": "NC Report",
-      "party": "PP",
-      "delta": -0.03,
-      "without": 31.19
-    },
-    {
-      "pollster": "GAD3",
-      "party": "PP",
-      "delta": 0.02,
-      "without": 31.24
-    },
-    {
       "pollster": "YouGov",
       "party": "PSOE",
-      "delta": 0.06,
-      "without": 26.9
+      "delta": -0.16,
+      "without": 26.68
     },
     {
       "pollster": "Sondaxe",
       "party": "PSOE",
-      "delta": 0.03,
-      "without": 26.87
+      "delta": -0.18,
+      "without": 26.66
     },
     {
       "pollster": "Sigma Dos",
       "party": "PSOE",
-      "delta": 0.37,
-      "without": 27.21
+      "delta": 0.05,
+      "without": 26.89
     },
     {
       "pollster": "40dB",
       "party": "PSOE",
-      "delta": -0.81,
-      "without": 26.03
+      "delta": -0.85,
+      "without": 25.99
     },
     {
       "pollster": "DYM",
       "party": "PSOE",
-      "delta": -0.11,
-      "without": 26.73
+      "delta": -0.26,
+      "without": 26.58
     },
     {
       "pollster": "NC Report",
       "party": "PSOE",
-      "delta": 0.04,
-      "without": 26.88
+      "delta": -0.14,
+      "without": 26.7
     },
     {
       "pollster": "GAD3",
       "party": "PSOE",
-      "delta": 0.01,
-      "without": 26.85
+      "delta": 0.02,
+      "without": 26.86
     }
   ],
   "caveat": "Sensibilidad descriptiva con el último sondeo de cada casa; no es un intervalo de confianza ni un pronóstico."

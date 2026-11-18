@@ -166,7 +166,7 @@
     {% if radar.trackings %}
     <div style="overflow-x:auto">
       <table class="radar-table">
-        <thead><tr><th>Tracking</th><th>Fecha</th><th>PP</th><th>PSOE</th><th>VOX</th><th>Frente Amplio</th><th></th></tr></thead>
+        <thead><tr><th>Tracking</th><th>Fecha</th><th>PP</th><th>PSOE</th><th>VOX</th><th>Frente Amplio</th><th>Ficha</th><th></th></tr></thead>
         <tbody>
         {% for t in radar.trackings %}
           <tr>
@@ -176,13 +176,14 @@
             <td class="num" data-label="PSOE">{{ "%.1f"|format(t.psoe) }} %</td>
             <td class="num" data-label="VOX">{{ "%.1f"|format(t.vox) }} %</td>
             <td class="num" data-label="Frente Amplio">{{ "%.1f"|format(t.sumar) }} %</td>
+            <td data-label="Ficha">{{ t.status or "sin_ficha" }}</td>
             <td data-label="Enlace">{% if t.url %}<a href="{{ t.url }}" target="_blank" rel="noopener noreferrer">fuente ↗</a>{% endif %}</td>
           </tr>
         {% endfor %}
         </tbody>
       </table>
     </div>
-    <p class="radar-note">Son series de una sola casa y pueden publicarse a diario. No son sondeos independientes ni se mezclan en la media: sirven para ver el movimiento reciente, no para sustituir la foto.</p>
+    <p class="radar-note">Son series de una sola casa y pueden publicarse a diario. No son sondeos independientes ni se mezclan en la media: sirven para ver el movimiento reciente, no para sustituir la foto. <strong>Registro separado:</strong> {{ radar.tracking_registry_n }} trackings · {{ radar.tracking_no_ficha }} sin ficha técnica enlazada.</p>
     {% else %}
     <p class="radar-empty">Sin trackings disponibles en esta actualización.</p>
     {% endif %}

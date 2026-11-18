@@ -1,33 +1,33 @@
 {
-  "generated_at": "2026-11-17T06:15:51+00:00",
+  "generated_at": "2026-11-18T06:15:43+00:00",
   "source": "intelligence-hub/news.db",
   "candidates_source": "BOE-A-2026-23103 · JEC · candidaturas proclamadas 3-nov-2026",
   "candidates_url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-23103",
   "note": "Registro operativo. Solo se marca 'verificado' lo que consta en el BOE (candidatura). Los cargos orgánicos no contrastados quedan como pendientes y no se publican como hechos.",
   "windows": {
     "1": {
-      "n_articles": 474,
+      "n_articles": 442,
       "n_electoral": 114,
       "sources": [
         {
           "name": "ABC",
-          "articles": 189
-        },
-        {
-          "name": "El Mundo",
-          "articles": 56
+          "articles": 157
         },
         {
           "name": "20minutos",
-          "articles": 50
+          "articles": 64
         },
         {
-          "name": "elDiario.es",
-          "articles": 48
+          "name": "El Mundo",
+          "articles": 51
         },
         {
           "name": "El País",
           "articles": 42
+        },
+        {
+          "name": "elDiario.es",
+          "articles": 36
         },
         {
           "name": "La Vanguardia",
@@ -35,7 +35,7 @@
         },
         {
           "name": "El Diario Cantabria",
-          "articles": 30
+          "articles": 33
         },
         {
           "name": "Europa Press",
@@ -56,11 +56,11 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cargo orgánico: secretario general, pendiente de fuente en este registro.",
-          "articles": 37,
-          "share_pct": 7.8,
+          "articles": 47,
+          "share_pct": 10.6,
           "days": 2,
-          "electoral": 23,
-          "electoral_share_pct": 20.2,
+          "electoral": 28,
+          "electoral_share_pct": 24.6,
           "electoral_days": 2
         },
         {
@@ -76,11 +76,11 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cargo orgánico: presidente nacional, pendiente de fuente en este registro.",
-          "articles": 22,
-          "share_pct": 4.6,
+          "articles": 27,
+          "share_pct": 6.1,
           "days": 2,
-          "electoral": 18,
-          "electoral_share_pct": 15.8,
+          "electoral": 20,
+          "electoral_share_pct": 17.5,
           "electoral_days": 2
         },
         {
@@ -96,8 +96,8 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cargo orgánico: presidente nacional, pendiente de fuente en este registro.",
-          "articles": 9,
-          "share_pct": 1.9,
+          "articles": 11,
+          "share_pct": 2.5,
           "days": 2,
           "electoral": 7,
           "electoral_share_pct": 6.1,
@@ -116,11 +116,11 @@
           "candidate": true,
           "status": "verified",
           "notes": "Denominación oficial BOE: Comuns-Front Ampli. Cabeza de lista por Barcelona.",
-          "articles": 8,
-          "share_pct": 1.7,
+          "articles": 6,
+          "share_pct": 1.4,
           "days": 2,
-          "electoral": 7,
-          "electoral_share_pct": 6.1,
+          "electoral": 6,
+          "electoral_share_pct": 5.3,
           "electoral_days": 2
         },
         {
@@ -137,11 +137,30 @@
           "status": "verified",
           "notes": "Oriol Junqueras es otra persona y otro cargo; no se agrupan.",
           "articles": 3,
-          "share_pct": 0.6,
-          "days": 2,
+          "share_pct": 0.7,
+          "days": 1,
           "electoral": 3,
           "electoral_share_pct": 2.6,
-          "electoral_days": 2
+          "electoral_days": 1
+        },
+        {
+          "id": "podemos-irene-montero",
+          "full_name": "Irene Montero Gil",
+          "aliases": [
+            "Irene Montero"
+          ],
+          "org": "Podemos",
+          "role": "Cabeza de lista por Madrid",
+          "role_type": "candidate",
+          "candidate": true,
+          "status": "verified",
+          "notes": "No es la secretaria general; no se duplica con Ione Belarra.",
+          "articles": 3,
+          "share_pct": 0.7,
+          "days": 1,
+          "electoral": 2,
+          "electoral_share_pct": 1.8,
+          "electoral_days": 1
         },
         {
           "id": "junts-miriam-nogueras",
@@ -157,11 +176,31 @@
           "status": "verified",
           "notes": "Carles Puigdemont es otra persona y otro cargo; no se agrupan.",
           "articles": 2,
-          "share_pct": 0.4,
+          "share_pct": 0.5,
           "days": 1,
-          "electoral": 0,
-          "electoral_share_pct": 0.0,
-          "electoral_days": 0
+          "electoral": 2,
+          "electoral_share_pct": 1.8,
+          "electoral_days": 1
+        },
+        {
+          "id": "bng-ana-ponton",
+          "full_name": "Ana Pontón Mondelo",
+          "aliases": [
+            "Ana Pontón",
+            "Pontón"
+          ],
+          "org": "BNG",
+          "role": "Portavoz nacional (pendiente de fuente)",
+          "role_type": "organic",
+          "candidate": false,
+          "status": "pending",
+          "notes": "No es cabeza de lista: Rodil encabeza A Coruña.",
+          "articles": 1,
+          "share_pct": 0.2,
+          "days": 1,
+          "electoral": 1,
+          "electoral_share_pct": 0.9,
+          "electoral_days": 1
         },
         {
           "id": "ehbildu-arnaldo-otegi",
@@ -179,68 +218,28 @@
           "articles": 1,
           "share_pct": 0.2,
           "days": 1,
-          "electoral": 0,
-          "electoral_share_pct": 0.0,
-          "electoral_days": 0
-        },
-        {
-          "id": "frente-amplio-emilio-delgado",
-          "full_name": "Emilio Delgado Orgaz",
-          "aliases": [
-            "Emilio Delgado"
-          ],
-          "org": "Frente Amplio",
-          "role": "Cabeza de lista por Madrid",
-          "role_type": "candidate",
-          "candidate": true,
-          "status": "verified",
-          "notes": "Cabeza distinta de Colau; no se suman.",
-          "articles": 1,
-          "share_pct": 0.2,
-          "days": 1,
           "electoral": 1,
           "electoral_share_pct": 0.9,
           "electoral_days": 1
         },
         {
-          "id": "erc-oriol-junqueras",
-          "full_name": "Oriol Junqueras i Vies",
+          "id": "cc-fernando-clavijo",
+          "full_name": "Fernando Clavijo Batlle",
           "aliases": [
-            "Oriol Junqueras",
-            "Junqueras"
+            "Fernando Clavijo"
           ],
-          "org": "ERC",
-          "role": "Presidente (pendiente de fuente)",
-          "role_type": "organic",
-          "candidate": false,
-          "status": "pending",
-          "notes": "No es cabeza de lista: Rufián encabeza Barcelona; Junqueras va en el nº 31.",
-          "articles": 1,
-          "share_pct": 0.2,
-          "days": 1,
-          "electoral": 1,
-          "electoral_share_pct": 0.9,
-          "electoral_days": 1
-        },
-        {
-          "id": "compromis-agueda-mico",
-          "full_name": "Àgueda Micó i Micó",
-          "aliases": [
-            "Àgueda Micó",
-            "Agueda Mico"
-          ],
-          "org": "Compromís",
+          "org": "Coalición Canaria",
           "role": "Dirigente (cargo pendiente)",
           "role_type": "organic",
           "candidate": false,
           "status": "pending",
-          "notes": "Cabeza de lista pendiente de confirmar.",
+          "notes": "Cabeza de lista pendiente de confirmar en el BOE.",
           "articles": 1,
           "share_pct": 0.2,
           "days": 1,
-          "electoral": 1,
-          "electoral_share_pct": 0.9,
-          "electoral_days": 1
+          "electoral": 0,
+          "electoral_share_pct": 0.0,
+          "electoral_days": 0
         },
         {
           "id": "pnv-aitor-esteban",
@@ -254,26 +253,6 @@
           "candidate": false,
           "status": "pending",
           "notes": "No consta como presidente del PNV/EBB; no se publica como presidente. La cabeza de lista por Bizkaia es Sagastizabal.",
-          "articles": 0,
-          "share_pct": 0.0,
-          "days": 0,
-          "electoral": 0,
-          "electoral_share_pct": 0.0,
-          "electoral_days": 0
-        },
-        {
-          "id": "bng-ana-ponton",
-          "full_name": "Ana Pontón Mondelo",
-          "aliases": [
-            "Ana Pontón",
-            "Pontón"
-          ],
-          "org": "BNG",
-          "role": "Portavoz nacional (pendiente de fuente)",
-          "role_type": "organic",
-          "candidate": false,
-          "status": "pending",
-          "notes": "No es cabeza de lista: Rodil encabeza A Coruña.",
           "articles": 0,
           "share_pct": 0.0,
           "days": 0,
@@ -302,17 +281,17 @@
           "electoral_days": 0
         },
         {
-          "id": "cc-fernando-clavijo",
-          "full_name": "Fernando Clavijo Batlle",
+          "id": "frente-amplio-emilio-delgado",
+          "full_name": "Emilio Delgado Orgaz",
           "aliases": [
-            "Fernando Clavijo"
+            "Emilio Delgado"
           ],
-          "org": "Coalición Canaria",
-          "role": "Dirigente (cargo pendiente)",
-          "role_type": "organic",
-          "candidate": false,
-          "status": "pending",
-          "notes": "Cabeza de lista pendiente de confirmar en el BOE.",
+          "org": "Frente Amplio",
+          "role": "Cabeza de lista por Madrid",
+          "role_type": "candidate",
+          "candidate": true,
+          "status": "verified",
+          "notes": "Cabeza distinta de Colau; no se suman.",
           "articles": 0,
           "share_pct": 0.0,
           "days": 0,
@@ -352,25 +331,6 @@
           "candidate": false,
           "status": "pending",
           "notes": "No es candidata por Madrid: la cabeza de lista es Irene Montero.",
-          "articles": 0,
-          "share_pct": 0.0,
-          "days": 0,
-          "electoral": 0,
-          "electoral_share_pct": 0.0,
-          "electoral_days": 0
-        },
-        {
-          "id": "podemos-irene-montero",
-          "full_name": "Irene Montero Gil",
-          "aliases": [
-            "Irene Montero"
-          ],
-          "org": "Podemos",
-          "role": "Cabeza de lista por Madrid",
-          "role_type": "candidate",
-          "candidate": true,
-          "status": "verified",
-          "notes": "No es la secretaria general; no se duplica con Ione Belarra.",
           "articles": 0,
           "share_pct": 0.0,
           "days": 0,
@@ -518,6 +478,26 @@
           "electoral_days": 0
         },
         {
+          "id": "erc-oriol-junqueras",
+          "full_name": "Oriol Junqueras i Vies",
+          "aliases": [
+            "Oriol Junqueras",
+            "Junqueras"
+          ],
+          "org": "ERC",
+          "role": "Presidente (pendiente de fuente)",
+          "role_type": "organic",
+          "candidate": false,
+          "status": "pending",
+          "notes": "No es cabeza de lista: Rufián encabeza Barcelona; Junqueras va en el nº 31.",
+          "articles": 0,
+          "share_pct": 0.0,
+          "days": 0,
+          "electoral": 0,
+          "electoral_share_pct": 0.0,
+          "electoral_days": 0
+        },
+        {
           "id": "teruelexiste-tomas-guitarte",
           "full_name": "Tomás Guitarte Gimeno",
           "aliases": [
@@ -556,44 +536,64 @@
           "electoral": 0,
           "electoral_share_pct": 0.0,
           "electoral_days": 0
+        },
+        {
+          "id": "compromis-agueda-mico",
+          "full_name": "Àgueda Micó i Micó",
+          "aliases": [
+            "Àgueda Micó",
+            "Agueda Mico"
+          ],
+          "org": "Compromís",
+          "role": "Dirigente (cargo pendiente)",
+          "role_type": "organic",
+          "candidate": false,
+          "status": "pending",
+          "notes": "Cabeza de lista pendiente de confirmar.",
+          "articles": 0,
+          "share_pct": 0.0,
+          "days": 0,
+          "electoral": 0,
+          "electoral_share_pct": 0.0,
+          "electoral_days": 0
         }
       ]
     },
     "7": {
-      "n_articles": 2850,
-      "n_electoral": 672,
+      "n_articles": 2861,
+      "n_electoral": 714,
       "sources": [
         {
           "name": "ABC",
-          "articles": 953
+          "articles": 958
         },
         {
           "name": "El Mundo",
-          "articles": 366
+          "articles": 370
         },
         {
           "name": "20minutos",
-          "articles": 352
+          "articles": 360
         },
         {
           "name": "El País",
-          "articles": 301
+          "articles": 299
         },
         {
           "name": "La Vanguardia",
-          "articles": 294
+          "articles": 293
         },
         {
           "name": "elDiario.es",
-          "articles": 248
+          "articles": 239
         },
         {
           "name": "El Diario Cantabria",
-          "articles": 170
+          "articles": 177
         },
         {
           "name": "Europa Press",
-          "articles": 166
+          "articles": 165
         }
       ],
       "people": [
@@ -610,11 +610,11 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cargo orgánico: secretario general, pendiente de fuente en este registro.",
-          "articles": 272,
-          "share_pct": 9.5,
+          "articles": 286,
+          "share_pct": 10.0,
           "days": 8,
-          "electoral": 170,
-          "electoral_share_pct": 25.3,
+          "electoral": 187,
+          "electoral_share_pct": 26.2,
           "electoral_days": 8
         },
         {
@@ -630,11 +630,11 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cargo orgánico: presidente nacional, pendiente de fuente en este registro.",
-          "articles": 164,
-          "share_pct": 5.8,
+          "articles": 170,
+          "share_pct": 5.9,
           "days": 8,
-          "electoral": 108,
-          "electoral_share_pct": 16.1,
+          "electoral": 117,
+          "electoral_share_pct": 16.4,
           "electoral_days": 8
         },
         {
@@ -650,11 +650,11 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cargo orgánico: presidente nacional, pendiente de fuente en este registro.",
-          "articles": 133,
-          "share_pct": 4.7,
+          "articles": 96,
+          "share_pct": 3.4,
           "days": 8,
-          "electoral": 69,
-          "electoral_share_pct": 10.3,
+          "electoral": 62,
+          "electoral_share_pct": 8.7,
           "electoral_days": 8
         },
         {
@@ -670,11 +670,11 @@
           "candidate": true,
           "status": "verified",
           "notes": "Denominación oficial BOE: Comuns-Front Ampli. Cabeza de lista por Barcelona.",
-          "articles": 57,
+          "articles": 56,
           "share_pct": 2.0,
           "days": 8,
-          "electoral": 40,
-          "electoral_share_pct": 6.0,
+          "electoral": 41,
+          "electoral_share_pct": 5.7,
           "electoral_days": 8
         },
         {
@@ -690,12 +690,12 @@
           "candidate": true,
           "status": "verified",
           "notes": "Oriol Junqueras es otra persona y otro cargo; no se agrupan.",
-          "articles": 16,
+          "articles": 17,
           "share_pct": 0.6,
-          "days": 7,
-          "electoral": 11,
-          "electoral_share_pct": 1.6,
-          "electoral_days": 7
+          "days": 6,
+          "electoral": 13,
+          "electoral_share_pct": 1.8,
+          "electoral_days": 6
         },
         {
           "id": "podemos-irene-montero",
@@ -709,12 +709,12 @@
           "candidate": true,
           "status": "verified",
           "notes": "No es la secretaria general; no se duplica con Ione Belarra.",
-          "articles": 14,
-          "share_pct": 0.5,
-          "days": 5,
-          "electoral": 9,
-          "electoral_share_pct": 1.3,
-          "electoral_days": 5
+          "articles": 17,
+          "share_pct": 0.6,
+          "days": 6,
+          "electoral": 11,
+          "electoral_share_pct": 1.5,
+          "electoral_days": 6
         },
         {
           "id": "junts-miriam-nogueras",
@@ -729,32 +729,12 @@
           "candidate": true,
           "status": "verified",
           "notes": "Carles Puigdemont es otra persona y otro cargo; no se agrupan.",
-          "articles": 7,
-          "share_pct": 0.2,
+          "articles": 8,
+          "share_pct": 0.3,
           "days": 4,
-          "electoral": 5,
-          "electoral_share_pct": 0.7,
+          "electoral": 6,
+          "electoral_share_pct": 0.8,
           "electoral_days": 3
-        },
-        {
-          "id": "bng-nestor-rego",
-          "full_name": "Néstor Rego Candamil",
-          "aliases": [
-            "Néstor Rego",
-            "Rego"
-          ],
-          "org": "BNG",
-          "role": "Cabeza de lista por A Coruña",
-          "role_type": "candidate",
-          "candidate": true,
-          "status": "verified",
-          "notes": "Corrección BOE: era la ficha de Olalla Rodil; el nº1 por A Coruña es Néstor Rego.",
-          "articles": 6,
-          "share_pct": 0.2,
-          "days": 3,
-          "electoral": 2,
-          "electoral_share_pct": 0.3,
-          "electoral_days": 2
         },
         {
           "id": "frente-amplio-emilio-delgado",
@@ -829,7 +809,27 @@
           "notes": "No es cabeza de lista: Rodil encabeza A Coruña.",
           "articles": 2,
           "share_pct": 0.1,
-          "days": 1,
+          "days": 2,
+          "electoral": 2,
+          "electoral_share_pct": 0.3,
+          "electoral_days": 2
+        },
+        {
+          "id": "ehbildu-arnaldo-otegi",
+          "full_name": "Arnaldo Otegi Mondragón",
+          "aliases": [
+            "Arnaldo Otegi",
+            "Otegi"
+          ],
+          "org": "EH Bildu",
+          "role": "Coordinador general (pendiente de fuente)",
+          "role_type": "organic",
+          "candidate": false,
+          "status": "pending",
+          "notes": "No es cabeza de lista: Etxebarrieta encabeza Gipuzkoa.",
+          "articles": 2,
+          "share_pct": 0.1,
+          "days": 2,
           "electoral": 1,
           "electoral_share_pct": 0.1,
           "electoral_days": 1
@@ -855,24 +855,43 @@
           "electoral_days": 0
         },
         {
-          "id": "adelanteandalucia-jose-garcia",
-          "full_name": "José Ignacio García",
+          "id": "cc-fernando-clavijo",
+          "full_name": "Fernando Clavijo Batlle",
           "aliases": [
-            "José Ignacio García",
-            "Jose Ignacio Garcia"
+            "Fernando Clavijo"
           ],
-          "org": "Adelante Andalucía",
-          "role": "Portavoz (cargo pendiente)",
+          "org": "Coalición Canaria",
+          "role": "Dirigente (cargo pendiente)",
           "role_type": "organic",
           "candidate": false,
           "status": "pending",
-          "notes": "Cabeza de lista pendiente de confirmar.",
+          "notes": "Cabeza de lista pendiente de confirmar en el BOE.",
           "articles": 2,
           "share_pct": 0.1,
           "days": 2,
-          "electoral": 1,
-          "electoral_share_pct": 0.1,
-          "electoral_days": 1
+          "electoral": 0,
+          "electoral_share_pct": 0.0,
+          "electoral_days": 0
+        },
+        {
+          "id": "bng-nestor-rego",
+          "full_name": "Néstor Rego Candamil",
+          "aliases": [
+            "Néstor Rego",
+            "Rego"
+          ],
+          "org": "BNG",
+          "role": "Cabeza de lista por A Coruña",
+          "role_type": "candidate",
+          "candidate": true,
+          "status": "verified",
+          "notes": "Corrección BOE: era la ficha de Olalla Rodil; el nº1 por A Coruña es Néstor Rego.",
+          "articles": 2,
+          "share_pct": 0.1,
+          "days": 2,
+          "electoral": 2,
+          "electoral_share_pct": 0.3,
+          "electoral_days": 2
         },
         {
           "id": "erc-oriol-junqueras",
@@ -934,43 +953,24 @@
           "electoral_days": 0
         },
         {
-          "id": "ehbildu-arnaldo-otegi",
-          "full_name": "Arnaldo Otegi Mondragón",
+          "id": "adelanteandalucia-jose-garcia",
+          "full_name": "José Ignacio García",
           "aliases": [
-            "Arnaldo Otegi",
-            "Otegi"
+            "José Ignacio García",
+            "Jose Ignacio Garcia"
           ],
-          "org": "EH Bildu",
-          "role": "Coordinador general (pendiente de fuente)",
+          "org": "Adelante Andalucía",
+          "role": "Portavoz (cargo pendiente)",
           "role_type": "organic",
           "candidate": false,
           "status": "pending",
-          "notes": "No es cabeza de lista: Etxebarrieta encabeza Gipuzkoa.",
+          "notes": "Cabeza de lista pendiente de confirmar.",
           "articles": 1,
           "share_pct": 0.0,
           "days": 1,
-          "electoral": 0,
-          "electoral_share_pct": 0.0,
-          "electoral_days": 0
-        },
-        {
-          "id": "cc-fernando-clavijo",
-          "full_name": "Fernando Clavijo Batlle",
-          "aliases": [
-            "Fernando Clavijo"
-          ],
-          "org": "Coalición Canaria",
-          "role": "Dirigente (cargo pendiente)",
-          "role_type": "organic",
-          "candidate": false,
-          "status": "pending",
-          "notes": "Cabeza de lista pendiente de confirmar en el BOE.",
-          "articles": 1,
-          "share_pct": 0.0,
-          "days": 1,
-          "electoral": 0,
-          "electoral_share_pct": 0.0,
-          "electoral_days": 0
+          "electoral": 1,
+          "electoral_share_pct": 0.1,
+          "electoral_days": 1
         },
         {
           "id": "masmadrid-monica-garcia",
