@@ -2454,6 +2454,8 @@ def build_radar(latest: dict) -> dict:
                               "date_label": label(t.get("date") or "")})
         except Exception:
             continue
+    tracking_last = max((x.get("last") for x in tracking_series if x.get("last")), default=None)
+    tracking_last_label = label(tracking_last) if tracking_last else "—"
     return {
         "polls": polls,
         "means": means,
@@ -2468,6 +2470,8 @@ def build_radar(latest: dict) -> dict:
         "blackout_end": "2026-11-28",
         "last_label": label(last),
         "today_label": label(today),
+        "tracking_last": tracking_last,
+        "tracking_last_label": tracking_last_label,
         "window_label": f"{first_win}–{last_win}",
         "n_polls": latest.get("n_polls", 0),
         "n_houses": health.get("n_pollsters", 0),
