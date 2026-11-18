@@ -1,6 +1,7 @@
-{% set page_title = "Sociología del electorado · qué se puede y no se puede saber" %}
-{% set page_desc = "Working paper: voto declarado en 2023 por edad, sexo e ideología; qué se puede afirmar, qué no y por qué no se calcula fidelidad ni perfil del indeciso con estos datos." %}
+{% set page_title = "Estructura social del voto de 2023 · 29N" %}
+{% set page_desc = "Working paper: recuerdo declarado del voto de 2023 por edad, sexo e ideología. Qué se puede afirmar, qué no y por qué no se calcula fidelidad ni perfil del indeciso con estos datos." %}
 {% set canonical = site_url ~ "/comportamiento.html" %}
+{% set page_image = "/og-sociologia-29n-v2.png" %}
 {% set jsonld = m4_jsonld %}
 {% macro cell(v) -%}
   {%- if v.suppressed -%}<span class="muted" title="n&lt;30">—</span>{%- else -%}{{ fmt_pct(v.pct) }}%<br><small class="muted">n={{ fmt_miles(v.n) }}</small>{%- endif -%}
@@ -25,8 +26,9 @@
 <body>
 {% include "_nav.html.j2" %}
 <main class="container">
-  <h1 style="margin:18px 0 4px;font-size:30px;letter-spacing:-0.02em">Sociología del electorado</h1>
-  <p class="muted" style="margin:0 0 14px">Working paper · 18-nov-2026 · voto declarado en 2023 por edad, sexo e ideología. Fuente: CIS 3582; contexto de indecisos: CIS 3584.</p>
+  <p class="muted" style="margin:18px 0 2px;font-size:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:700">Sociología del electorado · working paper</p>
+  <h1 style="margin:4px 0 4px;font-size:30px;letter-spacing:-0.02em">Estructura social del voto de 2023</h1>
+  <p class="muted" style="margin:0 0 14px">Recuerdo declarado por edad, sexo y autoubicación ideológica. CIS, octubre de 2026. No es una predicción del 29N.</p>
 
   {% if m4 %}
   <div class="alert warn">
@@ -46,16 +48,17 @@
   <div class="socgrid">
     <div class="soccard">
       <h2>Voto declarado 2023 por edad</h2>
-      <p class="socnote">PSOE y PP sobre votantes a partidos. Barras ausentes = celda suprimida (n&lt;30).</p>
-      <div class="soclegend"><span><i style="background:#b83b3b"></i>PSOE</span><span><i style="background:#2f6db3"></i>PP</span></div>
+      <p class="socnote">PSOE, PP, VOX y SUMAR sobre votantes a partidos. Barras ausentes = celda suprimida (n&lt;30).</p>
+      <div class="soclegend"><span><i style="background:#b83b3b"></i>PSOE</span><span><i style="background:#2f6db3"></i>PP</span><span><i style="background:#c48b18"></i>VOX</span><span><i style="background:#6b4bb3"></i>SUMAR</span></div>
       {% for g in m4.edad.grupos %}
         <div class="socrow">
           <span class="socname">{{ g.nombre }}</span>
           <div class="socbars">
-            {% if not g.partidos.PSOE.suppressed %}<i class="socbar psoe" style="width:{{ g.partidos.PSOE.pct }}%"></i>{% endif %}
-            {% if not g.partidos.PP.suppressed %}<i class="socbar pp" style="width:{{ g.partidos.PP.pct }}%"></i>{% endif %}
+            {% for p, cls in [("PSOE","psoe"),("PP","pp"),("VOX","vox"),("SUMAR","sumar")] %}
+              {% if not g.partidos[p].suppressed %}<i class="socbar {{ cls }}" title="{{ p }} {{ fmt_pct(g.partidos[p].pct) }}% (n={{ fmt_miles(g.partidos[p].n) }})" style="width:{{ g.partidos[p].pct }}%"></i>{% endif %}
+            {% endfor %}
           </div>
-          <span class="socval">PSOE {{ "—" if g.partidos.PSOE.suppressed else fmt_pct(g.partidos.PSOE.pct) ~ "%" }} · PP {{ "—" if g.partidos.PP.suppressed else fmt_pct(g.partidos.PP.pct) ~ "%" }}</span>
+          <span class="socval">n={{ fmt_miles(g.n_base) }}</span>
         </div>
       {% endfor %}
       <p class="socnote">El tramo 18–24 incluye a menores que no votaron en 2023; la base es menor y hay más celdas suprimidas.</p>
@@ -77,6 +80,24 @@
         </div>
       {% endfor %}
       <p class="socnote">La ideología no es una predicción del voto: es una categoría declarada en la misma encuesta.</p>
+    </div>
+
+    <div class="soccard" style="grid-column:1/-1">
+      <h2>Voto declarado 2023 por sexo</h2>
+      <p class="socnote">Barras ausentes = celda suprimida (n&lt;30). La tabla de detalle está más abajo.</p>
+      <div class="soclegend"><span><i style="background:#b83b3b"></i>PSOE</span><span><i style="background:#2f6db3"></i>PP</span><span><i style="background:#c48b18"></i>VOX</span><span><i style="background:#6b4bb3"></i>SUMAR</span></div>
+      {% for g in m4.sexo.grupos %}
+        <div class="socrow">
+          <span class="socname">{{ g.nombre }}</span>
+          <div class="socbars">
+            {% for p, cls in [("PSOE","psoe"),("PP","pp"),("VOX","vox"),("SUMAR","sumar")] %}
+              {% if not g.partidos[p].suppressed %}<i class="socbar {{ cls }}" title="{{ p }} {{ fmt_pct(g.partidos[p].pct) }}% (n={{ fmt_miles(g.partidos[p].n) }})" style="width:{{ g.partidos[p].pct }}%"></i>{% endif %}
+            {% endfor %}
+          </div>
+          <span class="socval">n={{ fmt_miles(g.n_base) }}</span>
+        </div>
+      {% endfor %}
+      <p class="socnote">La brecha de sexo es descriptiva: no mide fidelidad ni intención de voto de 2026.</p>
     </div>
   </div>
 
