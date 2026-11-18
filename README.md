@@ -47,6 +47,8 @@ La congelación es de **reglas**, no de datos: los sondeos siguen entrando hasta
 
 - **`scripts/accesos_29n.py`** agrega por día **humano / dueño / IA gente / bots / IA crawler / API / interno**, sin guardar IPs en claro.
 - Base local: `data/accesos_29n.db` (ignorada por Git). **Cron diario 07:10 UTC**: informe de ayer al Telegram del dueño; alerta si hay **0 humanos** o los bots superan **3× la mediana de 7 días**.
+- **Semanal (viernes 07:30):** `scripts/accesos_29n.py --week --tg`. Distingue **estricto diario** (≥2 páginas/día) de **estricto recurrente** (≥2 páginas y ≥2 días). Corte 11–17 nov: **866 IPs humanas, 131 estrictas, 13 recurrentes, 8 dominios externos**. El objetivo de 20 solo se cumple con la definición amplia; con recurrencia queda en 13.
+- **GSC es manual:** no se automatiza. El aviso del 18-nov mezclaba assets (`sw.js?v=...`, JSON/CSV) con páginas. Se eliminó el `?v=` del service worker y `robots.txt` bloquea `/data/`, `/sw.js`, `/version.json`, `/manifest.webmanifest` y `/cambios.xml`. Los `noindex` de `/embed/*` son intencionados. Detalle: [`docs/GSC-29N.md`](docs/GSC-29N.md).
 - No se envía al canal público: son métricas internas. La clasificación distingue a **ChatGPT-User/Claude-User** (alguien pidió abrir el enlace) de los crawlers de IA.
 - **Límite:** nginx conserva 14 rotaciones. El corte del **14-nov** cubre **31-oct → 14-nov**; los días 17–30 de octubre no se pueden reconstruir.
 - Foto 31-oct→14-nov: **2.549 peticiones humanas (10,9 % del total; 18,1 % excluyendo dueño e interno)**, **1.794 IPs únicas**, **48 repiten en ≥2 días**, **349 IPs únicas con ≥2 páginas en algún día (396 IP-día)**; 9.535 bots, 1.215 IA crawler, 2.200 dueño, 7.051 interno. No se usa para afirmar “lectores únicos” verificados.

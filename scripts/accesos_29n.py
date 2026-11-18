@@ -5,16 +5,19 @@ Uso:
   python3 scripts/accesos_29n.py --yesterday --tg   # cron diario
   python3 scripts/accesos_29n.py --all              # backfill
   python3 scripts/accesos_29n.py --day 2026-11-13   # un día
+  python3 scripts/accesos_29n.py --week --tg        # semana móvil de 7 días
 """
 from __future__ import annotations
 
 import argparse
 import collections
+import json
 import os
 import sqlite3
 import sys
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
+from urllib.parse import urlsplit
 
 ROOT = Path("/home/deploy/elecciones29n-osint")
 FIMI = Path("/home/deploy/hybrid-fimi-radar")
@@ -44,6 +47,17 @@ CREATE TABLE IF NOT EXISTS daily (
   top_pages TEXT NOT NULL DEFAULT '[]',
   human_alert INTEGER NOT NULL DEFAULT 0,
   bot_alert INTEGER NOT NULL DEFAULT 0,
+  updated_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS weekly (
+  week_end TEXT PRIMARY KEY,
+  week_start TEXT NOT NULL,
+  human_ips INTEGER NOT NULL,
+  strict_ips INTEGER NOT NULL,
+  recurrent_ips INTEGER NOT NULL,
+  external_domains INTEGER NOT NULL,
+  external_top TEXT NOT NULL DEFAULT '[]',
+  top_pages TEXT NOT NULL DEFAULT '[]',
   updated_at TEXT NOT NULL
 );
 """
@@ -96,10 +110,43 @@ def collect():
                 pages[r["dia"]][r["ruta"].split("?")[0]] += 1
                 if pages_by_ip[(r["dia"], r["ip"])] >= 2:
                     ips[r["dia"]]["strict"].add(r["ip"])
-    return daily, ips, pages
+
+    weekly = {}
+    today = datetime.now(timezone.utc).date().isoformat()
+    complete_days = sorted({r["dia"] for r in recs if r["dia"] < today})
+    if complete_days:
+        end = complete_days[-1]
+        start = (date.fromisoformat(end) - timedelta(days=6)).isoformat()
+        human_week = set()
+        strict_days = collections.defaultdict(set)
+        external = collections.Counter()
+        pages_week = collections.Counter()
+        for r in recs:
+            if r["dia"] < start or r["cat"] != "HUMANO_PROBABLE" or not r["page"]:
+                continue
+            human_week.add(r["ip"])
+            path = r["ruta"].split("?")[0]
+            pages_week[path] += 1
+            if pages_by_ip[(r["dia"], r["ip"])] >= 2:
+                strict_days[r["ip"]].add(r["dia"])
+            ref = r.get("referer") or "-"
+            if ref and ref != "-":
+                host = urlsplit(ref if "://" in ref else "http://" + ref).hostname or ""
+                if host and not host.endswith("pruebapublica.com"):
+                    external[host] += 1
+        weekly = {
+            "week_end": end,
+            "week_start": start,
+            "human_ips": len(human_week),
+            "strict_ips": len(strict_days),
+            "recurrent_ips": sum(1 for days in strict_days.values() if len(days) >= 2),
+            "external": external,
+            "pages": pages_week,
+        }
+    return daily, ips, pages, weekly
 
 
-def upsert(con, daily, ips, pages):
+def upsert(con, daily, ips, pages, weekly):
     con.executescript(DDL)
     for day in sorted(daily):
         c = daily[day]
@@ -114,6 +161,17 @@ def upsert(con, daily, ips, pages):
              c["DUENO"], c["IA_GENTE"], c["BOT"], c["ASISTENTE_IA"],
              c["API"], c["INTERNAL"], round(100 * human / max(1, total), 1),
              __import__("json").dumps(top, ensure_ascii=False),
+             datetime.now(timezone.utc).isoformat(timespec="seconds")),
+        )
+    if weekly:
+        con.execute(
+            "INSERT OR REPLACE INTO weekly(week_end,week_start,human_ips,strict_ips,"
+            "recurrent_ips,external_domains,external_top,top_pages,updated_at)"
+            " VALUES (?,?,?,?,?,?,?,?,?)",
+            (weekly["week_end"], weekly["week_start"], weekly["human_ips"],
+             weekly["strict_ips"], weekly["recurrent_ips"], len(weekly["external"]),
+             json.dumps(weekly["external"].most_common(10), ensure_ascii=False),
+             json.dumps(weekly["pages"].most_common(10), ensure_ascii=False),
              datetime.now(timezone.utc).isoformat(timespec="seconds")),
         )
     con.commit()
@@ -168,6 +226,24 @@ def report(con, day):
     return "\n".join(lines)
 
 
+def report_week(con, week_end):
+    r = con.execute("SELECT * FROM weekly WHERE week_end=?", (week_end,)).fetchone()
+    if not r:
+        return None
+    keys = [d[0] for d in con.execute("SELECT * FROM weekly LIMIT 0").description]
+    d = dict(zip(keys, r))
+    top = json.loads(d["external_top"])
+    pages = json.loads(d["top_pages"])
+    lines = [
+        f"📊 29N · semana {d['week_start']} → {d['week_end']}",
+        f"Humanos {d['human_ips']} IPs · estrictos {d['strict_ips']} · recurrentes {d['recurrent_ips']}",
+        f"Dominios externos {d['external_domains']}: " + " · ".join(f"{h} {n}" for h, n in top[:6]),
+    ]
+    if pages:
+        lines.append("Top: " + " · ".join(f"{p} {n}" for p, n in pages[:3]))
+    return "\n".join(lines)
+
+
 def send_tg(text):
     sys.path.insert(0, str(SOCIAL))
     import social_queue as q
@@ -183,16 +259,27 @@ def main():
     ap.add_argument("--yesterday", action="store_true")
     ap.add_argument("--all", action="store_true")
     ap.add_argument("--day")
+    ap.add_argument("--week", nargs="?", const="latest")
     ap.add_argument("--tg", action="store_true")
     a = ap.parse_args()
-    daily, ips, pages = collect()
+    daily, ips, pages, weekly = collect()
     con = sqlite3.connect(DB)
-    upsert(con, daily, ips, pages)
+    upsert(con, daily, ips, pages, weekly)
     days = sorted(daily)
     if a.all:
         for d in days:
             mark_alerts(con, d)
         print(f"backfill {len(days)} días · {DB}")
+        return 0
+    if a.week:
+        target_week = (weekly.get("week_end") if a.week == "latest" else a.week)
+        text = report_week(con, target_week)
+        if not text:
+            print(f"sin semana para {target_week}", file=sys.stderr)
+            return 1
+        print(text)
+        if a.tg:
+            return 0 if send_tg(text) else 1
         return 0
     if a.day:
         target = a.day
