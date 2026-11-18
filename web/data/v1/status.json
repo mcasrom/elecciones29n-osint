@@ -1,14 +1,14 @@
 {
   "version": "0.12.0",
-  "build": "202611180931",
+  "build": "202611181502",
   "date": "2026-11-18",
-  "commit": "ad60b67",
+  "commit": "5517f4a",
   "generated_at": "2026-11-18T09:31:07.935423+01:00",
   "n_polls": 15,
   "n_pollsters": 11,
   "window_days": 14,
   "files": {
-    "data/latest.json": "d7498c787660b70a66e305616240f5b969497d57827701d9aeaa9b4219cfdc66",
+    "data/latest.json": "36d1ebd947eb3869390375ac26290b646eb337cd9ac95bd4ec4573088b793747",
     "data/robustez.json": "eae739aa0f7692f691a77951f4891b3535822c6043779ce15fb3717b206351cc",
     "data/polls_history.csv": null
   },
@@ -31,8 +31,8 @@
   ],
   "snapshot": {
     "date": "2026-11-18",
-    "hash": "a6af48d885648930888157ca4f53fa15bcb11134c7fe76c736f0fb0a802febd7",
-    "prev_hash": "fe2cb46eb85991acebb38f56c3f69ebb25bb69395fd5381b9989020ba52ed8a9"
+    "hash": "e0bd57e0799d13d23bbbdf2c347f8c5aabe2201578a5151b2076e078fb5ce126",
+    "prev_hash": "a6af48d885648930888157ca4f53fa15bcb11134c7fe76c736f0fb0a802febd7"
   },
   "pre_registro": {
     "sha256": "e2fc1caa4510627ec412d983cbe22e7d3925f8f8c4535f3f70ea6e3dbf5ff83f",

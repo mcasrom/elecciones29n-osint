@@ -91,7 +91,7 @@ PAGES = [
     ("mi-circunscripcion.html", "mi-circunscripcion.html", "2026-11-04", "monthly", "0.7"),
     ("noche-electoral.html", "noche-electoral.html", "2026-10-18", "weekly", "0.7"),
     ("factores.html", "factores.html", "2026-10-18", "monthly", "0.6"),
-    ("comportamiento.html", "comportamiento.html", "2026-10-18", "monthly", "0.6"),
+    ("comportamiento.html", "comportamiento.html", "2026-11-18", "monthly", "0.6"),
     ("como-leer.html", "como-leer.html", "2026-10-22", "monthly", "0.8"),
     ("robustez.html", "robustez.html", "2026-10-22", "daily", "0.8"),
     ("privacidad.html", "privacidad.html", "2026-10-23", "yearly", "0.2"),

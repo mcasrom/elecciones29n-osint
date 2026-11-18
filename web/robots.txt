@@ -1,9 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /data/
-Disallow: /sw.js
-Disallow: /version.json
-Disallow: /manifest.webmanifest
-Disallow: /cambios.xml
 
 Sitemap: https://elecciones29n.pruebapublica.com/sitemap.xml

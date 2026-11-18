@@ -38,7 +38,8 @@
       "mean_sin_cis_45d": 31.33,
       "n_sin_cis_45d": 39,
       "n_houses": 15,
-      "iqr": 2.2
+      "iqr": 2.2,
+      "party_label": "PP"
     },
     {
       "party": "PSOE",
@@ -74,7 +75,8 @@
       "mean_sin_cis_45d": 26.66,
       "n_sin_cis_45d": 39,
       "n_houses": 15,
-      "iqr": 2.3
+      "iqr": 2.3,
+      "party_label": "PSOE"
     },
     {
       "party": "VOX",
@@ -110,7 +112,8 @@
       "mean_sin_cis_45d": 19.08,
       "n_sin_cis_45d": 39,
       "n_houses": 15,
-      "iqr": 1.1
+      "iqr": 1.1,
+      "party_label": "VOX"
     },
     {
       "party": "Otros",
@@ -146,7 +149,8 @@
       "mean_sin_cis_45d": 11.87,
       "n_sin_cis_45d": 39,
       "n_houses": 15,
-      "iqr": 4.6
+      "iqr": 4.6,
+      "party_label": "Otros"
     },
     {
       "party": "SUMAR",
@@ -182,7 +186,8 @@
       "mean_sin_cis_45d": 6.67,
       "n_sin_cis_45d": 39,
       "n_houses": 15,
-      "iqr": 1.6
+      "iqr": 1.6,
+      "party_label": "Frente Amplio"
     },
     {
       "party": "ERC",
@@ -213,7 +218,8 @@
       "mean_sin_cis_45d": 2.47,
       "n_sin_cis_45d": 9,
       "n_houses": 5,
-      "iqr": 0.7
+      "iqr": 0.7,
+      "party_label": "ERC"
     },
     {
       "party": "PODEMOS",
@@ -249,7 +255,8 @@
       "mean_sin_cis_45d": 1.88,
       "n_sin_cis_45d": 39,
       "n_houses": 15,
-      "iqr": 1.0
+      "iqr": 1.0,
+      "party_label": "Podemos"
     },
     {
       "party": "SAF",
@@ -280,7 +287,8 @@
       "mean_sin_cis_45d": 1.7,
       "n_sin_cis_45d": 19,
       "n_houses": 10,
-      "iqr": 0.52
+      "iqr": 0.52,
+      "party_label": "Se Acabó la Fiesta"
     },
     {
       "party": "BILDU",
@@ -311,7 +319,8 @@
       "mean_sin_cis_45d": 1.42,
       "n_sin_cis_45d": 9,
       "n_houses": 5,
-      "iqr": 0.2
+      "iqr": 0.2,
+      "party_label": "Bildu"
     },
     {
       "party": "JUNTS",
@@ -342,7 +351,8 @@
       "mean_sin_cis_45d": 1.45,
       "n_sin_cis_45d": 9,
       "n_houses": 5,
-      "iqr": 0.5
+      "iqr": 0.5,
+      "party_label": "Junts"
     },
     {
       "party": "PNV",
@@ -371,7 +381,8 @@
       "mean_sin_cis_45d": 0.82,
       "n_sin_cis_45d": 7,
       "n_houses": 3,
-      "iqr": 0.3
+      "iqr": 0.3,
+      "party_label": "PNV"
     }
   ],
   "table_sum": 98.91,
@@ -4494,5 +4505,158 @@
     }
   ],
   "tracking_registry_n": 4,
-  "tracking_no_ficha": 4
+  "tracking_no_ficha": 4,
+  "fa_aggregate_visible": true,
+  "fa_observations": [
+    {
+      "date": "2026-11-06",
+      "pollster": "Celeste-Tel",
+      "value": 6.2,
+      "label_original": "Frente Amplio",
+      "label_status": "verificada",
+      "source_url": "https://electomania.es/encuesta-celeste-tel-6-nov-pp-y-vox-lograrian-la-absolutisima/",
+      "discrepancy": "no",
+      "note": ""
+    },
+    {
+      "date": "2026-11-08",
+      "pollster": "IMOP",
+      "value": 8.1,
+      "label_original": "Frente Amplio",
+      "label_status": "verificada",
+      "source_url": "https://electomania.es/encuesta-imop-8-nov-la-derecha-recupera-6-escanos-a-la-izquierda/",
+      "discrepancy": "no",
+      "note": ""
+    },
+    {
+      "date": "2026-11-08",
+      "pollster": "Sondaxe",
+      "value": 7.1,
+      "label_original": "Frente Amplio",
+      "label_status": "verificada",
+      "source_url": "https://electomania.es/encuesta-sondaxe-8-nov-el-pp-ganaria-las-elecciones/",
+      "discrepancy": "no",
+      "note": ""
+    },
+    {
+      "date": "2026-11-08",
+      "pollster": "Sociométrica",
+      "value": 4.4,
+      "label_original": "Frente Amplio",
+      "label_status": "verificada_con_discrepancia",
+      "source_url": "https://electomania.es/encuesta-sociometrica-8-nov-los-partidos-del-actual-bloque-de-investidura-quedarian-reducidos-hoy-a-145-escanos/",
+      "discrepancy": "si",
+      "note": "Onda Cero publica fa=5.9; no usar sin resolver"
+    },
+    {
+      "date": "2026-11-08",
+      "pollster": "Sigma Dos",
+      "value": 8.1,
+      "label_original": "Frente Amplio",
+      "label_status": "verificada",
+      "source_url": "https://electomania.es/encuesta-sigma-dos-8-nov-pp-y-vox-en-el-504/",
+      "discrepancy": "no",
+      "note": ""
+    },
+    {
+      "date": "2026-11-08",
+      "pollster": "Ateneo del Dato",
+      "value": 6.1,
+      "label_original": "Frente Amplio",
+      "label_status": "verificada",
+      "source_url": "https://www.ondacero.es/elecciones/generales/encuestas/",
+      "discrepancy": "no",
+      "note": ""
+    },
+    {
+      "date": "2026-11-09",
+      "pollster": "NC Report",
+      "value": 6.9,
+      "label_original": "Frente Amplio",
+      "label_status": "verificada",
+      "source_url": "https://electomania.es/encuesta-nc-report-9-nov-el-pp-supera-en-7-puntos-a-un-psoe-que-cae-a-100-escanos/",
+      "discrepancy": "no",
+      "note": ""
+    },
+    {
+      "date": "2026-11-09",
+      "pollster": "GAD3",
+      "value": 5.0,
+      "label_original": "Frente Amplio",
+      "label_status": "verificada_primaria",
+      "source_url": "https://www.gad3.com/barometro-abc-i-estimacion-de-voto-nacional-noviembre-2026/",
+      "discrepancy": "si",
+      "note": "GAD3 artículo: 5% y 6 escaños; Datawrapper: 5,0% y 5 escaños; Electomanía 7,5; Onda 6,9"
+    },
+    {
+      "date": "2026-11-09",
+      "pollster": "40dB",
+      "value": 5.0,
+      "label_original": "Frente Amplio",
+      "label_status": "verificada",
+      "source_url": "https://electomania.es/encuesta-40db-9-nov-el-psoe-remonta-pero-pp-y-vox-mantienen-la-mayoria-absoluta/",
+      "discrepancy": "no",
+      "note": ""
+    },
+    {
+      "date": "2026-11-09",
+      "pollster": "Sigma Dos",
+      "value": 8.1,
+      "label_original": "Frente Amplio",
+      "label_status": "verificada",
+      "source_url": "https://www.ondacero.es/elecciones/generales/encuestas/",
+      "discrepancy": "no",
+      "note": ""
+    },
+    {
+      "date": "2026-11-10",
+      "pollster": "DYM",
+      "value": 5.6,
+      "label_original": "Frente Amplio",
+      "label_status": "verificada",
+      "source_url": "https://www.ondacero.es/elecciones/generales/encuestas/",
+      "discrepancy": "no",
+      "note": ""
+    },
+    {
+      "date": "2026-11-15",
+      "pollster": "YouGov",
+      "value": 9.2,
+      "label_original": "Frente Amplio",
+      "label_status": "verificada",
+      "source_url": "https://www.ondacero.es/elecciones/generales/encuestas/",
+      "discrepancy": "no",
+      "note": ""
+    },
+    {
+      "date": "2026-11-15",
+      "pollster": "Sondaxe",
+      "value": 6.4,
+      "label_original": "Frente Amplio",
+      "label_status": "verificada",
+      "source_url": "https://www.ondacero.es/elecciones/generales/encuestas/",
+      "discrepancy": "no",
+      "note": ""
+    },
+    {
+      "date": "2026-11-15",
+      "pollster": "Sigma Dos",
+      "value": 7.2,
+      "label_original": "Frente Amplio",
+      "label_status": "verificada",
+      "source_url": "https://www.ondacero.es/elecciones/generales/encuestas/",
+      "discrepancy": "no",
+      "note": ""
+    },
+    {
+      "date": "2026-11-15",
+      "pollster": "40dB",
+      "value": 5.4,
+      "label_original": "Frente Amplio",
+      "label_status": "verificada",
+      "source_url": "https://www.ondacero.es/elecciones/generales/encuestas/",
+      "discrepancy": "no",
+      "note": ""
+    }
+  ]
 }

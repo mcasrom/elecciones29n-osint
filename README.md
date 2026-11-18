@@ -54,6 +54,15 @@ La congelación es de **reglas**, no de datos: los sondeos siguen entrando hasta
 - Foto 31-oct→14-nov: **2.549 peticiones humanas (10,9 % del total; 18,1 % excluyendo dueño e interno)**, **1.794 IPs únicas**, **48 repiten en ≥2 días**, **349 IPs únicas con ≥2 páginas en algún día (396 IP-día)**; 9.535 bots, 1.215 IA crawler, 2.200 dueño, 7.051 interno. No se usa para afirmar “lectores únicos” verificados.
 - **Tarjeta social:** `campaign_digest.py` está activo (08:00, 9–23 nov) y encola infografía si cambia la media; **no** vigila cambios de escenarios ni de detalles de páginas. La tarjeta manual `publish_e29n_card.py` sigue pendiente.
 
+## Sociología del electorado
+
+- **Working paper:** https://elecciones29n.pruebapublica.com/comportamiento.html
+- Lee el **voto declarado de 2023** por edad, sexo e ideología (CIS 3582), no el voto de 2026.
+- Añade la **indecisión agregada** del CIS 3584 (15,8 % no sabe · 2,3 % no contesta) y una matriz de límites.
+- **No calcula** fidelidad 2023→2026, perfil del individuo indeciso ni trasvases: no hay panel/microdatos enlazados.
+- El enlace está en la navegación secundaria como **Sociología** y en `/electorado.html`.
+- **Sprint B** (después del 29N): ver `demo/SPRINTS-PENDIENTES.md` §0.-29N-SOCIOLOGIA-B.
+
 ## P0 3-nov-2026
 
 - **AVE:** reincorporado como contexto con fuente oficial del **112 de Castilla-La Mancha** (2-nov-2026): **69 fallecidos**, no 68. No entra en la media ni se usa para atribuir tendencia.
