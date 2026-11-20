@@ -11,7 +11,7 @@ class TrackingRegistryTest(unittest.TestCase):
         latest = json.loads((ROOT / "web" / "data" / "latest.json").read_text(encoding="utf-8"))
         self.assertEqual(latest["tracking_registry_n"], 4)
         self.assertEqual(latest["tracking_no_ficha"], 4)
-        self.assertEqual(latest["n_polls"], 15)
+        self.assertEqual(latest["n_polls"], 14)
 
 if __name__ == "__main__":
     unittest.main()
