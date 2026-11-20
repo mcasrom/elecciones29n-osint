@@ -2711,6 +2711,8 @@ def main(out: str = "web") -> None:
          "source": "https://112.castillalamancha.es/112/comunicacion/el-gobierno-regional-informa-que-el-numero-de-personas-ingresadas-en-castilla-la"},
         {"date": "13–27 nov", "label": "Campaña electoral",
          "state": "done" if now >= blackout_dt else "active"},
+        {"date": "19 nov", "label": "Debate electoral Sánchez-Feijóo · contexto, no entra en la media", "state": "context",
+         "source": "https://www.rtve.es/noticias/20261118/pedro-sanchez-feijoo-debate-cara-elecciones-2026-horario-donde-ver/17315906.shtml"},
         {"date": "24–28 nov", "label": "Prohibición de sondeos",
          "state": "done" if now >= election_dt else ("active" if now >= blackout_dt else "")},
         {"date": "29 nov", "label": "Jornada electoral",
