@@ -1,15 +1,15 @@
 {
   "method": "Kish, HHI, efecto de casa y leave-one-house-out aproximado",
-  "n_polls": 15,
-  "n_houses": 11,
+  "n_polls": 14,
+  "n_houses": 10,
   "last_poll_date": "2026-11-15",
-  "kish_effective_polls": 11.53,
+  "kish_effective_polls": 11.06,
   "effective_sources": 2.78,
-  "effective_houses": 8.26,
+  "effective_houses": 7.76,
   "source_hhi": 0.36,
-  "house_hhi": 0.1211,
+  "house_hhi": 0.1289,
   "top_source": {
-    "name": "Onda Cero",
+    "name": "Electomanía",
     "share_pct": 40.0
   },
   "top_house": {
@@ -27,7 +27,7 @@
       "pollster": "YouGov",
       "party": "PSOE",
       "value": 25.9,
-      "minus_main": -0.94
+      "minus_main": -0.99
     },
     {
       "pollster": "Sondaxe",
@@ -39,7 +39,7 @@
       "pollster": "Sondaxe",
       "party": "PSOE",
       "value": 26.4,
-      "minus_main": -0.44
+      "minus_main": -0.49
     },
     {
       "pollster": "Sigma Dos",
@@ -51,7 +51,7 @@
       "pollster": "Sigma Dos",
       "party": "PSOE",
       "value": 25.6,
-      "minus_main": -1.24
+      "minus_main": -1.29
     },
     {
       "pollster": "40dB",
@@ -63,7 +63,7 @@
       "pollster": "40dB",
       "party": "PSOE",
       "value": 29.9,
-      "minus_main": 3.06
+      "minus_main": 3.01
     },
     {
       "pollster": "DYM",
@@ -75,7 +75,7 @@
       "pollster": "DYM",
       "party": "PSOE",
       "value": 27.3,
-      "minus_main": 0.46
+      "minus_main": 0.41
     },
     {
       "pollster": "NC Report",
@@ -87,7 +87,7 @@
       "pollster": "NC Report",
       "party": "PSOE",
       "value": 25.6,
-      "minus_main": -1.24
+      "minus_main": -1.29
     },
     {
       "pollster": "GAD3",
@@ -99,7 +99,7 @@
       "pollster": "GAD3",
       "party": "PSOE",
       "value": 25.9,
-      "minus_main": -0.94
+      "minus_main": -0.99
     }
   ],
   "leave_one_house_out": [
@@ -112,14 +112,14 @@
     {
       "pollster": "Sondaxe",
       "party": "PP",
-      "delta": 0.33,
-      "without": 31.55
+      "delta": 0.34,
+      "without": 31.56
     },
     {
       "pollster": "Sigma Dos",
       "party": "PP",
-      "delta": 0.27,
-      "without": 31.49
+      "delta": 0.28,
+      "without": 31.5
     },
     {
       "pollster": "40dB",
@@ -142,49 +142,49 @@
     {
       "pollster": "GAD3",
       "party": "PP",
-      "delta": 0.05,
-      "without": 31.27
+      "delta": 0.07,
+      "without": 31.29
     },
     {
       "pollster": "YouGov",
       "party": "PSOE",
-      "delta": -0.16,
-      "without": 26.68
+      "delta": -0.2,
+      "without": 26.69
     },
     {
       "pollster": "Sondaxe",
       "party": "PSOE",
-      "delta": -0.18,
-      "without": 26.66
+      "delta": -0.22,
+      "without": 26.67
     },
     {
       "pollster": "Sigma Dos",
       "party": "PSOE",
-      "delta": 0.05,
-      "without": 26.89
+      "delta": 0.02,
+      "without": 26.91
     },
     {
       "pollster": "40dB",
       "party": "PSOE",
-      "delta": -0.85,
-      "without": 25.99
+      "delta": -0.91,
+      "without": 25.98
     },
     {
       "pollster": "DYM",
       "party": "PSOE",
-      "delta": -0.26,
-      "without": 26.58
+      "delta": -0.3,
+      "without": 26.59
     },
     {
       "pollster": "NC Report",
       "party": "PSOE",
-      "delta": -0.14,
-      "without": 26.7
+      "delta": -0.17,
+      "without": 26.72
     },
     {
       "pollster": "GAD3",
       "party": "PSOE",
-      "delta": 0.02,
+      "delta": -0.03,
       "without": 26.86
     }
   ],
