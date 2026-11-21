@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T06:15:36+00:00",
+  "generated_at": "2026-11-21T08:13:31+00:00",
   "source": "intelligence-hub/news.db",
   "source_label": "Titulares y sumarios de prensa española",
   "candidates_source": "BOE-A-2026-23103 · JEC · candidaturas proclamadas 3-nov-2026",
@@ -8,8 +8,8 @@
   "note": "Cabezas de lista proclamados en el BOE; no son necesariamente los líderes del partido. No se incluye Sumar como marca propia: aparece integrada en Frente Amplio/Comuns. Yolanda Díaz no figura como candidata.",
   "windows": {
     "1": {
-      "n_articles": 404,
-      "n_electoral": 144,
+      "n_articles": 388,
+      "n_electoral": 136,
       "sources": [
         {
           "name": "ABC",
@@ -17,19 +17,19 @@
         },
         {
           "name": "20minutos",
-          "articles": 49
-        },
-        {
-          "name": "La Vanguardia",
-          "articles": 46
+          "articles": 45
         },
         {
           "name": "El Mundo",
-          "articles": 46
+          "articles": 44
+        },
+        {
+          "name": "La Vanguardia",
+          "articles": 41
         },
         {
           "name": "El País",
-          "articles": 41
+          "articles": 40
         },
         {
           "name": "El Diario Cantabria",
@@ -37,11 +37,11 @@
         },
         {
           "name": "elDiario.es",
-          "articles": 27
+          "articles": 25
         },
         {
           "name": "Europa Press",
-          "articles": 19
+          "articles": 17
         }
       ],
       "leaders": [
@@ -50,11 +50,11 @@
           "name": "Feijóo",
           "party": "PP",
           "province": "Madrid",
-          "articles": 76,
-          "share_pct": 18.8,
+          "articles": 68,
+          "share_pct": 17.5,
           "days": 2,
-          "electoral": 62,
-          "electoral_share_pct": 43.1,
+          "electoral": 55,
+          "electoral_share_pct": 40.4,
           "electoral_days": 2
         },
         {
@@ -62,11 +62,11 @@
           "name": "Pedro Sánchez",
           "party": "PSOE",
           "province": "Madrid",
-          "articles": 83,
-          "share_pct": 20.5,
+          "articles": 75,
+          "share_pct": 19.3,
           "days": 2,
-          "electoral": 61,
-          "electoral_share_pct": 42.4,
+          "electoral": 54,
+          "electoral_share_pct": 39.7,
           "electoral_days": 2
         },
         {
@@ -75,10 +75,10 @@
           "party": "ERC",
           "province": "Barcelona",
           "articles": 11,
-          "share_pct": 2.7,
+          "share_pct": 2.8,
           "days": 2,
           "electoral": 9,
-          "electoral_share_pct": 6.2,
+          "electoral_share_pct": 6.6,
           "electoral_days": 2
         },
         {
@@ -87,10 +87,10 @@
           "party": "VOX",
           "province": "Madrid",
           "articles": 8,
-          "share_pct": 2.0,
+          "share_pct": 2.1,
           "days": 2,
           "electoral": 5,
-          "electoral_share_pct": 3.5,
+          "electoral_share_pct": 3.7,
           "electoral_days": 2
         },
         {
@@ -102,7 +102,7 @@
           "share_pct": 1.5,
           "days": 1,
           "electoral": 5,
-          "electoral_share_pct": 3.5,
+          "electoral_share_pct": 3.7,
           "electoral_days": 1
         },
         {
@@ -111,10 +111,10 @@
           "party": "Frente Amplio / Comuns",
           "province": "Barcelona",
           "articles": 3,
-          "share_pct": 0.7,
+          "share_pct": 0.8,
           "days": 2,
           "electoral": 2,
-          "electoral_share_pct": 1.4,
+          "electoral_share_pct": 1.5,
           "electoral_days": 2
         },
         {
@@ -123,7 +123,7 @@
           "party": "BNG",
           "province": "A Coruña",
           "articles": 1,
-          "share_pct": 0.2,
+          "share_pct": 0.3,
           "days": 1,
           "electoral": 1,
           "electoral_share_pct": 0.7,
@@ -204,32 +204,32 @@
       ]
     },
     "7": {
-      "n_articles": 2891,
-      "n_electoral": 832,
+      "n_articles": 2864,
+      "n_electoral": 826,
       "sources": [
         {
           "name": "ABC",
-          "articles": 1009
+          "articles": 998
         },
         {
           "name": "20minutos",
-          "articles": 379
+          "articles": 369
         },
         {
           "name": "El Mundo",
-          "articles": 353
+          "articles": 351
         },
         {
           "name": "El País",
-          "articles": 286
+          "articles": 285
         },
         {
           "name": "La Vanguardia",
-          "articles": 280
+          "articles": 279
         },
         {
           "name": "elDiario.es",
-          "articles": 242
+          "articles": 240
         },
         {
           "name": "El Diario Cantabria",
@@ -246,11 +246,11 @@
           "name": "Pedro Sánchez",
           "party": "PSOE",
           "province": "Madrid",
-          "articles": 423,
-          "share_pct": 14.6,
+          "articles": 420,
+          "share_pct": 14.7,
           "days": 8,
-          "electoral": 294,
-          "electoral_share_pct": 35.3,
+          "electoral": 292,
+          "electoral_share_pct": 35.4,
           "electoral_days": 8
         },
         {
@@ -258,10 +258,10 @@
           "name": "Feijóo",
           "party": "PP",
           "province": "Madrid",
-          "articles": 295,
+          "articles": 293,
           "share_pct": 10.2,
           "days": 8,
-          "electoral": 228,
+          "electoral": 226,
           "electoral_share_pct": 27.4,
           "electoral_days": 8
         },
@@ -282,11 +282,11 @@
           "name": "Ada Colau",
           "party": "Frente Amplio / Comuns",
           "province": "Barcelona",
-          "articles": 41,
+          "articles": 39,
           "share_pct": 1.4,
           "days": 8,
-          "electoral": 35,
-          "electoral_share_pct": 4.2,
+          "electoral": 33,
+          "electoral_share_pct": 4.0,
           "electoral_days": 8
         },
         {
@@ -295,7 +295,7 @@
           "party": "ERC",
           "province": "Barcelona",
           "articles": 33,
-          "share_pct": 1.1,
+          "share_pct": 1.2,
           "days": 8,
           "electoral": 28,
           "electoral_share_pct": 3.4,
@@ -310,7 +310,7 @@
           "share_pct": 0.7,
           "days": 6,
           "electoral": 17,
-          "electoral_share_pct": 2.0,
+          "electoral_share_pct": 2.1,
           "electoral_days": 6
         },
         {

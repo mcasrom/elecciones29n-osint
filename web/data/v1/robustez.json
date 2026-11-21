@@ -1,5 +1,5 @@
 {
-  "generado": "2026-11-21 07:15 CET",
+  "generado": "2026-11-21 09:13 CET",
   "n_polls": 27,
   "n_houses": 13,
   "n_pollsters": 13,
@@ -39,6 +39,22 @@
     "Sigma Dos tracking"
   ],
   "tracking_latest": [
+    {
+      "pollster": "40dB tracking",
+      "series": "40dB",
+      "date": "2026-11-20",
+      "pp": 31.9,
+      "psoe": 31.2,
+      "vox": 17.1,
+      "sumar": 3.8,
+      "url": "https://elpais.com/espana/elecciones-generales/2026-11-20/la-distancia-entre-el-pp-y-el-psoe-se-estrecha-al-minimo-pese-a-la-victoria-de-feijoo-en-el-debate.html",
+      "sample": "2000",
+      "method": "online",
+      "cadence": "diaria",
+      "status": "verificado",
+      "note": "tracking 20-N; campo 16-20 nov; 40dB para El País/SER; fuera de la media",
+      "source": "El País"
+    },
     {
       "pollster": "Sigma Dos tracking",
       "series": "Sigma Dos",
@@ -80,22 +96,6 @@
       "vox": 18.8,
       "sumar": 6.1,
       "url": "https://electomania.es/tracking-electopanel-17-nov-el-pp-sube-y-junto-al-psoe-arrebatan-varios-escanos-a-un-vox-en-torno-al-19/",
-      "sample": "",
-      "method": "",
-      "cadence": "diaria",
-      "status": "sin_ficha",
-      "note": "tracking; fuera de la media; sin muestra/método enlazados",
-      "source": "Electomanía"
-    },
-    {
-      "pollster": "40dB tracking",
-      "series": "40dB",
-      "date": "2026-11-17",
-      "pp": 31.8,
-      "psoe": 30.6,
-      "vox": 17.5,
-      "sumar": 3.7,
-      "url": "https://electomania.es/tracking-40db-17-nov-vox-se-frena-y-cede-terreno-al-pp/",
       "sample": "",
       "method": "",
       "cadence": "diaria",
