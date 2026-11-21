@@ -1,29 +1,5 @@
 [
   {
-    "build": "202611031932",
-    "date": "2026-11-03",
-    "commit": "4095059",
-    "n_polls": 12,
-    "files": {
-      "data/latest.json": "02f3425213d230547180ddddd94d0c769d7848ca0f1a2bdc3d9a2ad3f78c7868",
-      "data/robustez.json": "a0cbde412e716f22ce865cf3eb5e08bbd2ece511ae24d7494014eab49b656f68",
-      "data/polls_history.csv": null
-    },
-    "snapshot_hash": "e64b527e9877540a062cf66ae7c4a8ee6b0136442a121c5945d7a10291c778e2"
-  },
-  {
-    "build": "202611031942",
-    "date": "2026-11-03",
-    "commit": "83a5582",
-    "n_polls": 12,
-    "files": {
-      "data/latest.json": "687730243ab8791a15510120b4282d836294b4f35543a000eccbfefa3e28a5f9",
-      "data/robustez.json": "31f357570da875c3434dfedaff4db661c61dcbce1a19c0456d913877bf9ea046",
-      "data/polls_history.csv": null
-    },
-    "snapshot_hash": "36fb8f5524322f4ddc0b8938d42101371c74697ec4b14a7350f1cd9c6bc3429a"
-  },
-  {
     "build": "202611032044",
     "date": "2026-11-03",
     "commit": "74caf9c",
@@ -1198,5 +1174,29 @@
       "data/polls_history.csv": null
     },
     "snapshot_hash": "a7fa637021d03d2e265d4c73515f17b551a9d207a62de06cd1ef84765e607b0c"
+  },
+  {
+    "build": "202611201515",
+    "date": "2026-11-20",
+    "commit": "3b00d9a",
+    "n_polls": 27,
+    "files": {
+      "data/latest.json": "27c7d2e096754bb589f89e0ee8266bef5a8dff232d7401a71a1d08821db10908",
+      "data/robustez.json": "e2ef27a802500d2de4223d0b7795725f669545ce32344204e1ed5910ce99cf8c",
+      "data/polls_history.csv": null
+    },
+    "snapshot_hash": "1677b2b9413700206109c523f76daf40a1dadeed99377ae92a5c4400d60ebeff"
+  },
+  {
+    "build": "202611210715",
+    "date": "2026-11-21",
+    "commit": "3b00d9a",
+    "n_polls": 27,
+    "files": {
+      "data/latest.json": "d31894dda6bb600561e4a6848ab8d13648725c16a26d40797d0107c6b5070386",
+      "data/robustez.json": "14c8a69c71094abcbb55d47c769fa1e568fe448962c751cdeccc988f0d01a5ff",
+      "data/polls_history.csv": null
+    },
+    "snapshot_hash": "fd131ea9ed9a63732d36e08e6d7b249ffbfed9dd0822047b96cc4229d0549c26"
   }
 ]
