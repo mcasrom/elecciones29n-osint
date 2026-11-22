@@ -73,9 +73,11 @@ La congelación es de **reglas**, no de datos: los sondeos siguen entrando hasta
 - **Sin CIS:** columna de sensibilidad a **45 días** (incluye el CIS del 14/10 en la ventana de contraste, sin usarlo en el cálculo). La media principal no cambia.
 - **CIS 3584 (preelectoral):** macroencuesta de **45.074 entrevistas** (7–30 oct, publicada 12-nov) en tarjeta propia de `/robustez.html`; **no entra en la media** porque usa Frente Amplio y una ERC-Podemos conjunta. Incluye contraste descriptivo CIS vs media 14 d (PSOE/PP/VOX) y PP+VOX máximo. JSON/CSV en `/data/cis-3584.json` y `.csv`. El estudio 3582 sigue siendo el barómetro usado para M4. **Indecisos:** 15,8 % no sabe, 2,3 % no contesta y 1,7 % no votaría; no se reparten proporcionalmente ni se interpretan como voto oculto. Página específica: `/cis-3584-indecisos.html` (canonical, OG y `NewsArticle`).
 
-**Vigilancia diaria:** `scripts/watch_tracking.py` (cron 13–27 nov, 07:00 CET) avisa por Telegram de nuevos sondeos y posibles microdatos; no importa nada automáticamente. Plan: `docs/TRACKING-DIARIO.md`.
+**Vigilancia diaria:** `scripts/watch_tracking.py` (cron 13–27 nov, 07:00 CET) avisa por Telegram de nuevos sondeos y posibles microdatos; no importa nada automáticamente.
 
-**Casas canónicas y dedup:** `IMOP Insights` se une a `IMOP` y `Celeste Tel` a `Celeste-Tel`; una fila por casa/día, eligiendo la fuente con más partidos. La ventana queda en **15 sondeos efectivos y 11 casas** tras el corte del 17-nov. La tabla de robustez muestra **media ponderada** y **media simple**; la media principal no cambia de fórmula.
+**Estado de datos a 22-nov-2026:** **23 sondeos**, **12 casas**, último sondeo estándar **21-N**. Media: PP **31,24**, PSOE **27,42**, VOX **18,97**, Sumar **6,57**; diferencia PP-PSOE **3,82**. El registro separado de trackings tiene **6 entradas**, incluidas **40dB 21-N** y **SW Demoscopia 21-N**. **Sociométrica 21-N** se incorporó como sondeo estándar.
+
+**Casas canónicas y dedup:** `IMOP Insights` se une a `IMOP` y `Celeste Tel` a `Celeste-Tel`; una fila por casa/día, eligiendo la fuente con más partidos. La ventana queda en **23 sondeos efectivos y 12 casas** a 22-nov. La tabla de robustez muestra **media ponderada** y **media simple**; la media principal no cambia de fórmula.
 - **Gráfico duplicado:** retirado de «Agregado»; queda uno en «Evolución».
 - Auditoría completa y P1 pendiente: [`docs/AUDITORIA-20261103.md`](docs/AUDITORIA-20261103.md).
 
@@ -97,6 +99,7 @@ La media incorpora sondeos con **casa, fecha, tabla completa y URL**. La muestra
 - **PolitPro** — agregador JS; solo contraste/descubrimiento.
 - **40dB / El País** — encuesta del 9-nov verificada en ficha individual; entra sin muestra declarada. El informe de febrero se usa solo como formato y metodología.
 - **GAD3 / ABC** — encuesta del 9-nov; **5,0 %** de Frente Amplio según la fuente primaria GAD3/Datawrapper. El artículo dice 6 escaños y el gráfico 5; se usa el voto 5,0 % y se documenta la diferencia. Sin muestra declarada.
+- **Sociométrica / Electomanía** — encuesta del 21-N incorporada como sondeo estándar (PP 32,5 · PSOE 28,5 · VOX 18,8 · Sumar 5,9; resto en Otros). Sin muestra/método enlazados.
 - **Wikipedia EN** — índice de descubrimiento (CC BY-SA); la cifra se contrasta
   siempre con la fuente original.
 
@@ -393,7 +396,7 @@ Además de la media por sondeo (ponderada por recencia y muestra cuando existe),
 
 ## Calidad
 
-- **143 tests** (`unittest`) y hook **pre-push**.
+- **144 tests** (`unittest`) y hook **pre-push**.
 - `scripts/check.sh`: compila, tests, valida el sitio local y ejecuta la auditoría de datos.
 - **Validador** de publicación: gráfico con puntos, pestañas, JSON, sitemap, OG,
   RSS, censo, participación y escaños.
