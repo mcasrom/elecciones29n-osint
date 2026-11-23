@@ -66,6 +66,14 @@ def load_polls() -> List[Dict[str, Any]]:
             pollster = HOUSE_ALIASES.get(raw_house, raw_house)
             if not pollster:
                 pollster = "Electomania"
+            def flag(name: str, default: bool = True) -> bool:
+                raw = (row.get(name) or "").strip().lower()
+                if not raw:
+                    return default
+                return raw not in ("false", "0", "no", "n")
+
+            kind = (row.get("kind") or "tracking").strip().lower()
+            poll_type = (row.get("poll_type") or ("tracking" if kind == "tracking" else "standard")).strip().lower()
             rows.append({
                 "party": party,
                 "date": dt,
@@ -73,7 +81,15 @@ def load_polls() -> List[Dict[str, Any]]:
                 "source_url": (row.get("source_url") or "").strip(),
                 "sample": sample_i,
                 "pollster": pollster,
-                "kind": (row.get("kind") or "tracking").strip().lower(),
+                "kind": kind,
+                "poll_type": poll_type,
+                "in_average": flag("in_average", True),
+                "fieldwork_start": (row.get("fieldwork_start") or "").strip() or None,
+                "fieldwork_end": (row.get("fieldwork_end") or "").strip() or None,
+                "fieldwork_status": (row.get("fieldwork_status") or "").strip() or None,
+                "margin_error": (row.get("margin_error") or "").strip() or None,
+                "error_calculation_n": (row.get("error_calculation_n") or "").strip() or None,
+                "sample_note": (row.get("sample_note") or "").strip() or None,
             })
     # Una casa con dos etiquetas (Onda Cero/Electomanía) es una sola observación.
     # Se elige la fuente que publica más partidos para ese sondeo; si hay empate,
@@ -511,8 +527,10 @@ def aggregate(out_dir: str = "web/data", now: datetime | None = None) -> Dict[st
 
     polls_all = load_polls()
     all_candidates = [p for p in polls_all if p.get("kind") != "average"]
-    tracking = [p for p in all_candidates if (p.get("pollster") or "") not in TRACKING_POLLSTERS]
-    excluded_trackings = [p for p in all_candidates if (p.get("pollster") or "") in TRACKING_POLLSTERS]
+    tracking = [p for p in all_candidates
+                if (p.get("pollster") or "") not in TRACKING_POLLSTERS and p.get("in_average", True)]
+    excluded_trackings = [p for p in all_candidates
+                          if (p.get("pollster") or "") in TRACKING_POLLSTERS or not p.get("in_average", True)]
     if not tracking:
         if os.path.exists(latest_path):
             with open(latest_path, encoding="utf-8") as f:

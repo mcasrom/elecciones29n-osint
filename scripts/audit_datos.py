@@ -64,7 +64,7 @@ def main() -> int:
     hist = "data/polls_history.csv"
     rows = list(csv.DictReader(open(hist, encoding="utf-8", newline="")))
     check("polls.filas", len(rows) > 0, f"{len(rows)} filas")
-    check("polls.campos", all(set(r) == {"party", "date", "value", "source_url", "sample", "pollster", "kind"} for r in rows), "cabecera")
+    check("polls.campos", all({"party", "date", "value", "source_url", "sample", "pollster", "kind"} <= set(r) for r in rows), "cabecera")
     polls = {}
     polls_avg = {}
     bad_val = bad_date = 0

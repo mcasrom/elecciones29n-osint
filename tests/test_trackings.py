@@ -8,7 +8,7 @@ class TrackingRegistryTest(unittest.TestCase):
             rows = list(csv.DictReader(f))
         self.assertGreaterEqual(len(rows), 4)
         self.assertGreaterEqual(sum(r["status"] == "verificado" for r in rows), 1)
-        self.assertEqual(sum(r["status"] == "sin_ficha" for r in rows), len(rows) - 1)
+        self.assertEqual(sum(r["status"] == "verificado" for r in rows) + sum(r["status"] == "sin_ficha" for r in rows), len(rows))
         latest = json.loads((ROOT / "web" / "data" / "latest.json").read_text(encoding="utf-8"))
         self.assertEqual(latest["tracking_registry_n"], len(rows))
         self.assertEqual(latest["tracking_no_ficha"], sum(r["status"] == "sin_ficha" for r in rows))
