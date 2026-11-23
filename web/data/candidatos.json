@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T08:13:31+00:00",
+  "generated_at": "2026-11-23T08:52:21+00:00",
   "source": "intelligence-hub/news.db",
   "source_label": "Titulares y sumarios de prensa española",
   "candidates_source": "BOE-A-2026-23103 · JEC · candidaturas proclamadas 3-nov-2026",
@@ -8,65 +8,89 @@
   "note": "Cabezas de lista proclamados en el BOE; no son necesariamente los líderes del partido. No se incluye Sumar como marca propia: aparece integrada en Frente Amplio/Comuns. Yolanda Díaz no figura como candidata.",
   "windows": {
     "1": {
-      "n_articles": 388,
-      "n_electoral": 136,
+      "n_articles": 342,
+      "n_electoral": 102,
       "sources": [
         {
           "name": "ABC",
-          "articles": 146
+          "articles": 141
         },
         {
           "name": "20minutos",
-          "articles": 45
+          "articles": 46
         },
         {
           "name": "El Mundo",
-          "articles": 44
-        },
-        {
-          "name": "La Vanguardia",
-          "articles": 41
-        },
-        {
-          "name": "El País",
-          "articles": 40
-        },
-        {
-          "name": "El Diario Cantabria",
-          "articles": 30
+          "articles": 45
         },
         {
           "name": "elDiario.es",
-          "articles": 25
+          "articles": 30
+        },
+        {
+          "name": "El País",
+          "articles": 27
+        },
+        {
+          "name": "El Diario Cantabria",
+          "articles": 19
         },
         {
           "name": "Europa Press",
-          "articles": 17
+          "articles": 18
+        },
+        {
+          "name": "La Vanguardia",
+          "articles": 16
         }
       ],
       "leaders": [
-        {
-          "id": "pp-alberto-nunez-feijoo",
-          "name": "Feijóo",
-          "party": "PP",
-          "province": "Madrid",
-          "articles": 68,
-          "share_pct": 17.5,
-          "days": 2,
-          "electoral": 55,
-          "electoral_share_pct": 40.4,
-          "electoral_days": 2
-        },
         {
           "id": "psoe-pedro-sanchez",
           "name": "Pedro Sánchez",
           "party": "PSOE",
           "province": "Madrid",
-          "articles": 75,
-          "share_pct": 19.3,
+          "articles": 52,
+          "share_pct": 15.2,
           "days": 2,
-          "electoral": 54,
-          "electoral_share_pct": 39.7,
+          "electoral": 34,
+          "electoral_share_pct": 33.3,
+          "electoral_days": 2
+        },
+        {
+          "id": "pp-alberto-nunez-feijoo",
+          "name": "Feijóo",
+          "party": "PP",
+          "province": "Madrid",
+          "articles": 27,
+          "share_pct": 7.9,
+          "days": 2,
+          "electoral": 22,
+          "electoral_share_pct": 21.6,
+          "electoral_days": 2
+        },
+        {
+          "id": "comuns-ada-colau",
+          "name": "Ada Colau",
+          "party": "Frente Amplio / Comuns",
+          "province": "Barcelona",
+          "articles": 8,
+          "share_pct": 2.3,
+          "days": 1,
+          "electoral": 8,
+          "electoral_share_pct": 7.8,
+          "electoral_days": 1
+        },
+        {
+          "id": "vox-santiago-abascal",
+          "name": "Abascal",
+          "party": "VOX",
+          "province": "Madrid",
+          "articles": 10,
+          "share_pct": 2.9,
+          "days": 2,
+          "electoral": 7,
+          "electoral_share_pct": 6.9,
           "electoral_days": 2
         },
         {
@@ -74,23 +98,11 @@
           "name": "Gabriel Rufián",
           "party": "ERC",
           "province": "Barcelona",
-          "articles": 11,
-          "share_pct": 2.8,
+          "articles": 7,
+          "share_pct": 2.0,
           "days": 2,
-          "electoral": 9,
-          "electoral_share_pct": 6.6,
-          "electoral_days": 2
-        },
-        {
-          "id": "vox-santiago-abascal",
-          "name": "Abascal",
-          "party": "VOX",
-          "province": "Madrid",
-          "articles": 8,
-          "share_pct": 2.1,
-          "days": 2,
-          "electoral": 5,
-          "electoral_share_pct": 3.7,
+          "electoral": 7,
+          "electoral_share_pct": 6.9,
           "electoral_days": 2
         },
         {
@@ -98,35 +110,23 @@
           "name": "Irene Montero",
           "party": "Podemos",
           "province": "Madrid",
-          "articles": 6,
-          "share_pct": 1.5,
-          "days": 1,
-          "electoral": 5,
-          "electoral_share_pct": 3.7,
-          "electoral_days": 1
-        },
-        {
-          "id": "comuns-ada-colau",
-          "name": "Ada Colau",
-          "party": "Frente Amplio / Comuns",
-          "province": "Barcelona",
           "articles": 3,
-          "share_pct": 0.8,
+          "share_pct": 0.9,
           "days": 2,
-          "electoral": 2,
-          "electoral_share_pct": 1.5,
+          "electoral": 3,
+          "electoral_share_pct": 2.9,
           "electoral_days": 2
         },
         {
-          "id": "bng-nestor-rego",
-          "name": "Néstor Rego",
-          "party": "BNG",
-          "province": "A Coruña",
-          "articles": 1,
-          "share_pct": 0.3,
+          "id": "junts-miriam-nogueras",
+          "name": "Míriam Nogueras",
+          "party": "Junts",
+          "province": "Barcelona",
+          "articles": 3,
+          "share_pct": 0.9,
           "days": 1,
-          "electoral": 1,
-          "electoral_share_pct": 0.7,
+          "electoral": 3,
+          "electoral_share_pct": 2.9,
           "electoral_days": 1
         },
         {
@@ -178,10 +178,10 @@
           "electoral_days": 0
         },
         {
-          "id": "junts-miriam-nogueras",
-          "name": "Míriam Nogueras",
-          "party": "Junts",
-          "province": "Barcelona",
+          "id": "bng-nestor-rego",
+          "name": "Néstor Rego",
+          "party": "BNG",
+          "province": "A Coruña",
           "articles": 0,
           "share_pct": 0.0,
           "days": 0,
@@ -204,20 +204,20 @@
       ]
     },
     "7": {
-      "n_articles": 2864,
-      "n_electoral": 826,
+      "n_articles": 3010,
+      "n_electoral": 854,
       "sources": [
         {
           "name": "ABC",
-          "articles": 998
+          "articles": 1067
         },
         {
           "name": "20minutos",
-          "articles": 369
+          "articles": 394
         },
         {
           "name": "El Mundo",
-          "articles": 351
+          "articles": 373
         },
         {
           "name": "El País",
@@ -225,19 +225,19 @@
         },
         {
           "name": "La Vanguardia",
-          "articles": 279
+          "articles": 280
         },
         {
           "name": "elDiario.es",
-          "articles": 240
+          "articles": 260
         },
         {
           "name": "El Diario Cantabria",
-          "articles": 191
+          "articles": 195
         },
         {
           "name": "Europa Press",
-          "articles": 151
+          "articles": 156
         }
       ],
       "leaders": [
@@ -246,11 +246,11 @@
           "name": "Pedro Sánchez",
           "party": "PSOE",
           "province": "Madrid",
-          "articles": 420,
-          "share_pct": 14.7,
+          "articles": 477,
+          "share_pct": 15.8,
           "days": 8,
-          "electoral": 292,
-          "electoral_share_pct": 35.4,
+          "electoral": 307,
+          "electoral_share_pct": 35.9,
           "electoral_days": 8
         },
         {
@@ -258,11 +258,11 @@
           "name": "Feijóo",
           "party": "PP",
           "province": "Madrid",
-          "articles": 293,
-          "share_pct": 10.2,
+          "articles": 321,
+          "share_pct": 10.7,
           "days": 8,
-          "electoral": 226,
-          "electoral_share_pct": 27.4,
+          "electoral": 252,
+          "electoral_share_pct": 29.5,
           "electoral_days": 8
         },
         {
@@ -270,11 +270,11 @@
           "name": "Abascal",
           "party": "VOX",
           "province": "Madrid",
-          "articles": 63,
-          "share_pct": 2.2,
+          "articles": 72,
+          "share_pct": 2.4,
           "days": 8,
-          "electoral": 44,
-          "electoral_share_pct": 5.3,
+          "electoral": 52,
+          "electoral_share_pct": 6.1,
           "electoral_days": 8
         },
         {
@@ -282,23 +282,23 @@
           "name": "Ada Colau",
           "party": "Frente Amplio / Comuns",
           "province": "Barcelona",
-          "articles": 39,
+          "articles": 41,
           "share_pct": 1.4,
-          "days": 8,
-          "electoral": 33,
-          "electoral_share_pct": 4.0,
-          "electoral_days": 8
+          "days": 7,
+          "electoral": 39,
+          "electoral_share_pct": 4.6,
+          "electoral_days": 7
         },
         {
           "id": "erc-gabriel-rufian",
           "name": "Gabriel Rufián",
           "party": "ERC",
           "province": "Barcelona",
-          "articles": 33,
-          "share_pct": 1.2,
+          "articles": 41,
+          "share_pct": 1.4,
           "days": 8,
-          "electoral": 28,
-          "electoral_share_pct": 3.4,
+          "electoral": 37,
+          "electoral_share_pct": 4.3,
           "electoral_days": 8
         },
         {
@@ -306,11 +306,11 @@
           "name": "Irene Montero",
           "party": "Podemos",
           "province": "Madrid",
-          "articles": 19,
-          "share_pct": 0.7,
+          "articles": 18,
+          "share_pct": 0.6,
           "days": 6,
-          "electoral": 17,
-          "electoral_share_pct": 2.1,
+          "electoral": 16,
+          "electoral_share_pct": 1.9,
           "electoral_days": 6
         },
         {
@@ -318,8 +318,8 @@
           "name": "Míriam Nogueras",
           "party": "Junts",
           "province": "Barcelona",
-          "articles": 10,
-          "share_pct": 0.3,
+          "articles": 11,
+          "share_pct": 0.4,
           "days": 6,
           "electoral": 7,
           "electoral_share_pct": 0.8,
