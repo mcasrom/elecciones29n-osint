@@ -1,38 +1,38 @@
 {
   "version": "0.12.0",
-  "build": "202611230952",
+  "build": "202611231540",
   "date": "2026-11-23",
-  "commit": "1939f92",
-  "generated_at": "2026-11-23T09:52:19.051715+01:00",
-  "n_polls": 20,
-  "n_pollsters": 12,
+  "commit": "5526964",
+  "generated_at": "2026-11-23T15:40:19.366735+01:00",
+  "n_polls": 36,
+  "n_pollsters": 14,
   "window_days": 14,
   "files": {
-    "data/latest.json": "2385c700c781c75b5ac7c2d8856847b982334206b51e7f6007969741f34c0343",
-    "data/robustez.json": "65cd89acdd3e395c5fd6ee60c656a2a4f09b35dafc6161b0edc72b240c5b575f",
+    "data/latest.json": "69becdf306790194092bccddbf7828cd87e00ee5b89030ffe45c35fdd9401e34",
+    "data/robustez.json": "8f7a6b03ceb62dc1213f49c4bf8cf2fdcf674e1d24c194416fffc5512fbc277a",
     "data/polls_history.csv": null
   },
   "sources": [
     {
       "source": "Onda Cero",
       "share_pct": 40.0,
-      "n_polls": 18
+      "n_polls": 34
     },
     {
       "source": "Otras fuentes",
-      "share_pct": 31.1,
+      "share_pct": 31.3,
       "n_polls": 1
     },
     {
       "source": "Electomanía",
-      "share_pct": 28.9,
+      "share_pct": 28.7,
       "n_polls": 1
     }
   ],
   "snapshot": {
     "date": "2026-11-23",
-    "hash": "07adb0d27af8ad2c91680249310d83dd91b318c5f8ccf1d6358a13d0721371d9",
-    "prev_hash": "955e181211ab8c007b078cb64456f331cef2351385f2840e5e9418eb6be36776"
+    "hash": "6b4c81c489fb27a864e184948f189ad08198914513b8978648c9fff463f38c3b",
+    "prev_hash": "6d0e9e6500bd12f03744e36587348527532576165e974ce38707c39e4b4aa388"
   },
   "pre_registro": {
     "sha256": "e2fc1caa4510627ec412d983cbe22e7d3925f8f8c4535f3f70ea6e3dbf5ff83f",

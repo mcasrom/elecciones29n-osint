@@ -37,6 +37,7 @@ PRE_SNAPSHOT_MARKER = ROOT / "data" / "pre_election_snapshot.freeze.json"
 PRE_DATA_CUTOFF = TZ.localize(datetime(2026, 11, 23, 23, 50))
 PRE_DATA_CUTOFF_LABEL = "2026-11-23T23:59:59+01:00"
 CIS_3584 = ROOT / "data" / "cis_3584_2026.json"
+CIS_23N = ROOT / "data" / "cis_20261123.json"
 PARTY_DISPLAY_PATH = ROOT / "data" / "partidos_display.json"
 CORRECTION_PATH = ROOT / "data" / "correccion_20261117.json"
 
@@ -2382,7 +2383,7 @@ def build_radar(latest: dict) -> dict:
     if hist.exists():
         with hist.open(encoding="utf-8", newline="") as f:
             for row in csv.DictReader(f):
-                if (row.get("kind") or "tracking") != "tracking":
+                if (row.get("kind") or "tracking") == "average":
                     continue
                 house = aliases.get((row.get("pollster") or "").strip(), (row.get("pollster") or "").strip())
                 if house in trackers or not house or (row.get("date") or "") < start:
@@ -2393,12 +2394,32 @@ def build_radar(latest: dict) -> dict:
                     groups[(row["date"], house)][row["party"]] = float(row["value"])
                 except (TypeError, ValueError):
                     continue
+    poll_meta: dict = {}
+    if hist.exists():
+        with hist.open(encoding="utf-8", newline="") as f:
+            for row in csv.DictReader(f):
+                if (row.get("kind") or "tracking") == "average":
+                    continue
+                house = aliases.get((row.get("pollster") or "").strip(), (row.get("pollster") or "").strip())
+                if house in trackers or not house or (row.get("date") or "") < start:
+                    continue
+                if row.get("party") not in ("PP", "PSOE", "VOX", "SUMAR"):
+                    continue
+                key = (row["date"], house)
+                meta = poll_meta.setdefault(key, {"url": "", "sample": "", "fieldwork_start": "", "fieldwork_end": ""})
+                for src, dst in (("source_url", "url"), ("sample", "sample"), ("fieldwork_start", "fieldwork_start"), ("fieldwork_end", "fieldwork_end")):
+                    if not meta.get(dst) and (row.get(src) or "").strip():
+                        meta[dst] = (row.get(src) or "").strip()
     polls = []
     for (date, house), vals in groups.items():
         if all(p in vals for p in ("PP", "PSOE", "VOX", "SUMAR")):
+            meta = poll_meta.get((date, house), {})
             polls.append({"house": house, "date": date, "pp": round(vals["PP"], 2),
                           "psoe": round(vals["PSOE"], 2), "vox": round(vals["VOX"], 2),
-                          "sumar": round(vals["SUMAR"], 2)})
+                          "sumar": round(vals["SUMAR"], 2),
+                          "url": meta.get("url", ""), "sample": meta.get("sample", ""),
+                          "fieldwork_start": meta.get("fieldwork_start", ""),
+                          "fieldwork_end": meta.get("fieldwork_end", "")})
     polls.sort(key=lambda q: (q["date"], q["house"]))
     tracking_hist: dict = defaultdict(dict)
     if hist.exists():
@@ -2504,6 +2525,8 @@ def build_radar(latest: dict) -> dict:
         "tracking_registry_n": latest.get("tracking_registry_n", len(trackings)),
         "tracking_no_ficha": latest.get("tracking_no_ficha", 0),
         "health": health,
+        "data_cutoff": latest.get("updated_at", ""),
+        "cis_recent": (json.loads(CIS_23N.read_text(encoding="utf-8")) if CIS_23N.exists() else None),
     }
 
 

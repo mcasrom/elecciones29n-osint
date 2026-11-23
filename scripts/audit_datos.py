@@ -65,10 +65,21 @@ def main() -> int:
     rows = list(csv.DictReader(open(hist, encoding="utf-8", newline="")))
     check("polls.filas", len(rows) > 0, f"{len(rows)} filas")
     check("polls.campos", all({"party", "date", "value", "source_url", "sample", "pollster", "kind"} <= set(r) for r in rows), "cabecera")
+    # Misma regla que el agregador: una fuente por casa/ola, la que publica más partidos.
+    _by_key_source = {}
+    for _r in rows:
+        _key = (_r.get("date") or "", _r.get("pollster") or "")
+        _src = _r.get("source_url") or ""
+        _by_key_source.setdefault(_key, {})
+        _by_key_source[_key][_src] = _by_key_source[_key].get(_src, 0) + 1
+    _best_source = {k: max(v, key=lambda u: (v[u], u)) for k, v in _by_key_source.items()}
+
     polls = {}
     polls_avg = {}
     bad_val = bad_date = 0
     for r in rows:
+        if (r.get("date") or "", r.get("pollster") or "") in _best_source and (r.get("source_url") or "") != _best_source[(r.get("date") or "", r.get("pollster") or "")]:
+            continue
         p = r["party"].strip()
         try:
             d = datetime.strptime(r["date"], "%Y-%m-%d").date()

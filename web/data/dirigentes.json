@@ -1,45 +1,45 @@
 {
-  "generated_at": "2026-11-23T08:52:30+00:00",
+  "generated_at": "2026-11-23T14:40:32+00:00",
   "source": "intelligence-hub/news.db",
   "candidates_source": "BOE-A-2026-23103 · JEC · candidaturas proclamadas 3-nov-2026",
   "candidates_url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-23103",
   "note": "Registro operativo. Solo se marca 'verificado' lo que consta en el BOE (candidatura). Los cargos orgánicos no contrastados quedan como pendientes y no se publican como hechos.",
   "windows": {
     "1": {
-      "n_articles": 342,
-      "n_electoral": 102,
+      "n_articles": 335,
+      "n_electoral": 107,
       "sources": [
         {
           "name": "ABC",
-          "articles": 141
-        },
-        {
-          "name": "20minutos",
-          "articles": 46
+          "articles": 128
         },
         {
           "name": "El Mundo",
-          "articles": 45
+          "articles": 41
         },
         {
-          "name": "elDiario.es",
-          "articles": 30
+          "name": "20minutos",
+          "articles": 40
         },
         {
           "name": "El País",
-          "articles": 27
+          "articles": 29
         },
         {
-          "name": "El Diario Cantabria",
-          "articles": 19
-        },
-        {
-          "name": "Europa Press",
-          "articles": 18
+          "name": "elDiario.es",
+          "articles": 29
         },
         {
           "name": "La Vanguardia",
-          "articles": 16
+          "articles": 28
+        },
+        {
+          "name": "Europa Press",
+          "articles": 20
+        },
+        {
+          "name": "El Diario Cantabria",
+          "articles": 20
         }
       ],
       "people": [
@@ -56,11 +56,11 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cargo orgánico: secretario general, pendiente de fuente en este registro.",
-          "articles": 52,
-          "share_pct": 15.2,
+          "articles": 57,
+          "share_pct": 17.0,
           "days": 2,
-          "electoral": 34,
-          "electoral_share_pct": 33.3,
+          "electoral": 37,
+          "electoral_share_pct": 34.6,
           "electoral_days": 2
         },
         {
@@ -76,11 +76,11 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cargo orgánico: presidente nacional, pendiente de fuente en este registro.",
-          "articles": 27,
-          "share_pct": 7.9,
+          "articles": 24,
+          "share_pct": 7.2,
           "days": 2,
-          "electoral": 22,
-          "electoral_share_pct": 21.6,
+          "electoral": 17,
+          "electoral_share_pct": 15.9,
           "electoral_days": 2
         },
         {
@@ -96,11 +96,11 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cargo orgánico: presidente nacional, pendiente de fuente en este registro.",
-          "articles": 10,
-          "share_pct": 2.9,
+          "articles": 13,
+          "share_pct": 3.9,
           "days": 2,
-          "electoral": 7,
-          "electoral_share_pct": 6.9,
+          "electoral": 10,
+          "electoral_share_pct": 9.3,
           "electoral_days": 2
         },
         {
@@ -116,12 +116,12 @@
           "candidate": true,
           "status": "verified",
           "notes": "Denominación oficial BOE: Comuns-Front Ampli. Cabeza de lista por Barcelona.",
-          "articles": 8,
-          "share_pct": 2.3,
-          "days": 1,
-          "electoral": 8,
-          "electoral_share_pct": 7.8,
-          "electoral_days": 1
+          "articles": 5,
+          "share_pct": 1.5,
+          "days": 2,
+          "electoral": 5,
+          "electoral_share_pct": 4.7,
+          "electoral_days": 2
         },
         {
           "id": "erc-gabriel-rufian",
@@ -136,11 +136,11 @@
           "candidate": true,
           "status": "verified",
           "notes": "Oriol Junqueras es otra persona y otro cargo; no se agrupan.",
-          "articles": 7,
-          "share_pct": 2.0,
+          "articles": 5,
+          "share_pct": 1.5,
           "days": 2,
-          "electoral": 7,
-          "electoral_share_pct": 6.9,
+          "electoral": 5,
+          "electoral_share_pct": 4.7,
           "electoral_days": 2
         },
         {
@@ -156,12 +156,12 @@
           "candidate": false,
           "status": "pending",
           "notes": "No es cabeza de lista: Nogueras encabeza Barcelona.",
-          "articles": 5,
-          "share_pct": 1.5,
-          "days": 2,
-          "electoral": 5,
-          "electoral_share_pct": 4.9,
-          "electoral_days": 2
+          "articles": 3,
+          "share_pct": 0.9,
+          "days": 1,
+          "electoral": 3,
+          "electoral_share_pct": 2.8,
+          "electoral_days": 1
         },
         {
           "id": "podemos-irene-montero",
@@ -179,7 +179,7 @@
           "share_pct": 0.9,
           "days": 2,
           "electoral": 3,
-          "electoral_share_pct": 2.9,
+          "electoral_share_pct": 2.8,
           "electoral_days": 2
         },
         {
@@ -195,11 +195,11 @@
           "candidate": true,
           "status": "verified",
           "notes": "Carles Puigdemont es otra persona y otro cargo; no se agrupan.",
-          "articles": 3,
-          "share_pct": 0.9,
+          "articles": 1,
+          "share_pct": 0.3,
           "days": 1,
-          "electoral": 3,
-          "electoral_share_pct": 2.9,
+          "electoral": 1,
+          "electoral_share_pct": 0.9,
           "electoral_days": 1
         },
         {
@@ -215,31 +215,11 @@
           "candidate": false,
           "status": "pending",
           "notes": "No es cabeza de lista: Rufián encabeza Barcelona; Junqueras va en el nº 31.",
-          "articles": 2,
-          "share_pct": 0.6,
-          "days": 1,
-          "electoral": 2,
-          "electoral_share_pct": 2.0,
-          "electoral_days": 1
-        },
-        {
-          "id": "ehbildu-arnaldo-otegi",
-          "full_name": "Arnaldo Otegi Mondragón",
-          "aliases": [
-            "Arnaldo Otegi",
-            "Otegi"
-          ],
-          "org": "EH Bildu",
-          "role": "Coordinador general (pendiente de fuente)",
-          "role_type": "organic",
-          "candidate": false,
-          "status": "pending",
-          "notes": "No es cabeza de lista: Etxebarrieta encabeza Gipuzkoa.",
           "articles": 1,
           "share_pct": 0.3,
           "days": 1,
           "electoral": 1,
-          "electoral_share_pct": 1.0,
+          "electoral_share_pct": 0.9,
           "electoral_days": 1
         },
         {
@@ -274,6 +254,26 @@
           "candidate": false,
           "status": "pending",
           "notes": "No es cabeza de lista: Rodil encabeza A Coruña.",
+          "articles": 0,
+          "share_pct": 0.0,
+          "days": 0,
+          "electoral": 0,
+          "electoral_share_pct": 0.0,
+          "electoral_days": 0
+        },
+        {
+          "id": "ehbildu-arnaldo-otegi",
+          "full_name": "Arnaldo Otegi Mondragón",
+          "aliases": [
+            "Arnaldo Otegi",
+            "Otegi"
+          ],
+          "org": "EH Bildu",
+          "role": "Coordinador general (pendiente de fuente)",
+          "role_type": "organic",
+          "candidate": false,
+          "status": "pending",
+          "notes": "No es cabeza de lista: Etxebarrieta encabeza Gipuzkoa.",
           "articles": 0,
           "share_pct": 0.0,
           "days": 0,
@@ -560,40 +560,40 @@
       ]
     },
     "7": {
-      "n_articles": 3010,
-      "n_electoral": 854,
+      "n_articles": 2977,
+      "n_electoral": 862,
       "sources": [
         {
           "name": "ABC",
-          "articles": 1067
+          "articles": 1062
         },
         {
           "name": "20minutos",
-          "articles": 394
+          "articles": 387
         },
         {
           "name": "El Mundo",
-          "articles": 373
-        },
-        {
-          "name": "El País",
-          "articles": 285
+          "articles": 362
         },
         {
           "name": "La Vanguardia",
-          "articles": 280
+          "articles": 287
+        },
+        {
+          "name": "El País",
+          "articles": 277
         },
         {
           "name": "elDiario.es",
-          "articles": 260
+          "articles": 253
         },
         {
           "name": "El Diario Cantabria",
-          "articles": 195
+          "articles": 192
         },
         {
           "name": "Europa Press",
-          "articles": 156
+          "articles": 157
         }
       ],
       "people": [
@@ -610,11 +610,11 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cargo orgánico: secretario general, pendiente de fuente en este registro.",
-          "articles": 477,
-          "share_pct": 15.8,
+          "articles": 488,
+          "share_pct": 16.4,
           "days": 8,
-          "electoral": 307,
-          "electoral_share_pct": 35.9,
+          "electoral": 316,
+          "electoral_share_pct": 36.7,
           "electoral_days": 8
         },
         {
@@ -630,11 +630,11 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cargo orgánico: presidente nacional, pendiente de fuente en este registro.",
-          "articles": 321,
-          "share_pct": 10.7,
+          "articles": 322,
+          "share_pct": 10.8,
           "days": 8,
           "electoral": 252,
-          "electoral_share_pct": 29.5,
+          "electoral_share_pct": 29.2,
           "electoral_days": 8
         },
         {
@@ -650,11 +650,11 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cargo orgánico: presidente nacional, pendiente de fuente en este registro.",
-          "articles": 72,
-          "share_pct": 2.4,
+          "articles": 76,
+          "share_pct": 2.6,
           "days": 8,
-          "electoral": 52,
-          "electoral_share_pct": 6.1,
+          "electoral": 56,
+          "electoral_share_pct": 6.5,
           "electoral_days": 8
         },
         {
@@ -670,12 +670,12 @@
           "candidate": true,
           "status": "verified",
           "notes": "Denominación oficial BOE: Comuns-Front Ampli. Cabeza de lista por Barcelona.",
-          "articles": 41,
+          "articles": 42,
           "share_pct": 1.4,
-          "days": 7,
-          "electoral": 39,
+          "days": 8,
+          "electoral": 40,
           "electoral_share_pct": 4.6,
-          "electoral_days": 7
+          "electoral_days": 8
         },
         {
           "id": "erc-gabriel-rufian",
@@ -729,11 +729,11 @@
           "candidate": true,
           "status": "verified",
           "notes": "No es la secretaria general; no se duplica con Ione Belarra.",
-          "articles": 18,
+          "articles": 19,
           "share_pct": 0.6,
           "days": 6,
-          "electoral": 16,
-          "electoral_share_pct": 1.9,
+          "electoral": 17,
+          "electoral_share_pct": 2.0,
           "electoral_days": 6
         },
         {
@@ -749,8 +749,8 @@
           "candidate": true,
           "status": "verified",
           "notes": "Carles Puigdemont es otra persona y otro cargo; no se agrupan.",
-          "articles": 11,
-          "share_pct": 0.4,
+          "articles": 10,
+          "share_pct": 0.3,
           "days": 6,
           "electoral": 7,
           "electoral_share_pct": 0.8,
@@ -768,12 +768,12 @@
           "candidate": true,
           "status": "verified",
           "notes": "Cabeza distinta de Colau; no se suman.",
-          "articles": 6,
+          "articles": 5,
           "share_pct": 0.2,
-          "days": 2,
-          "electoral": 3,
-          "electoral_share_pct": 0.4,
-          "electoral_days": 2
+          "days": 1,
+          "electoral": 2,
+          "electoral_share_pct": 0.2,
+          "electoral_days": 1
         },
         {
           "id": "erc-oriol-junqueras",
@@ -863,26 +863,6 @@
           ],
           "org": "Adelante Andalucía",
           "role": "Portavoz (cargo pendiente)",
-          "role_type": "organic",
-          "candidate": false,
-          "status": "pending",
-          "notes": "Cabeza de lista pendiente de confirmar.",
-          "articles": 2,
-          "share_pct": 0.1,
-          "days": 2,
-          "electoral": 1,
-          "electoral_share_pct": 0.1,
-          "electoral_days": 1
-        },
-        {
-          "id": "compromis-agueda-mico",
-          "full_name": "Àgueda Micó i Micó",
-          "aliases": [
-            "Àgueda Micó",
-            "Agueda Mico"
-          ],
-          "org": "Compromís",
-          "role": "Dirigente (cargo pendiente)",
           "role_type": "organic",
           "candidate": false,
           "status": "pending",
@@ -1011,6 +991,26 @@
           "electoral": 1,
           "electoral_share_pct": 0.1,
           "electoral_days": 1
+        },
+        {
+          "id": "compromis-agueda-mico",
+          "full_name": "Àgueda Micó i Micó",
+          "aliases": [
+            "Àgueda Micó",
+            "Agueda Mico"
+          ],
+          "org": "Compromís",
+          "role": "Dirigente (cargo pendiente)",
+          "role_type": "organic",
+          "candidate": false,
+          "status": "pending",
+          "notes": "Cabeza de lista pendiente de confirmar.",
+          "articles": 1,
+          "share_pct": 0.0,
+          "days": 1,
+          "electoral": 0,
+          "electoral_share_pct": 0.0,
+          "electoral_days": 0
         },
         {
           "id": "soriaya-juan-palomar",

@@ -1,20 +1,22 @@
 {
-  "generado": "2026-11-23 09:52 CET",
-  "n_polls": 20,
-  "n_houses": 12,
-  "n_pollsters": 12,
-  "n_polls_sin_cis": 20,
+  "generado": "2026-11-23 15:40 CET",
+  "n_polls": 36,
+  "n_houses": 14,
+  "n_pollsters": 14,
+  "n_polls_sin_cis": 36,
   "health": {
     "status": "ok",
-    "n_polls": 20,
-    "n_polls_sin_cis": 20,
-    "n_pollsters": 12,
+    "n_polls": 36,
+    "n_polls_sin_cis": 36,
+    "n_pollsters": 14,
     "pollsters": [
       "40dB",
       "DYM",
       "GAD3",
+      "GESOP",
       "IMOP",
       "Invymark",
+      "Ipsos",
       "NC Report",
       "PF Global",
       "Sigma Dos",
@@ -23,12 +25,12 @@
       "Target Point",
       "YouGov"
     ],
-    "days_since_last": 1,
-    "sample_pct": 5,
+    "days_since_last": 0,
+    "sample_pct": 3,
     "sample_polls": 1,
-    "dispersion_iqr": 1.78,
-    "candidates_pending": 96,
-    "last_candidate_date": "2026-11-22",
+    "dispersion_iqr": 1.53,
+    "candidates_pending": 107,
+    "last_candidate_date": "2026-11-23",
     "reasons": []
   },
   "excluded_trackings": [
@@ -154,182 +156,182 @@
   "parties": [
     {
       "party": "PP",
-      "mean": 31.16,
-      "mean_simple": 31.21,
-      "median": 31.2,
+      "mean": 31.36,
+      "mean_simple": 31.35,
+      "median": 31.5,
       "min": 29.3,
       "max": 33.1,
-      "n": 20,
-      "mean_sin_cis": 31.16,
-      "median_sin_cis": 31.2,
+      "n": 36,
+      "mean_sin_cis": 31.36,
+      "median_sin_cis": 31.5,
       "min_sin_cis": 29.3,
       "max_sin_cis": 33.1,
-      "n_sin_cis": 20,
-      "mean_sin_cis_45d": 31.22,
-      "n_sin_cis_45d": 46,
-      "n_houses": 16,
-      "iqr": 2.57
+      "n_sin_cis": 36,
+      "mean_sin_cis_45d": 31.36,
+      "n_sin_cis_45d": 62,
+      "n_houses": 17,
+      "iqr": 1.45
     },
     {
       "party": "PSOE",
-      "mean": 27.59,
-      "mean_simple": 27.5,
-      "median": 27.15,
+      "mean": 28.2,
+      "mean_simple": 28.07,
+      "median": 27.85,
       "min": 25.6,
-      "max": 30.3,
-      "n": 20,
-      "mean_sin_cis": 27.59,
-      "median_sin_cis": 27.15,
+      "max": 31.6,
+      "n": 36,
+      "mean_sin_cis": 28.2,
+      "median_sin_cis": 27.85,
       "min_sin_cis": 25.6,
-      "max_sin_cis": 30.3,
-      "n_sin_cis": 20,
-      "mean_sin_cis_45d": 27.25,
-      "n_sin_cis_45d": 46,
-      "n_houses": 16,
-      "iqr": 2.17
+      "max_sin_cis": 31.6,
+      "n_sin_cis": 36,
+      "mean_sin_cis_45d": 27.9,
+      "n_sin_cis_45d": 62,
+      "n_houses": 17,
+      "iqr": 1.6
     },
     {
       "party": "VOX",
-      "mean": 18.91,
-      "mean_simple": 18.93,
-      "median": 19.0,
-      "min": 17.6,
+      "mean": 18.45,
+      "mean_simple": 18.54,
+      "median": 18.5,
+      "min": 16.9,
       "max": 20.3,
-      "n": 20,
-      "mean_sin_cis": 18.91,
-      "median_sin_cis": 19.0,
-      "min_sin_cis": 17.6,
+      "n": 36,
+      "mean_sin_cis": 18.45,
+      "median_sin_cis": 18.5,
+      "min_sin_cis": 16.9,
       "max_sin_cis": 20.3,
-      "n_sin_cis": 20,
-      "mean_sin_cis_45d": 18.98,
-      "n_sin_cis_45d": 46,
-      "n_houses": 16,
-      "iqr": 0.75
+      "n_sin_cis": 36,
+      "mean_sin_cis_45d": 18.57,
+      "n_sin_cis_45d": 62,
+      "n_houses": 17,
+      "iqr": 1.6
     },
     {
       "party": "Otros",
-      "mean": 12.54,
-      "mean_simple": 12.93,
-      "median": 13.25,
+      "mean": 12.92,
+      "mean_simple": 13.09,
+      "median": 13.2,
       "min": 1.0,
-      "max": 15.4,
-      "n": 20,
-      "mean_sin_cis": 12.54,
-      "median_sin_cis": 13.25,
+      "max": 16.0,
+      "n": 36,
+      "mean_sin_cis": 12.92,
+      "median_sin_cis": 13.2,
       "min_sin_cis": 1.0,
-      "max_sin_cis": 15.4,
-      "n_sin_cis": 20,
-      "mean_sin_cis_45d": 12.1,
-      "n_sin_cis_45d": 46,
-      "n_houses": 16,
-      "iqr": 2.07
+      "max_sin_cis": 16.0,
+      "n_sin_cis": 36,
+      "mean_sin_cis_45d": 12.61,
+      "n_sin_cis_45d": 62,
+      "n_houses": 17,
+      "iqr": 1.6
     },
     {
       "party": "SUMAR",
-      "mean": 6.54,
-      "mean_simple": 6.58,
-      "median": 6.55,
+      "mean": 6.65,
+      "mean_simple": 6.64,
+      "median": 6.85,
       "min": 5.3,
       "max": 9.2,
-      "n": 20,
-      "mean_sin_cis": 6.54,
-      "median_sin_cis": 6.55,
+      "n": 36,
+      "mean_sin_cis": 6.65,
+      "median_sin_cis": 6.85,
       "min_sin_cis": 5.3,
       "max_sin_cis": 9.2,
-      "n_sin_cis": 20,
-      "mean_sin_cis_45d": 6.57,
-      "n_sin_cis_45d": 46,
-      "n_houses": 16,
-      "iqr": 1.35
+      "n_sin_cis": 36,
+      "mean_sin_cis_45d": 6.65,
+      "n_sin_cis_45d": 62,
+      "n_houses": 17,
+      "iqr": 1.4
     },
     {
       "party": "SAF",
-      "mean": 1.87,
-      "mean_simple": 1.81,
-      "median": 1.75,
+      "mean": 1.66,
+      "mean_simple": 1.66,
+      "median": 1.7,
       "min": 0.4,
       "max": 3.0,
-      "n": 10,
-      "mean_sin_cis": 1.87,
-      "median_sin_cis": 1.75,
+      "n": 19,
+      "mean_sin_cis": 1.66,
+      "median_sin_cis": 1.7,
       "min_sin_cis": 0.4,
       "max_sin_cis": 3.0,
-      "n_sin_cis": 10,
-      "mean_sin_cis_45d": 1.89,
-      "n_sin_cis_45d": 20,
-      "n_houses": 8,
-      "iqr": 0.37
+      "n_sin_cis": 19,
+      "mean_sin_cis_45d": 1.69,
+      "n_sin_cis_45d": 29,
+      "n_houses": 10,
+      "iqr": 0.62
     },
     {
       "party": "PODEMOS",
-      "mean": 1.4,
-      "mean_simple": 1.42,
-      "median": 1.4,
-      "min": 0.8,
+      "mean": 1.18,
+      "mean_simple": 1.23,
+      "median": 1.1,
+      "min": 0.7,
       "max": 2.2,
-      "n": 17,
-      "mean_sin_cis": 1.4,
-      "median_sin_cis": 1.4,
-      "min_sin_cis": 0.8,
+      "n": 30,
+      "mean_sin_cis": 1.18,
+      "median_sin_cis": 1.1,
+      "min_sin_cis": 0.7,
       "max_sin_cis": 2.2,
-      "n_sin_cis": 17,
-      "mean_sin_cis_45d": 1.58,
-      "n_sin_cis_45d": 43,
-      "n_houses": 13,
-      "iqr": 1.05
+      "n_sin_cis": 30,
+      "mean_sin_cis_45d": 1.33,
+      "n_sin_cis_45d": 56,
+      "n_houses": 14,
+      "iqr": 0.88
     }
   ],
   "fa_aggregate_visible": true,
   "weights": {
     "window_days": 14,
     "extended": false,
-    "total_polls": 20,
-    "total_weight": 13.4377,
+    "total_polls": 36,
+    "total_weight": 28.339,
     "top_source": "Onda Cero",
     "top_source_share_pct": 40.0,
     "sources": [
       {
         "source": "Onda Cero",
-        "weight": 5.3753,
-        "n_polls": 18,
-        "n_houses": 11,
+        "weight": 11.3351,
+        "n_polls": 34,
+        "n_houses": 13,
         "share_pct": 40.0
       },
       {
         "source": "Otras fuentes",
-        "weight": 4.1817,
+        "weight": 8.8612,
         "n_polls": 1,
         "n_houses": 1,
-        "share_pct": 31.1
+        "share_pct": 31.3
       },
       {
         "source": "Electomanía",
-        "weight": 3.8809,
+        "weight": 8.1422,
         "n_polls": 1,
         "n_houses": 0,
-        "share_pct": 28.9
+        "share_pct": 28.7
       }
     ],
     "effective_sources": 2.94,
     "top_house": "GAD3",
-    "top_share_pct": 31.1,
+    "top_share_pct": 31.3,
     "houses": [
       {
         "pollster": "GAD3",
         "source": "Otras fuentes",
-        "weight": 4.1817,
+        "weight": 8.8612,
         "n_polls": 1,
         "last_date": "2026-11-22",
         "sample": 1501,
         "n_parties": 5,
-        "share_pct": 31.1
+        "share_pct": 31.3
       },
       {
         "pollster": "Sociométrica",
         "source": "Onda Cero",
-        "weight": 4.0676,
-        "n_polls": 2,
-        "last_date": "2026-11-21",
+        "weight": 8.5841,
+        "n_polls": 3,
+        "last_date": "2026-11-22",
         "sample": null,
         "n_parties": 7,
         "share_pct": 30.3
@@ -337,102 +339,122 @@
       {
         "pollster": "Sigma Dos",
         "source": "Onda Cero",
-        "weight": 1.2696,
-        "n_polls": 4,
-        "last_date": "2026-11-19",
+        "weight": 2.3135,
+        "n_polls": 7,
+        "last_date": "2026-11-22",
         "sample": null,
         "n_parties": 6,
-        "share_pct": 9.4
+        "share_pct": 8.2
       },
       {
         "pollster": "Sondaxe",
         "source": "Onda Cero",
-        "weight": 0.9786,
-        "n_polls": 3,
-        "last_date": "2026-11-20",
+        "weight": 2.1287,
+        "n_polls": 6,
+        "last_date": "2026-11-23",
         "sample": null,
         "n_parties": 7,
-        "share_pct": 7.3
+        "share_pct": 7.5
       },
       {
         "pollster": "40dB",
         "source": "Onda Cero",
-        "weight": 0.9315,
-        "n_polls": 3,
-        "last_date": "2026-11-19",
+        "weight": 2.0325,
+        "n_polls": 6,
+        "last_date": "2026-11-23",
         "sample": null,
         "n_parties": 7,
-        "share_pct": 6.9
-      },
-      {
-        "pollster": "PF Global",
-        "source": "Onda Cero",
-        "weight": 0.3624,
-        "n_polls": 1,
-        "last_date": "2026-11-19",
-        "sample": null,
-        "n_parties": 7,
-        "share_pct": 2.7
+        "share_pct": 7.2
       },
       {
         "pollster": "Target Point",
         "source": "Onda Cero",
-        "weight": 0.2944,
-        "n_polls": 1,
-        "last_date": "2026-11-16",
+        "weight": 0.7091,
+        "n_polls": 2,
+        "last_date": "2026-11-23",
         "sample": null,
         "n_parties": 7,
-        "share_pct": 2.2
+        "share_pct": 2.5
       },
       {
         "pollster": "NC Report",
         "source": "Onda Cero",
-        "weight": 0.2944,
-        "n_polls": 1,
-        "last_date": "2026-11-16",
+        "weight": 0.7091,
+        "n_polls": 2,
+        "last_date": "2026-11-23",
         "sample": null,
         "n_parties": 6,
-        "share_pct": 2.2
-      },
-      {
-        "pollster": "Invymark",
-        "source": "Onda Cero",
-        "weight": 0.2944,
-        "n_polls": 1,
-        "last_date": "2026-11-16",
-        "sample": null,
-        "n_parties": 5,
-        "share_pct": 2.2
+        "share_pct": 2.5
       },
       {
         "pollster": "IMOP",
         "source": "Onda Cero",
-        "weight": 0.2944,
-        "n_polls": 1,
-        "last_date": "2026-11-16",
+        "weight": 0.7091,
+        "n_polls": 2,
+        "last_date": "2026-11-23",
         "sample": null,
         "n_parties": 7,
-        "share_pct": 2.2
-      },
-      {
-        "pollster": "YouGov",
-        "source": "Onda Cero",
-        "weight": 0.2747,
-        "n_polls": 1,
-        "last_date": "2026-11-15",
-        "sample": null,
-        "n_parties": 6,
-        "share_pct": 2.0
+        "share_pct": 2.5
       },
       {
         "pollster": "DYM",
         "source": "Onda Cero",
-        "weight": 0.1942,
+        "weight": 0.5878,
+        "n_polls": 2,
+        "last_date": "2026-11-22",
+        "sample": null,
+        "n_parties": 7,
+        "share_pct": 2.1
+      },
+      {
+        "pollster": "GESOP",
+        "source": "Onda Cero",
+        "weight": 0.4389,
         "n_polls": 1,
-        "last_date": "2026-11-10",
+        "last_date": "2026-11-23",
+        "sample": null,
+        "n_parties": 7,
+        "share_pct": 1.5
+      },
+      {
+        "pollster": "Ipsos",
+        "source": "Onda Cero",
+        "weight": 0.4095,
+        "n_polls": 1,
+        "last_date": "2026-11-22",
         "sample": null,
         "n_parties": 7,
         "share_pct": 1.4
+      },
+      {
+        "pollster": "PF Global",
+        "source": "Onda Cero",
+        "weight": 0.3327,
+        "n_polls": 1,
+        "last_date": "2026-11-19",
+        "sample": null,
+        "n_parties": 7,
+        "share_pct": 1.2
+      },
+      {
+        "pollster": "Invymark",
+        "source": "Onda Cero",
+        "weight": 0.2702,
+        "n_polls": 1,
+        "last_date": "2026-11-16",
+        "sample": null,
+        "n_parties": 5,
+        "share_pct": 1.0
+      },
+      {
+        "pollster": "YouGov",
+        "source": "Onda Cero",
+        "weight": 0.2521,
+        "n_polls": 1,
+        "last_date": "2026-11-15",
+        "sample": null,
+        "n_parties": 6,
+        "share_pct": 0.9
       }
     ],
     "effective_houses": 4.75,
@@ -443,9 +465,9 @@
         "date": "2026-11-22",
         "sample": 1501,
         "kind": "standard",
-        "weight": 4.1817,
+        "weight": 8.8612,
         "n_parties": 5,
-        "share_pct": 31.1
+        "share_pct": 31.3
       },
       {
         "pollster": "Sociométrica",
@@ -453,9 +475,139 @@
         "date": "2026-11-21",
         "sample": null,
         "kind": "tracking",
-        "weight": 3.8809,
+        "weight": 8.1422,
         "n_parties": 5,
-        "share_pct": 28.9
+        "share_pct": 28.7
+      },
+      {
+        "pollster": "Target Point",
+        "source": "Onda Cero",
+        "date": "2026-11-23",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.4389,
+        "n_parties": 7,
+        "share_pct": 1.5
+      },
+      {
+        "pollster": "Sondaxe",
+        "source": "Onda Cero",
+        "date": "2026-11-23",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.4389,
+        "n_parties": 7,
+        "share_pct": 1.5
+      },
+      {
+        "pollster": "NC Report",
+        "source": "Onda Cero",
+        "date": "2026-11-23",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.4389,
+        "n_parties": 6,
+        "share_pct": 1.5
+      },
+      {
+        "pollster": "IMOP",
+        "source": "Onda Cero",
+        "date": "2026-11-23",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.4389,
+        "n_parties": 5,
+        "share_pct": 1.5
+      },
+      {
+        "pollster": "GESOP",
+        "source": "Onda Cero",
+        "date": "2026-11-23",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.4389,
+        "n_parties": 7,
+        "share_pct": 1.5
+      },
+      {
+        "pollster": "40dB",
+        "source": "Onda Cero",
+        "date": "2026-11-23",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.4389,
+        "n_parties": 7,
+        "share_pct": 1.5
+      },
+      {
+        "pollster": "Sondaxe",
+        "source": "Onda Cero",
+        "date": "2026-11-22",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.4095,
+        "n_parties": 5,
+        "share_pct": 1.4
+      },
+      {
+        "pollster": "Sigma Dos",
+        "source": "Onda Cero",
+        "date": "2026-11-22",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.4095,
+        "n_parties": 6,
+        "share_pct": 1.4
+      },
+      {
+        "pollster": "Ipsos",
+        "source": "Onda Cero",
+        "date": "2026-11-22",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.4095,
+        "n_parties": 7,
+        "share_pct": 1.4
+      },
+      {
+        "pollster": "DYM",
+        "source": "Onda Cero",
+        "date": "2026-11-22",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.4095,
+        "n_parties": 7,
+        "share_pct": 1.4
+      },
+      {
+        "pollster": "Sondaxe",
+        "source": "Onda Cero",
+        "date": "2026-11-21",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.3821,
+        "n_parties": 5,
+        "share_pct": 1.3
+      },
+      {
+        "pollster": "Sigma Dos",
+        "source": "Onda Cero",
+        "date": "2026-11-21",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.3821,
+        "n_parties": 6,
+        "share_pct": 1.3
+      },
+      {
+        "pollster": "40dB",
+        "source": "Onda Cero",
+        "date": "2026-11-21",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.3821,
+        "n_parties": 7,
+        "share_pct": 1.3
       },
       {
         "pollster": "Sondaxe",
@@ -463,9 +615,29 @@
         "date": "2026-11-20",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.3884,
+        "weight": 0.3565,
         "n_parties": 6,
-        "share_pct": 2.9
+        "share_pct": 1.3
+      },
+      {
+        "pollster": "Sigma Dos",
+        "source": "Onda Cero",
+        "date": "2026-11-20",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.3565,
+        "n_parties": 6,
+        "share_pct": 1.3
+      },
+      {
+        "pollster": "40dB",
+        "source": "Onda Cero",
+        "date": "2026-11-20",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.3565,
+        "n_parties": 7,
+        "share_pct": 1.3
       },
       {
         "pollster": "Sigma Dos",
@@ -473,9 +645,9 @@
         "date": "2026-11-19",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.3624,
+        "weight": 0.3327,
         "n_parties": 6,
-        "share_pct": 2.7
+        "share_pct": 1.2
       },
       {
         "pollster": "PF Global",
@@ -483,9 +655,9 @@
         "date": "2026-11-19",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.3624,
+        "weight": 0.3327,
         "n_parties": 7,
-        "share_pct": 2.7
+        "share_pct": 1.2
       },
       {
         "pollster": "40dB",
@@ -493,9 +665,9 @@
         "date": "2026-11-19",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.3624,
+        "weight": 0.3327,
         "n_parties": 7,
-        "share_pct": 2.7
+        "share_pct": 1.2
       },
       {
         "pollster": "Sigma Dos",
@@ -503,9 +675,9 @@
         "date": "2026-11-18",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.3381,
+        "weight": 0.3104,
         "n_parties": 6,
-        "share_pct": 2.5
+        "share_pct": 1.1
       },
       {
         "pollster": "Sondaxe",
@@ -513,9 +685,19 @@
         "date": "2026-11-17",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.3155,
+        "weight": 0.2896,
         "n_parties": 7,
-        "share_pct": 2.3
+        "share_pct": 1.0
+      },
+      {
+        "pollster": "Sociométrica",
+        "source": "Onda Cero",
+        "date": "2026-11-22",
+        "sample": null,
+        "kind": "tracking",
+        "weight": 0.2735,
+        "n_parties": 7,
+        "share_pct": 1.0
       },
       {
         "pollster": "Target Point",
@@ -523,9 +705,9 @@
         "date": "2026-11-16",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.2944,
+        "weight": 0.2702,
         "n_parties": 7,
-        "share_pct": 2.2
+        "share_pct": 1.0
       },
       {
         "pollster": "Sigma Dos",
@@ -533,9 +715,9 @@
         "date": "2026-11-16",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.2944,
+        "weight": 0.2702,
         "n_parties": 6,
-        "share_pct": 2.2
+        "share_pct": 1.0
       },
       {
         "pollster": "NC Report",
@@ -543,9 +725,9 @@
         "date": "2026-11-16",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.2944,
+        "weight": 0.2702,
         "n_parties": 6,
-        "share_pct": 2.2
+        "share_pct": 1.0
       },
       {
         "pollster": "Invymark",
@@ -553,9 +735,9 @@
         "date": "2026-11-16",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.2944,
+        "weight": 0.2702,
         "n_parties": 5,
-        "share_pct": 2.2
+        "share_pct": 1.0
       },
       {
         "pollster": "IMOP",
@@ -563,9 +745,9 @@
         "date": "2026-11-16",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.2944,
+        "weight": 0.2702,
         "n_parties": 7,
-        "share_pct": 2.2
+        "share_pct": 1.0
       },
       {
         "pollster": "40dB",
@@ -573,9 +755,9 @@
         "date": "2026-11-16",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.2944,
+        "weight": 0.2702,
         "n_parties": 7,
-        "share_pct": 2.2
+        "share_pct": 1.0
       },
       {
         "pollster": "YouGov",
@@ -583,9 +765,9 @@
         "date": "2026-11-15",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.2747,
+        "weight": 0.2521,
         "n_parties": 6,
-        "share_pct": 2.0
+        "share_pct": 0.9
       },
       {
         "pollster": "Sondaxe",
@@ -593,9 +775,9 @@
         "date": "2026-11-15",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.2747,
+        "weight": 0.2521,
         "n_parties": 7,
-        "share_pct": 2.0
+        "share_pct": 0.9
       },
       {
         "pollster": "Sigma Dos",
@@ -603,9 +785,9 @@
         "date": "2026-11-15",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.2747,
+        "weight": 0.2521,
         "n_parties": 6,
-        "share_pct": 2.0
+        "share_pct": 0.9
       },
       {
         "pollster": "40dB",
@@ -613,9 +795,9 @@
         "date": "2026-11-15",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.2747,
+        "weight": 0.2521,
         "n_parties": 7,
-        "share_pct": 2.0
+        "share_pct": 0.9
       },
       {
         "pollster": "DYM",
@@ -623,9 +805,9 @@
         "date": "2026-11-10",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.1942,
+        "weight": 0.1783,
         "n_parties": 7,
-        "share_pct": 1.4
+        "share_pct": 0.6
       },
       {
         "pollster": "Sociométrica",
@@ -633,9 +815,9 @@
         "date": "2026-11-15",
         "sample": null,
         "kind": "tracking",
-        "weight": 0.1867,
+        "weight": 0.1684,
         "n_parties": 7,
-        "share_pct": 1.4
+        "share_pct": 0.6
       }
     ],
     "caps": {
@@ -644,6 +826,87 @@
     }
   },
   "house_latest": [
+    {
+      "pollster": "Target Point",
+      "date": "2026-11-23",
+      "pp": 31.5,
+      "psoe": 28.8,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "Sondaxe",
+      "date": "2026-11-23",
+      "pp": 31.1,
+      "psoe": 28.2,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "NC Report",
+      "date": "2026-11-23",
+      "pp": 32.3,
+      "psoe": 27.2,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "IMOP",
+      "date": "2026-11-23",
+      "pp": 31.7,
+      "psoe": 27.4,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "GESOP",
+      "date": "2026-11-23",
+      "pp": 32.9,
+      "psoe": 29.0,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "40dB",
+      "date": "2026-11-23",
+      "pp": 31.8,
+      "psoe": 30.9,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "Sociométrica",
+      "date": "2026-11-22",
+      "pp": 32.1,
+      "psoe": 28.7,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "Sigma Dos",
+      "date": "2026-11-22",
+      "pp": 31.7,
+      "psoe": 28.3,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "Ipsos",
+      "date": "2026-11-22",
+      "pp": 30.3,
+      "psoe": 29.8,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
     {
       "pollster": "GAD3",
       "date": "2026-11-22",
@@ -654,28 +917,10 @@
       "url": "https://www.gad3.com/barometro-abc-i-estimacion-de-voto-nacional-noviembre-2026-ii/"
     },
     {
-      "pollster": "Sociométrica",
-      "date": "2026-11-21",
-      "pp": 32.5,
-      "psoe": 28.5,
-      "sample": null,
-      "nota": null,
-      "url": "https://electomania.es/encuesta-sociometrica-21-nov-feijoo-y-sanchez-ganan-escanos-a-costa-de-sus-aliados-la-oposicion-mantiene-199/"
-    },
-    {
-      "pollster": "Sondaxe",
-      "date": "2026-11-20",
-      "pp": 29.3,
-      "psoe": 27.8,
-      "sample": null,
-      "nota": null,
-      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
-    },
-    {
-      "pollster": "Sigma Dos",
-      "date": "2026-11-19",
-      "pp": 31.2,
-      "psoe": 27.1,
+      "pollster": "DYM",
+      "date": "2026-11-22",
+      "pp": 33.0,
+      "psoe": 28.0,
       "sample": null,
       "nota": null,
       "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
@@ -690,33 +935,6 @@
       "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
-      "pollster": "40dB",
-      "date": "2026-11-19",
-      "pp": 32.2,
-      "psoe": 30.2,
-      "sample": null,
-      "nota": null,
-      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
-    },
-    {
-      "pollster": "Target Point",
-      "date": "2026-11-16",
-      "pp": 30.6,
-      "psoe": 27.0,
-      "sample": null,
-      "nota": null,
-      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
-    },
-    {
-      "pollster": "NC Report",
-      "date": "2026-11-16",
-      "pp": 32.5,
-      "psoe": 26.1,
-      "sample": null,
-      "nota": null,
-      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
-    },
-    {
       "pollster": "Invymark",
       "date": "2026-11-16",
       "pp": 32.2,
@@ -726,28 +944,10 @@
       "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
-      "pollster": "IMOP",
-      "date": "2026-11-16",
-      "pp": 31.5,
-      "psoe": 26.9,
-      "sample": null,
-      "nota": null,
-      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
-    },
-    {
       "pollster": "YouGov",
       "date": "2026-11-15",
       "pp": 29.6,
       "psoe": 25.9,
-      "sample": null,
-      "nota": null,
-      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
-    },
-    {
-      "pollster": "DYM",
-      "date": "2026-11-10",
-      "pp": 33.1,
-      "psoe": 27.3,
       "sample": null,
       "nota": null,
       "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
@@ -778,50 +978,32 @@
       "sample": 5025,
       "nota": "estimación de voto",
       "url": "https://www.cis.es/documents/d/guest/3582_estimacion-pdf"
-    },
-    {
-      "pollster": "GESOP",
-      "date": "2026-10-12",
-      "pp": 28.7,
-      "psoe": 26.1,
-      "sample": null,
-      "nota": null,
-      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     }
   ],
   "house_latest_sorted": [
     {
       "pollster": "DYM",
-      "date": "2026-11-10",
-      "pp": 33.1,
-      "psoe": 27.3,
+      "date": "2026-11-22",
+      "pp": 33.0,
+      "psoe": 28.0,
       "sample": null,
       "nota": null,
       "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
-      "pollster": "Sociométrica",
-      "date": "2026-11-21",
-      "pp": 32.5,
-      "psoe": 28.5,
+      "pollster": "GESOP",
+      "date": "2026-11-23",
+      "pp": 32.9,
+      "psoe": 29.0,
       "sample": null,
       "nota": null,
-      "url": "https://electomania.es/encuesta-sociometrica-21-nov-feijoo-y-sanchez-ganan-escanos-a-costa-de-sus-aliados-la-oposicion-mantiene-199/"
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
       "pollster": "NC Report",
-      "date": "2026-11-16",
-      "pp": 32.5,
-      "psoe": 26.1,
-      "sample": null,
-      "nota": null,
-      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
-    },
-    {
-      "pollster": "40dB",
-      "date": "2026-11-19",
-      "pp": 32.2,
-      "psoe": 30.2,
+      "date": "2026-11-23",
+      "pp": 32.3,
+      "psoe": 27.2,
       "sample": null,
       "nota": null,
       "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
@@ -836,10 +1018,46 @@
       "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
     },
     {
+      "pollster": "Sociométrica",
+      "date": "2026-11-22",
+      "pp": 32.1,
+      "psoe": 28.7,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "40dB",
+      "date": "2026-11-23",
+      "pp": 31.8,
+      "psoe": 30.9,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
       "pollster": "IMOP",
-      "date": "2026-11-16",
+      "date": "2026-11-23",
+      "pp": 31.7,
+      "psoe": 27.4,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "Sigma Dos",
+      "date": "2026-11-22",
+      "pp": 31.7,
+      "psoe": 28.3,
+      "sample": null,
+      "nota": null,
+      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
+    },
+    {
+      "pollster": "Target Point",
+      "date": "2026-11-23",
       "pp": 31.5,
-      "psoe": 26.9,
+      "psoe": 28.8,
       "sample": null,
       "nota": null,
       "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
@@ -863,10 +1081,10 @@
       "url": "https://electomania.es/encuesta-celeste-tel-6-nov-pp-y-vox-lograrian-la-absolutisima/"
     },
     {
-      "pollster": "Sigma Dos",
-      "date": "2026-11-19",
-      "pp": 31.2,
-      "psoe": 27.1,
+      "pollster": "Sondaxe",
+      "date": "2026-11-23",
+      "pp": 31.1,
+      "psoe": 28.2,
       "sample": null,
       "nota": null,
       "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
@@ -881,10 +1099,10 @@
       "url": "https://www.gad3.com/barometro-abc-i-estimacion-de-voto-nacional-noviembre-2026-ii/"
     },
     {
-      "pollster": "Target Point",
-      "date": "2026-11-16",
-      "pp": 30.6,
-      "psoe": 27.0,
+      "pollster": "Ipsos",
+      "date": "2026-11-22",
+      "pp": 30.3,
+      "psoe": 29.8,
       "sample": null,
       "nota": null,
       "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
@@ -903,24 +1121,6 @@
       "date": "2026-11-15",
       "pp": 29.6,
       "psoe": 25.9,
-      "sample": null,
-      "nota": null,
-      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
-    },
-    {
-      "pollster": "Sondaxe",
-      "date": "2026-11-20",
-      "pp": 29.3,
-      "psoe": 27.8,
-      "sample": null,
-      "nota": null,
-      "url": "https://www.ondacero.es/elecciones/generales/encuestas/"
-    },
-    {
-      "pollster": "GESOP",
-      "date": "2026-10-12",
-      "pp": 28.7,
-      "psoe": 26.1,
       "sample": null,
       "nota": null,
       "url": "https://www.ondacero.es/elecciones/generales/encuestas/"

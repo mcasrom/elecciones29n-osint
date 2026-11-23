@@ -14,7 +14,7 @@
 .radar-kicker{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent2);font-weight:750;margin:0}
 .radar-head h1{font-size:clamp(30px,5vw,50px);line-height:1.05;margin:0;letter-spacing:-.035em;font-weight:850;max-width:18ch}
 .radar-lede{max-width:68ch;margin:0;color:var(--muted);font-size:16px}
-.radar-stale{margin:2px 0 0;padding:10px 12px;border:1px solid color-mix(in oklab,#f2c94c 45%,var(--line));border-radius:10px;background:color-mix(in oklab,#f2c94c 9%,var(--panel));color:var(--fg);font-size:13.5px;line-height:1.45}
+.radar-byline{margin:2px 0 0;color:var(--muted);font-size:13px}.radar-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:4px}.radar-actions .btn{display:inline-block;border:1px solid var(--line);background:var(--panel);color:var(--fg);text-decoration:none;border-radius:8px;padding:7px 11px;font-size:12.5px;font-weight:700}.radar-actions .btn:hover{border-color:var(--accent)}.radar-cutoff{font-size:12px;color:var(--muted)}.radar-cis{margin:14px 0 0;padding:13px 15px;border:1px solid color-mix(in oklab,#f2c94c 55%,var(--line));border-radius:11px;background:color-mix(in oklab,#f2c94c 8%,var(--panel));font-size:13px;line-height:1.55}.radar-cis strong{color:var(--fg)}.radar-cis a{color:var(--accent)}.radar-cis p{margin:5px 0 0;color:var(--muted)}.radar-stale{margin:2px 0 0;padding:10px 12px;border:1px solid color-mix(in oklab,#f2c94c 45%,var(--line));border-radius:10px;background:color-mix(in oklab,#f2c94c 9%,var(--panel));color:var(--fg);font-size:13.5px;line-height:1.45}
 .radar-stale strong{color:var(--fg)}
 .radar-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:8px}
 .radar-tile{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:13px;padding:12px 14px;min-width:0}
@@ -91,6 +91,11 @@
     <p class="radar-kicker">Elecciones generales · 29 de noviembre de 2026 · media al {{ radar.last_label }}</p>
     <h1>Radar de sondeos 29N</h1>
     <p class="radar-lede">{{ radar.lede }}</p>
+    <p class="radar-byline">Elaborado por Miguel Castillo · Proyecto independiente · Metodología pública · Código AGPL-3.0</p>
+    <div class="radar-actions">
+      <a class="btn" href="/metodologia.html">Cómo se calcula esta media →</a>
+      <span class="radar-cutoff">Corte de la media: {{ radar.data_cutoff }} · último sondeo: {{ radar.last_label }}</span>
+    </div>
     {% if radar.days_since and radar.days_since >= 3 %}
     <p class="radar-stale"><strong>Actualizado el {{ radar.today_label }} · último sondeo individual incorporado: {{ radar.last_label }} (hace {{ radar.days_since }} días).</strong> La media no se mueve: solo cambia cuando entra un sondeo individual nuevo. Los trackings son otra serie y no se mezclan con ella.</p>
     <p class="radar-sub" style="margin:4px 0 0">Corte de datos: sondeos hasta <strong>{{ radar.last_label }}</strong> · trackings hasta <strong>{{ radar.tracking_last_label }}</strong> · página generada el <strong>{{ radar.today_label }}</strong>.</p>
@@ -101,6 +106,13 @@
       <div class="radar-tile"><b>{{ radar.days_to_election }} días</b><span>hasta la jornada electoral; blackout del {{ radar.blackout_label }}<span class="radar-chip"><i></i>{{ radar.health_label }}: último sondeo hace {{ radar.days_since }} días</span></span></div>
     </div>
   </header>
+
+  {% if radar.cis_recent %}
+  <aside class="radar-cis" aria-label="CIS 23-N no incorporado">
+    <strong>CIS 23-N · no incorporado a la media</strong> · PP {{ '%.1f'|format(radar.cis_recent.pp) }} · PSOE {{ '%.1f'|format(radar.cis_recent.psoe) }} · VOX {{ '%.1f'|format(radar.cis_recent.vox) }} · Frente Amplio {{ '%.1f'|format(radar.cis_recent.sumar) }}.
+    <p><strong>No está incluido en la media.</strong> Diferencia frente a la media: PP {{ '%+.1f'|format(radar.means['PP'] - radar.cis_recent.pp) }} · PSOE {{ '%+.1f'|format(radar.means['PSOE'] - radar.cis_recent.psoe) }}. {{ radar.cis_recent.note }} <a href="{{ radar.cis_recent.source }}" target="_blank" rel="noopener">Ficha pendiente ↗</a></p>
+  </aside>
+  {% endif %}
 
   <section class="radar-card">
     <div class="radar-cardhead"><h2>La nube de sondeos, partido a partido</h2><span class="radar-sub" style="margin:0">31 ago → {{ radar.last_label }}</span></div>
@@ -113,6 +125,15 @@
       <li><span class="radar-sw" style="background:var(--blue);opacity:.25;border-radius:2px"></span>rango 7 días</li>
     </ul>
   </section>
+
+  <details class="radar-card">
+    <summary style="cursor:pointer;font-weight:750;font-size:15px">Ficha de procedencia de los sondeos ({{ radar.polls|length }})</summary>
+    <div style="overflow-x:auto"><table class="radar-table" aria-label="Ficha de procedencia de los sondeos incluidos">
+      <thead><tr><th>Fecha</th><th>Casa</th><th>Muestra</th><th>Campo</th><th>Fuente</th><th>Inclusión</th></tr></thead>
+      <tbody>{% for p in radar.polls|reverse %}<tr><td>{{ p.date }}</td><td>{{ p.house }}</td><td class="num">{% if p.sample %}{{ p.sample }}{% else %}—{% endif %}</td><td>{% if p.fieldwork_start %}{{ p.fieldwork_start }}{% if p.fieldwork_end %}–{{ p.fieldwork_end }}{% endif %}{% else %}—{% endif %}</td><td>{% if p.url %}<a href="{{ p.url }}" target="_blank" rel="noopener">fuente ↗</a>{% else %}—{% endif %}</td><td>Media</td></tr>{% endfor %}</tbody>
+    </table></div>
+    <p class="radar-note">La ficha enlaza la fuente publicada cuando existe. La muestra y las fechas de campo solo se muestran si la fuente las declara; «—» significa que no consta.</p>
+  </details>
 
   <section class="radar-card">
     <div class="radar-cardhead"><h2>La brecha PP–PSOE hasta el 29N</h2><span class="radar-sub" style="margin:0">cada punto, un sondeo · actualizado {{ radar.today_label }} · sondeos hasta {{ radar.last_label }}</span></div>
@@ -192,7 +213,7 @@
   <section class="radar-card radar-notes">
     <h2>Qué no dice este gráfico</h2>
     <p>Es una media de sondeos publicados, no un pronóstico. El rango es la dispersión observada entre sondeos, no un intervalo de confianza. No se muestran escaños porque un D'Hondt nacional daría un artefacto, no un reparto.</p>
-    <p>La media por casa del observatorio pesa por recencia (vida media de 10 días) y limita el peso de cada casa. Los puntos de esta página son los sondeos tal cual, sin ponderar. Ningún sondeo declara muestra en la ficha, salvo el CIS (n=4.042 en septiembre y 5.025 en octubre).</p>
+    <p>La media por casa del observatorio pesa por recencia (vida media de 10 días) y limita el peso de cada casa. Los puntos de esta página son los sondeos tal cual, sin ponderar. La muestra y las fechas de campo se muestran cuando la fuente las declara; «—» significa que no consta.</p>
     <p>Fuente: <a href="{{ site_url }}/" target="_blank" rel="noopener">Observatorio electoral 29N</a> v{{ version }}, actualizado el {{ build_date }}. Código AGPL-3.0: <a href="https://github.com/mcasrom/elecciones29n-osint" target="_blank" rel="noopener">elecciones29n-osint</a>.</p>
   </section>
 </main>
