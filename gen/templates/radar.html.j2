@@ -109,8 +109,10 @@
 
   {% if radar.cis_recent %}
   <aside class="radar-cis" aria-label="CIS 23-N no incorporado">
-    <strong>CIS 23-N · no incorporado a la media</strong> · PP {{ '%.1f'|format(radar.cis_recent.pp) }} · PSOE {{ '%.1f'|format(radar.cis_recent.psoe) }} · VOX {{ '%.1f'|format(radar.cis_recent.vox) }} · Frente Amplio {{ '%.1f'|format(radar.cis_recent.sumar) }}.
-    <p><strong>No está incluido en la media.</strong> Diferencia frente a la media: PP {{ '%+.1f'|format(radar.means['PP'] - radar.cis_recent.pp) }} · PSOE {{ '%+.1f'|format(radar.means['PSOE'] - radar.cis_recent.psoe) }}. {{ radar.cis_recent.note }} <a href="{{ radar.cis_recent.source }}" target="_blank" rel="noopener">Ficha pendiente ↗</a></p>
+    <strong>CIS 3587 · 23-N · no incorporado a la media</strong> · PP {{ '%.1f'|format(radar.cis_recent.pp) }} · PSOE {{ '%.1f'|format(radar.cis_recent.psoe) }} · VOX {{ '%.1f'|format(radar.cis_recent.vox) }} · Frente Amplio {{ '%.1f'|format(radar.cis_recent.sumar) }}.
+    <p><strong>Ficha verificada:</strong> estudio {{ radar.cis_recent.study }} · {{ radar.cis_recent.sample }} entrevistas · campo {{ radar.cis_recent.fieldwork_start }}–{{ radar.cis_recent.fieldwork_end }} · {{ radar.cis_recent.method }} · ±{{ radar.cis_recent.margin_error }}.</p>
+    <p><strong>No está incluido en la media principal.</strong> {{ radar.cis_recent.note }}</p>
+    <p><strong>Con CIS:</strong> PP {{ '%.1f'|format(radar.cis_recent.scenario_included.pp) }} · PSOE {{ '%.1f'|format(radar.cis_recent.scenario_included.psoe) }} · brecha {{ '%.2f'|format(radar.cis_recent.scenario_included.gap) }} pp · <strong>Sin CIS:</strong> PP {{ '%.1f'|format(radar.cis_recent.scenario_excluded.pp) }} · PSOE {{ '%.1f'|format(radar.cis_recent.scenario_excluded.psoe) }} · brecha {{ '%.2f'|format(radar.cis_recent.scenario_excluded.gap) }} pp. <a href="{{ radar.cis_recent.source }}" target="_blank" rel="noopener">Ficha técnica (PDF) ↗</a></p>
   </aside>
   {% endif %}
 

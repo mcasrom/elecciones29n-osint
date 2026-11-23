@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T14:40:22+00:00",
+  "generated_at": "2026-11-23T14:49:38+00:00",
   "source": "intelligence-hub/news.db",
   "source_label": "Titulares y sumarios de prensa española",
   "candidates_source": "BOE-A-2026-23103 · JEC · candidaturas proclamadas 3-nov-2026",
@@ -8,12 +8,12 @@
   "note": "Cabezas de lista proclamados en el BOE; no son necesariamente los líderes del partido. No se incluye Sumar como marca propia: aparece integrada en Frente Amplio/Comuns. Yolanda Díaz no figura como candidata.",
   "windows": {
     "1": {
-      "n_articles": 335,
-      "n_electoral": 107,
+      "n_articles": 330,
+      "n_electoral": 104,
       "sources": [
         {
           "name": "ABC",
-          "articles": 128
+          "articles": 126
         },
         {
           "name": "El Mundo",
@@ -29,19 +29,19 @@
         },
         {
           "name": "El País",
-          "articles": 29
-        },
-        {
-          "name": "La Vanguardia",
           "articles": 28
         },
         {
-          "name": "Europa Press",
-          "articles": 20
+          "name": "La Vanguardia",
+          "articles": 27
         },
         {
           "name": "El Diario Cantabria",
           "articles": 20
+        },
+        {
+          "name": "Europa Press",
+          "articles": 19
         }
       ],
       "leaders": [
@@ -50,11 +50,11 @@
           "name": "Pedro Sánchez",
           "party": "PSOE",
           "province": "Madrid",
-          "articles": 57,
-          "share_pct": 17.0,
+          "articles": 55,
+          "share_pct": 16.7,
           "days": 2,
-          "electoral": 37,
-          "electoral_share_pct": 34.6,
+          "electoral": 35,
+          "electoral_share_pct": 33.7,
           "electoral_days": 2
         },
         {
@@ -63,10 +63,10 @@
           "party": "PP",
           "province": "Madrid",
           "articles": 24,
-          "share_pct": 7.2,
+          "share_pct": 7.3,
           "days": 2,
           "electoral": 17,
-          "electoral_share_pct": 15.9,
+          "electoral_share_pct": 16.3,
           "electoral_days": 2
         },
         {
@@ -74,11 +74,11 @@
           "name": "Abascal",
           "party": "VOX",
           "province": "Madrid",
-          "articles": 13,
-          "share_pct": 3.9,
+          "articles": 12,
+          "share_pct": 3.6,
           "days": 2,
-          "electoral": 10,
-          "electoral_share_pct": 9.3,
+          "electoral": 9,
+          "electoral_share_pct": 8.7,
           "electoral_days": 2
         },
         {
@@ -86,23 +86,23 @@
           "name": "Ada Colau",
           "party": "Frente Amplio / Comuns",
           "province": "Barcelona",
-          "articles": 5,
-          "share_pct": 1.5,
-          "days": 2,
-          "electoral": 5,
-          "electoral_share_pct": 4.7,
-          "electoral_days": 2
+          "articles": 4,
+          "share_pct": 1.2,
+          "days": 1,
+          "electoral": 4,
+          "electoral_share_pct": 3.8,
+          "electoral_days": 1
         },
         {
           "id": "erc-gabriel-rufian",
           "name": "Gabriel Rufián",
           "party": "ERC",
           "province": "Barcelona",
-          "articles": 5,
-          "share_pct": 1.5,
+          "articles": 4,
+          "share_pct": 1.2,
           "days": 2,
-          "electoral": 5,
-          "electoral_share_pct": 4.7,
+          "electoral": 4,
+          "electoral_share_pct": 3.8,
           "electoral_days": 2
         },
         {
@@ -114,7 +114,7 @@
           "share_pct": 0.9,
           "days": 2,
           "electoral": 3,
-          "electoral_share_pct": 2.8,
+          "electoral_share_pct": 2.9,
           "electoral_days": 2
         },
         {
@@ -126,7 +126,7 @@
           "share_pct": 0.3,
           "days": 1,
           "electoral": 1,
-          "electoral_share_pct": 0.9,
+          "electoral_share_pct": 1.0,
           "electoral_days": 1
         },
         {
@@ -204,12 +204,12 @@
       ]
     },
     "7": {
-      "n_articles": 2977,
-      "n_electoral": 862,
+      "n_articles": 2975,
+      "n_electoral": 861,
       "sources": [
         {
           "name": "ABC",
-          "articles": 1062
+          "articles": 1060
         },
         {
           "name": "20minutos",
@@ -262,7 +262,7 @@
           "share_pct": 10.8,
           "days": 8,
           "electoral": 252,
-          "electoral_share_pct": 29.2,
+          "electoral_share_pct": 29.3,
           "electoral_days": 8
         },
         {

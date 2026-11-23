@@ -7,7 +7,32 @@
   "vox": 15.6,
   "sumar": 5.7,
   "in_average": false,
-  "status": "publicado; ficha pendiente de verificación",
-  "source": "https://www.cis.es/",
-  "note": "Barómetro del 23-N no incorporado a la media: estimación de voto y ficha/comparabilidad pendientes de verificación primaria."
+  "status": "verificado; ficha primaria y modelo de estimación identificados",
+  "source": "https://www.cis.es/documents/d/guest/3587_estimacion-pdf",
+  "note": "No incorporado a la media principal: es una estimación de voto con un modelo propio y una serie metodológica distinta. Se muestra como escenario de sensibilidad.",
+  "study": "3587",
+  "sample": 8034,
+  "sample_designed": 8000,
+  "method": "CATI",
+  "fieldwork_start": "2026-11-10",
+  "fieldwork_end": "2026-11-17",
+  "margin_error": "1.1",
+  "confidence": "95,5 %",
+  "model": "modelo bidimensional inercia-incertidumbre Alaminos-Tezanos; estimación de voto, no intención directa",
+  "scenario_included": {
+    "pp": 30.75,
+    "psoe": 28.76,
+    "vox": 18.19,
+    "sumar": 6.56,
+    "gap": 1.99,
+    "n_polls": 37
+  },
+  "scenario_excluded": {
+    "pp": 31.36,
+    "psoe": 28.2,
+    "vox": 18.45,
+    "sumar": 6.65,
+    "gap": 3.16,
+    "n_polls": 36
+  }
 }

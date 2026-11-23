@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-23 15:40 CET",
-  "updated_at_iso": "2026-11-23T15:40:19.366735+01:00",
+  "updated_at": "2026-11-23 15:49 CET",
+  "updated_at_iso": "2026-11-23T15:49:35.096072+01:00",
   "in_blackout": false,
   "window_days": 14,
   "parties": [
@@ -5364,15 +5364,7 @@
   },
   "novedades": [
     {
-      "pollster": "40dB",
-      "date": "2026-11-23"
-    },
-    {
-      "pollster": "Sondaxe",
-      "date": "2026-11-23"
-    },
-    {
-      "pollster": "GESOP",
+      "pollster": "CIS",
       "date": "2026-11-23"
     }
   ],
