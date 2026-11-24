@@ -47,6 +47,10 @@ class BlackoutSiteTest(unittest.TestCase):
         html = open(os.path.join(self.site, "index.html"), encoding="utf-8").read()
         self.assertIn("Blackout electoral", html)
         self.assertNotIn('class="chart"', html)
+        for page in ("aviso.html", "como-leer.html", "territorio.html", "about.html"):
+            page_html = open(os.path.join(self.site, page), encoding="utf-8").read()
+            for rel in build.BLACKOUT_REMOVED_LINKS:
+                self.assertNotIn(f'href="/{rel}"', page_html, (page, rel))
         r = subprocess.run(
             [sys.executable, VALIDATOR, self.site],
             capture_output=True,

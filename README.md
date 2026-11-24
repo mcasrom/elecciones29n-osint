@@ -43,6 +43,14 @@ La portada tiene **dos vistas**:
 
 La congelación es de **reglas**, no de datos: los sondeos siguen entrando hasta el **23-nov** y la media se actualiza; lo que no cambia es la definición con la que se evaluará después.
 
+## Archivo congelado y reactivación
+
+- Durante el **24–28-N** no se publican ni actualizan sondeos, medias ni escenarios.
+- El **archivo histórico** sigue visible con un banner de **“Archivo congelado · publicado antes del 24-N”**. Es una decisión de prudencia editorial, no una obligación expresa de borrado.
+- Se pausan los crons de ingesta, build, refresh, alertas y tracking.
+- **29-N, 20:30 UTC (21:30 CET)**: `scripts/reactivar_29n.sh` restaura los crons, reconstruye el sitio normal, retira el banner y actualiza datos y agregado.
+- La evaluación post-electoral usa `data/polls_history.csv` y los resultados oficiales; el histórico no se pierde.
+
 ## Accesos y auditoría de uso
 
 - **`scripts/accesos_29n.py`** agrega por día **humano / dueño / IA gente / bots / IA crawler / API / interno**, sin guardar IPs en claro.
@@ -66,7 +74,7 @@ La congelación es de **reglas**, no de datos: los sondeos siguen entrando hasta
 ## P0 3-nov-2026
 
 - **AVE:** reincorporado como contexto con fuente oficial del **112 de Castilla-La Mancha** (2-nov-2026): **69 fallecidos**, no 68. No entra en la media ni se usa para atribuir tendencia.
-- **Blackout 24–28 nov:** `scripts/blackout_switch.sh` corta a las **00:00**, retira agregados, JSON, escenarios, análisis derivado, encuestas de líderes/comportamiento y **todas las OG**; cron propio y simulación de staging probada. La foto pre-electoral se congela antes, el **23-nov a las 23:50**.
+- **Blackout 24–28 nov:** no se publican nuevos sondeos, medias, escenarios ni proyecciones. El **archivo histórico queda visible con banner de congelado**, no se borra. Los crons de ingesta, build, refresh, alertas y tracking quedan pausados; `scripts/reactivar_29n.sh` los restaura y reconstruye el sitio el **29-nov a las 20:30 UTC**. La foto pre-electoral se congela antes, el **23-nov a las 23:50**.
 - **D'Hondt nacional:** fuera de la portada. Un distrito único de 350 escaños asignaba todo a cuatro partidos y producía «otros: 0»; `/hemiciclo.html` queda como material de método con aviso.
 - **Pesos:** topes de **25 % por casa** y **40 % por fuente cuando hay grupos suficientes**. Con pocas fuentes el tope puede no ser aplicable; la web publica la concentración observada (a 9-nov, Electomanía **71,3 %** de la fuente) y la muestra con aviso. Se mantiene una entrada por casa y oleada.
 - **Contador de días:** a 9-nov quedan **20 días al 29N** y **15 al blackout** (24-nov).

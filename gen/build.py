@@ -6,6 +6,7 @@ import hashlib
 import json
 import math
 import os
+import re
 import shutil
 import unicodedata
 from datetime import datetime, timedelta
@@ -691,6 +692,34 @@ def write_blackout_llms() -> None:
         f.write(txt)
 
 
+BLACKOUT_REMOVED_LINKS = (
+    "en.html", "en/method.html", "en/hemicycle.html", "en/robustness.html",
+    "en/limits.html", "en/data.html", "en/competitive.html", "en/majorities.html",
+    "en/post-election.html", "embed/medias.html", "embed/robustez.html",
+    "embed/hemiciclo.html", "mayorias.html", "postelectoral.html", "lideres.html",
+    "comportamiento.html", "escenarios.html",
+)
+
+
+def _strip_blackout_links() -> None:
+    """Quita enlaces a páginas retiradas del HTML que sigue publicado."""
+    for path in glob.glob(os.path.join(OUT, "**", "*.html"), recursive=True):
+        with open(path, encoding="utf-8") as f:
+            text = f.read()
+        original = text
+        for rel in BLACKOUT_REMOVED_LINKS:
+            target = r"(?:https?://[^\"']+)?/?" + re.escape(rel) + r"(?:\?[^\"']*)?"
+            link = r"<a\b[^>]*\bhref=[\"']" + target + r"[\"'][^>]*>(.*?)</a>"
+            text = re.sub(link, r"\1", text, flags=re.IGNORECASE | re.DOTALL)
+            head = r"<link\b[^>]*\bhref=[\"']" + target + r"[\"'][^>]*>"
+            text = re.sub(head, "", text, flags=re.IGNORECASE | re.DOTALL)
+            src = r"(\bsrc=[\"'])" + target + r"([\"'])"
+            text = re.sub(src, r"\1/\2", text, flags=re.IGNORECASE)
+        if text != original:
+            with open(path, "w", encoding="utf-8") as f:
+                f.write(text)
+
+
 def write_blackout_site(
     now: datetime, build_ts: str, build_date: str, version: str, commit: str
 ) -> None:
@@ -732,6 +761,8 @@ def write_blackout_site(
         _remove_if_exists(os.path.relpath(path, OUT))
     for path in glob.glob(os.path.join(OUT, "og", "*.png")):
         _remove_if_exists(os.path.relpath(path, OUT))
+
+    _strip_blackout_links()
 
     marker = {
         "active": True,
