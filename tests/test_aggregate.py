@@ -1,6 +1,7 @@
 import os
 import tempfile
 import unittest
+from unittest import mock
 from datetime import datetime, timedelta
 
 import pytz
@@ -23,7 +24,8 @@ class AggregateTest(unittest.TestCase):
                 f.write(HEADER)
                 for r in rows:
                     f.write(",".join(str(x) for x in r) + "\n")
-            return agg.aggregate(now=now)
+            with mock.patch.object(agg.blackout, "is_blackout", return_value=False):
+                return agg.aggregate(now=now)
         finally:
             os.chdir(old)
             tmp.cleanup()
