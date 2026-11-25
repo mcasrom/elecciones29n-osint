@@ -33,7 +33,7 @@
   </div>
 
   {% if in_blackout %}
-        <span class="dot off"></span> BLACKOUT · datos retirados
+        <span class="dot off"></span> VEDA · sondeos congelados{% if last_poll_date %} · último {{ last_poll_date[8:10] }}/{{ last_poll_date[5:7] }}{% endif %}
         {% else %}
         <span class="dot" title="Fecha de generación de la web; el dato es el último sondeo incorporado a la media"></span> Web actualizada {{ updated_at }} · {% if last_poll_date == build_date %}último sondeo en la media hoy{% elif last_poll_date %}último sondeo en la media {{ last_poll_date[8:10] }}/{{ last_poll_date[5:7] }}{% if health and health.days_since_last is not none %} (hace {{ health.days_since_last }} día{% if health.days_since_last != 1 %}s{% endif %}){% endif %} · sin sondeo nuevo hoy{% else %}sin sondeo{% endif %} · <span title="Los trackings no entran en la media; el CIS 3584 tiene campo 7–30 oct">trackings fuera de la media</span>
         {% endif %}
@@ -49,6 +49,9 @@
       <p class="eyebrow">Elecciones generales · 29 de noviembre de 2026</p>
       <h1>Sondeos del 29N, con rango y sin pronóstico</h1>
       <p class="sub">Media móvil de los sondeos publicados. La incertidumbre va en el dato, no en una nota al pie.</p>
+      {% if in_blackout %}
+      <div class="alert warn" role="status"><strong>Veda electoral (24–28 nov).</strong> Los sondeos están congelados: no se publican ni actualizan encuestas hasta el 29-N. La web sigue operativa y conserva el archivo anterior.{% if last_poll_date %} Último sondeo: {{ last_poll_date[8:10] }}/{{ last_poll_date[5:7] }}.{% endif %}</div>
+      {% endif %}
 
       <div class="viewswitch" role="group" aria-label="Vista de la página">
         <button type="button" class="viewbtn" data-view="rapida" aria-pressed="false">Vista rápida</button>
@@ -66,7 +69,7 @@
 
       <p class="stamp">
         {% if last_poll_date %}Último sondeo: <strong>{{ last_poll_date }}</strong> · {% endif %}
-        Próximo blackout en <strong>{{ days_to_blackout }} días</strong> (24–28 nov) ·
+        {% if in_blackout %}Blackout activo: <strong>24–28 nov</strong>{% else %}Próximo blackout en <strong>{{ days_to_blackout }} días</strong> (24–28 nov){% endif %} ·
         <a href="/data/latest.json">datos abiertos</a> · <a href="/robustez.html">robustez del dato</a> · <a href="/hemiciclo.html">simulación nacional</a> · <a href="/gobernabilidad.html">gobernabilidad 2023</a> · <a href="/caveat.html">qué no dice</a>
       </p>
     </div>
@@ -245,7 +248,7 @@
     <div class="card">
       <div class="cardhead"><h2>Preguntas frecuentes</h2></div>
       <details><summary><strong>¿Es un pronóstico?</strong></summary><p class="muted small">No. Es la media de sondeos publicados con su rango. No anticipa el resultado del 29N.</p></details>
-      <details><summary><strong>¿Puedo publicar esto durante el blackout?</strong></summary><p class="muted small">No. Del 24 al 28 de noviembre de 2026 no se publican, difunden ni reproducen sondeos. La agregación y sus JSON se retiran.</p></details>
+      <details><summary><strong>¿Puedo publicar esto durante el blackout?</strong></summary><p class="muted small">No. Del 24 al 28 de noviembre de 2026 no se publican, difunden ni reproducen sondeos nuevos. Esta página conserva el archivo anterior congelado.</p></details>
       <details><summary><strong>¿De dónde salen los datos?</strong></summary><p class="muted small">De sondeos publicados por Onda Cero (compilación; si no hay pieza original se marca «vía Onda Cero»), Electomanía (paneles propios), el CIS y los medios con encuesta propia: elDiario/Ateneo, El Español/Sociométrica, El Mundo/Sigma Dos y La Razón/NC Report. Cada fila lleva enlace y fecha. Se descartan autonómicos, adelantos incompletos y piezas sin ficha verificable.</p></details>
       <details><summary><strong>¿Por qué mostrar el rango y no solo la media?</strong></summary><p class="muted small">Porque la dispersión entre encuestadoras es parte del dato. Una cifra única oculta la incertidumbre.</p></details>
     </div>
