@@ -63,3 +63,11 @@ Verificado: el staging ya no contiene ninguno de los tres.
 ## Límite
 
 Se puede retirar el origen y reducir cachés propias. **No se puede borrar internet**: capturas, posts y archivos de terceros quedan fuera de control. La comunicación debe decir “hemos retirado el origen”, no “hemos borrado las copias”.
+
+## Recheck final · 28 nov 2026, 08:20 UTC
+
+- `python3 scripts/archive_check.py` → **0 capturas, 0 errores**. No procede solicitud a Archive.org.
+- **Incidencia detectada:** el marcador `data/blackout.json` no estaba en `/var/www/elecciones29n/`; por tanto, `/data/latest.json`, `/data/robustez.json` y las OG devolvían **200** pese al blackout.
+- **Corregido:** creado el marcador y recargado nginx. Verificado: `/` 200 con aviso; `data/latest.json`, `data/robustez.json`, `og.png`, `og-hemiciclo.png` y `og-robustez.png` → **410**; `data/blackout.json` → 200.
+- **Purga Cloudflare:** realizada.
+- **Pendiente:** restaurar el build normal el **29-nov**; no restaurar antes.
