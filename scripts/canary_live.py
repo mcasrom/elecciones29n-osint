@@ -59,7 +59,7 @@ def main() -> int:
                 errors.append("blackout home sin aviso")
             if 'class="chart"' in html:
                 errors.append("blackout home sigue mostrando el gráfico")
-        for path in ("/data/latest.json", "/data/robustez.json", "/og-robustez.png"):
+        for path in ("/data/latest.json", "/data/robustez.json", "/og.png", "/og-robustez.png"):
             c = status(base + path + "?canary=1")
             if c not in (404, 410):
                 errors.append(f"blackout: {path} sigue publicado (HTTP {c})")
@@ -91,16 +91,14 @@ def main() -> int:
             ("/territorio.html", "Teruel"),
             ("/circunscripciones.html", "Las 52 circunscripciones"),
             ("/noche-electoral.html", "Noche electoral"),
-            ("/comportamiento.html", "Recuerdo de voto 2023"),
             ("/factores.html", "Factores y participación"),
-            ("/hemiciclo.html", "Simulación nacional de escaños"),
         ):
             c, h = get(base + path + "?canary=1")
             if c != 200:
                 errors.append(f"blackout {path} HTTP {c}")
             elif needle not in h:
                 errors.append(f"blackout {path} sin «{needle}»")
-        for p in ("/version.json", "/favicon.ico", "/manifest.webmanifest", "/sw.js", "/og.png"):
+        for p in ("/version.json", "/favicon.ico", "/manifest.webmanifest", "/sw.js"):
             c = status(base + p + "?canary=1")
             if c != 200:
                 errors.append(f"blackout {p} HTTP {c}")

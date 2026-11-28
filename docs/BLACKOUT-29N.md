@@ -71,3 +71,11 @@ Se puede retirar el origen y reducir cachés propias. **No se puede borrar inter
 - **Corregido:** creado el marcador y recargado nginx. Verificado: `/` 200 con aviso; `data/latest.json`, `data/robustez.json`, `og.png`, `og-hemiciclo.png` y `og-robustez.png` → **410**; `data/blackout.json` → 200.
 - **Purga Cloudflare:** realizada.
 - **Pendiente:** restaurar el build normal el **29-nov**; no restaurar antes.
+
+### Corrección adicional · 28 nov, 08:25 UTC
+
+- El marcador inicial no bastaba: la portada publicada seguía siendo la página normal con gráfico y cifras. Se ejecutó `scripts/blackout_switch.sh` en modo live.
+- Verificado: portada de aviso, `data/blackout.json` 200, `latest.json`/`robustez.json`/OG 410, `cambios.xml` de blackout.
+- El canario fallaba por expectativas antiguas (pedía `hemiciclo` con simulación y `og.png` 200 durante el blackout). Corregido: modo blackout exige 410 en `og.png` y no exige páginas de datos retiradas.
+- `canary_live.py` → **OK**.
+- Archive.org: **0 capturas / 0 errores**; no procede solicitud.
